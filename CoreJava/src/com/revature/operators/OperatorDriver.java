@@ -1,0 +1,30 @@
+package com.revature.operators;
+
+public class OperatorDriver {
+	// entry point of Java app
+	public static void main(String[] args) {
+		
+		int a = 10;
+		
+		System.out.println("a++:" + a++ + " and value of a is now: " + a);
+		System.out.println("a++ = " + ++a + " and value of a is now: " + a);
+		
+		System.out.println("a-- = " + a-- + " and value of a is now: " + a);
+		System.out.println("a-- = " + --a + " and value of a is now: " + a);
+		
+		int x = 6;
+		int y = 7;
+		int z = 8;
+		
+		String s1 = x>y ? "Hello" : "World";
+		System.out.println(s1);
+		
+		String s2 = (x<y) && (y>z) ? "Yellow" : "Green";
+		System.out.println(s2);
+		
+		String s3 = (x*2 > z) || (y < 10) ? "Cat" : "Dog";
+		System.out.println(s3);
+		
+	}
+	
+}
