@@ -23,7 +23,7 @@ public abstract class Animal {
 	/** The direction, in terms of degrees, that the animal is traveling. 
 	 * This is implemented how a unit circle would be, where 0 is towards 
 	 * the +x direction and 90 is towards the +y direction. */
-	protected double direction; 
+	protected double direction;
 	
 	
 	//Example of overloaded constructors in example of polymorphism
