@@ -1,5 +1,7 @@
 package com.revature.models;
 
+import com.revature.exceptions.*;
+
 public class Vehicle {
 	
 	protected int speed;
@@ -16,9 +18,9 @@ public class Vehicle {
 		this.direction = direction;
 	}
 	
-	public void setSpeed(int speed) {
+	public void setSpeed(int speed) throws NegativeSpeedException {
 		if(speed < 0) {
-			System.out.println("cannot go a negative speed");
+				throw new NegativeSpeedException("cannot go go negative speed");
 		} else {
 			System.out.println("Setting vehicle speed to: " + speed);
 			this.speed = speed;

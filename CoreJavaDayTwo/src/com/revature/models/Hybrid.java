@@ -1,5 +1,7 @@
 package com.revature.models;
 
+import com.revature.exceptions.NegativeSpeedException;
+
 public class Hybrid extends Vehicle {
 	
 	private int chargeTime;
@@ -18,9 +20,9 @@ public class Hybrid extends Vehicle {
 	
 	
 	@Override
-	public void setSpeed(int speed) {
+	public void setSpeed(int speed) throws NegativeSpeedException {
 		if(speed < 0) {
-			System.out.println("cannot go a negative speed");
+			throw new NegativeSpeedException("Hybrid can't go in reverse");
 		} else {
 			System.out.println("Setting hybrid car speed to: " + speed);
 			this.speed = speed;

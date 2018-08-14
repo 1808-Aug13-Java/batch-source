@@ -17,5 +17,11 @@ public class InterfaceImpl extends MyAbstractClass implements InterfaceA, Interf
 	public void myAbstractMethod() {
 		System.out.println("Not so abstract after all");
 	}
+	
+	public void printEach(int ...args) {
+		for(int i: args) {
+			System.out.println(i);
+		}
+	}
 
 }

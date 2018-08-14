@@ -12,5 +12,12 @@ public class Driver {
 		
 		impl.myAbstractMethod();
 		impl.myConcreteMethod();
+		
+		impl.printEach(1, 2, 3, 4, 5, 6, 7);
+		
+		String s1 = "Hello";
+		String s2 = "Hello";
+		
+		System.out.println(s1.equals(s2));
 	}
 }
