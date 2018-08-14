@@ -1,0 +1,17 @@
+package com.revature.animals;
+
+public class Human {
+
+	public Human() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	public void walk() {
+		// by using the walk method of the Human class
+		// the user of the class no longer has to worry about 
+		// the implementation details of walking but just that the Human will walk
+		// this is abstraction at work
+		System.out.println("The human is walking");
+	}
+
+}

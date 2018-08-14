@@ -1,0 +1,37 @@
+package com.revature.animals;
+
+public class Animal {
+	
+	private String name;
+	private int numberOfExtremities;
+	
+	public Animal() {
+		super();
+	}
+	
+	public Animal(int numberOfExtremities) {
+		this.numberOfExtremities = numberOfExtremities;
+	}
+	
+	public Animal(String name, int numberOfExtremities) {
+		this.name = name;
+		this.numberOfExtremities = numberOfExtremities;
+	}
+	
+
+	
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public int getNumberOfExtremities() {
+		return numberOfExtremities;
+	}
+	public void setNumberOfExtremities(int numberOfExtremities) {
+		this.numberOfExtremities = numberOfExtremities;
+	}
+	
+	
+}

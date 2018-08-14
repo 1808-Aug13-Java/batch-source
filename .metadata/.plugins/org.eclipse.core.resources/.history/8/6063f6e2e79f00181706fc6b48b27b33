@@ -1,0 +1,22 @@
+package com.revature.arrays;
+
+import java.util.Arrays;
+
+public class ArrayDriver {
+	
+	public static void main(String[] args) {
+		
+		
+		// 1d array
+		int[] intArray1 = new int[5]; // preferred
+		int intArray2[] = new int[5];
+		int[] intArray3 = { 1, 2, 7, 9 };
+	
+		System.out.println(intArray3[3]);
+		
+		// index out of bounds EXCEPTION
+		// System.out.println(intArray3[5]);
+		
+		System.out.println(Arrays.toString(intArray3));
+	}
+}

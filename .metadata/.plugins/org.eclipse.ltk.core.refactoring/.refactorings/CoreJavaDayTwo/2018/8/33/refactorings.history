@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename compilation unit &apos;com.revature.exceptions.NonNegativeSpeedException.java&apos; to &apos;NegativeSpeedException.java&apos;&#x0D;&#x0A;- Original project: &apos;CoreJavaDayTwo&apos;&#x0D;&#x0A;- Original element: &apos;com.revature.exceptions.NonNegativeSpeedException.java&apos;&#x0D;&#x0A;- Renamed element: &apos;com.revature.exceptions.NegativeSpeedException.java&apos;" description="Rename compilation unit &apos;NonNegativeSpeedException.java&apos;" flags="2" id="org.eclipse.jdt.ui.rename.compilationunit" input="/src&lt;com.revature.exceptions{NonNegativeSpeedException.java" name="NegativeSpeedException.java" references="false" stamp="1534275052471" version="1.0"/>
+</session>

@@ -1,0 +1,13 @@
+package com.revature.exceptions;
+
+public class NegativeTuskLength extends Exception {
+
+	public NegativeTuskLength() {
+		super();
+	}
+
+	public NegativeTuskLength(String message) {
+		super(message);
+	}
+	
+}

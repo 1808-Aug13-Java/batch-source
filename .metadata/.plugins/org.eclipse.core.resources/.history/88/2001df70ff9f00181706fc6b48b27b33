@@ -1,0 +1,9 @@
+package com.revature.exceptions;
+
+public class NegativeAge {
+
+	public NegativeAge() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

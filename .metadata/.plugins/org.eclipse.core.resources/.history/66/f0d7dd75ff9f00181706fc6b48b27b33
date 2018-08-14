@@ -1,0 +1,14 @@
+package com.revature.exceptions;
+
+public class NegativeAge extends Exception{
+
+	public NegativeAge() {
+		super();
+		System.out.println("Negative age");
+	}
+	
+	public NegativeAge(String message) {
+		super(message);
+	}
+
+}

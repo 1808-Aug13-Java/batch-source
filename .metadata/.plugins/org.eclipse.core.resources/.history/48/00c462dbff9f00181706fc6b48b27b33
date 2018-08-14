@@ -1,0 +1,19 @@
+package com.revature.exceptions;
+
+public class NegativeTuskLength extends Exception {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	public NegativeTuskLength() {
+		System.out.println("A negative tusk length was given");
+		super();
+	}
+
+	public NegativeTuskLength(String message) {
+		super(message);
+	}
+	
+}

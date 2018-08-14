@@ -1,0 +1,14 @@
+package com.revature.animals;
+
+public class Driver {
+	
+	public static void main(String[] args) {
+		Human jakob = new Human("jakob");
+		jakob.walk();
+		
+		Animal animalWithFur = new Animal("Beary", 4, true);
+		// covariant types are an example of polymorphic behavior
+		Animal bear = new Mammal("Beary", true); 
+	}
+	
+}
