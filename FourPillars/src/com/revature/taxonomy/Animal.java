@@ -42,7 +42,6 @@ abstract public class Animal {
 		}
 		
 		
-		
 		Animal bat = new Mammal();
 		bat.setNumLegs(5);
 		
