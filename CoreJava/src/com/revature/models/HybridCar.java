@@ -1,8 +1,10 @@
 package com.revature.models;
 
+import java.io.Serializable;
+
 import com.revature.exceptions.NegativeSpeedException;
 
-public class HybridCar extends Vehicle {
+public class HybridCar extends Vehicle implements Serializable, Cloneable {
 	
 	private int chargeTime;
 	private String model;
@@ -92,8 +94,10 @@ public class HybridCar extends Vehicle {
 
 	@Override
 	public String toString() {
-		return "HybridCar [chargeTime=" + chargeTime + ", model=" + model + ", make=" + make + "]";
+		return "HybridCar [chargeTime=" + chargeTime + ", model=" + model + ", make=" + make + ", speed=" + speed
+				+ ", hasWheels=" + hasWheels + ", direction=" + direction + "]";
 	}
+
 	
 	
 
