@@ -1,0 +1,113 @@
+package com.revature.tryingstuff;
+
+import java.util.HashMap;
+
+public class Driver {
+	public static void main(String[] args) {
+		System.out.println(acronym("Gom on-no o"));
+		System.out.println(getScrabbleScore("cabbage"));
+		System.out.println();
+		System.out.println("Cleaning up a phone number");
+		System.out.println(cleanPhoneNumber("(635) -   d 234 3451"));
+	}
+	
+	public static String reverse(String string) {
+		// TODO Write an implementation for this method declaration
+		if (string == "") {
+			return "";
+		}
+		
+		String newStr = "";
+		
+		for(int i = string.length() - 1; i >= 0; i--) {
+			newStr += String.valueOf(string.charAt(i));
+		}
+		
+		return newStr;
+	}
+	
+	public static String acronym(String phrase) {
+		String copyOfPhrase = phrase.toUpperCase();
+		String[] words = copyOfPhrase.split("[ -]");
+		String acronym = "";
+		for(String word : words) {
+			acronym += String.valueOf(word.charAt(0));
+		}
+		
+		return acronym;
+	}
+	
+//	--Letter Values-- Letter Value A, E, I, O, U, L, N, R, S, T = 1; D, G = 2; B,
+//	 * C, M, P = 3; F, H, V, W, Y = 4; K = 5; J, X = 8; Q, Z = 10; Examples
+//	 * "cabbage" should be scored as worth 14 points:
+	public static int getScrabbleScore(String string) {
+		
+		int totalValue = 0;
+		String copyOfString = string.toUpperCase();
+		String[] charsInString = copyOfString.split("");
+		for(String letter : charsInString) {
+			switch(letter) {
+				case "A":
+				case "E":
+				case "I":
+				case "O":
+				case "U":
+				case "L":
+				case "N":
+				case "R":
+				case "S":
+				case "T":
+					totalValue += 1;
+					break;
+				case "D":
+				case "G":
+					totalValue += 2;
+					break;
+				case "B":
+				case "C":
+				case "M":
+				case "P":
+					totalValue += 3;
+					break;
+				case "F":
+				case "H":
+				case "V":
+				case "W":
+				case "Y": 
+					totalValue += 4;
+					break;
+				case "K":
+					totalValue += 5;
+					break;
+				case "J":
+				case "X":
+					totalValue += 8;
+					break;
+				case "Q":
+				case "Z":
+					totalValue += 10;
+					break;
+				default:
+					System.out.println("The programmer left out a letter...");
+				
+			}
+			
+			
+		}
+		return totalValue;
+		
+	}
+	
+	public static String cleanPhoneNumber(String string) {
+		String copyOfString = string;
+		copyOfString = copyOfString.replaceAll("\\s+","");
+		copyOfString = copyOfString.replaceAll("\\p{Punct}", "");
+		
+		for(int i = 0; i < copyOfString.length(); i++) {
+			String currentLetter = (String) copyOfString.charAt(i);
+		}
+		return copyOfString;
+	}
+	
+
+}

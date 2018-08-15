@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="java.lang.reflect.Array"/>
+<fullyQualifiedTypeName name="java.util.Arrays"/>
+<fullyQualifiedTypeName name="com.revature.exceptions.NegativeSpeedException"/>
+<fullyQualifiedTypeName name="com.revature.exceptions.NegativeTuskLength"/>
+<fullyQualifiedTypeName name="com.revature.exceptions.NegativeAge"/>
+</qualifiedTypeNameHistroy>
