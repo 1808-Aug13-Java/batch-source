@@ -2,6 +2,9 @@ package com.revature.exceptions;
 
 public class NoLegsException extends Exception {
 	
+	/** A generated serial ID required by extending the Exception class. */
+	private static final long serialVersionUID = -8113670387114041690L;
+	
 	/** A default message for this exception. */
 	private static final String DEFAULT_MESSAGE = 
 			"This has no legs. ";
