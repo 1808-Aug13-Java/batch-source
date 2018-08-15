@@ -6,9 +6,9 @@ import java.util.Arrays;
 import com.revature.exceptions.NonExistentPetException;
 
 // This class is where abstraction shines. Implementation details (getters, setters, instantiation of
-// various variables, etc.) are hidden. We can simply give our "Pets" certain properties 
+// various variables, etc.) are hidden. We can simply give our "Pets" in the driver class certain properties 
 // based on the information held in their class without worrying about the finer details
-public class Pets {
+public class Driver {
 
 	public static void main(String[] args) {
 		
