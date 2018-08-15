@@ -1,10 +1,10 @@
 package com.revature.exceptions;
 
 // checked exception
-public class incorrectCharacterInNameException extends Exception {
+public class IncorrectCharacterInNameException extends Exception {
 	private static final long serialVersionUID = 2L;
 
-	public incorrectCharacterInNameException(String message) {
+	public IncorrectCharacterInNameException(String message) {
 		super(message);
 	}
 }
