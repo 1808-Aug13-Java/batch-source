@@ -10,7 +10,7 @@ import com.revature.exceptions.NoLegsException;
 * noises. */
 public class Fish extends Animal {
 	
-	
+	/** The default number of legs to give a fish. */
 	private static final int DEFAULT_FISH_LEGS = 0;
 	
 	/** Constructs a new cat that is not moving and starts at (0,0). */

@@ -9,6 +9,7 @@ import com.revature.exceptions.NegativeNumberException;
  * noises. */
 public class Dog extends Animal {
 	
+	/** The default number of legs to give a dog. */
 	private static final int DEFAULT_DOG_LEGS = 4;
 	
 	/** Constructs a new dog that is not moving and starts at (0,0). */
