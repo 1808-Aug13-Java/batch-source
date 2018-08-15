@@ -10,7 +10,7 @@ public class AnimalDriver {
 
 	public static void main(String[] args) {
 		
-		// instantiates three animals
+		// instantiates all Animal objects
 		Lion leo = new Lion("male");
 		Lion leona = new Lion("female");
 		Lion l = new Lion("car"); // throws a NonbinaryGenderException (checked)
