@@ -66,10 +66,11 @@ Tiger tig2 = new Tiger (true, true);
 // creates a tiger that is injured and hungry
 Monkey monk2= new Monkey(true,false);
 
+System.out.println("A monkey has : " +monk.getNumLegs()+" legs");
+System.out.println("An elephant has : " +ele.getNumLegs()+" legs");
+// this shows how both the Elephant and Monkey class use inheritance to access the same methods 
+// of the parent class mammal
 
-ele.animalConfirm();
-tig.animalConfirm();
-//verifies that the default case if the interface works
 
 try {
 	ele.eatThis("grass");
@@ -79,23 +80,27 @@ try {
 	produce the exception
 	*/
 }
+ele.animalConfirm();
+tig.animalConfirm();
+//verifies that the default case if the interface works
+
+
 tig.eatThis("raw meat"); /*both of these class show how each of them are implemented differently
 and achieve polymorphism through the use of interfaces.*/
 monk.eatThis("fruit");
 
-System.out.println( "This mammal is hungry: " +ele2.isHungry());
-ele2.sleep();
 monk2.isHungry();
-monk2.sleep();
-
-System.out.println("A monkey has : " +monk.getNumLegs()+"legs");
-System.out.println("An elephant has : " +ele.getNumLegs()+"legs");
-// this shows how both the Elephant and Monkey class use inheritance to access the same methods 
-// of the parent class mammal
-
+monk2.sleep(); 
+System.out.println("The monkey is now sleeping: "+monk2.isSleeping());
 
 monk2.eatThis("apple");
+System.out.println( "This mammal is hungry: " +ele2.isHungry());
 ele2.sleep(); // this throws the unchecked Runtime exception, NotSleepyRuntimeException 
+// ele2 tries to go to sleep even though it is still hungry and the exception is thrown
+
+
+
+
 
  
 	}
