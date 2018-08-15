@@ -3,7 +3,7 @@ package com.revature.pillars.animals;
 import com.revature.exceptions.NegativeNumberException;
 
 // This class shows inheritance as it receives most of its functionality 
-// from it's parent class, Animal. 
+// from its parent class, Animal. 
 
 /** A class that defines a dog. It can move about and it can make dog 
  * noises. */
@@ -17,11 +17,11 @@ public class Dog extends Animal {
 	} // end of constructor Dog
 	
 	/** Constructs a new dog object with the specified parameters. 
-	 * @param speed - The speed at which the animal will travel in a given 
+	 * @param speed - The speed at which the dog will travel in a given 
 	 * direction. Cannot be negative
-	 * @param x - The x position of the animal
-	 * @param y - The y position of the animal
-	 * @param direction - the direction, in degrees, in which the animal
+	 * @param x - The x position of the dog
+	 * @param y - The y position of the dog
+	 * @param direction - the direction, in degrees, in which the dog
 	 * will travel 
 	 * @throws NegativeNumberException If {@code speed} is negative. */
 	public Dog(double speed, double x, double y, double direction) {
@@ -53,4 +53,4 @@ public class Dog extends Animal {
 		}
 	} // end of makeLotsOfNoise
 	
-} // end of class
+} // end of class Dog

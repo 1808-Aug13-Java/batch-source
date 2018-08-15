@@ -2,6 +2,7 @@ package com.revature.pillars.animals;
 
 import java.awt.Point;
 
+import com.revature.exceptions.NegativeNumberException;
 import com.revature.resources.MathHelper;
 
 /** This is a base class that defines some basic behavior for an animal. Other
@@ -46,12 +47,13 @@ public abstract class Animal {
 	
 	/** Constructs a new animal object with the specified parameters. 
 	 * @param speed - The speed at which the animal will travel in a given 
-	 * direction
+	 * direction. Cannot be negative
 	 * @param legs - The number of legs the animal has
 	 * @param x - The x position of the animal
 	 * @param y - The y position of the animal
 	 * @param direction - the direction, in degrees, in which the animal
-	 * will travel */
+	 * will travel 
+	 * @throws NegativeNumberException If {@code speed} is negative. */
 	public Animal(double speed, int legs, double x, double y, double direction) {
 		this.speed = speed;
 		this.legs = legs;
