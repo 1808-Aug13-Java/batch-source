@@ -34,6 +34,8 @@ public class Dog extends Animal {
 		System.out.println("BORK!");
 	} // end of makeNoise
 	
+	// Demonstrates the use of an exception
+	
 	/** Make a large amount of noise by repeatedly printing dog noises to 
 	 * the console. 
 	 * @param amountOfNoise - Number of times to print noise to the console 
