@@ -19,7 +19,7 @@ abstract public class Animal {
 	
 	public static void main(String[] args) {
 
-		Animal dog1 = new Dog();
+		Dog dog1 = new Dog();
 		//Superclass name = new subclass() is a covariant type
 		//assignment which is an example of Polymorphism
 		
@@ -27,6 +27,7 @@ abstract public class Animal {
 		dog1.hasWings();
 		dog1.hasVertabrate();
 		dog1.isSleeping();
+		dog1.bark();
 		
 		Scanner reader = new Scanner(System.in);
 		System.out.println("Enter a filename to read for an animal file (.ani): ");
@@ -70,7 +71,7 @@ abstract public class Animal {
 	}
 	
 	public void hasVertabrate() {
-		System.out.println("This animal has" + (vertabrate != false ? "":" no") + " vertabrate.");
+		System.out.println("This animal has" + (vertabrate != false ? " a":" no") + " vertabrate.");
 	}
 
 	public void setNumLegs(int numLegs) {

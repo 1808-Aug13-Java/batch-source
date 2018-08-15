@@ -12,6 +12,11 @@ public class Dog extends Mammal{
 		
 
 		}
+	
+	public void bark() {
+		System.out.println("Woof");
+	}
+	
 	//Implementation of abstract method isSleeping()
 	public void isSleeping() {
 		Calendar cal = Calendar.getInstance();
@@ -19,6 +24,10 @@ public class Dog extends Mammal{
         int hour = Integer.parseInt(sdf.format(cal.getTime()));
         if(hour > 20 | hour < 6)
         	System.out.println("Dog is sleeping.");
+        else
+        {
+        	System.out.println("Dog is awake.");
+        }
         
 	}
 	
