@@ -1,0 +1,8 @@
+﻿Create a Java Project which incorporates the 4 pillars of OOP
+* Create a hierarchy with classes representing different animals, include at least 4 classes
+* Create at least two custom exceptions, at least one checked and one unchecked
+* Organize your classes into an appropriate package structure
+* Follow the appropriate naming conventions for the project, classes, and class members
+* Comment liberally to explain where and how each pillar of OOP is implemented in your code
+* Push this project to your github branch (instructions to set this up and to push your code are also on the drive, lean on others in your batch who have done this successfully if you run into trouble)
+Upload to your GitHub branch by 9am 15 Aug
