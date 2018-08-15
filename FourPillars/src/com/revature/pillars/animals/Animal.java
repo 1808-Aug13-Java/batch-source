@@ -161,8 +161,8 @@ public abstract class Animal {
 	 * the X and Y coordinates accordingly. */
 	public void move() {
 		// Compute the change in position
-		double difX = Math.cos(MathHelper.degreesToRadians(direction));
-		double difY = Math.sin(MathHelper.degreesToRadians(direction));
+		double difX = speed * Math.cos(MathHelper.degreesToRadians(direction));
+		double difY = speed * Math.sin(MathHelper.degreesToRadians(direction));
 		
 		// Update the position relative to the old position
 		setX(getX() + difX);
