@@ -1,6 +1,10 @@
 package com.revature.taxonomy;
 
+import java.util.Scanner;
+import java.io.*;
+
 import com.revature.exceptions.TooManyLegsException;
+import com.revature.exceptions.WrongNameFormatException;
 
 //A class is Java's basic unit of encapsulation
 //it binds variables and methods into an object that is safe
@@ -23,6 +27,21 @@ abstract public class Animal {
 		dog1.hasWings();
 		dog1.hasVertabrate();
 		dog1.isSleeping();
+		
+		Scanner reader = new Scanner(System.in);
+		System.out.println("Enter a filename to read for an animal file (.ani): ");
+		String name = reader.nextLine();
+		reader.close();
+		
+		try {
+			throw new WrongNameFormatException();
+			
+			}
+		catch(WrongNameFormatException e) {
+			e.printStackTrace();
+		}
+		
+		
 		
 		Animal bat = new Mammal();
 		bat.setNumLegs(5);
