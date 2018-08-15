@@ -2,6 +2,8 @@ package com.revature.pillars.animals;
 
 import java.awt.Point;
 
+import com.revature.resources.MathHelper;
+
 /** This is a base class that defines some basic behavior for an animal. Other
  * classes can extend it to define specific animals. */
 public abstract class Animal {
@@ -146,10 +148,16 @@ public abstract class Animal {
 	
 	
 	/** Moves the animal in the direction that the animal is facing, updating 
-	 * the X and Y coordinates accordingly.  */
+	 * the X and Y coordinates accordingly. */
 	public void move() {
+		// Compute the change in position
+		double difX = Math.cos(MathHelper.degreesToRadians(direction));
+		double difY = Math.sin(MathHelper.degreesToRadians(direction));
 		
-	}
+		// Update the position relative to the old position
+		setX(getX() + difX);
+		setY(getY() + difY);
+	} // end of move
 	
 	
 } // end of class Animal
