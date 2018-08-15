@@ -1,5 +1,6 @@
 package com.revature.pillars.animals;
 
+import java.awt.Point;
 
 /** This is a base class that defines some basic behavior for an animal. Other
  * classes can extend it to define specific animals. */
@@ -23,7 +24,7 @@ public abstract class Animal {
 	/** The direction, in terms of degrees, that the animal is traveling. 
 	 * This is implemented how a unit circle would be, where 0 is towards 
 	 * the +x direction and 90 is towards the +y direction. */
-	protected double direction;
+	private double direction;
 	
 	
 	//Example of overloaded constructors in example of polymorphism
@@ -55,8 +56,100 @@ public abstract class Animal {
 		this.y = y;
 		this.direction = direction;
 	} // end of constructor Animal
+
 	
 	
+	
+	
+	
+	
+	/** Returns the current speed of the animal, represented by arbitrary 
+	 * units.
+	 * @return The speed of the animal */
+	public double getSpeed() {
+		return speed;
+	} // end of getSpeed
+	
+	/** Returns the number of legs the animal has. 
+	 * @return The number of legs the animal has*/
+	public int getLegs() {
+		return legs;
+	} // end of getLegs
+	
+	/** Returns the current position x position of the animal on the x,y 
+	 * plane. 
+	 * @return The x position of the animal */
+	public double getX() {
+		return x;
+	} // end of getX
+	
+	/** Returns the current position x position of the animal on the x,y 
+	 * plane. 
+	 * @return The x position of the animal */
+	public double getY() {
+		return y;
+	} // end of getY
+	
+	/** Returns the current direction of the animal represented in degrees, 
+	 * where 0 degrees is +x direction and 90 is +y direction.  */
+	public double getDirection() {
+		return direction;
+	} // end of getDirection
+	
+	
+	
+	
+	
+	/** Sets the speed at which the animal moves. More formally, the animal 
+	 * should move the provided arbitrary distance every time {@code Animal.move}
+	 * is called. 
+	 * @param speed - The new speed of the animal */
+	public void setSpeed(double speed) {
+		this.speed = speed;
+	} // end of setSpeed
+	
+	/** Sets a new X coordinate for the animal. 
+	 * @param x - The new X coordinate for the animal */
+	public void setX(double x) {
+		this.x = x;
+	} // end of setX
+	
+	/** Sets a new Y coordinate for the animal. 
+	 * @param y - The new Y coordinate for the animal */
+	public void setY(double y) {
+		this.y = y;
+	} // end of setY
+	
+	/** Sets the X and Y coordinates for the animal. 
+	 * @param x - The new X coordinate for the animal
+	 * @param y - The new Y coordinate for the animal */
+	public void setCoordinates(double x, double y) {
+		this.x = x;
+		this.y = y;
+	} // end of setCoordinates
+	
+	/** Sets the X and Y coordinates for the animal. 
+	 * @param coordinates - A point object containing new X,Y coordinates */
+	public void setCoordinates(Point coordinates) {
+		x = coordinates.getX();
+		y = coordinates.getY();
+	} // end of setCoordinates
+	
+	
+	/** Sets the direction that the animal is traveling, represented in 
+	 * degrees around a unit circle. Eg: 0 degrees is a +X direction 
+	 * while 90 degrees is a +Y direction. */
+	public void setDirection(double direction) {
+		this.direction = direction;
+	} // end of setDirection
+	
+	
+	
+	/** Moves the animal in the direction that the animal is facing, updating 
+	 * the X and Y coordinates accordingly.  */
+	public void move() {
+		
+	}
 	
 	
 } // end of class Animal
