@@ -39,7 +39,7 @@ public abstract class Celebrity {
 		return name;
 	}
 	public void setName(String name) {
-		boolean incorrectCharacterInName = !name.matches("^.*[^a-zA-Z'!].*$");
+		boolean IncorrectCharacterInName = !name.matches("^.*[^a-zA-Z'!].*$");
 		if (incorrectCharacterInName) { // checked exception
 			try {
 				throw new incorrectCharacterInNameException("That is not a name!");
