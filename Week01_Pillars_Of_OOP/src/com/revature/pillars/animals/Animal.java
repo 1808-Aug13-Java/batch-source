@@ -31,7 +31,7 @@ public abstract class Animal {
 	
 	
 	//Example of overloaded constructors in example of polymorphism
-	/** Constructs a new animal with 2 legs by default that is not moving
+	/** Constructs a new animal with 0 legs by default that is not moving
 	 * and starts at (0,0). */
 	public Animal() {
 		this(0d, 0, 0d, 0d, 0d);
