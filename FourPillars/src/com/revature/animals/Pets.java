@@ -1,5 +1,6 @@
 package com.revature.animals;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 import com.revature.exceptions.NonExistentPetException;
@@ -44,20 +45,22 @@ public class Pets {
 		myDog.setBreed("Golden Retriever");
 		System.out.println(myDog);
 		
-		// Create an array of size 3
-		String[] myPets = {"Fish", "Cat", "Dog"};
+		// Create an array of size 3 with all of our pets + one we want, but can't have
+		// This final pet will lead to our custom unchecked exception
+		ArrayList<String> myPets = new ArrayList<String>();
+		String petFish = "Fish";
+		String petCat = "Cat";
+		String petDog = "Dog";
+		String petZebra = "Zebra";
 		
-		// This is essentially a custom unchecked exception over an ArrayIndexOutOfBoundsException
-		// when attempting access a nonexistent member of myPets
-		try {
-			myPets[10] = "Zebra";
-			throw new NonExistentPetException("Woops! Looks like you're trying to access a pet that doesn't exist.");
-			
-		} catch (Exception e) {
-			// simply output the standard stacktrace for the exception to the console
-			e.printStackTrace();
-		} finally {
-			System.out.println(Arrays.toString(myPets));
+		myPets.add(petFish);
+		myPets.add(petCat);
+		myPets.add(petDog);
+		myPets.add(petZebra);
+		
+		// Unchecked exception thrown if size of myPets > 3
+		if (myPets.size() > 3) {
+			throw new NonExistentPetException("Oops! We can only have 3 pets at a time.");
 		}
 	}
 }
