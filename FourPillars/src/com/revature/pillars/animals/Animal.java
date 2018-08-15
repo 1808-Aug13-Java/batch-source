@@ -55,6 +55,11 @@ public abstract class Animal {
 	 * will travel 
 	 * @throws NegativeNumberException If {@code speed} is negative. */
 	public Animal(double speed, int legs, double x, double y, double direction) {
+		// If speed is negative, throw an exception
+		if (speed < 0d) {
+			throw new NegativeNumberException(speed);
+		}
+		
 		this.speed = speed;
 		this.legs = legs;
 		this.x = x;
@@ -106,10 +111,16 @@ public abstract class Animal {
 	
 	
 	/** Sets the speed at which the animal moves. More formally, the animal 
-	 * should move the provided arbitrary distance every time {@code Animal.move}
-	 * is called. 
-	 * @param speed - The new speed of the animal */
+	 * should move the provided arbitrary distance every time 
+	 * {@code Animal.move()} is called. This number cannot be negative. 
+	 * @param speed - The new speed of the animal 
+	 * @throws NegativeNumberException If the provided speed is negative */
 	public void setSpeed(double speed) {
+		// Throw exception if provided number is negative
+		if (speed < 0d) {
+			throw new NegativeNumberException(speed);
+		}
+		
 		this.speed = speed;
 	} // end of setSpeed
 	

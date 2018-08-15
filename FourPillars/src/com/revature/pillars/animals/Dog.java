@@ -44,8 +44,7 @@ public class Dog extends Animal {
 	{
 		// If the provided number is negative, throw exception
 		if (amountOfNoise < 0) {
-			throw new NegativeNumberException("Amount of Noise cannot be "
-					+ "negative. value provided: " + amountOfNoise);
+			throw new NegativeNumberException(amountOfNoise);
 		}
 		
 		for (int i=0; i<amountOfNoise; i++) {
