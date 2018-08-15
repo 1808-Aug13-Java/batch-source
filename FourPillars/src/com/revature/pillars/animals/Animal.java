@@ -189,8 +189,8 @@ public abstract class Animal {
 	
 	/** Moves the animal in the direction that the animal is facing, updating 
 	 * the X and Y coordinates accordingly. Does nothing if the animal has 
-	 * no legs. */
-	public void walk() {
+	 * no legs. Throws an exception if the animal has a problem walking. */
+	public void walk() throws Exception {
 		// Just reuse the move function
 		move();
 	} // end of walk

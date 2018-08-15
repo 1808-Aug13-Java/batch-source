@@ -10,6 +10,7 @@ public class NegativeNumberException extends IllegalArgumentException {
 	 * class. */
 	private static final long serialVersionUID = -4598696230690765490L;
 	
+	/** A default message for this exception. */
 	private static final String DEFAULT_MESSAGE = 
 			"Negative Numbers are not allowed. ";
 

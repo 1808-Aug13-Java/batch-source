@@ -6,6 +6,8 @@ import com.revature.exceptions.NoLegsException;
 //This class shows inheritance as it receives most of its functionality 
 //from its parent class, Animal. 
 
+/** A class that defines a fish. It can move about and it can make fish 
+* noises. */
 public class Fish extends Animal {
 	
 	
@@ -38,6 +40,7 @@ public class Fish extends Animal {
 	} // end of walk
 	
 	
+	/** Makes a fish specific noise by printing to the console. */
 	@Override
 	public void makeNoise() {
 		System.out.println("Glub!");

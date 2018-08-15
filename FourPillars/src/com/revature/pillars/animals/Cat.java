@@ -14,7 +14,7 @@ public class Cat extends Animal {
 	/** Constructs a new cat that is not moving and starts at (0,0). */
 	public Cat() {
 		super(DEFAULT_CAT_LEGS);
-	} // end of constructor cat
+	} // end of constructor Cat
 	
 	/** Constructs a new cat object with the specified parameters. 
 	 * @param speed - The speed at which the cat will travel in a given 
@@ -26,7 +26,7 @@ public class Cat extends Animal {
 	 * @throws NegativeNumberException If {@code speed} is negative. */
 	public Cat(double speed, double x, double y, double direction) {
 		super(speed, DEFAULT_CAT_LEGS, x, y, direction);
-	} // end of constructor Dog
+	} // end of constructor Cat
 	
 	
 	/** Makes a cat specific noise by printing to the console. */
