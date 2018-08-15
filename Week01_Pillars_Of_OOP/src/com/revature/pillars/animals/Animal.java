@@ -8,20 +8,21 @@ import com.revature.resources.MathHelper;
  * classes can extend it to define specific animals. */
 public abstract class Animal {
 	
-	// The following are examples of encapsulation as they use the protected 
-	// modifier to allow access to subclasses of animals. 
+	// The following are examples of encapsulation as they use the private 
+	// modifier to prevent free access to the variables. Instead, getters and 
+	// setters are provided to give restricted access. 
 	/** The speed at which the animal travels. This is measured in arbitrary 
 	 * units. */
-	protected double speed;
+	private double speed;
 	
 	/** The number of legs that the animal has. */
-	protected int legs;
+	private int legs;
 	
 	/** The x position of the animal. */
-	protected double x;
+	private double x;
 	
 	/** The y position of the animal. */
-	protected double y;
+	private double y;
 	
 	/** The direction, in terms of degrees, that the animal is traveling. 
 	 * This is implemented how a unit circle would be, where 0 is towards 
@@ -122,6 +123,9 @@ public abstract class Animal {
 		this.y = y;
 	} // end of setY
 	
+	
+	// The following shows polymorphism as there are two methods that are 
+	// overloaded. 
 	/** Sets the X and Y coordinates for the animal. 
 	 * @param x - The new X coordinate for the animal
 	 * @param y - The new Y coordinate for the animal */
@@ -133,8 +137,8 @@ public abstract class Animal {
 	/** Sets the X and Y coordinates for the animal. 
 	 * @param coordinates - A point object containing new X,Y coordinates */
 	public void setCoordinates(Point coordinates) {
-		x = coordinates.getX();
-		y = coordinates.getY();
+		this.x = coordinates.getX();
+		this.y = coordinates.getY();
 	} // end of setCoordinates
 	
 	
@@ -146,6 +150,12 @@ public abstract class Animal {
 	} // end of setDirection
 	
 	
+	// The following shows abstracion, specifically how some functions can 
+	// bemade abstract in general wit specific implementations. 
+	
+	
+	// A function for the movement of animals, as (most) all animals 
+	// can move. The few that don't can override such functionality. 
 	
 	/** Moves the animal in the direction that the animal is facing, updating 
 	 * the X and Y coordinates accordingly. */
@@ -159,6 +169,24 @@ public abstract class Animal {
 		setY(getY() + difY);
 	} // end of move
 	
+	
+	// A bad example of how to use abstraction to specify movement. This is 
+	// because there are quite a few animals that don't have legs, and therefore
+	// cannot walk.
+	
+	/** Moves the animal in the direction that the animal is facing, updating 
+	 * the X and Y coordinates accordingly. Does nothing if the animal has 
+	 * no legs. */
+	public void walk() {
+		// Just reuse the move function
+		move();
+	} // end of walk
+	
+	
+	// An example of abstraction. 
+	
+	/** Makes an animal specific noise. */
+	public abstract void makeNoise();
 	
 } // end of class Animal
 
