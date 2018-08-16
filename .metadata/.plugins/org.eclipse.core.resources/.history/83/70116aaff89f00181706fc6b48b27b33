@@ -1,7 +1,0 @@
-package com.revature.exceptions;
-
-public class NegativeSpeedException extends Exception {
-	public NEgativeSpeedException(String message) {
-		super(message);
-	}
-}

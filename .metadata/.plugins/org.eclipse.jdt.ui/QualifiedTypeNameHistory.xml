@@ -5,4 +5,5 @@
 <fullyQualifiedTypeName name="com.revature.exceptions.NegativeSpeedException"/>
 <fullyQualifiedTypeName name="com.revature.exceptions.NegativeTuskLength"/>
 <fullyQualifiedTypeName name="com.revature.exceptions.NegativeAge"/>
+<fullyQualifiedTypeName name="java.util.HashMap"/>
 </qualifiedTypeNameHistroy>
