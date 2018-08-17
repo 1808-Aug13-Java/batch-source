@@ -84,7 +84,27 @@ public class Driver {
 		for(Pizza p: foodList) {
 			System.out.println(p);
 		}
+		System.out.println();
 		
+		System.out.println("Using a lambda in our forEach method:");
+		foodList.forEach((i)->{
+			System.out.println(i);
+		});
+		
+//		Comparator<Pizza> compareToppings =
+//				(Pizza p1, Pizza p2) -> {
+//					return p1.getToppings().length-p2.getToppings().length;
+//				};
+		
+		Comparator<Pizza> compareToppings = 
+				(p1, p2) -> p1.getToppings().length-p2.getToppings().length;
+		
+		System.out.println();
+		System.out.println("Sorting our list using a Comparator defined with a lambda");
+		Collections.sort(foodList, compareToppings);
+		for(Pizza p : foodList) {
+			System.out.println(p);
+		}
 		
 	}
 

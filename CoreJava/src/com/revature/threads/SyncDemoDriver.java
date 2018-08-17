@@ -38,8 +38,16 @@ public class SyncDemoDriver {
 		Thread t1 = new Thread(job);
 		Thread t2 = new Thread(job);
 		
+		Runnable lambdaJob = ()->{
+			System.out.println("This is the implementation of the Runnable"
+					+ " interface's only method. \n We achieved this using a lambda!");
+		};
+		
+		Thread t3 = new Thread(lambdaJob);
+		
 		t1.start();
 		t2.start();
+		t3.start();
 		
 		try {
 			t1.join();
@@ -48,7 +56,6 @@ public class SyncDemoDriver {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
 		System.out.println("Count: "+c.count);
 		
 	}
