@@ -2,7 +2,7 @@ package com.revature.collections;
 
 import java.util.Arrays;
 
-public class Pizza {
+public class Pizza implements Comparable<Pizza> {
 	
 	private String[] toppings;
 	private int slices;
@@ -83,6 +83,11 @@ public class Pizza {
 	public String toString() {
 		return "Pizza [toppings=" + Arrays.toString(toppings) + ", slices=" + slices + ", diameter=" + diameter
 				+ ", crustType=" + crustType + "]";
+	}
+
+	@Override
+	public int compareTo(Pizza o) {
+		return this.slices - o.slices;
 	}
 	
 
