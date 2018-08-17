@@ -1,0 +1,27 @@
+Why do we use Java?
+What are the four pillars of OOP?
+What are some access modifiers?
+What are some non-access modifiers?
+What is the relationship between Objects and Classes?
+What is the difference between a for loop and a for each loop(enhanced for loop)?
+What are some examples of flow control?
+Describe Autoboxing.
+Describe Autounboxing.
+What is the String Pool?
+What is the difference between Exceptions and Errors?
+What is the difference between Checked and Unchecked Exceptions?
+How can we edit a String?
+What are the capabilities of the "final" keyword?
+What is the difference between final, finally and finalize?
+What is abstraction?
+What is the difference between an abstract class and interface?
+What are some thread states?
+What does a thread "wait" for?
+What is Polymorphism?
+What is Inheritance?
+What is Encapsulation?
+How many classes can you extend from per class?
+How many classes can you implement?
+Which scopes have default values?
+Name some primitive data types?
+What is the difference between & and &&?
