@@ -34,9 +34,7 @@ public class Driver {
 		System.out.println(sSet);
 		sSet.forEach((item)->{
 			System.out.println("item: "+item);
-			if(item.equals("bravo")) {
-				sSet.remove(item);
-			}
+			
 		});
 		System.out.println(sSet);
 		System.out.println();
