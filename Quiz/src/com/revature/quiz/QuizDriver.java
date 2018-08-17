@@ -50,9 +50,9 @@ public class QuizDriver {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		//These sort each randomly using my overridden random compareTo method in Things
-		Collections.sort(nameList);
-		Collections.sort(quizList);
+		//Changed from overridden random sort method to using included shuffle method in collections
+		Collections.shuffle(nameList);
+		Collections.shuffle(quizList);
 
 		//this just prints out each name and each question in the order they are currently in inside of
 		//the corresponding LinkedList.
