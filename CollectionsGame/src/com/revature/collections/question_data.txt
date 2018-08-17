@@ -1,0 +1,28 @@
+
+What is "collection"?
+What is OOP?
+Why use Java?
+What is a generic?
+What is Java?
+What is a set?
+What is a HashMap?
+What is diff between abstract class and interface?
+What is abstract class?
+What is interface?
+What is JVM?
+What is JDK?
+What is JRE?
+What is difference between Comparable and Comparator?
+What is Comparable?
+What is Comparator?
+What is iterator?
+Difference between for each loop and for loop?
+Difference beteen while loop and do while loop?
+What is serializable?
+What is deserialization?
+What is scanner?
+What is difference between array and vector?
+What are benefits of ArrayList vs array?
+What is buffer?
+How to reverse string?
+What is a package?
