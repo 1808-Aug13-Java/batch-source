@@ -18,19 +18,13 @@ public class QuestionsApp {
 		int currentQuestion = 0;
 		
 		// A scanner for use in blocking execution until the enter key is pressed
-		Scanner scanner = new Scanner(System.in);
+		Scanner scanner = null;
 		
 		// The list of people
 		ArrayList<String> peopleList = null;
 		// The list of questions
 		ArrayList<String> questionsList = null;
 		
-		
-		// A scanner with which to read the questions
-		Scanner questionScanner;
-		
-		// Used to temporarily hold values
-		String tempString;
 		
 		// Scan the people file for the names of the participants
 		try {
@@ -98,6 +92,9 @@ public class QuestionsApp {
 		Collections.shuffle(questionsList);
 		
 		
+		// Open the scanner to the console, so we can read when the 
+		// enter key is hit. 
+		scanner = new Scanner(System.in);
 		
 		// For each person, ask them the next question in the list. 
 		for (String person : peopleList) {
@@ -117,6 +114,8 @@ public class QuestionsApp {
 				currentQuestion = 0;
 			}
 		}
+		
+		scanner.close();
 	}
 	
 	
