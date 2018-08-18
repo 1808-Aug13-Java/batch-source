@@ -52,7 +52,7 @@ public class CalculatorTest {
 		assertEquals(Calculator.add("34,5,\n10"), 49);
 	}
 	
-	@Test(expected= RuntimeException.class)
+	@Test(expected=RuntimeException.class)
 	public void NegativeNumbersThrowsException() {
 		Calculator.add("-1");
 	}
