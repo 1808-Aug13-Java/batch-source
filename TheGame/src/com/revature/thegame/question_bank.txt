@@ -1,0 +1,5 @@
+What are the primitive types in Java?
+What is the JVM?
+What is the difference between == and equals()?
+What is the difference between a List and a Map in the Collection interface?
+What is the difference between Collection and Collections?
