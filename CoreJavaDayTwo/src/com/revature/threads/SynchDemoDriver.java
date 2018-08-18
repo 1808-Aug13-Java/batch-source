@@ -2,27 +2,37 @@ package com.revature.threads;
 
 public class SynchDemoDriver {
 	
+	
+	
 	public static void main(String[] args) {
-
-		Count c = new Count();
+		Runnable lambdaJob = ()-> {
+			System.out.println("this is the implementation of the Runnable"
+					+ " interface's only method. \n Using lambdas, ofcourse");
+		};
 		
-		Runnable job = new CountTestRunnable(c);
-		
-		Thread t1 = new Thread(job);
-		Thread t2 = new Thread(job);
-		
+		Thread t1 = new Thread(lambdaJob);
 		t1.start();
-		t2.start();
 		
-		try {
-			t1.join();
-			t2.join();
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 		
-		System.out.println("Count: " + c.count);
+//		Count c = new Count();
+//		
+//		Runnable job = new CountTestRunnable(c);
+//		
+//		Thread t1 = new Thread(job);
+//		Thread t2 = new Thread(job);
+//		
+//		t1.start();
+//		t2.start();
+//		
+//		try {
+//			t1.join();
+//			t2.join();
+//		} catch (InterruptedException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		
+//		System.out.println("Count: " + c.count);
 		
 		
 //		StringBuilder sbuild = new StringBuilder();

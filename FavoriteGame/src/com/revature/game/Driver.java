@@ -31,7 +31,7 @@ public class Driver {
 				+ "office to run her own"
 				+ "\n branch when she discovered that Jim\n was still in love with Pam?");
 		
-		Question q3 = new Question("What city in Pennsylvania is Dunder Mifflin Scranton branch located?");
+		Question q3 = new Question("What city in Pennsylvania is Michael's branch located?");
 		
 		Question q4 = new Question("What substance does Jim "
 				+ "put office supplies owned by Dwight and Andy into?");

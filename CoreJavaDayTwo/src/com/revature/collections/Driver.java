@@ -1,6 +1,7 @@
 package com.revature.collections;
 
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.LinkedHashSet;
 import java.util.LinkedList;
 import java.util.TreeSet;
@@ -77,6 +78,20 @@ public class Driver {
 		for(Pizza p : foodList) {
 			System.out.println(p);
 		}
+		
+		System.out.println();
+		System.out.println("Using a lambda in our forEach method: ");
+		foodList.forEach((pizza)-> {
+			System.out.println(pizza);
+		});
+		
+		Comparator<Pizza> compareToppings = 
+				(p1, p2) -> p1.getToppings().length - p2.getToppings().length;
+		
+		System.out.println();
+		System.out.println("Sorting our list using a comparator defined with a lambda");
+		Collections.sort(foodList, compareToppings);
+		foodList.forEach((p) -> { System.out.println(p); });
 		
 		
 	}
