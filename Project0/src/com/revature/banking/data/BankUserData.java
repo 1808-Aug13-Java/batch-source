@@ -13,18 +13,18 @@ public class BankUserData implements Serializable{
 
 	//TODO: Make this more relevant when security and databases are implemented
 	/** A uniquly generated ID for the user.  */
-	long uniqueID = 0;
+	public long uniqueID = 0;
 	
 	/** The email of the user in question. */
-	String email = null;
+	public String email = "";
 	
 	/** The unique username of the user in question.  */
-	String userName = null;
+	public String userName = "";
 	
 	//TODO: Consider not holding this here but soely on the back end database
 	/** The hashed password of the user. */
-	String passwordHash = null;
+	public String passwordHash = "";
 	
 	/** The current balance at the time it was received from the database */
-	BigDecimal balance = null;
+	BigDecimal balance = new BigDecimal(0);
 }
