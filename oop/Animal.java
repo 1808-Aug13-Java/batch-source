@@ -1,43 +1,20 @@
 package com.revature.oop;
 
-public class Animal {
+//Abstract class has abstract maxSpeed method
 
-	protected String animalClass;
-	protected boolean eats;
-	protected int legs;
+abstract class Animal {
 	
 	public Animal() {
 		super();
 	}
-
-	public Animal( int legs, boolean carnivore) {
-		this.legs = legs;
-		this.carnivore = carnivore;
-	}
-
-	public String getAnimalClass() {
-		return animalClass;
-	}
-
-	public void setAnimalClass(String animalClass) {
-		this.animalClass = animalClass;
-	}
-
-	public boolean isCarnivore() {
-		return carnivore;
-	}
-
-	public void setCarnivore(boolean carnivore) {
-		this.carnivore = carnivore;
-	}
-
-	public int getLegs() {
-		return legs;
-	}
-
-	public void setLegs(int legs) {
-		this.legs = legs;
-	}
 	
-	
+	public void eat() {
+		System.out.println("I eat meat!");
+	}
+// abstract method
+	abstract void maxSpeed();
 }
+	
+	
+	
+	
