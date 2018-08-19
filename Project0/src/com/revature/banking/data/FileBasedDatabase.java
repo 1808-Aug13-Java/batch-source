@@ -134,7 +134,7 @@ public class FileBasedDatabase implements DataInterface{
 	public boolean withdraw(BankUserData user, BigDecimal amount) {
 		// Only withdraw if the user has more than he is requesting
 		if (user.balance.compareTo(amount) >= 0) {
-			user.balance.subtract(amount);
+			user.balance = user.balance.subtract(amount);
 			return true;
 		}
 		
@@ -144,7 +144,7 @@ public class FileBasedDatabase implements DataInterface{
 	/** {@inheritDoc} */
 	@Override
 	public void deposit(BankUserData user, BigDecimal amount) {
-		user.balance.add(amount);
+		user.balance = user.balance.add(amount);
 	}
 
 

@@ -25,6 +25,7 @@ public class BankUserData implements Serializable{
 	/** The hashed password of the user. */
 	public String passwordHash = "";
 	
+	//TODO: Create interface for handling balance. 
 	/** The current balance at the time it was received from the database */
-	BigDecimal balance = new BigDecimal(0);
+	public BigDecimal balance = new BigDecimal(0);
 }

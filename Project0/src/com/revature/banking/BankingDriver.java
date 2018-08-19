@@ -1,6 +1,7 @@
 package com.revature.banking;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.Scanner;
 
 import com.revature.banking.data.BankUserData;
@@ -104,8 +105,9 @@ public class BankingDriver {
 			// make a new account
 			while (currentState == StateEnum.STATE_CREATE_USER) {
 				System.out.println(
-						"Pleae enter an email and a new password separated by "
-						+ "a space. Enter 'Back' to go back to the login menu");
+						"Pleae enter an email, a username, and a new password "
+						+ "separated by a space. Enter 'Back' to go back to "
+						+ "the login menu");
 				
 				
 				userInput = scanner.nextLine();
@@ -115,17 +117,18 @@ public class BankingDriver {
 				if (tokens[0].equalsIgnoreCase("back")) {
 					currentState = StateEnum.STATE_LOGIN_MENU;
 				}
-				// Otherwise, check and validate the email and password
+				// Otherwise, check and validate the email, username, and password
 				// In this version of the app, actual email format validation 
 				// doesn't exist. Neither does password hashing. 
-				else if (tokens.length == 2)
+				else if (tokens.length == 3)
 				{
 					// If the user email doesn't exist in the database, add 
-					// a new user. 
+					// a new user, with the email, username, and password.
 					if (!bankDatabase.userEmailExists(tokens[0])) {
 						bankUserData = new BankUserData();
 						bankUserData.email = tokens[0];
-						bankUserData.passwordHash = tokens[1];
+						bankUserData.userName = tokens[1];
+						bankUserData.passwordHash = tokens[2];
 						
 						bankDatabase.addNewUser(bankUserData);
 						System.out.println("User Created");
@@ -181,6 +184,79 @@ public class BankingDriver {
 				}
 			} // end while
 			
+			
+			// Go into the accepting state for a logged in user
+			while (currentState == StateEnum.STATE_USER_MENU) {
+				System.out.println("Welcome " + bankUserData.userName + "!");
+				System.out.println("Type 'deposit <amount>' to deposit. ");
+				System.out.println("Type 'withdraw <amount>' to withdraw. ");
+				System.out.println("Type 'balance' to view your current balance");
+				System.out.println("Type 'logout' to log out. ");
+				
+				
+				userInput = scanner.nextLine();
+				tokens = userInput.split(" ");
+				
+				
+				// Switch on the first token. 
+				switch(tokens[0]) {
+				// If depositing, parse the amount into a BigDecimal, and 
+				// deposit
+				case "deposit": 
+					// If the amount isn't specified, specify it
+					if (tokens.length < 2) {
+						System.out.println("Please specify <amount>");
+						continue;
+					}
+					
+					// Validate that it is a valid number before depositing
+					try {
+						bankDatabase.deposit(bankUserData, 
+											new BigDecimal(tokens[1]));
+						System.out.println("Deposit Successful. ");
+					} catch (NumberFormatException ex) {
+						System.out.println("'" + tokens[1] + "' isn't a number");
+					}
+					break;
+				case "withdraw":
+					// If the amount isn't specified, specify it
+					if (tokens.length < 2) {
+						System.out.println("Please specify <amount>");
+						continue;
+					}
+					
+					// Validate that it is a valid number before withdrawing
+					try {
+						// Also validate that there is enough in the account 
+						if (bankDatabase.withdraw(bankUserData, 
+											new BigDecimal(tokens[1]))) 
+						{
+							System.out.println("Withdraw Successful. ");
+						}
+						// Otherwise, print that there wasn't enough
+						else {
+							System.out.println("Not Enough Funds In Account");
+						}
+					} catch (NumberFormatException ex) {
+						System.out.println("'" + tokens[1] + "' isn't a number");
+					}
+					break;
+				case "balance": 
+					// Get the latest data from the server
+					bankUserData = bankDatabase.getUserByEmail(bankUserData.email);
+					
+					System.out.println("Balance: " + bankUserData.balance);
+					break;
+				case "logout":
+					System.out.println("Logged Out");
+					currentState = StateEnum.STATE_LOGIN_MENU;
+					break;
+				default:
+					System.out.println("'" + userInput + "' isn't valid. ");
+				} // end switch
+				
+				
+			} // end while
 			
 			
 			// Move to a new line every state change
