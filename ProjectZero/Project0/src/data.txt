@@ -1,0 +1,5 @@
+
+username: Rika
+password: password
+account balance: 84.51
+
