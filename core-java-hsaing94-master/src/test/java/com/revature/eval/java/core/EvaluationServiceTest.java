@@ -580,7 +580,8 @@ public class EvaluationServiceTest {
 	@Test
 	public void modernTime() {
 		assertEquals(LocalDateTime.of(2043, Month.JANUARY, 1, 1, 46, 40),
-				evaluationService.getGigasecondDate(LocalDate.of(2011, Month.APRIL, 25)));
+				evaluationService.getGigasecondDate(LocalDate.of(2011,
+						Month.APRIL, 25)));
 	}
 
 	@Test
@@ -678,6 +679,7 @@ public class EvaluationServiceTest {
 		assertFalse(evaluationService.isLuhnValid("046a 454 286"));
 	}
 
+	
 	@Test
 	public void testThatStringContainingPunctuationIsInvalid() {
 		assertFalse(evaluationService.isLuhnValid("055-444-285"));

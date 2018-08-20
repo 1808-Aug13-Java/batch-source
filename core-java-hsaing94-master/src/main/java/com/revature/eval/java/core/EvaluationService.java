@@ -1,11 +1,16 @@
 package com.revature.eval.java.core;
 
+import java.time.LocalDateTime;
+import java.time.temporal.ChronoField;
+import java.time.temporal.ChronoUnit;
 import java.time.temporal.Temporal;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.Set;
 
 public class EvaluationService {
 	//testing this a second time
@@ -569,15 +574,13 @@ public class EvaluationService {
 		        	{
 		            	if (Character.isUpperCase(firstLetter.charAt(i)))
 		            	{
-		                	char ch = (char)(((int)firstLetter.charAt(i) +
-		                                  key - 65) % 26 + 65);
+		                	char ch = (char)(((int)firstLetter.charAt(i) + key - 65) % 26 + 65);
 		                	shiftedString = shiftedString + ch;
 		            	}
 		            	if (Character.isLowerCase(firstLetter.charAt(i)))
 		            		if (Character.isLowerCase(firstLetter.charAt(i)))
 		            	{
-		            		char ch = (char)(((int)firstLetter.charAt(i) +
-		                		key - 97) % 26 + 97);
+		            		char ch = (char)(((int)firstLetter.charAt(i) + key - 97) % 26 + 97);
 		                	shiftedString = shiftedString + ch;
 		            	}
 		            	
@@ -687,8 +690,133 @@ public class EvaluationService {
 		 * @return
 		 */
 		public static String encode(String string) {
-			// TODO Write an implementation for this method declaration
-			return null;
+			String newWord = "";
+			int spacecounter = 0;
+			string = string.toLowerCase().replaceAll("[^a-z0-9]","");
+			int position = 0;
+			for (int i = 0; i < string.length(); i++) {
+
+				switch(string.charAt(position)){
+				
+				case 'a':
+					newWord = newWord + 'z';
+					position++;
+					break;
+				case 'b':
+					newWord = newWord + 'y';
+					position++;
+					break;
+				case 'c':
+					newWord = newWord + 'x';
+					position++;
+					break;
+				case 'd':
+					newWord = newWord + 'w';
+					position++;
+					break;
+				case 'e':
+					newWord = newWord + 'v';
+					position++;
+					break;
+				case 'f':
+					newWord = newWord + 'u';
+					position++;
+					break;
+				case 'g':
+					newWord = newWord + 't';
+					position++;
+					break;
+				case 'h':
+					newWord = newWord + 's';
+					position++;
+					break;
+				case 'i':
+					newWord = newWord + 'r';
+					position++;
+					break;
+				case 'j':
+					newWord = newWord + 'q';
+					position++;
+					break;
+				case 'k':
+					newWord = newWord + 'p';
+					position++;
+					break;
+				case 'l':
+					newWord = newWord + 'o';
+					position++;
+					break;
+				case 'm':
+					newWord = newWord + 'n';
+					position++;
+					break;
+				case 'n':
+					newWord = newWord + 'm';
+					position++;
+					break;
+				case 'o':
+					newWord = newWord + 'l';
+					position++;
+					break;
+				case 'p':
+					newWord = newWord + 'k';
+					position++;
+					break;
+				case 'q':
+					newWord = newWord + 'j';
+					position++;
+					break;
+				case 'r':
+					newWord = newWord + 'i';
+					position++;
+					break;
+				case 's':
+					newWord = newWord + 'h';
+					position++;
+					break;
+				case 't':
+					newWord = newWord + 'g';
+					position++;
+					break;
+				case 'u':
+					newWord = newWord + 'f';
+					position++;
+					break;
+				case 'v':
+					newWord = newWord + 'e';
+					position++;
+					break;
+				case 'w':
+					newWord = newWord + 'd';
+					position++;
+					break;
+				case 'x':
+					newWord = newWord + 'c';
+					position++;
+					break;
+				case 'y':
+					newWord = newWord + 'b';
+					position++;
+					break;
+				case 'z':
+					newWord = newWord + 'a';
+					position++;
+					break;
+				default:
+					newWord = newWord + string.charAt(position);
+					position++;
+					break;
+				}
+				if(position%5==0) {
+					newWord = newWord +" ";
+					spacecounter++;
+				}
+			}
+			if ((newWord.length()-spacecounter)%5 ==0) {
+				
+			newWord = newWord.substring(0, newWord.length()-1);
+			}
+			return newWord;
 		}
 
 		/**
@@ -698,8 +826,125 @@ public class EvaluationService {
 		 * @return
 		 */
 		public static String decode(String string) {
-			// TODO Write an implementation for this method declaration
-			return null;
+
+			String newWord = "";
+			string = string.toLowerCase().replaceAll("[^a-z0-9]","");
+			int position = 0;
+			for (int i = 0; i < string.length(); i++) {
+
+				switch(string.charAt(position)){
+				
+				case 'a':
+					newWord = newWord + 'z';
+					position++;
+					break;
+				case 'b':
+					newWord = newWord + 'y';
+					position++;
+					break;
+				case 'c':
+					newWord = newWord + 'x';
+					position++;
+					break;
+				case 'd':
+					newWord = newWord + 'w';
+					position++;
+					break;
+				case 'e':
+					newWord = newWord + 'v';
+					position++;
+					break;
+				case 'f':
+					newWord = newWord + 'u';
+					position++;
+					break;
+				case 'g':
+					newWord = newWord + 't';
+					position++;
+					break;
+				case 'h':
+					newWord = newWord + 's';
+					position++;
+					break;
+				case 'i':
+					newWord = newWord + 'r';
+					position++;
+					break;
+				case 'j':
+					newWord = newWord + 'q';
+					position++;
+					break;
+				case 'k':
+					newWord = newWord + 'p';
+					position++;
+					break;
+				case 'l':
+					newWord = newWord + 'o';
+					position++;
+					break;
+				case 'm':
+					newWord = newWord + 'n';
+					position++;
+					break;
+				case 'n':
+					newWord = newWord + 'm';
+					position++;
+					break;
+				case 'o':
+					newWord = newWord + 'l';
+					position++;
+					break;
+				case 'p':
+					newWord = newWord + 'k';
+					position++;
+					break;
+				case 'q':
+					newWord = newWord + 'j';
+					position++;
+					break;
+				case 'r':
+					newWord = newWord + 'i';
+					position++;
+					break;
+				case 's':
+					newWord = newWord + 'h';
+					position++;
+					break;
+				case 't':
+					newWord = newWord + 'g';
+					position++;
+					break;
+				case 'u':
+					newWord = newWord + 'f';
+					position++;
+					break;
+				case 'v':
+					newWord = newWord + 'e';
+					position++;
+					break;
+				case 'w':
+					newWord = newWord + 'd';
+					position++;
+					break;
+				case 'x':
+					newWord = newWord + 'c';
+					position++;
+					break;
+				case 'y':
+					newWord = newWord + 'b';
+					position++;
+					break;
+				case 'z':
+					newWord = newWord + 'a';
+					position++;
+					break;
+				default:
+					newWord = newWord + string.charAt(position);
+					position++;
+					break;
+				}
+			}
+			return newWord;
 		}
 	}
 
@@ -726,7 +971,43 @@ public class EvaluationService {
 	 * @return
 	 */
 	public boolean isValidIsbn(String string) {
-		// TODO Write an implementation for this method declaration
+		
+		string = string.replaceAll("[^0-9xX]", "");				//removes all characters from string that are not digits or X's
+		int calculation = 0; 									//number to do calculations on
+		
+		
+		/*
+		 * Code performs calculations
+		 */
+		if (string.length() == 10) {							//checks if string is length of 10, if not return false
+			calculation += ((string.charAt(0) - 48)*10);		
+			calculation += ((string.charAt(1) - 48)*9);
+			calculation += ((string.charAt(2) - 48)*8);
+			calculation += ((string.charAt(3) - 48)*7);
+			calculation += ((string.charAt(4) - 48)*6);
+			calculation += ((string.charAt(5) - 48)*5);
+			calculation += ((string.charAt(6) - 48)*4);
+			calculation += ((string.charAt(7) - 48)*3);
+			calculation += ((string.charAt(8) - 48)*2);
+		/*
+		 * Specifically checks final character if it is a digit of X/x and calculate accordingly 
+		 */
+			if (string.charAt(9)== 'X') {					
+				calculation += (10*1);
+			}
+			else if (string.charAt(9)== 'x') {
+				calculation += (10*1);
+			}
+			else {
+				calculation += ((string.charAt(9) - 48)*1);
+			}
+			if (calculation%11==0) {						// calculation to check is valid number
+				return true;
+			}
+			else {
+				return false;
+			}
+		}
 		return false;
 	}
 
@@ -744,8 +1025,23 @@ public class EvaluationService {
 	 * @return
 	 */
 	public boolean isPangram(String string) {
-		// TODO Write an implementation for this method declaration
-		return false;
+		
+		string = string.replaceAll("[^a-zA-Z]","");
+		
+		Set<Character> returnValue = new HashSet<Character>();
+
+		for (int i=0; i<string.length(); i++) {			//loop to check each letter
+			if ((string.charAt(i)>=65 && string.charAt(i)<=90) || (string.charAt(i)>=97
+					&& string.charAt(i)<=122)) {
+				returnValue.add(string.charAt(i));
+				}
+			else {
+			}
+		}
+		if (returnValue.size() == 26) {
+			return true;
+		}else
+			return false;
 	}
 
 	/**
@@ -757,8 +1053,22 @@ public class EvaluationService {
 	 * @return
 	 */
 	public Temporal getGigasecondDate(Temporal given) {
-		// TODO Write an implementation for this method declaration
-		return null;
+		
+		Temporal newtime;
+		if(given.isSupported(ChronoUnit.SECONDS)) {
+			newtime = LocalDateTime.of(given.get(ChronoField.YEAR), given.get(ChronoField.MONTH_OF_YEAR),
+			given.get(ChronoField.DAY_OF_MONTH), given.get(ChronoField.HOUR_OF_DAY),
+			given.get(ChronoField.MINUTE_OF_HOUR), given.get(ChronoField.SECOND_OF_MINUTE));
+			}
+			else {
+			newtime = LocalDateTime.of(given.get(ChronoField.YEAR), given.get(ChronoField.MONTH_OF_YEAR), 
+			given.get(ChronoField.DAY_OF_MONTH), 0 , 0, 0);
+			}
+
+			final long giga = 1000000000;
+			newtime = ((LocalDateTime) newtime).plusSeconds(giga);
+
+			return newtime;
 	}
 
 	/**
@@ -775,8 +1085,30 @@ public class EvaluationService {
 	 * @return
 	 */
 	public int getSumOfMultiples(int i, int[] set) {
+		
+		int arrayindex = 0;
+		int size = set.length;
+		int value = 0;
+		ArrayList<Integer> numbers = new ArrayList<Integer>();
+		
+		for (int i1=0; i1<size; i1++) {
+			for (int j=1; j<i;j++) {
+				if (j%(set[arrayindex])==0) {
+					if (numbers.contains(j)) {
+						//do nothing
+					}else {
+						numbers.add(j);
+					}
+				}
+			}
+				arrayindex++;
+		}
+		
+		for (int k=0; k<numbers.size(); k++) {
+			value += numbers.get(k);
+		}
 		// TODO Write an implementation for this method declaration
-		return 0;
+		return value;
 	}
 
 	/**
@@ -816,8 +1148,59 @@ public class EvaluationService {
 	 * @return
 	 */
 	public boolean isLuhnValid(String string) {
+		
+		boolean validation = string.matches("[0-9\\s]+");
+		int value = 0;
+		int adder = 0;
+		
+		if (string.length() >1) {
+			// acceptable length
+			System.out.println("Valid length");
+			if (validation) {
+				string = string.replaceAll("[^0-9]", "");	// deletes white space
+			}
+			else {
+				System.out.println("Has invalid characters");
+			}
+			if (validation) {
+				System.out.println("Valid input");
+				
+				
+				for (int i=0; i<string.length(); i+=2) {
+					adder = ((string.charAt(i)-48));
+						value +=adder;
+						adder = 0;
+				}
+				
+				/*
+				 * Implements the calculation of every second number
+				 */
+				for (int i=1; i<string.length(); i+=2) {
+					if (((string.charAt(i)-48)*2) > 9) {
+						adder = ((string.charAt(i)-48)*2);
+						adder -=9;
+						System.out.println("About to add: " + adder);
+						value +=adder;
+						adder = 0;
+					} else {
+					adder = ((string.charAt(i)-48)*2);
+						System.out.println("About to add: " + adder);
+						value +=adder;
+						adder = 0;
+					}
+				}
+			} else {
+				return false;
+			}
+		} else {
+			return false;
+		}
+		if (value%10==0) {
+			 return true;
+		} else { 
+			 return false;
+		}
 		// TODO Write an implementation for this method declaration
-		return false;
 	}
 
 	/**
@@ -848,8 +1231,52 @@ public class EvaluationService {
 	 * @return
 	 */
 	public int solveWordProblem(String string) {
-		// TODO Write an implementation for this method declaration
-		return 0;
+		
+		string = string.substring(8);
+		int value = 0;
+		int numHold = 0;
+		int[] calculate = new int[2];
+		int index =0;
+		String operator = null;
+		
+		for (String word: string.split("\\s+|\\?")) {
+			try {
+				numHold = Integer.parseInt(word);
+				calculate[index] = numHold;
+				index++;
+			}
+			catch (Exception e){
+			}
+			switch(word) {
+			case "plus":
+				operator = "plus";
+					break;
+			case "minus":
+				operator = "minus";
+					break;
+			case "multiplied":
+				operator = "multiplied";
+					break;
+			case "divided":
+				operator = "divided";
+					break;
+			}
+		}
+		switch (operator) {
+			case "plus":
+				value = calculate[0] + calculate [1];
+				break;
+			case "minus":
+				value = calculate[0] - calculate [1];
+				break;
+			case "multiplied":
+				value = calculate[0] * calculate [1];
+				break;
+			case "divided":
+				value = calculate[0] / calculate [1];
+				break;
+		}
+		return value;
 	}
 
 }
