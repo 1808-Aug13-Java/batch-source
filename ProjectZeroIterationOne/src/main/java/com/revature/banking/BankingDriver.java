@@ -14,7 +14,7 @@ import org.apache.log4j.Logger;
 public class BankingDriver {
 
 	public static ArrayList<User> users = new ArrayList<User>();
-	public static Scanner sc = new Scanner(System.in);
+	public static final Scanner sc = new Scanner(System.in);
 	public static User activeUser = null;
 	final static Logger logger = Logger.getLogger(BankingDriver.class);
 	
