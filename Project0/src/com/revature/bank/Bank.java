@@ -238,7 +238,7 @@ public class Bank {
 		}
 	}
 	
-	public void deposit() {
+	private void deposit() {
 		System.out.println("\nHow much would you like to deposit? (Do not include '$' or decimals)");
 		String input = sc.nextLine();
 		Integer deposit = 0;
@@ -263,7 +263,7 @@ public class Bank {
 		return;
 	}
 	
-	public void withdraw() {
+	private void withdraw() {
 		System.out.println("\nHow much would you like to withdraw? (Do not include '$' or decimals)");
 		System.out.println("$" + balances.get(user) + " available for withdrawal");
 		String input = sc.nextLine();
