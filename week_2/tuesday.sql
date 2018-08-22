@@ -135,5 +135,6 @@ ORDER BY SUM (INVOICE_AMOUNT) DESC;
 -- Create a query which returns all purchases which took place in the last month, display them in descending order
 SELECT *
 FROM INVOICE
-WHERE INVOICE_DATE >= ADD_MONTHS(SYSDATE, -1);
+WHERE INVOICE_DATE >= ADD_MONTHS(SYSDATE, -1)
+ORDER BY INVOICE_DATE DESC;
 
