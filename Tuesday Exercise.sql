@@ -89,7 +89,7 @@ ORDER BY CUSTOMER_ID ASC;
 
 --GET SUM OF INVOICES PER CUSTOMER_ID
 
-SELECT SUM(AMOUNT) FROM INVOICE
+SELECT SUM(AMOUNT), customer_id FROM INVOICE
 GROUP BY CUSTOMER_ID
 ORDER BY CUSTOMER_ID ASC;
 
@@ -103,3 +103,47 @@ ORDER BY AMOUNT DESC;
 SELECT * FROM INVOICE
 ORDER BY AMOUNT DESC
 FETCH NEXT 3 ROWS ONLY;
+
+/*-------------------------------------
+Wednesday
+-------------------------------------*/
+
+-- A ----------------------------------
+select * 
+from invoice
+inner join customer
+on invoice.customer_id = customer.customer_id;
+
+-- B ----------------------------------
+select * 
+from invoice
+right join customer
+on invoice.customer_id = customer.customer_id;
+
+-- C ----------------------------------
+select i.*, c.customer_name
+from invoice i,customer c
+where i.customer_id = c.customer_id
+order by i.invoice_id desc;
+
+-- D ----------------------------------
+SELECT sum(amount), customer.customer_name
+from invoice
+inner join customer
+on invoice.customer_id = customer.customer_id
+group by customer.customer_name;
+
+-- E ----------------------------------
+select * 
+from customer
+where customer_id in
+    (select invoice.customer_id from invoice
+    order by invoice_date desc
+    fetch next 1 rows only
+    );
+    
+-- F ----------------------------------
+select invoice_id, customer_name, (amount*1.06)as with_tax
+from invoice, customer
+where invoice.customer_id = customer.customer_id
+order by invoice_id;
