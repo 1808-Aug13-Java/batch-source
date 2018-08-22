@@ -202,3 +202,35 @@ from (
 where ROWNUM < 4;
 
 commit;
+
+--Wednesday Exercise
+select * 
+from INVOICE
+natural join CUSTOMER;
+
+select *
+from INVOICE
+right join CUSTOMER
+on CUSTOMER.CUSTOMER_ID = INVOICE.CUSTOMER_ID;
+
+select INVOICE_ID, DATE_OF_INVOICE, INVOICE.CUSTOMER_ID, AMOUNT, concat(concat(CUSTOMER_FNAME, ' '), CUSTOMER_LNAME) as CUSTOMER_NAME
+from invoice
+left join CUSTOMER
+on CUSTOMER.CUSTOMER_ID = INVOICE.CUSTOMER_ID;
+
+select CUSTOMER_FNAME, sum(INVOICE.AMOUNT) as TOTAL
+from CUSTOMER, INVOICE
+where CUSTOMER.CUSTOMER_ID = INVOICE.CUSTOMER_ID
+group by CUSTOMER_FNAME;
+
+select concat(concat(CUSTOMER_FNAME, ' '), CUSTOMER_LNAME) as CUSTOMER_NAME
+from CUSTOMER 
+natural join(
+    select * from INVOICE
+    where ROWNUM = 1
+    order by DATE_OF_INVOICE desc);
+    
+select concat(concat(C.CUSTOMER_FNAME, ' '), C.CUSTOMER_LNAME) as CUSTOMER_NAME, 
+    I.AMOUNT as TOTAL, 
+    round(I.AMOUNT / 1.06, 2 ) as SUBTOTAL
+from CUSTOMER C, INVOICE I;
