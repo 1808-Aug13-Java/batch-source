@@ -1,10 +1,11 @@
-package com.revature.finance;
+package com.revature.Project0;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Scanner;
+
 
 
 public class Menu {
@@ -15,7 +16,7 @@ public class Menu {
 	
 	public void startUp() {
 		//reads the data stored in the txt file and populates the HashMap with it
-		String path= "src/com/revature/finance/bankingData.txt";
+		String path= "src/com/revature/Project0/bankingData.txt";
 		//sHashMap<String, String> names= new HashMap<String, String>();
 		//String[] readName =new String[3];
 		//int i=0;
@@ -65,7 +66,11 @@ public class Menu {
 		System.out.println("Please select the number of your desired action");
 		System.out.println("1. Log into your account");
 		System.out.println("2. Create an account");
-		
+		if (!sc.hasNextInt()) {
+			System.out.println("invalid input");
+			screen();
+			
+		}
 		int action= sc.nextInt();
 		switch(action) {
 		case 1:{

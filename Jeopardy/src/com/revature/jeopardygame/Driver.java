@@ -17,7 +17,7 @@ public class Driver {
 		int[] personIndex=new int[10];
 		LinkedList<Integer> perIndex=new LinkedList<Integer>();
 		LinkedList<Integer> qsIndex=new LinkedList<Integer>();
-		Integer cool;
+		Integer cool=0;
 		Questions worker= new Questions(qs,ps);
 		
 		
@@ -31,10 +31,11 @@ public class Driver {
 		}
 		case 2:{
 			
-			worker.getPerson(i);
-			worker.getQuestion(i)
+			//worker.getPerson(i);
+			//worker.getQuestion(i)
 			
 		}
+		default: 
 		
 		}
 		
