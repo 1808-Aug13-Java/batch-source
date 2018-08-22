@@ -104,8 +104,9 @@ FROM INVOICE
 WHERE INVOICE_DATE=DATE'2018-08-21';
 
 --F) Create a query which shows each customer and the number of purchases made by each
-SELECT CUSTOMER_ID, AMOUNT
+SELECT CUSTOMER_ID, COUNT(INVOICE_ID) AS "NUM INVOICES"
 FROM INVOICE
+GROUP BY CUSTOMER_ID
 ORDER BY CUSTOMER_ID;
 
 --G) Create a query which shows each customer and the total cost of all their purchases
