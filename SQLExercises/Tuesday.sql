@@ -89,28 +89,28 @@ FROM INVOICE
 WHERE INV_DATE = DATE '2018-08-21';
 
 -- Create a query which shows each customer and the number of purchases made by each
-SELECT SUM(AMOUNT)
+SELECT CUSTOMER.CUST_NAME CUSTOMER, SUM(INVOICE.AMOUNT) TOTAL_AMOUNT
 FROM INVOICE
-GROUP BY CUST_ID
-ORDER BY SUM(AMOUNT) DESC;
+JOIN CUSTOMER
+ON CUSTOMER.CUST_ID = INVOICE.CUST_ID
+GROUP BY CUST_NAME
+ORDER BY TOTAL_AMOUNT DESC;
 
 -- Create a query which shows each customer and the total cost of all their purchases
-SELECT SUM(AMOUNT)
-FROM CUSTOMER, INVOICE
-WHERE CUSTOMER.CUST_ID = INVOICE.CUST_ID;
-
--- Create a query which shows each customer and the total cost of all their purchases
-SELECT CONCAT('$', 8*SUM(AMOUNT))TOTAL_COST
+-- Give items arbitrary cost $8
+SELECT CUSTOMER.CUST_NAME CUSTOMER, CONCAT('$', 8*SUM(INVOICE.AMOUNT))TOTAL_COST
 FROM INVOICE
-GROUP BY CUST_ID
-ORDER BY SUM(AMOUNT) DESC;
+JOIN CUSTOMER
+ON CUSTOMER.CUST_ID = INVOICE.CUST_ID
+GROUP BY CUST_NAME
+ORDER BY 8*SUM(INVOICE.AMOUNT) DESC;
 
 -- Create a query which returns all purchases which took place in the last month, display them in descending order
-SELECT TO_CHAR(INV_DATE)
+SELECT *
 FROM INVOICE
 WHERE TO_CHAR(INV_DATE) LIKE '%AUG-18'
 ORDER BY INV_DATE DESC;
-
+    
 --Create a query which show the top three most expensive purchases
 SELECT *
 FROM (
