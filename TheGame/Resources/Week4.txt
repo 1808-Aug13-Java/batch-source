@@ -1,0 +1,15 @@
+What is a servlet?
+How do we configure a servlet?
+What is the servlet inheritance tree?
+What is the servlet lifecycle?
+Explain the communication between a server and the browser.
+What is the front controller pattern?
+What is a deployment descriptor?
+What is the PrintWriter?
+What is the difference between a forward and a redirect?
+What is the RequestDispatcher used for?
+How do I access a URL parameter?
+What is the difference between servlet context and config?
+What annotation can I use to configure my servlet without using xml?
+What are my different HTTP verbs?
+What is the difference between a get and post request?

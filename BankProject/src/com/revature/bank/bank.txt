@@ -1,0 +1,4 @@
+user1	password	21.32
+user2	password2	27.55
+user3	password3	14.99
+user4	password4	3.44

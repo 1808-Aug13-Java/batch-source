@@ -1,0 +1,34 @@
+What is Java?
+Why do we use Java? What are its benefits?
+What is OOP?
+What are the four Pillars of OOP?
+What is Inheritance?
+What is Polymorphism?
+What is Encapsulation?
+What is Abstraction?
+What is the default value of an int variable declared within class scope?
+What is the default value of a boolean variable declared within block scope?
+What is the entry point of any Java application?
+What is the syntax for the main method?
+What is the difference between the logical operators: & and && ?
+What are the primitive datatypes in Java?
+Difference between == and .equals?
+What is a ternary operator?
+What are the different types of conditional statements in Java?
+What are the different types of looping statements in Java?
+What are the different types of branching keywords in Java?
+What is an alternative to using a long chain of else-if statements?
+What is meant by fall-through, with regard to switch statements?
+What datatypes cannot be used within a switch statement?
+Can you use break and continue to alter the flow of an if-statement?
+Why does Java require that the main method be static?
+What are varargs?
+What position must varargs be included at within the parameters section of a method signature?
+What are the access modifiers in java, and the keywords associated with them?
+What is does 'covariant' mean?
+How can we override a method by changing the throws clause in its method signature?
+What is multiple inheritance, and does Java support it?
+What is the difference between an abstract class and an interface?
+What is a default method in an interface?
+What is variable shadowing?
+What is method overloading?
