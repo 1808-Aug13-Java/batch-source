@@ -1,0 +1,200 @@
+/*
+John Jacko
+Revature
+Week 2 - SQL
+Tuesday excersize
+*/
+
+
+-- A. Create a table INVOICE which includes an id, date, customer id, and amount
+CREATE TABLE INVOICE
+(
+    ID NUMBER(10),
+    DATE_OCCURED DATE,
+    CUST_ID NUMBER(7),
+    AMOUNT NUMBER(8,2)
+);
+
+-- B. Create a table CUSTOMER which includes relevant customer information
+CREATE TABLE CUSTOMER
+(
+    CUST_ID NUMBER(7) CONSTRAINT PK_CUST PRIMARY KEY,
+    NAME_ VARCHAR2(30)
+);
+
+-- C. Customer id in the invoice table should make a reference to the customer id in the customer table
+ALTER TABLE INVOICE
+    ADD CONSTRAINT FK_INVOICE_CUST
+    FOREIGN KEY (CUST_ID) REFERENCES CUSTOMER(CUST_ID);
+
+
+-- D. Insert at least 50 records into your invoice table and at least 10 records into your customer table
+INSERT INTO CUSTOMER VALUES (1, 'JOHN JACKO');
+INSERT INTO CUSTOMER VALUES (2, 'SHEEV PALPATINE');
+INSERT INTO CUSTOMER VALUES (3, 'ANAKIN SKYWALKER');
+INSERT INTO CUSTOMER VALUES (4, 'THOR ODINSON');
+INSERT INTO CUSTOMER VALUES (5, 'NATASHA ROMANOV');
+INSERT INTO CUSTOMER VALUES (6, 'REY VOS');
+INSERT INTO CUSTOMER VALUES (7, 'MIRANDA C.');
+INSERT INTO CUSTOMER VALUES (8, 'TONY STARK');
+INSERT INTO CUSTOMER VALUES (9, 'CINNA');
+INSERT INTO CUSTOMER VALUES (10, 'KATNISS EVERDEEN');
+
+INSERT INTO INVOICE VALUES
+    (1, DATE '2018-08-22', 1, 93245.53);
+INSERT INTO INVOICE VALUES
+    (2, DATE '2017-08-21', 2, 32452.53);
+INSERT INTO INVOICE VALUES
+    (3, DATE '2016-08-21', 3, 32435.53);
+INSERT INTO INVOICE VALUES
+    (4, DATE '2015-08-21', 4, 32945.53);
+INSERT INTO INVOICE VALUES
+    (5, DATE '2018-08-22', 5, 32535.53);
+INSERT INTO INVOICE VALUES
+    (6, DATE '2017-08-11', 6, 3265.53);
+INSERT INTO INVOICE VALUES
+    (7, DATE '2016-08-11', 7, 3275.53);
+INSERT INTO INVOICE VALUES
+    (8, DATE '2015-08-11', 8, 3285.53);
+INSERT INTO INVOICE VALUES
+    (9, DATE '2018-07-21', 9, 3285.53);
+INSERT INTO INVOICE VALUES
+    (10, DATE '2017-07-21', 1, 1245.53);
+INSERT INTO INVOICE VALUES
+    (11, DATE '2016-07-21', 1, 3345.53);
+INSERT INTO INVOICE VALUES
+    (12, DATE '2015-07-21', 2, 32445.53);
+INSERT INTO INVOICE VALUES
+    (13, DATE '2018-08-21', 3, 3945.53);
+INSERT INTO INVOICE VALUES
+    (14, DATE '2017-08-21', 4, 3645.53);
+INSERT INTO INVOICE VALUES
+    (15, DATE '2016-08-21', 5, 3245.53);
+INSERT INTO INVOICE VALUES
+    (16, DATE '2015-08-21', 6, 3275.53);
+INSERT INTO INVOICE VALUES
+    (17, DATE '2018-07-20', 7, 3275.53);
+INSERT INTO INVOICE VALUES
+    (18, DATE '2017-07-20', 8, 324.53);
+INSERT INTO INVOICE VALUES
+    (19, DATE '2016-07-20', 9, 325.53);
+INSERT INTO INVOICE VALUES
+    (20, DATE '2015-07-20', 1, 345.53);
+INSERT INTO INVOICE VALUES
+    (21, DATE '2018-08-21', 1, 345.53);
+INSERT INTO INVOICE VALUES
+    (22, DATE '2017-09-21', 2, 93245.53);
+INSERT INTO INVOICE VALUES
+    (23, DATE '2016-09-23', 3, 38245.53);
+INSERT INTO INVOICE VALUES
+    (24, DATE '2015-09-23', 4, 32845.53);
+INSERT INTO INVOICE VALUES
+    (25, DATE '2018-08-21', 5, 32485.53);
+INSERT INTO INVOICE VALUES
+    (26, DATE '2017-08-23', 6, 32459.53);
+INSERT INTO INVOICE VALUES
+    (27, DATE '2016-08-23', 7, 83245.53);
+INSERT INTO INVOICE VALUES
+    (28, DATE '2015-08-13', 8, 39245.53);
+INSERT INTO INVOICE VALUES
+    (29, DATE '2018-05-28', 9, 32945.53);
+INSERT INTO INVOICE VALUES
+    (30, DATE '2017-08-23', 1, 32645.53);
+INSERT INTO INVOICE VALUES
+    (31, DATE '2016-08-16', 1, 32455.53);
+INSERT INTO INVOICE VALUES
+    (32, DATE '2015-08-21', 2, 32454.53);
+INSERT INTO INVOICE VALUES
+    (33, DATE '2018-08-21', 3, 63245.53);
+INSERT INTO INVOICE VALUES
+    (34, DATE '2017-08-21', 4, 35245.53);
+INSERT INTO INVOICE VALUES
+    (35, DATE '2016-08-21', 5, 32745.53);
+INSERT INTO INVOICE VALUES
+    (36, DATE '2015-08-21', 6, 32455.53);
+INSERT INTO INVOICE VALUES
+    (37, DATE '2018-08-21', 7, 32445.53);
+INSERT INTO INVOICE VALUES
+    (38, DATE '2017-08-21', 8, 32453.53);
+INSERT INTO INVOICE VALUES
+    (39, DATE '2016-08-21', 9, 32458.53);
+INSERT INTO INVOICE VALUES
+    (40, DATE '2015-08-21', 1, 32425.53);
+INSERT INTO INVOICE VALUES
+    (41, DATE '2018-08-21', 1, 32453.53);
+INSERT INTO INVOICE VALUES
+    (42, DATE '2017-08-21', 2, 31245.53);
+INSERT INTO INVOICE VALUES
+    (43, DATE '2016-08-21', 3, 13245.53);
+INSERT INTO INVOICE VALUES
+    (44, DATE '2015-08-21', 4, 31245.53);
+INSERT INTO INVOICE VALUES
+    (45, DATE '2018-08-21', 5, 32245.53);
+INSERT INTO INVOICE VALUES
+    (46, DATE '2017-08-21', 6, 32435.53);
+INSERT INTO INVOICE VALUES
+    (47, DATE '2016-08-21', 7, 32453.53);
+INSERT INTO INVOICE VALUES
+    (48, DATE '2015-08-21', 8, 23245.53);
+INSERT INTO INVOICE VALUES
+    (49, DATE '2018-08-21', 9, 321245.53);
+INSERT INTO INVOICE VALUES
+    (50, DATE '2017-08-21', 1, 32345.53);
+
+
+-- E. Create a query which shows purchases that occured today
+-- SYSDATE AND TO_CHAR CAME FROM
+-- https://docs.oracle.com/cd/B19306_01/server.102/b14200/functions172.htm
+SELECT * FROM INVOICE WHERE TO_CHAR(DATE_OCCURED, 'MM-DD-YYYY')= TO_CHAR(SYSDATE, 'MM-DD-YYYY');
+
+-- Join information came from 
+-- https://www.tutorialspoint.com/sql_certificate/get_data_from_multiple_tables.htm
+
+-- F. Create a query which shows each customer and the number of purchases made by each
+SELECT NAME_, COUNT(CUST_ID) FROM CUSTOMER JOIN INVOICE USING (CUST_ID) group by NAME_;
+
+-- G. Create a query which shows each customer and the total cost of all their purchases
+SELECT NAME_, SUM(AMOUNT) FROM CUSTOMER JOIN INVOICE USING (CUST_ID) GROUP BY NAME_;
+
+-- H. Create a query which returns all purchases which took place in the last month, display them in descending order
+SELECT * FROM INVOICE WHERE TO_CHAR(DATE_OCCURED, 'MM-YYYY')= TO_CHAR(SYSDATE, 'MM-YYYY')
+    ORDER BY DATE_OCCURED DESC;
+
+-- I. Create a query which show the top three most expensive purchases
+-- ROW INFORMATION CAME FROM 
+-- https://www.tutorialspoint.com/sql/sql-top-clause.htm
+SELECT * FROM INVOICE WHERE ROWNUM <= 3 ORDER BY AMOUNT DESC;
+
+
+-- Problems added Wednesday
+
+-- A. Create a query which returns all of the invoices which have a listed customer,
+--  but not invoices who have no customer listed and not customers who have no invoices listed
+SELECT * FROM INVOICE JOIN CUSTOMER ON INVOICE.CUST_ID = CUSTOMER.CUST_ID;
+
+-- B. Create a query which returns all of the invoices and their customer, not invoices who
+--  have no customer listed but include customers which have no invoices listed
+SELECT * FROM INVOICE RIGHT JOIN CUSTOMER ON INVOICE.CUST_ID = CUSTOMER.CUST_ID;
+
+-- C. Create a query which shows each record in the invoice table, along with the name of the customer
+SELECT INVOICE.*, CUSTOMER.NAME_ FROM INVOICE LEFT JOIN CUSTOMER ON INVOICE.CUST_ID = CUSTOMER.CUST_ID;
+
+-- D. Create a query which shows the name of each customer and the total amount they have spent
+SELECT CUSTOMER.NAME_, SUM(INVOICE.AMOUNT) FROM CUSTOMER JOIN INVOICE USING (CUST_ID) GROUP BY CUSTOMER.NAME_;
+
+-- E. Create a query which returns the record of the customer who made the most recent purchase
+SELECT * FROM CUSTOMER 
+NATURAL JOIN INVOICE WHERE ROWNUM < 2 ORDER BY INVOICE.DATE_OCCURED;
+
+-- F. Create a query which shows the purchaser of each invoice and the subtotal of each invoice
+--  if 6% sales tax was applied to the subtotal to get the price of each invoice
+SELECT CUSTOMER.NAME_, INVOICE.AMOUNT*0.06 + INVOICE.AMOUNT AS TOTAL, INVOICE.AMOUNT AS SUBTOTAL FROM
+    CUSTOMER JOIN INVOICE USING(CUST_ID);
+
+
+
+
+
+
+--DROP TABLE INVOICE;
+--DROP TABLE CUSTOMER;
