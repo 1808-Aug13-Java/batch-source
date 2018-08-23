@@ -10,12 +10,6 @@ import java.math.BigDecimal;
  */
 public interface DataInterface {
 	
-	//TODO: Consider throwing exception through this interface in case 
-	// of data reading failure. 
-	
-	// TODO: Refine interface more tomorrow, as it might serve the basis for 
-	// the transfer of data. MAybe consider detaching the interface and making 
-	// a more general api that's more flexible later. 
 	
 	/**
 	 * Queries the database to see if the specified user exists. 
