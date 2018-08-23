@@ -6,4 +6,5 @@
 <fullyQualifiedTypeName name="com.revature.exceptions.NegativeTuskLength"/>
 <fullyQualifiedTypeName name="com.revature.exceptions.NegativeAge"/>
 <fullyQualifiedTypeName name="java.util.HashMap"/>
+<fullyQualifiedTypeName name="java.sql.DriverManager"/>
 </qualifiedTypeNameHistroy>
