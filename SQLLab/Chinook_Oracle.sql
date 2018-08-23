@@ -15823,5 +15823,51 @@ INSERT INTO PlaylistTrack (PlaylistId, TrackId) VALUES (18, 597);
 commit;
 exit;
 
+-- 2.0 SQL Queries
+
+-- 2.1 SELECT
+-- Select all records from the Employee table.
 SELECT *
-FROM CHINOOK/EMPLOYEE;
+FROM CHINOOK.EMPLOYEE;
+
+-- Select all records from the Employee table where last name is King.
+SELECT *
+FROM CHINOOK.EMPLOYEE
+WHERE LASTNAME = 'King';
+
+-- Select all records from the Employee table where first name is Andrew and REPORTSTO is NULL.// 
+SELECT *
+FROM CHINOOK.EMPLOYEE
+WHERE FIRSTNAME = 'Andrew' AND REPORTSTO IS NULL;
+
+-- 2.2 ORDER BY
+-- Select all albums in Album table and sort result set in descending order by title.
+SELECT *
+FROM CHINOOK.ALBUM
+ORDER BY TITLE DESC;
+
+-- Select first name from Customer and sort result set in ascending order by city
+SELECT C.FIRSTNAME
+FROM CHINOOK.CUSTOMER C
+ORDER BY CITY ASC;
+
+-- 2.3 INSERT INTO
+-- Insert two new records into Genre table 
+INSERT INTO CHINOOK.GENRE VALUES(26, 'Future Funk');
+INSERT INTO CHINOOK.GENRE VALUES(27, 'Future Bass');
+
+-- Insert two new records into Employee table
+INSERT INTO CHINOOK.Employee VALUES (9, 'Lee', 'Josh', 'HR Manager', 1, TO_DATE('1950-1-19 00:00:00','yyyy-mm-dd hh24:mi:ss'), TO_DATE('1999-4-22 00:00:00','yyyy-mm-dd hh24:mi:ss'), '1001 Apple Ave NW', 'Vancouver', 'AB', 'Canada', 'T1A 1A1', '+1 (780) 528-9181', '+1 (780) 418-3117', 'josh@chinookcorp.com');
+INSERT INTO CHINOOK.Employee VALUES (10, 'Park', 'Jennifer', 'HR Staff', 9, TO_DATE('1970-4-20 00:00:00','yyyy-mm-dd hh24:mi:ss'), TO_DATE('2002-8-21 00:00:00','yyyy-mm-dd hh24:mi:ss'), '3220 Main ST SW', 'Vancouver', 'AB', 'Canada', 'T1A 1A1', '+1 (780) 555-1572', '+1 (780) 420-1337', 'jennifer@chinookcorp.com');
+
+-- Insert two new records into Customer table 
+INSERT INTO CHINOOK.Customer VALUES (60, 'Matthew', 'Kim', NULL, '2000 Rainbow Road', 'Dreamland', 'KB', 'USA', '20000', '+1 (712) 323-5555', '+1 (712) 923-5566', 'matthewk@gmail.com', 3);
+INSERT INTO CHINOOK.Customer VALUES (61, 'Michael', 'Lu', NULL, '7272 Main Street', 'Real City', 'CA', 'USA', '92030', '+1 (626) 392-5555', '+1 (626) 393-5566', 'michaell@gmail.com', 5);
+
+-- 2.4 UPDATE
+-- Update Aaron Mitchell in Customer table to Robert Walter
+
+
+-- Update name of artist in the Artist table “Creedence Clearwater Revival” to “CCR”
+
+COMMIT;
