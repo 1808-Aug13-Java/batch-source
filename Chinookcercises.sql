@@ -49,3 +49,11 @@ WHERE FIRSTNAME = 'Aaron' AND LASTNAME = 'Mitchell';
 UPDATE CHINOOK.ARTIST
 SET NAME = 'CCR'
 WHERE NAME = 'Creedence Clearwater Revival';
+
+-------------------------------------------------
+-- 2.5 LIKE
+-------------------------------------------------
+
+SELECT * 
+FROM CHINOOK.INVOICE
+WHERE BILLINGADDRESS LIKE 'T%';
