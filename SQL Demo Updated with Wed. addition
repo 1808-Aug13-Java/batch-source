@@ -150,7 +150,7 @@ FROM CUSTOMER C, INVOICE I
 WHERE C.CUSTOMER_ID = I.CUSTOMER_ID
 GROUP BY C.CUSTOMER_NAME;
 
---E. Create a query which returns the record of the customer who made the most recent purchase
+--E. Create a query which returns the record of the customer who made the most recent purchase.
 
 SELECT CUSTOMER_NAME, INVOICE_DATE
 FROM (SELECT * 
