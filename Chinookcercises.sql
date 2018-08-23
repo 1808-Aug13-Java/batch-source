@@ -84,3 +84,24 @@ WHERE CUSTOMERID =
 DELETE CHINOOK.CUSTOMER
 WHERE FIRSTNAME = 'Robert' AND LASTNAME = 'Walter';
 
+-------------------------------------------------
+-- 3.1 System Defined Functions
+-------------------------------------------------
+
+CREATE FUNCTION CURRENT_TIME
+RETURN TIMESTAMP
+IS
+BEGIN
+    RETURN LOCALTIMESTAMP();
+END;
+/
+
+CREATE FUNCTION LENGTH_OF_NAME(MEDIA_NAME CHINOOK.MEDIATYPE.NAME%TYPE)
+RETURN NUMBER
+IS
+BEGIN
+    RETURN LENGTH(MEDIA_NAME);
+END;
+/
+
+
