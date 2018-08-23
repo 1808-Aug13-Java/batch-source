@@ -69,3 +69,18 @@ WHERE TOTAL BETWEEN 0 AND 15;
 SELECT *
 FROM CHINOOK.EMPLOYEE
 WHERE HIREDATE BETWEEN DATE '2003-06-01' AND DATE '2004-03-01';
+
+-------------------------------------------------
+-- 2.7 DELETE
+-------------------------------------------------
+
+DELETE CHINOOK.INVOICE
+WHERE CUSTOMERID = 
+    ( SELECT CUSTOMERID
+    FROM CHINOOK.CUSTOMER
+    WHERE FIRSTNAME = 'Robert' AND LASTNAME = 'Walter'
+    );
+
+DELETE CHINOOK.CUSTOMER
+WHERE FIRSTNAME = 'Robert' AND LASTNAME = 'Walter';
+
