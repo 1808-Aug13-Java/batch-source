@@ -84,8 +84,10 @@ WHERE HireDate >= DATE '2003-06-01' AND HireDate <= DATE '2004-03-01';
 
 -- 2.7 Delete
 -- DON'T DELETE THE OTHER STUFF!!! ONLY DELETE CUSTOMER, and set Forign KEys to it to null. Saves Data. 
-
-DELETE FROM CHINOOK.INVOICE
+-- There are two ways of doing this, deleting the other rows in the other tables, or setting a forign key to null. 
+-- I would assume, without any other knowledge, that 
+UPDATE CHINOOK.INVOICE
+SET 
 WHERE CustomerID IN 
     (SELECT CustomerID FROM CHINOOK.CUSTOMER
         WHERE FirstName = 'Robert' AND LastName = 'Walter'

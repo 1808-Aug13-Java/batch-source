@@ -35,10 +35,10 @@ table has been made
 candidate key = any column(s) which uniquely identifies a row and that we could 
 use to uniquely identify records. */
 
-DROP TABLE DEPARTMENT;
-DROP TABLE EMPLOYEE;
-DROP TABLE LOCATION;
 
+DROP TABLE EMPLOYEE;
+DROP TABLE DEPARTMENT;
+DROP TABLE LOCATION;
 
 -- We can use this command to create new table
 CREATE TABLE DEPARTMENT(
@@ -46,7 +46,7 @@ CREATE TABLE DEPARTMENT(
     -- DEPT_ID         NUMBER(5)       PRIMARY KEY
     DEPT_ID  NUMBER(5)  CONSTRAINT PK_DEPT  PRIMARY KEY,
     DEPT_NAME  VARCHAR2(50),
-    MOUNTHLY_BUDGET  NUMBER(7,2)
+    MONTHLY_BUDGET  NUMBER(7,2)
 );
 
 
@@ -91,7 +91,7 @@ ALTER TABLE LOCATION
 
 COMMIT;
 
-SET AUTOCOMMIT OFF; -- Turns off autocommit
+SET AUTOCOMMIT OFF -- Turns off autocommit
 SET TRANSACTION NAME 'INSERTING STUFF';
 -- Add a department
 INSERT INTO DEPARTMENT VALUES(1, 'Marketing', 10000);
