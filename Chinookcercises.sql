@@ -37,3 +37,15 @@ INSERT INTO CHINOOK.EMPLOYEE VALUES (10, 'Brooks', 'Alexandra', 'IT Staff', 6, D
 
 INSERT INTO CHINOOK.CUSTOMER VALUES (60, 'Pizza-Mai', 'Hart', 'Target', '214 King St', 'Hollaback', 'CA', 'United States', 95014, '+1 (214) 804-2341', '+1 (214) 347-3942', 'pizzamyheart@yahoo.com', 3);
 INSERT INTO CHINOOK.CUSTOMER VALUES (61, 'Josh', 'Dun', 'Fueled By Ramen', '10 Drummer Ave', 'Boy Lane', 'CA', 'United States', 12345, '+1 (111) 485-3598', '+1 (586) 292-4592', 'joshlovestyler@gmail.com', 2);
+
+-------------------------------------------------
+-- 2.4 UPDATE
+-------------------------------------------------
+
+UPDATE CHINOOK.CUSTOMER
+SET FIRSTNAME = 'Robert', LASTNAME = 'Walter'
+WHERE FIRSTNAME = 'Aaron' AND LASTNAME = 'Mitchell';
+
+UPDATE CHINOOK.ARTIST
+SET NAME = 'CCR'
+WHERE NAME = 'Creedence Clearwater Revival';
