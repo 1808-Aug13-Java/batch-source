@@ -36,7 +36,7 @@ WHERE ROWNUM <=1
 
 -- Create a query which shows the purchaser of each invoice and the subtotal of each invoice if 6% sales tax 
 --	was applied to the subtotal to get the price of each invoice
-SELECT C.CUST_NAME CUSTOMER, I.INV_ID, CONCAT('$', 8*I.AMOUNT*1.06)SUBTOTAL
+SELECT C.CUST_NAME CUSTOMER, I.INV_ID, CONCAT('$', I.AMOUNT*1.06)SUBTOTAL
 FROM INVOICE I
 JOIN CUSTOMER C
 ON C.CUST_ID = I.CUST_ID
