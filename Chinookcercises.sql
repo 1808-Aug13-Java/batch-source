@@ -57,3 +57,15 @@ WHERE NAME = 'Creedence Clearwater Revival';
 SELECT * 
 FROM CHINOOK.INVOICE
 WHERE BILLINGADDRESS LIKE 'T%';
+
+-------------------------------------------------
+-- 2.6 BETWEEN
+-------------------------------------------------
+
+SELECT *
+FROM CHINOOK.INVOICE
+WHERE TOTAL BETWEEN 0 AND 15;
+
+SELECT *
+FROM CHINOOK.EMPLOYEE
+WHERE HIREDATE BETWEEN DATE '2003-06-01' AND DATE '2004-03-01';
