@@ -1,11 +1,11 @@
 --this is the script for the tuesday exercise on queries
 --Create a table INVOICE which includes an id, date, customer id, and amount
 
---2. Create a table CUSTOMER which includes relevant customer information 
+--2. Create a table CUSTOMER which includes relevant customer information
 --	1. Customer id
 --	2. Customer name
 --	3. Phone number
---	
+--
 --3. Customer id in the invoice table should make a reference to the customer id in the customer table
 --4. Insert at least 50 records into your invoice table and at least 10 records into your customer table
 
@@ -25,12 +25,12 @@ CREATE TABLE CUSTOMER (
     CUSTOMER_LAST_NAME VARCHAR2(10),
     PHONE_NUMBER NUMBER(10)
     );
-    
+
 CREATE TABLE INVOICE (
     INVOICE_ID NUMBER(5) UNIQUE,
     INVOICE_DATE DATE,
-    CUSTOMER_ID NUMBER(5) CONSTRAINT FK_CSTR_ID REFERENCES CUSTOMER, 
-    AMOUNT NUMBER(7,2)  
+    CUSTOMER_ID NUMBER(5) CONSTRAINT FK_CSTR_ID REFERENCES CUSTOMER,
+    AMOUNT NUMBER(7,2)
 );
 
 
@@ -121,7 +121,7 @@ ORDER BY COUNT(INVOICE.INVOICE_ID);
 
 --THIRD
 Select * From INVOICE
-WHERE 
+WHERE
 INVOICE_DATE >= add_months(sysdate, -6)
 ORDER BY INVOICE_DATE DESC;
 
@@ -132,3 +132,88 @@ select amount
 from invoice
 where ROWNUM <=3
 ORDER BY AMOUNT;
+COMMIT;
+
+--wednesday exercises
+--Create a query which returns all of the invoices which have a listed customer, but not invoices who have no customer listed and not customers who have no invoices listed
+--Create a query which returns all of the invoices and their customer, not invoices who have no customer listed but include customers which have no invoices listed
+--Create a query which shows each record in the invoice table, along with the name of the customer
+--Create a query which shows the name of each customer and the total amount they have spent
+--Create a query which returns the record of the customer who made the most recent purchase
+--Create a query which shows the purchaser of each invoice and the subtotal of each invoice if 6% sales tax was applied to the subtotal to get the price of each invoice
+
+-- insert customers that do not have any invoices
+insert into CUSTOMER (CUSTOMER_ID, CUSTOMER_FIRST_NAME, CUSTOMER_LAST_NAME, PHONE_NUMBER) values (58738, 'Mike', 'Yo', '4129375039');
+insert into CUSTOMER (CUSTOMER_ID, CUSTOMER_FIRST_NAME, CUSTOMER_LAST_NAME, PHONE_NUMBER) values (58740, 'Katie', 'Bonds', '1023904856');
+
+-- insert invoices that do not have any customers
+--invoice id, date, customer id, amount
+insert into INVOICE (INVOICE_ID, INVOICE_DATE,AMOUNT)values (98307, Date '2013-06-23', 2000.34);
+insert into INVOICE (INVOICE_ID, INVOICE_DATE,AMOUNT)values (98306, Date '2013-06-22', 1000.34);
+
+--1)--Create a query which returns all of the invoices which have a listed customer,
+--but not invoices who have no customer listed and
+--not customers who have no invoices listed
+
+SELECT *
+FROM INVOICE
+WHERE EXISTS (
+    SELECT *
+    FROM CUSTOMER
+    WHERE customer.customer_id = invoice.customer_id
+    )
+ORDER BY INVOICE.INVOICE_ID;
+ COMMIT;
+--ONLY INVOICE VALUES 98307 AND 98306 SHOULD NOT APPEAR
+--2) --Create a query which returns all of the invoices and their customer,
+--not invoices who have no customer listed but
+--include customers which have no invoices listed
+
+SELECT C.CUSTOMER_FIRST_NAME AS FIRSTNAME,c.customer_last_name AS LASTNAME,
+    I.*
+FROM CUSTOMER C
+LEFT JOIN invoice I
+ON c.customer_id= i.customer_id
+ORDER BY i.invoice_id;
+-- CUSTOMERS KATIE BANKS AND MIKE YO DO NOT HAVE INVOICES BUT STILL APPEAR,
+--INVOICES W/O CUSTOMER ID VALUES DO NOT APPEAR, THERE IS NO INVOICE ID WITH A NULL CUSTOMER
+
+--3) --Create a query which shows each record in the invoice table,
+--along with the name of the customer
+SELECT C.CUSTOMER_FIRST_NAME AS FIRSTNAME,c.customer_last_name AS LASTNAME,
+    I.*
+FROM INVOICE I
+LEFT JOIN CUSTOMER C
+ON i.customer_id=c.customer_id;
+--ALL INVOICES APPEAR, EVEN ONES WITH NOT CUSTOMER,
+
+--4)--Create a query which shows name of each customer and
+--the total amount they have spent
+--even customers who do not have purchases, they should have amount =0
+
+SELECT C.CUSTOMER_FIRST_NAME AS FIRST, C.CUSTOMER_LAST_NAME AS LAST, SUM(I.AMOUNT)AS TOTAL
+FROM CUSTOMER C
+LEFT JOIN INVOICE I
+ON C.CUSTOMER_ID= I.CUSTOMER_ID
+GROUP BY c.customer_first_name, c.customer_last_name
+ORDER BY TOTAL;
+
+--5)--Create a query which returns the record of the customer who made the most recent purchase
+
+SELECT *
+FROM CUSTOMER
+LEFT JOIN INVOICE I
+ON CUSTOMER.CUSTOMER_ID =I.CUSTOMER_ID
+WHERE I.INVOICE_DATE=(
+SELECT MAX(INVOICE_DATE)
+FROM INVOICE);
+
+--6)--Create a query which shows the purchaser of each invoice and
+--the subtotal of each invoice if
+--6% sales tax was applied to the subtotal to get the price of each invoice
+
+SELECT C.*, ROUND((I.AMOUNT/1.06),2)
+FROM CUSTOMER C
+LEFT JOIN INVOICE I
+ON C.CUSTOMER_ID=I.CUSTOMER_ID;
+COMMIT;
