@@ -6,7 +6,7 @@ drop table customer;
 CREATE TABLE INVOICE(
     INVOICE_ID NUMBER(5),
     INVOICE_DATE DATE,
-    CUSTOMER_ID NUMBER(5),
+    CUSTOMER_ID NUMBER(2),
     AMOUNT NUMBER (3) 
 );
 
@@ -79,7 +79,7 @@ insert into INVOICE values (29, DATE '2018-03-03', 9, 255);
 insert into INVOICE values (30, DATE '2018-02-05', 9, 738);
 insert into INVOICE values (31, DATE '2017-11-10', 7, 261);
 insert into INVOICE values (32, DATE '2018-01-25', 6, 982);
-insert into INVOICE values (33, DATE '2018-02-24', 1, 396);
+insert into INVOICE values (33, DATE '2018-02-24', 6, 396);
 insert into INVOICE values (34, DATE '2017-11-13', 10, 925);
 insert into INVOICE values (35, DATE '2018-02-22', 3, 681);
 insert into INVOICE values (36, DATE '2018-03-16', 2, 336);
@@ -88,15 +88,15 @@ insert into INVOICE values (38, DATE '2018-07-21', 9, 825);
 insert into INVOICE values (39, DATE '2017-10-30', 10, 850);
 insert into INVOICE values (40, DATE '2018-05-01', 9, 797);
 insert into INVOICE values (41, DATE '2018-02-13', 4, 951);
-insert into INVOICE values (42, DATE '2017-08-29', 1, 301);
+insert into INVOICE values (42, DATE '2017-08-29', 4, 301);
 insert into INVOICE values (43, DATE '2018-03-13', 3, 785);
 insert into INVOICE values (44, DATE '2017-08-31', 8, 986);
 insert into INVOICE values (45, DATE '2018-03-13', 3, 873);
-insert into INVOICE values (46, DATE '2018-02-14', 1, 471);
+insert into INVOICE values (46, DATE '2018-02-14', 3, 471);
 insert into INVOICE values (47, DATE '2018-03-03', 2, 767);
 insert into INVOICE values (48, DATE '2018-08-21', 10, 255);
-insert into INVOICE values (49, DATE '2017-09-28', 6, 323);
-INSERT INTO INVOICE values (50, DATE '2018-06-22', 1, 965);
+insert into INVOICE values (49, DATE '2017-09-28', (NULL), 323);
+INSERT INTO INVOICE values (50, DATE '2018-06-22', (NULL), 965); -- CUSTOMER_ID 1 SHOULD NOT HAVE ANY INVOICES
 
 --E) Create a query which shows purchases that occured today
 SELECT * 
@@ -130,7 +130,54 @@ FROM (
     )
 WHERE ROWNUM <= 3;
 
---LIMIT not supported
---ROWNUM GIVES INACCURATE DATAA
---TOP not supported
---.
+-- A) Create a query which returns all of the invoices which have a listed customer, but not invoices who have no customer listed and not customers who have no invoices listed
+SELECT *
+FROM INVOICE
+WHERE CUSTOMER_ID IN (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+MINUS
+SELECT *
+FROM INVOICE
+WHERE CUSTOMER_ID IS NULL;
+-- RESULT SHOULD HAVE NO NULL VALUES'
+
+-- B) Create a query which returns all of the invoices and their customer, not invoices who have no customer listed but include customers which have no invoices listed
+SELECT *
+FROM INVOICE I
+RIGHT JOIN CUSTOMER C
+ON I.CUSTOMER_ID = C.CUSTOMER_ID;
+-- RESULT SHOULD INCLUDE CUSTOMER_ID 1
+
+-- C) Create a query which shows each record in the invoice table, along with the name of the customer
+SELECT I.*, C.CUSTOMER_NAME
+FROM INVOICE I
+LEFT JOIN CUSTOMER C
+ON I.CUSTOMER_ID = C.CUSTOMER_ID
+ORDER BY INVOICE_ID;
+-- RESULT SHOULD BE 50 ROWS LONG
+
+-- D) Create a query which shows the name of each customer and the total amount they have spent
+SELECT I.AMOUNT, C.CUSTOMER_NAME
+FROM INVOICE I
+RIGHT JOIN CUSTOMER C
+ON I.CUSTOMER_ID = C.CUSTOMER_ID
+ORDER BY AMOUNT;
+
+-- E) Create a query which returns the record of the customer who made the most recent purchase
+SELECT CUSTOMER_ID, CUSTOMER_NAME
+FROM (
+    SELECT C.CUSTOMER_ID, C.CUSTOMER_NAME
+    FROM CUSTOMER C
+    RIGHT JOIN INVOICE I
+    ON I.CUSTOMER_ID = C.CUSTOMER_ID
+    ORDER BY I.INVOICE_DATE DESC
+    )
+WHERE ROWNUM <= 1;
+-- RESULT SHOULD BE CUSTOMER_ID 6 W/ NAME ADDISON  MCD....
+
+-- Create a query which shows the purchaser of each invoice and the subtotal of each invoice if 6% sales tax was applied to the subtotal to get the price of each invoice
+SELECT (I.AMOUNT/1.06) AS SUBTOTAL, C.CUSTOMER_NAME
+FROM INVOICE I
+LEFT JOIN CUSTOMER C
+ON I.CUSTOMER_ID = C.CUSTOMER_ID
+ORDER BY AMOUNT;
+-- RESULT SHOULD BE 50 ROWS LONG BECAUSE WE WANT EACH INVOICE
