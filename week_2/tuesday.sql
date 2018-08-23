@@ -45,6 +45,7 @@ INSERT INTO CUSTOMER VALUES (8, 'EDGAR POE', '999 BROOKLYN AVE', 'NEW YORK', 'NY
 INSERT INTO CUSTOMER VALUES (9, 'ABE LINCOLN', '2 RESTON ST', 'RESTON', 'VA', 10998, 'john@example.com');
 INSERT INTO CUSTOMER VALUES (10, 'PETER PARKER', '1738 WISCONSIN BLVD', 'NEW ORLEANS', 'LA', 36678, 'jeff@amazon.com');
 
+
 INSERT INTO INVOICE (INVOICE_ID, CUSTOMER_ID, INVOICE_DATE, INVOICE_AMOUNT) values (1, 1, DATE '2018-06-17', 5795.02);
 
 
@@ -101,6 +102,9 @@ INSERT INTO INVOICE (INVOICE_ID, CUSTOMER_ID, INVOICE_DATE, INVOICE_AMOUNT) valu
 INSERT INTO INVOICE (INVOICE_ID, CUSTOMER_ID, INVOICE_DATE, INVOICE_AMOUNT) values (51, 4, DATE '2018-08-21', 9982.42);
 INSERT INTO INVOICE (INVOICE_ID, CUSTOMER_ID, INVOICE_DATE, INVOICE_AMOUNT) values (52, 7, DATE '2018-08-21', 9000.42);
 
+-- NO INVOICE
+INSERT INTO INVOICE (INVOICE_ID, INVOICE_DATE) values (53, DATE '2018-08-21');
+
 
 -- TOP 3 PURCHASES W/ ALL TABLE INFO
 -- Create a query which show the top three most expensive purchases
@@ -138,3 +142,79 @@ FROM INVOICE
 WHERE INVOICE_DATE >= ADD_MONTHS(SYSDATE, -1)
 ORDER BY INVOICE_DATE DESC;
 
+
+
+---------------
+-- WEDNESDAY --
+---------------
+
+--
+
+--A. Create a query which returns all of the invoices which have a listed customer, but not invoices who have no customer listed
+--and not customers who have no invoices listed
+SELECT
+    I.*,
+    C.CUSTOMER_NAME AS NAME
+FROM CUSTOMER C
+LEFT JOIN INVOICE I
+ON C.CUSTOMER_ID = I.CUSTOMER_ID;
+
+
+
+-- B. Create a query which returns all of the invoices and their customer, not invoices who have no customer listed but include
+-- but include customers which have no invoices listed
+
+SELECT *
+FROM INVOICE I
+RIGHT JOIN CUSTOMER C
+ON C.CUSTOMER_ID = I.CUSTOMER_ID;
+
+
+
+--C. Create a query which shows each record in the invoice table, along with the name of the customer
+SELECT
+    I.*,
+    C.CUSTOMER_NAME AS NAME
+FROM CUSTOMER C
+LEFT JOIN INVOICE I
+ON C.CUSTOMER_ID = I.CUSTOMER_ID;
+
+
+--D. Create a query which shows the name of each customer and the total amount they have spent
+SELECT
+    SUM(I.INVOICE_AMOUNT),
+    C.CUSTOMER_NAME AS NAME
+FROM CUSTOMER C
+LEFT JOIN INVOICE I
+ON C.CUSTOMER_ID = I.CUSTOMER_ID
+GROUP BY C.CUSTOMER_NAME
+ORDER BY SUM(I.INVOICE_AMOUNT) DESC;
+
+
+
+--E. Create a query which returns the record of the customer who made the most recent purchase
+SELECT * 
+FROM (
+    SELECT C.CUSTOMER_NAME, MIN(I.INVOICE_DATE)
+    FROM CUSTOMER C
+    INNER JOIN INVOICE I
+    ON C.CUSTOMER_ID = I.CUSTOMER_ID
+    GROUP BY C.CUSTOMER_NAME, I.INVOICE_DATE
+    ORDER BY I.INVOICE_DATE DESC
+)
+WHERE ROWNUM = 1;
+
+--F. Create a query which shows the purchaser of each invoice and the subtotal of each invoice if 6% sales tax was applied to the
+--subtotal to get the price of each invoice
+
+SELECT
+    C.CUSTOMER_NAME,
+    SUM(I.INVOICE_AMOUNT) SUB_TOTAL,
+    (SUM(I.INVOICE_AMOUNT) + (SUM(I.INVOICE_AMOUNT) * 0.06)) TOTAL_PRICE
+FROM INVOICE I
+JOIN CUSTOMER C
+ON I.CUSTOMER_ID = C.CUSTOMER_ID
+GROUP BY C.CUSTOMER_NAME
+ORDER BY TOTAL_PRICE DESC;
+
+COMMIT;
