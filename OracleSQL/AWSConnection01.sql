@@ -1,0 +1,285 @@
+/*
+Multi line comment. 
+Boo Yea!
+*/
+
+/*
+DDL:
+-CREATE
+-ALTER
+-DROP
+-TRUNCATE
+
+DML:
+-INSERT
+-SELECT
+-DELETE
+-UPDATE
+
+TCL:
+-COMMIT
+-ROLLBACK
+-SAVEPOINT
+
+DCL:
+-GRANT
+-REVOKE
+*/
+
+
+/* We can create an anonymous constraint during table declaration, 
+a named constraint during table creation, 
+or a named constraint independent from table declaration after our 
+table has been made 
+
+candidate key = any column(s) which uniquely identifies a row and that we could 
+use to uniquely identify records. */
+
+DROP TABLE DEPARTMENT;
+DROP TABLE EMPLOYEE;
+DROP TABLE LOCATION;
+
+
+-- We can use this command to create new table
+CREATE TABLE DEPARTMENT(
+    -- Could Do the following, but instead we include a name for a constraint so we can change it later. 
+    -- DEPT_ID         NUMBER(5)       PRIMARY KEY
+    DEPT_ID  NUMBER(5)  CONSTRAINT PK_DEPT  PRIMARY KEY,
+    DEPT_NAME  VARCHAR2(50),
+    MOUNTHLY_BUDGET  NUMBER(7,2)
+);
+
+
+
+-- Create our EMPLOYEE table
+CREATE TABLE EMPLOYEE(
+    EMP_ID  NUMBER(5)  CONSTRAINT PK_EMP  PRIMARY KEY,
+    EMP_NAME  VARCHAR2(50),
+    BIRTHDAY DATE,
+    MONTHLY_SALARY  NUMBER(7,2)  NOT NULL,
+    HIRE_DATE DATE,
+    POSITION  VARCHAR2(20),
+    MANAGER_ID  NUMBER(5), 
+    DEPT_ID  NUMBER(5)  CONSTRAINT FK_EMP_DEPT REFERENCES DEPARTMENT(DEPT_ID)
+);
+
+
+CREATE TABLE LOCATION(
+    LOC_ID  NUMBER(7)  CONSTRAINT PK_SITE  PRIMARY KEY,
+    STREET_NUMBER  INTEGER,
+    STREET_NAME  varchar2(60),
+    CITY  varchar(30),
+    STATE  char(2),
+    ZIP varchar(10),
+    ADDRESS_LINE_2  varchar(30)
+);
+
+
+-- To add a constraint...
+ALTER TABLE EMPLOYEE
+ADD CONSTRAINT FK_EMP_DEPT
+FOREIGN KEY (DEPT_ID) REFERENCES DEPARTMENT(DEPT_ID);-- ON DELETE SET NULL; or ON DELETE CASCADE
+
+ALTER TABLE EMPLOYEE
+    ADD LOC_ID NUMBER(7);
+    
+ALTER TABLE EMPLOYEE
+    ADD CONSTRAINT FK_EMP_LOCATION FOREIGN KEY (LOC_ID) REFERENCES LOCATION;
+
+ALTER TABLE LOCATION
+    ADD CONSTRAINT  PK_LOCATION PRIMARY KEY (SITE_ID);
+
+COMMIT;
+
+SET AUTOCOMMIT OFF; -- Turns off autocommit
+SET TRANSACTION NAME 'INSERTING STUFF';
+-- Add a department
+INSERT INTO DEPARTMENT VALUES(1, 'Marketing', 10000);
+INSERT INTO DEPARTMENT VALUES(2, 'Accounting', 5301.194);
+INSERT INTO DEPARTMENT (DEPT_ID, DEPT_NAME) VALUES (3, 'Sales');
+INSERT INTO DEPARTMENT VALUES(4, 'Legal', 100);
+INSERT INTO DEPARTMENT VALUES(5, 'Cheese Management', 99999.99);
+INSERT INTO DEPARTMENT VALUES(6, 'Spicy Goodness', -10);
+
+-- Add Locations
+insert into LOCATION (LOC_ID, STREET_NAME, CITY, STATE, ZIP, ADDRESS_LINE_2, STREET_NUMBER) values (1, 'Calypso', 'Clearwater', 'FL', '34615', null, '1');
+insert into LOCATION (LOC_ID, STREET_NAME, CITY, STATE, ZIP, ADDRESS_LINE_2, STREET_NUMBER) values (2, 'Oak Valley', 'Laurel', 'MD', '20709', null, '70459');
+insert into LOCATION (LOC_ID, STREET_NAME, CITY, STATE, ZIP, ADDRESS_LINE_2, STREET_NUMBER) values (3, 'Sycamore', 'Saint Petersburg', 'FL', '33710', null, '35');
+insert into LOCATION (LOC_ID, STREET_NAME, CITY, STATE, ZIP, ADDRESS_LINE_2, STREET_NUMBER) values (4, 'Amoth', 'Los Angeles', 'CA', '90081', null, '87926');
+insert into LOCATION (LOC_ID, STREET_NAME, CITY, STATE, ZIP, ADDRESS_LINE_2, STREET_NUMBER) values (5, 'Maple', 'North Las Vegas', 'NV', '89036', null, '60865');
+insert into LOCATION (LOC_ID, STREET_NAME, CITY, STATE, ZIP, ADDRESS_LINE_2, STREET_NUMBER) values (6, 'Sycamore', 'New York City', 'NY', '10029', null, '1871');
+insert into LOCATION (LOC_ID, STREET_NAME, CITY, STATE, ZIP, ADDRESS_LINE_2, STREET_NUMBER) values (7, 'Esker', 'Buffalo', 'NY', '14205', null, '701');
+insert into LOCATION (LOC_ID, STREET_NAME, CITY, STATE, ZIP, ADDRESS_LINE_2, STREET_NUMBER) values (8, 'Mesta', 'Dallas', 'TX', '75392', null, '91166');
+insert into LOCATION (LOC_ID, STREET_NAME, CITY, STATE, ZIP, ADDRESS_LINE_2, STREET_NUMBER) values (9, 'Burrows', 'Canton', 'OH', '44705', null, '8595');
+insert into LOCATION (LOC_ID, STREET_NAME, CITY, STATE, ZIP, ADDRESS_LINE_2, STREET_NUMBER) values (10, '5th', 'Beaufort', 'SC', '29905', null, '1030');
+
+-- Add an employee to the employee table
+INSERT INTO EMPLOYEE VALUES (1, 'JOHN BROWN', DATE '9876-05-04', 2000, DATE '0123-04-05', 'MK_REP', NULL, 1, 1);
+INSERT INTO EMPLOYEE VALUES (2, 'JOHN SMITH', DATE '9876-05-04', 2000, DATE '0123-04-05', 'AC_REP', NULL, 2, 1);
+INSERT INTO EMPLOYEE VALUES (3, 'JOHN DOE', DATE '9876-05-04', 9001, DATE '9876-01-23', 'CEO', NULL, 5, 1);
+INSERT INTO EMPLOYEE VALUES (4, 'JOHN DEERE', DATE '9876-05-04', 2000, DATE '0123-04-05', 'CH_MASTER', 3, 5, 1);
+INSERT INTO EMPLOYEE VALUES (5, 'JOHN JACOB', DATE '9876-05-04', 2000, DATE '0123-04-05', 'SALES_MASTER', 3, 3, 1);
+INSERT INTO EMPLOYEE VALUES (7, 'JILLIAN KYND', DATE '1980-10-15', 2840.00, DATE '2015-05-11', 'AC_ACCOUNT', 2, 2, 1);
+INSERT INTO EMPLOYEE VALUES (8, 'TIM KIBBEL', DATE '1980-05-20', 2240.00, DATE '2014-07-28', 'MK_REP', 1, 1, 1);
+INSERT INTO EMPLOYEE VALUES (9, 'ETHELIN COMINI', DATE '1982-06-16', 3380.00, DATE '2017-10-02', 'IT_DEV', 3, 3, 1);
+INSERT INTO EMPLOYEE VALUES (10, 'JASE HANDLEY', DATE '1975-10-08', 1870.00, DATE '2017-08-17', 'LG_LAW',11, 5, 1);
+INSERT INTO EMPLOYEE VALUES (11, 'ARIEL PAVIS', DATE '1981-09-23', 4500.00, DATE '2015-07-12', 'LG_LAW', NULL, 5, 2);
+INSERT INTO EMPLOYEE VALUES (12, 'MELISSA ITZKOVSKY', DATE '1983-03-03', 3870.00, DATE '2014-09-15', 'LG_LAW',11, 5, 2);
+INSERT INTO EMPLOYEE VALUES (13, 'MALIA FILISOV', DATE '1976-07-11', 4620.00, DATE '2014-11-09', 'CS_REP', NULL, 6, 2);
+INSERT INTO EMPLOYEE VALUES (14, 'BRENDAN LOUISET', DATE '1979-01-21', 3760.00, DATE '2018-03-28', 'CS_REP',13, 6, 2);
+INSERT INTO EMPLOYEE VALUES (15, 'MILT KLIEMANN', DATE '1983-02-25', 3820.00, DATE '2016-05-01', 'AC_ACCOUNT', 2, 2, 2);
+INSERT INTO EMPLOYEE VALUES (16, 'LUCILLE HUNE', DATE '1994-01-04', 2300.00, DATE '2016-04-17', 'MK_REP',1, 1, 2);
+INSERT INTO EMPLOYEE VALUES (17, 'PETA POLTZOLD', DATE '1990-09-24', 2500.00, DATE '2015-07-10', 'IT_DEV',3, 3, 3);
+INSERT INTO EMPLOYEE VALUES (18, 'LYDIA POVER', DATE '1991-10-01', 2800.00, DATE '2016-08-03', 'IT_DEV', 17, 3, 3);
+INSERT INTO EMPLOYEE VALUES (19, 'RON WINTERTON', DATE '1977-09-27', 2500.00, DATE '2018-02-23', 'LG_LAW', 11, 5, 3);
+INSERT INTO EMPLOYEE VALUES (20, 'NITIN CHESTNUT', DATE '1995-01-18', 2800.00, DATE '2014-10-25', 'CS_REP', 13, 6, 3);
+SET AUTOCOMMIT ON; -- Turns on autocommit
+
+COMMIT;
+
+-- Add a location to the location table
+INSERT INTO LOCATION VALUES(1, '240 No Blaze St.', 'Portland', 'ME', '10000', NULL);
+
+
+-- To get rid of a constraint, or otherwise change a thing...
+ALTER TABLE EMPLOYEE
+DROP CONSTRAINT FK_EMP_DEPT;
+
+
+
+
+
+-- To get rid of a table, drop it. Fails if there are forign keys to it with the forign key constraint. 
+DROP TABLE DEPARTMENT;
+
+
+
+SELECT EMP_NAME FROM EMPLOYEE
+WHERE EMP_ID > 2;
+
+SELECT *
+FROM EMPLOYEE
+WHERE MANAGER_ID = 3;
+
+SELECT COUNT(*) AS EMPLOYEE_COUNT
+FROM EMPLOYEE;
+
+--ALTER TABLE EMPLOYEE
+--RENAME COLUMN MOUNTHLY_SALERY TO MONTHLY_SALARY;
+
+
+
+    
+
+
+-- Show Overage Salery By Department
+SELECT DEPT_ID, AVG(MONTHLY_SALARY)
+FROM EMPLOYEE
+GROUP BY DEPT_ID;
+
+
+SELECT * FROM EMPLOYEE
+WHERE DEPT_ID IN (1,2,5);
+
+
+
+SELECT * FROM EMPLOYEE
+WHERE MONTHLY_SALARY = 
+        (SELECT MAX(MONTHLY_SALARY) FROM EMPLOYEE);
+
+
+
+
+
+
+-- Using Aliases, Also Joining without JOIN keyword
+SELECT 
+    E.EMP_NAME AS NAME,
+    D.DEPT_NAME AS DEPARTMENT
+FROM EMPLOYEE E, DEPARTMENT D -- Note, this is FUNCTIONALLY the same as doing an inner join. 
+WHERE E.DEPT_ID = D.DEPT_ID;
+
+
+--JOINS
+-- LEFT or RIGHT OUTER joins
+SELECT 
+    E.EMP_NAME AS NAME,
+    D.DEPT_NAME AS DEPARTMENT
+FROM EMPLOYEE E
+RIGHT JOIN DEPARTMENT D
+ON E.DEPT_ID = D.DEPT_ID;
+
+-- Self Join
+SELECT Emp1.EMP_NAME AS Employee, Emp2.EMP_NAME AS Manager
+FROM EMPLOYEE Emp1, EMPLOYEE Emp2
+WHERE Emp1.MANAGER_ID = Emp2.EMP_ID;
+
+
+
+-- Natural Join, It's an inner join, but determines the match by the column names
+SELECT *
+FROM EMPLOYEE
+NATURAL JOIN DEPARTMENT;
+
+
+-- Use Of Multiple Joins and Ailiasing 
+SELECT 
+    E.EMP_NAME Name,
+    D.DEPT_NAME Department,
+    CONCAT(L.CITY, CONCAT(', ', L.STATE_PREFIX)) Location
+FROM EMPLOYEE E
+JOIN DEPARTMENT D
+    ON E.DEPT_ID = D.DEPT_ID
+JOIN LOCATION L
+    ON E.LOC_ID = L.SITE_ID;
+
+
+
+    
+
+-- Create A View
+CREATE VIEW MANAGERS AS 
+SELECT Emp1.EMP_NAME AS Employee, Emp2.EMP_NAME AS Manager
+FROM EMPLOYEE Emp1, EMPLOYEE Emp2
+WHERE Emp1.MANAGER_ID = Emp2.EMP_ID;
+
+
+
+
+
+
+-- Week 02, Class 03, Wednesday
+/*
+IN vs EXISTS
+IN returns a result. It executes the inner query, and then compares the outer with the result of the inner
+EXISTS evaluates a boolean. It executes the inner query for each outer query result
+IN is generally more efficient, unless the outer query has few things to compare. 
+
+*/
+
+SELECT * FROM DEPARTMENT
+WHERE DEPT_ID IN (
+    SELECT * FROM EMPLOYEE
+);
+
+SELECT * FROM DEPARTMENT
+WHERE EXISTS (
+    SELECT * FROM EMPLOYEE
+    WHERE EMPLOYEE.DEPT_ID = DEPARTMENT.DEPT_ID
+);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
