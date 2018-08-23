@@ -1,3 +1,8 @@
+---------------------------
+Tuesday SQL Assignment
+---------------------------
+
+
 CREATE TABLE INVOICE(
     INVOICE_ID NUMBER(10) CONSTRAINT PK_INVOICE PRIMARY KEY,
     INVOICE_DATE DATE,
@@ -104,3 +109,58 @@ FROM (SELECT *
 FROM INVOICE
 ORDER BY AMOUNT DESC)
 WHERE ROWNUM  <= 3;
+
+------------------------
+--Wednesday Excercises
+------------------------ 
+
+--A. Create a query which returns all of the invoices which have a listed customer, but not invoices who have no customer listed and not customers who have no invoices listed
+--
+
+SELECT INVOICE_ID
+FROM INVOICE
+WHERE CUSTOMER_ID >= 1
+MINUS
+SELECT INVOICE_ID
+FROM INVOICE
+WHERE INVOICE_ID <= 0
+ORDER BY INVOICE_ID;
+
+/*
+UPDATE INVOICE
+SET INVOICE_ID = NULL
+WHERE INVOICE_ID = 10;
+*/
+
+--B. Create a query which returns all of the invoices and their customer, not invoices who have no customer listed but include customers which have no invoices listed
+SELECT *
+FROM INVOICE I
+RIGHT JOIN CUSTOMER C
+ON I.CUSTOMER_ID = C.CUSTOMER_ID;
+
+--C. Create a query which shows each record in the invoice table, along with the name of the customer
+SELECT *
+FROM INVOICE I
+LEFT JOIN CUSTOMER C
+ON I.CUSTOMER_ID = C.CUSTOMER_ID;
+
+--D. Create a query which shows the name of each customer and the total amount they have spent
+SELECT CUSTOMER_NAME, SUM (I.AMOUNT)
+FROM CUSTOMER C, INVOICE I
+WHERE C.CUSTOMER_ID = I.CUSTOMER_ID
+GROUP BY C.CUSTOMER_NAME;
+
+--E. Create a query which returns the record of the customer who made the most recent purchase
+
+SELECT CUSTOMER_NAME, INVOICE_DATE
+FROM (SELECT * 
+FROM CUSTOMER C, INVOICE I
+ORDER BY I.INVOICE_DATE DESC)
+WHERE ROWNUM = 1;
+
+--F. Create a query which shows the purchaser of each invoice and the subtotal of each invoice if 6% sales tax was applied to the subtotal to get the price of each invoice
+SELECT CUSTOMER_NAME, INVOICE_DATE, (I.AMOUNT * 1.06)
+FROM CUSTOMER C, INVOICE I
+--ORDER BY I.AMOUNT
+WHERE C.CUSTOMER_ID = I.CUSTOMER_ID
+ORDER BY I.AMOUNT;
