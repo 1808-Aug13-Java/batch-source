@@ -1,12 +1,17 @@
 package com.revature.collections;
 
 import java.util.Arrays;
+<<<<<<< HEAD
 //compareTo(Pizza o) {
 // this.slices - o.slices;
 // this.slices.equals(o.slices);
 //}
 //
 public class Pizza {
+=======
+
+public class Pizza implements Comparable<Pizza> {
+>>>>>>> 86d877de8c73670cbda975031f575b3ad4b50893
 	
 	private String[] toppings;
 	private int slices;
@@ -87,6 +92,11 @@ public class Pizza {
 	public String toString() {
 		return "Pizza [toppings=" + Arrays.toString(toppings) + ", slices=" + slices + ", diameter=" + diameter
 				+ ", crustType=" + crustType + "]";
+	}
+
+	@Override
+	public int compareTo(Pizza o) {
+		return this.slices - o.slices;
 	}
 	
 

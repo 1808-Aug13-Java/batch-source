@@ -1,0 +1,24 @@
+What is the difference between == and ===?
+What is the AJAX workflow?
+What is AJAX?
+What are some of the different HTTP verbs?
+What are the different HTTP status codes?
+What are the ready states of an XHR object?
+Describe the node hierarchy of the DOM.
+What's the difference between stopPropagation and stopImmediatePropagation?
+What is event propagation?
+What is the difference between DOM and SAX parsing?
+What's the difference between waterfall and agile methodology?
+What is scrum?
+What are our truthy and falsy values?
+What is a closure?
+What is variable hoisting? Under what conditions will my variable be hoisted?
+What conditions must be met for a database to be normalized to the second normal form?
+What is prototypal inheritance?
+What is a template literal? What is the benefit of using one?
+What is the difference between var, let, and const?
+What is type coercion? What about JavaScript makes it possible?
+How would I access extra parameters beyond those defined in my function declaration?
+What is a guard operator?
+What is a default operator?
+What is a callback function? When have we used them?
