@@ -1,7 +1,11 @@
 package com.revature.collections;
 
 import java.util.Arrays;
-
+//compareTo(Pizza o) {
+// this.slices - o.slices;
+// this.slices.equals(o.slices);
+//}
+//
 public class Pizza {
 	
 	private String[] toppings;
