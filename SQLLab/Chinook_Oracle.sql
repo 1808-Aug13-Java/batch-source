@@ -15966,7 +15966,47 @@ END;
 
 -- 3.3 User Defined Scalar Functions
 -- Create a function that returns the average price of invoiceline items in the invoiceline table
+CREATE OR REPLACE FUNCTION AVG_UNITPRICE_INVOICELINE
+RETURN NUMBER
+IS
+    AVG_PRICE CHINOOK.INVOICELINE.UNITPRICE%TYPE;
+BEGIN
+    SELECT AVG(UNITPRICE) INTO AVG_PRICE
+    FROM CHINOOK.INVOICELINE;
+    RETURN AVG_PRICE;
+END;
+/
 
+SET SERVEROUTPUT ON;
+BEGIN
+    DBMS_OUTPUT.PUT_LINE(AVG_UNITPRICE_INVOICELINE());
+END;
+/
 
+-- 3.4 User Defined Table Valued Functions
+-- Create a function that returns all employees who are born after 1968.
+CREATE OR REPLACE FUNCTION EMPLOYEES_BORN_AFTER_1968
+RETURN SYS_REFCURSOR
+IS
+    S SYS_REFCURSOR;
+BEGIN 
+    OPEN S FOR
+        SELECT *
+        FROM CHINOOK.EMPLOYEE
+        WHERE BIRTHDATE > DATE '1968-12-31';
+    RETURN S;
+END;
+/
+
+-- 4.0 Stored Procedures
+-- In this section you will be creating and executing stored procedures. 
+-- You will be creating various types of stored procedures that take input and output parameters.
+-- 4.1 Basic Stored Procedure
+-- Create a stored procedure that selects the first and last names of all the employees.
+CREATE OR REPLACE PROCEDURE EMPLOYEE_NAMES
+IS
+BEGIN
+END;
+/
 
 COMMIT;
