@@ -10,9 +10,7 @@ public class Driver {
 	
 	public static void main(String[] args) {
 		
-		Engine engine = new Engine("jdbc:oracle:thin@chinook-db.ced7fvnhpfjw.us"
-				+ "-west-2.rds.amazonaws.com:1521:orcl"
-				, "crandon", "Mymomis2!");
+		
 		engine.start();
 	}
 

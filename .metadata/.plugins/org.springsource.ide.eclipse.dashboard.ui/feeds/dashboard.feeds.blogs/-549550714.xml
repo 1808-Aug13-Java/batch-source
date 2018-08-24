@@ -5,7 +5,108 @@
   <link rel="self" href="https://spring.io/blog.atom" />
   <id>http://spring.io/blog.atom</id>
   <icon>https://spring.io/favicon.ico</icon>
-  <updated>2018-08-21T20:56:19Z</updated>
+  <updated>2018-08-23T00:00:00Z</updated>
+  <entry>
+    <title>Bootiful GCP: Relational Data Access with Spring Cloud GCP (2/8)</title>
+    <link rel="alternate" href="https://spring.io/blog/2018/08/23/bootiful-gcp-relational-data-access-with-spring-cloud-gcp-2-8" />
+    <category term="engineering" label="Engineering" />
+    <author>
+      <name>Josh Long</name>
+    </author>
+    <id>tag:spring.io,2018-08-17:3364</id>
+    <updated>2018-08-23T00:00:00Z</updated>
+    <content type="html">&lt;blockquote&gt;
+  &lt;p&gt;Hi Spring fans! In this brief 8 part series we’re going to look at the Spring Cloud integration for Google Cloud Platform, called Spring Cloud GCP. &lt;a href="https://cloud.spring.io/spring-cloud-gcp/"&gt;Spring Cloud GCP&lt;/a&gt; represents a joint effort between Google and Pivotal that endeavors to provide a first class experience for Spring Cloud developers when using the Google Cloud Platform. Pivotal Cloud Foundry users will enjoy an even &lt;a href="https://docs.pivotal.io/partners/gcp-sb/index.html"&gt;easier integration with the GCP service broker&lt;/a&gt;. I wrote these installments with input from Google Cloud Developer Advocate, and my buddy, &lt;a href="http://twitter.com/saturnism"&gt;Ray Tsang&lt;/a&gt;. You can also catch a walkthrough of Spring Cloud GCP in our Google Next 2018 session, &lt;a href="https://www.youtube.com/watch?v=2Jo3vy7iQf8"&gt;Bootiful Google Cloud Platform&lt;/a&gt;. Thanks buddy! As always, &lt;a href="http://twitter.com/starbuxman"&gt;I&amp;rsquo;d love to hear from you if you have feedback&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;If you&amp;rsquo;re just joining us, be sure to read the previous installments including:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href="https://spring.io/blog/2018/08/20/bootiful-gcp-getting-started-with-spring-cloud-for-google-cloud-platform-1-8"&gt;Bootiful GCP: Getting Started with Spring Cloud for Google Cloud Platform (1/8)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;In this installment we’re going to look at how to connect a Spring Boot-based application to a SQL datastore, like PostgreSQL or MySQL, running on Google Cloud Platform. GCP offers managed SQL services including MySQL and PostgreSQL. Let’s provision a MySQL instance and use that from a Spring Boot-based application. You’ll need to first enable the SQL APIs in Google Cloud:&lt;/p&gt;
+&lt;pre&gt;&lt;code class="prettyprint"&gt; gcloud services enable sqladmin.googleapis.com
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Then, you’ll need to provision a new Google Cloud SQL instance in a particular region. The default is MySQL. (This could take several minutes!)&lt;/p&gt;
+&lt;pre&gt;&lt;code class="prettyprint"&gt;gcloud sql instances create reservations --region=us-central1
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Then, provision a new database in that Google Cloud SQL instance:&lt;/p&gt;
+&lt;pre&gt;&lt;code class="prettyprint"&gt;gcloud sql databases create reservations --instance reservations
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;There are a couple of ways to establish a secured connection to this CloudSQL instance, e.g. configure the JDBC driver &lt;a href="https://cloud.google.com/sql/docs/mysql/connect-external-app#proxy"&gt;with a SSL Socket Factory and/or using SQL Proxy&lt;/a&gt;. To make all the configuration easier though, you can add the GCP MySQL starter: &lt;code&gt;org.springframework.cloud&lt;/code&gt; : &lt;code&gt;spring-cloud-gcp-starter-sql-mysql&lt;/code&gt;. This starter, and a dash of configuration, can connect your application to the platform.&lt;/p&gt;
+&lt;p&gt;What configuration, you say? Well, Spring applications have bean definitions (in Java code) and property definitions (in any number of different property sources, including &lt;code&gt;.yaml&lt;/code&gt; and &lt;code&gt;.properties&lt;/code&gt; files and, as we’ll see later, GCP’s RuntimeConfig mechanism). You can selectively activate particular bean definitions and property definitions with &lt;em&gt;profiles&lt;/em&gt;. Spring profiles are arbitrary labels that identify distinct bean and property configurations that could be selectively &lt;em&gt;activated&lt;/em&gt;. In this example, we’re using the &lt;code&gt;mysql&lt;/code&gt; profile.&lt;/p&gt;
+&lt;p&gt;Let’s look at the configuration for the &lt;code&gt;mysql&lt;/code&gt; profile, in &lt;code&gt;src/main/resources/application.properties&lt;/code&gt;:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;application.properties.&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class="prettyprint properties"&gt;spring.cloud.gcp.sql.database-name=reservations&#xD;
+spring.cloud.gcp.sql.instance-connection-name=pgtm-jlong:us-central1:reservations&#xD;
+&#xD;
+spring.datasource.initialization-mode=always&#xD;
+spring.datasource.hikari.maximum-pool-size=2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+  &lt;li&gt;these properties identify to which GCP SQL instance and database the client should connect&lt;/li&gt;
+  &lt;li&gt;tells Spring to initialize the schema by running &lt;code&gt;src/main/resources/schema.sql&lt;/code&gt;, if present&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;code&gt;src/main/resources/schema.sql&lt;/code&gt; contains DDL to create a reservations table. &lt;/p&gt;
+&lt;p&gt;In this example, we’re letting Spring Boot configure the database. There are alternative approaches. We could use &lt;code&gt;gcloud sql connect $GCP_SQL_INSTANCE&lt;/code&gt; where &lt;code&gt;$GCP_SQL_INSTANCE&lt;/code&gt; should be replaced with your GCP SQL instance name. In this case, the SQL instance name is &lt;code&gt;reservations&lt;/code&gt;. This will dump you into a MySQL session connected to the remote database in which you can interactively issue the relevant schema DDL.&lt;/p&gt;
+&lt;p&gt;This is a demo, so let’s install some sample data as well. You can create a file, &lt;code&gt;src/main/resources/data.sql&lt;/code&gt;, and Spring will execute that on applicaton startup, or you can use &lt;code&gt;gcloud sql connect&lt;/code&gt;. Either way, run the following statements.&lt;/p&gt;
+&lt;pre&gt;&lt;code class="prettyprint sql"&gt;insert into reservations(name) values(&amp;#39;ray&amp;#39;);&#xD;
+insert into reservations(name) values(&amp;#39;josh&amp;#39;);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now you can talk to the database from your Spring application like you would any other SQL database.&lt;/p&gt;
+&lt;pre&gt;&lt;code class="prettyprint java"&gt;package com.example.gcp.mysql;&#xD;
+&#xD;
+import lombok.AllArgsConstructor;&#xD;
+import lombok.Data;&#xD;
+import lombok.NoArgsConstructor;&#xD;
+import org.apache.commons.logging.Log;&#xD;
+import org.apache.commons.logging.LogFactory;&#xD;
+import org.springframework.boot.SpringApplication;&#xD;
+import org.springframework.boot.autoconfigure.SpringBootApplication;&#xD;
+import org.springframework.boot.context.event.ApplicationReadyEvent;&#xD;
+import org.springframework.context.annotation.Profile;&#xD;
+import org.springframework.context.event.EventListener;&#xD;
+import org.springframework.jdbc.core.JdbcTemplate;&#xD;
+import org.springframework.jdbc.core.RowMapper;&#xD;
+&#xD;
+import java.util.Collection;&#xD;
+&#xD;
+@SpringBootApplication&#xD;
+public class MySqlApplication {&#xD;
+&#xD;
+        private final Log log = LogFactory.getLog(getClass());&#xD;
+&#xD;
+        private final JdbcTemplate template;&#xD;
+&#xD;
+        private final RowMapper&amp;lt;Reservation&amp;gt; rowMapper =&#xD;
+            (rs, rowNum) -&amp;gt; new Reservation(rs.getLong(&amp;quot;id&amp;quot;), rs.getString(&amp;quot;name&amp;quot;));&#xD;
+&#xD;
+        MySqlApplication(JdbcTemplate template) {&#xD;
+                this.template = template;&#xD;
+        }&#xD;
+&#xD;
+        @EventListener(ApplicationReadyEvent.class)&#xD;
+        public void ready() {&#xD;
+                Collection&amp;lt;Reservation&amp;gt; reservations = this.template&#xD;
+                    .query(&amp;quot;select * from reservations&amp;quot;, this.rowMapper);&#xD;
+                reservations.forEach(reservation -&amp;gt; log.info(&amp;quot;reservation: &amp;quot; + reservation.toString()));&#xD;
+        }&#xD;
+&#xD;
+        public static void main(String args[]) {&#xD;
+                SpringApplication.run(MySqlApplication.class, args);&#xD;
+        }&#xD;
+}&#xD;
+&#xD;
+@Data&#xD;
+@AllArgsConstructor&#xD;
+@NoArgsConstructor&#xD;
+class Reservation {&#xD;
+        private Long id;&#xD;
+        private String reservationName;&#xD;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Run the application and confirm that the results are reflected in the output.&lt;/p&gt;
+&lt;p&gt;At this point you should be on familiar footing; you can use Spring Data JPA and Spring Data REST, JOOQ, MyBatis, or any of the various JDBC-based technologies, along with Spring Boot, to work with this GCP-managed MySQL instance.&lt;/p&gt;
+&lt;p&gt;In this post, we’ve used MySQL as managed by Google Cloud. This isn’t particularly interesting; it’s not why you should be using GCP. Anybody can run MySQL! In the next installment, we’ll look at using Google Cloud Spanner with Spring Cloud GCP. Be sure to check back next Monday for the next installment. &lt;/p&gt;</content>
+  </entry>
   <entry>
     <title>Spring Integration for AWS 2.0 GA and Spring Cloud Stream Kinesis Binder 1.0 GA</title>
     <link rel="alternate" href="https://spring.io/blog/2018/08/21/spring-integration-for-aws-2-0-ga-and-spring-cloud-stream-kinesis-binder-1-0-ga" />
@@ -1484,24 +1585,5 @@ When one consumer goes (yields leadership), some other consumer may acquire a lo
 &lt;/ul&gt;
 &lt;p&gt;The versions of a number of third-party dependencies have also been updated.&lt;/p&gt;
 &lt;p&gt;&lt;a href="http://platform.spring.io/platform"&gt;Project Page&lt;/a&gt; | &lt;a href="https://github.com/spring-io/platform"&gt;GitHub&lt;/a&gt; | &lt;a href="https://github.com/spring-io/platform/issues"&gt;Issues&lt;/a&gt; | &lt;a href="http://docs.spring.io/platform/docs/Cairo-SR3/reference/htmlsingle"&gt;Documentation&lt;/a&gt;&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <title>Spring IO Platform Brussels SR12</title>
-    <link rel="alternate" href="https://spring.io/blog/2018/07/31/spring-io-platform-brussels-sr12" />
-    <category term="releases" label="Releases" />
-    <author>
-      <name>Andy Wilkinson</name>
-    </author>
-    <id>tag:spring.io,2018-07-31:3351</id>
-    <updated>2018-07-31T13:20:18Z</updated>
-    <content type="html">&lt;p&gt;I am pleased to announce that &lt;a href="http://platform.spring.io/platform"&gt;Spring IO Platform&lt;/a&gt; Brussels-SR12 is now available from both &lt;a href="https://repo.spring.io/release"&gt;repo.spring.io&lt;/a&gt; and Maven Central. &lt;/p&gt;
-&lt;p&gt;This maintenance release upgrades the versions of a number of the projects in the Platform:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Spring AMQP 1.7.9&lt;/li&gt;
-  &lt;li&gt;Spring Boot 1.5.15&lt;/li&gt;
-  &lt;li&gt;Spring Data Ingalls SR14&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;The versions of a number of third-party dependencies have also been updated.&lt;/p&gt;
-&lt;p&gt;&lt;a href="http://platform.spring.io/platform"&gt;Project Page&lt;/a&gt; | &lt;a href="https://github.com/spring-io/platform"&gt;GitHub&lt;/a&gt; | &lt;a href="https://github.com/spring-io/platform/issues"&gt;Issues&lt;/a&gt; | &lt;a href="http://docs.spring.io/platform/docs/Brussels-SR12/reference/htmlsingle"&gt;Documentation&lt;/a&gt;&lt;/p&gt;</content>
   </entry>
 </feed>
