@@ -15866,8 +15866,107 @@ INSERT INTO CHINOOK.Customer VALUES (61, 'Michael', 'Lu', NULL, '7272 Main Stree
 
 -- 2.4 UPDATE
 -- Update Aaron Mitchell in Customer table to Robert Walter
-
+UPDATE CHINOOK.CUSTOMER
+SET FIRSTNAME = 'Robert', LASTNAME = 'Walter'
+WHERE FIRSTNAME = 'Aaron' AND LASTNAME = 'Mitchell';
 
 -- Update name of artist in the Artist table “Creedence Clearwater Revival” to “CCR”
+UPDATE CHINOOK.ARTIST
+SET NAME = 'CCR'
+WHERE NAME = 'Creedence Clearwater Revival';
+
+-- 2.5 LIKE
+-- Select all invoices with a billing address like “T%”
+SELECT * 
+FROM CHINOOK.INVOICE
+WHERE BILLINGADDRESS LIKE 'T%';
+
+-- 2.6 BETWEEN
+-- Select all invoices that have a total between 15 and 50
+SELECT *
+FROM CHINOOK.INVOICE
+WHERE TOTAL BETWEEN 15 AND 50;
+
+-- Select all employees hired between 1st of June 2003 and 1st of March 2004
+SELECT *
+FROM CHINOOK.EMPLOYEE
+WHERE HIREDATE BETWEEN DATE '2003-06-01' AND DATE '2004-03-01';
+
+--2.7 DELETE
+-- Delete a record in Customer table where the name is Robert Walter 
+-- (There may be constraints that rely on this, find out how to resolve them).
+-- REMOVE CONSTRAINT
+ALTER TABLE CHINOOK.INVOICE
+DROP CONSTRAINT FK_INVOICECUSTOMERID;
+-- DELETE RECORD
+DELETE FROM CHINOOK.CUSTOMER
+WHERE FIRSTNAME = 'Robert' AND LASTNAME = 'Walter';
+-- READD CONSTRAINT
+ALTER TABLE CHINOOK.INVOICE 
+ADD CONSTRAINT FK_INVOICECUSTOMERID
+FOREIGN KEY (CUSTOMERID) REFERENCES CUSTOMER (CUSTOMERID)  ;
+
+-- 3.0 SQL Functions
+-- In this section you will be using the Oracle system functions, 
+-- as well as your own functions, to perform various actions against the database
+
+-- 3.1 System Defined Functions
+-- Create a function that returns the current time.
+CREATE OR REPLACE FUNCTION CURR_TIME
+RETURN VARCHAR2
+IS
+BEGIN
+    RETURN TO_CHAR (SYSDATE, 'HH:MM:SS');
+END;
+/
+
+-- Create a function that returns the length of name in MEDIATYPE table  
+CREATE OR REPLACE FUNCTION NAME_LENGTH (MED_ID CHINOOK.MEDIATYPE.MEDIATYPEID%TYPE)
+RETURN NUMBER
+IS
+    MED_NAME NUMBER;
+BEGIN
+    SELECT LENGTH(NAME) INTO MED_NAME
+    FROM CHINOOK.MEDIATYPE M
+    WHERE M.MEDIATYPEID = MED_ID;
+    RETURN MED_NAME;
+END;
+/
+
+--3.2 System Defined Aggregate Functions
+-- Create a function that returns the average total of all invoices 
+CREATE OR REPLACE FUNCTION AVG_INVOICES
+RETURN NUMBER
+IS
+    AVG_TOT NUMBER(4, 2);
+BEGIN
+    SELECT AVG(TOTAL) INTO AVG_TOT
+    FROM CHINOOK.INVOICE;
+    RETURN AVG_TOT;
+END;
+/
+
+-- Create a function that returns the most expensive track
+CREATE OR REPLACE FUNCTION MOST_EXPENSIVE_TRACK
+RETURN SYS_REFCURSOR
+IS
+    S SYS_REFCURSOR;
+BEGIN
+    OPEN S FOR
+        SELECT *
+        FROM (
+            SELECT *
+            FROM CHINOOK.TRACK
+            ORDER BY UNITPRICE DESC
+            )
+        WHERE ROWNUM <= 1;
+    RETURN S;
+END;
+/
+
+-- 3.3 User Defined Scalar Functions
+-- Create a function that returns the average price of invoiceline items in the invoiceline table
+
+
 
 COMMIT;
