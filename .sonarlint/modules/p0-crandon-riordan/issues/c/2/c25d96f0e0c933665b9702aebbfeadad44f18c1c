@@ -1,0 +1,37 @@
+
+_squid:S1148F"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ŸÖÁ×,HíRMINORZVULNERABILITY
+jsquid:S1135W"2Complete the task associated to this TODO comment.(» æÿÿÿÿÿ8×Æ˜‹×,HÈRINFOZ
+CODE_SMELL
+jsquid:S1135-"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿ8Ô¹˜×,HÖRINFOZ
+CODE_SMELL
+jsquid:S1135]"2Complete the task associated to this TODO comment.(» æÿÿÿÿÿ8×Æ˜‹×,HÌRINFOZ
+CODE_SMELL
+jsquid:S1135Q"2Complete the task associated to this TODO comment.(» æÿÿÿÿÿ8×Æ˜‹×,HËRINFOZ
+CODE_SMELL
+_squid:S1148+"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8Ô¹˜×,HÙRMINORZVULNERABILITY
+_squid:S1148C"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ŸÖÁ×,HìRMINORZVULNERABILITY
+jsquid:S1135"2Complete the task associated to this TODO comment.(» æÿÿÿÿÿ8×Æ˜‹×,HÎRINFOZ
+CODE_SMELL
+jsquid:S1135*"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿ8Ô¹˜×,H×RINFOZ
+CODE_SMELL
+jsquid:S1135"2Complete the task associated to this TODO comment.(» æÿÿÿÿÿ8×Æ˜‹×,HÊRINFOZ
+CODE_SMELL
+jsquid:S1135H"2Complete the task associated to this TODO comment.(» æÿÿÿÿÿ8×Æ˜‹×,HÉRINFOZ
+CODE_SMELL
+jsquid:S1135E"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿ8ŸÖÁ×,HèRINFOZ
+CODE_SMELL
+_squid:S1168"+Return an empty collection instead of null.(¥¹ï8×Æ˜‹×,HÏRMAJORZ
+CODE_SMELL
+jsquid:S1135B"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿ8ŸÖÁ×,HçRINFOZ
+CODE_SMELL
+xsquid:S2147D"DCombine this catch with the one at line 65, which has the same body.(ï­£Ä8ŸÖÁ×,HëRMINORZ
+CODE_SMELL
+_squid:S1148."#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8Ô¹˜×,HÚRMINORZVULNERABILITY
+jsquid:S11350"2Complete the task associated to this TODO comment.(» æÿÿÿÿÿ8×Æ˜‹×,HÍRINFOZ
+CODE_SMELL
+xsquid:S2147,"DCombine this catch with the one at line 41, which has the same body.(ï­£Ä8Ô¹˜×,HØRMINORZ
+CODE_SMELL
+xsquid:UselessImportCheck"7Remove this unused import 'com.revature.engine.Driver'.(íëÙ8Ğëœ×,H†RMINORZ
+CODE_SMELL
+jsquid:S1135c"2Complete the task associated to this TODO comment.(» æÿÿÿÿÿ8ŸÖÁ×,HéRINFOZ
+CODE_SMELL

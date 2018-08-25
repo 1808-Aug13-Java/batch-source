@@ -1,0 +1,71 @@
+
+£squid:S1192;"gDefine a constant instead of duplicating this literal "SELECT * FROM USERS WHERE USERNAME = ?" 3 times.(—®¨ùÿÿÿÿ8‡¶ª×,H±RCRITICALZ
+CODE_SMELL
+xsquid:S2147'"DCombine this catch with the one at line 36, which has the same body.(ï­£Ä8¤™ó‹×,H—RMINORZ
+CODE_SMELL
+`squid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8 ´µ’×,H¡RMINORZVULNERABILITY
+jsquid:S1135("2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿ8¾ˆÏ‘×,HüRINFOZ
+CODE_SMELL
+_squid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8¾ˆÏ‘×,H‚RMINORZVULNERABILITY
+`squid:S1148š"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8¤™ó‹×,HªRMINORZVULNERABILITY
+ksquid:S1135­"2Complete the task associated to this TODO comment.(» æÿÿÿÿÿ8î¦»‹×,HïRINFOZ
+CODE_SMELL
+`squid:S1148…"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8¾ˆÏ‘×,HRMINORZVULNERABILITY
+`squid:S1148Æ"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8¤™ó‹×,H«RMINORZVULNERABILITY
+l
+squid:S106p"9Replace this use of System.out or System.err by a logger.(¼ÆŸÃ8ş×®“×,HÒRMAJORZ
+CODE_SMELL
+ysquid:S2147}"ECombine this catch with the one at line 122, which has the same body.(ï­£Ä8ï§ÿ‹×,HÕRMINORZ
+CODE_SMELL
+`squid:S1148È"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ï§ÿ‹×,HØRMINORZVULNERABILITY
+zsquid:S2147è"ECombine this catch with the one at line 230, which has the same body.(ï­£Ä8ƒäï×,HùRMINORZ
+CODE_SMELL
+jsquid:S1135~"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿ8ƒäï×,HøRINFOZ
+CODE_SMELL
+`squid:S1148é"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ƒäï×,HûRMINORZVULNERABILITY
+ksquid:S1135Î"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿ8îÅå×,HˆRINFOZ
+CODE_SMELL
+ksquid:S1135³"2Complete the task associated to this TODO comment.(» æÿÿÿÿÿ8î¦»‹×,HîRINFOZ
+CODE_SMELL
+_squid:S1148I"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ƒäï×,HúRMINORZVULNERABILITY
+jsquid:S1135{"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿ8¾ˆÏ‘×,HûRINFOZ
+CODE_SMELL
+jsquid:S1135K"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿ8 ´µ’×,HŸRINFOZ
+CODE_SMELL
+_squid:S1148&"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8÷Áõ‹×,HÌRMINORZVULNERABILITY
+ksquid:S1135™"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿ8‡¶ª×,H–RINFOZ
+CODE_SMELL
+`squid:S1148ï"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8‡¶ª×,H¸RMINORZVULNERABILITY
+xsquid:S2147J"DCombine this catch with the one at line 71, which has the same body.(ï­£Ä8îÅå×,HŠRMINORZ
+CODE_SMELL
+_squid:S1148R"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8î¦»‹×,HöRMINORZVULNERABILITY
+jsquid:S1135%"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿ8‡¶ª×,H³RINFOZ
+CODE_SMELL
+zsquid:S2147›"ECombine this catch with the one at line 152, which has the same body.(ï­£Ä8‡¶ª×,HµRMINORZ
+CODE_SMELL
+q
+squid:S106l"9Replace this use of System.out or System.err by a logger.(ªè„›ÿÿÿÿÿ8œº—“×,HµRMAJORZ
+CODE_SMELL
+jsquid:S1135/"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿ8¤™ó‹×,H§RINFOZ
+CODE_SMELL
+ksquid:S1481]"2Remove this unused "generatedKeys" local variable.(¶Ş³ğùÿÿÿÿ8³ş‡“×,HÖRMINORZ
+CODE_SMELL
+`squid:S1148Ï"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ï§ÿ‹×,H•RMINORZVULNERABILITY
+csquid:S00108!")Either remove or fill this block of code.(íôÚÇşÿÿÿÿ8 ´µ’×,H RMAJORZ
+CODE_SMELL
+_squid:S1148|"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8îÅå×,HRMINORZVULNERABILITY
+_squid:S1148)"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8î¦»‹×,HõRMINORZVULNERABILITY
+jsquid:S1135"2Complete the task associated to this TODO comment.(» æÿÿÿÿÿ8î¦»‹×,HğRINFOZ
+CODE_SMELL
+jsquid:S1135H"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿ8î¦»‹×,H”RINFOZ
+CODE_SMELL
+_squid:S1148L"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8îÅå×,H“RMINORZVULNERABILITY
+ksquid:S1135œ"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿ8ƒäï×,H÷RINFOZ
+CODE_SMELL
+_squid:S11480"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8îÅå×,H‹RMINORZVULNERABILITY
+zsquid:S2147Ç"ECombine this catch with the one at line 197, which has the same body.(ï­£Ä8¾ˆÏ‘×,H€RMINORZ
+CODE_SMELL
+l
+squid:S106v"9Replace this use of System.out or System.err by a logger.(ïò¨ı8¶¶°“×,HşRMAJORZ
+CODE_SMELL
+`squid:S1148ç"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8‡¶ª×,H¶RMINORZVULNERABILITY

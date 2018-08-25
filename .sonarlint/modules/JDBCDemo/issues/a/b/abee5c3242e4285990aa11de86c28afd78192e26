@@ -1,0 +1,30 @@
+
+‹squid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(ÎÝ—äþÿÿÿÿH†RMINORZ
+CODE_SMELL
+tsquid:S2095g"GUse try-with-resources or close this "ResultSet" in a "finally" clause.(ÐÂé ûÿÿÿÿH‡RBLOCKERZBUG
+xsquid:CommentedOutCodeLineA"<This block of commented-out lines of code should be removed.(ä®øHˆRMAJORZ
+CODE_SMELL
+}squid:CommentedOutCodeLineF"<This block of commented-out lines of code should be removed.(èÿÏÑþÿÿÿÿH‰RMAJORZ
+CODE_SMELL
+csquid:S1135"2Complete the task associated to this TODO comment.(ƒŠ® úÿÿÿÿHŠRINFOZ
+CODE_SMELL
+csquid:S1135N"2Complete the task associated to this TODO comment.(ÕÌ®þÿÿÿÿH‹RINFOZ
+CODE_SMELL
+csquid:S1135U"2Complete the task associated to this TODO comment.(ÕÌ®þÿÿÿÿHŒRINFOZ
+CODE_SMELL
+dsquid:S1135„"2Complete the task associated to this TODO comment.(ÕÌ®þÿÿÿÿHRINFOZ
+CODE_SMELL
+dsquid:S1135‡"2Complete the task associated to this TODO comment.(ÕÌ®þÿÿÿÿHŽRINFOZ
+CODE_SMELL
+dsquid:S1135"2Complete the task associated to this TODO comment.(» æžÿÿÿÿÿHRINFOZ
+CODE_SMELL
+dsquid:S1135–"2Complete the task associated to this TODO comment.(» æžÿÿÿÿÿHRINFOZ
+CODE_SMELL
+dsquid:S1135œ"2Complete the task associated to this TODO comment.(» æžÿÿÿÿÿH‘RINFOZ
+CODE_SMELL
+ssquid:S2147†"ECombine this catch with the one at line 131, which has the same body.(ŸäÁ‚H’RMINORZ
+CODE_SMELL
+Xsquid:S1148O"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿH“RMINORZVULNERABILITY
+Xsquid:S1148V"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿH”RMINORZVULNERABILITY
+Ysquid:S1148…"#Use a logger to log this exception.(ÂþÿâûÿÿÿÿH•RMINORZVULNERABILITY
+Ysquid:S1148ˆ"#Use a logger to log this exception.(ÂþÿâûÿÿÿÿH–RMINORZVULNERABILITY

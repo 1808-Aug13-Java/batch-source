@@ -1,0 +1,40 @@
+
+Ysquid:S1148┐"#Use a logger to log this exception.(А╔╘Е¤    HРRMINORZVULNERABILITY
+dsquid:S1135╙"2Complete the task associated to this TODO comment.(╒╠Ро■    H·RINFOZ
+CODE_SMELL
+ssquid:S2147Н"ECombine this catch with the one at line 138, which has the same body.(янг─HиRMINORZ
+CODE_SMELL
+ssquid:S2147╛"ECombine this catch with the one at line 188, which has the same body.(янг─HБRMINORZ
+CODE_SMELL
+dsquid:S1135и"2Complete the task associated to this TODO comment.(╒╠Ро■    HкRINFOZ
+CODE_SMELL
+Ysquid:S1148м"#Use a logger to log this exception.(А╔╘Е¤    HПRMINORZVULNERABILITY
+Xsquid:S1148s"#Use a logger to log this exception.(А╔╘Е¤    HСRMINORZVULNERABILITY
+csquid:S1135k"2Complete the task associated to this TODO comment.(╒╠Ро■    HёRINFOZ
+CODE_SMELL
+Ysquid:S1148╤"#Use a logger to log this exception.(А╔╘Е¤    HЖRMINORZVULNERABILITY
+Xsquid:S1148l"#Use a logger to log this exception.(А╔╘Е¤    HОRMINORZVULNERABILITY
+dsquid:S1135О"2Complete the task associated to this TODO comment.(╒╠Ро■    H∙RINFOZ
+CODE_SMELL
+Xsquid:S1148'"#Use a logger to log this exception.(А╔╘Е¤    HйRMINORZVULNERABILITY
+Ysquid:S1148М"#Use a logger to log this exception.(А╔╘Е¤    HМRMINORZVULNERABILITY
+Ysquid:S1148╜"#Use a logger to log this exception.(А╔╘Е¤    HЮRMINORZVULNERABILITY
+ssquid:S2147к"ECombine this catch with the one at line 167, which has the same body.(янг─HАRMINORZ
+CODE_SMELL
+squid:S1192"ODefine a constant instead of duplicating this literal "monthly_budget" 3 times.(╪╦└╩HяRCRITICALZ
+CODE_SMELL
+Xsquid:S1148K"#Use a logger to log this exception.(А╔╘Е¤    HЙRMINORZVULNERABILITY
+dsquid:S1135╨"2Complete the task associated to this TODO comment.(╒╠Ро■    HєRINFOZ
+CODE_SMELL
+csquid:S1135r"2Complete the task associated to this TODO comment.(╒╠Ро■    HЭRINFOZ
+CODE_SMELL
+ssquid:S2147╥"ECombine this catch with the one at line 207, which has the same body.(янг─HВRMINORZ
+CODE_SMELL
+dsquid:S1135Л"2Complete the task associated to this TODO comment.(╒╠Ро■    HўRINFOZ
+CODE_SMELL
+Ysquid:S1148й"#Use a logger to log this exception.(А╔╘Е¤    HЛRMINORZVULNERABILITY
+Ysquid:S1148╘"#Use a logger to log this exception.(А╔╘Е¤    HНRMINORZVULNERABILITY
+dsquid:S1135л"2Complete the task associated to this TODO comment.(╒╠Ро■    H°RINFOZ
+CODE_SMELL
+Xsquid:S1148E"#Use a logger to log this exception.(А╔╘Е¤    HКRMINORZVULNERABILITY
+Ysquid:S1148П"#Use a logger to log this exception.(А╔╘Е¤    HДRMINORZVULNERABILITY

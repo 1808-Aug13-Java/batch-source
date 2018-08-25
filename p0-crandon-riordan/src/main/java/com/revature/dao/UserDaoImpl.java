@@ -24,18 +24,34 @@ public class UserDaoImpl implements UserDao {
 	public boolean userHasBank(String name) {
 		boolean hasBank = false;
 		User user = getUserByName(name);
+		ResultSet rs = null;
 		String sql = "SELECT * FROM BANK WHERE USER_ID = ?";
-		
 		try(Connection con = ConnectionUtil.getConnection();
 				PreparedStatement ps = con.prepareStatement(sql);) {
+			ps.setInt(1, user.getId());
+			rs = ps.executeQuery();
 			
+			if(rs.isBeforeFirst()) {
+				hasBank = true;
+			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} finally {
+			if(rs != null) {
+				try {
+					rs.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
 		}
+		
+		return hasBank;
 	}
 	
 	public int getUserIdByName(String name) {
@@ -75,6 +91,7 @@ public class UserDaoImpl implements UserDao {
 	@Override
 	public User getUserByName(String name) {
 		ResultSet rs = null;
+		ResultSet generatedKeys = null;
 		User user = null;
 		String sql = "SELECT * FROM USERS WHERE USERNAME = ?";
 		
@@ -82,6 +99,7 @@ public class UserDaoImpl implements UserDao {
 				PreparedStatement ps = con.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS)) {
 			ps.setString(1, name);
 			rs = ps.executeQuery();
+			
 			int id = 0;
 			String username;
 			String userEmail;
@@ -90,8 +108,7 @@ public class UserDaoImpl implements UserDao {
 				username = rs.getString("USERNAME");
 				userEmail = rs.getString("USER_EMAIL");
 				userPassword = rs.getString("USER_PASSWORD");
-				id = rs.getInt("USER_ID");
-				System.out.println("user id : " + id);
+				id = rs.getInt("user_id");
 				user = new User(id, username, userEmail, userPassword);
 			}
 			

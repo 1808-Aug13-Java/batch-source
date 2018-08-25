@@ -47,11 +47,12 @@ public class Engine {
 	
 	
 	private void listCommands() {
+		UserDaoImpl udi = new UserDaoImpl();
 		if(activeUser == null) {
 			logger.info("register");
 			logger.info("login");
 			logger.info("exit");
-		} else if (new UserDaoImpl().userHasBank(activeUser.getUsername())) {
+		} else if (udi.userHasBank(activeUser.getUsername())) {
 			logger.info("logout");
 			logger.info("deposit");
 			logger.info("withdraw");
@@ -141,7 +142,6 @@ public class Engine {
 		logger.info("Enter the username");
 		String name = sc.nextLine();
 		User user = udi.getUserByName(name);
-		
 		if(user == null) {
 			logger.info("No user by that name");
 			return;

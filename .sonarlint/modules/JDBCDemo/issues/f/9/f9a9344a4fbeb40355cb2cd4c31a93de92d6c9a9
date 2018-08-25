@@ -1,0 +1,44 @@
+
+wsquid:S1192""GDefine a constant instead of duplicating this literal "street" 3 times.(„±¬ĞH—RCRITICALZ
+CODE_SMELL
+vsquid:S1192$"FDefine a constant instead of duplicating this literal "state" 3 times.(½ŞîÑH˜RCRITICALZ
+CODE_SMELL
+}squid:S1192%"HDefine a constant instead of duplicating this literal "zipcode" 3 times.(ê¼ÁŒÿÿÿÿÿH™RCRITICALZ
+CODE_SMELL
+†squid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(ƒê§ÈHšRMINORZ
+CODE_SMELL
+csquid:S1135"2Complete the task associated to this TODO comment.(ƒŠ® úÿÿÿÿH›RINFOZ
+CODE_SMELL
+csquid:S1135+"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿHœRINFOZ
+CODE_SMELL
+csquid:S1135."2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿHRINFOZ
+CODE_SMELL
+csquid:S1135I"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿHRINFOZ
+CODE_SMELL
+csquid:S1135L"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿHŸRINFOZ
+CODE_SMELL
+csquid:S1135S"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿH RINFOZ
+CODE_SMELL
+csquid:S1135]"2Complete the task associated to this TODO comment.(» æÿÿÿÿÿH¡RINFOZ
+CODE_SMELL
+csquid:S1135c"2Complete the task associated to this TODO comment.(» æÿÿÿÿÿH¢RINFOZ
+CODE_SMELL
+csquid:S1135"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿH£RINFOZ
+CODE_SMELL
+dsquid:S1135†"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿH¤RINFOZ
+CODE_SMELL
+qsquid:S2147-"DCombine this catch with the one at line 42, which has the same body.(ï­£ÄH¥RMINORZ
+CODE_SMELL
+qsquid:S2147K"DCombine this catch with the one at line 72, which has the same body.(ï­£ÄH¦RMINORZ
+CODE_SMELL
+„squid:S00117\"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ØÑÊ€şÿÿÿÿH§RMINORZ
+CODE_SMELL
+squid:S00117b"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(“ ©êH¨RMINORZ
+CODE_SMELL
+Xsquid:S1148,"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿH©RMINORZVULNERABILITY
+Xsquid:S1148/"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿHªRMINORZVULNERABILITY
+Xsquid:S1148J"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿH«RMINORZVULNERABILITY
+Xsquid:S1148M"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿH¬RMINORZVULNERABILITY
+Xsquid:S1148T"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿH­RMINORZVULNERABILITY
+Ysquid:S1148€"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿH®RMINORZVULNERABILITY
+Ysquid:S1148‡"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿH¯RMINORZVULNERABILITY

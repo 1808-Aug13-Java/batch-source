@@ -1,0 +1,9 @@
+
+ƒsquid:S11928"GDefine a constant instead of duplicating this literal "logout" 3 times.(º‚Ì¼ıÿÿÿÿ8ŒºÕ×,HRCRITICALZ
+CODE_SMELL
+…squid:S1192:"IDefine a constant instead of duplicating this literal "withdraw" 3 times.(ÇíŸıÿÿÿÿ8ŒºÕ×,H’RCRITICALZ
+CODE_SMELL
+squid:S11929"HDefine a constant instead of duplicating this literal "deposit" 3 times.(¼—·Ü8ŒºÕ×,H‘RCRITICALZ
+CODE_SMELL
+usquid:UselessImportCheck	"4Remove this unused import 'com.revature.model.Bank'.(íÒÖ8Ò–Ä×,HüRMINORZ
+CODE_SMELL

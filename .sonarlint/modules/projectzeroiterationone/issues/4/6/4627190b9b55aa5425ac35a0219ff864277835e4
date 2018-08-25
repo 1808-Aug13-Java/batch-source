@@ -1,0 +1,37 @@
+
+squid:S1319"pThe type of the "users" object should be an interface such as "List" rather than the implementation "ArrayList".(êÊÊH‰RMINORZ
+CODE_SMELL
+dsquid:S1135ÿ"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿHRINFOZ
+CODE_SMELL
+Ysquid:S1148€"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿH“RMINORZVULNERABILITY
+z
+squid:S1283"LEnd this switch case with an unconditional break, return or throw statement.(şû·H†RBLOCKERZ
+CODE_SMELL
+vsquid:S11920"GDefine a constant instead of duplicating this literal "logout" 3 times.(ˆä_H‚RCRITICALZ
+CODE_SMELL
+xsquid:CommentedOutCodeLineu"<This block of commented-out lines of code should be removed.(†©äHˆRMAJORZ
+CODE_SMELL
+˜"squid:ClassVariableVisibilityCheck"QMake users a static final constant or non-public and provide accessors if needed.(êÊÊHŠRMINORZVULNERABILITY
+dsquid:S1135‚"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿHRINFOZ
+CODE_SMELL
+bsquid:S1611†"/Remove the parentheses around the "u" parameter(™¿òğşÿÿÿÿHRMINORZ
+CODE_SMELL
+}squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(’”•ñüÿÿÿÿH‡RMAJORZ
+CODE_SMELL
+~squid:S1192*"IDefine a constant instead of duplicating this literal "register" 3 times.(ï®ç¾ûÿÿÿÿHRCRITICALZ
+CODE_SMELL
+`squid:S1444"0Make this "public static activeUser" field final(ï´™ÖH…RMINORZVULNERABILITY
+†squid:S1602†"SRemove useless curly braces around statement and then remove useless return keyword(™¿òğşÿÿÿÿHRMINORZ
+CODE_SMELL
+ssquid:S2147"ECombine this catch with the one at line 254, which has the same body.(ï­£ÄH’RMINORZ
+CODE_SMELL
+dsquid:S2589l"7Remove this expression which always evaluates to "true"(îÖÿHŒRMAJORZ
+CODE_SMELL
+[squid:S1444"+Make this "public static users" field final(êÊÊH„RMINORZVULNERABILITY
+Ysquid:S1148ƒ"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿH”RMINORZVULNERABILITY
+"squid:ClassVariableVisibilityCheck"VMake activeUser a static final constant or non-public and provide accessors if needed.(ï´™ÖH‹RMINORZVULNERABILITY
+†squid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(êÊÊHƒRMINORZ
+CODE_SMELL
+Msquid:S2386"Make this member "protected".(êÊÊH‘RMINORZVULNERABILITY
+…squid:ModifiersOrderCheck"EReorder the modifiers to comply with the Java Language Specification.(¿óı•üÿÿÿÿH€RMINORZ
+CODE_SMELL
