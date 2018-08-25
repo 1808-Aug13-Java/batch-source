@@ -9,5 +9,7 @@ public interface BankDao {
 	public Bank getBankById(int id);
 	public int createBank(Bank bank);
 	public int updateBank(Bank bank);
-	public int deleteBankById(int id);
+	public int hideBankById(int id);
+	public boolean deposit(int id, float amount);
+	public boolean withdraw(int id, float amount);
 }

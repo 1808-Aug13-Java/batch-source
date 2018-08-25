@@ -5,12 +5,26 @@ public class User {
 	private String username;
 	private String userEmail;
 	private String userPassword;
-	private boolean authenticated = false;
-	
+	private int id;
 	
 
 	public User() {
 		super();
+	}
+	
+	public User(int id, String username, String userEmail, String userPassword) {
+		super();
+		this.username = username;
+		this.userEmail = userEmail;
+		this.userPassword = userPassword;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public User(String username, String userEmail, String userPassword) {
@@ -42,14 +56,6 @@ public class User {
 
 	public void setUserPassword(String userPassword) {
 		this.userPassword = userPassword;
-	}
-	
-	public boolean isAuthenticated() {
-		return authenticated;
-	}
-
-	public void setAuthenticated(boolean authenticated) {
-		this.authenticated = authenticated;
 	}
 
 	@Override

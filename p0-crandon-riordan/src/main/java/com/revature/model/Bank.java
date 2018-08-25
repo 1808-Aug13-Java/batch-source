@@ -1,13 +1,22 @@
 package com.revature.model;
 
+import org.apache.log4j.Logger;
+
 public class Bank {
-	
 	private int id;
 	private String name;
 	private float amount;
+	private int userId;
+	
+
+
 	
 	public Bank() {
 		super();
+	}
+	
+	public Bank(User user) {
+		
 	}
 
 	public Bank(int id, String name, float amount) {
@@ -16,6 +25,15 @@ public class Bank {
 		this.name = name;
 		this.amount = amount;
 	}
+	
+	public int getUserId() {
+		return userId;
+	}
+
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
+
 
 	public int getId() {
 		return id;

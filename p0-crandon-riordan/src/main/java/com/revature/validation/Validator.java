@@ -18,7 +18,7 @@ public class Validator {
 		String email = sc.nextLine();
 		
 		// get a valid email
-		while(!validateEmail(email)) {
+		while(!validaEmail(email)) {
 			logger.info("Enter a properly formatted email address");
 			email = sc.nextLine();
 		}
@@ -26,7 +26,7 @@ public class Validator {
 		return email;
 	}
 
-	private static boolean validateEmail(String email) {
+	private static boolean validaEmail(String email) {
 		// regexp from OWASP regex wiki
 		String emailValidationRegEx = "^[a-zA-Z0-9_+"
 				+ "&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@" +
@@ -42,20 +42,17 @@ public class Validator {
 	public static String getAUsername() {
 		logger.info("Enter a username: ");
 		String username = sc.nextLine();
-		while(!validateUsername(username)) {
+		while(!validUsername(username)) {
 			logger.info("Enter a proper username: ");
 			username = sc.nextLine();
 		}
 		return username;
 	}
-	private static boolean validateUsername(String username) {
+	private static boolean validUsername(String username) {
 		// regexp from OWASP regex wiki
-		String emailValidationRegEx = "^[a-zA-Z0-9]([._](?![._])"
-				+ "|[a-zA-Z0-9]){6,18}"
-				+ "[a-zA-Z0-9]$\r\n";
+		String emailValidationRegEx = "^[a-z0-9_-]{3,15}$";
 		Pattern regExPattern = Pattern.compile(emailValidationRegEx);
-		
-		
+	
 		return regExPattern.matcher(username).matches();
 	}
 	
@@ -67,7 +64,7 @@ public class Validator {
 		logger.info("Please enter a safe password:");
 		String password = sc.nextLine();
 		
-		while(!validatePassword(password)) {
+		while(!validPassword(password)) {
 			logger.info("Enter a safer password:");
 			password = sc.nextLine();
 		}
@@ -75,7 +72,7 @@ public class Validator {
 		
 	}
 	
-	private static boolean validatePassword(String password) {
+	private static boolean validPassword(String password) {
 		String passwordValidationRegEx = "^(?:(?=.*\\d)(?=.*[A-Z])"
 				+ "(?=.*[a-z])|(?=.*\\d)(?=.*[^A-Za-z0-9])"
 				+ "(?=.*[a-z])|(?=.*[^A-Za-z0-9])(?=.*[A-Z])"
