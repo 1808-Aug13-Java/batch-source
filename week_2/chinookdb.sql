@@ -142,6 +142,192 @@ BEGIN
     DBMS_OUTPUT.PUT_LINE(MOST_EXPENSIVE_TRACK());
 END;
 /
+-- 3.3 User Defined Scalar Functions
+-- Create a function that returns the average price of invoiceline items in the invoiceline table
+CREATE OR REPLACE FUNCTION INVOICELINE_AVG
+RETURN NUMBER
+IS AVG_UNITPRICE NUMBER(5, 2);
+BEGIN
+    SELECT AVG(UNITPRICE)
+    INTO AVG_UNITPRICE
+    FROM INVOICELINE;
+    RETURN AVG_UNITPRICE;
+    
+END;
+/
+
+
+
+-- 3.4 User Defined Table Valued Functions
+-- Create a function that returns all employees who are born after 1968.
+CREATE OR REPLACE FUNCTION AFTER_68
+RETURN SYS_REFCURSOR
+IS
+    AGE SYS_REFCURSOR;
+BEGIN
+    OPEN AGE FOR
+    SELECT * FROM EMPLOYEE WHERE BIRTHDATE > DATE '1968-12-30';
+    
+    RETURN AGE;
+END;
+/
+
+
+
+
+
+
+
+
+--4.0 Stored Procedures
+--In this section you will be creating and executing stored procedures. You will be creating various types of stored procedures that take input and output parameters.
+
+--4.1 Basic Stored Procedure
+--Task – Create a stored procedure that selects the first and last names of all the employees.
+CREATE OR REPLACE PROCEDURE SELECT_FNLN(FIRSTNAME_LASTNAME OUT SYS_REFCURSOR)
+IS
+BEGIN
+    OPEN FIRSTNAME_LASTNAME FOR
+    SELECT FIRSTNAME, LASTNAME FROM EMPLOYEE;
+END;
+/
+
+--4.2 Stored Procedure Input Parameters
+--Task – Create a stored procedure that updates the personal information of an employee.
+CREATE OR REPLACE PROCEDURE UPDATE_EMP_INFO(
+    EMP_ID EMPLOYEE.EMPLOYEEID%TYPE,
+    EMP_LASTNAME EMPLOYEE.LASTNAME%TYPE,
+    EMP_FIRSTNAME EMPLOYEE.FIRSTNAME%TYPE,
+    EMP_TITLE EMPLOYEE.TITLE%TYPE,
+    EMP_REPORTSTO EMPLOYEE.REPORTSTO%TYPE,
+    EMP_BIRTHDAY EMPLOYEE.BIRTHDATE%TYPE,
+    EMP_HIREDATE EMPLOYEE.HIREDATE%TYPE,
+    EMP_ADDRESS EMPLOYEE.ADDRESS%TYPE,
+    EMP_CITY EMPLOYEE.CITY%TYPE,
+    EMP_STATE EMPLOYEE.STATE%TYPE,
+    EMP_COUNTRY EMPLOYEE.COUNTRY%TYPE,
+    EMP_POSTALCODE EMPLOYEE.POSTALCODE%TYPE,
+    EMP_PHONE EMPLOYEE.PHONE%TYPE,
+    EMP_FAX EMPLOYEE.FAX%TYPE,
+    EMP_EMAIL EMPLOYEE.EMAIL%TYPE)
+    
+    IS
+    BEGIN
+        UPDATE EMPLOYEE
+        SET
+            LASTNAME = EMP_LASTNAME,
+            FIRSTNAME = EMP_FIRSTNAME,
+            TITLE = EMP_TITLE,
+            REPORTSTO = EMP_REPORTSTO,
+            BIRTHDATE = EMP_BIRTHDAY,
+            HIREDATE = EMP_HIREDATE,
+            ADDRESS = EMP_ADDRESS,
+            CITY = EMP_CITY,
+            STATE = EMP_STATE,
+            COUNTRY = EMP_COUNTRY,
+            POSTALCODE = EMP_POSTALCODE,
+            PHONE = EMP_PHONE,
+            FAX = EMP_FAX,
+            EMAIL = EMP_EMAIL
+        WHERE EMPLOYEEID = EMP_ID;
+    END;
+    /
+
+
+--Task – Create a stored procedure that returns the managers of an employee.
+CREATE OR REPLACE PROCEDURE GET_MGMT(EMP_ID IN EMPLOYEE.EMPLOYEEID%TYPE, MGMT OUT SYS_REFCURSOR)
+IS MGMT_ID NUMBER;
+BEGIN
+    OPEN MGMT FOR
+    SELECT *
+    FROM EMPLOYEE
+    WHERE EMPLOYEEID = 
+        (SELECT REPORTSTO FROM EMPLOYEE WHERE EMPLOYEEID = EMP_ID);
+END;
+/
+
+--4.3 Stored Procedure Output Parameters
+--Task – Create a stored procedure that returns the name and company of a customer.
+CREATE OR REPLACE PROCEDURE NAME_AND_COMP(CUST_ID IN CUSTOMER.CUSTOMERID%TYPE, NAMECO OUT SYS_REFCURSOR)
+IS
+BEGIN
+    OPEN NAMECO FOR
+    SELECT FIRSTNAME, LASTNAME, COMPANY
+    FROM CUSTOMER
+    WHERE CUSTOMERID=CUST_ID;
+END;
+/
+
+
+--5.0 Transactions
+--In this section you will be working with transactions. Transactions are usually nested within a stored procedure.
+--Task – Create a transaction that given a invoiceId will delete that invoice (There may be constraints that rely on this, find out how to resolve them).
+CREATE OR REPLACE PROCEDURE DELETE_INVOICE(INV_ID IN INVOICE.INVOICEID%TYPE)
+IS
+BEGIN
+    DELETE FROM INVOICELINE INV_LINE
+    WHERE INV_LINE.INVOICEID = INV_ID;
+    DELETE FROM INVOICE INV
+    WHERE INV.INVOICEID = INV_ID;
+END;
+/
+
+
+
+
+--Task – Create a transaction nested within a stored procedure that inserts a new record in the Customer table
+CREATE OR REPLACE PROCEDURE CREATE_CUSTOMER(
+    CUST_ID IN CUSTOMER.CUSTOMERID%TYPE,
+    FN IN CUSTOMER.FIRSTNAME%TYPE,
+    LN IN CUSTOMER.LASTNAME%TYPE,
+    CUST_COMP IN CUSTOMER.COMPANY%TYPE,
+    ADDR IN CUSTOMER.ADDRESS%TYPE,
+    CIT IN CUSTOMER.CITY%TYPE,
+    ST IN CUSTOMER.STATE%TYPE,
+    CUST_COUNTRY IN CUSTOMER.COUNTRY%TYPE,
+    PC IN CUSTOMER.POSTALCODE%TYPE,
+    PHONENO IN CUSTOMER.PHONE%TYPE,
+    FAXNO IN CUSTOMER.FAX%TYPE,
+    EMAIL_ADDR IN CUSTOMER.EMAIL%TYPE,
+    SUPPORTREP IN CUSTOMER.SUPPORTREPID%TYPE)
+IS
+BEGIN
+    INSERT INTO CUSTOMER(
+        CUSTOMERID,
+        FIRSTNAME,
+        LASTNAME,
+        COMPANY,
+        ADDRESS,
+        CITY,
+        STATE,
+        COUNTRY,
+        POSTALCODE,
+        PHONE,
+        FAX,
+        EMAIL,
+        SUPPORTREPID
+    )
+    VALUES(
+        CUST_ID,
+        FN,
+        LN,
+        CUST_COMP,
+        ADDR,
+        CIT,
+        ST,
+        CUST_COUNTRY,
+        PC,
+        PHONENO,
+        FAXNO,
+        EMAIL_ADDR,
+        SUPPORTREP
+    );
+END;
+/
+
+    
+
+
 
 -- 6.0 Triggers
 -- In this section you will create various kinds of triggers that work when certain DML statements are executed on a table.
@@ -174,11 +360,6 @@ BEGIN
     DBMS_OUTPUT.PUT_LINE('You successfully deleted a row in the CUSTOMER table.');
 END;
 /
-
-
-
-
-    
 
 
 -- 7.1
