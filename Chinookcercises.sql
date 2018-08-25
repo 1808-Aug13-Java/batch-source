@@ -74,6 +74,10 @@ WHERE HIREDATE BETWEEN DATE '2003-06-01' AND DATE '2004-03-01';
 -- 2.7 DELETE
 -------------------------------------------------
 
+ALTER CHINOOK.INVOICE 
+MODIFY CONSTRAINT FK_CUSTOMERINVOICEID
+FOREIGN KEY (CUSTOMERID) REFERENCES CHINOOK.CUSTOMER (CUSTOMERID) ON DELETE CASCADE;
+
 DELETE CHINOOK.INVOICE
 WHERE CUSTOMERID = 
     ( SELECT CUSTOMERID
@@ -131,3 +135,104 @@ BEGIN
     RETURN MOST_EXPENSIVE_TRACK;
 END;
 /
+
+-------------------------------------------------
+-- 3.3 User Defined Scalar Functions
+-------------------------------------------------
+
+CREATE OR REPLACE FUNCTION AVERAGE_INVOICELINE_PRICE
+RETURN CHINOOK.INVOICELINE.UNITPRICE%TYPE
+IS
+    AVG_INVOICELINE CHINOOK.INVOICELINE.UNITPRICE%TYPE;
+BEGIN
+    SELECT AVG(UNITPRICE)
+    INTO AVG_INVOICELINE
+    FROM CHINOOK.INVOICELINE;
+    RETURN AVG_INVOICELINE;
+END;
+
+-------------------------------------------------
+-- 3.4 User Defined Table Valued Functions
+-------------------------------------------------
+
+CREATE OR REPLACE FUNCTION AFTER_SIXTY_EIGHT
+RETURN SYS_REFCURSOR
+IS
+S SYS_REFCURSOR;
+BIRTH_DATE DATE;
+EMP_DATE CHINOOK.EMPLOYEE.LASTNAME%TYPE;
+BEGIN
+   OPEN S FOR SELECT CHINOOK.EMPLOYEE.BIRTHDATE, CHINOOK.EMPLOYEE.LASTNAME FROM CHINOOK.EMPLOYEE
+   WHERE CHINOOK.EMPLOYEE.BIRTHDATE > DATE '1968-12-31';
+   RETURN S;
+END;
+/
+
+DECLARE
+C SYS_REFCURSOR;
+BIRTH_DATE DATE;
+EMP_NAME CHINOOK.EMPLOYEE.LASTNAME%TYPE;
+
+BEGIN
+   C := AFTER_SIXTY_EIGHT();
+   LOOP
+       FETCH C INTO BIRTH_DATE, EMP_NAME;
+       EXIT WHEN C%NOTFOUND;
+       DBMS_OUTPUT.PUT_LINE(BIRTH_DATE||' '|| EMP_NAME);
+   END LOOP;
+   CLOSE C;
+END;
+
+-------------------------------------------------
+-- 4.1 Basic Stored Procedure
+-------------------------------------------------
+
+--CREATE OR REPLACE PROCEDURE EMPLOYEE_NAMES()
+
+-------------------------------------------------
+-- 4.2 Stored Procedure Input Parameters
+-------------------------------------------------
+
+-------------------------------------------------
+-- 4.3 Stored Procedure Output Parameters
+-------------------------------------------------
+
+-------------------------------------------------
+-- 4.3 Stored Procedure Output Parameters
+-------------------------------------------------
+
+-------------------------------------------------
+-- 5.0 TRANSACTIONS
+-------------------------------------------------
+
+-------------------------------------------------
+-- 6.1 AFTER/FOR
+-------------------------------------------------
+
+-------------------------------------------------
+-- 7.1 INNER
+-------------------------------------------------
+
+SELECT
+    C.FIRSTNAME, C.LASTNAME AS NAME,
+    I.INVOICEID
+FROM CHINOOK.CUSTOMER C
+JOIN CHINOOK.INVOICE I
+ON C.CUSTOMERID = I.CUSTOMERID;
+
+-------------------------------------------------
+-- 7.2 OUTER
+-------------------------------------------------
+
+-------------------------------------------------
+-- 7.3 OUTER
+-------------------------------------------------
+
+-------------------------------------------------
+-- 7.4 CROSS
+-------------------------------------------------
+
+-------------------------------------------------
+-- 7.5 SELF
+-------------------------------------------------
+
