@@ -12,6 +12,7 @@
 
 .metadata/
 .recommenders/
+*.properties
 
 # Package Files # 
 *.jar 
