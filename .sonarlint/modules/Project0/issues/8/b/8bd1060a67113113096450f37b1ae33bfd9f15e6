@@ -1,0 +1,114 @@
+
+…squid:S1192a"PDefine a constant instead of duplicating this literal "' isn't valid. " 4 times.(Ô¢–ÌúÿÿÿÿHîRCRITICALZ
+CODE_SMELL
+‹
+squid:S135½"YReduce the total number of break and continue statements in this loop to use at most one.(ÍºõïùÿÿÿÿHïRMINORZ
+CODE_SMELL
+j
+squid:S106@"9Replace this use of System.out or System.err by a logger.(„Ó±âûÿÿÿÿHğRMAJORZ
+CODE_SMELL
+e
+squid:S106G"9Replace this use of System.out or System.err by a logger.(üï£ÑHñRMAJORZ
+CODE_SMELL
+j
+squid:S106R"9Replace this use of System.out or System.err by a logger.(É—ç¬úÿÿÿÿHòRMAJORZ
+CODE_SMELL
+e
+squid:S106S"9Replace this use of System.out or System.err by a logger.(©ş°ˆHóRMAJORZ
+CODE_SMELL
+j
+squid:S106T"9Replace this use of System.out or System.err by a logger.(ßŒÀ¦şÿÿÿÿHôRMAJORZ
+CODE_SMELL
+j
+squid:S106U"9Replace this use of System.out or System.err by a logger.(ØÌº¬şÿÿÿÿHõRMAJORZ
+CODE_SMELL
+e
+squid:S106V"9Replace this use of System.out or System.err by a logger.(©ı¹HöRMAJORZ
+CODE_SMELL
+j
+squid:S106W"9Replace this use of System.out or System.err by a logger.(–à‘ÿÿÿÿÿH÷RMAJORZ
+CODE_SMELL
+j
+squid:S106a"9Replace this use of System.out or System.err by a logger.(Ô¢–ÌúÿÿÿÿHøRMAJORZ
+CODE_SMELL
+e
+squid:S106k"9Replace this use of System.out or System.err by a logger.(ÆÀûıHùRMAJORZ
+CODE_SMELL
+k
+squid:S106†"9Replace this use of System.out or System.err by a logger.(Œ·¤İùÿÿÿÿHúRMAJORZ
+CODE_SMELL
+k
+squid:S106"9Replace this use of System.out or System.err by a logger.(Ú®óÅùÿÿÿÿHûRMAJORZ
+CODE_SMELL
+k
+squid:S106’"9Replace this use of System.out or System.err by a logger.(øªÏüÿÿÿÿHüRMAJORZ
+CODE_SMELL
+f
+squid:S106š"9Replace this use of System.out or System.err by a logger.(ÆÀûıHıRMAJORZ
+CODE_SMELL
+k
+squid:S106®"9Replace this use of System.out or System.err by a logger.(Ì‡×—üÿÿÿÿHşRMAJORZ
+CODE_SMELL
+k
+squid:S106³"9Replace this use of System.out or System.err by a logger.(ªÅÔÏşÿÿÿÿHÿRMAJORZ
+CODE_SMELL
+k
+squid:S106·"9Replace this use of System.out or System.err by a logger.(øªÏüÿÿÿÿH€RMAJORZ
+CODE_SMELL
+f
+squid:S106¾"9Replace this use of System.out or System.err by a logger.(‰ŞÁÜHRMAJORZ
+CODE_SMELL
+k
+squid:S106¿"9Replace this use of System.out or System.err by a logger.(´å»áøÿÿÿÿH‚RMAJORZ
+CODE_SMELL
+k
+squid:S106À"9Replace this use of System.out or System.err by a logger.(•íáºøÿÿÿÿHƒRMAJORZ
+CODE_SMELL
+k
+squid:S106Á"9Replace this use of System.out or System.err by a logger.(‡ş€îûÿÿÿÿH„RMAJORZ
+CODE_SMELL
+f
+squid:S106Â"9Replace this use of System.out or System.err by a logger.(Êî­‹H…RMAJORZ
+CODE_SMELL
+k
+squid:S106Ğ"9Replace this use of System.out or System.err by a logger.(Éßá„üÿÿÿÿH†RMAJORZ
+CODE_SMELL
+k
+squid:S106Ø"9Replace this use of System.out or System.err by a logger.(«Ø‚ÀüÿÿÿÿH‡RMAJORZ
+CODE_SMELL
+f
+squid:S106Ú"9Replace this use of System.out or System.err by a logger.(âğ¤HˆRMAJORZ
+CODE_SMELL
+k
+squid:S106à"9Replace this use of System.out or System.err by a logger.(Éßá„üÿÿÿÿH‰RMAJORZ
+CODE_SMELL
+k
+squid:S106ê"9Replace this use of System.out or System.err by a logger.(òï«ÿÿÿÿÿHŠRMAJORZ
+CODE_SMELL
+k
+squid:S106î"9Replace this use of System.out or System.err by a logger.(ºœ£ıÿÿÿÿH‹RMAJORZ
+CODE_SMELL
+f
+squid:S106ñ"9Replace this use of System.out or System.err by a logger.(âğ¤HŒRMAJORZ
+CODE_SMELL
+k
+squid:S106ø"9Replace this use of System.out or System.err by a logger.(Ô£¦«úÿÿÿÿHRMAJORZ
+CODE_SMELL
+k
+squid:S106û"9Replace this use of System.out or System.err by a logger.(°¨‰ùÿÿÿÿHRMAJORZ
+CODE_SMELL
+k
+squid:S106ÿ"9Replace this use of System.out or System.err by a logger.(øªÏüÿÿÿÿHRMAJORZ
+CODE_SMELL
+k
+squid:S106‡"9Replace this use of System.out or System.err by a logger.(ªÓ¼áşÿÿÿÿHRMAJORZ
+CODE_SMELL
+k
+squid:S106‘"9Replace this use of System.out or System.err by a logger.(Æ¼ÿûÿÿÿÿH‘RMAJORZ
+CODE_SMELL
+f
+squid:S106”"9Replace this use of System.out or System.err by a logger.(¾¹€±H’RMAJORZ
+CODE_SMELL
+‚squid:S3776"RRefactor this method to reduce its Cognitive Complexity from 63 to the 15 allowed.(Çµí‘H“RCRITICALZ
+CODE_SMELL
+qsquid:S2259¾"JA "NullPointerException" could be thrown; "bankUserData" is nullable here.(‰ŞÁÜH”RMAJORZBUG
