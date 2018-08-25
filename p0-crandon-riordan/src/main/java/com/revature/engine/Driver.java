@@ -6,12 +6,10 @@ import com.revature.*;
 
 public class Driver {
 	
-	final static Logger logger = Logger.getLogger(Driver.class);
+	static final Logger logger = Logger.getLogger(Driver.class);
 	
 	public static void main(String[] args) {
 		
-		
-		engine.start();
 	}
 
 }
