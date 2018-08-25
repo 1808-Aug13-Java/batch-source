@@ -214,7 +214,8 @@ END;
 -------------------------------------------------
 
 SELECT
-    C.FIRSTNAME, C.LASTNAME AS NAME,
+    C.FIRSTNAME, 
+    C.LASTNAME,
     I.INVOICEID
 FROM CHINOOK.CUSTOMER C
 JOIN CHINOOK.INVOICE I
@@ -224,9 +225,21 @@ ON C.CUSTOMERID = I.CUSTOMERID;
 -- 7.2 OUTER
 -------------------------------------------------
 
+SELECT 
+    C.CUSTOMERID,
+    FIRSTNAME,
+    LASTNAME,
+    INVOICEID,
+    TOTAL
+FROM CHINOOK.CUSTOMER C
+FULL JOIN CHINOOK.INVOICE I
+ON C.CUSTOMERID = I.CUSTOMERID;
+
 -------------------------------------------------
 -- 7.3 OUTER
 -------------------------------------------------
+
+
 
 -------------------------------------------------
 -- 7.4 CROSS
