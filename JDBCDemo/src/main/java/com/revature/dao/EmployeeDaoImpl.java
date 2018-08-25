@@ -9,6 +9,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.log4j.Logger;
+
 import com.revature.model.Department;
 import com.revature.model.Employee;
 import com.revature.model.Location;
@@ -16,6 +18,8 @@ import com.revature.util.ConnectionUtil;
 
 public class EmployeeDaoImpl implements EmployeeDao {
 
+	private static Logger log = Logger.getRootLogger();
+	
 	@Override
 	public List<Employee> getEmployees() {
 		List<Employee> employeeList = new ArrayList<>();
@@ -65,36 +69,30 @@ public class EmployeeDaoImpl implements EmployeeDao {
 				employeeList.add(e);
 			}
 			
-		} catch (IOException e) {
-			e.printStackTrace();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+		} catch (IOException|SQLException e) {
+			log.error(e.getMessage());
+		} 
 		
 		return employeeList;
 	}
 
 	@Override
 	public Employee getEmployeeById(int id) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public int createEmployee(Employee employee) {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
 	public int updateEmployee(Employee employee) {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
 	public int deleteEmployeeById(int id) {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 

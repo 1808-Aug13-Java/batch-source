@@ -17,6 +17,12 @@ public class Department {
 		this.name = name;
 		this.monthlyBudget = monthlyBudget;
 	}
+	
+	public Department(String name, float monthlyBudget) {
+		super();
+		this.name = name;
+		this.monthlyBudget = monthlyBudget;
+	}
 
 	public int getId() {
 		return id;

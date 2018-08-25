@@ -23,20 +23,37 @@ public class Driver {
 		*/
 		
 		
+		/*
 		EmployeeDao edi = new EmployeeDaoImpl();
 		List<Employee> allEmployees = edi.getEmployees();
 		for(Employee e: allEmployees) {
 			System.out.println(e);
 		}
+		*/
 		
 		
-//		DepartmentDao ddi = new DepartmentDaoImpl();
+		DepartmentDaoImpl ddi = new DepartmentDaoImpl();
 //		Department d = ddi.getDepartmentById(1);
 //		System.out.println(d);
+//		List<Department> departments = ddi.getDepartments();
+//		for(Department d : departments) {
+//			System.out.println(d);
+//		}
+//		System.out.println(ddi.createDepartment(new Department("Janitorial",70000)));
+		Department d = ddi.getDepartmentById(9);
+//		d.setMonthlyBudget(80000);
+//		System.out.println(ddi.updateDepartment(d));
+//		System.out.println(ddi.deleteDepartmentById(4));
+		ddi.increaseBudget(9, 1000);
 		
 //		LocationDao ldi = new LocationDaoImpl();
 //		System.out.println(ldi.getLocationById(3));
+//		List<Location> locations = ldi.getLocations();
+//		for(Location l : locations) {
+//			System.out.println(l);
+//		}
 
+		
 	}
 
 }

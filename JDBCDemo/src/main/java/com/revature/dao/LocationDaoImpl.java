@@ -5,17 +5,43 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
+
+import org.apache.log4j.Logger;
 
 import com.revature.model.Location;
 import com.revature.util.ConnectionUtil;
 
 public class LocationDaoImpl implements LocationDao {
 
+	private static Logger log = Logger.getRootLogger();
+	
 	@Override
 	public List<Location> getLocations() {
-		// TODO Auto-generated method stub
-		return null;
+		List<Location> locations = new ArrayList<>();
+		
+		String sql = "SELECT * FROM LOCATIONS";
+		
+		try(Connection con = ConnectionUtil.getConnection();
+				Statement s = con.createStatement();
+				ResultSet rs = s.executeQuery(sql)){
+			
+			while(rs.next()) {
+				int id = rs.getInt("LOCATION_ID");
+				String city = rs.getString("CITY");
+				String street = rs.getString("STREET");
+				String state = rs.getString("STATE");
+				int zipcode = rs.getInt("ZIPCODE");
+				locations.add(new Location(id, street, city, state, zipcode));
+			}
+			
+		} catch (SQLException|IOException e) {
+			log.error(e.getMessage());
+		} 
+		
+		return locations;
 	}
 
 	@Override
@@ -38,20 +64,15 @@ public class LocationDaoImpl implements LocationDao {
 				l = new Location(id, street, city, state, zipcode);
 			}
 			
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		} catch (SQLException|IOException e) {
+			log.error(e.getMessage());
 		} finally {
 			if (rs != null) {
 				try {
 					rs.close();
 				} catch (SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+					log.error(e.getMessage());
+				} 
 			}
 		}
 		
@@ -78,8 +99,7 @@ public class LocationDaoImpl implements LocationDao {
 			}
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			log.error(e.getMessage());
 		} finally {
 			if (rs != null) {
 				try {
@@ -97,19 +117,16 @@ public class LocationDaoImpl implements LocationDao {
 	
 	@Override
 	public int createLocation(Location location) {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
 	public int updateLocation(Location location) {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
 	public int deleteLocationById(int id) {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
