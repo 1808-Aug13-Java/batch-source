@@ -1,0 +1,24 @@
+
+xsquid:CommentedOutCodeLine<"<This block of commented-out lines of code should be removed.(ˆ•ÑHÉRMAJORZ
+CODE_SMELL
+\squid:S1125}"(Remove the literal "true" boolean value.(‚Í¡à8åÌ¿¢×,H"RMINORZ
+CODE_SMELL
+fsquid:S2864H"4Iterate over the "entrySet" instead of the "keySet".(ñí¢‚üÿÿÿÿHÇRMAJORZ
+CODE_SMELL
+csquid:S1135U"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿHÔRINFOZ
+CODE_SMELL
+csquid:S1135\"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿHÕRINFOZ
+CODE_SMELL
+fsquid:S2259Z"@A "NullPointerException" could be thrown; "bw" is nullable here.(÷¹ªHÖRMAJORZBUG
+Xsquid:S1148]"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿHØRMINORZVULNERABILITY
+Zsquid:S1125t"(Remove the literal "true" boolean value.(Õ‰õ²ıÿÿÿÿHÑRMINORZ
+CODE_SMELL
+¦squid:S13197"tThe type of the "accountsList" object should be an interface such as "Map" rather than the implementation "HashMap".(‡­àÇøÿÿÿÿHÊRMINORZ
+CODE_SMELL
+Usquid:S1125e"(Remove the literal "true" boolean value.(‚Í¡àHÓRMINORZ
+CODE_SMELL
+Xsquid:S1148V"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿH×RMINORZVULNERABILITY
+_squid:S2093>"*Change this "try" to a try-with-resources.(¡»¢üùÿÿÿÿHÈRCRITICALZ
+CODE_SMELL
+v
+squid:S899C"BDo something with the "boolean" value returned by "createNewFile".(Ğ’ÍùÿÿÿÿHÙRMINORZVULNERABILITY

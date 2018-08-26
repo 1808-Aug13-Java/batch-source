@@ -1,0 +1,89 @@
+
+csquid:S11356"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿHRINFOZ
+CODE_SMELL
+e
+squid:S106J"9Replace this use of System.out or System.err by a logger.(¼¬½ßHRMAJORZ
+CODE_SMELL
+e
+squid:S106–"9Replace this use of System.out or System.err by a logger.(Ú«»VHŸRMAJORZ
+CODE_SMELL
+_squid:S1199a"-Extract this nested code block into a method.(ğÁ–ÓûÿÿÿÿH RMINORZ
+CODE_SMELL
+}squid:CommentedOutCodeLine""<This block of commented-out lines of code should be removed.(œ‡‘ˆùÿÿÿÿH¡RMAJORZ
+CODE_SMELL
+j
+squid:S106Z"9Replace this use of System.out or System.err by a logger.(®ˆÅŸşÿÿÿÿH¢RMAJORZ
+CODE_SMELL
+…squid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(´¾¹H£RMINORZ
+CODE_SMELL
+~squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Î±ÈùÿÿÿÿH¤RMAJORZ
+CODE_SMELL
+k
+squid:S106Œ"9Replace this use of System.out or System.err by a logger.(ÒÜÌéÿÿÿÿÿH¥RMAJORZ
+CODE_SMELL
+d
+squid:S106i"9Replace this use of System.out or System.err by a logger.(ãÑH¦RMAJORZ
+CODE_SMELL
+d
+squid:S106T"9Replace this use of System.out or System.err by a logger.(›ëÄH§RMAJORZ
+CODE_SMELL
+xsquid:CommentedOutCodeLineV"<This block of commented-out lines of code should be removed.(óõçúH¨RMAJORZ
+CODE_SMELL
+k
+squid:S106’"9Replace this use of System.out or System.err by a logger.(“Ãü˜ıÿÿÿÿH©RMAJORZ
+CODE_SMELL
+e
+squid:S106A"9Replace this use of System.out or System.err by a logger.(ÒÃ°÷HªRMAJORZ
+CODE_SMELL
+j
+squid:S106S"9Replace this use of System.out or System.err by a logger.(³–¢¢øÿÿÿÿH«RMAJORZ
+CODE_SMELL
+k
+squid:S106œ"9Replace this use of System.out or System.err by a logger.(§¼ÒÜøÿÿÿÿH¬RMAJORZ
+CODE_SMELL
+Xsquid:S11487"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿH­RMINORZVULNERABILITY
+}squid:CommentedOutCodeLine)"<This block of commented-out lines of code should be removed.(Í…¥¾ùÿÿÿÿH®RMAJORZ
+CODE_SMELL
+e
+squid:S106b"9Replace this use of System.out or System.err by a logger.(é™‹H¯RMAJORZ
+CODE_SMELL
+_squid:S1199Y"-Extract this nested code block into a method.(·ÿ½äûÿÿÿÿH°RMINORZ
+CODE_SMELL
+_squid:S1199h"-Extract this nested code block into a method.(úÀôãùÿÿÿÿH±RMINORZ
+CODE_SMELL
+f
+squid:S106„"9Replace this use of System.out or System.err by a logger.(¬ÿË¹H²RMAJORZ
+CODE_SMELL
+f
+squid:S106‰"9Replace this use of System.out or System.err by a logger.(”ó’ÖH³RMAJORZ
+CODE_SMELL
+`squid:S1199‚"-Extract this nested code block into a method.(ğÁ–ÓûÿÿÿÿH´RMINORZ
+CODE_SMELL
+e
+squid:S106y"9Replace this use of System.out or System.err by a logger.(«·ÙÄHµRMAJORZ
+CODE_SMELL
+xsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Ù¡î¹H¶RMAJORZ
+CODE_SMELL
+d
+squid:S106P"9Replace this use of System.out or System.err by a logger.(¾‚ƒH·RMAJORZ
+CODE_SMELL
+wsquid:CommentedOutCodeLine'"<This block of commented-out lines of code should be removed.(¤¦™H¸RMAJORZ
+CODE_SMELL
+j
+squid:S106n"9Replace this use of System.out or System.err by a logger.(š’”ĞÿÿÿÿÿH¹RMAJORZ
+CODE_SMELL
+e
+squid:S106B"9Replace this use of System.out or System.err by a logger.(ÇªÃîHºRMAJORZ
+CODE_SMELL
+_squid:S1199G"-Extract this nested code block into a method.(·ÿ½äûÿÿÿÿH»RMINORZ
+CODE_SMELL
+tsquid:S2095"LUse try-with-resources or close this "BufferedReader" in a "finally" clause.(Òø·•H¼RBLOCKERZBUG
+e
+squid:S106C"9Replace this use of System.out or System.err by a logger.(è¨ùH½RMAJORZ
+CODE_SMELL
+j
+squid:S106]"9Replace this use of System.out or System.err by a logger.(ôÊŸõÿÿÿÿÿH¾RMAJORZ
+CODE_SMELL
+f
+squid:S106"9Replace this use of System.out or System.err by a logger.(óÔµöH¿RMAJORZ
+CODE_SMELL

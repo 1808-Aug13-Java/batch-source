@@ -1,0 +1,7 @@
+
+}squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(þ·àùÿÿÿÿHœRMAJORZ
+CODE_SMELL
+gsquid:S1118":Add a private constructor to hide the implicit public one.(ò°ªHRMAJORZ
+CODE_SMELL
+ysquid:UselessImportCheck":Remove this unused import 'java.io.FileNotFoundException'.(·î™ùÿÿÿÿHžRMINORZ
+CODE_SMELL

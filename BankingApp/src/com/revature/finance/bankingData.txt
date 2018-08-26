@@ -1,6 +1,0 @@
-person
-person
-100.0
-bro
-pass1
-510.0
