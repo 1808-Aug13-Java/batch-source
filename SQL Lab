@@ -78,16 +78,12 @@ WHERE HIREDATE BETWEEN DATE '2003-6-01' AND DATE '2004-3-01';
 --2.7 DELETE
 --------------------------------------------
 --Task – Delete a record in Customer table where the name is Robert Walter (There may be constraints that rely on this, find out how to resolve them).	
-/*
-UPDATE CHINOOK.INVOICE
-SET
-WHERE CUSTOMERID IN(
-SELECT CUSTOMERID
-FROM CHINOOK.CUSTOMER
-WHERE FIRSTNAME = 'Robert' AND LASTNAME = 'Walter');
-DELETE FROM CHINOOK.CUSTOMER
+ALTER TABLE CHINOOK.INVOICE             --Removing foreign key constrait to allow us to drop data
+DROP CONSTRAINT FK_INVOICECUSTOMERID;
+
+
+DELETE FROM CHINOOK.CUSTOMER            --Actually removing the data required
 WHERE FIRSTNAME = 'Robert' AND LASTNAME = 'Walter';
-*/
 --------------------------------------------
 --3. SQL Functions
 --------------------------------------------
@@ -95,25 +91,52 @@ WHERE FIRSTNAME = 'Robert' AND LASTNAME = 'Walter';
 --3.1 SYSTEM DEFINED FUNCTIONS
 --------------------------------------------
 --Task – Create a function that returns the current time.
-
+SELECT CURRENT_TIMESTAMP        --RETRIEVES CURRENT TIME
+FROM DUAL;                      --USING DUAL TO DISPLAY THE TIME
 
 --Task – create a function that returns the length of name in MEDIATYPE table
-
+SELECT LENGTH(NAME)             --RETRIEVES THE ENGTH OF NAME
+FROM CHINOOK.MEDIATYPE;         --THIS IS DONE FROM THE MEDIATYPE TABLE
 --------------------------------------------
 --3.2 SYSTEM DEFINED AGGREGATE FUNCTIONS
 --------------------------------------------
 --Task – Create a function that returns the average total of all invoices 
+SELECT AVG(TOTAL)               --RETRIEVES THE AVERAGE FROM THE TOTAL COLUMN FROM INVOICE
+FROM CHINOOK.INVOICE;
 --Task – Create a function that returns the most expensive track
-
+SELECT MAX(UNITPRICE)           --RETRIEVES THE MOST EXPENSIVE TRACK FROM THE UNITPRICE COLUMN IN INVOICELINE
+FROM CHINOOK.INVOICELINE;
 --------------------------------------------
 --3.3 USER DEFINED SCALAR FUNCTIONS
 --------------------------------------------
 --Task – Create a function that returns the average price of invoiceline items in the invoiceline table
+CREATE OR REPLACE FUNCTION AVGINVOICE
+RETURN SYS_REFCURSOR
+IS
+    INVOICEAVG SYS_REFCURSOR;
+BEGIN
+    OPEN INVOICEAVG FOR
+    SELECT AVG(UNITPRICE)
+    FROM CHINOOK.INVOICELINE;
+    RETURN INVOICEAVG;
+END;
+/
 --------------------------------------------
 --3.4 USER DEFINED TABLE VALUED FUNCTIONS
 --------------------------------------------
 --Task – Create a function that returns all employees who are born after 1968.
-
+CREATE OR REPLACE FUNCTION BORNAFTER
+RETURN SYS_REFCURSOR
+IS 
+    AFTERBORN SYS_REFCURSOR;
+BEGIN
+    OPEN AFTERBORN FOR
+    SELECT *
+    FROM CHINOOK.EMPLOYEE
+    WHERE BIRTHDATE > DATE '1968-12-31';
+    RETURN AFTERBORN;
+END;
+/
 --------------------------------------------
 --4. SQL Stored Procedures
 --------------------------------------------
@@ -121,24 +144,100 @@ WHERE FIRSTNAME = 'Robert' AND LASTNAME = 'Walter';
 --4.1 BASIC STORED PROCEDURE
 --------------------------------------------
 --Task – Create a stored procedure that selects the first and last names of all the employees.
-
-
+CREATE OR REPLACE PROCEDURE GET_NAMES(NAMEGETTER OUT SYS_REFCURSOR)
+IS
+BEGIN
+    OPEN NAMEGETTER FOR
+    SELECT FIRSTNAME, LASTNAME
+    FROM CHINOOK.EMPLOYEE;
+END;
+/
 --------------------------------------------
 --4.2 STORED PROCEDURE INPUT PARAMETERS
 --------------------------------------------
 --Create a stored procedure that updates the personal information of an employee.
---Create a stored procedure that returns the managers of an employee.
+GRANT UPDATE ANY TABLE TO AHUERTACS;
+CREATE OR REPLACE PROCEDURE UPDATE_PERSONAL_INFO(EPID IN CHINOOK.EMPLOYEE.EMPLOYEEID%TYPE,
+                                                FNAME IN CHINOOK.EMPLOYEE.FIRSTNAME%TYPE,
+                                                LNAME IN CHINOOK.EMPLOYEE.LASTNAME%TYPE,
+                                                BIRTH IN CHINOOK.EMPLOYEE.BIRTHDATE%TYPE,
+                                                ADDRS IN CHINOOK.EMPLOYEE.ADDRESS%TYPE,
+                                                POST IN CHINOOK.EMPLOYEE.POSTALCODE%TYPE,
+                                                PHONE IN CHINOOK.EMPLOYEE.PHONE%TYPE,
+                                                EMAIL IN CHINOOK.EMPLOYEE.EMAIL%TYPE)
+                                                
+IS
+BEGIN
+    UPDATE CHINOOK.EMPLOYEE
+    SET 
+        CHINOOK.EMPLOYEE.FIRSTNAME = FNAME,
+        CHINOOK.EMPLOYEE.LASTNAME = LNAME,
+        CHINOOK.EMPLOYEE.BIRTHDATE = BIRTH,
+        CHINOOK.EMPLOYEE.ADDRESS = ADDRS,
+        CHINOOK.EMPLOYEE.POSTALCODE = POST,
+        CHINOOK.EMPLOYEE.PHONE = PHONE,
+        CHINOOK.EMPLOYEE.EMAIL = EMAIL
+    WHERE CHINOOK.EMPLOYEE.EMPLOYEEID = EPID;
+END;
+/
 
+                                                
+--Create a stored procedure that returns the managers of an employee.
+CREATE OR REPLACE PROCEDURE GET_MANAGER(EPID IN CHINOOK.EMPLOYEE.EMPLOYEEID%TYPE, MANEGR OUT SYS_REFCURSOR)
+IS
+    MANAGER_ID NUMBER;
+BEGIN
+    OPEN MANEGR FOR
+    SELECT*
+    FROM CHINOOK.EMPLOYEE
+    WHERE EMPLOYEEID = (SELECT REPORTSTO                    --USING REPORTSTO TO MATCH EMPLOYEE TO MANAGE
+                        FROM CHINOOK.EMPLOYEE
+                        WHERE EMPLOYEEID = EPID);
+END;                        
+/
 --------------------------------------------
 --4.3 STORED PROCEDURE OUTPUT PARAMETERS
 --------------------------------------------
 --Create a stored procedure that returns the name and company of a customer.
-
+CREATE OR REPLACE PROCEDURE RETURN_NAME_COMPANY(CID IN CHINOOK.CUSTOMER.CUSTOMERID%TYPE, 
+                                                FNAME OUT CHINOOK.CUSTOMER.FIRSTNAME%TYPE, 
+                                                LNAME OUT CHINOOK.CUSTOMER.LASTNAME%TYPE,
+                                                CNAME OUT CHINOOK.CUSTOMER.COMPANY%TYPE)
+IS
+BEGIN
+SELECT FIRSTNAME, LASTNAME,COMPANY          --CHOOSING THE NAME OF CUSTOER AND THEIR COMPANY WHERE CUSTOMER ID IS PRESENT
+INTO FNAME, LNAME, CNAME
+FROM CHINOOK.CUSTOMER
+WHERE CUSTOMERID = CID;
+END;
+/
 --------------------------------------------
 --5. Transactions
 --------------------------------------------
 --Create a transaction that given a invoiceId will delete that invoice (There may be constraints that rely on this, find out how to resolve them).
+GRANT DELETE ANY TABLE TO AHUERTACS;      --Removing foreign key constrait to allow us to drop data
+
+CREATE OR REPLACE PROCEDURE DELETE_INVOICE(INID IN CHINOOK.INVOICE.INVOICEID%TYPE)
+IS
+    
+BEGIN
+    DELETE FROM CHINOOK.INVOICE WHERE INVOICEID = INID;
+    END;
+/
+
 --Create a transaction nested within a stored procedure that inserts a new record in the Customer table
+GRANT INSERT ANY TABLE TO AHUERTACS; --INSUFFICIENT PRIVILEGES?  YUP DID NOT HAVE THE ABILITY TO INSERT
+CREATE OR REPLACE PROCEDURE INSERT_RECORD(CID IN CHINOOK.CUSTOMER.CUSTOMERID%TYPE,
+    FIRSTNAME IN CHINOOK.CUSTOMER.FIRSTNAME%TYPE,
+    LASTNAME IN CHINOOK.CUSTOMER.LASTNAME%TYPE)
+IS
+BEGIN
+    INSERT INTO CHINOOK.CUSTOMER(CUSTOMERID, FIRSTNAME, LASTNAME)
+    VALUES(CID, FIRSTNAME, LASTNAME);
+    COMMIT;
+END; 
+/
+    
 --------------------------------------------
 --6. Triggers
 --------------------------------------------
@@ -146,8 +245,38 @@ WHERE FIRSTNAME = 'Robert' AND LASTNAME = 'Walter';
 --6.1 AFTER/FOR
 --------------------------------------------
 --Create an after insert trigger on the employee table fired after a new record is inserted into the table.
---Create an after update trigger on the album table that fires after a row is inserted in the table
+CREATE OR REPLACE TRIGGER AFTER_INSERTION
+AFTER INSERT ON CHINOOK.EMPLOYEE
+FOR EACH ROW
+
+BEGIN
+    DBMS_OUTPUT.PUT_LINE('Something has just been added to Employees'); --MESSAGE DISPLAYED AFTER AN INSERTION
+END;
+/
+
+--Create an after update trigger on the album table that fires after a row is inserted in the table.
+CREATE OR REPLACE TRIGGER AFTER_UPDATE
+AFTER UPDATE ON CHINOOK.ALBUM
+FOR EACH ROW
+
+BEGIN
+    IF :OLD.ALBUMID != :NEW.ALBUMID THEN
+    DBMS_OUTPUT.PUT_LINE('AN ALBUM HAS BEEN ALTERED');          --MESSAGE DISPLAYED AFTER ALTERATION
+    END IF;
+END;
+/
+
 --Create an after delete trigger on the customer table that fires after a row is deleted from the table.
+CREATE OR REPLACE TRIGGER AFTER_DELETE
+AFTER DELETE ON CHINOOK.CUSTOMER
+FOR EACH ROW
+
+BEGIN
+    IF :OLD.CUSTOMERID != :NEW.CUSTOMERID THEN
+    DBMS_OUTPUT.PUT_LINE('A CUSTOMERID HAS BEEN DELETED'); --MESSAGE DISPLAYED UPON DELETION
+    END IF;
+END;
+/
 --------------------------------------------
 --7.1 INNER
 --------------------------------------------
@@ -190,5 +319,3 @@ ORDER BY T.NAME ASC;
 SELECT A.REPORTSTO, B.REPORTSTO
 FROM CHINOOK.EMPLOYEE A, CHINOOK.EMPLOYEE B
 WHERE A.EMPLOYEEID = B.EMPLOYEEID;
-
-*/
