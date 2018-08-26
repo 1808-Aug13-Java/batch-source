@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import com.revature.io.BankFileReader;
 import com.revature.io.BankFileWriter;
+import org.apache.log4j.Logger;
 
 public class User {
 
@@ -15,6 +16,7 @@ public class User {
 	private transient String[] checkIfUserExists;
 	private transient BankFileWriter bfw = new BankFileWriter();
 	private transient BankFileReader bfr = new BankFileReader();
+	private static Logger log = Logger.getRootLogger();
 	
 	public User() {
 		super();
