@@ -1,5 +1,6 @@
 package com.revature.validation;
 
+import java.text.DecimalFormat;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
@@ -18,7 +19,7 @@ public class Validator {
 		String email = sc.nextLine();
 		
 		// get a valid email
-		while(!validaEmail(email)) {
+		while(!validEmail(email)) {
 			logger.info("Enter a properly formatted email address");
 			email = sc.nextLine();
 		}
@@ -26,7 +27,7 @@ public class Validator {
 		return email;
 	}
 
-	private static boolean validaEmail(String email) {
+	public static boolean validEmail(String email) {
 		// regexp from OWASP regex wiki
 		String emailValidationRegEx = "^[a-zA-Z0-9_+"
 				+ "&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@" +
@@ -48,9 +49,9 @@ public class Validator {
 		}
 		return username;
 	}
-	private static boolean validUsername(String username) {
+	public static boolean validUsername(String username) {
 		// regexp from OWASP regex wiki
-		String emailValidationRegEx = "^[a-z0-9_-]{3,15}$";
+		String emailValidationRegEx = "^[a-z0-9_-]{5,15}$";
 		Pattern regExPattern = Pattern.compile(emailValidationRegEx);
 	
 		return regExPattern.matcher(username).matches();
@@ -72,7 +73,7 @@ public class Validator {
 		
 	}
 	
-	private static boolean validPassword(String password) {
+	public static boolean validPassword(String password) {
 		String passwordValidationRegEx = "^(?:(?=.*\\d)(?=.*[A-Z])"
 				+ "(?=.*[a-z])|(?=.*\\d)(?=.*[^A-Za-z0-9])"
 				+ "(?=.*[a-z])|(?=.*[^A-Za-z0-9])(?=.*[A-Z])"
@@ -87,6 +88,13 @@ public class Validator {
 		}
 		
 		return regExPattern.matcher(password).matches();
+	}
+	
+	public static String formatDecimals(float val) {
+		DecimalFormat df = new DecimalFormat("#.00");
+		String formatted = df.format(val);
+		
+		return formatted;
 	}
 	
 

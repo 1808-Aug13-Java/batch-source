@@ -4,7 +4,6 @@ import org.apache.log4j.Logger;
 
 public class Bank {
 	private int id;
-	private String name;
 	private float amount;
 	private int userId;
 	
@@ -15,15 +14,11 @@ public class Bank {
 		super();
 	}
 	
-	public Bank(User user) {
-		
-	}
-
-	public Bank(int id, String name, float amount) {
+	public Bank(int id, float amount, int userId) {
 		super();
 		this.id = id;
-		this.name = name;
 		this.amount = amount;
+		this.userId = userId;
 	}
 	
 	public int getUserId() {
@@ -43,13 +38,6 @@ public class Bank {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
 
 	public float getAmount() {
 		return amount;
@@ -65,7 +53,7 @@ public class Bank {
 		int result = 1;
 		result = prime * result + Float.floatToIntBits(amount);
 		result = prime * result + id;
-		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result + userId;
 		return result;
 	}
 
@@ -82,18 +70,18 @@ public class Bank {
 			return false;
 		if (id != other.id)
 			return false;
-		if (name == null) {
-			if (other.name != null)
-				return false;
-		} else if (!name.equals(other.name))
+		if (userId != other.userId)
 			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "Bank [id=" + id + ", name=" + name + ", amount=" + amount + "]";
+		return "Bank [id=" + id + ", amount=" + amount + ", userId=" + userId + "]";
 	}
+
+	
+	
 	
 	
 	

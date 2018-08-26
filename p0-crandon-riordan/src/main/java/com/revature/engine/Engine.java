@@ -61,9 +61,6 @@ public class Engine {
 		} else {
 			logger.info("create");
 			logger.info("logout");
-			logger.info("deposit");
-			logger.info("withdraw");
-			logger.info("view");
 			logger.info("exit");
 		}
 		
@@ -88,6 +85,8 @@ public class Engine {
 				login();
 				break;
 			case "exit":
+				exitProgram();
+				break;
 			default:
 				break;
 		}
@@ -102,10 +101,13 @@ public class Engine {
 				logout();
 				break;
 			case "deposit":
+				deposit();
 				break;
 			case "withdraw":
+				withdraw();
 				break;
 			case "view":
+				view();
 				break;
 			case "exit":
 				exitProgram();
@@ -169,6 +171,24 @@ public class Engine {
 		UserDaoImpl udi = new UserDaoImpl();
 		bdi.createBank(udi.getUserIdByName(activeUser.getUsername()));
 
+	}
+	
+	private void deposit() {
+		BankDaoImpl bdi = new BankDaoImpl();
+		Bank bank = bdi.getBankByUserId(activeUser.getId());
+		
+		bdi.deposit(bank.getId());	
+	}
+	
+	private void withdraw() {
+		BankDaoImpl bdi = new BankDaoImpl();
+		Bank bank = bdi.getBankByUserId(activeUser.getId());
+		bdi.withdraw(bank.getId());	
+	}
+	
+	private void view() {
+		BankDaoImpl bdi = new BankDaoImpl();
+		logger.info("You have $"+bdi.viewAmountByUserId(activeUser.getId()));
 	}
 	
 	private void exitProgram() {
