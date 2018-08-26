@@ -1,4 +1,3 @@
-conn chinook/p4ssw0rd;
 SET SERVEROUTPUT ON;
 
 -- CHINOOK.
