@@ -7,13 +7,13 @@ import java.math.BigDecimal;
  */
 public class Account {
 	/** The unique id of this account. */
-	long accId;
+	private long accId;
 	
 	/** The type of this account. */
-	String accType;
+	private String accType;
 	
 	/** The amount of funds in this account. */
-	BigDecimal balance;
+	private BigDecimal balance;
 	
 	/** Constructs an empty account object. */
 	public Account() {}
@@ -70,6 +70,11 @@ public class Account {
 		if (accId != other.accId)
 			return false;
 		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "Account [accId=" + accId + ", accType=" + accType + ", balance=" + balance + "]";
 	}
 
 	

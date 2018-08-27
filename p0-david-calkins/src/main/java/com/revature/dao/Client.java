@@ -2,16 +2,16 @@ package com.revature.dao;
 
 public class Client {
 	/** The unique id for the banking client. */
-	long clientId;
+	private long clientId;
 	
 	/** The unique email for this client. */
-	String email;
+	private String email;
 	
 	/** The unique username for this user.  */
-	String username;
+	private String username;
 	
 	/** The hashed password for this user.  */
-	String passPhrase;
+	private String passPhrase;
 	
 	/** Empty Constructor for a client.  */
 	public Client() {}
@@ -76,5 +76,11 @@ public class Client {
 		if (clientId != other.clientId)
 			return false;
 		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "Client [clientId=" + clientId + ", email=" + email + ", username=" + username + ", passPhrase="
+				+ passPhrase + "]";
 	}
 }
