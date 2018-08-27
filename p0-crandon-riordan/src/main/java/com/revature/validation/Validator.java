@@ -1,7 +1,9 @@
 package com.revature.validation;
 
+import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.util.Scanner;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.apache.log4j.Logger;
@@ -92,9 +94,14 @@ public class Validator {
 	
 	public static String formatDecimals(float val) {
 		DecimalFormat df = new DecimalFormat("#.00");
-		String formatted = df.format(val);
-		
-		return formatted;
+		return df.format(val);
+	}
+
+	public static boolean isCorrectScale(float amount) {
+		Pattern p = Pattern.compile("^\\d+\\.\\d{0,2}$"); 
+		System.out.println(String.valueOf(amount));
+		Matcher matcher = p.matcher(String.valueOf(amount));  
+		return matcher.matches();
 	}
 	
 

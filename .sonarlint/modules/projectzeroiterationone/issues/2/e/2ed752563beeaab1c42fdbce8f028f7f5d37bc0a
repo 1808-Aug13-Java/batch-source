@@ -1,0 +1,9 @@
+
+€squid:ModifiersOrderCheck"EReorder the modifiers to comply with the Java Language Specification.(ßüˆH² RMINORZ
+CODE_SMELL
+ssquid:S1126H"AReplace this if-then-else statement by a single return statement.(ÜµüÄúÿÿÿÿH³ RMINORZ
+CODE_SMELL
+Xsquid:S1172"+Remove this unused method parameter "user".(÷•â¥H´ RMAJORZ
+CODE_SMELL
+vsquid:UselessImportCheck"=Remove this unused import 'java.util.InputMismatchException'.(İ§1Hµ RMINORZ
+CODE_SMELL

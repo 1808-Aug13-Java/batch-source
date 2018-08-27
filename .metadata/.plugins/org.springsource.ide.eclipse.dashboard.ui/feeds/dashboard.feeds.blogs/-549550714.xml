@@ -5,7 +5,138 @@
   <link rel="self" href="https://spring.io/blog.atom" />
   <id>http://spring.io/blog.atom</id>
   <icon>https://spring.io/favicon.ico</icon>
-  <updated>2018-08-23T00:00:00Z</updated>
+  <updated>2018-08-27T00:00:00Z</updated>
+  <entry>
+    <title>Bootiful GCP: Globally Consistent Data Access with Spanner (3/8)</title>
+    <link rel="alternate" href="https://spring.io/blog/2018/08/27/bootiful-gcp-globally-consistent-data-access-with-spanner-3-8" />
+    <category term="engineering" label="Engineering" />
+    <author>
+      <name>Josh Long</name>
+    </author>
+    <id>tag:spring.io,2018-08-18:3365</id>
+    <updated>2018-08-27T00:00:00Z</updated>
+    <content type="html">&lt;blockquote&gt;
+  &lt;p&gt;Hi Spring fans! In this brief 8 part series we’re going to look at the Spring Cloud integration for Google Cloud Platform, called Spring Cloud GCP. &lt;a href="https://cloud.spring.io/spring-cloud-gcp/"&gt;Spring Cloud GCP&lt;/a&gt; represents a joint effort between Google and Pivotal that endeavors to provide a first class experience for Spring Cloud developers when using the Google Cloud Platform. Pivotal Cloud Foundry users will enjoy an even &lt;a href="https://docs.pivotal.io/partners/gcp-sb/index.html"&gt;easier integration with the GCP service broker&lt;/a&gt;. I wrote these installments with input from Google Cloud Developer Advocate, and my buddy, &lt;a href="http://twitter.com/saturnism"&gt;Ray Tsang&lt;/a&gt;. You can also catch a walkthrough of Spring Cloud GCP in our Google Next 2018 session, &lt;a href="https://www.youtube.com/watch?v=2Jo3vy7iQf8"&gt;Bootiful Google Cloud Platform&lt;/a&gt;. Thanks buddy! As always, &lt;a href="http://twitter.com/starbuxman"&gt;I&amp;rsquo;d love to hear from you if you have feedback&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;If you&amp;rsquo;re just joining us, be sure to read the previous installments including:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href="https://spring.io/blog/2018/08/20/bootiful-gcp-getting-started-with-spring-cloud-for-google-cloud-platform-1-8"&gt;Bootiful GCP: Getting Started with Spring Cloud for Google Cloud Platform (1/8)&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://spring.io/blog/2018/08/23/bootiful-gcp-relational-data-access-with-spring-cloud-gcp-2-8"&gt;Bootiful GCP: Relational Data Access with Spring Cloud GCP (2/8)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;MySQL and PostgreSQL are familiar friends in an unfamiliar land, but they’re not why we’re here. No no. Were I you, I’d look at a platform like GCP and take from it the best bits; the parts that have no analog elsewhere. The things that separate it from the other platforms. One such distinguishing feature is &lt;a href="https://en.wikipedia.org/wiki/Spanner_(database)"&gt;Google Spanner&lt;/a&gt;. Spanner is.. something else entirely. In this installment we&amp;rsquo;re going to look at Google Cloud Spanner.&lt;/p&gt;
+&lt;p&gt;Google first revealed Spanner when they introduced F1, a SQL database engine that the Adwords team moved to, &lt;em&gt;away&lt;/em&gt; from MySQL (&amp;ldquo;But Josh!,&amp;rdquo;I hear you exclaim, &amp;ldquo;Didn’t we just deploy to MySQL??&amp;rdquo;), in 2012. Spanner provides low latency reads, and to a lesser extent writes, globally. Google announced it &lt;a href="http://static.googleusercontent.com/media/research.google.com/en//archive/spanner-osdi2012.pdf"&gt;in 2012 in a research paper&lt;/a&gt; in which it called Spanner &amp;ldquo;the first system to distribute data at global scale and support externally-consistent distributed transactions.&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;Spanner is impressive work on one of the hardest distributed systems problems - a globally replicated database that supports externally consistent transactions within reasonable latency bounds,&amp;rdquo; &lt;a href="https://www.zdnet.com/article/google-reveals-spanner-the-database-tech-that-can-span-the-planet/"&gt;said Andy Gross&lt;/a&gt;, principal architect at Basho.&lt;/p&gt;
+&lt;p&gt;Spanner is able to offer such a broad amount of geographic redundancy thanks to a method Google has developed of being able to give precise times to applications to let them write, read and replicate data without making mistakes. Spanner’s &amp;ldquo;TrueTime&amp;rdquo; API depends upon GPS receivers and atomic clocks that have been installed in Google’s datacentres to let applications get accurate time readings locally without having to sync globally.&lt;/p&gt;
+&lt;p&gt;There are a number of database technologies at Google, such as &lt;a href="https://ai.google/research/pubs/pub27898"&gt;Bigtable&lt;/a&gt; (columnar database, great for high throughput writes), and [Megastore](&lt;a href="https://ai.google/research/pubs/pub36971"&gt;https://ai.google/research/pubs/pub36971&lt;/a&gt;) (NoSQL Database). Bigtable only supported eventually consistent replication across datacenters. According to the paper: &amp;ldquo;At least 300 applications within Google use Megastore (despite its relatively low performance) because its data model is simpler to manage than Bigtable’s and because of its support for synchronous replication across datacenters.&amp;rdquo; At the time, applications like GMail, Picasa, Calendar, Android Market and AppEngine relied on Megastore.&lt;/p&gt;
+&lt;p&gt;Spanner was designed to be &amp;ldquo;scalable, multi-version, globally distributed, and synchronously-replicated database&amp;rdquo;. Transactions are a first-class concept in Spanner driven, in part, by their absence in Bigtable.&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;The lack of cross-row transactions in Bigtable led to frequent complaints; Percolator was in part built to address this failing. Some authors have claimed that general two-phase commit is too expensive to support, because of the performance or availability problems that it brings. We believe it is better to have application programmers deal with performance problems due to overuse of transactions as bottlenecks arise, rather than always coding around the lack of transactions. Running two-phase commit over Paxos mitigates the availability problems.&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;Each of the databases have their use cases. Bigtable (on GCP as &lt;a href="https://cloud.google.com/bigtable/"&gt;Cloud Bigtable&lt;/a&gt; is great for consistent low latency and high throughput workload. While Megastore (on GCP as &lt;a href="https://cloud.google.com/datastore/"&gt;Cloud Datastore&lt;/a&gt; can be used as a managed NoSQL data store with ACID transactions. Spanner (on GCP as &lt;a href="https://cloud.google.com/spanner/"&gt;Cloud Spanner&lt;/a&gt;, is meant for horizontalliy scalable, highly available, and strongly consistent RDBMs workloads.&lt;/p&gt;
+&lt;p&gt;Well alright! I’m simultaneously interested and intimidated! I &lt;em&gt;want&lt;/em&gt; Spanner, but I &lt;em&gt;don’t&lt;/em&gt; want to have to rack and stack servers and synchronize GPS recivers and atomic clocks. But, &lt;em&gt;something&lt;/em&gt; tells me Google’d be happy to do that for me, so let’s try it out.&lt;/p&gt;
+&lt;p&gt;As before, you’ll need to enable the API for Google Cloud GCP Spanner before you can use it:&lt;/p&gt;
+&lt;pre&gt;&lt;code class="prettyprint shell"&gt;gcloud services enable spanner.googleapis.com
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Then, create a new Google Cloud Spanner instance:&lt;/p&gt;
+&lt;pre&gt;&lt;code class="prettyprint shell"&gt;gcloud spanner instances create reservations --config=regional-us-central1 \&#xD;
+  --nodes=1 --description=&amp;quot;Reservations for everybody&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Then, create the database instance:&lt;/p&gt;
+&lt;pre&gt;&lt;code class="prettyprint shell"&gt;gcloud spanner databases create reservations --instance=reservations
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Confirm the Spanner instance is available:&lt;/p&gt;
+&lt;pre&gt;&lt;code class="prettyprint shell"&gt;gcloud spanner databases list --instance=reservations
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Once the instance is &lt;code&gt;READY&lt;/code&gt;, it’s time to create the table. Here’s the Spanner DDL. If this looks uncannily like SQL, that’s good! It should. Put this DDL into a separate file. I’ve called it &lt;code&gt;schema.ddl&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;schema.ddl.&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class="prettyprint sql"&gt;CREATE TABLE reservations (&#xD;
+  id        STRING (36) NOT NULL,&#xD;
+  name      STRING (255) NOT NULL&#xD;
+) PRIMARY KEY (id );
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Register the schema with the database.&lt;/p&gt;
+&lt;pre&gt;&lt;code class="prettyprint shell"&gt;gcloud spanner databases ddl update reservations \&#xD;
+  --instance=reservations --ddl=&amp;quot;$(./gcp/src/main/resources/db/schema.ddl )&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now we can read the data from Spanner in our Spring application. The auto-configuration needs a little bit of configuration in order to talk to the right database.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;application.properties.&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class="prettyprint properties"&gt;spring.cloud.gcp.spanner.instance-id=reservations-demo&#xD;
+spring.cloud.gcp.spanner.database=reservations
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We’ll use the brand new Spring Data Spanner module that supports common Spring Data idioms when working with Spanner. Add &lt;code&gt;org.springframework.cloud&lt;/code&gt; : &lt;code&gt;spring-cloud-gcp-starter-data-spanner&lt;/code&gt; to your Maven build. Let’s use a Spring Data repository to make short work of reading with our database.&lt;/p&gt;
+&lt;pre&gt;&lt;code class="prettyprint java"&gt;package com.example.gcp.spanner;&#xD;
+&#xD;
+import lombok.AllArgsConstructor;&#xD;
+import lombok.Data;&#xD;
+import lombok.NoArgsConstructor;&#xD;
+import lombok.extern.slf4j.Slf4j;&#xD;
+import org.springframework.boot.SpringApplication;&#xD;
+import org.springframework.boot.autoconfigure.SpringBootApplication;&#xD;
+import org.springframework.boot.context.event.ApplicationReadyEvent;&#xD;
+import org.springframework.cloud.gcp.data.spanner.core.mapping.PrimaryKey;&#xD;
+import org.springframework.cloud.gcp.data.spanner.core.mapping.Table;&#xD;
+import org.springframework.context.event.EventListener;&#xD;
+import org.springframework.data.annotation.Id;&#xD;
+import org.springframework.data.repository.PagingAndSortingRepository;&#xD;
+import org.springframework.data.rest.core.annotation.RepositoryRestResource;&#xD;
+&#xD;
+import java.util.UUID;&#xD;
+import java.util.stream.Stream;&#xD;
+&#xD;
+@Slf4j&#xD;
+@SpringBootApplication&#xD;
+public class SpannerApplication {&#xD;
+&#xD;
+        private final ReservationRepository reservationRepository;&#xD;
+&#xD;
+        SpannerApplication(ReservationRepository reservationRepository) {&#xD;
+                this.reservationRepository = reservationRepository;&#xD;
+        }&#xD;
+&#xD;
+        @EventListener(ApplicationReadyEvent.class)&#xD;
+        public void setup() {&#xD;
+&#xD;
+                &#xD;
+                this.reservationRepository.deleteAll();&#xD;
+&#xD;
+                Stream&#xD;
+                    .of(&amp;quot;josh&amp;quot;, &amp;quot;ray&amp;quot;)&#xD;
+                    .map(name -&amp;gt; new Reservation(UUID.randomUUID().toString(), name))&#xD;
+                    .forEach(this.reservationRepository::save);&#xD;
+                this.reservationRepository.findAll().forEach(r -&amp;gt; log.info(r.toString()));&#xD;
+        }&#xD;
+&#xD;
+        public static void main(String args[]) {&#xD;
+                SpringApplication.run(SpannerApplication.class, args);&#xD;
+        }&#xD;
+}&#xD;
+&#xD;
+&#xD;
+@Data&#xD;
+@AllArgsConstructor&#xD;
+@NoArgsConstructor&#xD;
+@Table(name = &amp;quot;reservations&amp;quot;)&#xD;
+class Reservation {&#xD;
+&#xD;
+        @Id&#xD;
+        @PrimaryKey&#xD;
+        private String id;&#xD;
+        private String name;&#xD;
+}&#xD;
+&#xD;
+&#xD;
+@RepositoryRestResource&#xD;
+interface ReservationRepository extends PagingAndSortingRepository&amp;lt;Reservation, String&amp;gt; {&#xD;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+  &lt;p&gt;We kick off the application, delete existing data and then write some new data to the database using our Spring Data Spanner-powered repository.&lt;/p&gt;&lt;/li&gt;
+  &lt;li&gt;
+  &lt;p&gt;We define the Spring Data Spanner entity using custom mapping annotations, &lt;code&gt;@Table&lt;/code&gt; and &lt;code&gt;@PrimaryKey&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;
+  &lt;li&gt;
+  &lt;p&gt;We create a Spring Data repository that is also exposed using Spring Data REST as a REST API.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This example should look familiar if you’ve ever used Spring Data. Spring Data Spanner builds upon familiar concepts and patterns - templates, repositories, and entities - to support familiar data access patterns with a very different kind of database.&lt;/p&gt;</content>
+  </entry>
   <entry>
     <title>Bootiful GCP: Relational Data Access with Spring Cloud GCP (2/8)</title>
     <link rel="alternate" href="https://spring.io/blog/2018/08/23/bootiful-gcp-relational-data-access-with-spring-cloud-gcp-2-8" />
@@ -1558,32 +1689,5 @@ When one consumer goes (yields leadership), some other consumer may acquire a lo
 &lt;p&gt;Spring Vault 2.1 M1 will be picked up by the next Spring Cloud Vault 2.1 milestone. Our backlog contains a few more tickets that we want to ship with the upcoming release candidate of Spring Vault 2.1. It&amp;rsquo;s scheduled for early September. Expect a GA release for early October.&lt;/p&gt;
 &lt;p&gt;For a complete list of changes see the &lt;a href="http://docs.spring.io/spring-vault/docs/2.1.0.M1/changelog.txt"&gt;changelog&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;a href="http://projects.spring.io/spring-vault/"&gt;Project Page&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-vault"&gt;GitHub&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-vault/issues"&gt;Issues&lt;/a&gt; | &lt;a href="http://docs.spring.io/spring-vault/docs/2.1.0.M1/reference/html/"&gt;Documentation&lt;/a&gt; | &lt;a href="https://github.com/mp911de/spring-cloud-vault-config-samples/"&gt;Examples&lt;/a&gt; | &lt;a href="http://stackoverflow.com/questions/tagged/spring-vault"&gt;Stack Overflow&lt;/a&gt;&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <title>Spring IO Platform Cairo SR3</title>
-    <link rel="alternate" href="https://spring.io/blog/2018/07/31/spring-io-platform-cairo-sr3" />
-    <category term="releases" label="Releases" />
-    <author>
-      <name>Andy Wilkinson</name>
-    </author>
-    <id>tag:spring.io,2018-07-31:3352</id>
-    <updated>2018-07-31T13:20:32Z</updated>
-    <content type="html">&lt;p&gt;I am pleased to announce that &lt;a href="http://platform.spring.io/platform"&gt;Spring IO Platform&lt;/a&gt; Cairo-SR3 is now available from both &lt;a href="https://repo.spring.io/release"&gt;repo.spring.io&lt;/a&gt; and Maven Central. &lt;/p&gt;
-&lt;p&gt;This maintenance release upgrades the versions of a number of the projects in the Platform:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Spring AMQP 2.0.5&lt;/li&gt;
-  &lt;li&gt;Spring Boot 2.0.4&lt;/li&gt;
-  &lt;li&gt;Spring Data Kay SR9&lt;/li&gt;
-  &lt;li&gt;Spring Framework 5.0.8&lt;/li&gt;
-  &lt;li&gt;Spring HATEOAS 0.25.0&lt;/li&gt;
-  &lt;li&gt;Spring Integration 5.0.7&lt;/li&gt;
-  &lt;li&gt;Spring Kafka 2.1.8&lt;/li&gt;
-  &lt;li&gt;Spring REST Docs 2.0.2&lt;/li&gt;
-  &lt;li&gt;Spring Security 5.0.7&lt;/li&gt;
-  &lt;li&gt;Spring Session Apple SR4&lt;/li&gt;
-  &lt;li&gt;Spring Web Services 3.0.3&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;The versions of a number of third-party dependencies have also been updated.&lt;/p&gt;
-&lt;p&gt;&lt;a href="http://platform.spring.io/platform"&gt;Project Page&lt;/a&gt; | &lt;a href="https://github.com/spring-io/platform"&gt;GitHub&lt;/a&gt; | &lt;a href="https://github.com/spring-io/platform/issues"&gt;Issues&lt;/a&gt; | &lt;a href="http://docs.spring.io/platform/docs/Cairo-SR3/reference/htmlsingle"&gt;Documentation&lt;/a&gt;&lt;/p&gt;</content>
   </entry>
 </feed>

@@ -13,16 +13,16 @@
 <fullyQualifiedTypeName name="com.revature.model.Employee"/>
 <fullyQualifiedTypeName name="java.sql.Date"/>
 <fullyQualifiedTypeName name="com.revature.model.Department"/>
-<fullyQualifiedTypeName name="java.sql.ResultSet"/>
 <fullyQualifiedTypeName name="com.revature.model.Location"/>
 <fullyQualifiedTypeName name="java.sql.CallableStatement"/>
 <fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="java.io.FileInputStream"/>
-<fullyQualifiedTypeName name="com.revature.validation.Validator"/>
 <fullyQualifiedTypeName name="com.revature.util.ConnectionUtil"/>
 <fullyQualifiedTypeName name="java.sql.Connection"/>
 <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
-<fullyQualifiedTypeName name="com.revature.dao.BankDaoImpl"/>
 <fullyQualifiedTypeName name="com.revature.model.Bank"/>
 <fullyQualifiedTypeName name="java.sql.Statement"/>
+<fullyQualifiedTypeName name="java.sql.ResultSet"/>
+<fullyQualifiedTypeName name="com.revature.dao.BankDaoImpl"/>
+<fullyQualifiedTypeName name="com.revature.validation.Validator"/>
 </qualifiedTypeNameHistroy>

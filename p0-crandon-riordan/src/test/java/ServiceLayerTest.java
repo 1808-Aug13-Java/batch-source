@@ -1,3 +1,4 @@
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
@@ -72,6 +73,32 @@ public class ServiceLayerTest {
 		boolean isValidPassword = Validator.validPassword("RevaturE1!");
 		assertTrue(isValidPassword);
 	}
+	
+	@Test
+	public void incorrectScaleIsInvalid() {
+		boolean isValidScale = Validator.isCorrectScale(10.005f);
+		
+		assertFalse(isValidScale);
+	}
+	
+	@Test
+	public void incorrectScaleIsInvalid2() {
+		boolean isValidScale = Validator.isCorrectScale(60.006f);
+		
+		assertFalse(isValidScale);
+	}
+	
+	@Test
+	public void correctScaleIsValid() {
+		assertTrue(Validator.isCorrectScale(10.00f));
+	}
+	
+	public void properlyFormatted() {
+		assertEquals("10.00", Validator.formatDecimals(10f));
+	}
+	
+	
+	
 	
 	
 	

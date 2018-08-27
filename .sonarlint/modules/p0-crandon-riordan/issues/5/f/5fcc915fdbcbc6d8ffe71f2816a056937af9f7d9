@@ -1,9 +1,7 @@
 
-squid:S3973]"WUse curly braces or indentation to denote the code conditionally executed by this "if".(‘ÈÁ•8ì¥¶óÖ,HöRCRITICALZ
+“squid:S3973Y"WUse curly braces or indentation to denote the code conditionally executed by this "if".(§û‚ëøÿÿÿÿ8ì¥¶óÖ,HÙRCRITICALZ
 CODE_SMELL
-“squid:S3973X"WUse curly braces or indentation to denote the code conditionally executed by this "if".(§û‚ëøÿÿÿÿ8ì¥¶óÖ,HõRCRITICALZ
+squid:S3973^"WUse curly braces or indentation to denote the code conditionally executed by this "if".(‘ÈÁ•8ì¥¶óÖ,HÚRCRITICALZ
 CODE_SMELL
-“squid:S3973S"WUse curly braces or indentation to denote the code conditionally executed by this "if".(Æ‘Ô°ÿÿÿÿÿ8ì¥¶óÖ,HôRCRITICALZ
-CODE_SMELL
-bsquid:S1172")Remove this unused method parameter "id".(Ù‡åïùÿÿÿÿ8€ôã×,H±RMAJORZ
+“squid:S3973T"WUse curly braces or indentation to denote the code conditionally executed by this "if".(Æ‘Ô°ÿÿÿÿÿ8ì¥¶óÖ,HØRCRITICALZ
 CODE_SMELL

@@ -1,37 +1,68 @@
 
-_squid:S1148F"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ŸÖÁ×,HíRMINORZVULNERABILITY
-jsquid:S1135W"2Complete the task associated to this TODO comment.(» æÿÿÿÿÿ8×Æ˜‹×,HÈRINFOZ
+_squid:S1148I"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8å’¬³×,H'RMINORZVULNERABILITY
+jsquid:S11350"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿ8å’¬³×,Hé&RINFOZ
 CODE_SMELL
-jsquid:S1135-"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿ8Ô¹˜×,HÖRINFOZ
+zsquid:S2147í"ECombine this catch with the one at line 235, which has the same body.(ï­£Ä8şçÈ´×,Hµ)RMINORZ
 CODE_SMELL
-jsquid:S1135]"2Complete the task associated to this TODO comment.(» æÿÿÿÿÿ8×Æ˜‹×,HÌRINFOZ
+jsquid:S1135H"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿ8å’¬³×,Hì&RINFOZ
 CODE_SMELL
-jsquid:S1135Q"2Complete the task associated to this TODO comment.(» æÿÿÿÿÿ8×Æ˜‹×,HËRINFOZ
+_squid:S1148."#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8å’¬³×,Hş&RMINORZVULNERABILITY
+`squid:S1148Ê"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8éØÕ³×,HÉ)RMINORZVULNERABILITY
+`squid:S1148¢"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8å’¬³×,H†'RMINORZVULNERABILITY
+zsquid:S2147‡"ECombine this catch with the one at line 132, which has the same body.(ï­£Ä8éØÕ³×,HÈ)RMINORZ
 CODE_SMELL
-_squid:S1148+"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8Ô¹˜×,HÙRMINORZVULNERABILITY
-_squid:S1148C"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ŸÖÁ×,HìRMINORZVULNERABILITY
-jsquid:S1135"2Complete the task associated to this TODO comment.(» æÿÿÿÿÿ8×Æ˜‹×,HÎRINFOZ
+jsquid:S1135T"2Complete the task associated to this TODO comment.(» æÿÿÿÿÿ8å’¬³×,Hî&RINFOZ
 CODE_SMELL
-jsquid:S1135*"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿ8Ô¹˜×,H×RINFOZ
+`squid:S1148î"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8å’¬³×,Hˆ'RMINORZVULNERABILITY
+jsquid:S1135-"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿ8å’¬³×,Hè&RINFOZ
 CODE_SMELL
-jsquid:S1135"2Complete the task associated to this TODO comment.(» æÿÿÿÿÿ8×Æ˜‹×,HÊRINFOZ
+jsquid:S1135K"2Complete the task associated to this TODO comment.(» æÿÿÿÿÿ8å’¬³×,Hí&RINFOZ
 CODE_SMELL
-jsquid:S1135H"2Complete the task associated to this TODO comment.(» æÿÿÿÿÿ8×Æ˜‹×,HÉRINFOZ
+„squid:S1192—"GDefine a constant instead of duplicating this literal "AMOUNT" 3 times.(•ÈÓŠùÿÿÿÿ8şçÈ´×,H³)RCRITICALZ
 CODE_SMELL
-jsquid:S1135E"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿ8ŸÖÁ×,HèRINFOZ
+_squid:S00108²")Either remove or fill this block of code.(”ı¾8å’¬³×,Hø&RMAJORZ
 CODE_SMELL
-_squid:S1168"+Return an empty collection instead of null.(¥¹ï8×Æ˜‹×,HÏRMAJORZ
+jsquid:S1135"2Complete the task associated to this TODO comment.(» æÿÿÿÿÿ8å’¬³×,Hæ&RINFOZ
 CODE_SMELL
-jsquid:S1135B"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿ8ŸÖÁ×,HçRINFOZ
+jsquid:S1135i"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿ8å’¬³×,Hğ&RINFOZ
 CODE_SMELL
-xsquid:S2147D"DCombine this catch with the one at line 65, which has the same body.(ï­£Ä8ŸÖÁ×,HëRMINORZ
+jsquid:S1135"2Complete the task associated to this TODO comment.(» æÿÿÿÿÿ8å’¬³×,Hç&RINFOZ
 CODE_SMELL
-_squid:S1148."#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8Ô¹˜×,HÚRMINORZVULNERABILITY
-jsquid:S11350"2Complete the task associated to this TODO comment.(» æÿÿÿÿÿ8×Æ˜‹×,HÍRINFOZ
+`squid:S1148õ"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8å’¬³×,H‡'RMINORZVULNERABILITY
+xsquid:S2147/"DCombine this catch with the one at line 44, which has the same body.(ï­£Ä8å’¬³×,Hù&RMINORZ
 CODE_SMELL
-xsquid:S2147,"DCombine this catch with the one at line 41, which has the same body.(ï­£Ä8Ô¹˜×,HØRMINORZ
+zsquid:S2147›"ECombine this catch with the one at line 153, which has the same body.(ï­£Ä8å’¬³×,Hı&RMINORZ
 CODE_SMELL
-xsquid:UselessImportCheck"7Remove this unused import 'com.revature.engine.Driver'.(íëÙ8Ğëœ×,H†RMINORZ
+_squid:S1168"+Return an empty collection instead of null.(¥¹ï8å’¬³×,H÷&RMAJORZ
 CODE_SMELL
-jsquid:S1135c"2Complete the task associated to this TODO comment.(» æÿÿÿÿÿ8ŸÖÁ×,HéRINFOZ
+jsquid:S1135E"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿ8å’¬³×,Hë&RINFOZ
+CODE_SMELL
+_squid:S11481"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8å’¬³×,Hÿ&RMINORZVULNERABILITY
+`squid:S1148š"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8şçÈ´×,H·)RMINORZVULNERABILITY
+xsquid:S2147G"DCombine this catch with the one at line 68, which has the same body.(ï­£Ä8å’¬³×,Hú&RMINORZ
+CODE_SMELL
+_squid:S1148m"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8å’¬³×,Hƒ'RMINORZVULNERABILITY
+ysquid:S2147k"ECombine this catch with the one at line 104, which has the same body.(ï­£Ä8å’¬³×,Hû&RMINORZ
+CODE_SMELL
+_squid:S1148F"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8å’¬³×,H€'RMINORZVULNERABILITY
+jsquid:S1135Z"2Complete the task associated to this TODO comment.(» æÿÿÿÿÿ8å’¬³×,Hï&RINFOZ
+CODE_SMELL
+`squid:S1148‰"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8éØÕ³×,HÊ)RMINORZVULNERABILITY
+`squid:S1148œ"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8şçÈ´×,H¶)RMINORZVULNERABILITY
+`squid:S1148È"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8å’¬³×,H…'RMINORZVULNERABILITY
+`squid:S1148Ğ"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8şçÈ´×,H¸)RMINORZVULNERABILITY
+`squid:S1148ì"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8å’¬³×,H„'RMINORZVULNERABILITY
+jsquid:S11353"2Complete the task associated to this TODO comment.(» æÿÿÿÿÿ8å’¬³×,Hê&RINFOZ
+CODE_SMELL
+ksquid:S1135…"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿ8å’¬³×,Hõ&RINFOZ
+CODE_SMELL
+`squid:S1148†"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8œ€Ù³×,HË)RMINORZVULNERABILITY
+zsquid:S2147É"ECombine this catch with the one at line 199, which has the same body.(ï­£Ä8å’¬³×,Hü&RMINORZ
+CODE_SMELL
+_squid:S1148j"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8å’¬³×,H‚'RMINORZVULNERABILITY
+ksquid:S1135ˆ"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿ8å’¬³×,Hó&RINFOZ
+CODE_SMELL
+ksquid:S1135ô"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿ8å’¬³×,Hô&RINFOZ
+CODE_SMELL
+jsquid:S1135l"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿ8å’¬³×,Hñ&RINFOZ
 CODE_SMELL

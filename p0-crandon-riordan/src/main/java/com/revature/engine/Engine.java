@@ -57,6 +57,7 @@ public class Engine {
 			logger.info("deposit");
 			logger.info("withdraw");
 			logger.info("view");
+			logger.info("history");
 			logger.info("exit");
 		} else {
 			logger.info("create");
@@ -93,6 +94,7 @@ public class Engine {
 	}
 	
 	private void activeUserActions(String action) {
+		UserDaoImpl udi = new UserDaoImpl();
 		switch(action) {
 			case "create":
 				createAccount();
@@ -101,14 +103,32 @@ public class Engine {
 				logout();
 				break;
 			case "deposit":
+				if(!udi.userHasBank(activeUser.getUsername())) {
+					logger.info("You don't have an account.");
+					break;
+				}
 				deposit();
 				break;
 			case "withdraw":
+				if(!udi.userHasBank(activeUser.getUsername())) {
+					logger.info("You don't have an account.");
+					break;
+				}
 				withdraw();
 				break;
 			case "view":
+				if(!udi.userHasBank(activeUser.getUsername())) {
+					logger.info("You don't have an account.");
+					break;
+				}
 				view();
 				break;
+			case "history":
+				if(!udi.userHasBank(activeUser.getUsername())) {
+					logger.info("You don't have an account.");
+					break;
+				}
+				transactionHistory();
 			case "exit":
 				exitProgram();
 				break;
@@ -186,9 +206,14 @@ public class Engine {
 		bdi.withdraw(bank.getId());	
 	}
 	
+	private void transactionHistory() {
+		BankDaoImpl bdi = new BankDaoImpl();
+		
+	}
+	
 	private void view() {
 		BankDaoImpl bdi = new BankDaoImpl();
-		logger.info("You have $"+bdi.viewAmountByUserId(activeUser.getId()));
+		logger.info("You have $"+Validator.formatDecimals(bdi.viewAmountByUserId(activeUser.getId())));
 	}
 	
 	private void exitProgram() {

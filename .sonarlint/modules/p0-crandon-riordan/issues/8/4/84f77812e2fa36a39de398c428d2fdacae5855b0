@@ -1,3 +1,5 @@
 
-gsquid:S1118":Add a private constructor to hide the implicit public one.(ÄáœHîRMAJORZ
+nsquid:S1118	":Add a private constructor to hide the implicit public one.(Äáœ8è„­³×,H¬'RMAJORZ
+CODE_SMELL
+šsquid:S1488_"aImmediately return this expression instead of assigning it to the temporary variable "formatted".(Á¬êˆÿÿÿÿÿ8š…©³×,H¿&RMINORZ
 CODE_SMELL

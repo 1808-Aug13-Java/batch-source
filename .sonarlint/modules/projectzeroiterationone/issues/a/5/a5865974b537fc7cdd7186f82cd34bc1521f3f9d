@@ -1,0 +1,23 @@
+
+‡squid:S2068]"U'password' detected in this expression, review this potentially hardcoded credential.(îÜˆH© RBLOCKERZVULNERABILITY
+squid:S3973Š"WUse curly braces or indentation to denote the code conditionally executed by this "if".(ÁÀŸÈÿÿÿÿÿHª RCRITICALZ
+CODE_SMELL
+ˆsquid:S3973"WUse curly braces or indentation to denote the code conditionally executed by this "if".(‘ÈÁ•H« RCRITICALZ
+CODE_SMELL
+j
+squid:S106M"9Replace this use of System.out or System.err by a logger.(ÆÙÚóıÿÿÿÿH¬ RMAJORZ
+CODE_SMELL
+j
+squid:S106N"9Replace this use of System.out or System.err by a logger.(ªÓ¼áşÿÿÿÿH­ RMAJORZ
+CODE_SMELL
+j
+squid:S106Q"9Replace this use of System.out or System.err by a logger.(ô¿àºüÿÿÿÿH® RMAJORZ
+CODE_SMELL
+e
+squid:S106X"9Replace this use of System.out or System.err by a logger.(ÄÕùĞH¯ RMAJORZ
+CODE_SMELL
+j
+squid:S106^"9Replace this use of System.out or System.err by a logger.(Ó’€–øÿÿÿÿH° RMAJORZ
+CODE_SMELL
+ƒsquid:S3457^"Q%n should be used in place of \n to produce the platform-specific line separator.(Ó’€–øÿÿÿÿH± RMAJORZ
+CODE_SMELL

@@ -1,5 +1,5 @@
 
-tsquid:UselessImportCheck"4Remove this unused import 'org.apache.log4j.Logger'.(ρθ½8¬ΌΧ,H’RMINORZ
+tsquid:UselessImportCheck"4Remove this unused import 'org.apache.log4j.Logger'.(ρθ½8¬ΌΧ,H£#RMINORZ
 CODE_SMELL
-“squid:S3973X"WUse curly braces or indentation to denote the code conditionally executed by this "if".(©βθεωÿÿÿÿ8—Λ°σΦ,HσRCRITICALZ
+usquid:S1126I"AReplace this if-then-else statement by a single return statement.(ΫΟ½8ƒί…Χ,Hθ#RMINORZ
 CODE_SMELL

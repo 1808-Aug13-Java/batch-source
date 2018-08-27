@@ -2,27 +2,27 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="User id" key="selection"/>
+		<item value="Syste" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
-			<item value="user id"/>
 			<item value="syste"/>
-			<item value="!rs"/>
+			<item value="sys"/>
+			<item value="user id"/>
+			<item value="getpos"/>
+			<item value="getvalid"/>
+			<item value="get"/>
+			<item value="getval"/>
 			<item value="callable"/>
+			<item value="deposit"/>
+			<item value="!rs"/>
 			<item value="locationid"/>
 			<item value="departmentid"/>
 			<item value="brithday"/>
 			<item value="@Override"/>
 			<item value="Employee"/>
-			<item value="sc."/>
-			<item value="."/>
-			<item value="sc"/>
-			<item value="serialize"/>
-			<item value="seri"/>
-			<item value="todo"/>
 		</list>
 		<list key="replacehistory">
 			<item value="location"/>

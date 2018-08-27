@@ -174,11 +174,11 @@ public class BankDaoImpl implements BankDao {
 				logger.info("Enter a valid number");
 				String input = sc.nextLine();
 				amount = Float.parseFloat(input);
-				amount = (float) (Math.round(amount*100.0)/100.0);
+				//amount = (float) (Math.round(amount*100.0)/100.0);
 			} catch (Exception e) {
 
 			}
-		} while ( amount <= 0 );
+		} while ( amount < 10 || !Validator.isCorrectScale(amount));
 		
 		
 		return amount;
@@ -194,7 +194,7 @@ public class BankDaoImpl implements BankDao {
 			ps.setInt(1, id);
 			rs = ps.executeQuery();
 			while(rs.next()) {
-				amount = rs.getInt("AMOUNT");
+				amount = rs.getFloat("AMOUNT");
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
