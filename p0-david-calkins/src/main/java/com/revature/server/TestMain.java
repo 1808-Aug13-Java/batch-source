@@ -9,7 +9,7 @@ import java.sql.Statement;
 import org.apache.log4j.Logger;
 
 import com.revature.dao.Account;
-import com.revature.dao.AccountDaoImpl;
+import com.revature.dao02.AccountDaoImpl;
 import com.revature.dao.Client;
 import com.revature.dao.ClientDaoImpl;
 
@@ -23,22 +23,25 @@ public class TestMain {
 		ResultSet rs = st.executeQuery("SELECT * FROM CLIENTS");
 		
 		ClientDaoImpl clientDao = new ClientDaoImpl();
+		
 		AccountDaoImpl accountDao = new AccountDaoImpl();
+		System.out.println("Account: " + accountDao.getAccountById(1L, con));
 		
 		log.error("Flip");
 		
-		for (Client c : clientDao.getClients()) {
-			System.out.println(c);
-		}
+//		for (Client c : clientDao.getClients()) {
+//			System.out.println(c);
+//		}
 		
-		for (Account a : accountDao.getAccounts()) {
-			System.out.println(a);
-		}
+//		for (Account a : accountDao.getAccounts()) {
+//			System.out.println(a);
+//		}
 		
-		while (rs.next()) {
-			System.out.println(rs.getString("username"));
-			
-		}
+//		while (rs.next()) {
+//			System.out.println(rs.getString("username"));
+//			
+//		}
+		con.close();
 	}
 
 }
