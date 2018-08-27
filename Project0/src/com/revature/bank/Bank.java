@@ -25,7 +25,7 @@ public class Bank {
 	
 	public Bank() {
 		super();
-		System.out.println("Initializing...");
+		log.info("Initializing...");
 		// Clear out storage if bank constructor is called again somehow
 		accounts.clear();
 		balances.clear();
@@ -43,7 +43,7 @@ public class Bank {
 				accounts.put(dataPair[0], dataPair[1]);
 				line = br.readLine();
 			}
-			System.out.println("Done");
+			log.info("Done");
 			br.close();
 			
 			// Read in Balances
@@ -56,24 +56,23 @@ public class Bank {
 				balances.put(dataPair[0], Integer.parseInt(dataPair[1]));
 				line = br.readLine();
 			}
-			System.out.println("Done");
+			log.info("Done");
 			br.close();
 			
-			System.out.println();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		log.info(accounts.size() + " " + balances.size());
+		log.info(" ");
 	}
 	
 	public int menu() {
-		System.out.println("\nPlease select an option\n"
+		log.info("\nPlease select an option\n"
 						+ "1. Login\n"
 						+ "2. Create New Account\n"
 						+ "3. Exit");
 		String input = sc.nextLine();
 		if ( (!(input.length() == 1)) || (!Character.isDigit(input.charAt(0))) || (Integer.valueOf(input) > 3)) {
-			System.out.println("Error: Please enter a valid option");
+			log.info("Error: Please enter a valid option");
 			return menu();
 		}
 		return Integer.valueOf(input);
@@ -83,7 +82,7 @@ public class Bank {
 		boolean invalid = true;
 		String pass = "";
 		
-		System.out.println("Please enter your Username and Password");
+		log.info("Please enter your Username and Password");
 		// Get username
 		while (invalid) {
 			System.out.print("Username: ");
@@ -92,7 +91,7 @@ public class Bank {
 			if (!user.contains(" ") || user.isEmpty()) {
 				invalid = false;
 			} else {
-				System.out.println("Error: Enter a valid username");
+				log.info("Error: Enter a valid username");
 			}
 		}
 		invalid = true;
@@ -105,7 +104,7 @@ public class Bank {
 			if (!pass.contains(" ") || pass.isEmpty()) {
 				invalid = false;
 			} else {
-				System.out.println("Error: Enter a valid password");
+				log.info("Error: Enter a valid password");
 			}
 		}
 		
@@ -131,33 +130,33 @@ public class Bank {
 		
 		// Get username
 		while (invalid) {
-			System.out.println("\nPlease enter desired username");
+			log.info("\nPlease enter desired username");
 			System.out.print("Username: ");
 			newUser = sc.nextLine();
 			// Do not allow whitespace in username or empty field
 			if (!newUser.contains(" ") || newUser.isEmpty()) {
 				invalid = false;
 			} else {
-				System.out.println("Error: Enter a valid username. Username cannot contain whitespace");
+				log.info("Error: Enter a valid username. Username cannot contain whitespace");
 				continue;
 			}
 			// Check if username exists
 			if (accounts.get(newUser) != null) {
-				System.out.println("Error: Username already exists");
+				log.info("Error: Username already exists");
 				invalid = true;
 			}
 		}
 		invalid = true;
 		// Get password
 		while(invalid) {
-			System.out.println("Please enter desired password");
+			log.info("Please enter desired password");
 			System.out.print("Password: ");
 			pass = sc.nextLine();
 			//Do not allow whitespace in password or empty field
 			if (!pass.contains(" ") || pass.isEmpty()) {
 				invalid = false;
 			} else {
-				System.out.println("Error: Enter a valid password. Password cannot contain whitespace");
+				log.info("Error: Enter a valid password. Password cannot contain whitespace");
 			}
 		}
 		
@@ -210,14 +209,14 @@ public class Bank {
 		}
 		log.info(newUser + " " + accounts.get(newUser));
 
-		System.out.println("Account Created!");
+		log.info("Account Created!");
 	}
 	
 	public void loggedInMenu() {
 		int operation = 0;
 		while (operation != 4) {
 			// Get input
-			System.out.println("\nLogged in as " + user + ". Select an option\n"
+			log.info("\nLogged in as " + user + ". Select an option\n"
 					+ "1. Deposit\n"
 					+ "2. Withdraw\n"
 					+ "3. View Balance\n"
@@ -225,7 +224,7 @@ public class Bank {
 			String input = sc.nextLine();
 			// Check if input is valid.
 			if ( (!(input.length() == 1)) || (!Character.isDigit(input.charAt(0))) || (Integer.valueOf(input) > 4) ) {
-				System.out.println("Error: Please enter a valid option");
+				log.info("Error: Please enter a valid option");
 				loggedInMenu();
 				return;
 			}
@@ -248,18 +247,18 @@ public class Bank {
 	}
 	
 	private void deposit() {
-		System.out.println("\nHow much would you like to deposit? (Do not include '$' or decimals)");
+		log.info("\nHow much would you like to deposit? (Do not include '$' or decimals)");
 		String input = sc.nextLine();
 		Integer deposit = 0;
 		// Check if input is valid
 		if (input.length() < 1) {
-			System.out.println("Error: Invalid input");
+			log.info("Error: Invalid input");
 			return;
 		}
 		// Check if input is numerical
 		for (int i = 0; i < input.length(); i++) {
 			if (!Character.isDigit(input.charAt(i))) {
-				System.out.println("Error: Input was not numerical");
+				log.info("Error: Input was not numerical");
 				return;
 			}
 		}
@@ -268,25 +267,25 @@ public class Bank {
 		
 		// Deposit money
 		balances.replace(user, balances.get(user) + deposit);
-		System.out.println("$" + deposit + " has been deposited");
+		log.info("$" + deposit + " has been deposited");
 		return;
 	}
 	
 	private void withdraw() {
-		System.out.println("\nHow much would you like to withdraw? (Do not include '$' or decimals)");
-		System.out.println("$" + balances.get(user) + " available for withdrawal");
+		log.info("\nHow much would you like to withdraw? (Do not include '$' or decimals)");
+		log.info("$" + balances.get(user) + " available for withdrawal");
 		String input = sc.nextLine();
 		Integer withdraw = 0;
 		Integer difference = 0;
 		// Check if input is valid
 		if (input.length() < 1) {
-			System.out.println("Error: Invalid input");
+			log.info("Error: Invalid input");
 			return;
 		}
 		// Check if input is numerical
 		for (int i = 0; i < input.length(); i++) {
 			if (!Character.isDigit(input.charAt(i))) {
-				System.out.println("Error: Input was not numerical");
+				log.info("Error: Input was not numerical");
 				return;
 			}
 		}
@@ -296,18 +295,18 @@ public class Bank {
 		// Check if withdrawal amount is valid
 		difference = balances.get(user) - withdraw;
 		if (difference < 0) {
-			System.out.println("Error: Cannot withdraw more than available");
+			log.info("Error: Cannot withdraw more than available");
 			return;
 		}
 		
 		// Update balances
 		balances.replace(user, difference);
-		System.out.println("You have withdrawn " + difference);
+		log.info("You have withdrawn " + difference);
 		return;
 	}
 	
 	public void balance() {
-		System.out.println("Current balance for " + user + " is " + balances.get(user));
+		log.info("Current balance for " + user + " is " + balances.get(user));
 		return;
 	}
 	
@@ -317,7 +316,6 @@ public class Bank {
 	}
 	
 	private void updateBalances() {
-		log.info("Updating database");
 		String combined = "";
 		try {
 			// Write to login.txt
@@ -334,7 +332,6 @@ public class Bank {
 			
 			for (Map.Entry<String, Integer> it : balances.entrySet()) {
 				combined = it.getKey() + " " + it.getValue() + "\n";
-				log.info(combined);
 				bw.write(combined);
 			}
 			
@@ -353,7 +350,6 @@ public class Bank {
 	}
 	
 	private void updateLogins() {
-		log.info("Updating database");
 		String combined = "";
 		try {
 			// Write to login.txt
@@ -370,7 +366,6 @@ public class Bank {
 			
 			for (Map.Entry<String, String> it : accounts.entrySet()) {
 				combined = it.getKey() + " " + it.getValue() + "\n";
-				log.info(combined);
 				bw.write(combined);
 			}
 			

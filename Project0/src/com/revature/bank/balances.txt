@@ -1,3 +1,4 @@
 test 0
 josh.pen 15
+sick 0
 user 90
