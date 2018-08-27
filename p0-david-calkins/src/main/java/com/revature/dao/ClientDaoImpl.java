@@ -19,19 +19,19 @@ public class ClientDaoImpl implements ClientDao {
 	private static Logger log = Logger.getRootLogger();
 
 	@Override
-	public Client getClientById(long id) {
+	public Client getClientById(long id, Connection con) {
 		return getClient("clientId", Long.toString(id));
 	}
 	
 	
 	@Override
-	public Client getClientByEmail(String email) {
+	public Client getClientByEmail(String email, Connection con) {
 		return getClient("email", email);
 	}
 
 
 	@Override
-	public Client getClientByUsername(String username) {
+	public Client getClientByUsername(String username, Connection con) {
 		return getClient("username", username);
 	}
 	
@@ -88,7 +88,7 @@ public class ClientDaoImpl implements ClientDao {
 	
 
 	@Override
-	public List<Client> getClients() {
+	public List<Client> getClients(Connection con) {
 		List<Client> clientList = new ArrayList<>();
 		Client c = null;
 		String sql = "SELECT * FROM CLIENTS";
@@ -133,7 +133,7 @@ public class ClientDaoImpl implements ClientDao {
 	}
 
 	@Override
-	public int createClient(Client client) {
+	public long createClient(Client client, Connection con) {
 		// TODO: Solve false 'ORA-01008: not all variables bound' when using 
 		// a prepared statement on 
 		String sql = "INSERT INTO CLIENTS (clientId, email, username, passPhrase)"
@@ -178,20 +178,20 @@ public class ClientDaoImpl implements ClientDao {
 	}
 
 	@Override
-	public int updateClient(Client client) {
+	public int updateClient(Client client, Connection con) {
 		String sql = "UPDATE CLIENTS SET email=?, username=?, passPhrase=? "
 				+ "WHERE clientId = " + client.getClientId();
 		return modifyClient(client, sql);
 	}
 
 	@Override
-	public int deleteClient(long id) {
+	public int deleteClient(long id, Connection con) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
-	public int deleteClient(Client client) {
+	public int deleteClient(Client client, Connection con) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
