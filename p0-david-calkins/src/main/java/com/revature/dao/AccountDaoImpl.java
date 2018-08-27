@@ -19,21 +19,17 @@ public class AccountDaoImpl implements AccountDao {
 	private static Logger log = Logger.getRootLogger();
 	
 	@Override
-	public Account getAccountById(long id) {
+	public Account getAccountById(long id, Connection con) throws SQLException {
 		Account a = null;
-		String sql = "SELECT * FROM ACCOUNTS WHERE accId = ?";
+		final String sql = "SELECT * FROM ACCOUNTS WHERE accId = ?";
 		
-		// Connection object
-		Connection con = null;
-		// An object for using a Prepared SQL Statement
-		PreparedStatement ps = null;
 		// A result set for iterating through the results
 		ResultSet rs = null;
 		
-		try {
-			// Open the connection to the database
-			con = DBConnectionUtil.getConnection();
-			ps = con.prepareStatement(sql);
+		// Attempt to open a prepared statement, bind the variables, and get 
+		// an account. 
+		try (PreparedStatement ps = con.prepareStatement(sql)) {
+			// Bind the variable to the query
 			ps.setLong(1, id);
 			
 			// Keep in mind, this needs to be closed 
@@ -46,16 +42,9 @@ public class AccountDaoImpl implements AccountDao {
 				a.setAccType(rs.getString("accType"));
 				a.setBalance(rs.getBigDecimal("balance"));
 			}
-		} catch (IOException | SQLException e) {
-			log.error(e);
 		} finally {
 			// Make an attempt at closing resources. Do nothing if closing fails
-			// Try to close the result set
 			try {if (rs!=null) rs.close();} catch(SQLException e) {}
-			// Try to close the prepared statement
-			try {if (ps!=null) ps.close();} catch(SQLException e) {}
-			// Try to close the connection
-			try {if (con!=null) con.close();} catch(SQLException e) {}
 		}
 		
 		return a;
@@ -63,23 +52,16 @@ public class AccountDaoImpl implements AccountDao {
 
 	
 	@Override
-	public List<Account> getAccounts() {
+	public List<Account> getAccounts(Connection con) throws SQLException {
 		List<Account> accountList = new ArrayList<>();
 		Account a = null;
 		String sql = "SELECT * FROM ACCOUNTS";
 		
-		// Connection object
-		Connection con = null;
-		// An object for using an SQL Statement
-		Statement st = null;
 		// A result set for iterating through the results
 		ResultSet rs = null;
 		
-		try {
-			// Open the connection to the database
-			con = DBConnectionUtil.getConnection();
-			st = con.createStatement();
-			
+		// Attempt to create a statement and execute it. 
+		try (Statement st = con.createStatement()){
 			// Keep in mind, this needs to be closed 
 			rs = st.executeQuery(sql);
 			
@@ -91,24 +73,18 @@ public class AccountDaoImpl implements AccountDao {
 				a.setBalance(rs.getBigDecimal("balance"));
 				accountList.add(a);
 			}
-		} catch (IOException | SQLException e) {
-			// Log an error if it occurs
-			log.error(e);
 		} finally {
 			// Try to close the result set
 			try {if (rs!=null) rs.close();} catch(SQLException e) {}
-			// Try to close the prepared statement
-			try {if (st!=null) st.close();} catch(SQLException e) {}
-			// Try to close the connection
-			try {if (con!=null) con.close();} catch(SQLException e) {}
 		}
 		
 		return accountList;
 	} // end of getAccounts
 	
 	
+	
 	@Override
-	public int createAccount(Account account) {
+	public int createAccount(Account account, Connection con) throws SQLException {
 		String sql = "INSERT INTO ACCOUNTS (accId, accType, balance) VALUES (?, ?, ?)";
 		//The number of affected rows by this insertion. 
 		int rowsAffected = 0;
@@ -142,20 +118,20 @@ public class AccountDaoImpl implements AccountDao {
 	}
 
 	@Override
-	public int updateAccount(Account account) {
+	public int updateAccount(Account account, Connection con) throws SQLException {
 		String sql = "UPDATE ACCOUNTS SET accType=?, balance=? WHERE accId = " 
 					+ account.getAccId();
 		return modifyAccount(account, sql);
 	}
 
 	@Override
-	public int deleteAccount(long id) {
+	public int deleteAccount(long id, Connection con) throws SQLException {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
-	public int deleteAccount(Account account) {
+	public int deleteAccount(Account account, Connection con) throws SQLException {
 		// TODO Auto-generated method stub
 		return 0;
 	}
