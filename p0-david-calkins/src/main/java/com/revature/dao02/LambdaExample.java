@@ -10,11 +10,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.revature.dao.Account;
-import com.revature.dao02.AccountDao;
+import com.revature.dao02.OldAccountDao;
 import com.revature.server.DBConnectionUtil;
 import com.revature.server.query.PreparedExecutor;
 
-public class AccountDaoImpl implements AccountDao {
+public class LambdaExample implements OldAccountDao {
 	
 	
 	@Override

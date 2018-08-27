@@ -9,7 +9,7 @@ import java.sql.Statement;
 import org.apache.log4j.Logger;
 
 import com.revature.dao.Account;
-import com.revature.dao02.AccountDaoImpl;
+import com.revature.dao.AccountDaoImpl;
 import com.revature.dao.Client;
 import com.revature.dao.ClientDaoImpl;
 

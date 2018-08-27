@@ -11,7 +11,7 @@ import com.revature.dao.Account;
  * A Data Access Object interface for use in accessing bank accounts. 
  */
 
-public interface AccountDao {
+public interface OldAccountDao {
 	
 	/** Returns an account by the given account ID. Returns null if there is 
 	 * no account with the provided ID. 

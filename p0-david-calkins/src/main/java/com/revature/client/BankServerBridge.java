@@ -1,6 +1,8 @@
 package com.revature.client;
 
+import java.io.IOException;
 import java.math.BigDecimal;
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Random;
 
@@ -16,6 +18,7 @@ import com.revature.dao.ClientDao;
 import com.revature.dao.ClientDaoImpl;
 import com.revature.dao.ClientToAccountDao;
 import com.revature.dao.ClientToAccountDaoImpl;
+import com.revature.server.DBConnectionUtil;
 
 
 /** This class serves as a temporary bridge from the old client to the new 
@@ -84,9 +87,15 @@ public class BankServerBridge implements DataInterface {
 		
 		// If a client and an account were created, pull the client and account
 		// from the server to get their generated id's
-		return clientDao.createClient(client) == 1
-				&& accountDao.createAccount(account) == 1
-				&& ctaDao.createCLtoAC(client, account) == 1;
+		try {
+			return clientDao.createClient(client) == 1
+					&& accountDao.createAccount(account, DBConnectionUtil.getConnection()) == 1
+					&& ctaDao.createCLtoAC(client, account) == 1;
+		} catch (SQLException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return false;
 	}
 
 	@Override
@@ -106,7 +115,12 @@ public class BankServerBridge implements DataInterface {
 		
 		// Update the balance on both the server and the client
 		AccountDao accountDao = new AccountDaoImpl();
-		accountDao.updateAccount(account);
+		try {
+			accountDao.updateAccount(account, DBConnectionUtil.getConnection());
+		} catch (SQLException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		user.balance = account.getBalance();
 		
 		return true;
@@ -123,7 +137,12 @@ public class BankServerBridge implements DataInterface {
 		user.balance = account.getBalance();
 		
 		AccountDao accountDao = new AccountDaoImpl();
-		accountDao.updateAccount(account);
+		try {
+			accountDao.updateAccount(account, DBConnectionUtil.getConnection());
+		} catch (SQLException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	
