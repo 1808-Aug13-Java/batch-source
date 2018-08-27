@@ -5,6 +5,8 @@ import java.util.List;
 public interface ClientDao {
 	
 	public Client getClientById(long id);
+	public Client getClientByEmail(String email);
+	public Client getClientByUsername(String username);
 	
 	public List<Client> getClients();
 	

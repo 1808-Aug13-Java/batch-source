@@ -20,8 +20,29 @@ public class ClientDaoImpl implements ClientDao {
 
 	@Override
 	public Client getClientById(long id) {
+		return getClient("clientId", Long.toString(id));
+	}
+	
+	
+	@Override
+	public Client getClientByEmail(String email) {
+		return getClient("email", email);
+	}
+
+
+	@Override
+	public Client getClientByUsername(String username) {
+		return getClient("username", username);
+	}
+	
+	
+	/** Provided a column name and a string, searches the sql database for 
+	 * a client that matches the specified input. 
+	 * @param column - The column to search in
+	 * @param value - The value to search the column for. */
+	private Client getClient(String column, String value) {
 		Client c = null;
-		String sql = "SELECT * FROM CLIENTS WHERE clientId = ?";
+		String sql = "SELECT * FROM CLIENTS WHERE " + column + " = ?";
 		
 		// Connection object
 		Connection con = null;
@@ -34,7 +55,7 @@ public class ClientDaoImpl implements ClientDao {
 			// Open the connection to the database
 			con = DBConnectionUtil.getConnection();
 			ps = con.prepareStatement(sql);
-			ps.setLong(1, id);
+			ps.setString(1, value);
 			
 			// Keep in mind, this needs to be closed 
 			rs = ps.executeQuery();
@@ -61,6 +82,10 @@ public class ClientDaoImpl implements ClientDao {
 		
 		return c;
 	}
+	
+	
+	
+	
 
 	@Override
 	public List<Client> getClients() {
@@ -109,8 +134,47 @@ public class ClientDaoImpl implements ClientDao {
 
 	@Override
 	public int createClient(Client client) {
-		String sql = "INSERT INTO CLIENTS (email, username, passPhrase) VALES (?, ?, ?)";
-		return modifyClient(client, sql);
+		// TODO: Solve false 'ORA-01008: not all variables bound' when using 
+		// a prepared statement on 
+		String sql = "INSERT INTO CLIENTS (clientId, email, username, passPhrase)"
+				+ " VALUES (?, ?, ?, ?)";
+//		String sql = "INSERT INTO CLIENTS (email, username, passPhrase) VALUES ("
+//				+ client.getEmail() + ", " 
+//				+ client.getUsername() + ", " 
+//				+ client.getPassPhrase() + ")";
+		//The number of affected rows by this insertion. 
+		int rowsAffected = 0;
+		
+		// Connection object
+		Connection con = null;
+		// An object for using a Prepared SQL Statement
+		PreparedStatement ps = null;
+		
+		try {
+			// Open the connection to the database
+			con = DBConnectionUtil.getConnection();
+			ps = con.prepareStatement(sql);
+			log.info(sql);
+			log.info("Email:" + client.getEmail()+ "  Username:" + client.getUsername());
+			ps.setLong(1, client.getClientId());
+			ps.setString(2, client.getEmail());
+			ps.setString(3, client.getUsername());
+			ps.setString(4, client.getPassPhrase());
+			
+			rowsAffected = ps.executeUpdate();
+			
+		} catch (IOException | SQLException e) {
+			// Log an error if it occurs
+			log.error(e);
+			e.printStackTrace();
+		} finally {
+			// Try to close the prepared statement
+			try {if (ps!=null) ps.close();} catch(SQLException e) {}
+			// Try to close the connection
+			try {if (con!=null) con.close();} catch(SQLException e) {}
+		}
+		
+		return rowsAffected;
 	}
 
 	@Override
@@ -148,15 +212,18 @@ public class ClientDaoImpl implements ClientDao {
 			// Open the connection to the database
 			con = DBConnectionUtil.getConnection();
 			ps = con.prepareStatement(sql);
+			log.info(sql);
+			log.info("Email:" + client.getEmail()+ "  Username:" + client.getUsername());
 			ps.setString(1, client.getEmail());
 			ps.setString(2, client.getUsername());
-			ps.setString(3, client.getPassPhrase());
+			ps.setString(3, "1234567890123456789012345678901234567890123456789012345678901234");
 			
-			rowsAffected = ps.executeUpdate(sql);
+			rowsAffected = ps.executeUpdate();
 			
 		} catch (IOException | SQLException e) {
 			// Log an error if it occurs
 			log.error(e);
+			e.printStackTrace();
 		} finally {
 			// Try to close the prepared statement
 			try {if (ps!=null) ps.close();} catch(SQLException e) {}
@@ -166,4 +233,7 @@ public class ClientDaoImpl implements ClientDao {
 		
 		return rowsAffected;
 	}
+
+
+	
 }

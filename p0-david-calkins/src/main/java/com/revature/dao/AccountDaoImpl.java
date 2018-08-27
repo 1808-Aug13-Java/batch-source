@@ -109,8 +109,36 @@ public class AccountDaoImpl implements AccountDao {
 	
 	@Override
 	public int createAccount(Account account) {
-		String sql = "INSERT INTO ACCOUNTS (accType, balance) VALES (?, ?)";
-		return modifyAccount(account, sql);
+		String sql = "INSERT INTO ACCOUNTS (accId, accType, balance) VALUES (?, ?, ?)";
+		//The number of affected rows by this insertion. 
+		int rowsAffected = 0;
+		
+		// Connection object
+		Connection con = null;
+		// An object for using a Prepared SQL Statement
+		PreparedStatement ps = null;
+		
+		try {
+			// Open the connection to the database
+			con = DBConnectionUtil.getConnection();
+			ps = con.prepareStatement(sql);
+			ps.setLong(1, account.getAccId());
+			ps.setString(2, account.getAccType());
+			ps.setBigDecimal(3, account.getBalance());
+			
+			rowsAffected = ps.executeUpdate();
+			
+		} catch (IOException | SQLException e) {
+			// Log an error if it occurs
+			log.error(e);
+		} finally {
+			// Try to close the prepared statement
+			try {if (ps!=null) ps.close();} catch(SQLException e) {}
+			// Try to close the connection
+			try {if (con!=null) con.close();} catch(SQLException e) {}
+		}
+		
+		return rowsAffected;
 	}
 
 	@Override
@@ -151,7 +179,7 @@ public class AccountDaoImpl implements AccountDao {
 			ps.setString(1, account.getAccType());
 			ps.setBigDecimal(2, account.getBalance());
 			
-			rowsAffected = ps.executeUpdate(sql);
+			rowsAffected = ps.executeUpdate();
 			
 		} catch (IOException | SQLException e) {
 			// Log an error if it occurs

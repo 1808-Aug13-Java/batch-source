@@ -40,7 +40,7 @@ public class ClientToAccountDaoImpl implements ClientToAccountDao {
 			ps.setLong(1, client.getClientId());
 			
 			// Keep in mind, this needs to be closed 
-			rs = ps.executeQuery(sql);
+			rs = ps.executeQuery();
 			
 			// While there are more results, get them, and add them to the list.
 			while (rs.next()) {
@@ -87,7 +87,7 @@ public class ClientToAccountDaoImpl implements ClientToAccountDao {
 			ps.setLong(1, account.getAccId());
 			
 			// Keep in mind, this needs to be closed 
-			rs = ps.executeQuery(sql);
+			rs = ps.executeQuery();
 			
 			// While there are more results, get them, and add them to the list.
 			while (rs.next()) {
@@ -117,7 +117,7 @@ public class ClientToAccountDaoImpl implements ClientToAccountDao {
 	
 	@Override
 	public int createCLtoAC(Client client, Account account) {
-		String sql = "INSERT INTO Clients_to_Accounts (clientd, accId)"
+		String sql = "INSERT INTO Clients_to_Accounts (clientId, accId)"
 				+ " VALUES (?, ?)";
 		
 		//The number of affected rows by this insertion. 
@@ -135,7 +135,7 @@ public class ClientToAccountDaoImpl implements ClientToAccountDao {
 			ps.setLong(1, client.getClientId());
 			ps.setLong(2, account.getAccId());
 			
-			rowsAffected = ps.executeUpdate(sql);
+			rowsAffected = ps.executeUpdate();
 			
 		} catch (IOException | SQLException e) {
 			// Log an error if it occurs

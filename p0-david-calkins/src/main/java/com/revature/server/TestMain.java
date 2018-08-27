@@ -6,13 +6,15 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import org.apache.log4j.Logger;
+
 import com.revature.dao.Account;
 import com.revature.dao.AccountDaoImpl;
 import com.revature.dao.Client;
 import com.revature.dao.ClientDaoImpl;
 
 public class TestMain {
-	
+	private static Logger log = Logger.getRootLogger();
 	
 	public static void main(String[] args) throws IOException, SQLException {
 		Connection con = DBConnectionUtil.getConnection();
@@ -22,6 +24,8 @@ public class TestMain {
 		
 		ClientDaoImpl clientDao = new ClientDaoImpl();
 		AccountDaoImpl accountDao = new AccountDaoImpl();
+		
+		log.error("Flip");
 		
 		for (Client c : clientDao.getClients()) {
 			System.out.println(c);
