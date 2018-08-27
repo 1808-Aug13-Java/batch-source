@@ -10,10 +10,13 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-public class Bank {
+import org.apache.log4j.Logger;
 
-	private Map<String, String> accounts = new HashMap<String, String>();
-	private Map<String, Integer> balances = new HashMap<String, Integer>();
+public class Bank {
+	private static Logger log = Logger.getRootLogger();
+
+	private Map<String, String> accounts = new HashMap<>();
+	private Map<String, Integer> balances = new HashMap<>();
 	private static Scanner sc = new Scanner(System.in);
 	private String user;
 	private static String pathLogin = "src/com/revature/bank/login.txt";
@@ -60,7 +63,7 @@ public class Bank {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
+		log.info(accounts.size() + " " + balances.size());
 	}
 	
 	public int menu() {
@@ -106,13 +109,18 @@ public class Bank {
 			}
 		}
 		
+		// Check if no entry, avoids NullPtrException
+		if (accounts.get(user) == null) {
+			user = "";
+			return false;
+		}
+		
 		// Attempt login
-		if (accounts.get(user) == pass) {
+		if (accounts.get(user).equals(pass)) {
 			return true;
 		}
 		// reset user if failed login
 		user = "";
-		System.out.println("Incorrect username/password");
 		return false;
 	}
 	
@@ -200,7 +208,8 @@ public class Bank {
 				e.printStackTrace();
 			}
 		}
-		
+		log.info(newUser + " " + accounts.get(newUser));
+
 		System.out.println("Account Created!");
 	}
 	
@@ -303,10 +312,12 @@ public class Bank {
 	}
 	
 	public void exit() {
+		updateLogins();
 		updateBalances();
 	}
 	
 	private void updateBalances() {
+		log.info("Updating database");
 		String combined = "";
 		try {
 			// Write to login.txt
@@ -323,6 +334,43 @@ public class Bank {
 			
 			for (Map.Entry<String, Integer> it : balances.entrySet()) {
 				combined = it.getKey() + " " + it.getValue() + "\n";
+				log.info(combined);
+				bw.write(combined);
+			}
+			
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (bw != null) {
+					bw.close();
+				}
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	private void updateLogins() {
+		log.info("Updating database");
+		String combined = "";
+		try {
+			// Write to login.txt
+			File file = new File(pathLogin);
+
+			// Checking to see if file exists. Create file if not.
+			if(!file.exists()) {
+				file.createNewFile();
+			}
+						
+			// Overwrite file
+			FileWriter fw = new FileWriter(file, false);
+			bw = new BufferedWriter(fw);
+			
+			for (Map.Entry<String, String> it : accounts.entrySet()) {
+				combined = it.getKey() + " " + it.getValue() + "\n";
+				log.info(combined);
 				bw.write(combined);
 			}
 			
