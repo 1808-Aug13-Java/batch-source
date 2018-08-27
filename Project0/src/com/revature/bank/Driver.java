@@ -1,22 +1,27 @@
 package com.revature.bank;
 
+import org.apache.log4j.Logger;
+
 public class Driver {
 
+	private static Logger log = Logger.getRootLogger();
+
+	
 	public static void main(String[] args) {
-		System.out.println("Starting...");
+		log.info("Starting...");
 		int operation = 0;
 		Bank bank = new Bank();
 		
-		System.out.println("Welcome to the Bank.");
+		log.info("Welcome to the Bank.");
 		operation = bank.menu();
 		while (operation != 3) {
 			// Login
 			if (operation == 1) {
 				if(bank.login()) {
-					System.out.println("Successfully logged in");
+					log.info("Successfully logged in");
 					bank.loggedInMenu();
 				} else {
-					System.out.println("No account with given credentials");
+					log.info("No account with given credentials");
 				}
 			}
 			// New Account
@@ -29,7 +34,7 @@ public class Driver {
 			
 		}
 		bank.exit();
-		System.out.println("\nThank you for using our Banking App!");
+		log.info("\nThank you for using our Banking App!");
 	}
 
 }
