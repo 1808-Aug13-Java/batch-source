@@ -1,0 +1,15 @@
+<html>
+<head>
+    <title>Class test</title>
+</head>
+
+<body>
+<!--
+out.println((new JSPTest()).getName()); 
+out.println(", Inner name: " + ((new JSPTest()).new Inner()).getName()); 
+-->
+ Base name: JSPTest
+ Inner name: Inner
+
+</body>
+</html>

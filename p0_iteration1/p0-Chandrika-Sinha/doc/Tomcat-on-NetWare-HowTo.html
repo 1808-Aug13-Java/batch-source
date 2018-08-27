@@ -1,0 +1,348 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+   <title>Tomcat on NetWare HowTo</title>
+<!-- $Id  $ -->
+<!-- Copyright 1999, Apache Software Foundation -->
+<link rel="stylesheet" href="uguide/style.css">
+   <style type="text/css">
+    .inlinetd {
+        background-color: #E0E0E0;
+        vertical-align: text-top;
+        border-top: thick black;
+        border-right: thick black;
+        border-bottom: thick black;
+        border-left: thick black;
+    }
+    .inlineth {
+        background-color: #d0d0d0;
+        border-top: thick black;
+        border-right: thick black;
+        border-bottom: thick black;
+        border-left: thick black;
+    }
+    .inlinetable {
+        width: 75%;
+        border: thick;
+        background-color: #000000;
+    }
+    .subsection { margin:20pt; }
+    .note { margin:20pt; padding:5pt; background-color:#e0e0ff; }
+
+    </style>
+</head>
+<body>
+<!-- Banner element, all hail Jakarta! -->
+<table BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<tr>
+<td WIDTH="50%"><a href="http://jakarta.apache.org/index.html"><img SRC="uguide/images/banner.gif" ALT="The Jakarta Project" BORDER=0 height=100 width=350></a></td>
+
+<td WIDTH="50%">
+<div align=right><img SRC="uguide/images/tomcat.gif" ALT="The mighty Tomcat - Meow!" BORDER=0 height=71 width=100></div>
+</td>
+</tr>
+</table>
+
+<h1>
+Tomcat on NetWare HowTo</h1>
+By Mike Anderson <a href="mailto:mmanders@novell.com">mmanders@novell.com</a>
+<p>This document explains how to setup Tomcat to run on NetWare. Sections
+are provided for running Tomcat standalone, running with the NetWare Enterprise
+Web Server, and running with Apache on NetWare. There is also a section
+describing how to build the web server connectors for NetWare. A lot of
+this is duplicated from the <a href="tomcat-netscape-howto.html">Tomcat
+Netscape HowTo</a> and <a href="mod_jk-howto.html">Working with mod_jk</a>,
+both written by Gal Shachor <a href="mailto:shachor@il.ibm.com">shachor@il.ibm.com</a>
+with NetWare specific information added.
+<h2>
+Table of Contents</h2>
+
+<ul>
+<li>
+<a href="#Document Conventions and Assumptions">Document Conventions and
+Assumptions</a></li>
+
+<li>
+<a href="#Tested Configurations">Tested Configurations</a></li>
+
+<li>
+<a href="#Installation">Installation</a></li>
+
+<ul>
+<li>
+<a href="#Running Tomcat Standalone">Running Tomcat Standalone</a></li>
+
+<li>
+<a href="#Running Tomcat with the NetWare Enterprise Web Server">Running
+Tomcat with the NetWare Enterprise Web Server</a></li>
+
+<li>
+<a href="#Running Tomcat with Apache on NetWare">Running Tomcat with Apache
+on NetWare</a></li>
+
+<li>
+</li>
+</ul>
+
+<li>
+<a href="#Building Tomcat for use on NetWare">Building Tomcat for use on NetWare</a>
+</li>
+</ul>
+
+<h2>
+<a NAME="Document Conventions and Assumptions"></a>Document Conventions
+and Assumptions</h2>
+&lt;tomcat_home> is the root directory of Tomcat. By default this is at
+the root of the SYS: volume (SYS:\jakarta-tomcat-3.2.1 or SYS:\tomcat depending
+on which version you download) but it can be placed anywhere, on any volume.
+Your installation should have the following sub-directories:
+<ol>
+<li>
+&lt;tomcat_home>\conf - Where you can place various configuration files</li>
+
+<li>
+&lt;tomcat_home>\webapps - Contains example applications and is the default
+place for adding your applications</li>
+
+<li>
+&lt;tomcat_home>\bin - Where you place web server connectors and startup
+scripts</li>
+</ol>
+In all the examples in this document, &lt;tomcat_home> will be SYS:\tomcat.
+<p>A <b><tt>worker</tt></b> is the tomcat process that accepts work from
+the web server.
+<h2>
+<a NAME="Tested Configurations"></a>Tested Configurations</h2>
+Tomcat and the web server connectors described here have been tested on:
+<ol>
+<li>
+NetWare 5.1 with both the 1.1.7b JVM and the 1.2.2 JVM.</li>
+
+<li>
+NetWare 6 with the 1.2.2 JVM.</li>
+</ol>
+The connectors have been tested with the <b>ajp12</b> worker and the <b>ajp13</b>
+worker with both JVMs.&nbsp;
+<h2>
+<a NAME="Installation"></a>Installation</h2>
+Builds of Tomcat are available as
+<a href="http://jakarta.apache.org/downloads/binindex.html">binary
+distributions</a> and the web server connectors for NetWare are available
+in the netware/i386 directory relative to the specific build of tomcat.&nbsp;
+The mod_jk.nlm file is the connector for Apache, the nsapi_rd.nlm file
+is the connector for the NetWare Enterprise Web Server, and the jni_conn.nlm
+file is the native method library if you use the <b>jni</b> worker with
+the 1.2.2 JVM.&nbsp; Once you have downloaded the appropriate zip file
+and unzipped it to your NetWare server, you can run Tomcat in standalone
+mode.&nbsp; To run with another web server providing static content, you
+will need to configure the web server appropriately and copy the necessary
+connector(s) to the appropriate directories.
+<br>&nbsp;
+<h3>
+<a NAME="Running Tomcat Standalone"></a>1. Running Tomcat Standalone</h3>
+To run Tomcat standalone, it is easiest to create an NCF file to start
+Tomcat. A sample TOMCAT.NCF could look like this:
+<p>; This is a sample NCF file for starting TOMCAT on NetWare. The TOMCAT_HOME
+<br>; environment variable and the tomcat.home define on the java command
+line
+<br>; should be modified to reflect the directory where you actually install
+<br>; Tomcat.
+<p>envset TOMCAT_HOME=SYS:\tomcat
+<p>envset TOMCAT_CLASSPATH=sys:\java\lib\classes.zip
+<br>envset TOMCAT_CLASSPATH=$TOMCAT_CLASSPATH;$TOMCAT_HOME\classes
+<br>envset TOMCAT_CLASSPATH=$TOMCAT_CLASSPATH;$TOMCAT_HOME\lib\ant.jar
+<br>envset TOMCAT_CLASSPATH=$TOMCAT_CLASSPATH;$TOMCAT_HOME\lib\jasper.jar
+<br>envset TOMCAT_CLASSPATH=$TOMCAT_CLASSPATH;$TOMCAT_HOME\lib\jaxp.jar
+<br>envset TOMCAT_CLASSPATH=$TOMCAT_CLASSPATH;$TOMCAT_HOME\lib\parser.jar
+<br>envset TOMCAT_CLASSPATH=$TOMCAT_CLASSPATH;$TOMCAT_HOME\lib\servlet.jar
+<br>envset TOMCAT_CLASSPATH=$TOMCAT_CLASSPATH;$TOMCAT_HOME\lib\webserver.jar
+<p>; The following command line starts Tomcat with it's own Console Screen
+<br>; that will automatically close (-nsac) with the screen called Tomcat
+<br>; (-snTomcat) and the current working directory set&nbsp; to TOMCAT_HOME
+<br>; (-envCWD=$TOMCAT_HOME)
+<br>java -nsac -snTomcat -envCWD=$TOMCAT_HOME -classpath $TOMCAT_CLASSPATH
+-Dtomcat.home=SYS:\tomcat org.apache.tomcat.startup.Tomcat %1
+<p>As the comment states, you will need to make sure that TOMCAT_HOME points
+to the correct directory.
+<p>By putting this NCF file in SYS:\System you can start Tomcat by just
+typing <b><tt>tomcat</tt></b> at the system console. You can also
+add this to your autoexec.ncf to automatically start Tomcat when your system
+comes up. The %1 at the end of the command line allows you also pass in
+a
+<b><tt>-stop</tt></b> parameter to shutdown Tomcat.
+<br>&nbsp;
+<h3>
+<a NAME="Running Tomcat with the NetWare Enterprise Web Server"></a>2.
+Running Tomcat with the NetWare Enterprise Web Server</h3>
+To run Tomcat with the NetWare Enterprise Web Server, you need to download
+nsapi_rd.nlm and copy it to your NetWare server. A good location is &lt;tomcat_home>\bin\netscape\netware\i386.
+You will then need to add the following to your obj.conf file located in
+SYS:\novonyx\suitespot\https-&lt;servername>\config. This will tell the
+NetWare Enterprise Web Server to let Tomcat handle the /servlet/* and /examples/*
+URIs.
+<ol>
+<li>
+If you are currently running the Novell Servlet Gateway, disable it using
+the NetWare Web Manager.</li>
+
+<li>
+In the Init section add:</li>
+
+<br><tt>Init fn="load-modules" funcs=&quot;jk_init,jk_service&quot; shlib=&quot;sys:/tomcat/bin/netscape/netware/i386/nsapi_rd.nlm&quot;</tt>
+<br><tt>Init fn="jk_init" worker_file="sys:/tomcat/conf/workers.properties"
+log_level="debug" log_file="sys:/tomcat/logs/nsapi.log"</tt>
+<li>
+In the default object NameTrans section add:</li>
+
+<br><tt>NameTrans fn="assign-name" from="/servlet/*" name="Tomcat"</tt>
+<br><tt>NameTrans fn="assign-name" from="/examples/*" name="Tomcat"</tt>
+<li>
+Create a new configuration object by adding the following lines to the
+end of the obj.conf file:</li>
+
+<br><tt>&lt;Object name=Tomcat></tt>
+<br><tt>ObjectType fn="force-type" type="text/plain"</tt>
+<br><tt>Service fn="jk_service" worker="ajp12"</tt>
+<br><tt>&lt;/Object></tt></ol>
+Now stop and restart the NetWare Enterprise Web Server, make sure that Tomcat is
+running (i.e. run the <b>tomcat.ncf</b> file mentioned in <a href="#Running Tomcat Standalone">Running
+Tomcat Standalone</a> and you should be
+able to access <a href="http://server:port/examples/"> http://server:port/examples/</a>.&nbsp;
+Additional configuration information can be found in <a href="tomcat-netscape-howto.html">Tomcat
+Netscape HowTo</a>.
+<h3>
+<a NAME="Running Tomcat with Apache on NetWare"></a>3. Running Tomcat with
+Apache on NetWare</h3>
+To run Tomcat with Apache on NetWare, you need to download mod_jk.nlm and
+copy it to you NetWare server.&nbsp; A good location is the modules directory
+under your Apache installation.&nbsp; If you copy mod_jk.nlm there, then
+a base configuration file called mod_jk.conf-auto is created when Tomcat
+starts up that has a default set of Apache configuration directives that
+map appropriate URIs from Apache to Tomcat.&nbsp; Just add the following line to
+your httpd.conf file, replacing SYS:/tomcat with the directory where tomcat is
+installed:
+<p>Include &quot;SYS:/tomcat/conf/mod_jk.conf-auto&quot;</p>
+<p>You can also just copy the appropriate configuration directives from the
+mod_jk.conf-auto file to your httpd.conf file.&nbsp; For additional information,
+look in&nbsp; <a href="mod_jk-howto.html">Working with mod_jk</a>.</p>
+<h3>
+<a NAME="Building Tomcat for use on NetWare"></a>Building Tomcat for use
+on NetWare</h3>
+Building the Java portion of Tomcat is the same for any platform.&nbsp;
+First download the&nbsp; <a href="http://jakarta.apache.org/site/sourceindex.html">source</a>,
+unzip it and read the README document.&nbsp; After getting the JDK and other tools
+required for building ( <a href="http://jakarta.apache.org/site/binindex.html">Ant</a>,
+<a href="http://java.sun.com/xml">JAXP</a>, and&nbsp;possibly <a href="http://java.sun.com/products/jsse/">JSSE</a>),
+you just run the build batch file as described in the README.&nbsp; Building
+the native connectors requires MetroWerks CodeWarrior 5 or greater, <a href="ftp://ftp.gnu.org/pub/gnu/make/">GNU
+make (version 3.78.1)</a>, the <a href="http://developer.novell.com/ndk/ws2comp.htm">WinSock
+2 Developer Components for NetWare</a>, WinSock 2 components from the <a href="http://www.microsoft.com/msdownload/platformsdk/setuplauncher.htm">Microsoft
+Platform SDK</a>, the JNI headers from SYS:\java\include\netware (download and
+install the Novell JVM for NetWare <a href="http://developer.novell.com/ndk/jvm.htm">v1.1.7b</a>
+or <a href="http://developer.novell.com/ndk/jvm12.htm">v1.2.2</a> to get these), and the&nbsp; <a href="http://developr.novell.com/ndk/clib.htm">NLM
+and NetWare Libraries for C</a>.&nbsp; Once you have all of the tools and
+SDKs necessary, it is recommended that you install MetroWerks and the NetWare
+SDK components to a common directory structure such as D:\Tools (the default
+in the makefiles.) Next create a directory structure for the MetroWerks
+command line tools that matches what the makefile expects.&nbsp; The final
+Tools directory structure would look something like this:
+<p>D:\Tools
+<br>&nbsp;&nbsp;&nbsp;&nbsp; |
+<br>&nbsp;&nbsp;&nbsp;&nbsp; +CodeWarrior (base directory for MetroWerks
+CodeWarrior installation)
+<br>&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp; |
+<br>&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp; |
+<br>&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp; +5.3&nbsp;&nbsp; (this
+is optional but it makes it easier to use different versions)
+<br>&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|
+<br>&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; +bin (CodeWarrior IDE
+binaries)
+<br>&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; |
+<br>&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; ... (all the other CodeWarrior
+directories)
+<br>&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; |
+<br>&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; +Tools (location for Command
+Line Tools.&nbsp; See the MW directory structure)
+<br>&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; |
+<br>&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; +Novell Support (location
+for Novell Specific files.&nbsp; See the MW directory structure)
+<br>&nbsp;&nbsp;&nbsp;&nbsp; +mw
+<br>&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp; |
+<br>&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp; +5.3&nbsp;&nbsp; (this
+is optional but it makes it easier to use different versions)
+<br>&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|
+<br>&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
++bin (copy mwccnlm.exe and mwldnlm.exe from \Tools\CodeWarrior\Tools\Command
+Line Tools)
+<br>&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|
+<br>&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
++include (copy all files from \Tools\CodeWarrior\Novell Support\Metrowerks
+Support\Headers and
+<br>&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+\Tools\CodeWarrior\Novell Support\Metrowerks Support\Libraries\MSL C++\Include)
+<br>&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
++lib&nbsp; (copy *.lib and *.obj from \Tools\CodeWarrior\Novell Support\Metrowerks
+Support\Libraries\Runtime)
+<br>&nbsp;&nbsp;&nbsp;&nbsp; |
+<br>&nbsp;&nbsp;&nbsp;&nbsp; +nwsdk (All of the NetWare SDK components.&nbsp;
+Change default install directory to D:\Tools instead of C:\Novell)
+<br>&nbsp;&nbsp;&nbsp;&nbsp; |
+<br>&nbsp;&nbsp;&nbsp;&nbsp; +jdk
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; +jdk-1_2_2 (JDK installation)
+<p>Once you have the tools set up, here are the environment variables you can
+define to point to your tools and SDKs.
+<div align="left">
+  <table border="0" width="100%">
+    <tr>
+      <td width="29%">Environment Variable Name</td>
+      <td width="71%">Description</td>
+    </tr>
+    <tr>
+      <td width="29%">TOOLPATH</td>
+      <td width="71%">The base path where the tools are install.&nbsp; Defaults
+        to D:\Tools</td>
+    </tr>
+    <tr>
+      <td width="29%">JDKPATH</td>
+      <td width="71%">The base path for the jdk.&nbsp; Defaults to $(TOOLPATH)\jdk\jdk-1_2_2.&nbsp;
+        Copy the JNI headers from your NetWare server's SYS:\java\include\netware
+        directory to $(JDKPATH)\include\netware</td>
+    </tr>
+    <tr>
+      <td width="29%">NOVELLNDK</td>
+      <td width="71%">The base path for the NetWare SDK files.&nbsp; Defaults to
+        $(TOOLPATH)\nwsdk</td>
+    </tr>
+    <tr>
+      <td width="29%">METROWERKSPATH</td>
+      <td width="71%"> The base path for the mw directory structure defined <a href="#Tools Directory Structure">above</a>.&nbsp;
+Defaults to $(TOOLPATH)\mw\5.3</td>
+    </tr>
+    <tr>
+      <td width="29%">WINSOCK_INCDIR</td>
+      <td width="71%">The base path for winsock headers.&nbsp; Defaults to $(NOVELLNDK)\include\winsock.&nbsp;
+        Only needed for the Apache connector.</td>
+    </tr>
+    <tr>
+      <td width="29%">APACHE_SRC</td>
+      <td width="71%">The path to the Apache src directory.&nbsp; Defaults to d:\apache_1.3.17\src.&nbsp;
+        Only needed for the Apache connector.</td>
+    </tr>
+  </table>
+</div>
+<p>Copy the GNUmake executable (referred to a gmake hereafter) to a directory
+that is in your path and change to the directory of the connector that
+you wish to build.&nbsp; If your tools are set up as described above, you
+just need to set the APACHE_SRC environment variable to an appropriate
+directory and type gmake
+-f Makefile.nw in the main directory for the connector you wish to build.
+<br></p>
+</body>
+</html>

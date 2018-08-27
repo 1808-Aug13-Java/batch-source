@@ -1,0 +1,9 @@
+<html>
+<body>
+<h1>servletParam1</h1>
+<dl>
+<dt>param2</dt><dd>value2</dd>
+<dt>param1</dt><dd>value1</dd>
+</dl>
+</body></html>
+

@@ -1,0 +1,824 @@
+<project name="TestRun" default="main">
+   <!-- To test tomcat standalone, type:
+          bin/tomcat.sh ant -f conf/test-tomcat.xml client
+        or for Windows systems, type:
+          bin\tomcat.bat ant -f conf/test-tomcat.xml client
+        
+        To test apache, type:
+          bin/tomcat.sh ant -f conf/test-tomcat.xml -Dport=<your port> -Dhttp.protocol=HTTP/1.1 client-apache
+        or for Windows systems, type:
+          bin/tomcat.bat ant -f conf/test-tomcat.xml -Dport=<your port> -Dhttp.protocol=HTTP/1.1 client-apache
+	  Specify <your port> from "Port" setting in apache's httpd.conf file.
+
+        Works best if you manually start tomcat, and if necessary apache.  If you use this file's
+        "main" or "apache" targets, tomcat may not start fast enough to avoid failing some of the
+        early tests.
+    -->
+  
+   <target name="init">
+     <property name="host" value="localhost" />
+     <property name="port"     value="8080" />
+     <property name="tomcat.home" value="." />
+     <property name="gdir" value="${tomcat.home}/lib/test/Golden" />
+     <property name="http.protocol" value="HTTP/1.0" />
+     
+     <taskdef name="gtest" classname="org.apache.tomcat.task.GTest" />
+   </target>
+
+  <!-- ==================== File tests ==================== -->
+  <target name="file">
+    <gtest host="${host}" port="${port}"  description="Content Type Test"
+           request="GET /test/binaries/image1.gif HTTP/1.0"
+           expectHeaders="Content-Type:image/gif" />
+
+    <gtest host="${host}" port="${port}"  description="File Integrity and Length Test"
+           request="GET /test/binaries/image1.gif HTTP/1.0"
+           goldenFile="${gdir}/image1.gif"
+           exactMatch="true"  />
+
+   </target>
+
+  <target name="file-tomcat" depends="file">
+    <gtest host="${host}" port="${port}"  description="Welcome File Test1"
+           request="GET /test/welcome HTTP/1.0"
+           expectHeaders="Location:/welcome/" 
+           returnCode="${http.protocol} 302" />
+
+    <gtest host="${host}" port="${port}"  description="Welcome File Test2"
+           request="GET /test/binaries HTTP/1.0"
+           returnCode="${http.protocol} 200" />
+
+    <gtest host="${host}" port="${port}"  description="Welcome File Test3"
+           request="GET /test/welcome/ HTTP/1.0"
+           returnCode="${http.protocol} 302" 
+           goldenFile="${gdir}/movedwelcome.txt" />
+  </target>
+
+  <target name="file-apache" depends="file">
+    <gtest host="${host}" port="${port}"  description="Welcome File Test1"
+           request="GET /test/welcome HTTP/1.0"
+           expectHeaders="Location:/welcome/" 
+           returnCode="${http.protocol} 301" />
+
+    <gtest host="${host}" port="${port}"  description="Welcome File Test2"
+           request="GET /test/binaries HTTP/1.0"
+           returnCode="${http.protocol} 301" />
+
+    <!-- Tomcat returns 302 --> 
+    <gtest host="${host}" port="${port}"  description="Welcome File Test3"
+           request="GET /test/welcome/ HTTP/1.0"
+           returnCode="${http.protocol} 200" 
+           goldenFile="${gdir}/welcome.txt" />
+  </target>
+
+  <!-- ==================== Dispatch tests ==================== -->
+    <target name="dispatch">
+      <gtest host="${host}" port="${port}"  description="SimpleInclude"
+             request="GET /test/servlet/dispatch.SimpleIncludeServlet HTTP/1.0"
+             expectHeaders="Content-Type:text/foobar" 
+             returnCode="${http.protocol} 200"
+             goldenFile="${gdir}/SimpleInclude.txt" 
+       />
+      <gtest host="${host}" port="${port}"  description="SimpleForward"
+             request="GET /test/servlet/dispatch.SimpleForwardServlet HTTP/1.0"
+             expectHeaders="Content-Type:text/funky" 
+             returnCode="${http.protocol} 200"
+             goldenFile="${gdir}/SimpleForward.txt" 
+       />
+      <gtest host="${host}" port="${port}"  description="PrintWriterTest"
+             request="GET /test/servlet/dispatch.PrintWriterTest1Servlet HTTP/1.0"
+             returnCode="${http.protocol} 200"
+             responseMatch="PreInclude" 
+       />
+      <!-- remove test that no longer fits current behavior
+      <gtest host="${host}" port="${port}"  description="PrintWriterTest"
+             request="GET /test/servlet/dispatch.PrintWriterTest1Servlet HTTP/1.0"
+             returnCode="${http.protocol} 200"
+             responseMatch="PostInclude" 
+       /> -->
+      <gtest host="${host}" port="${port}"  description="PrintWriterTest"
+             request="GET /test/servlet/dispatch.PrintWriterTest1Servlet HTTP/1.0"
+             returnCode="${http.protocol} 200"
+             responseMatch="Included servlet error: 500" 
+       />
+      <gtest host="${host}" port="${port}"  description="Mismatch2"
+             request="GET /test/servlet/dispatch.Mismatch2 HTTP/1.0"
+             returnCode="${http.protocol} 200"
+             goldenFile="${gdir}/Mismatch2.txt" 
+       />
+
+      <gtest host="${host}" port="${port}"  description="IncludeMismatch1-1"
+             request="GET /test/servlet/dispatch.IncludeMismatch1 HTTP/1.0"
+             returnCode="${http.protocol} 200"
+             responseMatch="LINE1" 
+       />
+
+      <gtest host="${host}" port="${port}"  description="IncludeMismatch1-2"
+             request="GET /test/servlet/dispatch.IncludeMismatch1 HTTP/1.0"
+             returnCode="${http.protocol} 200"
+             responseMatch="error: 500" 
+       />
+
+      <gtest host="${host}" port="${port}"  description="IncludeMismatch1-3"
+             request="GET /test/servlet/dispatch.IncludeMismatch1 HTTP/1.0"
+             returnCode="${http.protocol} 200"
+             responseMatch="LINE1" 
+       />
+
+      <gtest host="${host}" port="${port}"  description="IncludeFile"
+             request="GET /test/servlet/dispatch.IncludeFileServlet HTTP/1.0"
+             returnCode="${http.protocol} 200"
+             expectHeaders="Content-Type:text/foobar" 
+             goldenFile="${gdir}/IncludeFile.txt" 
+       />
+
+      <!-- Order of query parameters depends on JDK
+      <gtest host="${host}" port="${port}"  description="ForwardWithQuery"
+             request="GET /test/servlet/dispatch.ForwardWithQueryServlet?name=Sun%20Microsystems&amp;age=100000&amp;city=Cupertino HTTP/1.0"
+             returnCode="${http.protocol} 200"
+             expectHeaders="Content-Type:text/funky" 
+             goldenFile="${gdir}/ForwardWithQuery.txt" 
+       / -->
+
+    
+
+    </target>
+
+    <target name="dispatch-tomcat" depends="dispatch">
+      <gtest host="${host}" port="${port}"  description="SimpleRedirect"
+             request="GET /test/servlet/dispatch.SimpleRedirectServlet?/index.html HTTP/1.0"
+             expectHeaders="Location:http://${host}:${port}/index.html" 
+             returnCode="${http.protocol} 302" 
+       />
+      <gtest host="${host}" port="${port}"  description="SimpleRedirect2"
+             request="GET /test/servlet/dispatch.SimpleRedirectServlet?index.html HTTP/1.0"
+             expectHeaders="Location:http://${host}:${port}/test/servlet/index.html" 
+             returnCode="${http.protocol} 302" 
+       />
+    </target>
+
+    <target name="dispatch-apache" depends="dispatch">
+      <gtest host="${host}" port="${port}"  description="SimpleRedirect"
+             request="GET /test/servlet/dispatch.SimpleRedirectServlet?/index.html HTTP/1.0"
+             returnCode="${http.protocol} 302" 
+       />
+      <gtest host="${host}" port="${port}"  description="SimpleRedirect2"
+             request="GET /test/servlet/dispatch.SimpleRedirectServlet?index.html HTTP/1.0"
+             returnCode="${http.protocol} 302" 
+       />
+    </target>
+
+  <!-- ==================== Jsp tests ==================== -->
+  <target name="jsp">
+    <gtest host="${host}" port="${port}"  request="GET /test/jsp/HelloWorld.jsp HTTP/1.0"
+           goldenFile="${gdir}/HelloWorld.txt"
+    />
+
+    <gtest host="${host}" port="${port}"  request="GET /test/doesNotExist.jsp HTTP/1.0"
+           returnCode="${http.protocol} 200"
+           magnitude="false" />
+
+    <gtest host="${host}" port="${port}"  request="GET /test/jsp HTTP/1.0"
+           returnCode="${http.protocol} 200"
+           description="Getting -- HTTP/1.0 302 Found"
+           magnitude="false" />
+
+    <gtest host="${host}" port="${port}"  request="GET /test/.jsp HTTP/1.0"
+           returnCode="${http.protocol} 200"
+           magnitude="false" />
+
+    <gtest host="${host}" port="${port}"  request="GET /test/jsp/HelloWorld.jsp?????? HTTP/1.0"
+           goldenFile="${gdir}/HelloWorld.txt"
+           debug="0"
+    />
+
+    <gtest host="${host}" port="${port}"  request="GET /test/jsp/HelloWorld.jsp?a=b&amp;c=d HTTP/1.0"
+           goldenFile="${gdir}/HelloWorld.txt"
+           debug="0"
+    />
+
+    <gtest host="${host}" port="${port}"  request="GET /test/jsp/HelloWorld.jsp?&amp;&amp; HTTP/1.0"
+           goldenFile="${gdir}/HelloWorld.txt"
+    />
+
+    <gtest host="${host}" port="${port}"  request="GET /test/jsp/declaration/IntegerOverflow.jsp HTTP/1.0"
+           returnCode="${http.protocol} 500"
+           debug="0"
+    />
+
+    <gtest host="${host}" port="${port}"  request="GET /test/jsp/error/err.jsp HTTP/1.0"
+           goldenFile="${gdir}/Err.txt"
+           returnCode="${http.protocol} 200"
+    />
+
+    <gtest host="${host}" port="${port}"  request="GET /test/jsp/forward/forward.jsp HTTP/1.0"
+           returnCode="${http.protocol} 200"
+    />
+
+    <gtest host="${host}" port="${port}"  request="GET /test/jsp/jsptoserv/jsptoservlet.jsp HTTP/1.0"
+           returnCode="${http.protocol} 200"
+           goldenFile="${gdir}/jsptoservlet.txt"
+    />
+
+    <gtest host="${host}" port="${port}"  request="GET /test/jsp/initDestroy.jsp HTTP/1.0"
+           returnCode="${http.protocol} 200"
+    />
+
+    <gtest host="${host}" port="${port}"  request="GET /test/jsp/classTest.jsp HTTP/1.0"
+           returnCode="${http.protocol} 200"
+           goldenFile="${gdir}/classTest.txt"
+    />
+
+    <gtest host="${host}" port="${port}"  request="GET /test/jsp/import.jsp HTTP/1.0"
+           returnCode="${http.protocol} 200"
+           goldenFile="${gdir}/import.txt"
+    />
+
+    <gtest host="${host}" port="${port}"  request="GET /test/jsp/buffer.jsp HTTP/1.0"
+           returnCode="${http.protocol} 200"
+           goldenFile="${gdir}/buffer.txt"
+    />
+
+    <gtest host="${host}" port="${port}"  request="GET /test/jsp/buffer1.jsp HTTP/1.0"
+           returnCode="${http.protocol} 200"
+           magnitude="false" />
+
+    <gtest host="${host}" port="${port}"  request="GET /test/jsp/buffer2.jsp HTTP/1.0"
+           returnCode="${http.protocol} 200"
+           magnitude="false" />
+
+    <gtest host="${host}" port="${port}"  request="GET /test/jsp/buffer3.jsp HTTP/1.0"
+           returnCode="${http.protocol} 200"
+           magnitude="false" />
+
+    <gtest host="${host}" port="${port}"  request="GET /test/jsp/buffer4.jsp HTTP/1.0"
+           returnCode="${http.protocol} 200"
+           magnitude="false" />
+
+    <gtest host="${host}" port="${port}"  request="GET /test/jsp/comments.jsp HTTP/1.0"
+           returnCode="${http.protocol} 500"
+    />
+
+    <gtest host="${host}" port="${port}"  request="GET /test/jsp/parse.jsp HTTP/1.0"
+           returnCode="${http.protocol} 200"
+           goldenFile="${gdir}/parse.txt"
+    />
+
+    <gtest host="${host}" port="${port}"  request="GET /test/jsp/pageInfo.jsp HTTP/1.0"
+           returnCode="${http.protocol} 200"
+           magnitude="false" />
+
+    <gtest host="${host}" port="${port}"  request="GET /test/jsp/pageLanguage.jsp HTTP/1.0"
+           returnCode="${http.protocol} 200"
+           magnitude="false" />
+
+    <gtest host="${host}" port="${port}"  request="GET /test/jsp/pageIsThreadSafe.jsp HTTP/1.0"
+           returnCode="${http.protocol} 200"
+           magnitude="false" />
+
+    <gtest host="${host}" port="${port}"  request="GET /test/jsp/pageSession.jsp HTTP/1.0"
+           returnCode="${http.protocol} 200"
+           magnitude="false" />
+
+    <gtest host="${host}" port="${port}"  request="GET /test/jsp/pageAutoFlush.jsp HTTP/1.0"
+           returnCode="${http.protocol} 200"
+           magnitude="false" />
+
+    <gtest host="${host}" port="${port}"  request="GET /test/jsp/pageError.jsp HTTP/1.0"
+           returnCode="${http.protocol} 200"
+    />
+
+    <gtest host="${host}" port="${port}"  request="GET /test/jsp/pageExtends.jsp HTTP/1.0"
+           returnCode="${http.protocol} 200"
+           magnitude="false" />
+
+    <gtest host="${host}" port="${port}"  request="GET /test/jsp/pageIsErrorPage.jsp HTTP/1.0"
+           returnCode="${http.protocol} 200"
+           magnitude="false" />
+
+    <gtest host="${host}" port="${port}"  request="GET /test/jsp/pageContentType.jsp HTTP/1.0"
+           returnCode="${http.protocol} 200"
+    />
+
+    <gtest host="${host}" port="${port}"  request="GET /test/jsp/pageImport2.jsp HTTP/1.0"
+           returnCode="${http.protocol} 200"
+           magnitude="false" />
+
+    <gtest host="${host}" port="${port}"  request="GET /test/jsp/pageImport.jsp HTTP/1.0"
+           returnCode="${http.protocol} 200"
+           goldenFile="${gdir}/pageImport.txt"
+    />
+
+    <gtest host="${host}" port="${port}"  request="GET /test/jsp/beanTest1.jsp HTTP/1.0"
+           returnCode="${http.protocol} 200"
+           goldenFile="${gdir}/beanTest.txt"
+    />
+
+    <gtest host="${host}" port="${port}"  request="GET /test/jsp/beanTest2.jsp HTTP/1.0"
+           returnCode="${http.protocol} 200"
+           magnitude="false" />
+
+    <gtest host="${host}" port="${port}"  request="GET /test/jsp/beanScopePage.jsp HTTP/1.0"
+           returnCode="${http.protocol} 200"
+    />
+
+    <gtest host="${host}" port="${port}"  request="GET /test/jsp/beanScopeSession.jsp HTTP/1.0"
+           returnCode="${http.protocol} 200"
+           debug="0"
+    />
+
+    <gtest host="${host}" port="${port}"  request="GET /test/jsp/implicitOut.jsp HTTP/1.0"
+           returnCode="${http.protocol} 200"
+           goldenFile="${gdir}/implicitOut.txt"
+    />
+
+    <gtest host="${host}" port="${port}"  request="GET /test/jsp/implicitConfig.jsp HTTP/1.0"
+           returnCode="${http.protocol} 200"
+           goldenFile="${gdir}/implicitConfig.txt"
+    />
+
+    <gtest host="${host}" port="${port}"  request="GET /test/jsp/implicitException.jsp HTTP/1.0"
+           returnCode="${http.protocol} 200"
+           goldenFile="${gdir}/implicitException.txt"
+    />
+
+    <gtest host="${host}" port="${port}"  request="GET /test/jsp/implicitPageContext.jsp HTTP/1.0"
+           returnCode="${http.protocol} 200"
+           goldenFile="${gdir}/implicitPageContext.txt"
+    />
+
+    <gtest host="${host}" port="${port}"  request="GET /test/jsp/implicitContext.jsp HTTP/1.0"
+           returnCode="${http.protocol} 200"
+           goldenFile="${gdir}/implicitContext.txt"
+    />
+
+    <gtest host="${host}" port="${port}"  request="GET /test/jsp/implicitRequest.jsp HTTP/1.0"
+           returnCode="${http.protocol} 200"
+           goldenFile="${gdir}/implicitRequest.txt"
+    />
+
+    <gtest host="${host}" port="${port}"  request="GET /test/jsp/implicitResponse.jsp HTTP/1.0"
+           returnCode="${http.protocol} 200"
+           goldenFile="${gdir}/implicitResponse.txt"
+    />
+
+    <gtest host="${host}" port="${port}"  request="GET /test/jsp/implicitSession.jsp HTTP/1.0"
+           returnCode="${http.protocol} 200"
+           goldenFile="${gdir}/implicitSession.txt"
+    />
+
+    <gtest host="${host}" port="${port}"  request="GET /test/jsp/implicitPageContext.jsp HTTP/1.0"
+           returnCode="${http.protocol} 200"
+           goldenFile="${gdir}/implicitPageContext.txt"
+    />
+
+    <gtest host="${host}" port="${port}"  request="GET /test/jsp/pageInvalid.jsp HTTP/1.0"
+           returnCode="${http.protocol} 200"
+           magnitude="false" />
+
+    <gtest host="${host}" port="${port}"  request="GET /test/jsp/pageDouble.jsp HTTP/1.0"
+           returnCode="${http.protocol} 200"
+           magnitude="false" />
+
+    <gtest host="${host}" port="${port}"  request="GET /test/jsp/pageContent3.jsp HTTP/1.0"
+           returnCode="${http.protocol} 200"
+    />
+
+    <gtest host="${host}" port="${port}"  request="GET /test/servlet/servletParam1 HTTP/1.0"
+           returnCode="${http.protocol} 200"
+           goldenFile="${gdir}/servletParam1.txt"
+    />
+
+    <gtest host="${host}" port="${port}"  request="GET /test/servlet/servletParam2 HTTP/1.0"
+           returnCode="${http.protocol} 200"
+           goldenFile="${gdir}/servletParam2.txt"
+    />
+
+    <gtest host="${host}" port="${port}"  request="GET /test/servlet/ServletParam HTTP/1.0"
+           returnCode="${http.protocol} 200"
+           goldenFile="${gdir}/ServletParam.txt"
+    />
+
+    <gtest host="${host}" port="${port}"  request="GET /test/jsp/bigDeclaration.jsp HTTP/1.0"
+           returnCode="${http.protocol} 200"
+    />
+
+    <gtest host="${host}" port="${port}"  request="GET /test/jsp/include/include.jsp HTTP/1.0"
+           returnCode="${http.protocol} 200"
+           goldenFile="${gdir}/Include.txt"
+    />
+ 
+    <gtest host="${host}" port="${port}"  request="GET /test/jsp/chinese.jsp HTTP/1.0"
+           returnCode="${http.protocol} 200"
+    />
+
+   <gtest host="${host}" port="${port}"  request="GET /test/jsp/japanese.jsp HTTP/1.0"
+           returnCode="${http.protocol} 200"
+    />
+
+   <gtest host="${host}" port="${port}"  request="GET /test/jsp/extends1.jsp HTTP/1.0"
+           returnCode="${http.protocol} 200"
+           magnitude="false" 
+    />
+
+   <gtest host="${host}" port="${port}"  request="GET /test/jsp/extends2.jsp HTTP/1.0"
+           returnCode="${http.protocol} 200"
+           magnitude="false" 
+    />
+
+   <gtest host="${host}" port="${port}"  request="GET /test/jsp/extends3.jsp HTTP/1.0"
+           returnCode="${http.protocol} 200"
+    />
+
+   <gtest host="${host}" port="${port}"  request="GET /test/jsp/extends4.jsp HTTP/1.0"
+           returnCode="${http.protocol} 200"
+    />
+
+   </target>
+
+  <target name="jsp-tomcat" depends="jsp">
+    <gtest host="${host}" port="${port}"  request="GET /test/jsp/ HTTP/1.0"
+           goldenFile="${gdir}/movedindex.txt"  
+           description="Redirects to index.html"
+    />
+
+   </target>
+
+  <target name="jsp-apache" depends="jsp">
+    <gtest host="${host}" port="${port}"  request="GET /test/jsp/ HTTP/1.0"
+           goldenFile="${gdir}/index.txt"  
+           description="Serves index.html"
+    />
+
+   </target>
+
+  <target name="wrong_request">
+    <gtest host="${host}" port="${port}"  request="GET /test/*.jsp HTTP/1.0"
+           returnCode="${http.protocol} 200"
+           magnitude="false" />
+
+    <gtest host="${host}" port="${port}"  request="GET *jsp HTTP/1.0"
+           returnCode="${http.protocol} 200"
+           magnitude="false" />
+
+    <!-- Hangs on apache - apache expects a 1.0 request 
+        gtest host="${host}" port="${port}"  request="GET /test/jsp/HelloWorld.jsp HTTP"
+           returnCode="${http.protocol} 400"
+    /-->
+
+    <!-- Hangs on apache - apache expects a 1.0 request 
+        gtest host="${host}" port="${port}"  request="GET /test/jsp/HelloWorld.jsp 1.0"
+           returnCode="${http.protocol} 400"
+    / -->
+
+    <!-- Hangs on apache - apache expects a 1.0 request 
+       gtest host="${host}" port="${port}"  request="GET /test/jsp/HelloWorld.jsp /1.0"
+           returnCode="${http.protocol} 400"
+    / -->
+
+  </target>
+
+
+
+   <target name="get">
+      <!-- hit unavailable servlet 1st time -->
+      <gtest host="${host}" port="${port}"  request="GET /test/servlet/Unavailable HTTP/1.0"
+             returnCode="${http.protocol} 503"
+      />
+      <gtest host="${host}" port="${port}"  request="GET /test/servlet/Cookie25 HTTP/1.0"
+             expectHeaders="Set-Cookie2:foo=bar;Version=1;Max-Age=8640000"
+      />
+
+      <gtest host="${host}" port="${port}"  request="GET /test/servlet/ResponseError HTTP/1.0"
+             returnCode="${http.protocol} 400"
+             responseMatch="Wrong data"
+      />
+
+      <gtest host="${host}" port="${port}"  request="GET /test/request/uri/does/not/exist"
+             responseMatch="404"
+      />
+
+      <gtest host="${host}" port="${port}"  request="GET /test/request/uri/does/not/exist HTTP/1.0"
+             returnCode="${http.protocol} 404"
+      />
+
+      <gtest host="${host}" port="${port}"  request="GET /test/"
+             returnCode="Error: "
+             magnitude="false" />
+
+      <!-- Hangs apache - it starts with " ", apache expects a 1.0 request
+           gtest host="${host}" port="${port}"  request="   GET   /   "
+             returnCode="Error: "
+             magnitude="false" / -->
+
+      <!-- tolerate for now
+      <gtest host="${host}" port="${port}"  request="   GET   /   HTTP/1.0"
+             returnCode="${http.protocol} 200"
+      /> --> 
+
+      <!-- tolerate for now
+      <gtest host="${host}" port="${port}"  request="GET /test/index.ht ml HTTP/1.0"
+             returnCode="${http.protocol} 400"
+      /> -->
+
+      <!-- tolerate for now
+      <gtest host="${host}" port="${port}"  request="   GET   /index.ht ml HTTP/1.0 "  
+             returnCode="${http.protocol} 400"
+      /> -->
+
+
+      <gtest host="${host}" port="${port}"  request="GET /test/servlet HTTP/1.0"
+             returnCode="${http.protocol} 404"
+      />
+
+      <gtest host="${host}" port="${port}"  request="GET /test/servlet/ HTTP/1.0"
+             returnCode="${http.protocol} 404"
+      />
+
+      <gtest host="${host}" port="${port}"  request="GET /test/servlet/foo HTTP/1.0"
+             returnCode="${http.protocol} 404"
+      />
+
+   </target>
+
+   <target name="get-tomcat" depends="get">
+      <gtest host="${host}" port="${port}"  request="GET /test/ HTTP/1.0"
+             returnCode="${http.protocol} 302"
+      />
+
+      <gtest host="${host}" port="${port}"  request="GET /test/welcome HTTP/1.0"
+             returnCode="${http.protocol} 302"
+      />
+   </target>
+
+   <target name="get-apache" depends="get">
+      <gtest host="${host}" port="${port}"  request="GET /test/ HTTP/1.0"
+             returnCode="${http.protocol} 200"
+      />
+
+      <gtest host="${host}" port="${port}"  request="GET /test/welcome HTTP/1.0"
+             returnCode="${http.protocol} 301"
+      />
+   </target>
+
+   <target name="requestMap">
+      <gtest host="${host}" port="${port}"  description="/foo/bar/index.html : 1.0 : 200"
+             request="GET /test/foo/bar/index.html HTTP/1.0"
+             responseMatch="Servlet: Servlet1"
+            />
+
+      <gtest host="${host}" port="${port}"  description="/foo/bar/index.bop : 1.0 : 200"
+             request="GET /test/foo/bar/index.bop HTTP/1.0"
+             responseMatch="Servlet: Servlet1"
+            />
+
+      <gtest host="${host}" port="${port}"  description="/baz : 1.0 : 200"
+             request="GET /test/baz HTTP/1.0"
+             responseMatch="Servlet: Servlet2"
+            />
+
+      <gtest host="${host}" port="${port}"  description="/baz/index.html : 1.0 : 200"
+             request="GET /test/baz/index.html HTTP/1.0"
+             responseMatch="Servlet: Servlet2"
+            />
+
+      <gtest host="${host}" port="${port}"  description="/catalog : 1.0 : 200"
+             request="GET /test/catalog HTTP/1.0"
+             responseMatch="Servlet: Servlet3"
+            />
+
+      <gtest host="${host}" port="${port}"  description="/catalog/index.html : 1.0 : 200"
+             request="GET /test/catalog/index.html HTTP/1.0"
+             returnCode="${http.protocol} 404"
+             />
+
+      <gtest host="${host}" port="${port}"  description="/catalog/racecar.bop : 1.0 : 200"
+             request="GET /test/catalog/racecar.bop HTTP/1.0"
+             responseMatch="Servlet: Servlet4"
+            />
+
+      <gtest host="${host}" port="${port}"  description="/index.bop : 1.0 : 200"
+             request="GET /test/index.bop HTTP/1.0"
+             responseMatch="Servlet: Servlet4"
+            />
+   </target>
+
+  <target name="post1">
+    <gtest host="${host}" port="${port}"  description="Content Type Test"
+           request="POST /test/servlet/Post HTTP/1.0"
+           debug="10"
+           content="Test POST BODY" />
+   </target>
+   
+   <target name="post">
+      <gtest host="${host}" port="${port}"  request="POST /test/servlet/request.NotThere HTTP/1.0"
+             content="name=lightness of being"
+             returnCode="${http.protocol} 404"
+            />
+
+      <gtest host="${host}" port="${port}"  request="POST /test/servlet/request.EchoServlet HTTP/1.0"
+             content="name=lightness of being"
+             returnCode="${http.protocol} 200"
+            />
+
+      <gtest host="${host}" port="${port}"  request="GHOST /test/servlet/request.EchoServlet HTTP/1.0"
+             content="name=lightness of being"
+             returnCode="${http.protocol} 501"
+            />
+
+      <!-- Hangs on apache, apache expects a 1.0 requets
+        gtest host="${host}" port="${port}"  request="POST /test/servlet/request.EchoServlet HT TP/1.0"
+             content="name=lightness of being"
+             returnCode="Error: 400"
+            /-->
+
+      <gtest host="${host}" port="${port}"  request="POST "
+             content="name=lightness of being"
+             returnCode="Error: 400"
+            />
+
+      <gtest host="${host}" port="${port}"  request="POST /test/servlet/request.EchoServlet HTTP/1.0"
+             content=""
+             returnCode="${http.protocol} 200"
+            />
+
+      <gtest host="${host}" port="${port}"  request="POST /test/servlet HTTP/1.0"
+             content=""
+             returnCode="${http.protocol} 404"
+            />
+
+      <gtest host="${host}" port="${port}"  request="POST /test/servlet/ HTTP/1.0"
+             content=""
+             returnCode="${http.protocol} 404"
+            />
+
+      <gtest host="${host}" port="${port}"  request="POST /test/"
+             content=""
+             returnCode="${http.protocol} 400"
+            />
+
+      <gtest host="${host}" port="${port}"  request="POST /test/servlet/request.EchoServlet"
+             content="name=lightness of being"
+             returnCode="${http.protocol} 200"
+            />
+
+      <gtest host="${host}" port="${port}"  request="POST /test/servlet/request.EchoServlet"
+             content="name=lightness of being,,,,,,,....###///&amp;&amp;@@@@@***"
+             returnCode="${http.protocol} 200"
+            />
+
+      <gtest host="${host}" port="${port}"  request="POST /test/servlet/request.EchoServlet"
+             content="name=lightness of being,,,,,,,....###///&amp;&amp;&amp;&amp;@@@@@***"
+             returnCode="${http.protocol} 200"
+            />
+
+      <gtest host="${host}" port="${port}"  request="POST \/test/servlet/request.EchoServlet?name=sun&amp;age=2000"
+             content="name=lightness of being,,,,,,,....###///&amp;@@@@@***"
+             returnCode="${http.protocol} 200"
+            />
+
+      <gtest host="${host}" port="${port}"  request="POST \"
+             content="name=lightness of being"
+             returnCode="Error: 400"
+            />
+
+      <gtest host="${host}" port="${port}"  request="POST /test/servlet/request.EchoServlet HTTP/1.0"
+             content="name=lightness of being"
+             returnCode="${http.protocol} 200"
+            />
+
+      <gtest host="${host}" port="${port}"  request="post /test/servlet/request.EchoServlet HTTP/1.0"
+             content="name=lightness of being"
+             returnCode="${http.protocol} 501"
+            />
+
+	<!-- tolerate for now
+      <gtest host="${host}" port="${port}"  request="GET http://www.javasoft.com/index.html HTTP/1.0   "
+             returnCode="${http.protocol} 400"
+            /> -->
+
+      <gtest host="${host}" port="${port}"  request="POST /test/servlet/request.EchoServlet HTTP/1.0"
+             headers="Content-Encoding: x-gzip"
+             content="name=lightness of being"
+             returnCode="${http.protocol} 200"
+            />
+
+      <!-- Can't be OK - we don't implement HTTP/4.4 
+       gtest host="${host}" port="${port}"  request="POST /test/servlet/request.EchoServlet  HTTP/4.4"
+             content="name=lightness of being"
+             returnCode="${http.protocol} 200"
+            / -->
+   </target>
+
+   <!-- ============= unavailable servlet tests ============= -->
+   <target name="unavailable">
+      <gtest host="${host}" port="${port}"  request="GET /test/servlet/PermanentlyUnavailable HTTP/1.0"
+             returnCode="${http.protocol} 503"
+      />
+      <!-- again for good measure -->
+      <gtest host="${host}" port="${port}"  request="GET /test/servlet/PermanentlyUnavailable HTTP/1.0"
+             returnCode="${http.protocol} 503"
+      />
+      <!-- this one was loaded on startup -->
+      <gtest host="${host}" port="${port}"  request="GET /test/servlet/PermanentlyUnavailable2 HTTP/1.0"
+             returnCode="${http.protocol} 503"
+      />
+      <!-- 2nd hit on the unavailable servlet should succeed -->
+      <gtest host="${host}" port="${port}"  request="GET /test/servlet/Unavailable HTTP/1.0"
+             returnCode="${http.protocol} 200"
+             responseMatch="Hello"
+      />
+   </target>
+
+   <!-- ============= restricted access tests ============= -->
+   <target name="restricted">
+      <gtest host="${host}" port="${port}"  request="GET /test/WEB-INF HTTP/1.0"
+             returnCode="${http.protocol} 4" />
+
+      <gtest host="${host}" port="${port}"  request="GET /test/WEB-INF/ HTTP/1.0"
+             returnCode="${http.protocol} 4" />
+
+      <gtest host="${host}" port="${port}"  request="GET /test/../test/WEB-INF HTTP/1.0"
+             returnCode="${http.protocol} 4" />
+
+      <gtest host="${host}" port="${port}"  request="GET /test/../test/WEB-INF/ HTTP/1.0"
+             returnCode="${http.protocol} 4" />
+
+      <gtest host="${host}" port="${port}"  request="GET /test/WEB-INF/classes HTTP/1.0"
+             returnCode="${http.protocol} 4" />
+
+      <!-- For Windows systems, insure blocking is not case sensitive! -->
+      <gtest host="${host}" port="${port}"  request="GET /test/web-inf HTTP/1.0"
+             returnCode="${http.protocol} 4" />
+
+      <gtest host="${host}" port="${port}"  request="GET /test/web-inf/ HTTP/1.0"
+             returnCode="${http.protocol} 4" />
+
+      <gtest host="${host}" port="${port}"  request="GET /test/../test/web-inf HTTP/1.0"
+             returnCode="${http.protocol} 4" />
+
+      <gtest host="${host}" port="${port}"  request="GET /test/../test/web-inf/ HTTP/1.0"
+             returnCode="${http.protocol} 4" />
+
+      <gtest host="${host}" port="${port}"  request="GET /test/WEB-INF/web.xml HTTP/1.0"
+             returnCode="${http.protocol} 4" />
+
+      <gtest host="${host}" port="${port}"  request="GET /test/../test/WEB-INF/web.xml HTTP/1.0"
+             returnCode="${http.protocol} 4" />
+
+      <gtest host="${host}" port="${port}"  request="GET /test/WEB-INF/web.Xml HTTP/1.0"
+             returnCode="${http.protocol} 4" />
+
+      <gtest host="${host}" port="${port}"  request="GET /test/web-inf/web.xml HTTP/1.0"
+             returnCode="${http.protocol} 4" />
+
+      <gtest host="${host}" port="${port}"  request="GET /test/META-INF HTTP/1.0"
+             returnCode="${http.protocol} 4" />
+
+      <gtest host="${host}" port="${port}"  request="GET /test/META-INF/ HTTP/1.0"
+             returnCode="${http.protocol} 4" />
+
+      <gtest host="${host}" port="${port}"  request="GET /test/../test/META-INF HTTP/1.0"
+             returnCode="${http.protocol} 4" />
+
+      <gtest host="${host}" port="${port}"  request="GET /test/../test/META-INF/ HTTP/1.0"
+             returnCode="${http.protocol} 4" />
+
+      <gtest host="${host}" port="${port}"  request="GET /test/meta-inf HTTP/1.0"
+             returnCode="${http.protocol} 4" />
+
+      <gtest host="${host}" port="${port}"  request="GET /test/META-INF/Manifest.mf HTTP/1.0"
+             returnCode="${http.protocol} 4" />
+
+      <gtest host="${host}" port="${port}"  request="GET /test/../test/META-INF/Manifest.mf HTTP/1.0"
+             returnCode="${http.protocol} 4" />
+
+      <gtest host="${host}" port="${port}"  request="GET /test/META-INF/Manifest.Mf HTTP/1.0"
+             returnCode="${http.protocol} 4" />
+
+      <gtest host="${host}" port="${port}"  request="GET /test/meta-inf/Manifest.mf HTTP/1.0"
+             returnCode="${http.protocol} 4" />
+   </target>
+
+   <target name="startup">
+     <java classname="org.apache.tomcat.startup.Tomcat" args="" />
+   </target>
+
+
+   <target name="client" depends="init,file-tomcat,dispatch-tomcat,get-tomcat,requestMap,post,jsp-tomcat,wrong_request,unavailable,restricted">
+   </target>
+
+   <target name="client-apache" depends="init,file-apache,dispatch-apache,get-apache,post,jsp-apache,wrong_request,unavailable,restricted">
+   </target>
+
+   <target name="shutdown">
+     <java classname="org.apache.tomcat.startup.Tomcat" args="-stop" />
+   </target>
+
+
+   <target name="main" depends="startup,client,shutdown" />
+
+   <target name="apache" depends="startup,client-apache,shutdown" />
+
+</project>
+

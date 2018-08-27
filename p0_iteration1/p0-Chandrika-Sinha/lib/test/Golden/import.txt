@@ -1,0 +1,7 @@
+<html>
+
+  <body>
+Hashtable get("key 1") : Value 1
+
+  </body>
+</html>

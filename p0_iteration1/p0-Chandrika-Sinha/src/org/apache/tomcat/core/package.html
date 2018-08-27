@@ -1,0 +1,115 @@
+<html>
+  <head>
+    <title>The servlet engine implementation</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  </head>
+  
+  <body bgcolor="#FFFFFF">
+    <h2>Components</h2>
+
+    <dl>
+
+      <dt>ContextManager</dt>
+      <dd>
+    	<ul>
+      	  <li>maintains a list of adapters</li>
+      	  <li>is the entry point for adapters and any component that can generate 
+	    a Request/Response and wants to use servlets.</li>
+      	  <li>is the control point that handles callback calls and notifications.</li>
+      	  <li>maintains a list of webapps that are configured in the system.</li>
+    	</ul>
+      </dd>
+      
+      <dt>Request,Response</dt>
+      <dd>Internal representations, containing various attributes associated with
+    	the request during processing.
+      </dd>
+
+      <dt>Interceptors</dt>
+      <dd> 
+	Request processing involves several stages - parsing, matching using url
+	patterns, authentication and authorization, calling the handler and various
+ 	callbacks before, after and during the handler. 
+	An interceptor defines callbacks ( or hooks ) for one or several actions
+	and is able to alter that function.
+	In fact, most of the processing logic is implemented as interceptor 
+	callbacks, in an event-based system.
+      </dd>
+
+      <dt>Context, Container</dt>
+      <dd>
+    	Container represents a group of URLs sharing common properties like handler,
+    	security, normal properties. Context is a particular case that is associated
+    	with a web application and keeps all the properties defined in the spec. 
+    	We are slowly moving toward use of Container, it can also represent group
+    	of contexts, virtual hosts, etc. 
+    	It is not a good idea to introduce sub-classes for every type of group, 
+    	the isA property is not allways clearly cut. 
+      </dd>
+      
+      <dt>ServletWrapper</dt>
+      <dd>
+    	A normal servlet or JSP, plus all the surounding logic.
+      </dd>
+      
+      
+      <dt>Facades</dt>
+      <dd>For every object exposed in the servlet specification tomcat use a 
+    	Facade. It have few important advantages:
+    	<ul>
+	  <li>Security - the user should have no way to access the real implementation
+	    objects, except one controled way ( HttpRequestFacade.getRealRequest() ).
+	    When policy-based security will be added that will allow the user to declare a 
+	    "trusted" servlet, and no other servlet will be able to access internal objects.</li>
+	  <li>Future evolution of Servlet API - the API changed and will probably change, 
+	    by adding new methods and new semantics. Facades makes very simple to make sure
+	    we respect the spec, without having to change the core too much.
+	    That may allow supporting multiple servlet API versions ( but it's not a goal -
+	    each context has it's own classloader and it may be possible to load a different
+	    JDK and set of facades ).</li>
+	  <li>Decouple the API and the web server. Tomcat.core allows integration with
+	    web servers, and it's  modeled after APIs like Apache's, ISAPI and NSAPI.</li>
+    	</ul>
+    	
+      </dd>
+    </dl>
+
+    <h2>Authentication and Authorization</h2>    
+    
+    <p>Required steps:
+    <ol>
+      <li>Find if the request needs authorization. </li>
+      <li>Check if the request have the right credentials - if not generate 401  unauthorized.
+      </li>
+      <li>The normal error processing takes place: we can register special 401 error handler 
+	that will implement the desired auth method
+      </li>
+    </ol>
+
+    <p>The model we used is JAAS - the authenticator is a separate module that will 
+      find if enough credentials are available. We use a "normal" tomcat module to "glue"
+      between an auth API ( like JAAS or memoryRealm or catalina Realm if needed ) and 
+      tomcat's internal representation of request. ( no "callbacks" yet - just static util
+      functions to extract credentials from request. )
+    </p>
+      
+    <p>We provide a simple implementation for standalone tomcat.: 
+      <ul>
+	<li>AccessInterceptor will match the security contraints and set a note "required.roles"
+	  containing the list of valid groups.</li>
+	<li>SimpleRealm will authorize the request against in-memory users. </li>
+	<li>BasicLoginServlet, FormLoginServlet - implement the authentication protocol.
+      </ul>
+    </p>
+    
+
+    <p>In "production" mode we expect tomcat to be integrated with various systems. 
+      Most web servers are using a similar mechanism - as long as the server is handling
+      the static files we need to let him deal with authorization/authentication. 
+      The only special case is Form based login, where the connector should forward
+      the request to tomcat. ( no complete implementation yet ).
+      
+    </p>
+
+  </body>
+</html>

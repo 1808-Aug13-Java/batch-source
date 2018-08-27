@@ -1,0 +1,50 @@
+// Permissions for tomcat.
+
+// javac
+grant codeBase "file:${java.home}/../lib/-" {
+    permission java.security.AllPermission;
+};
+
+// Tomcat gets all permissions
+grant codeBase "file:${tomcat.home}/lib/-" {
+    permission java.security.AllPermission;
+};
+
+grant codeBase "file:${tomcat.home}/classes/-" {
+    permission java.security.AllPermission;
+};
+
+// Example webapp policy
+// By default Tomcat grants read access on webapp dir and read of the
+// line.separator, path.separator, and file.separator PropertyPermissions. 
+// Any permissions you grant here are in addition to the default.
+grant codeBase "file:${tomcat.home}/webapps/examples" {
+    // Allow the example web application to read all java properties
+    permission java.util.PropertyPermission "*", "read";
+};
+
+grant {
+    // OS Specific properties to allow read access
+    permission java.util.PropertyPermission "os.name", "read";
+    permission java.util.PropertyPermission "os.version", "read";
+    permission java.util.PropertyPermission "os.arch", "read";
+	
+    // JVM properties to allow read access
+    permission java.util.PropertyPermission "java.version", "read";
+    permission java.util.PropertyPermission "java.vendor", "read";
+    permission java.util.PropertyPermission "java.vendor.url", "read";
+    permission java.util.PropertyPermission "java.class.version", "read";
+    permission java.util.PropertyPermission "java.specification.version", "read";
+    permission java.util.PropertyPermission "java.specification.vendor", "read";
+    permission java.util.PropertyPermission "java.specification.name", "read";
+
+    permission java.util.PropertyPermission "java.vm.specification.version", "read";
+    permission java.util.PropertyPermission "java.vm.specification.vendor", "read";
+    permission java.util.PropertyPermission "java.vm.specification.name", "read";
+    permission java.util.PropertyPermission "java.vm.version", "read";
+    permission java.util.PropertyPermission "java.vm.vendor", "read";
+    permission java.util.PropertyPermission "java.vm.name", "read";
+    
+    permission java.util.PropertyPermission "line.separator", "read";
+    permission java.util.PropertyPermission "file.separator", "read";
+};

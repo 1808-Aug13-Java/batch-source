@@ -1,0 +1,197 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <title>Tomcat SecurityManager setup with Unix</title>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.7 [en] (X11; I; SunOS 5.7 i86pc) [Netscape]">
+</head>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000FF" vlink="#FF0000" alink="#000088">
+
+<h1>
+Tomcat SecurityManager setup with Unix</h1>
+<ul>
+<li>
+<a href="#config">Configuring Tomcat for use with a SecurityManager</a></li>
+
+<li>
+<a href="#start">Starting Tomcat with a SecurityManager</a></li>
+
+<li>
+<a href="#trouble">Trouble shooting tomcat.policy configuration and Security
+Violations</a></li>
+</ul>
+
+<h3>
+<a NAME="config"></a>Configuring Tomcat for use with a SecurityManager</h3>
+<b>tomcat.policy</b>
+<p>The security policies implemented by the Java SecurityManager are configured
+in the <code>tomcat.policy</code> file located in the tomcat <code>conf</code> directory.&nbsp;
+The <code>tomcat.policy</code> file replaces any system <code>java.policy</code> file.&nbsp; The
+<code>tomcat.policy</code> file can be edited by hand or you can use the 
+<a href="http://java.sun.com/products/jdk/1.2/docs/tooldocs/solaris/policytool.html">policytool</a>
+</b>application
+that comes with Java 1.2.
+<p>Entries in the <code>tomcat.policy</code> file use the standard <code>java.policy</code> file
+format as follows:
+<table BORDER=0 cellpadding=8 width="95%" bgcolor="#eeeeee">
+<tr>
+<td>
+<pre>// Example policy file entry
+
+grant [signedBy &lt;signer> [,codeBase &lt;code source>] {
+&nbsp;&nbsp;&nbsp; permission &lt;class> [&lt;name> [, &lt;action list>]];
+};</pre>
+</td>
+</tr>
+</table>
+The <b>signedBy</b> and <b>codeBase </b>entries are optional when granting
+permissions. Comment lines begin with <code>//</code> and end at a new line.
+<p>The codeBase is in the form of a URL and for a file URL can use the
+${java.home} and ${tomcat.home} properties which are expanded out to the
+directory paths defined for them.
+<p>Default tomcat.policy file
+<table BORDER=0 cellpadding=8 width="95%" bgcolor="#eeeeee">
+<tr>
+<td>
+<pre>
+// Permissions for tomcat.
+
+// javac
+grant codeBase "file:${java.home}/../lib/-" {
+  permission java.security.AllPermission;
+};
+
+// Tomcat gets all permissions
+grant codeBase "file:${tomcat.home}/lib/-" {
+  permission java.security.AllPermission;
+};
+
+grant codeBase "file:${tomcat.home}/classes/-" {
+  permission java.security.AllPermission;
+};
+
+// Example webapp policy
+// By default Tomcat grants read access on webapp dir and read of the
+// line.separator, path.separator, and file.separator PropertyPermissions.
+// Any permissions you grant here are in addition to the default.
+grant codeBase "file:${tomcat.home}/webapps/examples" {
+  // Allow the example web application to read all java properties
+  permission java.util.ProperyPermission "*", "read";
+};
+</pre>
+</td>
+</tr>
+</table>
+
+<p>Here is an example where in addition to the default permissions, we want to grant
+the examples web application the ability to connect to the localhost smtp
+port so that it can send mail.
+<table BORDER=0  cellpadding=8 width="95%" bgcolor="#eeeeee">
+<tr>
+<td>
+<pre>grant codeBase "file:${tomcat.home}/webapps/examples" {
+  // Allow examples web application to use localhost smtp port
+  permission java.net.SocketPermission "localhost:25","connect";
+};</pre>
+</td>
+</tr>
+</table>
+<p>If you want to set a default policy for all web applications you
+can use a <b>grant</b> entry without a URL.
+If we wanted to give all web applications not configured by their own
+grant entry some default permissions in addition to what Tomcat assigns
+we could do the following.
+<table BORDER=0  cellpadding=8 width="95%" bgcolor="#eeeeee">
+<tr>
+<td>
+<pre>grant {
+  // Allow all web applications to read all java properties
+  permission java.util.ProperyPermission "*", "read";
+};</pre>
+</td>
+</tr>
+</table>
+<p>
+Finally, a more complex tomcat.policy file.&nbsp; In this case we are using
+Tomcat as an app server for a number of remote web servers.&nbsp; We want
+to limit what remote web servers can connect to Tomcat by using the Java
+SecurityManager.
+<br>&nbsp;
+<table BORDER=0  cellpadding=8 width="95%" bgcolor="#eeeeee">
+<tr>
+<td>
+<pre>// Permissions for tomcat.
+// javac needs this
+grant codeBase "file:${java.home}/lib/-" {
+&nbsp; permission java.security.AllPermission;
+};
+
+// Tomcat with IP filtering
+grant codeBase "file:${tomcat.home}/lib/-" {
+&nbsp; // Tomcat should be able to read/write all properties
+&nbsp; permission java.util.PropertyPermission "*","read,write";
+&nbsp; // Tomcat needs to be able to read files in its own directory
+&nbsp; permission java.io.FilePermission "${tomcat.home}/-","read";
+&nbsp; // Tomcat has to be able to write its logs
+&nbsp; permission java.io.FilePermission "${tomcat.home}/logs/-","read,write";
+&nbsp; // Tomcat has to be able to write to the conf directory
+&nbsp; permission java.io.FilePermission "${tomcat.home}/conf/-","read,write";
+&nbsp; // Tomcat has to be able to write to the webapps directory
+&nbsp; permission java.io.FilePermission "${tomcat.home}/webapps/-","read,write";
+&nbsp; // Tomcat has to be able to compile JSP's
+&nbsp; permission java.io.FilePermission "${tomcat.home}/work/-","read,write,delete";
+&nbsp; // Tomcat needs all the RuntimePermission's
+&nbsp; permission java.lang.RuntimePermission "*";
+&nbsp; // Needed so Tomcat can set security policy for a Context
+&nbsp; permission java.security.SecurityPermission "*";
+&nbsp; // Needed so that Tomcat will accept connections from a remote web server
+&nbsp; // Replace XXX.XXX.XXX.XXX with the IP address of the remote web server
+&nbsp; permission java.net.SocketPermission "XXX.XXX.XXX.XXX:1024-","accept,listen,resolve";
+&nbsp; // Tomcat has to be able to use its port on the localhost
+&nbsp; permission java.net.SocketPermission "localhost:1024-","connect,accept,listen,resolve";
+};
+
+// Example webapp policy
+// By default we grant read access on webapp dir
+// and read of the line.separator PropertyPermission
+grant codeBase "file:${tomcat.home}/webapps/examples" {
+&nbsp; permission java.net.SocketPermission "localhost:1024-","listen";
+&nbsp; permission java.util.PropertyPermission "*","read";
+};</pre>
+</td>
+</tr>
+</table>
+
+<p><b>server.xml</b>
+<p>Uncomment out the entry in server.xml for the ContextInterceptor which
+defines the class named PolicyInterceptor.
+<br>&nbsp;
+<h3>
+<a NAME="start"></a>Starting Tomcat with a SecurityManager</h3>
+Once you have configured the tomcat.policy and server.xml files for use
+with a SecurityManager, Tomcat can be started with the SecurityManager
+in place by using the "-security" option to bin/startup.sh.
+<br>&nbsp;
+<h2>
+<a NAME="trouble"></a>Trouble shooting tomcat.policy configuration and
+Security Violations</h2>
+You can turn on Java SecurityManager debug logging by settting the
+environmental variable <code>TOMCAT_OPTS=-Djava.security.debug=all</code>.
+You will find the debug output in your <code>tomcat.log</code>.
+<p>
+<b>JSP Compile using JVM internal javac fails with AccessControlException
+for RuntimePermission accessClassInPackage sun.tools.javac.</b>
+<p>Check your JAVA_HOME/jre/lib/security/java.security file configuration.&nbsp;
+Comment out the line "package.access=sun.".
+<p><b>JSP Compile using JVM&nbsp;internal javac fails with AccessControlException
+for FilePermission read of tomcat work directory.</b>
+<p>Try defining an absolute path for the codeBase needed in the policy
+grant for java itself instead of the ${java.home} property.
+<p>
+<pre>// javac needs this
+grant codeBase "file:/usr/java/lib/-" {
+  permission java.security.AllPermission;
+};</pre>
+<br>&nbsp;
+</body>
+</html>

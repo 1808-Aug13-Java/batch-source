@@ -1,0 +1,411 @@
+$Id: readme,v 1.8.2.24 2001/11/13 14:29:34 marcsaeg Exp $
+
+                            Release Notes for:
+                           ====================
+                           TOMCAT Version 3.2.4
+                           ====================
+
+
+0.  TABLE OF CONTENTS:
+
+    1.  Introduction
+    2.  Installing and Running Tomcat
+    3.  Application Development Using Tomcat
+    4.  Tomcat: Past, Present, and Future
+    5.  New Features In This Release
+    6.  Known Bugs and Issues
+    7.  Fixes and Enhancements in Updates
+
+
+=============================================================================
+1.  INTRODUCTION
+
+Tomcat is a servlet container and JavaServer Pages(tm) implementation.  It may
+be used stand alone, or in conjunction with several popular web servers:
+- Apache, version 1.3 or later
+- Microsoft Internet Information Server, version 4.0 or later
+- Microsoft Personal Web Server, version 4.0 or later
+- Netscape Enterprise Server, version 3.0 or later
+
+You should read the License Agreement (in the LICENSE file of the top level
+directory), which applies to all software included in this release.
+
+Tomcat version 3.2.3 is a security update release.  This release closes a 
+hole that potentially allowed access to resource protected by a 
+<security-constraint> in web.xml.  This release also includes fixes for
+several other bugs discovered after the release of Tomcat version 3.2.2.  
+Section 7 lists the bugs fixed in this release.
+
+Users of previous version of Tomcat are strongly encouraged to upgrade to
+this release.  No changes to any configuration files are required.  Existing
+installations can be upgraded to version 3.2.3 by simply copying the JAR
+files in this release into an existing 3.2.x tomcat/lib directory.
+
+
+=============================================================================
+2.  INSTALLING AND RUNNING TOMCAT
+
+Tomcat requires a Java Runtime Environment conformant to JRE 1.1 or later,
+including any Java2 platform system.  If you wish to develop applications,
+you will need a Java compiler, such as the one included in a Java Development
+Kit 1.1 or later environment, including JDKs conformant with Java2.
+
+For detailed information about installing and running Tomcat, point your
+browser at file "doc/uguide/tomcat_ug.html" under the directory into which
+you unpacked the Tomcat distribution.
+
+
+=============================================================================
+3.  APPLICATION DEVELOPMENT USING TOMCAT
+
+Preliminary information on using Tomcat for developing Servlet/JSP based
+applications is provided in the included Application Developer's Guide.
+Point your browser at file "doc/appdev/index.html" under the directory into
+which you unpacked the Tomcat distribution.
+
+
+=============================================================================
+4.  TOMCAT: PAST, PRESENT, AND FUTURE
+
+- Version 3.0 (released 12/1999) was the initial release of Tomcat.  In 
+addition to implementing the Java Servlet and Server Pages specification, 
+this release featured a minimal Apache connector.
+
+- Tomcat 3.1 (released 4/2000) improved the Apache connection and added 
+connector support for Netscape and IIS web servers. It also added WAR file 
+support, automatic servlet reloading, and a command line tool (jspc) to 
+compile ahead of time the JSP pages that comprise your application.  Finally, 
+version 3.1 also focused on reorganizing the code (modularization, cleanup, 
+refactoring, removal of dead code, and separation of J2EE-specific code).
+
+- Tomcat 3.2 was the first performance tune-up, and also added a few new 
+features.
+
+- Tomcat 3.2.1 was a security update.  See section 7.3 for details.
+
+- Tomcat 3.2.2 was a bug fix release.  
+
+- Tomcat 3.2.3 is a security release.
+
+- Tomcat 3.2.4 is a bug fix release.  See section 7.1 for details.
+
+- Tomcat 4.0 is separate development from Tomcat 3.x.  It is based on the
+Catalina architecture, which is very different from the architecture of
+Tomcat 3.x.  In addition, Tomcat 4.0 is to be the reference implementation
+for the Servlet 2.3 and JSP 1.2 specifications.
+
+
+=============================================================================
+5.  NEW FEATURES IN THIS RELEASE
+
+Version 3.2.4 is strictly a bug fix release.  No new features have been 
+added.
+
+
+=============================================================================
+6.  KNOWN BUGS AND ISSUES
+
+6.1 Using An Absolute Path as Document Root Under Windows
+
+In the TOMCAT_HOME/conf/server.xml file, you can declare a relative or absolute
+directory pathname for the docBase attribute.  If you wish to use an absolute
+pathname on a Windows system, you MUST include the drive letter in order to
+conform to Java's definition of an absolute path on this platform:
+
+    GOOD:  c:\mydirectory\mydocbase
+    GOOD:  c:/mydirectory/mydocbase
+    BAD:   \mydirectory\mydocbase
+    BAD:   /mydirectory/mydocbase
+
+Under Unix, absolute pathnames must begin with a slash ('/') character.
+
+6.2 Container Managed Security
+
+Tomcat 3.2 has an implementation of container managed security,	as
+described in the Servlet API Specification, version 2.2, section 11.
+Please note the following information about this implementation:
+
+- BASIC and FORM based authentication should work correctly.  Please
+  report any bugs you encounter here at <http://jakarta.apache.org/site/bugs.html>.
+  The example application has a protected area defined at the following URL:
+
+	http://localhost:8080/examples/jsp/security/protected
+
+  which can be accessed by any user defined in the configuration file
+  $TOMCAT_HOME/conf/tomcat-users.xml that has been granted the
+  appropriate roles.  Form-based authentication is used by default,
+  but a commented out setting for Basic authentication is provided if
+  you wish to give it a try.
+
+  WARNING:  Basic authentication is not suitable for general security
+  use across the Internet, or across other insecure networks, because
+  usernames and passwords are sent encoded, but not encrypted, with
+  every single request.
+
+- DIGEST authentication and HTTPS client authentication (i.e. SSL)
+  are not supported in this release.
+
+6.3 Using RequestDispatcher.include() on a Welcome File [Bug Report #160]
+
+Using the following technique results in a response with incorrect content:
+
+- You have a subdirectory under your document root
+  (for example "subdir/").
+
+- This subdirectory contains a welcome file that you
+  have configured to be displayed when that subdirectory
+  is requested on a URL (for example "index.html").
+
+- You request a RequestDispatcher for path "/subdir"
+  or path "/subdir/" and then call include() on it.
+
+The same problem can occur when you do a <jsp:include/> to a page "/subdir"
+or "/subdir/" as well.
+
+A workaround is to ask for a RequestDispatcher on the complete context-
+relative path of the file you wish to have displayed, such as
+"/subdir/index.html".
+
+6.4 Automatic Servlet Reloading
+
+Tomcat 3.2 includes a feature whereby you can ask it to automatically
+reload servlet classes (loaded from either the WEB-INF/classes directory
+or a JAR file in the WEB-INF/lib directory) that have been changed.  This
+feature is experimental, and may not be completely functional.  In particular,
+changes to classes other than the servlet you are requesting do not trigger
+class reloads -- you will need to restart Tomcat to reflect changes in those
+classes.
+
+Reloading is enabled by including a reloadable="true" attribute on the
+<Context> element in the "conf/server.xml" file.  Note that automatic
+reload support is not recommended for production applications because of
+its experimental nature, and the extra overhead required to perform the
+necessary checks on every request.
+
+6.5 Avoiding "Out of environment space" errors on Windows 95/98
+
+This error can easily occur since the default amount of environment space is
+typically insufficient to run Tomcat.  Here are a couple of ways to avoid it.
+
+  A. If you use the MS-DOS Prompt to start Tomcat, execute Programs ->
+     MS-DOS Prompt.  Right-click the MS-DOS icon on the left of the title bar
+     and select Properties at the bottom of the menu.  In the MS-DOS Prompt
+     Properties dialog select the Memory tab.  In the "Initial environment:"
+     field, set a sufficiently high number.  If you are not sure, 3072 should
+     be plenty.  Click OK and close the MS-DOS Prompt window.  Execute
+     Programs -> MS-DOS Prompt again, navigate to the directory where you
+     installed Tomcat.  Set the JAVA_HOME environment variable if not set
+     already.  You should be able to execute "bin\startup" and "bin\shutdown"
+     to start and stop Tomcat without getting an "Out of environment space"
+     error.
+
+  B. If you want to start Tomcat by double clicking a batch file such as
+     startup.bat, you should right-click on the desired batch file in Windows
+     Explorer and select Properties to open the MS-DOS Prompt Properties
+     dialog.  Select the Memory tab and set the "Initial environment:" as
+     described above.  You may want to also select the Program tab and check
+     "Close on exit".  Then click OK.  A shortcut with these settings will be
+     created in same directory with the same base name as the batch file.  You
+     should be able to double-click the shortcut or the batch file to execute
+     without getting an "Out of environment space" error.  If you wish to
+     execute startup.bat and shutdown.bat in this fashion, you will need to do
+     the above for both files.  In addition, you need to provide for setting
+     JAVA_HOME.  This may be done by adding a "SET JAVA_HOME=path to your jdk"
+     line to your autoexec.bat or to the startup.bat and shutdown.bat files
+     themselves.
+
+6.6 URL's are now case sensitive on all operating systems
+
+As of Tomcat 3.2, URL's are case sensitive for all operating systems,
+including operating systems which have case insensitive file systems, such as
+Windows.  This represents a change from Tomcat 3.1, where URL's were case
+insensitive on case insensitive OS's.  This was done for a number of reasons,
+security and portability among them.
+
+A "non-portable" web application, i.e. one with case mismatches, which worked
+on a case insensitive OS under Tomcat 3.1 will show its non-portability when
+run under Tomcat 3.2.
+
+This can also cause URL's that look correct to actually be incorrect.  In
+Windows Explorer, a directory whose name fits within the MS-DOS 8.3 format
+may be displayed using a "formated" name.  For example, a directory named
+"MYDIR" may display as "Mydir".  A URL like "http://localhost/mysite/Mydir/
+index.jsp" would return "File Not Found" because the correct URL would be
+"http://localhost/mysite/MYDIR/index.jsp".  If you find URL's being
+mysteriously "not found", check for case mismatch.  Use the Windows Explorer
+Properties dialog or an MS-DOS window to check the actual case of the file
+and directory names.
+
+This can cause an additional problem when Tomcat is used with a case
+insensitive web server, such as IIS, where the web server serves the static
+content.  The web server could serve a static page with mismatched case in the
+URL. If that static page contains relative links to resources served by
+Tomcat, then invoking those links would carry the mismatched case to Tomcat
+where it cause the resource not to be found.
+
+6.7 Generated Configuration Files for Web Connectors
+
+At startup time, Tomcat normally generates configuration files like
+"tomcat-apache.conf" to reflect the contexts that are defined.  However, the
+generated files do NOT reflect any configuration settings found inside the
+web application deployment descriptor file (web.xml) for your application.
+You will need to configure any such settings that are relevant directly into
+your web server's configuration files.
+
+This is a known limitation of the design of the web connectors for Tomcat 3.2,
+and will be addressed by the introduction of the MOD_WARP connector in
+Tomcat 4.0.
+
+6.8 Limitation on Form Based Login
+
+If the pages you specify for <form-login-page> or <form-error-page> are within
+the area protected by a security constraint, Tomcat 3.2 will be unable to
+display them.  As a side effect of this problem, you will not be able to use
+a URL pattern of "/*" to protect your entire web application when using form
+based login.
+
+A workaround is to set up your web application with the form login page and
+form error page in the document root directory, place all other pages in one
+or more subdirectories, and establish security constraints to protect the
+subdirectories.
+
+6.9 Limitation on Document Base Paths
+
+Tomcat 3.2 is unable to support Windows SMB paths in a <Context> directive
+like this:
+
+        <Context path="/ctx" docBase="\\machine\share\path" />
+
+although this approach was supported in Tomcat 3.1, and is supported in
+Tomcat 4.0.  A workaround is to establish a drive mapping to "\\machine\share"
+and define your context like this:
+
+        <Context path="/ctx" docBase="r:\path" />
+
+where "r:" is mapped to this share.
+
+6.10 Resource Paths Can't Contain URL Escapes
+
+The path passed to javax.servlet.Context.getResource() and
+javax.servlet.Context.getResrouceAsStream() cannot contain URL escapes of
+the form %HH.  Paths containing any URL escapes will return null.
+
+6.11 AJP12 and SSL
+
+The AJP12 protocol does not provide a mechanism for identifying requests
+that arrived on a secure transport (e.g. SSL).  Tomcat assumes that any
+request that arrived on server port 443 is secure and sets the URL scheme
+to HTTPS.  Requests on any other port are assumed to be non-secure and
+will indicate a URL scheme of HTTP.  The AJP13 protocol does not suffer
+from this problem.
+
+
+===============================================================================
+7.  FIXES AND ENHANCEMENTS IN UPDATES
+
+
+7.1 Fixes and Enhancements in Release 3.2.4
+
+This section highlights the bugs fixed in this release.  
+
+  -  Cookie name expires is a reserved token (#1114)
+  -  Thread initialization problem in thread pool (#1745)
+  -  AJP12 returned invalid HTTP headers when redirecting to very 
+     long URLS (#2333)
+  -  Fixed casting problem in JspFactoryImpl.getPageContext().  (#4260)
+  -  Setting sesstion-timeout in web.xml did not prevent sessions from 
+     timing out.  (#4412)
+  -  Fixed race condition in ServerSocketFactory.getDefault().  (#4418)
+  -  Removed the restrictions on encoded spcecial characters in URLs
+     that was added as a security precaution in 3.2.3.  The encoded
+     special characters are not decoded and remain the URL and 
+     path info returned to servlets.
+  -  Jk_nt_service now supports the ability to be restarted automatically
+     by the Windows 2000 service control manager if Tomcat terminates
+     abnormally.
+  -  Fixed invalid servlet mapping in web.xml generated by JspC (#3474, #3499)
+  -  Added findResource() and findResources() to AdaptiveClassLoader12
+  -  A Date: HTTP header is now sent in responses when running stand 
+     alone. (#345)
+  -  Simple held on to a reference to removed objects preventing 
+     garbage collection.
+  -  Tomcat 3.2.4 now ships with JAXP 1.1.  Prior releases used 
+     JAXP 1.0.1.  Tomcat 3.2.4 remains completely compatible with
+     the older version of JAXP and there is no requirement for users
+     to upgrade to JAXP 1.1 unless their applications require the new
+     version.
+  -  Fixed NullPointerException in HttpConnectionHandler.  (#4577)
+     
+
+7.2 Security Vulnerabilities fixed in Tomcat 3.2.4
+
+The randomness of generated session ids has been enhanced to prevent the
+generation of guessable ids.
+
+
+7.3 Security vulnerabilities fixed in Tomcat 3.2.3
+
+Non-normalized URIs, for example /examples/jsp/security//protected/index.jsp or
+/examples/jsp/../jsp/security/protected/index.jsp would bypass the security
+constraints specified in web.xml.
+
+URIs are now normalized prior to use by the container.  Servlets will receive
+the normalized path from calls to HttpServletRequest.getRequestURI().  This is
+expected to become the behaviour defined in the Servlet 2.3 specification.
+
+Also, URL encodings for special characters are now forbidden in request URIs.
+If a request URI contains %25, %2E, %2F or %5c a 404 error will be returned.
+This prevents the use of URL encodings to bypass the URI normalization process.
+
+7.4 Security vulnerabilities fixed in Tomcat 3.2.2
+
+7.4.1 HTTP Requests With no Protocol
+
+An HTTP request with no protocol specified would return an unprocessed
+source for a JSP file.  For example
+
+GET /examples/jsp/num/numguess.jsp 
+
+would return the source for the numguess.jsp file.
+
+7.4.2
+
+Tomcat 3.2.2 beta releases prior to beta 3 had allowed URI components
+to be decoded twice.  This problem only appears when using JDK 1.3.0
+or later.  The double decode problem caused URL such as
+
+http://localhost:8080/%252e%252e/%252e%252e/%00.jsp
+
+to reveal a directory listing outside the web application.  Other
+versions of this same double decode attack could reveal the contents
+of files outside the web application.
+
+
+7.5 Security vulnerabilities fixed in Tomcat 3.2.1
+
+7.5.1 Protection of Resources in /WEB-INF and /META-INF Directories
+
+The servlet specification prohibits servlet containers from serving resources
+in the /WEB-INF and /META-INF directories of a web application archive directly
+to clients.  In Tomcat 3.2, this means that URLs like:
+
+   http://localhost:8080/examples/WEB-INF/web.xml
+
+will return an error message, rather than the contents of your deployment
+descriptor.  However, there is a vulnerability in Tomcat 3.2 that exposes
+this information if the client requests a URL like this instead:
+
+    http://localhost:8080/examples//WEB-INF/web.xml
+
+(note the double slash before "WEB-INF").  This vulnerability has been
+corrected in Tomcat 3.2.1.
+
+
+7.5.2 Show Source Vulnerability
+
+The example application delivered with Tomcat 3.2 included a mechanism to
+display the source code for the JSP page examples.  This mechanism could
+be used to bypass the restrictions on displaying sensitive information in
+the WEB-INF and META-INF directories.  This vulnerability has been removed.
+
+

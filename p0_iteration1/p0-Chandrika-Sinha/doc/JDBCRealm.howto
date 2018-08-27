@@ -1,0 +1,126 @@
+
+This is an example of how to set up a JDBC Realm. For this example I used
+the MySQL JDBC driver.
+
+1. Create a database. I made the database named "authority"
+
+2. Create three tables. 
+     1. The user table. This table needs the user's name and a password 
+        field. In the example I use "users" for the table name, 
+        "user_name" for the column that holds the user's name, and 
+        "user_pass" for the user's password.
+     2. The role table. This table needs the role's set up that will be
+        in any deployment descriptor that is managed under the container
+        this Realm is in. In the example I use "roles" as the table name
+        and "role_name" as the role's name. NB: This table doesn't get
+        used at all by tomcat.
+     3. The role to user table. This table joins a set of roles to a
+        single user. In the example the table name is "user_roles",
+        the role's name is "role_name" , and the user's name is assumed
+        to have the same column name as in the user's table ("user_name"
+        in this example.
+
+Here is the SQL I used to create the tables:
+
+create table users
+(
+  user_name varchar(15) not null primary key,
+  user_pass varchar(15) not null
+);
+
+create table roles
+(
+  role_name varchar(15) not null primary key
+);
+
+create table user_roles
+(
+  user_name varchar(15) not null,
+  role_name varchar(15) not null,
+  primary key( user_name, role_name )
+);
+
+
+Here is sample output from the tables:
+
+mysql> select * from users;
++-----------+-----------+
+| user_name | user_pass |
++-----------+-----------+
+| tomcat    | tomcat    |
+| user1     | tomcat    |
+| user2     | tomcat    |
+| user3     | tomcat    |
++-----------+-----------+
+4 rows in set (0.00 sec)
+
+mysql> 
+
+
+mysql> select * from roles;
++------------+
+| role_name  |
++------------+
+| tomcatRole |
+| otherRole  |
++------------+
+2 rows in set (0.02 sec)
+
+mysql> 
+
+
+mysql> select * from user_roles;
++------------+-----------+
+| role_name  | user_name |
++------------+-----------+
+| tomcatRole | user1     |
+| otherRole  | user2     |
+| otherRole  | tomcat    |
+| tomcatRole | tomcat    |
++------------+-----------+
+4 rows in set (0.00 sec)
+
+mysql> 
+
+
+3. Add the information to the server.xml file. For this example I used
+   this entry:
+
+    <RequestInterceptor className="org.apache.tomcat.request.JDBCRealm" debug="99"
+     driverName="org.gjt.mm.mysql.Driver"
+     connectionURL="jdbc:mysql://localhost/authority?user=test;password=test"
+     userTable="users" userNameCol="user_name" userCredCol="user_pass"
+     userRoleTable="user_roles" roleNameCol="role_name" />
+
+   driverName --> The name of the driver needed to connect to the database
+   connectionURL --> The connection URL used to connect to the database
+   userTable --> The user's tables
+      userNameCol --> The column in the user's table that contains the name
+      userCredCol --> The column in the user's table that contains the password
+   userRoleTable --> The user's roles table
+      roleNameCol --> The column in the user's table that contains a role given
+                      to a user
+
+   Optional:
+     connectionName -> The name to use when connecting to the database.
+     connectionPassword -> The password to use when connecting to the database.
+
+4. You should now be able to authenticate against the database now using the
+   normal web.xml entries.
+
+
+
+Hints:
+   
+   - Make sure that the JDBC driver is in the lib directory.
+
+   - If you have problem connecting you can specify connectionName and connectionPassword:
+
+    <RequestInterceptor className="org.apache.tomcat.request.JDBCRealm"
+     debug="99"
+     driverName="oracle.jdbc.driver.OracleDriver"
+     connectionURL="jdbc:oracle:thin:@ntserver:1521:ORCL"
+     connectionName="scott"
+     connectionPassword="tiger"
+     userTable="users" userNameCol="user_name" userCredCol="user_pass"
+     userRoleTable="user_roles" roleNameCol="role_name" />
