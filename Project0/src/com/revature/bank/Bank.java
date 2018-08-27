@@ -107,11 +107,12 @@ public class Bank {
 		}
 		
 		// Attempt login
-		if (accounts.get(user).equals(pass)) {
+		if (accounts.get(user) == pass) {
 			return true;
 		}
 		// reset user if failed login
 		user = "";
+		System.out.println("Incorrect username/password");
 		return false;
 	}
 	
