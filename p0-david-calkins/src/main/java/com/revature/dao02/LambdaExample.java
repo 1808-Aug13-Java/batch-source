@@ -1,6 +1,5 @@
 package com.revature.dao02;
 
-import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -11,7 +10,6 @@ import java.util.List;
 
 import com.revature.dao.Account;
 import com.revature.dao02.OldAccountDao;
-import com.revature.server.DBConnectionUtil;
 import com.revature.server.query.PreparedExecutor;
 
 public class LambdaExample implements OldAccountDao {
@@ -81,25 +79,21 @@ public class LambdaExample implements OldAccountDao {
 
 	@Override
 	public long createAccount(Account account, Connection con) throws SQLException {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
 	public int updateAccount(Account account, Connection con) throws SQLException {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
 	public int deleteAccount(long id, Connection con) throws SQLException {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
 	public int deleteAccount(Account account, Connection con) throws SQLException {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
