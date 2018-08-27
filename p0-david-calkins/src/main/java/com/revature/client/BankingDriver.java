@@ -48,6 +48,12 @@ public class BankingDriver {
 		// An object for holding information about a bank user
 		BankUserData bankUserData = null;
 		
+		// Used to hold user input amounts as they are being verified
+		BigDecimal inputAmount = null;
+		
+		// A zero constant used to make comparisons against. 
+		final BigDecimal ZERO = new BigDecimal(0);
+		
 		
 		
 		// Loop until the user decides to quit the terminal
@@ -188,8 +194,16 @@ public class BankingDriver {
 					
 					// Validate that it is a valid number before depositing
 					try {
-						bankDatabase.deposit(bankUserData, 
-											new BigDecimal(tokens[1]));
+						// Attempt to convert the string into a BigDecimal. 
+						// Throws NumberFormatException if not a number
+						inputAmount = new BigDecimal(tokens[1]);
+						
+						// If the number is not positive, don't deposit
+						if (inputAmount.signum() != 1) {
+							System.out.println("Deposits must be positive. ");
+							break;
+						}
+						bankDatabase.deposit(bankUserData, inputAmount);
 						System.out.println("Deposit Successful. ");
 					} catch (NumberFormatException ex) {
 						System.out.println("'" + tokens[1] + "' isn't a number");
@@ -204,9 +218,17 @@ public class BankingDriver {
 					
 					// Validate that it is a valid number before withdrawing
 					try {
+						// Attempt to convert the string into a BigDecimal. 
+						// Throws NumberFormatException if not a number
+						inputAmount = new BigDecimal(tokens[1]);
+						
+						// If the number is not positive, don't withdraw
+						if (inputAmount.signum() != 1) {
+							System.out.println("Withdrawls must be positive. ");
+							break;
+						}
 						// Also validate that there is enough in the account 
-						if (bankDatabase.withdraw(bankUserData, 
-											new BigDecimal(tokens[1]))) 
+						if (bankDatabase.withdraw(bankUserData, inputAmount)) 
 						{
 							System.out.println("Withdraw Successful. ");
 						}
@@ -232,7 +254,8 @@ public class BankingDriver {
 					System.out.println("'" + userInput + "' isn't valid. ");
 				} // end switch
 				
-				
+				// Set inputAmount to null to free up any memory used. 
+				inputAmount = null;
 			} // end while
 			
 			
