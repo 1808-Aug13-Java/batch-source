@@ -1,9 +1,10 @@
 package com.revature.client;
 
-import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.Random;
+
+import org.apache.log4j.Logger;
 
 import com.revature.client.data.BankUserData;
 import com.revature.client.data.DataInterface;
@@ -22,6 +23,9 @@ import com.revature.dao.ClientToAccountDaoImpl;
  * will only be temporary. */
 public class BankServerBridge implements DataInterface {
 	
+	
+	/** The default logging object. */
+	private static Logger log = Logger.getRootLogger();
 	
 	private static final String DEFAULT_ACCOUNT = "Checking";
 	
@@ -87,14 +91,39 @@ public class BankServerBridge implements DataInterface {
 
 	@Override
 	public boolean withdraw(BankUserData user, BigDecimal amount) {
-		// TODO Auto-generated method stub
-		return false;
+		// Get the information about the user from the server
+		Client client = getClientByEmail(user.email);
+		Account account = getAccount(client);
+		
+		// If there isn't enough money. Don't do anything. 
+		if (account.getBalance().compareTo(amount) < 0) {
+			return false;
+		}
+		log.info("Balance: " + account.getBalance() + "  amount: " + amount);
+		
+		account.setBalance(account.getBalance().subtract(amount));
+		
+		
+		// Update the balance on both the server and the client
+		AccountDao accountDao = new AccountDaoImpl();
+		accountDao.updateAccount(account);
+		user.balance = account.getBalance();
+		
+		return true;
 	}
 
 	@Override
 	public void deposit(BankUserData user, BigDecimal amount) {
-		// TODO Auto-generated method stub
+		// Get the information about the user from the server
+		Client client = getClientByEmail(user.email);
+		Account account = getAccount(client);
 		
+		// Update the balance on both the server and the client
+		account.setBalance(account.getBalance().add(amount));
+		user.balance = account.getBalance();
+		
+		AccountDao accountDao = new AccountDaoImpl();
+		accountDao.updateAccount(account);
 	}
 	
 	
