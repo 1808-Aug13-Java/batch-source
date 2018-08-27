@@ -5,10 +5,13 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.revature.dao.Account;
 import com.revature.dao02.AccountDao;
+import com.revature.server.DBConnectionUtil;
 import com.revature.server.query.PreparedExecutor;
 
 public class AccountDaoImpl implements AccountDao {
@@ -48,10 +51,32 @@ public class AccountDaoImpl implements AccountDao {
 
 	@Override
 	public List<Account> getAccounts(Connection con) throws SQLException {
-		String sql = "SELECT * FROM ACCOUNTS WHERE accId = ?";
+		// A list to return the accounts with
+		List<Account> accountList = new ArrayList<>();
+		Account a = null;
+		String sql = "SELECT * FROM ACCOUNTS";
 		
+		// A result set for iterating through the results
+		ResultSet rs = null;
 		
-		return null;
+		try (Statement st = con.createStatement()){
+			// Get the result set of the data query
+			rs = st.executeQuery(sql);
+			
+			// While there are more results, get them, and add them to the list.
+			while (rs.next()) {
+				a = new Account();
+				a.setAccId(rs.getLong("accId"));
+				a.setAccType(rs.getString("accType"));
+				a.setBalance(rs.getBigDecimal("balance"));
+				accountList.add(a);
+			}
+		} finally {
+			// Try to close the result set
+			try {if (rs!=null) rs.close();} catch(SQLException e) {}
+		}
+		
+		return accountList;
 	}
 
 	@Override
