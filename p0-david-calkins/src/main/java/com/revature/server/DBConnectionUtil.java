@@ -62,14 +62,14 @@ public class DBConnectionUtil {
 	/** Returns the pass phrase to connect to the database with. Loads the 
 	 * pass phrase from the properties file if not yet initialized. 
 	 * @throws IOException - If there is a problem loading the properties. */
-	public static String getPassPhrase() throws IOException {
-		// If the properties have not yet been initialized, load them. 
-		if (passPhrase == null) {
-			initializeProperties();
-		}
-		
-		return passPhrase;
-	} // end of getPassPhrase
+//	public static String getPassPhrase() throws IOException {
+//		// If the properties have not yet been initialized, load them. 
+//		if (passPhrase == null) {
+//			initializeProperties();
+//		}
+//		
+//		return passPhrase;
+//	} // end of getPassPhrase
 	
 	
 	/** This is provided as a convenience method. It creates new connections, 
