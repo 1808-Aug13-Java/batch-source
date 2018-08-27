@@ -15977,7 +15977,6 @@ BEGIN
 END;
 /
 
-SET SERVEROUTPUT ON;
 BEGIN
     DBMS_OUTPUT.PUT_LINE(AVG_UNITPRICE_INVOICELINE());
 END;
@@ -15998,15 +15997,245 @@ BEGIN
 END;
 /
 
+
 -- 4.0 Stored Procedures
 -- In this section you will be creating and executing stored procedures. 
 -- You will be creating various types of stored procedures that take input and output parameters.
 -- 4.1 Basic Stored Procedure
 -- Create a stored procedure that selects the first and last names of all the employees.
-CREATE OR REPLACE PROCEDURE EMPLOYEE_NAMES
+CREATE OR REPLACE PROCEDURE EMPLOYEE_NAMES (S OUT SYS_REFCURSOR)
 IS
 BEGIN
+    OPEN S FOR
+        SELECT E.FIRSTNAME, E.LASTNAME
+        FROM CHINOOK.EMPLOYEE E;
 END;
 /
 
+DECLARE
+    SVAR SYS_REFCURSOR;
+    TEMP_FIRST CHINOOK.EMPLOYEE.FIRSTNAME%TYPE;
+    TEMP_LAST CHINOOK.EMPLOYEE.LASTNAME%TYPE;
+BEGIN
+    EMPLOYEE_NAMES(SVAR);
+    -- NOW WE SHOULD HAVE ACCESS TO OUR EMPLOYEES THORUGH SVAR
+    LOOP
+        FETCH SVAR INTO TEMP_FIRST, TEMP_LAST; -- "ACTIVE SET" IS EACH ROW RETURNED BY THE CURSOR
+        EXIT WHEN SVAR%NOTFOUND;
+        DBMS_OUTPUT.PUT_LINE(TEMP_FIRST || ' ' || TEMP_LAST);
+    END LOOP;
+    CLOSE SVAR;
+END;
+/
+
+-- 4.2 Stored Procedure Input Parameters
+-- Create a stored procedure that updates the personal information of an employee.
+conn chinook/p4ssw0rd
+GRANT ALL ON CHINOOK.EMPLOYEE TO NEWTONHOAC;
+CREATE OR REPLACE PROCEDURE UPDATE_EMPLOYEE (ID IN CHINOOK.EMPLOYEE.EMPLOYEEID%TYPE,
+    LAST IN CHINOOK.EMPLOYEE.LASTNAME%TYPE,
+    FIRST IN CHINOOK.EMPLOYEE.FIRSTNAME%TYPE,
+    TITLE_ IN CHINOOK.EMPLOYEE.TITLE%TYPE,
+    REPORTS IN CHINOOK.EMPLOYEE.REPORTSTO%TYPE,
+    BIRTH IN CHINOOK.EMPLOYEE.BIRTHDATE%TYPE,
+    HIRE IN CHINOOK.EMPLOYEE.HIREDATE%TYPE,
+    ADDR IN CHINOOK.EMPLOYEE.ADDRESS%TYPE,
+    CITY_ IN CHINOOK.EMPLOYEE.CITY%TYPE,
+    STATE_ IN CHINOOK.EMPLOYEE.STATE%TYPE,
+    COUNTRY_ IN CHINOOK.EMPLOYEE.COUNTRY%TYPE,
+    POSTAL IN CHINOOK.EMPLOYEE.POSTALCODE%TYPE,
+    PHONE_ IN CHINOOK.EMPLOYEE.PHONE%TYPE,
+    FAX_ IN CHINOOK.EMPLOYEE.FAX%TYPE,
+    EMAIL_ IN CHINOOK.EMPLOYEE.EMAIL%TYPE)
+IS
+BEGIN
+    UPDATE CHINOOK.EMPLOYEE
+    SET LASTNAME = LAST,
+        FIRSTNAME = FIRST,
+        TITLE = TITLE_,
+        REPORTSTO = REPORTS,
+        BIRTHDATE = BIRTH,
+        HIREDATE = HIRE,
+        ADDRESS = ADDR,
+        CITY = CITY_,
+        STATE = STATE_,
+        COUNTRY = COUNTRY_,
+        POSTALCODE = POSTAL,
+        PHONE = PHONE_,
+        FAX = FAX_,
+        EMAIL = EMAIL_
+    WHERE CHINOOK.EMPLOYEE.EMPLOYEEID = ID;
+END;
+/
+
+BEGIN
+    UPDATE_EMPLOYEE (1, 'Adams', 'Andrew', 'General Manager', NULL, TO_DATE('1962-2-18 00:00:00','yyyy-mm-dd hh24:mi:ss'), TO_DATE('2002-8-14 00:00:00','yyyy-mm-dd hh24:mi:ss'), '11120 Jasper Ave NW', 'Edmonton', 'AB', 'Canada', 'T5K 2N1', '+1 (780) 428-9482', '+1 (780) 428-3457', 'andrew@chinookcorp.com');
+END;
+/
+
+-- Create a stored procedure that returns the managers of an employee.
+
+CREATE OR REPLACE PROCEDURE GET_MANAGER (ID IN CHINOOK.EMPLOYEE.EMPLOYEEID%TYPE, S OUT SYS_REFCURSOR)
+IS
+BEGIN
+    OPEN S FOR
+        SELECT *
+        FROM CHINOOK.EMPLOYEE E
+        WHERE E.EMPLOYEEID = (
+            SELECT REPORTSTO
+            FROM CHINOOK.EMPLOYEE
+            WHERE CHINOOK.EMPLOYEE.EMPLOYEEID = ID);
+END;
+/
+
+-- 4.3 Stored Procedure Output Parameters
+-- Create a stored procedure that returns the name and company of a customer.
+CREATE OR REPLACE PROCEDURE NAME_COMPANY_OF_CUSTOMER (ID IN CHINOOK.CUSTOMER.CUSTOMERID%TYPE, S OUT SYS_REFCURSOR)
+IS
+BEGIN
+    OPEN S FOR
+        SELECT FIRSTNAME, LASTNAME, COMPANY
+        FROM CHINOOK.CUSTOMER C
+        WHERE C.CUSTOMERID = ID;
+END;
+/
+
+--5.0 Transactions
+--In this section you will be working with transactions. Transactions are usually nested within a stored procedure.
+-- Create a transaction that given a invoiceId will delete that invoice (There may be constraints that rely on this, find out how to resolve them).
+conn chinook/p4ssw0rd
+GRANT ALL ON CHINOOK.INVOICE TO NEWTONHOAC;
+GRANT ALL ON CHINOOK.INVOICELINE TO NEWTONHOAC;
+CREATE OR REPLACE PROCEDURE DEL_INVOICE_BY_ID (ID IN CHINOOK.INVOICE.INVOICEID%TYPE)
+IS
+BEGIN
+    DELETE FROM CHINOOK.INVOICE
+        WHERE INVOICEID = ID;
+END;
+/
+
+BEGIN
+    EXECUTE IMMEDIATE 'ALTER TABLE CHINOOK.INVOICELINE
+        DROP CONSTRAINT FK_INVOICELINEINVOICEID';
+    DEL_INVOICE_BY_ID (412);
+    EXECUTE IMMEDIATE 'COMMIT';
+END;
+/
+COMMIT;
+-- Having issues readding the foreign key constraint after removing it
+-- If I insert into the 
+-- ALTER TABLE CHINOOK.INVOICELINE ADD CONSTRAINT FK_INVOICELINEINVOICEID FOREIGN KEY (INVOICEID) REFERENCES CHINOOK.INVOICE (INVOICEID);
+-- ALTER TABLE CHINOOK.INVOICELINE DROP CONSTRAINT FK_INVOICELINEINVOICEID;
+--INSERT INTO CHINOOK.Invoice (InvoiceId, CustomerId, InvoiceDate, BillingAddress, BillingCity, BillingCountry, BillingPostalCode, Total) VALUES (412, 58, TO_DATE('2013-12-22 00:00:00','yyyy-mm-dd hh24:mi:ss'), '12,Community Centre', 'Delhi', 'India', '110017', 1.99);
+
+
+-- Create a transaction nested within a stored procedure that inserts a new record in the Customer table
+conn chinook/p4ssw0rd
+GRANT ALL ON CHINOOK.Customer TO NEWTONHOAC;
+CREATE OR REPLACE PROCEDURE INS_CUSTOMER ( FIRST IN CHINOOK.CUSTOMER.FIRSTNAME%TYPE,
+    LAST IN CHINOOK.CUSTOMER.LASTNAME%TYPE,
+    COMP IN CHINOOK.CUSTOMER.COMPANY%TYPE,
+    ADDR IN CHINOOK.CUSTOMER.ADDRESS%TYPE,
+    CITY_ IN CHINOOK.CUSTOMER.CITY%TYPE,
+    STATE_ IN CHINOOK.CUSTOMER.STATE%TYPE,
+    COUNTRY_ IN CHINOOK.CUSTOMER.COUNTRY%TYPE,
+    POSTAL IN CHINOOK.CUSTOMER.POSTALCODE%TYPE,
+    PHONE_ IN CHINOOK.CUSTOMER.PHONE%TYPE,
+    FAX_ IN CHINOOK.CUSTOMER.FAX%TYPE,
+    EMAIL_ IN CHINOOK.CUSTOMER.EMAIL%TYPE,
+    SUP_ID IN CHINOOK.CUSTOMER.SUPPORTREPID%TYPE)
+IS
+    ID CHINOOK.CUSTOMER.CUSTOMERID%TYPE;
+BEGIN 
+    SELECT MAX(C.CUSTOMERID) + 1 INTO ID
+        FROM CHINOOK.CUSTOMER C;
+    INSERT INTO CHINOOK.CUSTOMER VALUES (ID, FIRST, LAST, COMP, ADDR, CITY_, STATE_, COUNTRY_, POSTAL, PHONE_, FAX_, EMAIL_, SUP_ID);
+END;
+/
+-- Test code
+--BEGIN
+--    INS_CUSTOMER ('Luís', 'Gonçalves', 'Embraer - Empresa Brasileira de Aeronáutica S.A.', 'Av. Brigadeiro Faria Lima, 2170', 'São José dos Campos', 'SP', 'Brazil', '12227-000', '+55 (12) 3923-5555', '+55 (12) 3923-5566', 'luisg@embraer.com.br', 3);
+--END;
+--/
+
+--6.0 Triggers
+--In this section you will create various kinds of triggers that work when certain DML statements are executed on a table.
+
+--6.1 AFTER/FOR
+-- Create an after insert trigger on the employee table fired after a new record is inserted into the table.
+CREATE OR REPLACE TRIGGER TR_INS_EMPLOYEE
+AFTER INSERT ON CHINOOK.EMPLOYEE
+BEGIN
+    DBMS_OUTPUT.PUT_LINE('TRIGGERED AFTER INSERT ON EMPLOYEE');
+END;
+/
+-- TEST CODE
+INSERT INTO CHINOOK.Employee (EmployeeId, LastName, FirstName, Title, BirthDate, HireDate, Address, City, State, Country, PostalCode, Phone, Fax, Email) VALUES (9, 'Adams', 'Andrew', 'General Manager', TO_DATE('1962-2-18 00:00:00','yyyy-mm-dd hh24:mi:ss'), TO_DATE('2002-8-14 00:00:00','yyyy-mm-dd hh24:mi:ss'), '11120 Jasper Ave NW', 'Edmonton', 'AB', 'Canada', 'T5K 2N1', '+1 (780) 428-9482', '+1 (780) 428-3457', 'andrew@chinookcorp.com');
+
+
+-- Create an after update trigger on the album table that fires after a row is inserted in the table
+CREATE OR REPLACE TRIGGER TR_UPD_ALBUM
+AFTER UPDATE ON CHINOOK.ALBUM
+BEGIN
+    DBMS_OUTPUT.PUT_LINE('TRIGGERED AFTER UPDATE ON ALBUM');
+END;
+/
+-- TEST CODE
+INSERT INTO CHINOOK.Album (AlbumId, Title, ArtistId) VALUES (348, 'For Those About To Rock We Salute You', 1);
+UPDATE CHINOOK.ALBUM
+SET TITLE = 'Test Album'
+WHERE ALBUMID = 348;
+
+-- Create an after delete trigger on the customer table that fires after a row is deleted from the table.
+CREATE OR REPLACE TRIGGER TR_DEL_CUSTOMER
+AFTER DELETE ON CHINOOK.CUSTOMER
+BEGIN
+    DBMS_OUTPUT.PUT_LINE('TRIGGERED AFTER DELETE ON ALBUM');
+END;
+/
+-- TEST CODE
+DELETE FROM CHINOOK.CUSTOMER
+WHERE CUSTOMERID = 60;
+
+-- 7.0 JOINS
+-- In this section you will be working with combining various tables 
+--through the use of joins. You will work with outer, inner, right, left, cross, and self joins.
+
+--7.1 INNER
+--Task � Create an inner join that joins customers and orders and specifies the name of the customer and the invoiceId.
+SELECT C.FIRSTNAME, C.LASTNAME, I.INVOICEID
+FROM CHINOOK.CUSTOMER C
+INNER JOIN CHINOOK.INVOICE I
+ON C.CUSTOMERID = I.CUSTOMERID;
+
+-- 7.2 OUTER
+-- Create an outer join that joins the customer and invoice table, 
+-- specifying the CustomerId, firstname, lastname, invoiceId, and total.
+SELECT C.CUSTOMERID, C.FIRSTNAME, C.LASTNAME, I.INVOICEID, I.TOTAL
+FROM CHINOOK.CUSTOMER C
+FULL JOIN CHINOOK.INVOICE I
+ON C.CUSTOMERID = I.CUSTOMERID
+ORDER BY C.CUSTOMERID;
+
+-- 7.3 RIGHT
+-- Create a right join that joins album and artist specifying artist name and title.
+SELECT ART.NAME, ALB.TITLE
+FROM CHINOOK.ARTIST ART
+RIGHT JOIN CHINOOK.ALBUM ALB
+ON ALB.ARTISTID = ART.ARTISTID;
+
+-- 7.4 CROSS
+-- Create a cross join that joins album and artist and sorts by artist name in ascending order.
+SELECT *
+FROM CHINOOK.ARTIST ART
+CROSS JOIN CHINOOK.ALBUM ALB
+ORDER BY ART.NAME;
+
+-- 7.5 SELF
+-- Perform a self-join on the employee table, joining on the reportsto column.
+SELECT E1.FIRSTNAME, E1.LASTNAME, E2.FIRSTNAME, E2.LASTNAME
+FROM CHINOOK.EMPLOYEE E1, CHINOOK.EMPLOYEE E2
+WHERE E1.REPORTSTO = E2.EMPLOYEEID;
+
+SET SERVEROUTPUT ON;
 COMMIT;
