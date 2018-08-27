@@ -99,7 +99,6 @@ public class Validator {
 
 	public static boolean isCorrectScale(float amount) {
 		Pattern p = Pattern.compile("^\\d+\\.\\d{0,2}$"); 
-		System.out.println(String.valueOf(amount));
 		Matcher matcher = p.matcher(String.valueOf(amount));  
 		return matcher.matches();
 	}

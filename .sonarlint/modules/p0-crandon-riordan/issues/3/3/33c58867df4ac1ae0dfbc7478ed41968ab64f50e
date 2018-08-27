@@ -1,3 +1,12 @@
 
-ƒsquid:S11928"GDefine a constant instead of duplicating this literal "logout" 3 times.(º‚Ì¼ıÿÿÿÿ8ŒºÕ×,HùRCRITICALZ
+—squid:S1192k"[Define a constant instead of duplicating this literal "You don't have an account." 4 times.(¿’ùÌûÿÿÿÿ8ÈìÚİ×,H‰-RCRITICALZ
+CODE_SMELL
+ƒsquid:S11928"GDefine a constant instead of duplicating this literal "logout" 3 times.(º‚Ì¼ıÿÿÿÿ8ŒºÕ×,H”+RCRITICALZ
+CODE_SMELL
+†
+squid:S128~"LEnd this switch case with an unconditional break, return or throw statement.(æÎ†ìøÿÿÿÿ8Ê…áİ×,H‹-RBLOCKERZ
+CODE_SMELL
+bsquid:S1481Ò"(Remove this unused "bdi" local variable.(‚ğ¼áÿÿÿÿÿ8ğÃ°Ş×,H›-RMINORZ
+CODE_SMELL
+qsquid:S1854Ò"7Remove this useless assignment to local variable "bdi".(‚ğ¼áÿÿÿÿÿ8ğÃ°Ş×,Hœ-RMAJORZ
 CODE_SMELL

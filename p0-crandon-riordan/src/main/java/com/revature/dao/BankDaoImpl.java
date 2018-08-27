@@ -12,6 +12,7 @@ import java.util.Scanner;
 import org.apache.log4j.Logger;
 
 import com.revature.model.Bank;
+import com.revature.model.User;
 import com.revature.util.ConnectionUtil;
 import com.revature.validation.Validator;
 
@@ -20,13 +21,11 @@ public class BankDaoImpl implements BankDao {
 	static final Logger logger = Logger.getLogger(BankDaoImpl.class);
 	@Override
 	public List<Bank> getAllBanks() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public Bank getBankById(int id) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
@@ -66,13 +65,10 @@ public class BankDaoImpl implements BankDao {
 			ps.setInt(1, userId);
 			banksCreated = ps.executeUpdate();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		// TODO Auto-generated method stub
 		if(banksCreated > 0) {
 			logger.info("Successfully created an account.");
 		}
@@ -81,13 +77,11 @@ public class BankDaoImpl implements BankDao {
 
 	@Override
 	public int updateBank(Bank bank) {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
 	public int hideBankById(int id) {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
@@ -100,12 +94,11 @@ public class BankDaoImpl implements BankDao {
 			cs.setInt(1, id);
 			cs.setFloat(2, amount);
 			cs.execute();
+			
 			logger.info("Successfully deposited $" + Validator.formatDecimals(amount));
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -248,6 +241,33 @@ public class BankDaoImpl implements BankDao {
 		}
 		
 		return bank;
+	}
+
+	@Override
+	public void transfer(int fromId) {
+		String sql = "{call TRANSFER_FUNDS(?,?,?)}";
+		UserDaoImpl udi = new UserDaoImpl();
+		logger.info("Enter the username you wish to transfer to");
+		String username = sc.nextLine();
+		User toUser = udi.getUserByName(username);
+		if(toUser == null) {
+			logger.info("not a valid user");
+			return;
+		}
+		float amount = getPositiveFloat();
+		try(Connection con = ConnectionUtil.getConnection();
+				CallableStatement cs = con.prepareCall(sql)) {
+			cs.setInt(1, fromId);
+			cs.setFloat(2, amount);
+			cs.setInt(3, toUser.getId());
+			cs.execute();
+			logger.info("Transfer completed");
+			logger.info("");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	

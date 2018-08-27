@@ -1,5 +1,9 @@
 package com.revature.dao;
 
-public interface TransactionDao {
+import java.util.List;
 
+import com.revature.model.Transaction;
+
+public interface TransactionDao {
+	public List<Transaction> getTransactionsByUserId(int id);
 }

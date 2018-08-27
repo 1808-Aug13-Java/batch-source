@@ -1,12 +1,15 @@
 package com.revature.engine;
 
+import java.util.List;
 import java.util.Scanner;
 
 import org.apache.log4j.Logger;
 
 import com.revature.dao.BankDaoImpl;
+import com.revature.dao.TransactionDaoImpl;
 import com.revature.dao.UserDaoImpl;
 import com.revature.model.Bank;
+import com.revature.model.Transaction;
 import com.revature.model.User;
 import com.revature.validation.Validator;
 
@@ -57,6 +60,7 @@ public class Engine {
 			logger.info("deposit");
 			logger.info("withdraw");
 			logger.info("view");
+			logger.info("transfer");
 			logger.info("history");
 			logger.info("exit");
 		} else {
@@ -126,9 +130,15 @@ public class Engine {
 			case "history":
 				if(!udi.userHasBank(activeUser.getUsername())) {
 					logger.info("You don't have an account.");
-					break;
 				}
 				transactionHistory();
+				break;
+			case "transfer": 
+				if(!udi.userHasBank(activeUser.getUsername())) {
+					logger.info("You don't have an account.");
+				}
+				transfer();
+				break;
 			case "exit":
 				exitProgram();
 				break;
@@ -206,9 +216,15 @@ public class Engine {
 		bdi.withdraw(bank.getId());	
 	}
 	
-	private void transactionHistory() {
+	private void transfer() {
 		BankDaoImpl bdi = new BankDaoImpl();
-		
+		bdi.transfer(activeUser.getId());
+	}
+	
+	private void transactionHistory() {
+		TransactionDaoImpl tdi = new TransactionDaoImpl();
+		List<Transaction> transactions = tdi.getTransactionsByUserId(activeUser.getId());
+		tdi.logHistory(transactions);
 	}
 	
 	private void view() {

@@ -13,4 +13,5 @@ public interface BankDao {
 	public int hideBankById(int id);
 	public void deposit(int id);
 	public void withdraw(int id);
+	public void transfer(int fromId);
 }

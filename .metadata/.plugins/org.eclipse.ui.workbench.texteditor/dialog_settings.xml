@@ -2,33 +2,38 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="Syste" key="selection"/>
+		<item value="transactionDate" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="transaction_date"/>
+			<item value="transaction_type"/>
+			<item value="transaction_id"/>
+			<item value="user_id"/>
+			<item value="bank"/>
+			<item value="sy"/>
 			<item value="syste"/>
-			<item value="sys"/>
-			<item value="user id"/>
-			<item value="getpos"/>
-			<item value="getvalid"/>
-			<item value="get"/>
-			<item value="getval"/>
-			<item value="callable"/>
+			<item value="isnot"/>
+			<item value="positive"/>
+			<item value="successfully"/>
+			<item value="su"/>
+			<item value="view"/>
+			<item value="getpositive"/>
 			<item value="deposit"/>
-			<item value="!rs"/>
-			<item value="locationid"/>
-			<item value="departmentid"/>
-			<item value="brithday"/>
-			<item value="@Override"/>
-			<item value="Employee"/>
+			<item value="depost"/>
 		</list>
 		<list key="replacehistory">
+			<item value="transactionDate"/>
+			<item value="transactionType"/>
+			<item value="transactionId"/>
+			<item value="userId"/>
+			<item value="user"/>
+			<item value=""/>
 			<item value="location"/>
 			<item value="department"/>
 			<item value="birthday"/>
-			<item value=""/>
 			<item value="Location"/>
 		</list>
 	</section>
@@ -36,7 +41,7 @@
 		<item value="336" key="DIALOG_WIDTH"/>
 		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
 		<item value="454" key="DIALOG_HEIGHT"/>
-		<item value="1398" key="DIALOG_X_ORIGIN"/>
-		<item value="259" key="DIALOG_Y_ORIGIN"/>
+		<item value="1481" key="DIALOG_X_ORIGIN"/>
+		<item value="178" key="DIALOG_Y_ORIGIN"/>
 	</section>
 </section>
