@@ -1,0 +1,146 @@
+
+<!--
+$Header: /home/cvs/jakarta-tomcat/src/doc/NT-Service-howto.html,v 1.2.2.4 2000/12/21 19:24:19 marcsaeg Exp $
+$Revision: 1.2.2.4 $
+$Date: 2000/12/21 19:24:19 $
+-->
+
+<html>
+<head>
+<meta http-equiv=Content-Type content="text/html">
+<title>Working with the Jakarta NT Service</title>
+</head>
+
+<body>
+
+<h1>Working with the Jakarta NT Service</h1>
+
+<p>By Gal Shachor
+<tt>&lt;<a href="mailto:shachor@il.ibm.com">shachor@il.ibm.com</a>&gt;
+</tt></p>
+
+
+<p>The Jakarta NT service is an executable that wraps the
+Tomcat servlet container and executes it in the background as an NT service. To
+install it you will need to:</p>
+
+<ol>
+ <li>Get a
+     hold on the NT executable (jk_nt_service.exe)</li>
+ <ul>
+  <li>Download
+      the executable from the win32/i386 directory  found where you downloaded the
+      <a href="http://jakarta.apache.org/downloads/binindex.html"> Tomcat binary
+      distribution.</a> For those using Netscape as your browser, try downloading
+      a zip version of the file, if available. There can be problems using Netscape
+      to download DLL files.</li>
+ </ul>
+ <li>Customize
+     a properties file that provides the service with Tomcat information
+     (wrapper.properties).</li>
+ <ul>
+  <li>Locate the wrapper.properties template file in your Tomcat conf directory.
+  <li>Update
+      the wrapper.tomcat_home property to point at your tomcat home.</li>
+  <li>Update
+      the wrapper.java_home property to point at your Java home.</li>
+ </ul>
+ <li>Install
+     jk_nt_service by running it with the -i flag.</li>
+ <ul>
+  <li>Execute
+      jk_nt_service -I &lt;name of service&gt; &lt;path to updated wrapper
+      properties&gt;</li>
+  <li>&lt;name
+      of service&gt; should be a single word (without and spaces) such as
+      Jakarta</li>
+  <li>&lt;path
+      to updated wrapper properties&gt; should point to your wrapper.properties
+      file (and the service will check it's existence.)</li>
+  <li>For
+      example, a valid command line can be jk_nt_service -I Jakarta wrapper.properties</li>
+ </ul>
+ <li>Start
+     tomcat as a service.</li>
+ <ul>
+  <li>From
+      the command line, execute net start &lt;name of service&gt; (e.g. net
+      start Jakarta)</li>
+  <li>From
+      the NT services applet, highlight your service and press start.</li>
+ </ul>
+ <b>Note:</b> If the log file location in your wrapper.properties file points to
+ the <tt>logs</tt> directory, and the <tt>logs</tt> directory doesn't yet exist,
+ manually create it before starting the service.
+ <li>Stop
+     Tomcat as a service.</li>
+ <ul>
+  <li>From
+      the command line, execute net stop &lt;name of service&gt; (e.g. net
+      stop Jakarta)</li>
+  <li>From
+      the NT services applet, highlight your service and press stop.</li>
+ </ul>
+</ol>
+
+<p><b>Special note</b>: The Tomcat service is using AJPV12 to
+perform clean shutdown and you should make sure that an AJPV12 connector is
+defined in your server.xml. In the absence of a configured AJPV12 port the
+Tomcat service will kill Tomcat abruptly (that is murder it) without giving it
+a chance to clean up. </p>
+
+<p><strong>Notice for JDK 1.3 users</strong>:&nbsp;&nbsp;There is a 
+<a href="http://developer.java.sun.com/developer/bugParade/bugs/4323062.html">known problem</a>
+in JDK 1.3 that affects Java applications being run as Windows NT services.&nbsp;&nbsp;The bug causes the
+service to terminate when the currently logged in user logs out.&nbsp;&nbsp;The simplest way to work
+around this problem is to use JDK 1.2.&nbsp;&nbsp;If your application requires JDK 1.3 features then you 
+may want to look into <a href="http://www.kcmultimedia.com/javaserv/">javaserv</a> or
+<a href="http://www.alexandriasc.com/software/JavaService/">JavaService</a>.&nbsp;&nbspUsers have reported
+success with both of these packages but there may be others that work as well.
+</p>
+<p>To remove the installed service, execute jk_nt_service -R &lt;name of service&gt;</p>
+
+<h1>Advance Setup</h1>
+
+<ol>
+ <li>Modify
+     the Tomcat NT service properties. By default the service will run in manual
+     mode and under the local system user account. To modify this, open the NT
+     services applet, highlight your service and press startup. A popup window
+     is opened and you will be able to customize the service to your
+     satisfaction.</li>
+ <li>Modify
+     the classpath. The classpath is determined by the wrapper.class_path
+     properties, to modify it just add/remove/modify wrapper.class_path lines.
+     The complete classpath is calculated by concatenating all the
+     wrapper.class_path lines and putting &quot;;&quot; between them.</li>
+ <li>Execute
+     several Tomcat instances. Say that you want one Tomcat to run for
+     &quot;production&quot; and one for development, you can do that. All you
+     will need to do is to install the Tomcat service twice and under two
+     different names (and with different wrapper.properties file and server.xml
+     files). </li>
+ <ul>
+  <li>Make
+      sure that the AJPV12 and HTTP connectors are modified in each server.xml
+      file to prevent a clash.</li>
+  <li>Make
+      sure to update the wrapper.shutdown_port property in wrapper.properties
+      to point to the correct AJPV12 shutdown ports (default is 8007). </li>
+ </ul>
+ <li>Modify
+     the command line used to start Tomcat. The Tomcat service is taking all
+     it's command line configuration from wrapper.properties! To customize the
+     command line, edit the property wrapper.cmd_line and make sure that it
+     makes a legal Java command line.</li>
+</ol>
+
+<h1>Feedback</h1>
+
+<p>Please send feedback, bug report or any additional information to
+<tt>&lt;<a href="mailto:tomcat-user@jakarta.apache.org">tomcat-user@jakarta.apache.org</a>&gt;
+</tt>
+</p>
+</body>
+
+</html>

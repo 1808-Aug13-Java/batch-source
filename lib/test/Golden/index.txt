@@ -1,0 +1,12 @@
+<html>
+
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body bgcolor="#FFFFFF">
+<p><font face="Arial, Helvetica, sans-serif"><b><font size="+2">JSP Tests 
+  </font></b></font><br>
+</body>
+</html>

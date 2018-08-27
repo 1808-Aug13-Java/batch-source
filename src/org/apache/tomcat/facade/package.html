@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=iso-8859-1">
+	<TITLE>Servlet 2.2 Facade</TITLE>
+	<META NAME="GENERATOR" CONTENT="StarOffice/5.2 (Linux)">
+	<META NAME="CREATED" CONTENT="20000522;15304000">
+	<META NAME="CHANGEDBY" CONTENT="Costin Manolache">
+	<META NAME="CHANGED" CONTENT="20000522;16275400">
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+<H2>Servlet Facades</H2>
+<H3>Goals</H3>
+<UL>
+	<LI><P>Security. This is the first line of defense against not
+	trusted code attempting to get access to internal tomcat objects.  A
+	servlet will only see objects that implement the API and provide no
+	extra public methods that can be used. 
+	</P>
+	<LI><P>Decouple of the Servlet API implementation from the internal
+	architecture of tomcat. Tomcat.core can use various optimizations
+	and can have a design that is not directly controlled by the Servlet
+	API requirements</P>
+	<LI><P>Performance. This is a direct consequence of decoupling -
+	tomcat.core can be optimized without affecting the servlet side.</P>
+	<LI><P>Smooth evolution. Tomcat changes, and the separation of
+	internals from the facade allowed an easy evolution. A side effect
+	of the facade pattern is that it is possible to support multiple
+	servlet APIs at the same time, allowing an easy migration when the
+	spec is upgraded ( for example it may be possible to run both 2.2
+	and 2.3 servlets in the same engine, allowing a non-disruptive
+	evolution ).   
+	</P>
+</UL>
+<H3>Accessing tomcat internals</H3>
+<OL TYPE=I START=30>
+	<LI><P>this is not final - need a lot of review and may change )</P>
+</OL>
+<UL>
+	<LI><P>Attribute access. A servlet can access a Context attribute
+	named &quot;org.apache.tomcat.facade&quot;  of type FacadeManager.
+	The FacadeManager is the gate between internal objects and servlets
+	- a servlet will be able to get an instance of FacadeManager only if
+	the Context is marked as &quot;trusted&quot; ( by setting the
+	&quot;trusted&quot; attribute in server.xml ). With JDK1.2 security
+	we can implement finer control based on individual properties. 
+	</P>
+	<LI><P>It is possible to do security checks inside all methods in
+	FacadeManager, allowing a finer access control. The FacadeManager
+	may expose other internal of tomcat to trusted servlets.</P>
+	<LI><P>Internal servlets. All serlvets in org.apache.tomcat that
+	extend org.apache.tomcat.servlet.TomcatInternalServlet will be
+	initialized with the correct FacadeManager and will be able to do
+	free conversions from Facade to internal objects. This is a hack to
+	simplify the internal objects with minimal pain, after a &quot;standard&quot;
+	access mode is stable enough.</P>
+</UL>
+<H3>Security issues</H3>
+<UL>
+	<LI><P>Getting an instance of FacadeManager. 
+	</P>
+	<LI><P>Extra checks in FacadeManagers: 
+	</P>
+	<LI><P>Context - a FacadeManager will verify if the Servlet object (
+	Request, Response, Context) are part of the same context as the
+	servlet. That will prevent a servlet from accessing internal objects
+	using a fake FacadeManager.</P>
+	<LI><P>Note that if a servlet has access to a tomcat internal object
+	it may get access to potentially any other tomcat object.</P>
+	<LI><P>Object reuse. Reusing Facade objects can open a security hole
+	- a servlet may keep references to HttpServletRequest objects and
+	after a number of requests it will end up keeping references to all
+	Facade objects ( there is no way to prevent that ). It will then be
+	able to call for example getParameter() on all of those - accessing
+	parameters of other servlets that happen to execute at that time.
+	ClassLoader is not a good defense, since Facade objects can be
+	loaded by the system class loader.</P>
+	<LI><P>JDK1.2 - it is possible to use the SecurityDomain and the
+	context (thread) class loader to get informations about the running
+	servlet and to do fine-access-control. A way to implement this
+	without breaking compatibility with JDK1.1 is by using a different
+	set of facades, or just by using a hook that will do the security
+	checks ( better ). 
+	</P>
+	<LI><P>It is still possible for servlets to access core objects
+	directly. This has to be fixed ASAP.</P>
+</UL>
+<H3>Rules for this package:</H3>
+<UL>
+	<LI><P>All classes except the &quot;FacadeManager&quot; have
+	package-level access and are final. That means it is not possible to
+	create or extend any of the facades unless you use the
+	FacadeManager. 
+	</P>
+	<LI><P>The only public methods available in facades are those
+	required by the servlet API. 
+	</P>
+	<LI><P>The facade objects will have minimal state, and will delegate
+	most functionality to tomcat.core objects</P>
+	<LI><P>The only functionality present in facade is the &quot;adapter&quot;
+	between the servlet API interfaces and tomcat internal interfaces.
+	For example the I/O system in tomcat will be less dependent on
+	Stream/Writer ( by using special hooks for char-to-byte conversion),
+	but the facade must still prevent access to both Stream and Writer. 
+		</P>
+</UL>
+<H3>Notes</H3>
+<P>This package implements the &quot;Facade&quot; and &quot;Adapter&quot;
+patterns. 
+</P>
+<P><BR><BR>
+</P>
+</BODY>
+</HTML>

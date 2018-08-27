@@ -1,0 +1,8 @@
+<html>
+<body>
+<h1>Parsing test</h1>
+
+<!-- Embedded quotes -->
+<font color="#bbc190">color</font>
+</body>
+</html>

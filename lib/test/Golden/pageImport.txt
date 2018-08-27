@@ -1,0 +1,6 @@
+<html>
+<body>
+<h1>Page directive test</h1>
+Is empty? true
+</body>
+</html>

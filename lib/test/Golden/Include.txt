@@ -1,0 +1,22 @@
+<html>
+<!--
+-->
+
+
+
+<!--
+-->
+
+This is the content of foo.jsp
+
+
+<p> This is the content of foo.html
+ :
+
+<!--
+-->
+
+This is the content of foo.jsp
+
+
+</html>

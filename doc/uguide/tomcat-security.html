@@ -1,0 +1,105 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <title>Using the Java SecurityManager with Tomcat</title>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.7 [en] (X11; I; SunOS 5.7 i86pc) [Netscape]">
+</head>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000FF" vlink="#FF0000" alink="#000088">
+
+<h1>
+Using the Java SecurityManager with Tomcat</h1>
+
+<ul>
+<li>
+<a href="#why">Why use a SecurityManager?</a></li>
+
+<li>
+<a href="#requirements">System Requirements</a></li>
+
+<li>
+<a href="#precautions">Precautions</a></li>
+
+<li>
+<a href="#permissions">Types of Permissions</a></li>
+
+<li>
+<a href="tomcat-security-unix.html">Tomcat SecurityManager setup with Unix</a></li>
+
+<li>
+<a href="#violation">What happens when the SecurityManager detects a Security
+violation?</a></li>
+</ul>
+
+<h3>
+<a NAME="why"></a>Why use a SecurityManager?</h3>
+The Java SecurityManager is what allows a web browser to run an applet
+in its own sandbox to prevent untrusted code from accessing files on the
+local system, connecting to a host other than the one the applet was loaded
+from, etc.
+<p>In the same way the SecurityManager protects you from an untrusted applet
+running in your browser, use of a SecurityManager while running Tomcat
+can protect your server from trojan servlets, JSP's, JSP beans, and tag
+libraries.&nbsp; Or even inadvertent mistakes.
+<p>Imagine if someone who is authorized to publish JSP's on your site invadvertently
+included the following in their JSP:
+<blockquote>
+<pre>&lt;% System.exit(1); %></pre>
+</blockquote>
+
+<p><br>Every time that JSP was executed by Tomcat, Tomcat would exit.
+<p>Using the Java SecurityManager is just one more line of defense a system
+administrator can use to keep the server secure and reliable.
+<h3>
+<a NAME="requirements"></a>System Requirements</h3>
+Use of the SecurityManager requires a JVM that supports JDK 1.2.
+<br>&nbsp;
+<h3>
+<a NAME="precautions"></a>Precautions</h3>
+Implementation of a SecurityManager in Tomcat has not been fully tested
+to ensure the security of Tomcat.&nbsp; No special Permissions have been
+created to prevent access to internal Tomcat classes by JSP's, web applications,
+servlets, beans, or tag libraries. Make sure that you are satisfied with
+your SecurityManager configuration before allowing untrusted users to publish
+web applications, JSP's, servlets, beans, or tag libraries.
+<p>Still, running with a SecurityManager is definitely better than running
+without one.
+<br>&nbsp;
+<h3>
+<a NAME="permissions"></a>Types of Permissions</h3>
+Permission classes are used to define what Permissions a class loaded by
+Tomcat will have.&nbsp; There are a number of Permission classes as part
+of the JDK and you can even create your own Permission class for use in
+your own web applications.
+<p>This is just a short summary of the System SecurityManager Permission
+classes applicable to Tomcat.&nbsp; Please refer to the JDK documentation
+for more information on using the below Permissions.
+<p><b>java.util.PropertyPermission</b>
+<br>&nbsp;&nbsp;&nbsp; Controls read/write access to JVM properties such
+as java.home.
+<p><b>java.lang.RuntimePermission</b>
+<br>&nbsp;&nbsp;&nbsp; Controls use of some System/Runtime functions like
+exit() and exec().
+<p><b>java.io.FilePermission</b>
+<br>&nbsp;&nbsp;&nbsp; Controls read/write/execute access to files and
+directories.
+<p><b>java.net.SocketPermission</b>
+<br>&nbsp;&nbsp;&nbsp; Controls use of network sockets.
+<p><b>java.net.NetPermission</b>
+<br>&nbsp;&nbsp;&nbsp; Controls use of multicast network connections.
+<p><b>java.lang.reflect.ReflectPermission</b>
+<br>&nbsp;&nbsp;&nbsp; Controls use of reflection to do class introspection.
+<p><b>java.security.SecurityPermission</b>
+<br>&nbsp;&nbsp;&nbsp; Controls access to Security methods.
+<p><b>java.security.AllPermission</b>
+<br>&nbsp;&nbsp;&nbsp; Allows access to all permissions, just as if you
+were running Tomcat without a SecurityManager.
+<br>&nbsp;
+<h3>
+<a NAME="violation"></a>What happens when the SecurityManager detects a
+Security violation?</h3>
+The JVM will throw an AccessControlException or a SecurityException when
+the SecurityManager detects a security policy violation.
+<br>&nbsp;
+</body>
+</html>

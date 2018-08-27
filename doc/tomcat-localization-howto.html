@@ -1,0 +1,198 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <!-- $Id: tomcat-localization-howto.html,v 1.1.2.1 2001/03/20 16:31:06 arieh Exp $ -->
+    <!-- Copyright 2001, Apache Software Foundation -->
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <title>Tomcat - Localization</title>
+  </head>
+  <body bgcolor="#ffffff" text="#000000" vlink="#525D76">
+
+    <table border="0" width="100%" cellspacing="0">
+      <!-- TOP IMAGE -->
+      <tr>
+	<td>
+	  <p align="left">
+	    <a href="http://jakarta.apache.org/index.html">
+	      <img src="http://jakarta.apache.org/images/jakarta-logo.gif"
+		   align="left"
+		   alt="The Jakarta Project"
+		   border="0">
+	    </a>
+	</td>
+      </tr>
+    </table>
+
+    <H1> Localization in Tomcat </H1>
+
+    <p> This document attempts to provide information necessary for
+	development of localized content that is served under Tomcat.</p>
+    <p> The audience of this document is developers of Tomcat applications,
+	internationalization and localization experts that need to
+	perform conversions of content to specific locales.</p>
+    <p> The document is divided into several sections.</p>
+
+    <H2> How to organize Localized Resources in Tomcat</H2>
+
+    <p> This section will describe the schemes that are available under
+	Tomcat to provide access to localized versions of resources,
+	including but not limited to HTML pages, javascript files,
+	image files, etc.</p>
+
+    <p> Tomcat provides three mechanisms that enable it to serve
+       localized versions of content:
+    <br>
+    <br>
+    <UL>
+	<LI> no lookup for localized resource</LI>
+	<LI> file based organization for lookup of localized resource</LI>
+	<LI> docbase based organization for lookup for localized resource</LI
+    </UL></p>
+
+    <H3> File based organization for localized resource lookup</H3>
+
+    <P> This type of organization of localized content attempts to find the
+       localized version of the resource queried based on the basename of
+       the resource, using the lookup conventions specified in
+       <code>java.lang.ResourceBundle</code>.</p>
+
+    <p>For example, assume the following scenario:
+	<br>
+	<br>
+	<UL>
+	    <LI> User's Locale: <code>fr_CA</code></LI>
+	    <LI> Webserver's Locale:    <code>es_AR</code></LI>
+	    <LI> docbase:               <code>/myapp</code></LI>
+	    <LI> User's URL query:      <code>/myapp/index.html</code></LI>
+	</UL></p>
+
+    <p>This scheme will try to look up for the resource in the following
+	priority order:
+	<br>
+	<br>
+	<UL>
+	    <LI>/myapp/index_fr_CA.html</LI>
+	    <LI>/myapp/index_fr.html</LI>
+	    <LI>/myapp/index_es_AR.html</LI>
+	    <LI>/myapp/index_es.html</LI>
+	    <LI>/myapp/index.html</LI>
+	</UL><p>
+
+    <p> When using this scheme, all localized versions will end up
+	residing on the same directory where the default (the one without
+	the localized name) file is located.
+    <p> Developer's note:  there is no need to change the URLs on each one
+	of the localized versions of the files provided.</p>
+
+
+    <h3> Docbase based organization for localized resource lookup</h3>
+
+    <p> This type of organization of the localized resources attempts to
+	find the localized version of the resource queried based on the
+	existence of a localized document hierarchy under the 'docbase'
+	directory.
+	The organization of the documents is similar to the one that JavaHelp
+	uses.</p>
+
+    <p>For example, assume the following scenario:
+	<br>
+	<br>
+	<UL>
+	    <LI> User's Locale: <code>fr_CA</code></LI>
+	    <LI> Webserver's Locale:    <code>es_AR</code></LI>
+	    <LI> docbase:               <code>/myapp</code></LI>
+	    <LI> User's URL query:      <code>/myapp/index.html</code></LI>
+	</UL></p>
+
+    <p> This scheme will try to look up for the resource in the following
+	priority order:
+	<br>
+	<br>
+	<UL>
+	    <LI> /myapp/fr_CA/index.html</LI>
+	    <LI> /myapp/fr/index.html</LI>
+	    <LI> /myapp/es_AR/index.html</LI>
+	    <LI> /myapp/es/index.html</LI>
+	    <LI> /myapp/index.html</LI>
+	</UL></p>
+
+    <p> When using this scheme, all localized versions will end up
+	residing on different directories. All the files for a specific
+	locale will appear in subdirectories under a common
+	parent <code><em>[docbase]/[locale]</em></code> directory.</p>
+    <p> Developer's note:  on the localized version(s) of the file, there may be
+		   a need to change the URLs. This, especially when there
+		   are relative references in those URLs (for example,
+		   accessing documents in a directory above).</p>
+
+
+    <h2> Implementation Topics </h2>
+
+    <p> The <code>org.apache.tomcat.request.StaticInterceptor</code> class
+	is used to handle the lookup for localized resources.</p>
+
+    <p> This is accomplished by specifying on the corresponding entry on
+	server.xml. The <code>StaticInterceptor</code> class includes
+	a property called <code><em>localization</em></code> that can
+	be set to any of the values below:
+	<br>
+	<br>
+	<UL>
+	    <LI> <code>"file"</code></LI>
+	    <LI> <code>"docbase"</code></LI>
+	</UL><p>
+
+    <p> Below is an example of what the StaticInterceptor entry should look
+	for file-based lookup.</p>
+
+    <blockquote>
+    <code>
+	&lt;RequestInterceptor
+	    className="org.apache.tomcat.request.StaticInterceptor"
+	    debug="0" localization="file" suppress="false" /&gt;
+    </code>
+    </blockquote>
+
+    <p> Below is an example of what the StaticInterceptor entry should look
+	for docbase-based lookup.</p>
+
+    <blockquote>
+    <code>
+	&lt;RequestInterceptor
+	    className="org.apache.tomcat.request.StaticInterceptor"
+	    debug="0" localization="docbase" suppress="false" /&gt;
+    </code>
+    </blockquote>
+
+    <p>The default mode is set not to perform localized resource lookup.</P>
+
+    <h2> Futures and Extensibility </h2>
+
+    <p> The mechanism by which the above mentioned file organization
+	schemes has been implemented can be extended to support future
+	types of localization organization.</p>
+
+    <p> This section concerns Jakarta developers. Tomcat users may skip
+	this section.</p>
+    <p> The steps to carry this out include modification of the
+	<code>org.apache.tomcat.request.StaticInterceptor</code>,
+	<code>org.apache.tomcat.util.FileUtil</code>,
+	<code>org.apache.tomcat.core.Context</code> as appropriate.</p>
+    <p> Among the activities required the team will have to develop
+	localized lookup methods (in <code>FileUtil</code>), code to
+	invoke the lookup methods (in <code>StaticInterceptor</a> and
+	<code>Context</code>.</p>
+    <!-- FOOTER -->
+    <table>
+    <tr><td colspan="2">
+	<hr noshade="" size="1"/>
+	</td></tr>
+	<tr><td colspan="2">
+	    <div align="center"><font color="#525D76" size="-1"><em>
+	    Copyright &#169; 1999-2001, Apache Software Foundation
+	    </em></font></div>
+	</td></tr>
+    </table>
+  </body>
+</html>
+
