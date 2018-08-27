@@ -55,7 +55,7 @@ public class AccountDaoImpl implements AccountDao {
 	public List<Account> getAccounts(Connection con) throws SQLException {
 		List<Account> accountList = new ArrayList<>();
 		Account a = null;
-		String sql = "SELECT * FROM ACCOUNTS";
+		final String sql = "SELECT * FROM ACCOUNTS";
 		
 		// A result set for iterating through the results
 		ResultSet rs = null;
@@ -84,34 +84,23 @@ public class AccountDaoImpl implements AccountDao {
 	
 	
 	@Override
-	public int createAccount(Account account, Connection con) throws SQLException {
-		String sql = "INSERT INTO ACCOUNTS (accId, accType, balance) VALUES (?, ?, ?)";
+	public long createAccount(Account account, Connection con) throws SQLException {
+		final String sql = 
+				"INSERT INTO ACCOUNTS (accId, accType, balance) VALUES (?, ?, ?)";
 		//The number of affected rows by this insertion. 
 		int rowsAffected = 0;
 		
-		// Connection object
-		Connection con = null;
-		// An object for using a Prepared SQL Statement
-		PreparedStatement ps = null;
-		
-		try {
-			// Open the connection to the database
-			con = DBConnectionUtil.getConnection();
-			ps = con.prepareStatement(sql);
+		// Attempt to create a statement and execute it. 
+		try (PreparedStatement ps = con.prepareStatement(sql)) {
+			// Bind the variables to the statement
 			ps.setLong(1, account.getAccId());
 			ps.setString(2, account.getAccType());
 			ps.setBigDecimal(3, account.getBalance());
 			
 			rowsAffected = ps.executeUpdate();
-			
-		} catch (IOException | SQLException e) {
-			// Log an error if it occurs
-			log.error(e);
 		} finally {
-			// Try to close the prepared statement
-			try {if (ps!=null) ps.close();} catch(SQLException e) {}
-			// Try to close the connection
-			try {if (con!=null) con.close();} catch(SQLException e) {}
+			// Do nothing. Just here to allow the autoclosing of the 
+			// prepared statement. 
 		}
 		
 		return rowsAffected;
@@ -119,9 +108,25 @@ public class AccountDaoImpl implements AccountDao {
 
 	@Override
 	public int updateAccount(Account account, Connection con) throws SQLException {
-		String sql = "UPDATE ACCOUNTS SET accType=?, balance=? WHERE accId = " 
+		final String sql = 
+				"UPDATE ACCOUNTS SET accType=?, balance=? WHERE accId = " 
 					+ account.getAccId();
-		return modifyAccount(account, sql);
+		//The number of affected rows by this insertion. 
+		int rowsAffected = 0;
+		
+		// Attempt to create a statement and execute it. 
+		try (PreparedStatement ps = con.prepareStatement(sql)) {
+			// Bind the variables to the statement
+			ps.setString(1, account.getAccType());
+			ps.setBigDecimal(2, account.getBalance());
+			
+			rowsAffected = ps.executeUpdate();
+		} finally {
+			// Do nothing. Just here to allow the autoclosing of the 
+			// prepared statement. 
+		}
+		
+		return rowsAffected;
 	}
 
 	@Override
@@ -137,37 +142,6 @@ public class AccountDaoImpl implements AccountDao {
 	}
 	
 	
-	/** Takes an account, and an sql string for a prepared statement, and 
-	 * updates the account with the corresponding id.  */
-	private int modifyAccount(Account account, String sql) {
-		//The number of affected rows by this insertion. 
-		int rowsAffected = 0;
-		
-		// Connection object
-		Connection con = null;
-		// An object for using a Prepared SQL Statement
-		PreparedStatement ps = null;
-		
-		try {
-			// Open the connection to the database
-			con = DBConnectionUtil.getConnection();
-			ps = con.prepareStatement(sql);
-			ps.setString(1, account.getAccType());
-			ps.setBigDecimal(2, account.getBalance());
-			
-			rowsAffected = ps.executeUpdate();
-			
-		} catch (IOException | SQLException e) {
-			// Log an error if it occurs
-			log.error(e);
-		} finally {
-			// Try to close the prepared statement
-			try {if (ps!=null) ps.close();} catch(SQLException e) {}
-			// Try to close the connection
-			try {if (con!=null) con.close();} catch(SQLException e) {}
-		}
-		
-		return rowsAffected;
-	}
-	
-}
+} // end of class AccountDaoImpl
+
+
