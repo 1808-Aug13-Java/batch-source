@@ -59,5 +59,8 @@ a.nav-link:hover {
     width: 100%;
 }
 
-
+#typingDog {
+    height: 200px;
+    max-width: 300px;
+}
 
