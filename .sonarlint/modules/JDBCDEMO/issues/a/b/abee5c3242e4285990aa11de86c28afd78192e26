@@ -1,0 +1,27 @@
+
+vsquid:S21472"DCombine this catch with the one at line 47, which has the same body.(ÇˆÅùÿÿÿÿHé/RMINORZ
+CODE_SMELL
+Rsquid:S1148;"#Use a logger to log this exception.(ä÷ÈHí/RMINORZVULNERABILITY
+Rsquid:S11484"#Use a logger to log this exception.(ä÷ÈHì/RMINORZVULNERABILITY
+rsquid:UselessImportCheck"8Remove this unused import 'com.revature.model.Location'.(¤ÙHê/RMINORZ
+CODE_SMELL
+dsquid:S1135…"2Complete the task associated to this TODO comment.(» æÿÿÿÿÿHæ/RINFOZ
+CODE_SMELL
+csquid:S1135v"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿHå/RINFOZ
+CODE_SMELL
+csquid:S11350"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿHá/RINFOZ
+CODE_SMELL
+csquid:S1135H"2Complete the task associated to this TODO comment.(» æÿÿÿÿÿHä/RINFOZ
+CODE_SMELL
+Rsquid:S11481"#Use a logger to log this exception.(ä÷ÈHë/RMINORZVULNERABILITY
+Xsquid:S1148w"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿHî/RMINORZVULNERABILITY
+csquid:S1135"2Complete the task associated to this TODO comment.(» æÿÿÿÿÿHà/RINFOZ
+CODE_SMELL
+csquid:S1135"2Complete the task associated to this TODO comment.(» æÿÿÿÿÿHç/RINFOZ
+CODE_SMELL
+csquid:S11353"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿHâ/RINFOZ
+CODE_SMELL
+csquid:S1135:"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿHã/RINFOZ
+CODE_SMELL
+dsquid:S1135‹"2Complete the task associated to this TODO comment.(» æÿÿÿÿÿHè/RINFOZ
+CODE_SMELL

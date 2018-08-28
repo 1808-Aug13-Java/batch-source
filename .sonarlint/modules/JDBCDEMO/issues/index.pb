@@ -7,3 +7,9 @@
 0src/main/java/com/revature/model/Department.java,f\e\fef4104fb652459454f7aa7dd2658c193fabcb6e
 c
 3src/main/java/com/revature/util/ConnectionUtil.java,8\f\8f9742be3e6170e843a3a3e659a612b0506c253e
+a
+1src/main/java/com/revature/dao/DepartmentDao.java,f\7\f7a535a9ce75f6a96ebc893383e7acb1ace6b4c6
+_
+/src/main/java/com/revature/dao/EmployeeDao.java,a\6\a69cdebb2a8765866c3bcf87f15965022da5d11a
+c
+3src/main/java/com/revature/dao/EmployeeDaoImpl.java,a\b\abee5c3242e4285990aa11de86c28afd78192e26

@@ -1,61 +1,18 @@
 
-fsquid:S1199j"-Extract this nested code block into a method.(ğÁ–Óûÿÿÿÿ8¯ş£×,H–%RMINORZ
+gsquid:S1199"-Extract this nested code block into a method.(·ÿ½äûÿÿÿÿ8¯ş£×,Hğ%RMINORZ
 CODE_SMELL
-xsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Ù¡î¹H§RMAJORZ
+gsquid:S1199“"-Extract this nested code block into a method.(ğÁ–Óûÿÿÿÿ8¯ş£×,Hî%RMINORZ
 CODE_SMELL
-]squid:S1659"$Declare "stdout" on a separate line.(Ş’îåüÿÿÿÿ8ÚäÄ£×,Hà#RMINORZ
+tsquid:S2095"LUse try-with-resources or close this "BufferedReader" in a "finally" clause.(Òø·•Hì%RBLOCKERZBUG
+fsquid:S1199c"-Extract this nested code block into a method.(ğÁ–Óûÿÿÿÿ8¯ş£×,Hö%RMINORZ
 CODE_SMELL
-[squid:S1659""Declare "INFO" on a separate line.(Ş’îåüÿÿÿÿ8ÚäÄ£×,Hß#RMINORZ
+bsquid:S1199 "-Extract this nested code block into a method.(ÎŞèº8¯ş£×,Hô%RMINORZ
 CODE_SMELL
-lsquid:S1068"3Remove this unused "ConsoleAppender" private field.(Ş’îåüÿÿÿÿ8òæÌ£×,Hö#RMAJORZ
+…squid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(´¾¹Hò%RMINORZ
 CODE_SMELL
-csquid:S11355"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿHÁRINFOZ
+fsquid:S1199B"-Extract this nested code block into a method.(·ÿ½äûÿÿÿÿ8¯ş£×,H…&RMINORZ
 CODE_SMELL
-fsquid:S1068"-Remove this unused "logSystem" private field.(Ş’îåüÿÿÿÿ8òæÌ£×,Hø#RMAJORZ
+gsquid:S1199›"-Extract this nested code block into a method.(úÀôãùÿÿÿÿ8¯ş£×,H†&RMINORZ
 CODE_SMELL
-gsquid:S1199˜"-Extract this nested code block into a method.(·ÿ½äûÿÿÿÿ8¯ş£×,H—%RMINORZ
-CODE_SMELL
-…squid:CommentedOutCodeLine¤"<This block of commented-out lines of code should be removed.(±€ê§ÿÿÿÿÿ8¯ş£×,H%RMAJORZ
-CODE_SMELL
-squid:CommentedOutCodeLine@"<This block of commented-out lines of code should be removed.(úÕÕ8ÈÅ¤×,H¸%RMAJORZ
-CODE_SMELL
-Zsquid:S1659"!Declare "out" on a separate line.(Ş’îåüÿÿÿÿ8òæÌ£×,Hô#RMINORZ
-CODE_SMELL
-€squid:CommentedOutCodeLine•"<This block of commented-out lines of code should be removed.(óõçú8¯ş£×,H%RMAJORZ
-CODE_SMELL
-fsquid:S1199I"-Extract this nested code block into a method.(·ÿ½äûÿÿÿÿ8¯ş£×,H™%RMINORZ
-CODE_SMELL
-gsquid:S1199 "-Extract this nested code block into a method.(ğÁ–Óûÿÿÿÿ8¯ş£×,H˜%RMINORZ
-CODE_SMELL
-fsquid:S1659"-Declare "ConsoleAppender" on a separate line.(Ş’îåüÿÿÿÿ8òæÌ£×,Hñ#RMINORZ
-CODE_SMELL
-csquid:S1068"*Remove this unused "stdout" private field.(Ş’îåüÿÿÿÿ8ÚäÄ£×,Hã#RMAJORZ
-CODE_SMELL
-„squid:CommentedOutCodeLinew"<This block of commented-out lines of code should be removed.(Î±Èùÿÿÿÿ8¯ş£×,Hœ%RMAJORZ
-CODE_SMELL
-“squid:S3008"ZRename this field "ConsoleAppender" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ş’îåüÿÿÿÿ8òæÌ£×,Hõ#RMINORZ
-CODE_SMELL
-`squid:S1659"'Declare "logSystem" on a separate line.(Ş’îåüÿÿÿÿ8òæÌ£×,Hó#RMINORZ
-CODE_SMELL
-asquid:S1068"(Remove this unused "INFO" private field.(Ş’îåüÿÿÿÿ8ÚäÄ£×,Hâ#RMAJORZ
-CODE_SMELL
-ˆsquid:S3008"ORename this field "INFO" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ş’îåüÿÿÿÿ8ÚäÄ£×,Há#RMINORZ
-CODE_SMELL
-`squid:S1068"'Remove this unused "out" private field.(Ş’îåüÿÿÿÿ8Ñßİ£×,H¼$RMAJORZ
-CODE_SMELL
-csquid:S1068"*Remove this unused "target" private field.(Ş’îåüÿÿÿÿ8òæÌ£×,H÷#RMAJORZ
-CODE_SMELL
-gsquid:S1199¨"-Extract this nested code block into a method.(úÀôãùÿÿÿÿ8¯ş£×,Hš%RMINORZ
-CODE_SMELL
-bsquid:S1199­"-Extract this nested code block into a method.(ÎŞèº8¯ş£×,H›%RMINORZ
-CODE_SMELL
-tsquid:S2095""LUse try-with-resources or close this "BufferedReader" in a "finally" clause.(Òø·•H¦RBLOCKERZBUG
-|squid:HiddenFieldCheckš"7Rename "out" which hides the field declared at line 15.(¯Š•½úÿÿÿÿ8¯ş£×,H°%RMAJORZ
-CODE_SMELL
-]squid:S1659"$Declare "target" on a separate line.(Ş’îåüÿÿÿÿ8òæÌ£×,Hò#RMINORZ
-CODE_SMELL
-…squid:CommentedOutCodeLineœ"<This block of commented-out lines of code should be removed.(±€ê§ÿÿÿÿÿ8¯ş£×,HŸ%RMAJORZ
-CODE_SMELL
-Xsquid:S11486"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿHÂRMINORZVULNERABILITY
-…squid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(´¾¹H RMINORZ
+squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ÊìŞ8‘¸Ÿİ×,H‰&RMAJORZ
 CODE_SMELL

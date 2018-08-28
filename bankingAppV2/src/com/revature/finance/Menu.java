@@ -12,21 +12,16 @@ import org.apache.log4j.Logger;
 
 public class Menu {
 	
-	private static Logger log = Logger.getRootLogger(),
-	INFO,stdout,ConsoleAppender,target,logSystem,out;
+	private static Logger log = Logger.getRootLogger();
+//	INFO,stdout,ConsoleAppender,target,logSystem,out;
 
 	HashMap<String, Account> accountsList= new HashMap<String,Account>();
 	private static Scanner sc= new Scanner(System.in);
-	String y;
-	String x;
+
 	
 	public void startUp() {
-		//reads the data stored in the txt file and populates the HashMap with it
+
 		String path= "src/com/revature/finance/bankingData.txt";
-		//sHashMap<String, String> names= new HashMap<String, String>();
-		//String[] readName =new String[3];
-		//int i=0;
-		//String readPass;
 		int count=0;
 		String[] info= new String[3];	
 		try {
@@ -50,8 +45,8 @@ public class Menu {
 			br.close();
 		
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			log.error(e.getMessage());
+
 		}	
 	}	
 	
@@ -61,9 +56,7 @@ public class Menu {
 		
 		log.addAppender(asd);
 		
-//		Event d = new event;
-//		asd.doAppend(null);
-		log.info(" test");
+
 		log.info("Please select the number of your desired action");
 		log.info("1. Log into your account");
 		log.info("2. Create an account");
@@ -115,8 +108,6 @@ public class Menu {
 					screen();
 				}
 				log.info(newUsername);
-				
-				//y=newUsername;
 				log.info("Enter a password");
 				newPassword= sc.next();
 	
@@ -145,23 +136,19 @@ public class Menu {
 			log.info("Success, please select a number of a transaction");
 			log.info("1. withdraw, 2. deposit, 3. view balance, or 4. Log out");
 			int action=sc.nextInt();
-			
-			//String transaction=sc.next();
-			//transaction=transaction.toLowerCase();
+
 			switch(action){
 				case 1:{
 					log.info("Enter a withdrawl amount");
 					float out=sc.nextFloat();
 					loggedInAccount.withdraw(out);
-				//	log.info("Your current balance is now: $"+loggedInAccount.viewBalance());
-					
 					break;
 				}
 				case 2:{
 					log.info("Enter a deposit amount");
 					float in =sc.nextFloat();
 					loggedInAccount.deposit(in);
-				//	log.info("Your current balance is now: $"+loggedInAccount.viewBalance());
+
 					
 					break;
 				}
@@ -186,11 +173,10 @@ public class Menu {
 					screen();
 				}
 		}
-		
 		else {
 			screen();
 		}	
 		loggedScreen(loggedInAccount.getLogStatus(),workingAccount);
-	}
+	}//loggedScreen
 	
 }//end of public class menu

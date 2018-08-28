@@ -73,6 +73,7 @@ Employee e = null;
 		List<Employee> employeelist = new ArrayList<>();
 		String sql="SELECT * FROM EMPLOYEE";
 		
+		
 		try (
 			Connection con =ConnectionUtil.getConnection();
 			Statement s=con.createStatement(); 
@@ -82,6 +83,7 @@ Employee e = null;
 				
 				while( rs.next() )
 				{
+			
 				Employee e = new Employee();
 				int employeeId= rs.getInt("EMP_ID");
 				e.setId(employeeId);

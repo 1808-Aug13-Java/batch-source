@@ -1,0 +1,94 @@
+
+…squid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(´¾¹Hê&RMINORZ
+CODE_SMELL
+_squid:S1199L"-Extract this nested code block into a method.(·ÿ½äûÿÿÿÿHë&RMINORZ
+CODE_SMELL
+_squid:S1199^"-Extract this nested code block into a method.(·ÿ½äûÿÿÿÿHì&RMINORZ
+CODE_SMELL
+_squid:S1199f"-Extract this nested code block into a method.(ðÁ–ÓûÿÿÿÿHí&RMINORZ
+CODE_SMELL
+_squid:S1199m"-Extract this nested code block into a method.(úÀôãùÿÿÿÿHî&RMINORZ
+CODE_SMELL
+`squid:S1199‡"-Extract this nested code block into a method.(ðÁ–ÓûÿÿÿÿHï&RMINORZ
+CODE_SMELL
+tsquid:S2095"LUse try-with-resources or close this "BufferedReader" in a "finally" clause.(Òø·•Hð&RBLOCKERZBUG
+xsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Ù¡î¹Hñ&RMAJORZ
+CODE_SMELL
+}squid:CommentedOutCodeLine#"<This block of commented-out lines of code should be removed.(œ‡‘ˆùÿÿÿÿHò&RMAJORZ
+CODE_SMELL
+wsquid:CommentedOutCodeLine("<This block of commented-out lines of code should be removed.(¤¦™Hó&RMAJORZ
+CODE_SMELL
+}squid:CommentedOutCodeLine*"<This block of commented-out lines of code should be removed.(Í…¥¾ùÿÿÿÿHô&RMAJORZ
+CODE_SMELL
+xsquid:CommentedOutCodeLine["<This block of commented-out lines of code should be removed.(óõçúHõ&RMAJORZ
+CODE_SMELL
+~squid:CommentedOutCodeLine“"<This block of commented-out lines of code should be removed.(Î±ÈŽùÿÿÿÿHö&RMAJORZ
+CODE_SMELL
+e
+squid:S106B"9Replace this use of System.out or System.err by a logger.(ÒÃ°÷H÷&RMAJORZ
+CODE_SMELL
+e
+squid:S106C"9Replace this use of System.out or System.err by a logger.(ÇªÃîHø&RMAJORZ
+CODE_SMELL
+e
+squid:S106D"9Replace this use of System.out or System.err by a logger.(è¨ùHù&RMAJORZ
+CODE_SMELL
+d
+squid:S106F"9Replace this use of System.out or System.err by a logger.(±¨Hú&RMAJORZ
+CODE_SMELL
+e
+squid:S106O"9Replace this use of System.out or System.err by a logger.(¼¬½ßHû&RMAJORZ
+CODE_SMELL
+d
+squid:S106U"9Replace this use of System.out or System.err by a logger.(¾‚ƒHü&RMAJORZ
+CODE_SMELL
+j
+squid:S106X"9Replace this use of System.out or System.err by a logger.(³–¢¢øÿÿÿÿHý&RMAJORZ
+CODE_SMELL
+d
+squid:S106Y"9Replace this use of System.out or System.err by a logger.(›ëÄHþ&RMAJORZ
+CODE_SMELL
+j
+squid:S106_"9Replace this use of System.out or System.err by a logger.(®ˆÅŸþÿÿÿÿHÿ&RMAJORZ
+CODE_SMELL
+j
+squid:S106b"9Replace this use of System.out or System.err by a logger.(ôÊŸõÿÿÿÿÿH€'RMAJORZ
+CODE_SMELL
+e
+squid:S106g"9Replace this use of System.out or System.err by a logger.(é™Ž‹H'RMAJORZ
+CODE_SMELL
+d
+squid:S106n"9Replace this use of System.out or System.err by a logger.(ãŽÑH‚'RMAJORZ
+CODE_SMELL
+j
+squid:S106s"9Replace this use of System.out or System.err by a logger.(š’”ÐÿÿÿÿÿHƒ'RMAJORZ
+CODE_SMELL
+e
+squid:S106~"9Replace this use of System.out or System.err by a logger.(«·ÙÄH„'RMAJORZ
+CODE_SMELL
+f
+squid:S106‰"9Replace this use of System.out or System.err by a logger.(¬ÿË¹H…'RMAJORZ
+CODE_SMELL
+f
+squid:S106Ž"9Replace this use of System.out or System.err by a logger.(”ó’ÖH†'RMAJORZ
+CODE_SMELL
+k
+squid:S106‘"9Replace this use of System.out or System.err by a logger.(ÒÜÌéÿÿÿÿÿH‡'RMAJORZ
+CODE_SMELL
+f
+squid:S106”"9Replace this use of System.out or System.err by a logger.(óÔµöHˆ'RMAJORZ
+CODE_SMELL
+k
+squid:S106—"9Replace this use of System.out or System.err by a logger.(“Ãü˜ýÿÿÿÿH‰'RMAJORZ
+CODE_SMELL
+e
+squid:S106›"9Replace this use of System.out or System.err by a logger.(Ú«»VHŠ'RMAJORZ
+CODE_SMELL
+k
+squid:S106¡"9Replace this use of System.out or System.err by a logger.(§¼ÒÜøÿÿÿÿH‹'RMAJORZ
+CODE_SMELL
+csquid:S11357"2Complete the task associated to this TODO comment.(ÕÌ®þÿÿÿÿHŒ'RINFOZ
+CODE_SMELL
+ˆsquid:S00120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(áµÈ«H'RMINORZ
+CODE_SMELL
+Xsquid:S11488"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿHŽ'RMINORZVULNERABILITY

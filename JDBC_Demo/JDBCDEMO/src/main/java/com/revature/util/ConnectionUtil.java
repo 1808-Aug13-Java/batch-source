@@ -22,7 +22,6 @@ public class ConnectionUtil {
 		if(connection == null || connection.isClosed()) {
 			connection=DriverManager.getConnection(url, username, info);
 		}
-		
 		return connection;
 	}
 	

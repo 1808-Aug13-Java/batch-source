@@ -1,0 +1,29 @@
+
+’squid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(óñ©Œüÿÿÿÿ8™ì¬ö×,HĞ1RMINORZ
+CODE_SMELL
+gsquid:S1199"-Extract this nested code block into a method.(úÀôãùÿÿÿÿ8«¥±è×,HÑ1RMINORZ
+CODE_SMELL
+gsquid:S1199"-Extract this nested code block into a method.(ğÁ–Óûÿÿÿÿ8ë‹úî×,HÒ1RMINORZ
+CODE_SMELL
+gsquid:S2093¯"*Change this "try" to a try-with-resources.(¡»¢üùÿÿÿÿ8™ì¬ö×,HÓ1RCRITICALZ
+CODE_SMELL
+gsquid:S1199„"-Extract this nested code block into a method.(·ÿ½äûÿÿÿÿ8ë‹úî×,HÔ1RMINORZ
+CODE_SMELL
+|squid:S2095Ô"LUse try-with-resources or close this "BufferedReader" in a "finally" clause.(Òø·•8¡®è×,HÕ1RBLOCKERZBUG
+’squid:S2293 "YReplace the type specification in this constructor call with the diamond operator ("<>").(Îå¼Œøÿÿÿÿ8™ì¬ö×,HÖ1RMINORZ
+CODE_SMELL
+bsquid:S1199”"-Extract this nested code block into a method.(ÎŞèº8«¥±è×,H×1RMINORZ
+CODE_SMELL
+gsquid:S1199Š"-Extract this nested code block into a method.(ğÁ–Óûÿÿÿÿ8ë‹úî×,HØ1RMINORZ
+CODE_SMELL
+gsquid:S1199ô"-Extract this nested code block into a method.(·ÿ½äûÿÿÿÿ8ë‹úî×,HÙ1RMINORZ
+CODE_SMELL
+nsquid:S2864¹"4Iterate over the "entrySet" instead of the "keySet".(ñí¢‚üÿÿÿÿ8‡åî×,HÚ1RMAJORZ
+CODE_SMELL
+`squid:S1481,",Remove this unused "account" local variable.(»¹ÛÜ8ü°¼ö×,HÛ1RMINORZ
+CODE_SMELL
+~
+squid:S899´"BDo something with the "boolean" value returned by "createNewFile".(Ğ’Íùÿÿÿÿ8‡åî×,HÜ1RMINORZVULNERABILITY
+nsquid:S2259Ç"@A "NullPointerException" could be thrown; "bw" is nullable here.(÷¹ª8‡åî×,Hİ1RMAJORZBUG
+hsquid:EmptyStatementUsageCheckN"Remove this empty statement.(ôŸìúÿÿÿÿ8„ö×,HŞ1RMINORZ
+CODE_SMELL

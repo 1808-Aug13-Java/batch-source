@@ -26,7 +26,7 @@ public class Account {
 		return this.username;
 	}
 
-	
+	//not a default constructor
 	public boolean logIn(String user) {
 		
 		if (user.equals(password)) {
@@ -76,10 +76,7 @@ public class Account {
 				Float b=print.balance;
 				bw.write(b.toString()+"\n");
 			}
-		
-
 		log.info("Account Info has been written");
-		
 		}
 		catch (IOException e) {
 				// TODO Auto-generated catch block
@@ -93,7 +90,7 @@ public class Account {
 				e.printStackTrace();
 			}
 			}
-	}
+	}//logOut
 
 	
 	
@@ -122,17 +119,12 @@ public class Account {
 	}
 	
 	public void viewBalance() {
-		if (loggedIn==true) {
-			log.info("Your current balance is now: $"+balance);
-			
+		if (loggedIn) {
+			log.info("Your current balance is now: $"+balance);	
 		}
 		else {
 			log.info("Must log in to perform that action.");
-		
 		}
-		
-		
-		
 	}
 	
 	

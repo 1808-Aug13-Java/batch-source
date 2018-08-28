@@ -1,42 +1,0 @@
-
-fsquid:S28648"4Iterate over the "entrySet" instead of the "keySet".(ñí¢‚üÿÿÿÿHËRMAJORZ
-CODE_SMELL
-_squid:S2093."*Change this "try" to a try-with-resources.(¡»¢üùÿÿÿÿHÌRCRITICALZ
-CODE_SMELL
-xsquid:CommentedOutCodeLine,"<This block of commented-out lines of code should be removed.(ˆ•ÑHÍRMAJORZ
-CODE_SMELL
-¦squid:S1319'"tThe type of the "accountsList" object should be an interface such as "Map" rather than the implementation "HashMap".(‡­àÇøÿÿÿÿHÎRMINORZ
-CODE_SMELL
-j
-squid:S106#"9Replace this use of System.out or System.err by a logger.(‰Û™ÅúÿÿÿÿHÏRMAJORZ
-CODE_SMELL
-e
-squid:S106A"9Replace this use of System.out or System.err by a logger.(–õþHÐRMAJORZ
-CODE_SMELL
-j
-squid:S106V"9Replace this use of System.out or System.err by a logger.(Øà·¹ÿÿÿÿÿHÑRMAJORZ
-CODE_SMELL
-j
-squid:S106^"9Replace this use of System.out or System.err by a logger.(Ýé¸ýùÿÿÿÿHÒRMAJORZ
-CODE_SMELL
-e
-squid:S106g"9Replace this use of System.out or System.err by a logger.(â¶ÓHÓRMAJORZ
-CODE_SMELL
-e
-squid:S106p"9Replace this use of System.out or System.err by a logger.(â¶ÓHÔRMAJORZ
-CODE_SMELL
-Usquid:S1125T"(Remove the literal "true" boolean value.(‚Í¡àHÕRMINORZ
-CODE_SMELL
-Zsquid:S1125c"(Remove the literal "true" boolean value.(Õ‰õ²ýÿÿÿÿHÖRMINORZ
-CODE_SMELL
-Usquid:S1125l"(Remove the literal "true" boolean value.(‚Í¡àH×RMINORZ
-CODE_SMELL
-csquid:S1135D"2Complete the task associated to this TODO comment.(ÕÌ®þÿÿÿÿHØRINFOZ
-CODE_SMELL
-csquid:S1135K"2Complete the task associated to this TODO comment.(ÕÌ®þÿÿÿÿHÙRINFOZ
-CODE_SMELL
-fsquid:S2259I"@A "NullPointerException" could be thrown; "bw" is nullable here.(÷¹ªHÚRMAJORZBUG
-Xsquid:S1148E"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿHÛRMINORZVULNERABILITY
-Xsquid:S1148L"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿHÜRMINORZVULNERABILITY
-v
-squid:S8993"BDo something with the "boolean" value returned by "createNewFile".(Ð’ÍùÿÿÿÿHÝRMINORZVULNERABILITY

@@ -1,0 +1,25 @@
+body{
+    background-color: coral;
+    background-blend-mode: darken;
+
+
+}
+
+.welcome_bar{
+border:5px;
+border-color: aqua;
+border-style: solid;
+display: flex;
+justify-content: center;
+}
+img{
+    /* text-align: center
+     */
+     flex-wrap: wrap;
+
+}
+.category{
+   display: flex;
+   justify-content: center;
+   padding-left: 10px;
+}

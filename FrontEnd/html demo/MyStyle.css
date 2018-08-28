@@ -1,0 +1,26 @@
+
+body{
+    background-color: coral;
+    
+
+}
+
+img{
+    display:block;
+    border-radius: 50%;
+}
+
+/* css comments */
+.myclass{ 
+    color: chocolate;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+}
+table,th,tr{
+
+    border: 6mm;
+    
+    border-color: black;
+}
+
+
