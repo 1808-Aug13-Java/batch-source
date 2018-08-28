@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Headers and Footers</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="styles.css" />
+  </head>
+  <body>
+    <header>
+        <nav class="nav">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="divitis.html">Divitis</a></li>
+            <li><a href="sections.html">Sections</a></li>
+            <li><a href="headers.html">Headers/Footers</a></li>
+            <li><a href="review.html">Review</a></li>
+          </ul>
+        </nav>
+    </header>
+    <article>
+      <h1>Review and Additional Resources</h1>
+      <p>
+        To re-cap: use semantic HTML elements like sections, header, footer, aside, article, 
+        etc. You will make your page more readable and your document structure hold some semantic 
+        value. 
+
+        Here is the main resource I used in writing these pages: 
+        <a href="https://internetingishard.com/html-and-css/semantic-html/">internetingishard.</a>
+      </p>
+
+      <table>
+        <thead>
+          <th>Tag Name</th>
+          <th>Sample Usage</th>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Article</td>
+            <td>Blog post</td>
+          </tr>
+          <tr>
+            <td>Section</td>
+            <td>Defining document structure</td>
+          </tr>
+          <tr>
+            <td>Nav</td>
+            <td>Navigation, duh</td>
+          </tr>
+        </tbody>
+      </table>
+    </article>
+    <section>
+      <form method="POST" action="https://cultofthepartyparrot.com/">
+        How is the color scheme? <input type="radio" name="rate" value="good">😍</input>
+        <input type="radio" name="rate" value="okay">😶</input>
+        <input type="radio" name="rate" value="disgusting">🤢</input>
+        <br>
+        <br>
+        <input class="submit" type="submit" value="Take me to the Parrots">
+      </form>
+    </section>
+  </body>
+</html>

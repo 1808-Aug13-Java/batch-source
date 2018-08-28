@@ -1,0 +1,29 @@
+body {
+  background-color: cyan;
+}
+
+#coolPic {
+  display: block;
+  box-sizing: border-box;
+  margin: 40px;
+  padding: 20px;
+  border: solid black 1px;
+}
+
+.myClass {
+  color: green;
+  font-family: 'Courier New', Courier, monospace;
+  text-align: center;
+}
+
+table, th, td {
+  border: solid black 1px;
+  border-collapse: collapse;
+}
+
+#colorTable {
+  /* margin-top: 30px; */
+  position: relative;
+  top: 20px;
+}
+

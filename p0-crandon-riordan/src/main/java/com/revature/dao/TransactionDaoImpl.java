@@ -13,10 +13,12 @@ import org.apache.log4j.Logger;
 
 import com.revature.engine.Engine;
 import com.revature.model.Transaction;
+import com.revature.model.User;
 import com.revature.util.ConnectionUtil;
 
 public class TransactionDaoImpl implements TransactionDao {
 	static final Logger logger = Logger.getLogger(Engine.class);
+	
 	public List<Transaction> getTransactionsByUserId(int id) {
 		List<Transaction> transactions = new ArrayList<>();
 		ResultSet rs = null;
@@ -31,8 +33,8 @@ public class TransactionDaoImpl implements TransactionDao {
 				float amount = rs.getFloat("amount");
 				String transactionType = rs.getString("transaction_type");
 				Date transactionDate = rs.getDate("transaction_date");
-				
-				transactions.add(new Transaction(id, transactionId, transactionType, amount, transactionDate));
+				int toUserId = rs.getInt("FROM_USER_ID");
+				transactions.add(new Transaction(id, transactionId, transactionType, amount, transactionDate, toUserId));
 			}
 		} catch (SQLException e) {
 			logger.info(e.getMessage());

@@ -1,0 +1,80 @@
+body {
+  background-color: #3c165c;
+}
+
+body {
+  color: #24abc6;
+}
+
+header {
+  text-align: center;
+  width: 100%;
+}
+.nav {
+  text-align: center;
+  height: 48px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.nav ul {
+  list-style: none;
+}
+
+.nav ul li {
+  display: inline-block;
+}
+
+.nav ul li a {
+  padding-left: 10px;
+  color: #24abc6;
+  font-size: 1.5em;
+  text-decoration: none;
+  display: inline;
+}
+
+a {
+  color: white;
+}
+
+article h1 {
+  text-align: center;
+}
+article {
+  font-size: 1.2em;
+  margin: 0 auto;
+  width: 50%;
+}
+
+table {
+  margin: 0 auto;
+  width: 50%;
+}
+
+table, th, tr, td {
+  padding: 5px;
+  border: 1px solid  #24abc6;
+  border-collapse: collapse;
+}
+
+form {
+  font-size: 1.5em;
+  padding: 50px;
+  text-align: center;
+  display: block;
+  margin: 0 auto;
+}
+
+.submit {
+  background-color:  #24abc6;
+  border: none;
+  text-shadow: none;
+  height: 48px;
+  font-weight: bold;
+}
+
+.structure {
+  padding: 10%;
+  margin: 0 auto;
+  display: block;
+}

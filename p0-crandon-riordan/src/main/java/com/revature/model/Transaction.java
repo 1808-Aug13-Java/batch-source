@@ -9,18 +9,29 @@ public class Transaction {
 	private String transactionType;
 	private float amount;
 	private Date transactionDate;
+	private int toUserId;
 	
 	public Transaction() {
 		super();
 	}
 
-	public Transaction(int userId, int transactionId, String transactionType, float amount, Date transactionDate) {
+	public Transaction(int userId, int transactionId, String transactionType, float amount, Date transactionDate,
+			int toUserId) {
 		super();
 		this.userId = userId;
 		this.transactionId = transactionId;
 		this.transactionType = transactionType;
 		this.amount = amount;
 		this.transactionDate = transactionDate;
+		this.toUserId = toUserId;
+	}
+
+	public int getToUserId() {
+		return toUserId;
+	}
+
+	public void setToUserId(int toUserId) {
+		this.toUserId = toUserId;
 	}
 
 	public int getuserId() {
