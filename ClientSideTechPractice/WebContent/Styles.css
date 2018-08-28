@@ -14,8 +14,3 @@ body {
 	border-width: 10px;
 	padding:  20px;
 }
-
-table {
-	display: flex;
-	align-items: flex-end;
-}
