@@ -37,7 +37,9 @@ iframe {
     padding: 50px 0;
 }
 .jumbotron {
-    color: #333;
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQA3s5m1qiqBYr8TA4F7LOMyBAC3opDtdDUW_mO1kOgwzLs5eJv");
+    background-repeat: no-repeat;
+    background-size: 100%;
 
 }
 .img-thumbnail {
