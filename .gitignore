@@ -86,3 +86,6 @@ Servers/
 */target/*
 */target/**
 */target/
+
+# Other info that could be private
+*.properties_

@@ -1,0 +1,32 @@
+.bodyClass{
+	background-color:rgba(192,192,192,64);
+}
+
+
+.divTop {
+	left: 20px;
+	right: 20px;
+	top: 20px;
+	height:300px;
+	background-image: url("Banner.png");
+	border: 5px ridge #000888;
+	padding:5px;
+}
+
+.inDivTop {
+	font-size: 64px;
+	color:red;
+	background-color: #ffffff8f;
+	vertical-align:center;
+	text-align: center;
+	position: center;
+	
+}
+
+
+
+.contentAddOn {
+	
+	border: 5px ridge #0008ff;
+	background-color: #0000f88f;
+} 

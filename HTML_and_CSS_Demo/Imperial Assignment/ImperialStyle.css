@@ -1,0 +1,44 @@
+
+.divTop {
+	left: 20px;
+	right: 20px;
+	top: 20px;
+	height:300px;
+	background-image: url("Banner.png");
+	border: 5px solid #0008ff;
+	padding:5px;
+}
+
+.inDivTop {
+	font-size: 64px;
+	color:red;
+	background-color: #ffffff8f;
+	vertical-align:center;
+	text-align: center;
+	position: center;
+	
+}
+
+.divLeft {
+	left: 20px;
+	width: 30%;
+
+	margin-bottom: auto;
+	border: 5px solid #0008ff;
+	padding:5px;
+	float: left;
+	
+	background-color: #8f00008f;
+}
+
+.divRight {
+	
+	width: 67%;
+
+	margin-bottom: auto;
+	border: 5px solid #0008ff;
+	padding:5px;
+	float: right;
+	
+	background-color: #0000f88f;
+} 

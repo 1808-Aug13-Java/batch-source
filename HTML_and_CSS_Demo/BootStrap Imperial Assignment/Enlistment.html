@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Enlistment Center</title>
+	<link rel="stylesheet" href="ImperialStyle.css"/>
+	    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</head>
+<body class="bodyClass">
+
+	<div class="divTop container">
+		<p class="inDivTop">Enlistment, for the protection of the Galaxy</p>
+	</div>
+	
+	<div>
+		<nav class="navbar navbar-expand-lg navbar-light container">
+			<a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+			<div class="collapse navbar-collapse">
+				<ul class="navbar-nav">
+					<li class="nav-item"><a class="nav-link" href="WantedList.html">Watchlist</a></li>
+					<li class="nav-item"><a class="nav-link" href="EmpireMission.html">Imperial Mission</a></li>
+					<li class="nav-item"><a class="nav-link" href="EmperorBio.html">Emperor Biography</a></li>
+					<li class="nav-item"><a class="nav-link" href="BenefitsList.html">Imperial Benefits</a></li>
+				</ul>
+			</div>
+		</nav>
+	</div>
+	
+
+
+	<div class="container contentAddOn">
+	
+		<form width="100%" method="post">
+		Name: <input class="form-control" type="text"/>
+		<br>
+		Homeworld:
+		<input class="form-control" list="planets"/>
+		<datalist id="planets">
+			<option value="Coruscant"/>
+			<option value="Naboo"/>
+			<option value="Serreno"/>
+			<option value="Bespin"/>
+			<option value="Lothal"/>
+			<option value="Hosnian Prime"/>
+			<option value="Mygeeto"/>
+			<option value="Cato Nemoina"/>
+			<option value="Selucami"/>
+		</datalist>
+		<br>
+		Desired Position:
+		<select class="form-control" name="position">
+			<option value="Mud-Trooper">Mud-Trooper</option>
+			<option value="Lava-Trooper">Lava-Trooper</option>
+			<option value="Snow-Trooper">Snow-Trooper</option>
+			<option value="Scout-Trooper">Scout-Trooper</option>
+			<option value="Shock-Trooper">Shock-Trooper</option>
+			<option value="Storm-Trooper">Storm-Trooper</option>
+			<option value="Imperial-Engineer">Imperial-Engineer</option>
+			<option value="Fighter-pilot">Fighter-pilot</option>
+			<option value="Bomber">Bomber</option>
+			<option value="Transport-pilot">Transport-pilot</option>
+			<option value="Tank-pilot">Tank-pilot</option>
+			
+		</select>
+		<br>
+		Secondary Desired Position:
+		<select class="form-control" name="position">
+			<option value="Mud-Trooper">Mud-Trooper</option>
+			<option value="Lava-Trooper">Lava-Trooper</option>
+			<option value="Snow-Trooper">Snow-Trooper</option>
+			<option value="Scout-Trooper">Scout-Trooper</option>
+			<option value="Shock-Trooper">Shock-Trooper</option>
+			<option value="Storm-Trooper">Storm-Trooper</option>
+			<option value="Imperial-Engineer">Imperial-Engineer</option>
+			<option value="Fighter-pilot">Fighter-pilot</option>
+			<option value="Bomber">Bomber</option>
+			<option value="Transport-pilot">Transport-pilot</option>
+			<option value="Tank-pilot">Tank-pilot</option>
+			
+		</select>
+		<br>
+		Age: <input class="form-control" type="number"/>
+		
+		
+		</form>
+	
+	</div>
+	
+	
+
+</body>
+</html>
