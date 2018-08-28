@@ -1,0 +1,166 @@
+---------------------------
+Tuesday SQL Assignment
+---------------------------
+
+
+CREATE TABLE INVOICE(
+    INVOICE_ID NUMBER(10) CONSTRAINT PK_INVOICE PRIMARY KEY,
+    INVOICE_DATE DATE,
+    CUSTOMER_ID NUMBER(10) CONSTRAINT FK_CUSTOMER_INVOICE REFERENCES CUSTOMER,
+    AMOUNT NUMBER(50, 2)
+    
+    );
+    
+CREATE TABLE CUSTOMER(
+    CUSTOMER_ID NUMBER(10) CONSTRAINT PK_CUSTOMER PRIMARY KEY,
+    CUSTOMER_NAME VARCHAR2(20),
+    PURCHASES NUMBER(20)
+);
+
+
+INSERT INTO CUSTOMER VALUES (1,'Loreen Stockings',2);
+INSERT INTO CUSTOMER VALUES (2,'Denice Shutler',10);
+INSERT INTO CUSTOMER VALUES (3,'Byrann Menci',12);
+INSERT INTO CUSTOMER VALUES (4,'Josselyn Lotze',8);
+INSERT INTO CUSTOMER VALUES (5,'Josselyn Proudmoore',8);
+INSERT INTO CUSTOMER VALUES (6,'Netti Lane',5);
+INSERT INTO CUSTOMER VALUES (7,'Winna Aykroyd',3);
+INSERT INTO CUSTOMER VALUES (8,'Morgen Pickworth',11);
+INSERT INTO CUSTOMER VALUES (9,'Morganh Goodsworth',11);
+INSERT INTO CUSTOMER VALUES (10,'Angie Crang',4);
+
+insert into Invoice values (1, DATE '2017-12-28', 1, 23);
+insert into Invoice values (2, DATE '2018-08-03', 2, 45);
+insert into Invoice values (3, DATE '2018-01-22', 1, 4);
+insert into Invoice values (4, DATE '2018-02-26', 9, 27);
+insert into Invoice values (5, DATE '2017-09-24', 6, 8);
+insert into Invoice values (6, DATE '2017-12-02', 8, 2);
+insert into Invoice values (7, DATE '2017-12-31', 4, 18);
+insert into Invoice values (8, DATE '2018-03-06', 6, 3);
+insert into Invoice values (9, DATE '2018-01-27', 6, 33);
+insert into Invoice values (10, DATE '2017-11-18', 3, 5);
+insert into Invoice values (11, DATE '2017-11-16', 6, 12);
+insert into Invoice values (12, DATE '2018-04-26', 3, 40);
+insert into Invoice values (13, DATE '2018-01-14', 8, 28);
+insert into Invoice values (14, DATE '2017-10-26', 8, 4);
+insert into Invoice values (15, DATE '2018-03-11', 8, 8);
+insert into Invoice values (16, DATE '2018-05-29', 2, 42);
+insert into Invoice values (17, DATE '2017-09-07', 2, 40);
+insert into Invoice values (18, DATE '2018-02-20', 10, 28);
+insert into Invoice values (19, DATE '2018-01-18', 5, 42);
+insert into Invoice values (20, DATE '2018-03-10', 10, 8);
+insert into Invoice values (21, DATE '2017-11-22', 2, 45);
+insert into Invoice values (22, DATE '2018-04-29', 10, 18);
+insert into Invoice values (23, DATE '2018-08-11', 6, 43);
+insert into Invoice values (24, DATE '2017-11-29', 4, 22);
+insert into Invoice values (25, DATE '2018-04-19', 7, 42);
+insert into Invoice values (26, DATE '2018-06-15', 6, 48);
+insert into Invoice values (27, DATE '2018-01-06', 1, 49);
+insert into Invoice values (28, DATE '2017-08-31', 6, 42);
+insert into Invoice values (29, DATE '2017-12-23', 8, 33);
+insert into Invoice values (30, DATE '2018-02-13', 8, 45);
+insert into Invoice values (31, DATE '2018-01-22', 3, 41);
+insert into Invoice values (32, DATE '2018-04-26', 3, 20);
+insert into Invoice values (33, DATE '2018-06-23', 10, 17);
+insert into Invoice values (34, DATE '2018-04-12', 10, 11);
+insert into Invoice values (35, DATE '2017-08-24', 3, 32);
+insert into Invoice values (36, DATE '2018-03-14', 4, 35);
+insert into Invoice values (37, DATE '2018-02-03', 2, 11);
+insert into Invoice values (38, DATE '2018-05-31', 9, 12);
+insert into Invoice values (39, DATE '2018-03-03', 4, 20);
+insert into Invoice values (40, DATE '2018-03-08', 7, 28);
+insert into Invoice values (41, DATE '2017-12-23', 9, 21);
+insert into Invoice values (42, DATE '2018-06-19', 4, 22);
+insert into Invoice values (43, DATE '2018-07-14', 1, 38);
+insert into Invoice values (44, DATE '2018-01-25', 4, 7);
+insert into Invoice values (45, DATE '2017-10-08', 3, 15);
+insert into Invoice values (46, DATE '2017-08-25', 7, 26);
+insert into Invoice values (47, DATE '2018-07-28', 3, 12);
+insert into Invoice values (48, DATE '2018-04-09', 10, 1);
+insert into Invoice values (49, DATE '2017-12-18', 2, 27);
+insert into Invoice values (50, DATE '2018-05-17', 3, 38);
+
+-- E. Create a query which shows purchases that occured today
+-- While the query does work there is not a transaction on today 2018-08-21
+SELECT *
+FROM INVOICE
+WHERE invoice_date = DATE '2018-08-21';
+
+-- F. Create a query which shows each customer and the number of purchases made by each
+SELECT CUSTOMER_ID, COUNT(INVOICE_ID)
+FROM INVOICE
+GROUP BY CUSTOMER_ID;
+
+--G. Create a query which shows each customer and the total cost of all their purchases
+SELECT CUSTOMER_ID, SUM(AMOUNT)
+FROM INVOICE
+GROUP BY CUSTOMER_ID;
+
+--H. Create a query which returns all purchases which took place in the last month, display them in descending order
+SELECT INVOICE_ID
+FROM INVOICE
+WHERE DATE '2018-07-21' <= INVOICE_DATE
+ORDER BY INVOICE_ID DESC;
+
+--I. Create a query which show the top three most expensive purchases
+
+SELECT *
+FROM (SELECT *
+FROM INVOICE
+ORDER BY AMOUNT DESC)
+WHERE ROWNUM  <= 3;
+
+------------------------
+--Wednesday Excercises
+------------------------ 
+
+--A. Create a query which returns all of the invoices which have a listed customer, but not invoices who have no customer listed and not customers who have no invoices listed
+--
+
+SELECT INVOICE_ID
+FROM INVOICE
+WHERE CUSTOMER_ID >= 1
+MINUS
+SELECT INVOICE_ID
+FROM INVOICE
+WHERE INVOICE_ID <= 0
+ORDER BY INVOICE_ID;
+
+/*
+UPDATE INVOICE
+SET INVOICE_ID = NULL
+WHERE INVOICE_ID = 10;
+*/
+
+--B. Create a query which returns all of the invoices and their customer, not invoices who have no customer listed but include customers which have no invoices listed
+SELECT *
+FROM INVOICE I
+RIGHT JOIN CUSTOMER C
+ON I.CUSTOMER_ID = C.CUSTOMER_ID;
+
+--C. Create a query which shows each record in the invoice table, along with the name of the customer
+SELECT *
+FROM INVOICE I
+LEFT JOIN CUSTOMER C
+ON I.CUSTOMER_ID = C.CUSTOMER_ID;
+
+--D. Create a query which shows the name of each customer and the total amount they have spent
+SELECT CUSTOMER_NAME, SUM (I.AMOUNT)
+FROM CUSTOMER C, INVOICE I
+WHERE C.CUSTOMER_ID = I.CUSTOMER_ID
+GROUP BY C.CUSTOMER_NAME;
+
+--E. Create a query which returns the record of the customer who made the most recent purchase.
+
+SELECT CUSTOMER_NAME, INVOICE_DATE
+FROM (SELECT * 
+FROM CUSTOMER C, INVOICE I
+ORDER BY I.INVOICE_DATE DESC)
+WHERE ROWNUM = 1;
+
+--F. Create a query which shows the purchaser of each invoice and the subtotal of each invoice if 6% sales tax was applied to the subtotal to get the price of each invoice
+SELECT CUSTOMER_NAME, INVOICE_DATE, (I.AMOUNT * 1.06)
+FROM CUSTOMER C, INVOICE I
+--ORDER BY I.AMOUNT
+WHERE C.CUSTOMER_ID = I.CUSTOMER_ID
+ORDER BY I.AMOUNT;
