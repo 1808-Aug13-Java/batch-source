@@ -2,16 +2,20 @@ package com.revature.dao;
 
 import java.io.IOException;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.log4j.Logger;
+
 import com.revature.model.Login;
 import com.revature.util.ConnectionUtil;
 
 public class LoginDaoImpl implements LoginDao{
+	private static Logger log = Logger.getRootLogger();
 
 	@Override
 	public List<Login> getLogins() {
@@ -30,15 +34,15 @@ public class LoginDaoImpl implements LoginDao{
 				l = new Login(username, password);
 				loginList.add(l);
 			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
+		} catch (SQLException|IOException e) {
+			log.error(e);
 		} finally {
 			try {
-				rs.close();
+				if (rs != null) {
+					rs.close();
+				}
 			} catch (SQLException e) {
-				e.printStackTrace();
+				log.error(e);
 			}
 		}
 		
@@ -47,32 +51,113 @@ public class LoginDaoImpl implements LoginDao{
 
 	@Override
 	public Login getLoginById(String id) {
-		// TODO Auto-generated method stub
-		return null;
+		Login l = null;
+		String sql = "SELECT * FROM LOGIN WHERE USERNAME = ?";
+		ResultSet rs = null;
+		
+		try (Connection con = ConnectionUtil.getConnection();
+				PreparedStatement ps = con.prepareStatement(sql)){
+			ps.setString(1, id);
+			rs = ps.executeQuery();
+			
+			while (rs.next()) {
+				String username = rs.getString("USERNAME");
+				String password = rs.getString("PASSWORD");
+				l = new Login(username, password);
+			}
+		
+		} catch (IOException|SQLException e) {
+			log.error(e);
+		} finally {
+			try {
+				if (rs != null) {
+					rs.close();
+				}
+			} catch (SQLException e) {
+				log.error(e);
+			}
+		}
+		return l;
 	}
 
 	@Override
 	public Login getLoginById(String id, Connection con) {
-		// TODO Auto-generated method stub
-		return null;
+		Login l = null;
+		String sql = "SELECT * FROM LOGIN WHERE USERNAME = ?";
+		ResultSet rs = null;
+		
+		try (PreparedStatement ps = con.prepareStatement(sql)){
+			ps.setString(1, id);
+			rs = ps.executeQuery();
+			
+			while (rs.next()) {
+				String username = rs.getString("USERNAME");
+				String password = rs.getString("PASSWORD");
+				l = new Login(username, password);
+			}
+		
+		} catch (SQLException e) {
+			log.error(e);
+		} finally {
+			try {
+				if (rs != null) {
+					rs.close();
+				}
+			} catch (SQLException e) {
+				log.error(e);
+			}
+		}
+		return l;
 	}
 
 	@Override
 	public int createLogin(Login login) {
-		// TODO Auto-generated method stub
-		return 0;
+		int loginsCreated = 0;
+		String sql = "INSERT INTO LOGIN (USERNAME, PASSWORD) VALUES (?, ?)";
+		
+		try (Connection con = ConnectionUtil.getConnection();
+				PreparedStatement ps = con.prepareStatement(sql)){
+			ps.setString(1, login.getUsername());
+			ps.setString(2, login.getPassword());
+			loginsCreated = ps.executeUpdate();
+		} catch (IOException | SQLException e) {
+			log.error(e);
+		}
+		return loginsCreated;
 	}
 
 	@Override
 	public int updateLogin(Login login) {
-		// TODO Auto-generated method stub
-		return 0;
+		int loginsUpdated = 0;
+		String sql = "UPDATE LOGIN "
+				+ "SET PASSWORD = ? "
+				+ "WHERE USERNAME = ?";
+		
+		try (Connection con = ConnectionUtil.getConnection();
+				PreparedStatement ps = con.prepareStatement(sql)){
+			ps.setString(1, login.getPassword());
+			ps.setString(2, login.getUsername());
+			loginsUpdated = ps.executeUpdate();
+			
+		} catch (IOException | SQLException e) {
+			log.error(e);
+		}
+		return loginsUpdated;
 	}
 
 	@Override
 	public int deleteLoginById(String id) {
-		// TODO Auto-generated method stub
-		return 0;
+		int rowsDeleted = 0;
+		String sql = "DELETE FROM LOGIN WHERE USERNAME = ?";
+		
+		try (Connection con = ConnectionUtil.getConnection();
+				PreparedStatement ps = con.prepareStatement(sql)){
+			ps.setString(1, id);
+			rowsDeleted = ps.executeUpdate();
+		} catch (IOException | SQLException e) {
+			log.error(e);
+		}
+		return rowsDeleted;
 	}
 
 }

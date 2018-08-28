@@ -53,6 +53,11 @@ public class Driver {
 //		for (Balance i : balanceList) {
 //			log.info(i);
 //		}
+		LoginDao ldi = new LoginDaoImpl();
+		Login l = new Login("user", "password");
+//		log.info(ldi.createLogin(l));
+		log.info(ldi.deleteLoginById(l.getUsername()));
+		log.info(ldi.createLogin(l));
 	}
 
 }

@@ -7,7 +7,6 @@ public class Balance {
 	private BigDecimal money;
 	public Balance() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 	public Balance(String username, BigDecimal money) {
 		super();
@@ -46,13 +45,15 @@ public class Balance {
 		if (money == null) {
 			if (other.money != null)
 				return false;
-		} else if (!money.equals(other.money))
+		} else if (!money.equals(other.money)) {
 			return false;
+		}
 		if (username == null) {
 			if (other.username != null)
 				return false;
-		} else if (!username.equals(other.username))
+		} else if (!username.equals(other.username)) {
 			return false;
+		}
 		return true;
 	}
 	@Override

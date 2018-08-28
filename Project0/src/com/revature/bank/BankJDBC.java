@@ -69,7 +69,7 @@ public class BankJDBC {
 						+ "2. Create New Account\n"
 						+ "3. Exit");
 		String input = sc.nextLine();
-		if ( (!(input.length() == 1)) || (!Character.isDigit(input.charAt(0))) || (Integer.valueOf(input) > 3)) {
+		if ( (input.length() != 1) || (!Character.isDigit(input.charAt(0))) || (Integer.valueOf(input) > 3)) {
 			log.info("Error: Please enter a valid option");
 			return menu();
 		}
@@ -83,7 +83,7 @@ public class BankJDBC {
 		log.info("Please enter your Username and Password");
 		// Get username
 		while (invalid) {
-			System.out.print("Username: ");
+			log.info("Username: ");
 			user = sc.nextLine();
 			// no whitespace allowed or empty username
 			if (!user.contains(" ") || user.isEmpty()) {
@@ -96,7 +96,7 @@ public class BankJDBC {
 
 		// Get password
 		while (invalid) {
-			System.out.print("Password: ");
+			log.info("Password: ");
 			pass = sc.nextLine();
 			// no whitespace in password or empty field
 			if (!pass.contains(" ") || pass.isEmpty()) {
@@ -129,7 +129,7 @@ public class BankJDBC {
 		// Get username
 		while (invalid) {
 			log.info("\nPlease enter desired username");
-			System.out.print("Username: ");
+			log.info("Username: ");
 			newUser = sc.nextLine();
 			// Do not allow whitespace in username or empty field
 			if (!newUser.contains(" ") || newUser.isEmpty()) {
@@ -148,7 +148,7 @@ public class BankJDBC {
 		// Get password
 		while(invalid) {
 			log.info("Please enter desired password");
-			System.out.print("Password: ");
+			log.info("Password: ");
 			pass = sc.nextLine();
 			//Do not allow whitespace in password or empty field
 			if (!pass.contains(" ") || pass.isEmpty()) {
@@ -158,54 +158,11 @@ public class BankJDBC {
 			}
 		}
 		
-		// Add account to accounts, balances, login file, and balances file
+		// Add account to accounts, balances, and SQL DB
 		accounts.put(newUser, pass);
-		balances.put(newUser, 0);
+		balancesBig.put(newUser, new BigDecimal(0));
 		String combined = "\n" + newUser + " " + pass; 
 		String newBalance = "\n" + newUser + " 0";
-		
-		bw = null;
-		
-		try {
-			// Write to login.txt
-			File file = new File(pathLogin);
-			
-			// Checking to see if file exists. Create file if not.
-			if(!file.exists()) {
-				file.createNewFile();
-			}
-			
-			// our FileWriter has an optional argument which specifies if it's appending
-			FileWriter fw = new FileWriter(file, true);
-			bw = new BufferedWriter(fw);
-			bw.write(combined);
-			
-			
-			// Write to balances.txt
-			file = new File(pathBalances);
-			
-			// Checking to see if file exists. Create file if not.
-			if(!file.exists()) {
-				file.createNewFile();
-			}
-			
-			// our FileWriter has an optional argument which specifies if it's appending
-			fw = new FileWriter(file, true);
-			bw = new BufferedWriter(fw);
-			bw.write(newBalance);
-			
-		} catch (IOException e) {
-			e.printStackTrace();
-		} finally {
-			try {
-				if (bw != null) {
-					bw.close();
-				}
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
-		log.info(newUser + " " + accounts.get(newUser));
 
 		log.info("Account Created!");
 	}
@@ -221,7 +178,7 @@ public class BankJDBC {
 					+ "4. Log Out");
 			String input = sc.nextLine();
 			// Check if input is valid.
-			if ( (!(input.length() == 1)) || (!Character.isDigit(input.charAt(0))) || (Integer.valueOf(input) > 4) ) {
+			if ( (input.length() != 1) || (!Character.isDigit(input.charAt(0))) || (Integer.valueOf(input) > 4) ) {
 				log.info("Error: Please enter a valid option");
 				loggedInMenu();
 				return;
@@ -266,7 +223,6 @@ public class BankJDBC {
 		// Deposit money
 		balances.replace(user, balances.get(user) + deposit);
 		log.info("$" + deposit + " has been deposited");
-		return;
 	}
 	
 	private void withdraw() {
@@ -300,12 +256,10 @@ public class BankJDBC {
 		// Update balances
 		balances.replace(user, difference);
 		log.info("You have withdrawn " + difference);
-		return;
 	}
 	
 	public void balance() {
 		log.info("Current balance for " + user + " is " + balances.get(user));
-		return;
 	}
 	
 	public void exit() {
