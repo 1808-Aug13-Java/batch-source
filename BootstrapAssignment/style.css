@@ -56,5 +56,8 @@ a.nav-link:hover {
 
 .slide img {
     min-height: 500px;
+    width: 100%;
 }
+
+
 
