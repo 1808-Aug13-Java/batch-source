@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+  <body>
+    <form>
+        <p>why do <em>you</em> hate the last jedi?</p><br>
+      <select id="poll">
+        <option value = "a">it disrespected the star wars legacy</option>
+        <option value = "b">we didn't get an epic luke vs kylo showdown</option>
+        <option value = "c">they're killing off the main characters</option>
+        <option value = "d">i liked it</option>
+      </select> 
+      <input type="submit"/>
+    </form>    
+  <script>
+    var poll = document.getElementById("poll");
+    poll.addEventListener("change", function() {
+      if(poll.value === poll.options[3].value) 
+      {
+        alert("wrong answer");
+        poll.selectedIndex = 0;
+      }
+    });
+  </script>
+  </body>
+</html>

@@ -1,0 +1,36 @@
+body {
+  background-color: black;
+  margin-top:55px;
+}
+div, #qestions{
+  font-weight: 300;
+  font-size: 1.5em;
+  color: yellow;
+  width: 55%;
+  margin: 0 auto;
+  font-family: sans-serif;
+}
+#crawlfixed, #qestions {
+  width: 75%;
+  margin: 0 auto;
+}
+#heyo {
+  margin-left: 200px;
+}
+a {
+  text-decoration: none;
+  color: yellow;
+  font-style: bold;
+}
+#crawlfixed:hover {
+  color: blue;
+}
+
+#ihatesand {
+  text-decoration: underline;
+  color: cyan;
+}
+h1, #qestions {
+  color: yellow;
+}
+
