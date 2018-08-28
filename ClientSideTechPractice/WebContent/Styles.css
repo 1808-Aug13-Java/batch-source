@@ -1,5 +1,5 @@
-#home {
-	background-color: black;
+body {
+	background-color: #f9d5eb;
 }
 
 .content {
@@ -13,4 +13,9 @@
 	border-color: darkslategrey;
 	border-width: 10px;
 	padding:  20px;
+}
+
+table {
+	display: flex;
+	align-items: flex-end;
 }
