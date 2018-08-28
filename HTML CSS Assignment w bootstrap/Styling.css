@@ -1,0 +1,17 @@
+body {
+    background-color: cyan;
+    }
+
+
+
+  table, th, td {
+    border: 1px solid darkslategray;
+    border-collapse: collapse;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    /* width: 0%; */
+}
