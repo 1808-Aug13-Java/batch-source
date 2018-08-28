@@ -1,0 +1,40 @@
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 200px;
+    background-color: #f1f1f1;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+}
+
+li a {
+    display: block;
+    color: DarkSlateGrey;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
+li a.active {
+    background-color: DarkGrey;
+    color: white;
+}
+
+li a:hover:not(.active) {
+    background-color: DimGrey;
+    color: white;
+}
+
+body{
+background-color: lightblue;
+margin:0;
+}
+
+div{
+	margin-left: 200px;
+}
+
+h1{
+	margin-left: 25px;
+}

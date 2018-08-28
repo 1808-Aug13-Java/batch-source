@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Form</title>
+<link rel="styleSheet" href="StyleSheet.css" />
+</head>
+
+<body>
+    <ul>
+	<li><a href="home.html">Home</a></li>
+	<li><a href="puppies.html">Puppies!</a></li>
+	<li><a href="kittens.html">Kittens!</a></li>
+	<li><a href="spiders.html">Spiders!</a></li>
+	<li><a href="about.html">About</a></li>
+	<li><a class="active" href="#form">Form</a></li>
+    </ul>
+<div>
+    <form method="post" action="submit.html">
+	Did you like the animals? <input type="text" />
+	<br>
+	<br>
+	You're not a heathen who just hates all animals, are you? 
+	<input type="radio" name="hatesAnimals" value="yes">I am a heathen!</input>
+	<input type="radio" name="hatesAnimals" value="no" checked>Of course not! I love animals!</input>
+	<br>
+	Which one was your favorite?
+	<br>
+	<input list="favorite"/>
+	<datalist id="favorite">
+		<option value="The spider!">I was a fan of the spider</option>
+		<option value="The spider!">I adored the spider's curiosity!</option>
+		<option value="The spider!">The spider. 11/10 would pet lovingly.</option>
+	</datalist>
+    <input type="submit"></input>
+    </form>
+</div>
+</body>
+</html>

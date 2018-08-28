@@ -1,0 +1,7 @@
+HTML/CSS Assignment
+Create a static website of your choice (work appropriate)
+The website should include:
+At least 5 pages with simple navigability between them
+A form with a variety of input types
+One or more image, one or more table
+External style sheets (get creative, make it pretty)
