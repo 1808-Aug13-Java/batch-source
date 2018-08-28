@@ -1,0 +1,16 @@
+body {
+	background-color: #f9d5eb;
+}
+
+.content {
+    	max-width: 500px;
+    	margin: auto;
+}
+
+#SQLLogo {
+	margin: 20px;
+	border-style: solid;
+	border-color: darkslategrey;
+	border-width: 10px;
+	padding:  20px;
+}
