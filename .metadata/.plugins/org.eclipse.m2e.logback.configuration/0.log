@@ -1,0 +1,80 @@
+2018-08-15 15:22:53,328 [Worker-18: Importing Maven projects] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.revature.eval.java:core:1.0 @ C:\Users\Alexander\batch-source\core-java-AHuertaCS-master\core-java-AHuertaCS-master\pom.xml.
+2018-08-15 15:22:54,110 [Worker-18: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /core/src/main/java
+2018-08-15 15:22:54,112 [Worker-18: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /core/src/test/java
+2018-08-15 15:22:54,268 [Worker-18: Importing Maven projects] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Imported and configured 1 project(s) in 3 sec
+2018-08-15 15:22:56,450 [Worker-1: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-08-15 15:22:56,450 [Worker-1: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Alexander\batch-source\core-java-AHuertaCS-master\core-java-AHuertaCS-master\src\main\resources
+2018-08-15 15:22:56,453 [Worker-1: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-08-15 15:22:56,454 [Worker-1: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Alexander\batch-source\core-java-AHuertaCS-master\core-java-AHuertaCS-master\src\test\resources
+2018-08-15 16:02:05,463 [Worker-11: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-08-15 16:02:05,479 [Worker-11: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Alexander\batch-source\core-java-AHuertaCS-master\core-java-AHuertaCS-master\src\main\resources
+2018-08-15 16:02:05,479 [Worker-11: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-08-15 16:02:05,479 [Worker-11: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Alexander\batch-source\core-java-AHuertaCS-master\core-java-AHuertaCS-master\src\test\resources
+2018-08-15 16:29:14,010 [Worker-22: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-08-15 16:29:14,010 [Worker-22: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Alexander\batch-source\core-java-AHuertaCS-master\core-java-AHuertaCS-master\src\main\resources
+2018-08-15 16:29:14,014 [Worker-22: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-08-15 16:29:14,014 [Worker-22: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Alexander\batch-source\core-java-AHuertaCS-master\core-java-AHuertaCS-master\src\test\resources
+2018-08-15 16:32:07,075 [Worker-20: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-08-15 16:32:07,075 [Worker-20: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Alexander\batch-source\core-java-AHuertaCS-master\core-java-AHuertaCS-master\src\main\resources
+2018-08-15 16:32:07,079 [Worker-20: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-08-15 16:32:07,079 [Worker-20: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Alexander\batch-source\core-java-AHuertaCS-master\core-java-AHuertaCS-master\src\test\resources
+2018-08-15 16:32:35,661 [Worker-0: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-08-15 16:32:35,661 [Worker-0: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Alexander\batch-source\core-java-AHuertaCS-master\core-java-AHuertaCS-master\src\main\resources
+2018-08-15 16:32:35,665 [Worker-0: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-08-15 16:32:35,665 [Worker-0: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Alexander\batch-source\core-java-AHuertaCS-master\core-java-AHuertaCS-master\src\test\resources
+2018-08-15 16:39:20,835 [Worker-26: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-08-15 16:39:20,835 [Worker-26: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Alexander\batch-source\core-java-AHuertaCS-master\core-java-AHuertaCS-master\src\main\resources
+2018-08-15 16:39:20,835 [Worker-26: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-08-15 16:39:20,835 [Worker-26: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Alexander\batch-source\core-java-AHuertaCS-master\core-java-AHuertaCS-master\src\test\resources
+2018-08-15 20:14:55,180 [Worker-1: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-08-15 20:14:55,185 [Worker-1: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Alexander\batch-source\core-java-AHuertaCS-master\core-java-AHuertaCS-master\src\main\resources
+2018-08-15 20:14:55,188 [Worker-1: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-08-15 20:14:55,189 [Worker-1: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Alexander\batch-source\core-java-AHuertaCS-master\core-java-AHuertaCS-master\src\test\resources
+2018-08-15 21:05:42,818 [Worker-27: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-08-15 21:05:42,819 [Worker-27: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Alexander\batch-source\core-java-AHuertaCS-master\core-java-AHuertaCS-master\src\main\resources
+2018-08-15 21:05:42,821 [Worker-27: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-08-15 21:05:42,822 [Worker-27: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Alexander\batch-source\core-java-AHuertaCS-master\core-java-AHuertaCS-master\src\test\resources
+2018-08-15 22:11:27,650 [Worker-40: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-08-15 22:11:27,651 [Worker-40: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Alexander\batch-source\core-java-AHuertaCS-master\core-java-AHuertaCS-master\src\main\resources
+2018-08-15 22:11:27,653 [Worker-40: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-08-15 22:11:27,653 [Worker-40: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Alexander\batch-source\core-java-AHuertaCS-master\core-java-AHuertaCS-master\src\test\resources
+2018-08-16 09:47:34,498 [Worker-8: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-08-16 09:47:34,503 [Worker-8: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Alexander\batch-source\core-java-AHuertaCS-master\core-java-AHuertaCS-master\src\main\resources
+2018-08-16 09:47:34,505 [Worker-8: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-08-16 09:47:34,506 [Worker-8: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Alexander\batch-source\core-java-AHuertaCS-master\core-java-AHuertaCS-master\src\test\resources
+2018-08-16 18:14:49,273 [Worker-13: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-08-16 18:14:49,287 [Worker-13: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Alexander\batch-source\core-java-AHuertaCS-master\core-java-AHuertaCS-master\src\main\resources
+2018-08-16 18:14:49,289 [Worker-13: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-08-16 18:14:49,289 [Worker-13: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Alexander\batch-source\core-java-AHuertaCS-master\core-java-AHuertaCS-master\src\test\resources
+2018-08-20 10:14:39,343 [Worker-16: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-08-20 10:14:39,359 [Worker-16: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Alexander\batch-source\core-java-AHuertaCS-master\core-java-AHuertaCS-master\src\main\resources
+2018-08-20 10:14:39,365 [Worker-16: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-08-20 10:14:39,366 [Worker-16: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Alexander\batch-source\core-java-AHuertaCS-master\core-java-AHuertaCS-master\src\test\resources
+2018-08-20 10:26:04,765 [Worker-8: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-08-20 10:26:04,771 [Worker-8: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Alexander\batch-source\core-java-AHuertaCS-master\core-java-AHuertaCS-master\src\main\resources
+2018-08-20 10:26:04,773 [Worker-8: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-08-20 10:26:04,773 [Worker-8: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Alexander\batch-source\core-java-AHuertaCS-master\core-java-AHuertaCS-master\src\test\resources
+2018-08-20 11:16:21,739 [Worker-1: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-08-20 11:16:21,743 [Worker-1: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Alexander\batch-source\core-java-AHuertaCS-master\core-java-AHuertaCS-master\src\main\resources
+2018-08-20 11:16:21,747 [Worker-1: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-08-20 11:16:21,747 [Worker-1: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Alexander\batch-source\core-java-AHuertaCS-master\core-java-AHuertaCS-master\src\test\resources
+2018-08-20 15:05:04,534 [Worker-43: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-08-20 15:05:04,535 [Worker-43: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Alexander\batch-source\core-java-AHuertaCS-master\core-java-AHuertaCS-master\src\main\resources
+2018-08-20 15:05:04,537 [Worker-43: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-08-20 15:05:04,538 [Worker-43: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Alexander\batch-source\core-java-AHuertaCS-master\core-java-AHuertaCS-master\src\test\resources
+2018-08-20 15:23:36,723 [Worker-48: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-08-20 15:23:36,723 [Worker-48: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Alexander\batch-source\core-java-AHuertaCS-master\core-java-AHuertaCS-master\src\main\resources
+2018-08-20 15:23:36,726 [Worker-48: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-08-20 15:23:36,726 [Worker-48: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Alexander\batch-source\core-java-AHuertaCS-master\core-java-AHuertaCS-master\src\test\resources
+2018-08-20 15:53:11,214 [Worker-61: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-08-20 15:53:11,214 [Worker-61: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Alexander\batch-source\core-java-AHuertaCS-master\core-java-AHuertaCS-master\src\main\resources
+2018-08-20 15:53:11,218 [Worker-61: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-08-20 15:53:11,218 [Worker-61: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Alexander\batch-source\core-java-AHuertaCS-master\core-java-AHuertaCS-master\src\test\resources
+2018-08-20 15:53:58,081 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-08-20 15:53:58,085 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Alexander\batch-source\core-java-AHuertaCS-master\core-java-AHuertaCS-master\src\main\resources
+2018-08-20 15:53:58,087 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-08-20 15:53:58,088 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Alexander\batch-source\core-java-AHuertaCS-master\core-java-AHuertaCS-master\src\test\resources
+2018-08-24 16:29:25,766 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-08-24 16:29:25,773 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Alexander\batch-source\core-java-AHuertaCS-master\core-java-AHuertaCS-master\src\main\resources
+2018-08-24 16:29:25,776 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-08-24 16:29:25,776 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Alexander\batch-source\core-java-AHuertaCS-master\core-java-AHuertaCS-master\src\test\resources
