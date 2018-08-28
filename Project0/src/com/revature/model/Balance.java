@@ -1,16 +1,18 @@
 package com.revature.model;
 
+import java.math.BigDecimal;
+
 public class Balance {
 	private String username;
-	private double balance;
+	private BigDecimal money;
 	public Balance() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Balance(String username, double balance) {
+	public Balance(String username, BigDecimal money) {
 		super();
 		this.username = username;
-		this.balance = balance;
+		this.money = money;
 	}
 	public String getUsername() {
 		return username;
@@ -18,19 +20,17 @@ public class Balance {
 	public void setUsername(String username) {
 		this.username = username;
 	}
-	public double getBalance() {
-		return balance;
+	public BigDecimal getMoney() {
+		return money;
 	}
-	public void setBalance(double balance) {
-		this.balance = balance;
+	public void setMoney(BigDecimal money) {
+		this.money = money;
 	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		long temp;
-		temp = Double.doubleToLongBits(balance);
-		result = prime * result + (int) (temp ^ (temp >>> 32));
+		result = prime * result + ((money == null) ? 0 : money.hashCode());
 		result = prime * result + ((username == null) ? 0 : username.hashCode());
 		return result;
 	}
@@ -43,7 +43,10 @@ public class Balance {
 		if (getClass() != obj.getClass())
 			return false;
 		Balance other = (Balance) obj;
-		if (Double.doubleToLongBits(balance) != Double.doubleToLongBits(other.balance))
+		if (money == null) {
+			if (other.money != null)
+				return false;
+		} else if (!money.equals(other.money))
 			return false;
 		if (username == null) {
 			if (other.username != null)
@@ -54,7 +57,7 @@ public class Balance {
 	}
 	@Override
 	public String toString() {
-		return "Balance [username=" + username + ", balance=" + balance + "]";
+		return "Balance [username=" + username + ", money=" + money + "]";
 	}
 	
 }
