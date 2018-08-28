@@ -318,25 +318,15 @@ public class EvaluationService {
 
 	public int indexOf(T t) {
 			// TODO Write an implementation for this method declaration
-		/*\	int left = 0;
-			int right = sortedList.size();
-			
-			while (left <= right) {
-				int middle = (left + right)/2;
-				String desired;
-				int comparison = desired.compareTo(sortedList[middle]);
+		
+		
+		
+		
 				
-				if (comparison == 0) {
-					return middle;
-				}
-				else if (comparison < 0) {
-					right = middle - 1;
-				}
-				else {
-					left = middle + 1;
-				}
-		*/	
-			return -1;
+		
+		
+		
+		return -1;
 		}
 
 		public BinarySearch(List<T> sortedList) {
@@ -461,10 +451,13 @@ public class EvaluationService {
 		// TODO Write an implementation for this method declaration
 		
 		List<Long> factors = new ArrayList<Long>();
-		int num	 = (int) l;
 		
 		
-	    for (int i = 2; i <=num; i++) {					//processing list for prime numbers
+		
+		long num = l;
+		
+		
+	    for (int i = 3; i <=num; i = +2) {					//processing list for prime numbers
 	        while (l % i == 0) {
 	            factors.add((long)i);
 	            l /= i;
@@ -703,6 +696,9 @@ public class EvaluationService {
 	 */
 	public boolean isPangram(String string) {
 		// TODO Write an implementation for this method declaration
+		
+		
+		
 		return false;
 	}
 
@@ -824,6 +820,9 @@ public class EvaluationService {
 	 */
 	public int solveWordProblem(String string) {
 		// TODO Write an implementation for this method declaration
+		
+		
+		
 		return 0;
 	}
 
