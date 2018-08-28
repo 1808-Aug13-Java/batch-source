@@ -35,18 +35,15 @@ public class TransactionDaoImpl implements TransactionDao {
 				transactions.add(new Transaction(id, transactionId, transactionType, amount, transactionDate));
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			logger.info(e.getMessage());
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			logger.info(e.getMessage());
 		} finally {
 			if(rs != null) {
 				try {
 					rs.close();
 				} catch (SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
+					logger.info(e.getMessage());
 				}
 			}
 		}

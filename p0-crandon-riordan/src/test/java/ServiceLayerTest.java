@@ -93,8 +93,17 @@ public class ServiceLayerTest {
 		assertTrue(Validator.isCorrectScale(10.00f));
 	}
 	
+	@Test
 	public void properlyFormatted() {
 		assertEquals("10.00", Validator.formatDecimals(10f));
+	}
+	@Test
+	public void properlyFormatted2() {
+		assertEquals("10.33", Validator.formatDecimals(10.33f));
+	}
+	@Test
+	public void properlyFormatted3() {
+		assertEquals("100.33", Validator.formatDecimals(100.33f));
 	}
 	
 	

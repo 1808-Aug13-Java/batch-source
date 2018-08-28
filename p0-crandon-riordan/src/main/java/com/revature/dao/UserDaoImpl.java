@@ -15,9 +15,9 @@ import com.revature.util.ConnectionUtil;
 public class UserDaoImpl implements UserDao {
 	
 	static final Logger logger = Logger.getLogger(Engine.class);
+	
 	@Override
 	public User getUserById(int id) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 	
@@ -35,18 +35,18 @@ public class UserDaoImpl implements UserDao {
 				hasBank = true;
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			
+			logger.info(e.getMessage());
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			
+			logger.info(e.getMessage());
 		} finally {
 			if(rs != null) {
 				try {
 					rs.close();
 				} catch (SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
+					
+					logger.info(e.getMessage());
 				}
 			}
 		}
@@ -70,17 +70,17 @@ public class UserDaoImpl implements UserDao {
 			
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			
+			logger.info(e.getMessage());
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			
+			logger.info(e.getMessage());
 		} finally {
 			if(rs != null) {
 				try {
 					rs.close();
 				} catch (SQLException e) {
-					e.printStackTrace();
+					logger.info(e.getMessage());
 				}
 			}
 		}
@@ -91,7 +91,6 @@ public class UserDaoImpl implements UserDao {
 	@Override
 	public User getUserByName(String name) {
 		ResultSet rs = null;
-		ResultSet generatedKeys = null;
 		User user = null;
 		String sql = "SELECT * FROM USERS WHERE USERNAME = ?";
 		
@@ -114,17 +113,17 @@ public class UserDaoImpl implements UserDao {
 			
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			
+			logger.info(e.getMessage());
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			
+			logger.info(e.getMessage());
 		} finally {
 			if(rs != null) {
 				try {
 					rs.close();
 				} catch (SQLException e) {
-					e.printStackTrace();
+					logger.info(e.getMessage());
 				}
 			}
 		}
@@ -144,11 +143,11 @@ public class UserDaoImpl implements UserDao {
 			ps.setString(3, user.getUserPassword());
 			createdUsers = ps.executeUpdate();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			
+			logger.info(e.getMessage());
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			
+			logger.info(e.getMessage());
 		}
 		
 		if(createdUsers > 0) {
@@ -164,13 +163,11 @@ public class UserDaoImpl implements UserDao {
 
 	@Override
 	public int updateUser(User user) {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
 	public int hideUserById(User user) {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
@@ -189,16 +186,16 @@ public class UserDaoImpl implements UserDao {
 				isUnique = true;
 			}
 		} catch (SQLException e) {
-			e.printStackTrace();
+			logger.info(e.getMessage());
 		} catch (IOException e) {
-			e.printStackTrace();
+			logger.info(e.getMessage());
 		} finally {
 			if(rs != null) {
 				try {
 					rs.close();
 				} catch (SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
+					logger.info(e.getMessage());
+					
 				}
 			}
 		}
@@ -222,15 +219,15 @@ public class UserDaoImpl implements UserDao {
 				isUnique = true;
 			}
 		} catch (SQLException e) {
-			e.printStackTrace();
+			logger.info(e.getMessage());
 		} catch (IOException e) {
-			e.printStackTrace();
+			logger.info(e.getMessage());
 		} finally {
 			if(rs != null) {
 				try {
 					rs.close();
 				} catch (SQLException e) {
-					e.printStackTrace();
+					logger.info(e.getMessage());
 				}
 			}
 		}

@@ -1,6 +1,5 @@
 package com.revature.validation;
 
-import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.util.Scanner;
 import java.util.regex.Matcher;
@@ -12,15 +11,11 @@ public class Validator {
 	private static Scanner sc = new Scanner(System.in);
 	private static Logger logger = Logger.getLogger(Validator.class);
 	
-//	ENSURE PROPER
-//	EMAIL FORMAT
-	
 	public static String getAnEmail() {
 		
 		logger.info("Enter an email:");
 		String email = sc.nextLine();
 		
-		// get a valid email
 		while(!validEmail(email)) {
 			logger.info("Enter a properly formatted email address");
 			email = sc.nextLine();
