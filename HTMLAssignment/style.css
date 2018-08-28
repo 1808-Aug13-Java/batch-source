@@ -18,6 +18,9 @@ a {
     text-decoration: none;
 }
 
+a:hover {
+}
+
 section {
     position: relative;
     display: inline;

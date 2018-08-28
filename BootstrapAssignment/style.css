@@ -1,0 +1,47 @@
+body {
+    font-family: 'Oswald', sans-serif;
+    background-image: linear-gradient(white,gray);
+    min-height: 1000px;
+}
+
+p {
+    word-wrap: normal;
+}
+
+section {
+    position: relative;
+    display: inline;
+    float: left;
+    width: 70%;
+}
+
+aside {
+    position: absolute;
+    display: inline;
+    right: 200px;
+    max-height: 200px;
+    max-width: 200px;
+}
+
+img {
+    position: relative;
+    height: 100px;
+    width: 300px;
+    float: right;
+}
+
+iframe {
+    height: 330px;
+    width: 400px;
+    display: inline;
+    padding: 50px 0;
+}
+.jumbotron {
+    color: #333;
+
+}
+.img-thumbnail {
+    max-height: 200px;
+    min-width: 600px;
+}
+
