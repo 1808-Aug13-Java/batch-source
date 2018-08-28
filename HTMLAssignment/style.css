@@ -1,0 +1,55 @@
+body {
+    font-family: 'Oswald', sans-serif;
+    margin: 0 200px;
+    background-image: linear-gradient(white,gray);
+    height: 900px;
+    overflow: hidden;
+}
+.container {
+
+}
+header {
+    background-image: linear-gradient(lightblue,gray );
+    height: 100px;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+section {
+    position: relative;
+    display: inline;
+    float: left;
+    width: 70%;
+}
+
+aside {
+    position: absolute;
+    display: inline;
+    right: 200px;
+    max-height: 200px;
+    max-width: 200px;
+}
+
+img {
+    height: 200px;
+    width: 200px;
+}
+
+iframe {
+    height: 250px;
+    width: 400px;
+    display: inline;
+    padding: 50px 0;
+}
+
+.navLink {
+    position: relative;
+    float: left;
+    padding: 40px 20px;
+    text-align: center;
+    text-decoration: none;
+}
+
