@@ -74,6 +74,12 @@ public class BankServerDriver {
             }
         } // while
         
+        // Attempt to close the server
+        try {
+        	serverSocket.close();
+        } catch (IOException e) {
+        	// There is nothing we can do if this fails. 
+        }
         
     } // main
     
