@@ -54,3 +54,7 @@ a.nav-link:hover {
     transform: scale(1.03);
 }
 
+.slide img {
+    min-height: 500px;
+}
+
