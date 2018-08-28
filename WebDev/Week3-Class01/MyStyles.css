@@ -1,0 +1,36 @@
+body {
+	background-color: lime;
+}
+
+/* Displays the image in its own block.
+	Overrides the 'hidden' attribute */
+img {
+	display: block;
+}
+
+.myClass {
+	color: green;
+	font-family: 'Courier New', Courier, monospace;
+}
+
+#coolPic {
+	margin: 30px;
+	border-style: solid;
+	border-color: yellow;
+	border-width: 5px;
+	padding: 30px;
+}
+
+table, th, td {
+	border: 1px solid gold;
+	/* Moves multiple borders together into single, connected lines.  */
+	border-collapse: collapse;
+}
+
+
+#colorTable {
+	margin-top: 30px;
+}
+
+
+
