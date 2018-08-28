@@ -102,7 +102,7 @@ public class BankServerBridge implements DataInterface {
 			// Set the account id 
 			clientDao.createClient(client, DBConnectionUtil.getConnection());
 			accountDao.createAccount(account, DBConnectionUtil.getConnection());
-			return ctaDao.createCLtoAC(client, account) == 1;
+			return ctaDao.createCLtoAC(client, account, DBConnectionUtil.getConnection()) == 1;
 		} catch (SQLException | IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -189,7 +189,13 @@ public class BankServerBridge implements DataInterface {
 	private Account getAccount(Client client) {
 		ClientToAccountDao ctaDao = new ClientToAccountDaoImpl();
 		
-		List<Account> accounts = ctaDao.getAccountsByClient(client);
+		List<Account> accounts = null;
+		try {
+			accounts = ctaDao.getAccountsByClient(client, DBConnectionUtil.getConnection());
+		} catch (SQLException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		// If we have no accounts for this client, return null.
 		if (accounts.isEmpty()) {

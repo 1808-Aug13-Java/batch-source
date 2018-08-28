@@ -50,11 +50,12 @@ public class ClientDaoImpl implements ClientDao {
 														throws SQLException 
 	{
 		Client c = null;
-		String sql = "SELECT * FROM CLIENTS WHERE " + column + " = ?";
+		final String sql = "SELECT * FROM CLIENTS WHERE " + column + " = ?";
 		
 		// A result set for iterating through the results
 		ResultSet rs = null;
 		
+		// Attempt to create a statement and execute it. 
 		try (PreparedStatement ps = con.prepareStatement(sql)){
 			// Bind the variable to the query
 			ps.setString(1, value);
@@ -87,11 +88,12 @@ public class ClientDaoImpl implements ClientDao {
 	public List<Client> getClients(Connection con) throws SQLException {
 		List<Client> clientList = new ArrayList<>();
 		Client c = null;
-		String sql = "SELECT * FROM CLIENTS";
+		final String sql = "SELECT * FROM CLIENTS";
 		
 		// A result set for iterating through the results
 		ResultSet rs = null;
 		
+		// Attempt to create a statement and execute it. 
 		try (Statement st = con.createStatement()){
 			// Keep in mind, this needs to be closed 
 			rs = st.executeQuery(sql);
@@ -117,7 +119,7 @@ public class ClientDaoImpl implements ClientDao {
 	public long createClient(Client client, Connection con) 
 													throws SQLException
 	{
-		String sql = "INSERT INTO CLIENTS (email, username, passPhrase)"
+		final String sql = "INSERT INTO CLIENTS (email, username, passPhrase)"
 				+ " VALUES (?, ?, ?)";
 		// Used to hold the key from the generated object
 		long key = -1;
@@ -130,7 +132,7 @@ public class ClientDaoImpl implements ClientDao {
 		// statement. 
 		String[] keyName = {"clientID"};
 		
-		
+		// Attempt to create a statement and execute it. 
 		try (PreparedStatement ps = con.prepareStatement(sql, keyName)) {
 			// Bind the variables to the statement
 //			ps.setLong(1, client.getClientId());
@@ -158,63 +160,45 @@ public class ClientDaoImpl implements ClientDao {
 	}
 
 	@Override
-	public int updateClient(Client client, Connection con) {
-		// TODO: Finish updating this function. 
-		String sql = "UPDATE CLIENTS SET email=?, username=?, passPhrase=? "
+	public int updateClient(Client client, Connection con) throws SQLException {
+		final String sql = "UPDATE CLIENTS SET email=?, username=?, passPhrase=? "
 				+ "WHERE clientId = " + client.getClientId();
-		return modifyClient(client, sql);
+		
+		//The number of affected rows by this insertion. 
+		int rowsAffected = 0;
+		
+		// Attempt to create a statement and execute it. 
+		try (PreparedStatement ps = con.prepareStatement(sql)){
+			// Bind the variables to the statement
+			ps.setString(1, client.getEmail());
+			ps.setString(2, client.getUsername());
+			ps.setString(3, client.getPassPhrase());
+			
+			rowsAffected = ps.executeUpdate();
+			
+		} finally {
+			// Do nothing. This is just here to allow auto closing of the 
+			// prepared statement. 
+		}
+		
+		return rowsAffected;
 	}
-
+	
+	
 	@Override
 	public int deleteClient(long id, Connection con) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
-
+	
+	
 	@Override
 	public int deleteClient(Client client, Connection con) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 	
-	
-	/** Takes a client, and an sql string for a prepared statement, and 
-	 * updates the client with the corresponding id.  */
-	private int modifyClient(Client client, String sql) {
-		//The number of affected rows by this insertion. 
-		int rowsAffected = 0;
-		
-		// Connection object
-		Connection con = null;
-		// An object for using a Prepared SQL Statement
-		PreparedStatement ps = null;
-		
-		try {
-			// Open the connection to the database
-			con = DBConnectionUtil.getConnection();
-			ps = con.prepareStatement(sql);
-			log.info(sql);
-			log.info("Email:" + client.getEmail()+ "  Username:" + client.getUsername());
-			ps.setString(1, client.getEmail());
-			ps.setString(2, client.getUsername());
-			ps.setString(3, "1234567890123456789012345678901234567890123456789012345678901234");
-			
-			rowsAffected = ps.executeUpdate();
-			
-		} catch (IOException | SQLException e) {
-			// Log an error if it occurs
-			log.error(e);
-			e.printStackTrace();
-		} finally {
-			// Try to close the prepared statement
-			try {if (ps!=null) ps.close();} catch(SQLException e) {}
-			// Try to close the connection
-			try {if (con!=null) con.close();} catch(SQLException e) {}
-		}
-		
-		return rowsAffected;
-	}
 
 
 	
-}
+} // end of class ClientDaoImpl

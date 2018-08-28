@@ -18,6 +18,11 @@ public class AccountDaoImpl implements AccountDao {
 	/** The default logging object. */
 	private static Logger log = Logger.getRootLogger();
 	
+	private static final String ACCOUNT_ID_STR = "accId";
+	private static final String ACCOUNT_TYPE_STR = "accType";
+	private static final String BALANCE_STR = "balance";
+	
+	
 	@Override
 	public Account getAccountById(long id, Connection con) throws SQLException {
 		Account a = null;
@@ -38,9 +43,9 @@ public class AccountDaoImpl implements AccountDao {
 			// If there is a result, get it and return it. 
 			if (rs.next()) {
 				a = new Account();
-				a.setAccId(rs.getLong("accId"));
-				a.setAccType(rs.getString("accType"));
-				a.setBalance(rs.getBigDecimal("balance"));
+				a.setAccId(rs.getLong("ACCOUNT_ID_STR"));
+				a.setAccType(rs.getString(ACCOUNT_TYPE_STR));
+				a.setBalance(rs.getBigDecimal(BALANCE_STR));
 			}
 		} finally {
 			// Make an attempt at closing resources. Do nothing if closing fails
@@ -68,9 +73,9 @@ public class AccountDaoImpl implements AccountDao {
 			// While there are more results, get them, and add them to the list.
 			while (rs.next()) {
 				a = new Account();
-				a.setAccId(rs.getLong("accId"));
-				a.setAccType(rs.getString("accType"));
-				a.setBalance(rs.getBigDecimal("balance"));
+				a.setAccId(rs.getLong(ACCOUNT_ID_STR));
+				a.setAccType(rs.getString(ACCOUNT_TYPE_STR));
+				a.setBalance(rs.getBigDecimal(BALANCE_STR));
 				accountList.add(a);
 			}
 		} finally {
@@ -96,7 +101,7 @@ public class AccountDaoImpl implements AccountDao {
 		// This is necessary as OracleDB doesn't properly return the generated 
 		// key when using the Statement.RETURN_GENERATED_KEYS flag in a 
 		// statement. 
-		String[] keyName = {"accId"};
+		String[] keyName = {ACCOUNT_ID_STR};
 		
 		// Attempt to create a statement and execute it. 
 		try (PreparedStatement ps = con.prepareStatement(sql, keyName)) {

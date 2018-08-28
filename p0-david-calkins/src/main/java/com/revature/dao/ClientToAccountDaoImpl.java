@@ -19,24 +19,20 @@ public class ClientToAccountDaoImpl implements ClientToAccountDao {
 	private static Logger log = Logger.getRootLogger();
 	
 	@Override
-	public List<Account> getAccountsByClient(Client client) {
+	public List<Account> getAccountsByClient(Client client, Connection con) 
+														throws SQLException {
 		List<Account> accountList = new ArrayList<>();
 		Account a = null;
 		String sql = "SELECT * FROM Clients_to_Accounts CA"
 				+ " JOIN ACCOUNTS A ON CA.accId = A.accId"
 				+ "	WHERE clientId = ?";
 		
-		// Connection object
-		Connection con = null;
-		// An object for using a Prepared SQL Statement
-		PreparedStatement ps = null;
 		// A result set for iterating through the results
 		ResultSet rs = null;
 		
-		try {
-			// Open the connection to the database
-			con = DBConnectionUtil.getConnection();
-			ps = con.prepareStatement(sql);
+		// Attempt to create a statement and execute it. 
+		try (PreparedStatement ps = con.prepareStatement(sql)) {
+			// Bind the variable to the query
 			ps.setLong(1, client.getClientId());
 			
 			// Keep in mind, this needs to be closed 
@@ -50,40 +46,29 @@ public class ClientToAccountDaoImpl implements ClientToAccountDao {
 				a.setBalance(rs.getBigDecimal("balance"));
 				accountList.add(a);
 			}
-		} catch (IOException | SQLException e) {
-			// Log an error if it occurs
-			log.error(e);
 		} finally {
 			// Try to close the result set
 			try {if (rs!=null) rs.close();} catch(SQLException e) {}
-			// Try to close the prepared statement
-			try {if (ps!=null) ps.close();} catch(SQLException e) {}
-			// Try to close the connection
-			try {if (con!=null) con.close();} catch(SQLException e) {}
 		}
 		
 		return accountList;
 	}
 
 	@Override
-	public List<Client> getClientsByAccount(Account account) {
+	public List<Client> getClientsByAccount(Account account, Connection con) 
+														throws SQLException {
 		List<Client> clientList = new ArrayList<>();
 		Client c = null;
 		String sql = "SELECT * FROM Clients_to_Accounts CA"
 				+ " JOIN CLIENTS C ON CA.clientId = C.clientId"
 				+ "	WHERE accId = ?";
 		
-		// Connection object
-		Connection con = null;
-		// An object for using a Prepared SQL Statement
-		PreparedStatement ps = null;
 		// A result set for iterating through the results
 		ResultSet rs = null;
 		
-		try {
-			// Open the connection to the database
-			con = DBConnectionUtil.getConnection();
-			ps = con.prepareStatement(sql);
+		// Attempt to create a statement and execute it. 
+		try (PreparedStatement ps = con.prepareStatement(sql)) {
+			// Bind the variable to the query
 			ps.setLong(1, account.getAccId());
 			
 			// Keep in mind, this needs to be closed 
@@ -98,16 +83,9 @@ public class ClientToAccountDaoImpl implements ClientToAccountDao {
 				c.setPassPhrase(rs.getString("passPhrase"));
 				clientList.add(c);
 			}
-		} catch (IOException | SQLException e) {
-			// Log an error if it occurs
-			log.error(e);
 		} finally {
 			// Try to close the result set
 			try {if (rs!=null) rs.close();} catch(SQLException e) {}
-			// Try to close the prepared statement
-			try {if (ps!=null) ps.close();} catch(SQLException e) {}
-			// Try to close the connection
-			try {if (con!=null) con.close();} catch(SQLException e) {}
 		}
 		
 		return clientList;
@@ -116,48 +94,40 @@ public class ClientToAccountDaoImpl implements ClientToAccountDao {
 	
 	
 	@Override
-	public int createCLtoAC(Client client, Account account) {
+	public int createCLtoAC(Client client, Account account, Connection con) 
+														throws SQLException {
 		String sql = "INSERT INTO Clients_to_Accounts (clientId, accId)"
 				+ " VALUES (?, ?)";
 		
 		//The number of affected rows by this insertion. 
 		int rowsAffected = 0;
 		
-		// Connection object
-		Connection con = null;
-		// An object for using a Prepared SQL Statement
-		PreparedStatement ps = null;
-		
-		try {
-			// Open the connection to the database
-			con = DBConnectionUtil.getConnection();
-			ps = con.prepareStatement(sql);
+		// Attempt to create a statement and execute it. 
+		try (PreparedStatement ps = con.prepareStatement(sql)) {
+			// Bind the variable to the query
 			ps.setLong(1, client.getClientId());
 			ps.setLong(2, account.getAccId());
 			
 			rowsAffected = ps.executeUpdate();
 			
-		} catch (IOException | SQLException e) {
-			// Log an error if it occurs
-			log.error(e);
 		} finally {
-			// Try to close the prepared statement
-			try {if (ps!=null) ps.close();} catch(SQLException e) {}
-			// Try to close the connection
-			try {if (con!=null) con.close();} catch(SQLException e) {}
+			// Do nothing. This is just here to allow auto closing of the 
+			// prepared statement. 
 		}
 		
 		return rowsAffected;
 	}
 
 	@Override
-	public int deleteCLtoAC(long clientId, long accountId) {
+	public int deleteCLtoAC(long clientId, long accountId, Connection con) 
+														throws SQLException {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
-	public int deleteCLtoAC(Client client, Account account) {
+	public int deleteCLtoAC(Client client, Account account, Connection con) 
+														throws SQLException {
 		// TODO Auto-generated method stub
 		return 0;
 	}
