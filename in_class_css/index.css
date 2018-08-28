@@ -1,0 +1,107 @@
+.flex-container > div {
+    width: 100px;
+    margin: 10px;
+    text-align: center;
+    line-height: 75px;
+    font-size: 30px;
+}
+
+body {
+    font-family: Roboto, sans-serif;
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: row;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a:visited {
+    color: black;
+    text-decoration: none;
+}
+
+.main-text-head {
+    margin: 25px;
+    text-align: center;
+}
+
+.table-title {
+    font-size: 40px;
+    text-align: center;
+}
+
+.table-div {
+    /* margin: 20px; */
+    text-align: left;
+}
+
+.food-table {
+    /* right: 50%;
+    margin-right: 400px; */
+    display: block;
+}
+
+.taco-img {
+    height: auto; 
+    width: auto; 
+    max-width: 300px; 
+    max-height: 300px;
+    border-radius: 3px;
+    border: 5px solid black;
+}
+
+.pizza-img {
+    height: auto; 
+    width: auto; 
+    max-width: 300px; 
+    max-height: 300px;
+    border-radius: 3px;
+    border: 5px solid black;
+}
+
+.sushi-img {
+    height: auto; 
+    width: auto; 
+    max-width: 300px; 
+    max-height: 300px;
+    border-radius: 3px;
+    border: 5px solid black;
+}
+
+.burger-img {
+    height: auto; 
+    width: auto; 
+    max-width: 300px; 
+    max-height: 300px;
+    border-radius: 3px;
+    border: 5px solid black;
+}
+
+input {
+    border-radius: 3px;
+    border: solid black 1px;
+}
+
+form {
+    text-align: center;
+}
+
+table {
+    margin: 0 auto;
+    text-align: center;
+}
+
+input[type=submit] {
+    padding:10px 20px; 
+    background:#2176ff; 
+    border:0 none;
+    cursor:pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 50px; 
+    color: white;
+}

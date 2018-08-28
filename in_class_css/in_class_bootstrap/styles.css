@@ -1,0 +1,35 @@
+.pizza-img {
+    height: auto; 
+    width: auto; 
+    max-width: 300px; 
+    max-height: 300px;
+    border-radius: 3px;
+    border: 2.5px solid black;
+}
+
+.taco-img {
+    height: auto; 
+    width: auto; 
+    max-width: 300px; 
+    max-height: 300px;
+    border-radius: 3px;
+    border: 2.5px solid black;
+  }
+
+.sushi-img {
+    height: auto; 
+    width: auto; 
+    max-width: 300px; 
+    max-height: 300px;
+    border-radius: 3px;
+    border: 2.5px solid black;
+}
+
+.burger-img {
+    height: auto; 
+    width: auto; 
+    max-width: 300px; 
+    max-height: 300px;
+    border-radius: 3px;
+    border: 2.5px solid black;
+  }

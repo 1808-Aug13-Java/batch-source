@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>El Restaurante De Revature</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="styles.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <script src="main.js"></script>
+</head>
+<body>
+    <div class="container">
+
+    <section class="main-section">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <a class="navbar-brand" href="#">El Restaurante De Revature</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                      <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                      <ul class="navbar-nav">
+                        <li class="nav-item active">
+                          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="tacos.html">Tacos</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="pizza.html">Pizza</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="sushi.html">Sushi</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="cheeseburgers.html">Cheeseburgers</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </nav>
+    </section>
+    <br>
+    <section>
+        <h1 class="text-center"> El Restaurante de Revature</h1>
+        <br>
+        <br>
+
+    </section>
+    <section class="table_section">
+        <h2 class="text-center">Menu</h2>
+        <table class="table text-center">
+                <thead>
+                    <tr>
+                    <th scope="col">Pizza</th>
+                    <th scope="col">Tacos</th>
+                    <th scope="col">Sushi</th>
+                    <th scope="col">Cheeseburgers</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                    <td>Cheese pizza / $13.00</th>
+                    <td>Chorizo / $2.50</td>
+                    <td>Spicy tuna roll / $9.00</td>
+                    <td>All the Way / $10.00</td>
+                    </tr>
+                    <tr>
+                    <td>Meat lover's pizza / $14.00</th>
+                    <td>Beef / $2.50</td>
+                    <td>Shrimp tempura roll / $8.50</td>
+                    <td>Deep fried macaroni burger / $14.00</td>
+                    </tr>
+                    <tr>
+                    <td>The Everything Pizza / $18.00</th>
+                    <td>Duck / $2.50</td>
+                    <td>Uni roll / $11.00</td>
+                    <td>The Megaburger / $25.00</td>
+                    </tr>
+                </tbody>
+                </table>
+    </section>
+    <section class="order_form">
+        <form>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Name</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" placeholder="E.g., john@example.com">
+                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                </div>
+                <div class="form-group">
+                        <label for="streetaddress">Street Address</label>
+                        <input type="text" class="form-control" placeholder="E.g., 1 Main St, Reston, VA 90210">
+                    </div>
+                    <div class="form-group">
+                            <label for="phonenumber">Phone Number</label>
+                            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="E.g., (251)-555-5555">
+                        </div>
+                <div class="form-group">
+                        <label for="orderarea">Please include the amount and type of food you'd like to order and any additional instructions!</label>
+                        <textarea class="form-control" rows="3"></textarea>
+                      </div>
+                <a class="btn btn-primary" href="success.html" role="button">Submit</a>
+                </form>
+    </section>
+            
+</div>
+</body>
+</html>
