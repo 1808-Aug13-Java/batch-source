@@ -1,0 +1,40 @@
+article {
+  height: 100%;
+  background-color: #f4f260;
+}
+
+.body {
+  background-color: #f4f260;
+}
+
+html {
+  height: 100%;
+  background-color: #f4f260;
+}
+
+#header {
+  
+  background-color: #b61bb8;
+}
+
+#header a {
+  color: #f4f260;
+}
+
+.img-fluid {
+  display: block;
+  margin: 20px auto;
+}
+
+article .container {
+  margin-top: 50px;
+}
+
+.container h1 {
+  text-align: center;
+}
+
+section .container {
+  text-align: center;
+}
+
