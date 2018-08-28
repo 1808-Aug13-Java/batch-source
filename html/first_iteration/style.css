@@ -1,0 +1,85 @@
+body {
+    background-color: rgb(52,225,251);
+}
+
+#navbar {
+    position: fixed;
+    z-index: 1;
+}
+
+#navBar ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 100px;
+    margin-left: 1rem;
+    background-color: rgb(251,147,252);
+}
+
+#navBar li a{
+    font-family: 'Arial', Arial, Helvetica, sans-serif;
+    font-style: italic;
+    text-align: center;
+    display: block;
+    color: rgb(0, 149, 255);
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
+#bust1{
+    position: absolute;
+    top: 1rem;
+    left: .5rem;
+    z-index: -1;
+}
+
+#bust2{
+    position: absolute;
+    top: 1rem;
+    right: -3rem;
+    z-index: 0;
+}
+
+.myClass{
+    position: relative;
+    font-family: 'Arial', Arial, Helvetica, sans-serif;
+    font-style: italic;
+    text-align: center;
+    font-size: 50px;
+    text-align: center;
+    color: rgb(255,251,150);
+    margin: 1rem;
+    background-image: url(https://i.pinimg.com/originals/08/9a/da/089ada08074a01c6ff09c629d25843c2.jpg);
+    background-position-y: 7000px;
+    z-index: -2;
+}
+
+#contentContainer{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin-left: 20%;
+    margin-top: -150px;
+    z-index:2;
+}
+
+#coolPic {
+    display: block;
+    margin: 40px;
+    border-style: solid;
+    border-color: rgb(251,147,252);
+    border-width: 10px;
+    padding: 20px;
+}
+
+table, th, td {
+    border: 1px solid rgb(251,147,252);
+    border-collapse: collapse;
+}
+
+#colorTable {
+    /* margin-top: 30px; */
+    position: relative;
+    top: 30px;
+}
+

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>My Webpage</title>
+		<link rel="stylesheet" href="style.css"/>
+		<!--<style>
+			body {
+				background-color: magenta;
+			}
+		</style> -->
+	</head>
+	<body> <!--style="background-color: rgb(183, 253, 255)"-->
+		<div>
+			<p class="myClass">h e n l o  w o l r d</p>
+		</div>
+		<div id="navBar">
+			<ul>
+				<li><a href="assignment.html">h o m e</a></li>
+                <li><a href="site.html">d e m o</a></li>
+                <li><a href="News.html">n e w s</a></li>
+                <li><a href="pics.html">p i c s</a></li>
+                <li><a href="about.html">a b o u t</a></li>
+			</ul>
+		</div>
+		<div>
+			<img id="bust1" src="bust.png" />
+			<img id="bust2" src="bust2.png" height=350 width=350/>
+		</div>
+	<div id="contentContainer">
+		<div>
+			<h1>good morn</h1>
+			<h3>smol good morn</h3>
+			<h6>v smol good morn</h6>
+		</div>
+		<div>
+			<p>normie text</p>
+			<a href="https://google.com">sick dude</a>
+			<img id="coolPic" src="https://www.wtvq.com/wp-content/uploads/2018/02/John-Schnatter-200x150.jpg" height=150 width =200 alt="pic of ;3"/>
+		</div>
+		<div>
+			<p>Curabitur ultrices semper luctus. Pellentesque ut velit convallis, 
+			viverra massa maximus, bibendum velit. Suspendisse potenti. Aliquam 
+			ullamcorper elementum sapien, et consequat ipsum molestie vitae.</p>
+			<p>Integer vel sollicitudin erat. Pellentesque justo orci, pulvinar at 
+			eleifend sit amet, finibus eget est. Etiam facilisis id lacus vel malesuada.
+			Nunc elementum pellentesque purus. In sit amet metus eget ex ornare 
+			ornare vitae quis magna.</p>
+		</div>
+		<div>
+			<form method="post" action="Success.html">
+				some text: <input name="textInput" type="text"/>
+				<br>
+				<br>
+				<!-- comment -->
+				a number: <input name="numberInput" type="number"/>
+				<br>
+				<br>
+				<select name="animals">
+					<option value="otter">otter</option>
+					<option value="sloth">sloth</option>
+					<option value="anything">anything</option>
+				</select>
+				<br>
+				<br>
+				<textarea name="message" rows="4" col="25">your text here</textarea>
+				<br>
+				Radio buttons:
+				<input type="radio" name="animalRadio" 
+				value="otter">Otter</input>
+				<input type="radio" name="animalRadio"
+				checked value="sloth">Sloth</input>
+				<input type="radio" name="animalRadio"
+				value="cat">Cat</input>
+				<br>
+				<input list="colors"/>
+					<datalist id="colors">
+						<option value="green"/>
+						<option value="blue"/>
+						<option value="purple"/>
+					</datalist>
+				<br>
+				<input type="submit" value="Submit!"/>
+			</form>
+		</div>
+
+		<div>
+			<table id="colorTable">
+				<tr>
+					<th>Color</th>
+					<th>Component A</th>
+					<th>Component B</th>
+				</tr>
+				<tr>
+					<td>Orange</td>
+					<td>Red</td>
+					<td>Yellow</td>
+				</tr>
+				<tr>
+					<td>Orange</td>
+					<td>Red</td>
+					<td>Yellow</td>
+				</tr>
+				<tr>
+					<td>Orange</td>
+					<td>Red</td>
+					<td>Yellow</td>
+				</tr>
+			</table>
+		</div>
+
+		<br><br><br><br>
+	</div>
+	<div>
+		HTML 5 Specifics
+		<br>
+		<meter value=".4">40%</meter>
+		<br>
+		<meter value="6" min="0" max="10">6/10</meter>
+		<br>
+		<progress value="28" max="100"></progress>
+		<br>
+		<p>Today is August 28 2018</p>
+		<aside>
+			<p>August 28th is National Power Ranger Day</p>
+			<figure>
+				<img src="https://78.media.tumblr.com/f9f90158235010c8a1cfcd4106af1540/tumblr_ollehlYOl31s9j8p1o1_1280.png" height=250 width=200/>
+				<figcaption>g o g o // p o w e r // r a n g e r s</figcaption>
+			</figure>
+		</aside>
+		<!-- while somthing like our aside above, doesn't provide us
+		much more cisually than we've seen, it provides additional
+		information about the content we expect to see in the tags.
+		Semantic meaning can help with search engine optimization as
+		well as provide additional information for non-browser
+		interpretation (e.g. screen readers) -->
+		<br>
+		<article>
+			<header>
+				<h4>heading4</h4>
+			</header>
+			<main>
+				<p>main</p>
+			</main>
+			<footer>
+				<p>footer</p>
+			</footer>
+		</article>
+
+		<details>
+			<summary>See full description</summary>
+			<p>Here's the full description</p>
+		</details>
+
+		<p><strong>Strong</strong> <mark>mark</mark> plain <b>b</b></p>
+	</div>
+	</body>
+</html>
