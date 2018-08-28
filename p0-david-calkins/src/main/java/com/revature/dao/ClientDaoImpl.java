@@ -19,20 +19,26 @@ public class ClientDaoImpl implements ClientDao {
 	private static Logger log = Logger.getRootLogger();
 
 	@Override
-	public Client getClientById(long id, Connection con) {
-		return getClient("clientId", Long.toString(id));
+	public Client getClientById(long id, Connection con)
+			throws SQLException 
+	{
+		return getClient("clientId", Long.toString(id), con);
 	}
 	
 	
 	@Override
-	public Client getClientByEmail(String email, Connection con) {
-		return getClient("email", email);
+	public Client getClientByEmail(String email, Connection con)
+			throws SQLException 
+	{
+		return getClient("email", email, con);
 	}
 
 
 	@Override
-	public Client getClientByUsername(String username, Connection con) {
-		return getClient("username", username);
+	public Client getClientByUsername(String username, Connection con)
+			throws SQLException 
+	{
+		return getClient("username", username, con);
 	}
 	
 	
@@ -40,21 +46,17 @@ public class ClientDaoImpl implements ClientDao {
 	 * a client that matches the specified input. 
 	 * @param column - The column to search in
 	 * @param value - The value to search the column for. */
-	private Client getClient(String column, String value) {
+	private Client getClient(String column, String value, Connection con)
+														throws SQLException 
+	{
 		Client c = null;
 		String sql = "SELECT * FROM CLIENTS WHERE " + column + " = ?";
 		
-		// Connection object
-		Connection con = null;
-		// An object for using a Prepared SQL Statement
-		PreparedStatement ps = null;
 		// A result set for iterating through the results
 		ResultSet rs = null;
 		
-		try {
-			// Open the connection to the database
-			con = DBConnectionUtil.getConnection();
-			ps = con.prepareStatement(sql);
+		try (PreparedStatement ps = con.prepareStatement(sql)){
+			// Bind the variable to the query
 			ps.setString(1, value);
 			
 			// Keep in mind, this needs to be closed 
@@ -68,16 +70,10 @@ public class ClientDaoImpl implements ClientDao {
 				c.setUsername(rs.getString("username"));
 				c.setPassPhrase(rs.getString("passPhrase"));
 			}
-		} catch (IOException | SQLException e) {
-			log.error(e);
 		} finally {
 			// Make an attempt at closing resources. Do nothing if closing fails
 			// Try to close the result set
 			try {if (rs!=null) rs.close();} catch(SQLException e) {}
-			// Try to close the prepared statement
-			try {if (ps!=null) ps.close();} catch(SQLException e) {}
-			// Try to close the connection
-			try {if (con!=null) con.close();} catch(SQLException e) {}
 		}
 		
 		return c;
@@ -88,23 +84,15 @@ public class ClientDaoImpl implements ClientDao {
 	
 
 	@Override
-	public List<Client> getClients(Connection con) {
+	public List<Client> getClients(Connection con) throws SQLException {
 		List<Client> clientList = new ArrayList<>();
 		Client c = null;
 		String sql = "SELECT * FROM CLIENTS";
 		
-		// Connection object
-		Connection con = null;
-		// An object for using an SQL Statement
-		Statement st = null;
 		// A result set for iterating through the results
 		ResultSet rs = null;
 		
-		try {
-			// Open the connection to the database
-			con = DBConnectionUtil.getConnection();
-			st = con.createStatement();
-			
+		try (Statement st = con.createStatement()){
 			// Keep in mind, this needs to be closed 
 			rs = st.executeQuery(sql);
 			
@@ -117,68 +105,61 @@ public class ClientDaoImpl implements ClientDao {
 				c.setPassPhrase(rs.getString("passPhrase"));
 				clientList.add(c);
 			}
-		} catch (IOException | SQLException e) {
-			// Log an error if it occurs
-			log.error(e);
 		} finally {
 			// Try to close the result set
 			try {if (rs!=null) rs.close();} catch(SQLException e) {}
-			// Try to close the prepared statement
-			try {if (st!=null) st.close();} catch(SQLException e) {}
-			// Try to close the connection
-			try {if (con!=null) con.close();} catch(SQLException e) {}
 		}
 		
 		return clientList;
 	}
 
 	@Override
-	public long createClient(Client client, Connection con) {
-		// TODO: Solve false 'ORA-01008: not all variables bound' when using 
-		// a prepared statement on 
-		String sql = "INSERT INTO CLIENTS (clientId, email, username, passPhrase)"
-				+ " VALUES (?, ?, ?, ?)";
-//		String sql = "INSERT INTO CLIENTS (email, username, passPhrase) VALUES ("
-//				+ client.getEmail() + ", " 
-//				+ client.getUsername() + ", " 
-//				+ client.getPassPhrase() + ")";
-		//The number of affected rows by this insertion. 
-		int rowsAffected = 0;
+	public long createClient(Client client, Connection con) 
+													throws SQLException
+	{
+		String sql = "INSERT INTO CLIENTS (email, username, passPhrase)"
+				+ " VALUES (?, ?, ?)";
+		// Used to hold the key from the generated object
+		long key = -1;
 		
-		// Connection object
-		Connection con = null;
-		// An object for using a Prepared SQL Statement
-		PreparedStatement ps = null;
+		// A result set for getting the generated key
+		ResultSet rs = null;
 		
-		try {
-			// Open the connection to the database
-			con = DBConnectionUtil.getConnection();
-			ps = con.prepareStatement(sql);
-			log.info(sql);
-			log.info("Email:" + client.getEmail()+ "  Username:" + client.getUsername());
-			ps.setLong(1, client.getClientId());
-			ps.setString(2, client.getEmail());
-			ps.setString(3, client.getUsername());
-			ps.setString(4, client.getPassPhrase());
+		// This is necessary as OracleDB doesn't properly return the generated 
+		// key when using the Statement.RETURN_GENERATED_KEYS flag in a 
+		// statement. 
+		String[] keyName = {"clientID"};
+		
+		
+		try (PreparedStatement ps = con.prepareStatement(sql, keyName)) {
+			// Bind the variables to the statement
+//			ps.setLong(1, client.getClientId());
+			ps.setString(1, client.getEmail());
+			ps.setString(2, client.getUsername());
+			ps.setString(3, client.getPassPhrase());
 			
-			rowsAffected = ps.executeUpdate();
+			ps.executeUpdate();
 			
-		} catch (IOException | SQLException e) {
-			// Log an error if it occurs
-			log.error(e);
-			e.printStackTrace();
+			// Get the key that was generated from the insertion of the account
+			rs = ps.getGeneratedKeys();
+			if (rs.next()) {
+				key = rs.getLong(1);
+				
+				// Also set the client's key
+				client.setClientId(key);
+			}
+			
 		} finally {
-			// Try to close the prepared statement
-			try {if (ps!=null) ps.close();} catch(SQLException e) {}
-			// Try to close the connection
-			try {if (con!=null) con.close();} catch(SQLException e) {}
+			// Try to close the result set
+			try {if (rs!=null) rs.close();} catch(SQLException e) {}
 		}
 		
-		return rowsAffected;
+		return key;
 	}
 
 	@Override
 	public int updateClient(Client client, Connection con) {
+		// TODO: Finish updating this function. 
 		String sql = "UPDATE CLIENTS SET email=?, username=?, passPhrase=? "
 				+ "WHERE clientId = " + client.getClientId();
 		return modifyClient(client, sql);

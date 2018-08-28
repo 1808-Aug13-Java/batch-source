@@ -87,27 +87,47 @@ public class AccountDaoImpl implements AccountDao {
 	public long createAccount(Account account, Connection con) throws SQLException {
 		final String sql = 
 				"INSERT INTO ACCOUNTS (accId, accType, balance) VALUES (?, ?, ?)";
-		//The number of affected rows by this insertion. 
-		int rowsAffected = 0;
+		// Used to hold the key from the generated object
+		long key = -1;
+		
+		// A result set for getting the generated key
+		ResultSet rs = null;
+		
+		// This is necessary as OracleDB doesn't properly return the generated 
+		// key when using the Statement.RETURN_GENERATED_KEYS flag in a 
+		// statement. 
+		String[] keyName = {"accId"};
 		
 		// Attempt to create a statement and execute it. 
-		try (PreparedStatement ps = con.prepareStatement(sql)) {
+		try (PreparedStatement ps = con.prepareStatement(sql, keyName)) {
 			// Bind the variables to the statement
 			ps.setLong(1, account.getAccId());
 			ps.setString(2, account.getAccType());
 			ps.setBigDecimal(3, account.getBalance());
 			
-			rowsAffected = ps.executeUpdate();
+			ps.executeUpdate();
+			
+			// Get the key that was generated from the insertion of the account
+			rs = ps.getGeneratedKeys();
+			if (rs.next()) {
+				key = rs.getLong(1);
+				
+				// Also set the account id 
+				account.setAccId(key);
+			}
 		} finally {
-			// Do nothing. Just here to allow the autoclosing of the 
-			// prepared statement. 
+			// Try to close the result set
+			try {if (rs!=null) rs.close();} catch(SQLException e) {}
 		}
 		
-		return rowsAffected;
-	}
-
+		return key;
+	} // end of createAccount
+	
+	
 	@Override
-	public int updateAccount(Account account, Connection con) throws SQLException {
+	public int updateAccount(Account account, Connection con) 
+											throws SQLException 
+	{
 		final String sql = 
 				"UPDATE ACCOUNTS SET accType=?, balance=? WHERE accId = " 
 					+ account.getAccId();

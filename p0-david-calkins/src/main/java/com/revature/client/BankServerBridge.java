@@ -35,7 +35,12 @@ public class BankServerBridge implements DataInterface {
 	@Override
 	public boolean userNameExists(String userName) {
 		ClientDao clientDao = new ClientDaoImpl();
-		return clientDao.getClientByUsername(userName) != null;
+		try {
+			return clientDao.getClientByUsername(userName, DBConnectionUtil.getConnection()) != null;
+		} catch (SQLException | IOException e) {
+			e.printStackTrace();
+		}
+		return false;
 	}
 
 	@Override
@@ -50,7 +55,13 @@ public class BankServerBridge implements DataInterface {
 	@Override
 	public boolean userEmailExists(String email) {
 		ClientDao clientDao = new ClientDaoImpl();
-		return clientDao.getClientByEmail(email) != null;
+		try {
+			return clientDao.getClientByEmail(email, DBConnectionUtil.getConnection()) != null;
+		} catch (SQLException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return false;
 	}
 
 	@Override
@@ -83,14 +94,15 @@ public class BankServerBridge implements DataInterface {
 		long clientId = rand.nextLong();
 		long accId = rand.nextLong();
 		client.setClientId(clientId);
-		account.setAccId(accId);
+		
 		
 		// If a client and an account were created, pull the client and account
 		// from the server to get their generated id's
 		try {
-			return clientDao.createClient(client) == 1
-					&& accountDao.createAccount(account, DBConnectionUtil.getConnection()) == 1
-					&& ctaDao.createCLtoAC(client, account) == 1;
+			// Set the account id 
+			clientDao.createClient(client, DBConnectionUtil.getConnection());
+			accountDao.createAccount(account, DBConnectionUtil.getConnection());
+			return ctaDao.createCLtoAC(client, account) == 1;
 		} catch (SQLException | IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -152,13 +164,25 @@ public class BankServerBridge implements DataInterface {
 	/** Gets a client from the database based on the user's email. */
 	private Client getClientByEmail(String email) {
 		ClientDao clientDao = new ClientDaoImpl();
-		return clientDao.getClientByEmail(email);
+		try {
+			return clientDao.getClientByEmail(email, DBConnectionUtil.getConnection());
+		} catch (SQLException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
 	}
 	
 	/** Gets a client from the database based on the user's username. */
 	private Client getClientByUsername(String username) {
 		ClientDao clientDao = new ClientDaoImpl();
-		return clientDao.getClientByUsername(username);
+		try {
+			return clientDao.getClientByUsername(username, DBConnectionUtil.getConnection());
+		} catch (SQLException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
 	}
 	
 	/** Gets an account from the database for a specific bank client. */
