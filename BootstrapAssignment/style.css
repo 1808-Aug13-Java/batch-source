@@ -46,4 +46,11 @@ iframe {
     max-height: 200px;
     min-width: 600px;
 }
+a.nav-link {
+    transition-duration: 0.4s;
+    color: #000;
+}
+a.nav-link:hover {
+    transform: scale(1.03);
+}
 
