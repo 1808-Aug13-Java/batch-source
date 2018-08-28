@@ -4,16 +4,16 @@ CREATE TABLE BANK_USERS(
     BALANCE NUMBER(38,2) --20 digits, 2 after the decimal
 );
 
-insert into BANK_USERS (USER_NAME, PASS_WORD, BALANCE) values ('atokley0', 'Lna0GcSMiqOa', 95138535.82);
+insert into BANK_USERS (USER_NAME, PASS_WORD, BALANCE) values ('atokley0', 'Lna0GcSMiqOa', 8535.82);
 insert into BANK_USERS (USER_NAME, PASS_WORD, BALANCE) values ('ileinthall1', 'ez365FngcH', 57664983.45);
 insert into BANK_USERS (USER_NAME, PASS_WORD, BALANCE) values ('cshoesmith2', 'eouQvN', 97839057.44);
-insert into BANK_USERS (USER_NAME, PASS_WORD, BALANCE) values ('edaunay3', '40FGVngVO', 98310651.55);
-insert into BANK_USERS (USER_NAME, PASS_WORD, BALANCE) values ('oost4', 'GyIIBtdxl', 93504837.39);
-insert into BANK_USERS (USER_NAME, PASS_WORD, BALANCE) values ('tedgars5', 'QGYLoqkjX', 54124743.22);
-insert into BANK_USERS (USER_NAME, PASS_WORD, BALANCE) values ('pshenton6', 'ZEyZxp', 14781754.15);
-insert into BANK_USERS (USER_NAME, PASS_WORD, BALANCE) values ('pgamlen7', 'mC5EVK', 8957420.52);
+insert into BANK_USERS (USER_NAME, PASS_WORD, BALANCE) values ('edaunay3', '40FGVngVO', 51.55);
+insert into BANK_USERS (USER_NAME, PASS_WORD, BALANCE) values ('oost4', 'GyIIBtdxl', 3504837.39);
+insert into BANK_USERS (USER_NAME, PASS_WORD, BALANCE) values ('tedgars5', 'QGYLoqkjX', 743.22);
+insert into BANK_USERS (USER_NAME, PASS_WORD, BALANCE) values ('pshenton6', 'ZEyZxp', 4781754.15);
+insert into BANK_USERS (USER_NAME, PASS_WORD, BALANCE) values ('pgamlen7', 'mC5EVK', 57420.52);
 insert into BANK_USERS (USER_NAME, PASS_WORD, BALANCE) values ('pbarbary8', '990um4TzsHb', 64941304.19);
-insert into BANK_USERS (USER_NAME, PASS_WORD, BALANCE) values ('dhoulaghan9', 'KaKs9xNTkCp', 80111094.15);
+insert into BANK_USERS (USER_NAME, PASS_WORD, BALANCE) values ('dhoulaghan9', 'KaKs9xNTkCp', 1094.15);
 
 commit;
 
@@ -37,3 +37,4 @@ BEGIN
 END;
 /
 
+select * from bank_users;
