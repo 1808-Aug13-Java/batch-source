@@ -1,11 +1,16 @@
 package com.revature.bank;
 
+import java.math.BigDecimal;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.log4j.Logger;
 
+import com.revature.dao.BalanceDao;
+import com.revature.dao.BalanceDaoImpl;
 import com.revature.dao.LoginDao;
 import com.revature.dao.LoginDaoImpl;
+import com.revature.model.Balance;
 import com.revature.model.Login;
 
 public class Driver {
@@ -41,8 +46,13 @@ public class Driver {
 //		}
 //		bank.exit();
 //		log.info("\nThank you for using our Banking App!");
-		LoginDao ldi = new LoginDaoImpl();
-		List<Login> loginList = ldi.getLogins();
+		new BankJDBC();
+		
+//		BalanceDao bdi = new BalanceDaoImpl();
+//		List<Balance> balanceList = bdi.getBalances();
+//		for (Balance i : balanceList) {
+//			log.info(i);
+//		}
 	}
 
 }
