@@ -1,0 +1,6 @@
+#!/usr/bin/bash
+
+mvn -q compile;
+if [ 0 -eq $? ]; then
+  mvn -q exec:java;
+fi

@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+mvn sonar:sonar   -Dsonar.organization=1808-aug13-java -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=198ac9a1083fed21cb8d25dd7a92f78b3e1b983e
