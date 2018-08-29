@@ -8,22 +8,12 @@ public class Customers {
 	private String userPassword;
 	private float balance;
 	
-	/**
-	 * 
-	 */
+	
 	public Customers() {
 		super();
-		// TODO Auto-generated constructor stub
+		
 	}
 
-	/**
-	 * @param customerId
-	 * @param firstName
-	 * @param lastName
-	 * @param userName
-	 * @param userPassword
-	 * @param balance
-	 */
 	public Customers(int customerId, String firstName, String lastName, String userName, String userPassword,
 			float balance) {
 		super();

@@ -5,27 +5,28 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Scanner;
 
-import com.revature.dao.AccountDaoImpl;
+import org.apache.log4j.Logger;
+
 import com.revature.dao.CustomerDaoImpl;
-import com.revature.model.Accounts;
 import com.revature.model.Customers;
 import com.revature.util.ConnectionUtil;
 
 public class Driver {
 	public static void main(String[] args) {
 		
+		Logger log = Logger.getRootLogger();
 		Connection con;
 	try {
 		con = ConnectionUtil.getConnection();
-		System.out.println(con.getMetaData().getDriverName());
+		log.info(con.getMetaData().getDriverName());
 	} catch (SQLException | IOException e) {
-		e.printStackTrace();
+		log.error(e);
 	}
 	
 		
 	
 	
-		System.out.print("Please enter 1 to create new account or 2 to "
+		log.info("Please enter 1 to create new account or 2 to "
 				+ "login to an existing account: ");
 		Scanner menu = new Scanner(System.in);
 		String my_choice = menu.nextLine();
@@ -49,7 +50,7 @@ public class Driver {
     		
     		
     		}
-    		  System.out.println("Please enter 1 to show balance, 2 to "
+    		  log.info("Please enter 1 to show balance, 2 to "
     	        		+ "deposit funds, 3 to withdraw funds, or 4 to exit: ");
     	        	Scanner new_menu = new Scanner(System.in);
     	        	String new_choice = new_menu.nextLine();
@@ -66,11 +67,11 @@ public class Driver {
     	        		
     	        	case "2":
     	        		
-    	        		System.out.println("Please enter your username");
+    	        		log.info("Please enter your username");
     	        		Scanner scan1 = new Scanner(System.in);
         	        	String user = scan1.nextLine();
     	        		
-    	        		System.out.println("Please enter amount to deposit");
+    	        		log.info("Please enter amount to deposit");
     	        		Scanner scan2 = new Scanner(System.in);
         	        	float amount = scan2.nextFloat();
         	        	
@@ -80,11 +81,11 @@ public class Driver {
     	        		break;
     	        		
     	        	case "3":
-    	        		System.out.println("Please enter your username");
+    	        		log.info("Please enter your username");
     	        		Scanner scan3 = new Scanner(System.in);
         	        	 String user1 = scan3.nextLine();
     	        		
-    	        		System.out.println("Please enter amount to withdraw");
+    	        		log.info("Please enter amount to withdraw");
         	        	float with_amt = scan3.nextFloat();
         	        	with_amt *= -1;
         	        	
@@ -95,7 +96,7 @@ public class Driver {
     	        		
     	        	case "4":
     	        		
-    	        		System.out.println("Thank you, have a nice day");
+    	        		log.info("Thank you, have a nice day");
     	        		System.exit(0);
     	        		
     	        	

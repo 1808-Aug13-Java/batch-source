@@ -6,8 +6,9 @@ import java.util.List;
 import com.revature.model.Customers;
 
 public interface CustomerDao {
-
-	public Customers getCustomersByUsername(String userName);
+	public List<Customers> getCustomers();
+	public Customers getCustomerByUsername(String userName);
 	public int createCustomer(Customers customer);
-	public int createPassword(Customers userPassword);
+	public int increaseBalance(String user, float increaseAmount);
+	
 }

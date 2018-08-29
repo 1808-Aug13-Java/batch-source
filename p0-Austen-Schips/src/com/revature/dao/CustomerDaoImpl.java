@@ -6,6 +6,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 import org.apache.log4j.Logger;
@@ -28,13 +31,13 @@ public class CustomerDaoImpl {
 
 			Scanner scan = new Scanner(System.in);
 			
-			System.out.println("Please validate your username: ");
+			log.info("Please validate your username: ");
 			String my_username = scan.nextLine();
 			
 			ps.setString(1, my_username);
 			
 			
-			System.out.println("Please validate your password: ");
+			log.info("Please validate your password: ");
 			String my_password = scan.nextLine();
 			
 			ps.setString(2, my_password);
@@ -48,14 +51,14 @@ public class CustomerDaoImpl {
 				String userPassword1 = rs.getString("USER_PASSWORD");
 				float balance = rs.getFloat("BALANCE");
 				d = new Customers(customerId, firstName, lastName, userName1, userPassword1, balance);
-				System.out.println(d.toString());
+				log.info(d.toString());
 			}
 		} catch (IOException|SQLException e) {
 			log.error(e.getMessage());
 		} finally {
 			if (rs!=null) {
 				try {
-					System.out.println("Credentials successfully verified");
+					log.info("Credentials successfully verified");
 					rs.close();
 			
 				} catch (SQLException e) {
@@ -78,41 +81,33 @@ public class CustomerDaoImpl {
 			
 			Scanner scan = new Scanner(System.in);
 			
-			System.out.println("Please enter first name: ");
+			log.info("Please enter first name: ");
 			String first_text = scan.nextLine();
 			ps.setString(1, first_text);
 			
-			System.out.println("Please enter last name: ");
+			log.info("Please enter last name: ");
 			String last_text = scan.nextLine();
 			ps.setString(2, last_text);
 			
-			System.out.println("Please create username: ");
+			log.info("Please create username: ");
 	        
 	        String user_text = scan.nextLine();
 			ps.setString(3, user_text);
 			
-			System.out.println("Please create password: ");
+			log.info("Please create password: ");
 	        String password_text = scan.nextLine();
 			ps.setString(4, password_text);
 			
-			System.out.println("Please enter initial balance: ");
+			log.info("Please enter initial balance: ");
 	        float balance_text = scan.nextFloat();
 			ps.setFloat(5, balance_text);
 			
 			customersCreated = ps.executeUpdate();
 			
 		} catch (SQLException|IOException e) {
-			e.printStackTrace();
+			log.error(e);
 		} 
 		return customersCreated;
-	}
-	public void showBalance(Connection con)
-	         throws ClassNotFoundException, SQLException {
-
-	         PreparedStatement preparedStatement = con.prepareStatement("SELECT BALANCE FROM ACCOUNTS WHERE ACCOUNTID = ?");
-	         ResultSet resultSet =
-	            preparedStatement.executeQuery();
-	        
 	}
 	public int increaseBalance(String user, float increaseAmount) {
 		
@@ -130,4 +125,36 @@ public class CustomerDaoImpl {
 		} 
 		return 0;
 	}
+	
+	public List<Customers> getCustomers(){
+List<Customers> customers = new ArrayList<>();
+		
+		String sql = "SELECT * FROM DEPARTMENT";
+		
+		try (Connection con = ConnectionUtil.getConnection();
+				Statement s = con.createStatement();
+				ResultSet rs = s.executeQuery(sql)){
+			
+			while (rs.next()) {
+				int custId = rs.getInt("CUSTOMERSID");
+				String firstName = rs.getString("FIRSTNAME");
+				String lastName = rs.getString("LASTNAME");
+				String username = rs.getString("USERNAME");
+				String password = rs.getString("USER_PASSWORD");
+				float budget = rs.getFloat("BALANCE");
+				
+				customers.add(new Customers(custId, firstName, lastName, username, password, budget));
+			}
+			
+			
+		} catch (SQLException|IOException e) {
+			log.error(e.getMessage());
+		} 
+		
+		return customers;
+	}
+	
 }
+
+
+
