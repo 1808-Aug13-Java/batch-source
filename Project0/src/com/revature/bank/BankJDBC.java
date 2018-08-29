@@ -154,9 +154,9 @@ public class BankJDBC {
 		
 		// Add account to accounts, balances, and SQL DB
 		accounts.put(newUser, pass);
-		balancesBig.put(newUser, new BigDecimal(0));
+		balancesBig.put(newUser, new BigDecimal("0"));
 		Login l = new Login(newUser, pass);
-		b = new Balance(newUser, new BigDecimal(0));
+		b = new Balance(newUser, new BigDecimal("0"));
 		if (ldi.createLogin(l) != 1) {
 			log.info("Error creating account");
 			return;
@@ -267,7 +267,7 @@ public class BankJDBC {
 		if (difference.compareTo(BigDecimal.ZERO) < 0) {
 			log.info("Error: Cannot withdraw more than available");
 			return;
-		} else if (withdraw.compareTo(new BigDecimal(.01)) < 0) {
+		} else if (withdraw.compareTo(new BigDecimal(".01")) < 0) {
 			log.info("Error: Cannot withdraw amount less than $0.01");
 			return;
 		}
