@@ -20,6 +20,7 @@ public class BalanceDaoImplTest {
 	Balance b;
 	LoginDao ldi = new LoginDaoImpl();
 	Login l;
+	static final String NEWUSER = "newuser";
 	
 	// Tests assume Bank.sql is last change to database
 	@Test
@@ -61,36 +62,36 @@ public class BalanceDaoImplTest {
 	
 	@Test
 	public void createBalanceInvalid() {
-		b = new Balance("newuser", new BigDecimal("0"));
+		b = new Balance(NEWUSER, new BigDecimal("0"));
 		assertEquals(0, bdi.createBalance(b));
 	}
 	
 	@Test
 	public void createBalanceValid() {
-		l = new Login ("newuser", "pswrd");
+		l = new Login (NEWUSER, "pswrd");
 		ldi.createLogin(l);
-		b = new Balance("newuser", new BigDecimal("0"));
+		b = new Balance(NEWUSER, new BigDecimal("0"));
 		assertEquals(1, bdi.createBalance(b));
 	}
 	
 	@Test
 	public void deleteBalanceInvalid() {
-		bdi.deleteBalanceById("newuser");
-		assertEquals(0, bdi.deleteBalanceById("newuser"));
+		bdi.deleteBalanceById(NEWUSER);
+		assertEquals(0, bdi.deleteBalanceById(NEWUSER));
 	}
 	
 	@Test
 	public void deleteBalanceValid() {
-		l = new Login ("newuser", "pswrd");
+		l = new Login (NEWUSER, "pswrd");
 		ldi.createLogin(l);
-		b = new Balance("newuser", new BigDecimal("0"));
-		assertEquals(0, bdi.deleteBalanceById("newuser"));
+		b = new Balance(NEWUSER, new BigDecimal("0"));
+		assertEquals(0, bdi.deleteBalanceById(NEWUSER));
 	}
 	
 	@After
 	public void refresh() {
-		ldi.deleteLoginById("newuser");
-		bdi.deleteBalanceById("newuser");
+		ldi.deleteLoginById(NEWUSER);
+		bdi.deleteBalanceById(NEWUSER);
 	}
 
 }

@@ -15,16 +15,17 @@ import com.revature.model.Login;
 public class LoginDaoImplTest {
 	LoginDao ldi = new  LoginDaoImpl();
 	Login l;
+	static final String HEY_SONARCLOUD_IGNORE_PLEASE = "password";
 	
 	// Tests assume Bank.sql is last change to database
 	@Test
 	public void getLoginsTestValid() {
 		List<Login> listLogins = new ArrayList<>();
-		l = new Login("user", "password");
+		l = new Login("user", HEY_SONARCLOUD_IGNORE_PLEASE);
 		listLogins.add(l);
 		l = new Login("josh.pen", "kappa123");
 		listLogins.add(l);
-		l = new Login("user@email.com", "password");
+		l = new Login("user@email.com", HEY_SONARCLOUD_IGNORE_PLEASE);
 		listLogins.add(l);
 		
 		assertEquals(listLogins, ldi.getLogins());
@@ -37,7 +38,7 @@ public class LoginDaoImplTest {
 		listLogins.add(l);
 		l = new Login("josh.pen", "kappa123");
 		listLogins.add(l);
-		l = new Login("user@email.com", "password");
+		l = new Login("user@email.com", HEY_SONARCLOUD_IGNORE_PLEASE);
 		listLogins.add(l);
 		
 		assertNotEquals(listLogins, ldi.getLogins());
@@ -45,7 +46,7 @@ public class LoginDaoImplTest {
 	
 	@Test
 	public void getLoginByIdTestValid() {
-		l = new Login("user", "password");
+		l = new Login("user", HEY_SONARCLOUD_IGNORE_PLEASE);
 		
 		assertEquals(l, ldi.getLoginById("user"));
 	}

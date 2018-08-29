@@ -1,8 +1,14 @@
 
-;com.revature.model.Balance#getMoney()Ljava/math/BigDecimal;
-__unknown_file ("1*õ
+&com.revature.model.Balance#hashCode()I
+__unknown_file ("2"1*õ
 1r
-hC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\model\Balance.java	 ("|
+hC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\model\Balance.java! !(J"|
 r
-hC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\model\Balance.java (
-""
+hC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\model\Balance.java" "(
+""*
+2r
+hC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\model\Balance.java!6 !(>ž
+r
+hC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\model\Balance.java!6 !(I%0java.lang.String#hashCode()I"
+""*
+1
