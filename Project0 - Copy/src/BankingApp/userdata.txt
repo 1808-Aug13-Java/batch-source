@@ -1,0 +1,12 @@
+Username: 
+julie
+Password: 
+pass
+Initial balance:
+$0
+Balance: 
+$900
+Deposits:
+$1000
+Withdrawals:
+$100
