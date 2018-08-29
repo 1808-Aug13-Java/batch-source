@@ -1,122 +1,122 @@
 
-com.revature.bank.Bank#login()Z
-__unknown_file ("17*œ
-12n
-dC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\Bank.java^ ^(Ã
-n
-dC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\Bank.java^ ^(-%53org.apache.log4j.Category#info(Ljava/lang/Object;)V"!
+#com.revature.bank.BankJDBC#login()Z
+__unknown_file ("17*◊
+12r
+hC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\BankJDBC.javaV V(–
+r
+hC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\BankJDBC.javaV V(-%53org.apache.log4j.Category#info(Ljava/lang/Object;)V"!
 Error: Enter a valid username*
 
 15
 5
-9*Ì
-1n
-dC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\Bank.javaz	 z("x
-n
-dC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\Bank.java{ {(
-""*Ì
-2n
-dC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\Bank.javaw
- w("x
-n
-dC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\Bank.javaw w(
-""*†
-14n
-dC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\Bank.java[ [("ô
-n
-dC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\Bank.java[ [(,%4java.lang.String#isEmpty()Z"
+9*ı
+1r
+hC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\BankJDBC.javar	 r("|
+r
+hC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\BankJDBC.javas s(
+""*ı
+2r
+hC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\BankJDBC.javao
+ o("|
+r
+hC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\BankJDBC.javao o(
+""*®
+14r
+hC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\BankJDBC.javaS S("ù
+r
+hC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\BankJDBC.javaS S(,%4java.lang.String#isEmpty()Z"
 ""*
 15
 5
 9
-12*Ì
-3n
-dC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\Bank.javav v(∂
-n
-dC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\Bank.javav v(%127java.util.Map#get(Ljava/lang/Object;)Ljava/lang/Object;"
-""∂
-n
-dC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\Bank.javav v(%%13,java.lang.String#equals(Ljava/lang/Object;)Z"
+12*˘
+3r
+hC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\BankJDBC.javan n(∫
+r
+hC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\BankJDBC.javan n(%127java.util.Map#get(Ljava/lang/Object;)Ljava/lang/Object;"
+""∫
+r
+hC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\BankJDBC.javan n(%%13,java.lang.String#equals(Ljava/lang/Object;)Z"
 
 %12"
 
 pass*
 2
-1*û
-15n
-dC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\Bank.javaX X(	¥
-n
-dC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\Bank.javaX X(!%1.java.io.PrintStream#print(Ljava/lang/String;)V"
+1*≥
+15r
+hC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\BankJDBC.javaP P(Ω
+r
+hC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\BankJDBC.javaP P(%13org.apache.log4j.Category#info(Ljava/lang/Object;)V"
 
-Username: §
-n
-dC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\Bank.javaY
- Y(%2.java.util.Scanner#nextLine()Ljava/lang/String;π
-n
-dC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\Bank.java[ [(%34java.lang.String#contains(Ljava/lang/CharSequence;)Z"
+Username: ®
+r
+hC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\BankJDBC.javaQ
+ Q(%2.java.util.Scanner#nextLine()Ljava/lang/String;Ω
+r
+hC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\BankJDBC.javaS S(%34java.lang.String#contains(Ljava/lang/CharSequence;)Z"
 """
  *
 14
 15
 5
-9*Ì
-4n
-dC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\Bank.javaq
- q("x
-n
-dC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\Bank.javar r(
-""*¥
-5n
-dC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\Bank.javap p(∂
-n
-dC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\Bank.javap p(%117java.util.Map#get(Ljava/lang/Object;)Ljava/lang/Object;"
+9*ı
+4r
+hC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\BankJDBC.javai
+ i("|
+r
+hC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\BankJDBC.javaj j(
+""*º
+5r
+hC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\BankJDBC.javah h(∫
+r
+hC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\BankJDBC.javah h(%117java.util.Map#get(Ljava/lang/Object;)Ljava/lang/Object;"
 ""*
 3
-4*‡
-17n
-dC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\Bank.javaR R(Ñ
-n
-dC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\Bank.javaS S(pass__id"
+4*Ï
+17r
+hC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\BankJDBC.javaJ J(à
+r
+hC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\BankJDBC.javaK K(pass__id"
 
-""÷
-n
-dC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\Bank.javaU U(5%03org.apache.log4j.Category#info(Ljava/lang/Object;)V"+)
+""⁄
+r
+hC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\BankJDBC.javaM M(5%03org.apache.log4j.Category#info(Ljava/lang/Object;)V"+)
 'Please enter your Username and Password*
 
 15
 5
-9*À
-6n
-dC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\Bank.javak k(Õ
-n
-dC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\Bank.javak k(-%103org.apache.log4j.Category#info(Ljava/lang/Object;)V"!
+9*”
+6r
+hC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\BankJDBC.javac c(—
+r
+hC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\BankJDBC.javac c(-%103org.apache.log4j.Category#info(Ljava/lang/Object;)V"!
 Error: Enter a valid password*
 5
-9*ú
-8n
-dC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\Bank.javah h("õ
-n
-dC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\Bank.javah h(,%9java.lang.String#isEmpty()Z"
+9*§
+8r
+hC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\BankJDBC.java` `("ü
+r
+hC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\BankJDBC.java` `(,%9java.lang.String#isEmpty()Z"
 
 pass*	
 5
 6
-9*°
-9n
-dC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\Bank.javae e(	¥
-n
-dC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\Bank.javae e(!%6.java.io.PrintStream#print(Ljava/lang/String;)V"
+9*∫
+9r
+hC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\BankJDBC.java] ](Ω
+r
+hC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\BankJDBC.java] ](%63org.apache.log4j.Category#info(Ljava/lang/Object;)V"
 
-Password: §
-n
-dC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\Bank.javaf
- f(%7.java.util.Scanner#nextLine()Ljava/lang/String;Ñ
-n
-dC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\Bank.javaf f(pass__id"
+Password: ®
+r
+hC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\BankJDBC.java^
+ ^(%7.java.util.Scanner#nextLine()Ljava/lang/String;à
+r
+hC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\BankJDBC.java^ ^(pass__id"
 
-%7ª
-n
-dC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\Bank.javah h(%84java.lang.String#contains(Ljava/lang/CharSequence;)Z"
+%7ø
+r
+hC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\BankJDBC.java` `(%84java.lang.String#contains(Ljava/lang/CharSequence;)Z"
 
 pass"
  *	

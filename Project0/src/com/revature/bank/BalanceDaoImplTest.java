@@ -1,3 +1,4 @@
+package com.revature.bank;
 import static org.junit.Assert.*;
 
 import java.math.BigDecimal;
