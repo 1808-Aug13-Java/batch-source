@@ -1,6 +1,7 @@
 package com.revature.dao;
 
 import java.io.IOException;
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -186,16 +187,29 @@ public class ClientDaoImpl implements ClientDao {
 	
 	
 	@Override
-	public int deleteClient(long id, Connection con) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int deleteClient(long id, Connection con) throws SQLException {
+		// Make use of a stored procedure. 
+		final String sql = "{call PR_DELETE_CLIENT(?)}";
+		
+		//The number of affected rows by this insertion. 
+		int rowsAffected = 0;
+		
+		// Attempt to create a statement and execute it. 
+		try (CallableStatement cs = con.prepareCall(sql)) {
+			// Bind the variable to the query
+			cs.setLong(1, id);
+			
+			rowsAffected = cs.executeUpdate();
+			
+		}
+		
+		return rowsAffected;
 	}
 	
 	
 	@Override
-	public int deleteClient(Client client, Connection con) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int deleteClient(Client client, Connection con) throws SQLException {
+		return deleteClient(client.getClientId(), con);
 	}
 	
 
