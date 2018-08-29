@@ -1,6 +1,5 @@
 package com.revature.dao;
 
-import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -9,14 +8,12 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.log4j.Logger;
 
-import com.revature.server.DBConnectionUtil;
 
 public class AccountDaoImpl implements AccountDao {
 	
 	/** The default logging object. */
-	private static Logger log = Logger.getRootLogger();
+//	private static Logger log = Logger.getRootLogger();
 	
 	private static final String ACCOUNT_ID_STR = "accId";
 	private static final String ACCOUNT_TYPE_STR = "accType";
