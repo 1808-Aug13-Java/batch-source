@@ -44,9 +44,7 @@ public class BankJDBC {
 		for (Login i : loginList) {
 			accounts.put(i.getUsername(), i.getPassword());
 		}
-		
-		log.info("Size of Accounts: " + accounts.size());
-		
+				
 		// Get Balance information from DB
 		bdi = new BalanceDaoImpl();
 		List<Balance> balanceList = bdi.getBalances();
@@ -57,7 +55,6 @@ public class BankJDBC {
 			balancesBig.put(i.getUsername(), i.getMoney());
 		}
 		
-		log.info("Size of Balances: " + balancesBig.size());
 	}
 	
 	public int menu() {
