@@ -92,10 +92,9 @@ public class BankingDriver {
 					// Go into an accepting state for the user's email and password to
 					// make a new account
 					while (currentState == StateEnum.STATE_CREATE_USER) {
-						log.info(
-								"Pleae enter an email, a username, and a new password "
-								+ "separated by a space. Enter 'Back' to go back to "
-								+ "the login menu");
+						log.info("Pleae enter an email, a username, and a new password "
+								+ "separated by a space. ");
+						log.info("Enter 'Back' to go back to the login menu");
 						
 						
 						userInput = scanner.nextLine();
@@ -139,9 +138,9 @@ public class BankingDriver {
 					// Go into an accepting state for the user's email and password to
 					// log in
 					while (currentState == StateEnum.STATE_LOGIN) {
-						log.info(
-								"Pleae enter your email and password separated by "
-								+ "a space. Enter 'Back' to go back to the login menu");
+						log.info("Pleae enter your email and password separated by "
+								+ "a space. ");
+						log.info("Enter 'Back' to go back to the login menu");
 						
 						
 						userInput = scanner.nextLine();
