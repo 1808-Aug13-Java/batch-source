@@ -50,6 +50,7 @@ public class BankingDriver {
 		
 		// An object for holding information about a bank user
 		BankUserData bankUserData = null;
+		BankUserData tempUserData = null;
 		
 		// Used to hold user input amounts as they are being verified
 		BigDecimal inputAmount = null;
@@ -108,9 +109,9 @@ public class BankingDriver {
 					// a new user, with the email, username, and password.
 					if (!bankDatabase.userEmailExists(tokens[0])) {
 						bankUserData = new BankUserData();
-						bankUserData.email = tokens[0];
-						bankUserData.userName = tokens[1];
-						bankUserData.passwordHash = tokens[2];
+						bankUserData.setEmail(tokens[0]);
+						bankUserData.setUsername(tokens[1]);
+						bankUserData.setPassPhrase(tokens[2]);
 						
 						bankDatabase.addNewUser(bankUserData);
 						log.info("User Created");
@@ -151,7 +152,7 @@ public class BankingDriver {
 					// If the user email exists, and the password is correct, 
 					// let the user in
 					if ((bankUserData = bankDatabase.getUserByEmail(tokens[0])) != null
-							&& bankUserData.passwordHash.equals(tokens[1]))
+							&& bankUserData.getPassPhrase().equals(tokens[1]))
 					{
 						log.info("Login Successful");
 						currentState = StateEnum.STATE_USER_MENU;
@@ -169,7 +170,7 @@ public class BankingDriver {
 			
 			// Go into the accepting state for a logged in user
 			while (currentState == StateEnum.STATE_USER_MENU) {
-				log.info("Welcome " + bankUserData.userName + "!");
+				log.info("Welcome " + bankUserData.getUsername() + "!");
 				log.info("Type 'deposit <amount>' to deposit. ");
 				log.info("Type 'withdraw <amount>' to withdraw. ");
 				log.info("Type 'balance' to view your current balance");
@@ -241,9 +242,9 @@ public class BankingDriver {
 					break;
 				case "balance": 
 					// Get the latest data from the server
-					bankUserData = bankDatabase.getUserByEmail(bankUserData.email);
+					bankUserData = bankDatabase.getUserByEmail(bankUserData.getEmail());
 					
-					log.info("Balance: " + bankUserData.balance);
+					log.info("Balance: " + bankUserData.getBalance());
 					break;
 				case "logout":
 					log.info("Logged Out");
@@ -252,14 +253,9 @@ public class BankingDriver {
 				default:
 					log.info("'" + userInput + "' isn't valid. ");
 				} // end switch
-				
-				// Set inputAmount to null to free up any memory used. 
-				inputAmount = null;
 			} // end while
 			
 			
-			// Move to a new line every state change
-//			log.info("");
 		} // end while
 		
 		

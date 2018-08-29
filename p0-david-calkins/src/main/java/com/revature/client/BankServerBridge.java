@@ -42,6 +42,10 @@ public class BankServerBridge implements DataInterface {
 		}
 		return false;
 	}
+	
+	
+	public boolean userNameExists()
+	
 
 	@Override
 	public BankUserData getUserByName(String userName) {
