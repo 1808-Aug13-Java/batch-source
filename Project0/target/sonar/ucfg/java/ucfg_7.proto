@@ -1,30 +1,84 @@
 
-!com.revature.bank.Bank#balance()V
-__unknown_file ("1*Æ
+!com.revature.bank.Bank#deposit()V
+__unknown_file ("8*©
+
 1p
-dC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\Bank.javaµ µ(¢
+dC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\Bank.javaä ä(≤
 p
-dC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\Bank.javaµ µ((%0__concat"
-Current balance for "
-""í
+dC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\Bank.javaä ä(#%7/java.lang.Integer#parseInt(Ljava/lang/String;)I"	
+
+input∑
 p
-dC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\Bank.javaµ µ(1%1__concat"
-
-%0"
- is ∑
+dC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\Bank.javaç ç(+%87java.util.Map#get(Ljava/lang/Object;)Ljava/lang/Object;"
+""’
 p
-dC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\Bank.javaµ4 µ(F%27java.util.Map#get(Ljava/lang/Object;)Ljava/lang/Object;"
+dC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\Bank.javaç ç(6%9Mjava.util.Map#replace(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;"
+"""
 ""ê
 p
-dC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\Bank.javaµ µ(F%3__concat"
-
-%1"
-
-%2≥
+dC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\Bank.javaé é(%10__concat"
+$"
+""£
 p
-dC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\Bank.javaµ µ(G%43org.apache.log4j.Category#info(Ljava/lang/Object;)V"
-
-%3"z
+dC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\Bank.javaé é(0%11__concat"
+
+%10"
+ has been depositedµ
 p
-dC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\Bank.java∂ ∂(	
-""
+dC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\Bank.javaé é(1%123org.apache.log4j.Category#info(Ljava/lang/Object;)V"
+
+%11"z
+p
+dC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\Bank.javaè è(	
+""*√
+3p
+dC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\Bank.javaÖ Ö(œ
+p
+dC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\Bank.javaÖ Ö(.%63org.apache.log4j.Category#info(Ljava/lang/Object;)V"" 
+Error: Input was not numerical"z
+p
+dC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\Bank.javaÜ Ü(
+""*¶
+4p
+dC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\Bank.javaÑ Ñ(¶
+p
+dC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\Bank.javaÑ Ñ()%5java.lang.String#charAt(I)C"	
+
+input"
+""*
+3
+5*ù
+5p
+dC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\Bank.javaÉ É(ù
+p
+dC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\Bank.javaÉ É($%4java.lang.String#length()I"	
+
+input*
+4
+1*π
+7p
+dC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\Bank.javaˇ ˇ(≈
+p
+dC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\Bank.javaˇ ˇ(#%33org.apache.log4j.Category#info(Ljava/lang/Object;)V"
+Error: Invalid input"z
+p
+dC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\Bank.javaÄ Ä(
+
+""* 
+8p
+dC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\Bank.java˙ ˙(˜
+p
+dC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\Bank.java˙ ˙(T%03org.apache.log4j.Category#info(Ljava/lang/Object;)V"JH
+F\nHow much would you like to deposit? (Do not include '$' or decimals)¶
+p
+dC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\Bank.java˚ ˚(%1.java.util.Scanner#nextLine()Ljava/lang/String;á
+p
+dC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\Bank.java˚ ˚(input__id"
+
+%1ù
+p
+dC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\Bank.java˛ ˛(%2java.lang.String#length()I"	
+
+input*
+5
+7

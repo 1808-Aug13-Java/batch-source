@@ -54,7 +54,7 @@ public class BankJDBC {
 		for (Balance i : balanceList) {
 			balancesBig.put(i.getUsername(), i.getMoney());
 		}
-		
+		log.info("Done!\n");
 	}
 	
 	public int menu() {
@@ -123,7 +123,6 @@ public class BankJDBC {
 		// Get username
 		while (invalid) {
 			log.info("\nPlease enter desired username");
-			log.info("Username: ");
 			newUser = sc.nextLine();
 			// Do not allow whitespace in username or empty field
 			if (!newUser.contains(" ") || newUser.isEmpty()) {
@@ -142,7 +141,6 @@ public class BankJDBC {
 		// Get password
 		while(invalid) {
 			log.info("Please enter desired password");
-			log.info("Password: ");
 			pass = sc.nextLine();
 			//Do not allow whitespace in password or empty field
 			if (!pass.contains(" ") || pass.isEmpty()) {
@@ -205,7 +203,7 @@ public class BankJDBC {
 	}
 	
 	private void deposit() {
-		log.info("\nHow much would you like to deposit? (Do not include '$' or decimals)");
+		log.info("\nHow much would you like to deposit? (Do not include '$')");
 		String input = sc.nextLine();
 		BigDecimal balance = balancesBig.get(user);
 		BigDecimal deposit;
@@ -226,7 +224,7 @@ public class BankJDBC {
 		balance = balance.add(deposit);
 		
 		// Check if deposit is <.01
-		if (deposit.compareTo(new BigDecimal(.01)) < 0) {
+		if (deposit.compareTo(new BigDecimal(".01")) < 0) {
 			log.info("Error: Cannot deposit amount less than $0.01");
 			return;
 		}
@@ -242,7 +240,7 @@ public class BankJDBC {
 	}
 	
 	private void withdraw() {
-		log.info("\nHow much would you like to withdraw? (Do not include '$' or decimals)");
+		log.info("\nHow much would you like to withdraw? (Do not include '$')");
 		log.info("$" + df.format(balancesBig.get(user)) + " available for withdrawal");
 		String input = sc.nextLine();
 		BigDecimal withdraw;
