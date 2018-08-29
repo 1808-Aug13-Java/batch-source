@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="index.css">
   </head>
   <body>
+    <div>
     <form>
         <p>why do <em>you</em> hate the last jedi?</p><br>
-      <select id="poll">
+      <select id="poll" class="selectpicker">
         <option value = "a">it disrespected the star wars legacy</option>
         <option value = "b">we didn't get an epic luke vs kylo showdown</option>
         <option value = "c">they're killing off the main characters</option>
@@ -16,6 +20,7 @@
       <textarea placeholder="the last jedi is the worst movie ever made"></textarea><br>
       <input type="submit"/>
     </form>    
+  </div>
   <script>
     var poll = document.getElementById("poll");
     poll.addEventListener("change", function() {

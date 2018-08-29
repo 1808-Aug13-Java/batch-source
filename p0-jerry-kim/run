@@ -1,6 +1,10 @@
 #!/usr/bin/bash
 
-mvn -q compile;
-if [ 0 -eq $? ]; then
+if [ 1 -ne $# ]; then
+  mvn -q compile;
+  if [ 0 -eq $? ]; then
+    mvn -q exec:java;
+  fi
+else 
   mvn -q exec:java;
 fi
