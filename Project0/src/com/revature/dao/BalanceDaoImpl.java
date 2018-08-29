@@ -14,7 +14,6 @@ import java.util.List;
 import org.apache.log4j.Logger;
 
 import com.revature.model.Balance;
-import com.revature.model.Login;
 import com.revature.util.ConnectionUtil;
 
 public class BalanceDaoImpl implements BalanceDao{

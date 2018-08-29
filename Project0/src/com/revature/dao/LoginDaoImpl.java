@@ -16,7 +16,9 @@ import com.revature.util.ConnectionUtil;
 
 public class LoginDaoImpl implements LoginDao{
 	private static Logger log = Logger.getRootLogger();
-
+	static final String NAMESTRING = "USERNAME";
+	static final String PASSTRING = "PASSWORD";
+	
 	@Override
 	public List<Login> getLogins() {
 		List<Login> loginList = new ArrayList<>();
@@ -29,8 +31,8 @@ public class LoginDaoImpl implements LoginDao{
 			rs = s.executeQuery(sql);
 			
 			while (rs.next()) {
-				String username = rs.getString("USERNAME");
-				String password = rs.getString("PASSWORD");
+				String username = rs.getString(NAMESTRING);
+				String password = rs.getString(PASSTRING);
 				l = new Login(username, password);
 				loginList.add(l);
 			}
@@ -61,8 +63,8 @@ public class LoginDaoImpl implements LoginDao{
 			rs = ps.executeQuery();
 			
 			while (rs.next()) {
-				String username = rs.getString("USERNAME");
-				String password = rs.getString("PASSWORD");
+				String username = rs.getString(NAMESTRING);
+				String password = rs.getString(PASSTRING);
 				l = new Login(username, password);
 			}
 		
@@ -91,8 +93,8 @@ public class LoginDaoImpl implements LoginDao{
 			rs = ps.executeQuery();
 			
 			while (rs.next()) {
-				String username = rs.getString("USERNAME");
-				String password = rs.getString("PASSWORD");
+				String username = rs.getString(NAMESTRING);
+				String password = rs.getString(PASSTRING);
 				l = new Login(username, password);
 			}
 		
