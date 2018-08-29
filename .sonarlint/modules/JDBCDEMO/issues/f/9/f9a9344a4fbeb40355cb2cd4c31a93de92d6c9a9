@@ -1,0 +1,37 @@
+
+|squid:S1192$"GDefine a constant instead of duplicating this literal "STREET" 3 times.(şÿÚ£üÿÿÿÿHÑ3RCRITICALZ
+CODE_SMELL
+}squid:S1192-"HDefine a constant instead of duplicating this literal "ZIPCODE" 3 times.(˜Ô¨òûÿÿÿÿHÒ3RCRITICALZ
+CODE_SMELL
+{squid:S1192*"FDefine a constant instead of duplicating this literal "STATE" 3 times.(úü™šøÿÿÿÿHÓ3RCRITICALZ
+CODE_SMELL
+csquid:S1135"2Complete the task associated to this TODO comment.(» æÿÿÿÿÿHÔ3RINFOZ
+CODE_SMELL
+csquid:S11353"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿHÕ3RINFOZ
+CODE_SMELL
+csquid:S1135="2Complete the task associated to this TODO comment.(» æÿÿÿÿÿHÖ3RINFOZ
+CODE_SMELL
+csquid:S1135Q"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿH×3RINFOZ
+CODE_SMELL
+csquid:S1135T"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿHØ3RINFOZ
+CODE_SMELL
+csquid:S1135["2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿHÙ3RINFOZ
+CODE_SMELL
+csquid:S1135x"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿHÚ3RINFOZ
+CODE_SMELL
+csquid:S1135"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿHÛ3RINFOZ
+CODE_SMELL
+dsquid:S1135Š"2Complete the task associated to this TODO comment.(» æÿÿÿÿÿHÜ3RINFOZ
+CODE_SMELL
+dsquid:S1135"2Complete the task associated to this TODO comment.(» æÿÿÿÿÿHİ3RINFOZ
+CODE_SMELL
+dsquid:S1135–"2Complete the task associated to this TODO comment.(» æÿÿÿÿÿHŞ3RINFOZ
+CODE_SMELL
+qsquid:S2147S"DCombine this catch with the one at line 80, which has the same body.(ï­£ÄHß3RMINORZ
+CODE_SMELL
+Ssquid:S11484"#Use a logger to log this exception.(¼¶×ĞHà3RMINORZVULNERABILITY
+Xsquid:S1148R"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿHá3RMINORZVULNERABILITY
+Xsquid:S1148U"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿHâ3RMINORZVULNERABILITY
+Xsquid:S1148\"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿHã3RMINORZVULNERABILITY
+Xsquid:S1148y"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿHä3RMINORZVULNERABILITY
+Ysquid:S1148€"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿHå3RMINORZVULNERABILITY

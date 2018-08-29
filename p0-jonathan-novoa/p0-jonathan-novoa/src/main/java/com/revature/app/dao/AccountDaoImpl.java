@@ -57,7 +57,7 @@ public class AccountDaoImpl implements AccountDao {
 		int accountsUpdated=0;
 		float tempBalance;
 		if (currAccount.isLoggedIn()) {
-			if (amount> currAccount.getBalance() || (currAccount.getBalance()-amount < 0)) {
+			if (amount> currAccount.getBalance() || (currAccount.getBalance()-amount < 0) || amount <0) {
 				log.info("Insufficient Funds to perform transaction.");
 			}
 			else {
@@ -138,7 +138,7 @@ public class AccountDaoImpl implements AccountDao {
 		Account loggedInAccount=workingAccount;
 		if(status) {
 
-			log.info("Success, please select a number of a transaction");
+			log.info("Please select a number of a transaction");
 			log.info("1. withdraw, 2. deposit, 3. view balance, or 4. Log out");
 			String enter=sc.next();
 			if(inputValid(enter)!=0) {
