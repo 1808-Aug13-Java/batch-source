@@ -2,6 +2,7 @@ package com.revature.client;
 
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Random;
@@ -32,53 +33,96 @@ public class BankServerBridge implements DataInterface {
 	
 	private static final String DEFAULT_ACCOUNT = "Checking";
 	
+	
 	@Override
-	public boolean userNameExists(String userName) {
-		ClientDao clientDao = new ClientDaoImpl();
-		try {
-			return clientDao.getClientByUsername(userName, DBConnectionUtil.getConnection()) != null;
-		} catch (SQLException | IOException e) {
-			e.printStackTrace();
+	public boolean userNameExists(String username) 
+											throws IOException, SQLException 
+	{
+		// Get an autoclosable connection
+		try (Connection con = DBConnectionUtil.getConnection()) {
+			return userNameExists(username, con);
 		}
-		return false;
-	}
+	} // end of usernameExists
 	
 	
-	public boolean userNameExists()
-	
-
-	@Override
-	public BankUserData getUserByName(String userName) {
-		// Get the information about the user from the server
-		Client client = getClientByUsername(userName);
-		Account account = getAccount(client);
-		
-		return toBankUserData(client, account);
-	}
-
-	@Override
-	public boolean userEmailExists(String email) {
+	public boolean userNameExists(String username, Connection con) 
+											throws SQLException 
+	{
 		ClientDao clientDao = new ClientDaoImpl();
-		try {
-			return clientDao.getClientByEmail(email, DBConnectionUtil.getConnection()) != null;
-		} catch (SQLException | IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return false;
-	}
-
-	@Override
-	public BankUserData getUserByEmail(String email)  {
-		// Get the information about the user from the server
-		Client client = getClientByEmail(email);
-		Account account = getAccount(client);
 		
-		return toBankUserData(client, account);
-	}
+		return clientDao.getClientByUsername(username, con) != null;
+	} // end of usernameExists
+	
+
+	// Returns null if there is no client or account associated with that username
+	@Override
+	public BankUserData getUserByName(String username) 
+											throws IOException, SQLException 
+	{
+		// Get an autoclosable connection
+		try (Connection con = DBConnectionUtil.getConnection()) {
+			// Get the information about the user from the server
+			Client client = getClientByUsername(username, con);
+			if (client == null) {
+				return null;
+			}
+			
+			Account account = getAccount(client, con);
+			if (account == null) {
+				return null;
+			}
+			
+			return toBankUserData(client, account);
+		}
+	} // end of getUserByName
+
+	
+	public boolean userEmailExists(String email) 
+											throws IOException, SQLException 
+	{
+		// Get an autoclosable connection
+		try (Connection con = DBConnectionUtil.getConnection()) {
+			return userEmailExists(email, con);
+		}
+	} // end of userEmailExists
+	
+	public boolean userEmailExists(String email, Connection con) 
+											throws SQLException 
+	{
+		ClientDao clientDao = new ClientDaoImpl();
+		return clientDao.getClientByEmail(email, con) != null;
+	} // end of userEmailExists
+	
 
 	@Override
-	public boolean addNewUser(BankUserData newUser) {
+	public BankUserData getUserByEmail(String email) 
+											throws IOException, SQLException 
+	{
+		// Get an autoclosable connection
+		try (Connection con = DBConnectionUtil.getConnection()) {
+			// Get the information about the user from the server
+			Client client = getClientByEmail(email, con);
+			if (client == null) {
+				return null;
+			}
+			
+			Account account = getAccount(client, con);
+			if (account == null) {
+				return null;
+			}
+			
+			return toBankUserData(client, account);
+		}
+	} // end of getUserByEmail
+	
+	
+	// TODO: Test later behavior when adding users concurrently. I suspect 
+	// TODO: this transaction setup might cause problems with conflicting 
+	// TODO: generated Primary Keys. 
+	// Throws an exception if problem, returns true if no problem
+	@Override
+	public boolean addNewUser(BankUserData newUser) 
+											throws IOException, SQLException {
 		// Setup the necessary DAOs
 		ClientDao clientDao = new ClientDaoImpl();
 		AccountDao accountDao = new AccountDaoImpl();
@@ -88,118 +132,156 @@ public class BankServerBridge implements DataInterface {
 		Client client = new Client();
 		Account account = new Account();
 		
+		// Stores the client or account IDs that were generated on the server
+		long generatedId = 0;
+		
 		// Initialize the client and account data based on newUser
 		fromBankUserData(newUser, client, account);
-		
-		//TODO: Implement a better server side ID generator. For now, this will 
-		// do, even if it can cause errors. 
-		Random rand = new Random();
-		
-		long clientId = rand.nextLong();
-		long accId = rand.nextLong();
-		client.setClientId(clientId);
 		
 		
 		// If a client and an account were created, pull the client and account
 		// from the server to get their generated id's
-		try {
-			// Set the account id 
-			clientDao.createClient(client, DBConnectionUtil.getConnection());
-			accountDao.createAccount(account, DBConnectionUtil.getConnection());
-			return ctaDao.createCLtoAC(client, account, DBConnectionUtil.getConnection()) == 1;
-		} catch (SQLException | IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		try (Connection con = DBConnectionUtil.getConnection()) {
+			// Turn off autocommit as we will need multiple operations to be 
+			// atomic. 
+			con.setAutoCommit(false);
+			
+			// Create a new client on the DB and get its generated Primary key. 
+			generatedId = clientDao.createClient(client, con);
+			client.setClientId(generatedId);
+			
+			// Create a new account on the DB and get its generated Primary key.
+			generatedId = accountDao.createAccount(account, con);
+			account.setAccId(generatedId);
+			
+			// Create a link between the new client and account
+			ctaDao.createCLtoAC(client, account, con);
+			
+			// Commit the changes
+			con.commit();
+			
+			return true;
 		}
-		return false;
-	}
+	} // end of addNewUser
 
+	
 	@Override
-	public boolean withdraw(BankUserData user, BigDecimal amount) {
-		// Get the information about the user from the server
-		Client client = getClientByEmail(user.email);
-		Account account = getAccount(client);
-		
-		// If there isn't enough money. Don't do anything. 
-		if (account.getBalance().compareTo(amount) < 0) {
-			return false;
+	public boolean withdraw(BankUserData user, BigDecimal amount) 
+											throws IOException, SQLException 
+	{
+		try (Connection con = DBConnectionUtil.getConnection()) {
+			// Get the information about the user from the server
+			// Return false if there is no user by that email. 
+			Client client = getClientByEmail(user.getEmail(), con);
+			if (client == null) {
+				log.info("Client '" + user.getEmail() + "' not found. ");
+				return false;
+			}
+			
+			// Get the information about the user from the server
+			// Return false if the client has no accounts
+			Account account = getAccount(client, con);
+			if (account == null) {
+				log.info("No account for Client '" 
+										+ client.getEmail() + "' found. ");
+				return false;
+			}
+			
+			// If there isn't enough money. Don't do anything. 
+			if (account.getBalance().compareTo(amount) < 0) {
+				return false;
+			}
+			
+			// Change he balance on the account object
+			account.setBalance(account.getBalance().subtract(amount));
+			
+			// TODO: Implement higher level serialization that makes withdrawal
+			// TODO: transactions on individual accounts completely serial. 
+			// TODO: Otherwise, bad things happen if concurrent withdrawals are 
+			// TODO: made. 
+			// Update the balance on both the server and the client
+			AccountDao accountDao = new AccountDaoImpl();
+			accountDao.updateAccount(account, con);
+			
+			// Update the client side balance accordingly
+			user.setBalance(account.getBalance());
+			
+			return true;
 		}
-		log.info("Balance: " + account.getBalance() + "  amount: " + amount);
-		
-		account.setBalance(account.getBalance().subtract(amount));
-		
-		
-		// Update the balance on both the server and the client
-		AccountDao accountDao = new AccountDaoImpl();
-		try {
-			accountDao.updateAccount(account, DBConnectionUtil.getConnection());
-		} catch (SQLException | IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		user.balance = account.getBalance();
-		
-		return true;
-	}
-
+	} // end of withdraw
+	
+	
 	@Override
-	public void deposit(BankUserData user, BigDecimal amount) {
-		// Get the information about the user from the server
-		Client client = getClientByEmail(user.email);
-		Account account = getAccount(client);
-		
-		// Update the balance on both the server and the client
-		account.setBalance(account.getBalance().add(amount));
-		user.balance = account.getBalance();
-		
-		AccountDao accountDao = new AccountDaoImpl();
-		try {
-			accountDao.updateAccount(account, DBConnectionUtil.getConnection());
-		} catch (SQLException | IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+	public boolean deposit(BankUserData user, BigDecimal amount) throws SQLException, IOException {
+		try (Connection con = DBConnectionUtil.getConnection()) {
+			// Get the information about the user from the server
+			// Return false if there is no user by that email. 
+			Client client = getClientByEmail(user.getEmail(), con);
+			if (client == null) {
+				log.info("Client '" + user.getEmail() + "' not found. ");
+				return false;
+			}
+			
+			// Get the information about the user from the server
+			// Return false if the client has no accounts
+			Account account = getAccount(client, con);
+			if (account == null) {
+				log.info("No account for Client '" 
+										+ client.getEmail() + "' found. ");
+				return false;
+			}
+			
+			// Change the balance on the account object
+			account.setBalance(account.getBalance().add(amount));
+			
+			// TODO: Implement higher level serialization that makes deposit
+			// TODO: transactions on individual accounts completely serial. 
+			// TODO: Otherwise, bad things happen if concurrent deposits are 
+			// TODO: made. 
+			// Update the balance held on the server side
+			AccountDao accountDao = new AccountDaoImpl();
+			accountDao.updateAccount(account, con);
+			
+			// Update the balance held on the client side
+			user.setBalance(account.getBalance());
+			
+			return true;
 		}
-	}
+	} // end of deposit
 	
 	
 	
 	
 	
-	/** Gets a client from the database based on the user's email. */
-	private Client getClientByEmail(String email) {
+	/** Gets a client from the database based on the user's email. 
+	 * Returns null if there isn't a user with that email.
+	 * @throws SQLException */
+	private Client getClientByEmail(String email, Connection con) 
+														throws SQLException 
+	{
 		ClientDao clientDao = new ClientDaoImpl();
-		try {
-			return clientDao.getClientByEmail(email, DBConnectionUtil.getConnection());
-		} catch (SQLException | IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return null;
-	}
+		return clientDao.getClientByEmail(email, con);
+	} // end of getClientByEmail
 	
-	/** Gets a client from the database based on the user's username. */
-	private Client getClientByUsername(String username) {
+	/** Gets a client from the database based on the user's username. 
+	 * Returns null if there isn't a user with that username. */
+	private Client getClientByUsername(String username, Connection con) 
+														throws SQLException 
+	{
 		ClientDao clientDao = new ClientDaoImpl();
-		try {
-			return clientDao.getClientByUsername(username, DBConnectionUtil.getConnection());
-		} catch (SQLException | IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return null;
-	}
+		return clientDao.getClientByUsername(username, con);
+	} // end of getClientByUsername
 	
-	/** Gets an account from the database for a specific bank client. */
-	private Account getAccount(Client client) {
+	
+	/** A temporary private helper method that gets an account from the 
+	 * database for a specific bank client. Later, a client will have to access
+	 * multiple accounts. */
+	private Account getAccount(Client client, Connection con) 
+														throws SQLException 
+	{
 		ClientToAccountDao ctaDao = new ClientToAccountDaoImpl();
 		
-		List<Account> accounts = null;
-		try {
-			accounts = ctaDao.getAccountsByClient(client, DBConnectionUtil.getConnection());
-		} catch (SQLException | IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		List<Account> accounts = ctaDao.getAccountsByClient(client, con);
 		
 		// If we have no accounts for this client, return null.
 		if (accounts.isEmpty()) {
@@ -209,21 +291,22 @@ public class BankServerBridge implements DataInterface {
 		// Otherwise, just return the first account, as clients will only have 
 		// a single checking account at this point. 
 		return accounts.get(0);
-	}
+	} // end of getAccount
 	
 	
 	/** Converts a client and an account into a single BankUserData object. 
 	 * @return */
-	private BankUserData toBankUserData(Client client, Account account) {
+	private BankUserData toBankUserData(Client client, Account account) 
+	{
 		BankUserData userData = new BankUserData();
-		userData.uniqueID = client.getClientId();
-		userData.email = client.getEmail();
-		userData.userName = client.getUsername();
-		userData.passwordHash = client.getPassPhrase();
-		userData.balance = account.getBalance();
+		userData.setUniqueID(client.getClientId());
+		userData.setEmail(client.getEmail());
+		userData.setUsername(client.getUsername());
+		userData.setPassPhrase(client.getPassPhrase());
+		userData.setBalance(account.getBalance());
 		
 		return userData;
-	}
+	} // end of toBankUserData
 	
 	/** Given, a BankUserData object, sets the appropriate fields in the 
 	 * provided Client and Account objects based on the BankUserData. */
@@ -231,12 +314,12 @@ public class BankServerBridge implements DataInterface {
 									Client client, 
 									Account account) 
 	{
-		client.setEmail(userData.email);
-		client.setPassPhrase(userData.passwordHash);
-		client.setUsername(userData.userName);
-		account.setBalance(userData.balance);
+		client.setEmail(userData.getEmail());
+		client.setPassPhrase(userData.getPassPhrase());
+		client.setUsername(userData.getUsername());
+		account.setBalance(userData.getBalance());
 		// Set to the default type of account for this bridge
 		account.setAccType(DEFAULT_ACCOUNT);
-	}
+	} // end of fromBankUserData
 	
 }

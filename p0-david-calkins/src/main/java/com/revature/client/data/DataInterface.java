@@ -66,7 +66,7 @@ public interface DataInterface {
 	 * @param amount - The amount of the transaction
 	 * @return
 	 */
-	public void deposit(BankUserData user, BigDecimal amount) 
+	public boolean deposit(BankUserData user, BigDecimal amount) 
 											throws IOException, SQLException;
 	
 	
