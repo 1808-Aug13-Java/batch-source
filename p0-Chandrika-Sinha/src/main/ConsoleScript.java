@@ -12,7 +12,8 @@ import model.User;
 
 public final class ConsoleScript {
 	private static Scanner sc = new Scanner(System.in);
-	static User u;
+	private static User u;
+	private Account a;
 	
 	private ConsoleScript() {
 		run();
@@ -95,6 +96,14 @@ public final class ConsoleScript {
 		}
 	}
 	
+	private static Account createNewAccount(User u, Scanner sc) {
+		AccountDaoImpl ad = new AccountDaoImpl();
+		int id = ad.getNextAccountId();
+		Account a = new Account(id, new BigDecimal("0"), "checking", false);
+		ad.createAccount(a, u);
+		return a;
+	}
+	
 	private static void login(Scanner sc) {
 		boolean badInput = true;
 		while(badInput) {
@@ -118,11 +127,16 @@ public final class ConsoleScript {
 	private static void postLogIn() {
 		boolean badInput = true;
 		while (badInput && u.isLoggedIn()) {
+			System.out.println("Enter 'n' to create a new account. \n");
 			System.out.println("Enter 'd' to deposit money, 'w' to withdraw money, 'v' to view balance,\n");
 			System.out.println("Or press 'q' to quit.");
 			String input = sc.nextLine();
-
+			
+			input = input.toLowerCase();
+			
 			switch (input) {
+			case "n":
+				createNewAccount(u,sc);
 			case "d":
 				deposit(u, sc);
 				break;
@@ -145,7 +159,7 @@ public final class ConsoleScript {
 				System.out.println("Would you like to make another transaction?\n");
 		}
 	}
-	
+
 	private static void deposit(User u, Scanner sc) {
 		List<Account> userAccounts = new ArrayList<>();
 		UserDaoImpl ud = new UserDaoImpl();

@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import model.Account;
+import model.User;
 import util.ConnectionUtil;
 
 public class AccountDaoImpl implements AccountDao {
@@ -25,29 +26,53 @@ public class AccountDaoImpl implements AccountDao {
 				Statement s = con.createStatement();
 				ResultSet rs = s.executeQuery(sql);) {
 			Account a = new Account();
-			int id = rs.getInt("");
-			BigDecimal balance = rs.getBigDecimal("BANKACCOUNT_BALANCE"); 
-			String type = rs.getString("CHECKING_OR_SAVING");
-			String jointOrSingle = rs.getString("CHECKING_OR_SAVING");
-			a.setId(id);
-			a.setBalance(balance);
-			a.setType(type);
-			a.setJoint(jointOrSingle.equals("joint"));
-			accountList.add(a);
+			while (rs.next()) {
+				int id = rs.getInt("BANKACCOUNT_ID");
+				BigDecimal balance = rs.getBigDecimal("BANKACCOUNT_BALANCE"); 
+				String type = rs.getString("CHECKING_OR_SAVINGS");
+				String jointOrSingle = rs.getString("SINGLE_OR_JOINT");
+				a.setId(id);
+				a.setBalance(balance);
+				a.setType(type);
+				a.setJoint(jointOrSingle.equals("joint"));
+				accountList.add(a);
+			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 		return accountList;
+	}
+	
+	@Override
+	public int getNextAccountId() {
+		int accountId = -1;
+		
+		if (getAccounts().size()==0) {
+			return 0;
+		}
+		
+		String sql = "SELECT MAX(BANKACCOUNT_ID) AS MAX_ACCT_ID FROM BANKACCOUNT";
+		try (Connection con = ConnectionUtil.getConnection();
+				Statement s = con.createStatement();
+				ResultSet rs = s.executeQuery(sql);) {
+			if (rs.next()) {
+				accountId = rs.getInt("MAX_ACCT_ID");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return accountId + 1;
 	}
 
 	@Override
 	public Account getAccountById(int id) {
 		Account a = null;
-		String sql = "SELECT * FROM BANKACCOUNT WHEERE BANKACCOUNT_ID = ?";
+		String sql = "SELECT * FROM BANKACCOUNT WHERE BANKACCOUNT_ID = ?";
 		
 		ResultSet rs = null;
 		try (Connection con = ConnectionUtil.getConnection();
@@ -65,10 +90,10 @@ public class AccountDaoImpl implements AccountDao {
 			}
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 		return a;
@@ -77,7 +102,7 @@ public class AccountDaoImpl implements AccountDao {
 	@Override
 	public Account getAccountById(Connection con, int id) {
 		Account a = null;
-		String sql = "SELECT * FROM BANKACCOUNT WHEERE BANKACCOUNT_ID = ?";
+		String sql = "SELECT * FROM BANKACCOUNT WHERE BANKACCOUNT_ID = ?";
 		
 		ResultSet rs = null;
 		try (PreparedStatement ps = con.prepareStatement(sql)) {
@@ -94,28 +119,39 @@ public class AccountDaoImpl implements AccountDao {
 			}
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 		return a;
 	}
 
 	@Override
-	public int createAccount(Account account) {
+	public int createAccount(Account account, User user) {
 		int accountsCreated = 0;
 		String sql = "INSERT INTO BANKACCOUNT (BANKACCOUNT_ID, BANKACCOUNT_BALANCE, CHECKING_OR_SAVINGS, SINGLE_OR_JOINT) VALUES (?, ?, ?, ?)";
 		try (Connection con = ConnectionUtil.getConnection();
 				PreparedStatement ps = con.prepareStatement(sql); ) {
-			ps.setInt(1, account.getId());
+			ps.setInt(1, getNextAccountId());
 			ps.setBigDecimal(2, account.getBalance());
 			ps.setString(3, account.getType());
 			String isJoint = account.isJoint() ? "joint" : "single";
 			ps.setString(4, isJoint);
+			ps.executeUpdate();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		String sql2 = "INSERT INTO BANKUSER_BANKACCOUNT (BANK_USERNAME, BANKACCOUNT_ID) VALUES (?, ?)";
+		try (Connection con = ConnectionUtil.getConnection();
+				PreparedStatement ps = con.prepareStatement(sql2); ) {
+			ps.setInt(1, account.getId());
+			ps.setString(2, user.getUsername());
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		return accountsCreated;
@@ -142,10 +178,10 @@ public class AccountDaoImpl implements AccountDao {
 			usersUpdated = ps.executeUpdate();
 			con.commit();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 		return usersUpdated;
@@ -160,10 +196,10 @@ public class AccountDaoImpl implements AccountDao {
 			ps.setInt(1, account.getId());
 			ps.executeUpdate();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 		return rowsDeleted;
@@ -178,10 +214,10 @@ public class AccountDaoImpl implements AccountDao {
 			ps.setInt(1, id);
 			ps.executeUpdate();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 		return rowsDeleted;
