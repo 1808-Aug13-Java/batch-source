@@ -3,5 +3,5 @@ projectKey=p0-Newton-Hoac:p0-Newton-Hoac
 serverUrl=https://sonarcloud.io
 serverVersion=7.3.0.15868
 dashboardUrl=https://sonarcloud.io/dashboard?id=p0-Newton-Hoac%3Ap0-Newton-Hoac
-ceTaskId=AWWD_Q8g6jimPkUQHa4C
-ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AWWD_Q8g6jimPkUQHa4C
+ceTaskId=AWWEAh7HGgoRWSxVNxT2
+ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AWWEAh7HGgoRWSxVNxT2
