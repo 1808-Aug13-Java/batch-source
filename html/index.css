@@ -34,3 +34,7 @@ h1, #qestions {
   color: yellow;
 }
 
+table, td, tr {
+  border: 1px solid white;
+  padding: 10px;
+}
