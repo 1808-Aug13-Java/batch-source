@@ -1,6 +1,5 @@
 package com.revature.dao;
 
-import java.io.IOException;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,14 +9,12 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.log4j.Logger;
 
-import com.revature.server.DBConnectionUtil;
 
 public class ClientDaoImpl implements ClientDao {
 	
 	/** The default logging object. */
-	private static Logger log = Logger.getRootLogger();
+//	private static Logger log = Logger.getRootLogger();
 
 	@Override
 	public Client getClientById(long id, Connection con)
