@@ -2,6 +2,7 @@ package com.revature.dao;
 
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -18,6 +19,8 @@ import com.revature.util.ConnectionUtil;
 
 public class BalanceDaoImpl implements BalanceDao{
 	private static Logger log = Logger.getRootLogger();
+	static final String NAMESTRING = "USERNAME";
+	static final String BALSTRING = "BALANCE";
 	
 	@Override
 	public List<Balance> getBalances() {
@@ -31,8 +34,8 @@ public class BalanceDaoImpl implements BalanceDao{
 			rs = s.executeQuery(sql);
 			
 			while (rs.next()) {
-				String username = rs.getString("USERNAME");
-				BigDecimal money = rs.getBigDecimal("BALANCE");
+				String username = rs.getString(NAMESTRING);
+				BigDecimal money = rs.getBigDecimal(BALSTRING);
 				b = new Balance(username, money);
 				balanceList.add(b);
 			}
@@ -63,8 +66,8 @@ public class BalanceDaoImpl implements BalanceDao{
 			rs = ps.executeQuery();
 			
 			while (rs.next()) {
-				String username = rs.getString("USERNAME");
-				BigDecimal balance = rs.getBigDecimal("BALANCE");
+				String username = rs.getString(NAMESTRING);
+				BigDecimal balance = rs.getBigDecimal(BALSTRING);
 				b = new Balance(username, balance);
 			}
 		} catch (IOException | SQLException e) {
@@ -92,8 +95,8 @@ public class BalanceDaoImpl implements BalanceDao{
 			rs = ps.executeQuery();
 			
 			while (rs.next()) {
-				String username = rs.getString("USERNAME");
-				BigDecimal balance = rs.getBigDecimal("BALANCE");
+				String username = rs.getString(NAMESTRING);
+				BigDecimal balance = rs.getBigDecimal(BALSTRING);
 				b = new Balance(username, balance);
 			}
 		} catch (SQLException e) {
@@ -127,21 +130,17 @@ public class BalanceDaoImpl implements BalanceDao{
 	}
 
 	@Override
-	public int updateBalance(Balance balance) {
-		int balancesUpdated = 0;
-		String sql = "UPDATE BALANCE "
-				+ "SET BALANCE = ? "
-				+ "WHERE USERNAME = ?";
+	public void updateBalance(Balance balance) {
+		String sql = "{call SET_BALANCE(?, ?)}";
 		
 		try (Connection con = ConnectionUtil.getConnection();
-				PreparedStatement ps = con.prepareStatement(sql)){
-			ps.setBigDecimal(1, balance.getMoney());
-			ps.setString(2, balance.getUsername());
-			balancesUpdated = ps.executeUpdate();
+				CallableStatement cs = con.prepareCall(sql)){
+			cs.setString(1, balance.getUsername());
+			cs.setBigDecimal(2, balance.getMoney());
+			cs.execute();
 		} catch (IOException | SQLException e) {
 			log.error(e);
 		}
-		return balancesUpdated;
 	}
 
 	@Override

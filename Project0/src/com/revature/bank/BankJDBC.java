@@ -241,7 +241,7 @@ public class BankJDBC {
 		b = new Balance(user, balance);
 		bdi.updateBalance(b);
 		
-		log.info("$" + deposit + " has been deposited");
+		log.info("$" + df.format(deposit) + " has been deposited");
 	}
 	
 	private void withdraw() {

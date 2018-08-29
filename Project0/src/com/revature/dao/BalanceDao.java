@@ -10,6 +10,6 @@ public interface BalanceDao {
 	public Balance getBalanceById(String id);
 	public Balance getBalanceById(String id, Connection con);
 	public int createBalance(Balance balance);
-	public int updateBalance(Balance balance);
+	public void updateBalance(Balance balance);
 	public int deleteBalanceById(String id);
 }
