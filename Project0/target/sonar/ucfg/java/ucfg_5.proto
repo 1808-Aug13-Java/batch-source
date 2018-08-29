@@ -1,84 +1,83 @@
 
 !com.revature.bank.Bank#deposit()V
-__unknown_file ("8*¦
+__unknown_file ("8*©
 
 1p
-dC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\Bank.java (²
+dC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\Bank.javaŠ Š(²
 p
-dC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\Bank.java (#%7/java.lang.Integer#parseInt(Ljava/lang/String;)I"	
+dC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\Bank.javaŠ Š(#%7/java.lang.Integer#parseInt(Ljava/lang/String;)I"	
 
 input·
 p
-dC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\Bank.java„ „(+%87java.util.Map#get(Ljava/lang/Object;)Ljava/lang/Object;"
+dC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\Bank.java (+%87java.util.Map#get(Ljava/lang/Object;)Ljava/lang/Object;"
 ""Õ
 p
-dC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\Bank.java„ „(6%9Mjava.util.Map#replace(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;"
+dC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\Bank.java (6%9Mjava.util.Map#replace(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;"
 """
 ""
 p
-dC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\Bank.java… …("%10__concat"
+dC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\Bank.java (%10__concat"
 $"
 ""£
 p
-dC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\Bank.java… …(:%11__concat"
+dC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\Bank.java (0%11__concat"
 
 %10"
- has been deposited²
+ has been depositedµ
 p
-dC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\Bank.java… …(;%120java.io.PrintStream#println(Ljava/lang/String;)V"
+dC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\Bank.java (1%123org.apache.log4j.Category#info(Ljava/lang/Object;)V"
 
 %11"z
 p
-dC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\Bank.java† †(	
-""*À
+dC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\Bank.java (	
+""*Ã
 3p
-dC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\Bank.javaü ü(
-Ì
+dC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\Bank.java… …(Ï
 p
-dC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\Bank.javaü ü(8%60java.io.PrintStream#println(Ljava/lang/String;)V"" 
+dC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\Bank.java… …(.%63org.apache.log4j.Category#info(Ljava/lang/Object;)V"" 
 Error: Input was not numerical"z
 p
-dC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\Bank.javaı ı(
+dC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\Bank.java† †(
 ""*¦
 4p
-dC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\Bank.javaû û(¦
+dC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\Bank.java„ „(¦
 p
-dC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\Bank.javaû û()%5java.lang.String#charAt(I)C"	
+dC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\Bank.java„ „()%5java.lang.String#charAt(I)C"	
 
 input"
 ""*
 3
 5*
 5p
-dC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\Bank.javaú ú(
+dC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\Bank.javaƒ ƒ(
 p
-dC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\Bank.javaú ú($%4java.lang.String#length()I"	
+dC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\Bank.javaƒ ƒ($%4java.lang.String#length()I"	
 
 input*
 4
-1*¶
+1*¹
 7p
-dC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\Bank.javaö ö(	Â
+dC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\Bank.javaÿ ÿ(Å
 p
-dC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\Bank.javaö ö(-%30java.io.PrintStream#println(Ljava/lang/String;)V"
+dC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\Bank.javaÿ ÿ(#%33org.apache.log4j.Category#info(Ljava/lang/Object;)V"
 Error: Invalid input"z
 p
-dC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\Bank.java÷ ÷(
+dC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\Bank.java€ €(
 
-""*Ç
+""*Ê
 8p
-dC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\Bank.javañ ñ(ô
+dC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\Bank.javaú ú(÷
 p
-dC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\Bank.javañ ñ(^%00java.io.PrintStream#println(Ljava/lang/String;)V"JH
+dC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\Bank.javaú ú(T%03org.apache.log4j.Category#info(Ljava/lang/Object;)V"JH
 F\nHow much would you like to deposit? (Do not include '$' or decimals)¦
 p
-dC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\Bank.javaò ò(%1.java.util.Scanner#nextLine()Ljava/lang/String;‡
+dC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\Bank.javaû û(%1.java.util.Scanner#nextLine()Ljava/lang/String;‡
 p
-dC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\Bank.javaò ò(input__id"
+dC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\Bank.javaû û(input__id"
 
 %1
 p
-dC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\Bank.javaõ õ(%2java.lang.String#length()I"	
+dC:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Project0\src\com\revature\bank\Bank.javaş ş(%2java.lang.String#length()I"	
 
 input*
 5

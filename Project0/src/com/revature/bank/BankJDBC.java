@@ -1,10 +1,7 @@
 package com.revature.bank;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.math.BigDecimal;
+import java.text.DecimalFormat;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -23,23 +20,23 @@ public class BankJDBC {
 	private static Logger log = Logger.getRootLogger();
 
 	private Map<String, String> accounts = new HashMap<>();
-	private Map<String, Integer> balances = new HashMap<>();
 	private Map<String, BigDecimal> balancesBig = new HashMap<>();
 	private static Scanner sc = new Scanner(System.in);
 	private String user;
-	private static String pathLogin = "src/com/revature/bank/login.txt";
-	private static String pathBalances = "src/com/revature/bank/balances.txt";
-	private BufferedWriter bw;
+	private LoginDao ldi = new LoginDaoImpl();
+	private Balance b;
+	private BalanceDao bdi = new BalanceDaoImpl();
+	private static DecimalFormat df = new DecimalFormat("#,###.00");
 	
 	public BankJDBC() {
 		super();
 		log.info("Initializing...");
 		// Clear out storage if bank constructor is called again somehow
 		accounts.clear();
-		balances.clear();
+		balancesBig.clear();
 		
 		// Get login credentials from DB
-		LoginDao ldi = new LoginDaoImpl();
+		ldi = new LoginDaoImpl();
 		List<Login> loginList = ldi.getLogins();
 		log.info("Loading Users...");
 		
@@ -51,13 +48,13 @@ public class BankJDBC {
 		log.info("Size of Accounts: " + accounts.size());
 		
 		// Get Balance information from DB
-		BalanceDao bdi = new BalanceDaoImpl();
+		bdi = new BalanceDaoImpl();
 		List<Balance> balanceList = bdi.getBalances();
 		log.info("Loading Balances...");
 		
 		// Populate balances map
-		for (Balance b : balanceList) {
-			balancesBig.put(b.getUsername(), b.getMoney());
+		for (Balance i : balanceList) {
+			balancesBig.put(i.getUsername(), i.getMoney());
 		}
 		
 		log.info("Size of Balances: " + balancesBig.size());
@@ -69,7 +66,7 @@ public class BankJDBC {
 						+ "2. Create New Account\n"
 						+ "3. Exit");
 		String input = sc.nextLine();
-		if ( (input.length() != 1) || (!Character.isDigit(input.charAt(0))) || (Integer.valueOf(input) > 3)) {
+		if ((input.length() != 1) || (!Character.isDigit(input.charAt(0))) || (Integer.valueOf(input) > 3)) {
 			log.info("Error: Please enter a valid option");
 			return menu();
 		}
@@ -161,9 +158,16 @@ public class BankJDBC {
 		// Add account to accounts, balances, and SQL DB
 		accounts.put(newUser, pass);
 		balancesBig.put(newUser, new BigDecimal(0));
-		String combined = "\n" + newUser + " " + pass; 
-		String newBalance = "\n" + newUser + " 0";
-
+		Login l = new Login(newUser, pass);
+		b = new Balance(newUser, new BigDecimal(0));
+		if (ldi.createLogin(l) != 1) {
+			log.info("Error creating account");
+			return;
+		}
+		if (bdi.createBalance(b) != 1) {
+			log.info("Error creating balance");
+			return;
+		}
 		log.info("Account Created!");
 	}
 	
@@ -199,139 +203,94 @@ public class BankJDBC {
 				balance();
 			}
 		}
+		// Set current user to no one
+		user = "";
 	}
 	
 	private void deposit() {
 		log.info("\nHow much would you like to deposit? (Do not include '$' or decimals)");
 		String input = sc.nextLine();
-		Integer deposit = 0;
+		BigDecimal balance = balancesBig.get(user);
+		BigDecimal deposit;
 		// Check if input is valid
 		if (input.length() < 1) {
 			log.info("Error: Invalid input");
 			return;
 		}
-		// Check if input is numerical
+		// Check if input is numerical, also handles negative
 		for (int i = 0; i < input.length(); i++) {
-			if (!Character.isDigit(input.charAt(i))) {
-				log.info("Error: Input was not numerical");
+			if (!Character.isDigit(input.charAt(i)) && (input.charAt(i) != '.')) {
+				log.info("Error: " + input.charAt(i) + " is not a valid input");
 				return;
 			}
 		}
-		// Convert to Integer
-		deposit = Integer.parseInt(input);
+		// Convert to BigDecimal and sum
+		deposit = new BigDecimal(input);
+		balance = balance.add(deposit);
+		
+		// Check if deposit is <.01
+		if (deposit.compareTo(new BigDecimal(.01)) < 0) {
+			log.info("Error: Cannot deposit amount less than $0.01");
+			return;
+		}
 		
 		// Deposit money
-		balances.replace(user, balances.get(user) + deposit);
+		balancesBig.replace(user, balance);
+		
+		// Update DB
+		b = new Balance(user, balance);
+		bdi.updateBalance(b);
+		
 		log.info("$" + deposit + " has been deposited");
 	}
 	
 	private void withdraw() {
 		log.info("\nHow much would you like to withdraw? (Do not include '$' or decimals)");
-		log.info("$" + balances.get(user) + " available for withdrawal");
+		log.info("$" + df.format(balancesBig.get(user)) + " available for withdrawal");
 		String input = sc.nextLine();
-		Integer withdraw = 0;
-		Integer difference = 0;
+		BigDecimal withdraw;
+		BigDecimal difference;
 		// Check if input is valid
 		if (input.length() < 1) {
 			log.info("Error: Invalid input");
 			return;
 		}
-		// Check if input is numerical
+		// Check if input is numerical, also handles negative
 		for (int i = 0; i < input.length(); i++) {
-			if (!Character.isDigit(input.charAt(i))) {
-				log.info("Error: Input was not numerical");
+			if (!Character.isDigit(input.charAt(i)) && (input.charAt(i) != '.')) {
+				log.info("Error: " + input.charAt(i) + " is not a valid input");
 				return;
 			}
 		}
-		// Convert to Integer
-		withdraw = Integer.parseInt(input);
+		// Convert to BigDecimal
+		withdraw = new BigDecimal(input);
 		
 		// Check if withdrawal amount is valid
-		difference = balances.get(user) - withdraw;
-		if (difference < 0) {
+		difference = balancesBig.get(user).subtract(withdraw);
+		if (difference.compareTo(BigDecimal.ZERO) < 0) {
 			log.info("Error: Cannot withdraw more than available");
+			return;
+		} else if (withdraw.compareTo(new BigDecimal(.01)) < 0) {
+			log.info("Error: Cannot withdraw amount less than $0.01");
 			return;
 		}
 		
 		// Update balances
-		balances.replace(user, difference);
-		log.info("You have withdrawn " + difference);
+		balancesBig.replace(user, difference);
+		
+		// Update DB
+		b = new Balance(user, difference);
+		bdi.updateBalance(b);
+		
+		log.info("You have withdrawn $" + df.format(withdraw));
+		log.info("Current balance: $" + df.format(difference));
 	}
 	
 	public void balance() {
-		log.info("Current balance for " + user + " is " + balances.get(user));
+		log.info("Current balance for " + user + " is $" + df.format(balancesBig.get(user)));
 	}
 	
 	public void exit() {
-		updateLogins();
-		updateBalances();
-	}
-	
-	private void updateBalances() {
-		String combined = "";
-		try {
-			// Write to login.txt
-			File file = new File(pathBalances);
-
-			// Checking to see if file exists. Create file if not.
-			if(!file.exists()) {
-				file.createNewFile();
-			}
-						
-			// Overwrite file
-			FileWriter fw = new FileWriter(file, false);
-			bw = new BufferedWriter(fw);
-			
-			for (Map.Entry<String, Integer> it : balances.entrySet()) {
-				combined = it.getKey() + " " + it.getValue() + "\n";
-				bw.write(combined);
-			}
-			
-
-		} catch (IOException e) {
-			e.printStackTrace();
-		} finally {
-			try {
-				if (bw != null) {
-					bw.close();
-				}
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
-	}
-	
-	private void updateLogins() {
-		String combined = "";
-		try {
-			// Write to login.txt
-			File file = new File(pathLogin);
-
-			// Checking to see if file exists. Create file if not.
-			if(!file.exists()) {
-				file.createNewFile();
-			}
-						
-			// Overwrite file
-			FileWriter fw = new FileWriter(file, false);
-			bw = new BufferedWriter(fw);
-			
-			for (Map.Entry<String, String> it : accounts.entrySet()) {
-				combined = it.getKey() + " " + it.getValue() + "\n";
-				bw.write(combined);
-			}
-			
-
-		} catch (IOException e) {
-			e.printStackTrace();
-		} finally {
-			try {
-				if (bw != null) {
-					bw.close();
-				}
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
+		log.info("\nThank you for using our Banking App!");
 	}
 }

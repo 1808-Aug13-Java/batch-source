@@ -8,7 +8,7 @@ import com.revature.model.Balance;
 public interface BalanceDao {
 	public List<Balance> getBalances();
 	public Balance getBalanceById(String id);
-	public Balance getBalanceById(String id, Connection conn);
+	public Balance getBalanceById(String id, Connection con);
 	public int createBalance(Balance balance);
 	public int updateBalance(Balance balance);
 	public int deleteBalanceById(String id);
