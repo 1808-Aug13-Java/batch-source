@@ -11,6 +11,6 @@ public interface UserDao {
 	public User getUserById(Connection con, String id);
 	public int createUser(User user);
 	public int updateUser(User user);
-	public int deleteUesr(User user);
+	public int deleteUser(User user);
 	int deleteUserById(String id);
 }

@@ -33,7 +33,9 @@ tmp/
 local.properties 
 .settings/ 
 .loadpath 
-.recommenders 
+.recommenders
+*.properties 
+connection.properties
 
 # Eclipse Core 
 .project 
