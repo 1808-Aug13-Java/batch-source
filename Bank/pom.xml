@@ -50,4 +50,7 @@
 		
 		
 	</dependencies>
+	<properties>
+	<sonar.exclusions>system/**, test/**, application/third_party/**, application/logs/**, src/test/BankTest.java</sonar.exclusions>
+	</properties>
 </project>

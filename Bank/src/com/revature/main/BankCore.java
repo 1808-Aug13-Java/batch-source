@@ -51,9 +51,9 @@ public class BankCore {
 			logger.info("4. Check balance");
 			logger.info("Press q to quit");
 		} else {
-			logger.info("Create an account");
-			logger.info("Logout");
-			logger.info("Quit");
+			logger.info("1. Create an account");
+			logger.info("2. Logout");
+			logger.info("Press q to quit");
 		}
 		
 		logger.info("");
@@ -65,7 +65,7 @@ public class BankCore {
 		introMenu();
 		String userInput = "";
 		
-		while(userInput != "exit") {
+		while(userInput != "q") {
 			
 			userInput = sc.nextLine().toLowerCase();
 			actOnInput(userInput);
@@ -181,7 +181,6 @@ public class BankCore {
 			end();
 			System.exit(0);
 		default:
-			loggedInOptions(action);
 			break;
 			
 		}

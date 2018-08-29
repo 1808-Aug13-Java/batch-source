@@ -6,6 +6,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
@@ -23,7 +26,29 @@ public class BankDaoImpl implements BankDao {
 
 	@Override
 	public List<Bank> getAllBanks() {
-		return null;
+	List<Bank> bankList = new ArrayList<>();
+		
+		String sql = "SELECT * FROM BANK";
+		
+		try (Connection con = ConnectionUtil.getConnection();
+				Statement s = con.createStatement();
+				ResultSet rs = s.executeQuery(sql)){
+		
+			while(rs.next()) {
+				Bank b = new Bank();
+				
+				int bankId = rs.getInt("ACCOUNT_NO");
+				b.setId(bankId);
+				
+				bankList.add(b);
+			}
+			
+		} catch (IOException e) {
+			logger.error(e.getMessage());
+		} catch (SQLException e) {
+			logger.error(e.getMessage());
+		}
+		return Collections.emptyList();
 	}
 
 	@Override
@@ -41,7 +66,7 @@ public class BankDaoImpl implements BankDao {
 				PreparedStatement ps = con.prepareStatement(sql);) {
 			ps.setInt(1, bank.getUserId());
 		} catch (SQLException|IOException e) {
-			e.printStackTrace();
+			logger.error(e.getMessage());
 		}
 		
 		if (createdBanks > 0) {
@@ -60,7 +85,7 @@ public class BankDaoImpl implements BankDao {
 			ps.setInt(1, userId);
 			createdBanks = ps.executeUpdate();
 		} catch (SQLException|IOException e) {
-			e.printStackTrace();
+			logger.error(e.getMessage());
 		}
 		
 		if (createdBanks > 0) {
@@ -89,13 +114,13 @@ public class BankDaoImpl implements BankDao {
 				bank = new Bank(bankAccountNumber, accountBalance, userId);
 			}
 		} catch (SQLException|IOException e) {
-			e.printStackTrace();
+			logger.error(e.getMessage());
 		} finally {
 			if (rs != null) {
 				try {
 					rs.close();
 				} catch (SQLException e) {
-					e.printStackTrace();
+					logger.error(e.getMessage());
 				}
 			}
 		}
@@ -133,7 +158,7 @@ public class BankDaoImpl implements BankDao {
 			cs.execute();
 			logger.info("You withdrew $" + UserInputValidation.floatConfig(balance));
 		} catch (SQLException|IOException e) {
-			e.printStackTrace();
+			logger.error(e.getMessage());
 		}
 		
 	}
@@ -151,13 +176,13 @@ public class BankDaoImpl implements BankDao {
 				balance = rs.getInt("BALANCE");
 			}
 		} catch (SQLException|IOException e) {
-			e.printStackTrace();
+			logger.error(e.getMessage());
 		} finally {
 			if(rs != null) {
 				try {
 					rs.close();
 				} catch (SQLException e) {
-					e.printStackTrace();
+					logger.error(e.getMessage());
 				}
 			}
 		}
@@ -180,13 +205,13 @@ public class BankDaoImpl implements BankDao {
 			}
 			
 		} catch (SQLException|IOException e) {
-			e.printStackTrace();
+			logger.error(e.getMessage());
 		} finally {
 			if(rs != null) {
 				try {
 					rs.close();
 				} catch (SQLException e) {
-					e.printStackTrace();
+					logger.error(e.getMessage());
 				}
 			}
 		}
@@ -223,7 +248,7 @@ public class BankDaoImpl implements BankDao {
 					
 					logger.info("Deposited $" + UserInputValidation.floatConfig(amount));
 		} catch (SQLException|IOException e) {
-			e.printStackTrace();
+			logger.error(e.getMessage());
 		}
 	}
 }

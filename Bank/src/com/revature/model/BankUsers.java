@@ -63,20 +63,23 @@ public class BankUsers {
 		if (email == null) {
 			if (other.email != null)
 				return false;
-		} else if (!email.equals(other.email))
+		} else if (!email.equals(other.email)) {
 			return false;
+		}
 		if (id != other.id)
 			return false;
 		if (userPassword == null) {
 			if (other.userPassword != null)
 				return false;
-		} else if (!userPassword.equals(other.userPassword))
+		} else if (!userPassword.equals(other.userPassword)) {
 			return false;
+		}
 		if (username == null) {
 			if (other.username != null)
 				return false;
-		} else if (!username.equals(other.username))
+		} else if (!username.equals(other.username)) {
 			return false;
+		}
 		return true;
 	}
 	@Override

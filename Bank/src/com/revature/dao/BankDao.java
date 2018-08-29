@@ -11,7 +11,6 @@ public interface BankDao {
 	public int createBank(Bank bank);
 	public int updateBank(Bank bank);
 	public Bank getBankByUserId(int id);
-//	public int hideBankById(int id);
 	public boolean deposit(int id, float balance);
 	public void withdraw(int id);
 	public void deposit(int id);

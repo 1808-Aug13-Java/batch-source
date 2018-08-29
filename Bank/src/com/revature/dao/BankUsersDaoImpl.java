@@ -31,13 +31,13 @@ public class BankUsersDaoImpl implements BankUsersDao {
 			}
 			
 		} catch (SQLException|IOException e) {
-			e.printStackTrace();
+			logger.error(e.getMessage());
 		} finally {
 			if (rs != null) {
 				try {
 					rs.close();
 				} catch (SQLException e) {
-					e.printStackTrace();
+					logger.error(e.getMessage());
 				}
 			}
 		}
@@ -62,13 +62,13 @@ public class BankUsersDaoImpl implements BankUsersDao {
 			
 			
 		} catch (SQLException|IOException e) {
-			e.printStackTrace();
+			logger.error(e.getMessage());
 		} finally {
 			if (rs != null) {
 				try {
 					rs.close();
 				} catch (SQLException e) {
-					e.printStackTrace();
+					logger.error(e.getMessage());
 				}
 			}
 		}
@@ -88,7 +88,6 @@ public class BankUsersDaoImpl implements BankUsersDao {
 	public BankUsers getUserByName(String name) {
 
 		ResultSet rs = null;
-		ResultSet generatedKeys = null;
 		BankUsers user = null;
 		String sql = "SELECT * FROM BANK_USERS WHERE USERNAME = ?";
 		
@@ -111,13 +110,13 @@ public class BankUsersDaoImpl implements BankUsersDao {
 				
 			}
 		} catch (SQLException|IOException e) {
-			e.printStackTrace();
+			logger.error(e.getMessage());
 		} finally {
 			if (rs != null) {
 				try {
 					rs.close();
 				} catch (SQLException e) {
-					e.printStackTrace();
+					logger.error(e.getMessage());
 				}
 			}
 		}
@@ -138,7 +137,7 @@ public class BankUsersDaoImpl implements BankUsersDao {
 			
 			createdUsers = ps.executeUpdate();
 		} catch (SQLException|IOException e) {
-			e.printStackTrace();
+			logger.error(e.getMessage());
 		}
 		
 		if (createdUsers > 0) {
@@ -175,13 +174,13 @@ public class BankUsersDaoImpl implements BankUsersDao {
 				isUnique = true;
 			}
 		} catch (SQLException|IOException e) {
-			e.printStackTrace();
+			logger.error(e.getMessage());
 		} finally {
 			if (rs != null) {
 				try {
 					rs.close();
 				} catch (SQLException e) {
-					e.printStackTrace();
+					logger.error(e.getMessage());
 				}
 			}
 		}
@@ -204,13 +203,13 @@ public class BankUsersDaoImpl implements BankUsersDao {
 				isUnique = true;
 			}
 		} catch (SQLException|IOException e) {
-			e.printStackTrace();
+			logger.error(e.getMessage());
 		} finally {
 			if (rs != null) {
 				try {
 					rs.close();
 				} catch (SQLException e) {
-					e.printStackTrace();
+					logger.error(e.getMessage());
 				}
 			}
 		}
