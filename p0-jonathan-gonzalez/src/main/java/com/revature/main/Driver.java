@@ -1,25 +1,20 @@
 package com.revature.main;
 
-import java.text.DecimalFormat;
 import java.util.Scanner;
+
+import org.apache.log4j.Logger;
 
 import com.revature.dao.BankDaoImpl;
 import com.revature.model.Account;
 
 public class Driver {
-	
+	static final Logger logger = Logger.getLogger(Driver.class);
 	private static Scanner sc = new Scanner(System.in);
 
 	public static void main(String[] args) {
 		
-		DecimalFormat format = new DecimalFormat("0.00");
 		
 		BankDaoImpl bdi = new BankDaoImpl();
-//		//bdi.createAccount("username2", "password2", 100.25);
-//		Account a = bdi.login("username2","password2");
-//		System.out.println(a);
-		
-		//Account a = new Account();
 		boolean exit = false;
 		while(!exit) {
 			
@@ -29,83 +24,92 @@ public class Driver {
 			
 			switch(in) {
 			case "l":
-				System.out.println();
-				System.out.println("Enter your username: ");
+				logger.info("Enter your username: ");
 				String username = sc.nextLine();
-				System.out.println("Enter your password: ");
+				logger.info("Enter your password: ");
 				String password = sc.nextLine();
-				//boolean logout = a.login(username, password);
-				boolean logout = false;
 				Account a = bdi.login(username, password);
+				boolean logout = true;
+				if(a.getUsername() != null & a.getPassword() != null) {
+					logout = false;
+				}
+				else {
+					logger.error("Your username and password combination were either invalid"
+							+ "\nor don't exist. Please try again.\n");
+				}
 				while(!logout)
 				{
 					displayDashboard();
-					
 					in = sc.nextLine();
 					
 					switch(in) {
 					case "l":
-						//a.Logout();
 						logout = true;
-						System.out.println("\nYou have logged out.\n");
+						logger.info("\nYou have logged out.\n");
 						sc.nextLine();
 						
 						break;
 					case "d":
-						double funds;
-						System.out.println("Please enter a deposit amount: ");
-						a.makeDeposit(Double.parseDouble(sc.nextLine()));
-						bdi.updateAccount(a);
-						sc.nextLine();
-//						a.displayBalance();
+							a.makeDeposit();
+							bdi.updateAccount(a);
+							sc.nextLine();
 		
 						break;
 					case "v":
-						System.out.println("Your current balance is $" + format.format(a.getBalance()) + ".\n");
+						a.viewBalance();
 						sc.nextLine();
 						break;
-					case "w":
-						System.out.println("Please enter a withdrawal amount: ");
-						a.makeWithdrawal(Double.parseDouble(sc.nextLine()));
-						bdi.updateAccount(a);
-						sc.nextLine();
+					case "w":						
+							a.makeWithdrawal();
+							bdi.updateAccount(a);
+							sc.nextLine();
 						break;
+					case "u":
+						logger.info("Please enter your new password: ");
+						String newpassword = sc.nextLine();
+						bdi.updatePassword(a.getUsername(), newpassword);
+						break;
+						
 					default:
-						System.out.println("Please enter a valid input\n");
+						logger.info("Please enter a valid input\n");
 					}
 				}
 				break;
 			case "c":
-				System.out.println("Please enter a new username: ");
-				String newusername = sc.nextLine(); 
-				System.out.println("Please enter a new username: ");
-				String newpassword = sc.nextLine(); 
-				System.out.println("Please enter a starting balance: ");
-				Double startingbalance = Double.parseDouble(sc.nextLine()); 
-				bdi.createAccount(newusername, newpassword, startingbalance);
-				System.out.println();
+					logger.info("Please enter a new username: ");
+					String newusername = sc.nextLine(); 
+					logger.info("Please enter a new password: ");
+					String newpassword = sc.nextLine(); 
+					logger.info("Please enter a starting balance: ");
+					String startingbalance = sc.nextLine();
+					bdi.createAccount(newusername,newpassword,startingbalance);
+				break;
+			case "q":
+				logger.info("Please enter your username: ");
+				String user = sc.nextLine(); 
+				logger.info("Please enter your password: ");
+				String pass = sc.nextLine(); 
+				bdi.quickView(user, pass);
 				break;
 			case "e":
 				exit = true;
 				break;
 			default:
-				System.out.println("Please enter a valid input\n");
+				logger.info("Please enter a valid input\n");
 				sc.nextLine();
 			}
 		}
-		
-
 	}
 	
 	public static void welcomeMessage() {
-		System.out.println("Welcome to A-Bank.\n\nPlease select an option:\n\n"
-				+ "L - Login\nC - Create account\nE - Exit\n");
+		logger.info("Welcome to A-Bank.\n\nPlease select an option:\n\n"
+				+ "L - Login\nC - Create account\nQ - Quick balance check\nE - Exit\n");
 	}
 	
 	public static void displayDashboard() {
-		System.out.println("Please select an option:\n\n"
+		logger.info("Please select an option:\n\n"
 				+ "D - Deposit money\nW - Withdraw funds\nL - Logout\n"
-				+ "V - View Balance\n");
+				+ "V - View Balance\nU - Update Password\n");
 	}
 
 }

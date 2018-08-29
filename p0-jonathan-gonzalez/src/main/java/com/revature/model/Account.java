@@ -1,33 +1,123 @@
 package com.revature.model;
 
+import java.text.DecimalFormat;
+import java.util.Scanner;
+
+import org.apache.log4j.Logger;
+
+import com.revature.exceptions.*;
+
 public class Account {
 	
 	private String username;
 	private String password;
 	private double balance;
+	private static Scanner sc = new Scanner(System.in);
+	DecimalFormat format = new DecimalFormat("0.00");
 	
-	public void makeDeposit(double funds) {
-		balance = balance + funds;
-		System.out.println("Your new balance is $" + balance + ".\n");
+	public Account(String username, String password, double balance) {
+		super();
+		this.username = username;
+		this.password = password;
+		this.balance = balance;
+	}
+	
+	static final Logger logger = Logger.getLogger(Account.class);
+	
+	public void makeDeposit() {
+		
+		logger.info("Please enter a deposit amount: ");
+		String amount = sc.nextLine();
+		
+		try {
+			makeDeposit(amount);
+			logger.info("Your new balance is $" + format.format(balance) + ".\n");
+
+		}
+		catch(FractionalCentException e) {
+			logger.error("Can't deposit fractional cents.\n");
+		}
+		catch(NegativeNumberException e) {
+			logger.error("Can't deposit a negative amount.\n");
+		}
+		catch(IllegalArgumentException e) {
+			logger.error("Please enter a number.\n");
+		}
+
 		
 	}
 	
-	public void makeWithdrawal(double funds) {
-		if(balance >= funds) {
-			balance = balance - funds;
-			System.out.println("Your new balance is $" + balance + ".\n");
+	public double makeDeposit(String amount) throws NegativeNumberException, FractionalCentException {
+		
+		double parsedAmount = Double.parseDouble(amount);
+		double delta = Math.abs(parsedAmount - ((int) parsedAmount));
+		if(parsedAmount < 0) {
+			throw new NegativeNumberException();
 		}
-		else {
-			System.out.println("You don't have enough funds.\n");
+		else if(delta < 0.0099999999 & delta > 0) {
+			throw new FractionalCentException();
 		}
+		else
+		{
+			balance = balance + parsedAmount;
+		}
+		
+		return balance;
 	}
 	
-//	public void logout() {
-//		
-//	}
-//	public void viewBalance() {
-//	}
+	public void makeWithdrawal() {
+
+				logger.info("Please enter a withdrawal amount: ");
+				String amount = sc.nextLine();
+				try {
+					makeWithdrawal(amount);
+					logger.info("Your balance is $" + format.format(balance) + ".\n");
+
+				}
+				catch(FractionalCentException e) {
+					logger.error("Can't withdraw fractional cents.\n");
+
+				}
+				catch(NegativeNumberException e) {
+					logger.error("Can't withdraw a negative amount.\n");
+
+				}
+				catch(IllegalArgumentException e) {
+					logger.error("Please enter a number.\n");
+
+				}
+				
 	
+		
+	}
+	
+	public double makeWithdrawal(String amount) throws NegativeNumberException, FractionalCentException {
+
+			double parsedAmount = Double.parseDouble(amount);
+			double delta = parsedAmount%1;
+			if(parsedAmount < 0) {
+				throw new NegativeNumberException();
+			}
+			else if(delta < 0.0099999999 & delta > 0) {
+				throw new FractionalCentException();
+			}
+			else if(balance < parsedAmount) {
+				logger.info("You don't have enough funds.\n");
+
+			}
+			else
+			{
+				balance = balance - parsedAmount;
+			}
+	
+	return balance;
+	
+}
+	
+	public Account() {
+		super();
+	}
+
 	public String getUsername() {
 		return username;
 	}
@@ -43,6 +133,12 @@ public class Account {
 	public double getBalance() {
 		return balance;
 	}
+	
+	public void viewBalance() {
+		logger.info("Your current balance is $" + format.format(balance) + ".\n");
+
+	}
+	
 	public void setBalance(double balance) {
 		this.balance = balance;
 	}

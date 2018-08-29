@@ -5,9 +5,9 @@ import com.revature.model.Account;
 public interface BankDao {
 	
 	public Account login(String username, String password);
-	public void createAccount(String username, String password, double startingBalance);
-	//public void logout();
-	//public void viewBalance();
+	public int createAccount(String username,String password, String startingBalance);
 	public void updateAccount(Account a);
+	public void updatePassword(String username, String newpassword);
+	public void quickView(String username, String password);
 
 }
