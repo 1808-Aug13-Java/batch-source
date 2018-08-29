@@ -96,7 +96,7 @@ public class DepartmentDaoImpl implements DepartmentDao{
 		
 		String sql = "UPDATE DEPARTMENT"+
 				" SET DEPT_NAME = ?"+
-				" MONTHLY_BUDGET"+
+				" MONTHLY_BUDGET = ?"+
 				" WHERE DEPT_ID = ?";
 		try (Connection con = ConnectionUtil.getConnection();
 				PreparedStatement ps = con.prepareStatement(sql) ){

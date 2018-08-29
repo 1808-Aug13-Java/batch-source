@@ -1,0 +1,49 @@
+
+;com.revature.app.model.Account#toString()Ljava/lang/String;
+__unknown_file ("1*­
+1ˆ
+~C:\Users\Jonathan\Documents\batch-source\p0-jonathan-novoa\p0-jonathan-novoa\src\main\java\com\revature\app\model\Account.java,	 ,(¹
+ˆ
+~C:\Users\Jonathan\Documents\batch-source\p0-jonathan-novoa\p0-jonathan-novoa\src\main\java\com\revature\app\model\Account.java,	 ,((%0__concat"
+Account [username="
+""²
+ˆ
+~C:\Users\Jonathan\Documents\batch-source\p0-jonathan-novoa\p0-jonathan-novoa\src\main\java\com\revature\app\model\Account.java,	 ,(8%1__concat"
+
+%0"
+, password=©
+ˆ
+~C:\Users\Jonathan\Documents\batch-source\p0-jonathan-novoa\p0-jonathan-novoa\src\main\java\com\revature\app\model\Account.java,	 ,(C%2__concat"
+
+%1"
+""±
+ˆ
+~C:\Users\Jonathan\Documents\batch-source\p0-jonathan-novoa\p0-jonathan-novoa\src\main\java\com\revature\app\model\Account.java,	 ,(R%3__concat"
+
+%2"
+
+, balance=©
+ˆ
+~C:\Users\Jonathan\Documents\batch-source\p0-jonathan-novoa\p0-jonathan-novoa\src\main\java\com\revature\app\model\Account.java,	 ,(\%4__concat"
+
+%3"
+""²
+ˆ
+~C:\Users\Jonathan\Documents\batch-source\p0-jonathan-novoa\p0-jonathan-novoa\src\main\java\com\revature\app\model\Account.java,	 ,(l%5__concat"
+
+%4"
+, loggedIn=©
+ˆ
+~C:\Users\Jonathan\Documents\batch-source\p0-jonathan-novoa\p0-jonathan-novoa\src\main\java\com\revature\app\model\Account.java,	 -(%6__concat"
+
+%5"
+""¨
+ˆ
+~C:\Users\Jonathan\Documents\batch-source\p0-jonathan-novoa\p0-jonathan-novoa\src\main\java\com\revature\app\model\Account.java,	 -(%7__concat"
+
+%6"
+]"“
+ˆ
+~C:\Users\Jonathan\Documents\batch-source\p0-jonathan-novoa\p0-jonathan-novoa\src\main\java\com\revature\app\model\Account.java, -(
+
+%7

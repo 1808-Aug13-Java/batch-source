@@ -1,0 +1,7 @@
+organization=1808-aug13-java
+projectKey=com.reavture:p0-jonathan-novoa
+serverUrl=https://sonarcloud.io
+serverVersion=7.3.0.15868
+dashboardUrl=https://sonarcloud.io/dashboard?id=com.reavture%3Ap0-jonathan-novoa
+ceTaskId=AWWDcM-e-_qOfix7Va6Y
+ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AWWDcM-e-_qOfix7Va6Y
