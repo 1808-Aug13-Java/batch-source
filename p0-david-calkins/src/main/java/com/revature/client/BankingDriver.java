@@ -1,14 +1,17 @@
 package com.revature.client;
 
-import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.Scanner;
 
+import org.apache.log4j.Logger;
+
 import com.revature.client.data.BankUserData;
-import com.revature.client.data.DataInterface;
 
 /** A command line interface to a banking app. */
 public class BankingDriver {
+	
+	/** The default logging object. */
+	private static Logger log = Logger.getRootLogger();
 	
 	/** An enum used to control the flow of a state machine for the terminal */
 	private enum StateEnum {
@@ -51,10 +54,6 @@ public class BankingDriver {
 		// Used to hold user input amounts as they are being verified
 		BigDecimal inputAmount = null;
 		
-		// A zero constant used to make comparisons against. 
-		final BigDecimal ZERO = new BigDecimal(0);
-		
-		
 		
 		// Loop until the user decides to quit the terminal
 		while (!quit) {
@@ -62,12 +61,12 @@ public class BankingDriver {
 			// Go into an accepting state at the login screen, which has options
 			// to either create a user or to log in. 
 			while (currentState == StateEnum.STATE_LOGIN_MENU && !quit) {
-				System.out.println("Welcome to the Bank!");
-				System.out.println("Enter the number of the option you want ");
-				System.out.println("on the console, and then press enter. ");
-				System.out.println("1. Log In");
-				System.out.println("2. Create New User");
-				System.out.println("3. Quit Terminal");
+				log.info("Welcome to the Bank!");
+				log.info("Enter the number of the option you want ");
+				log.info("on the console, and then press enter. ");
+				log.info("1. Log In");
+				log.info("2. Create New User");
+				log.info("3. Quit Terminal");
 				
 				// Get input from the user
 				userInput = scanner.nextLine();
@@ -77,7 +76,7 @@ public class BankingDriver {
 				case "1": currentState = StateEnum.STATE_LOGIN; break;
 				case "2": currentState = StateEnum.STATE_CREATE_USER; break;
 				case "3": quit = true; break;
-				default: System.out.println("'" + userInput + "' isn't valid. ");
+				default: log.info("'" + userInput + "' isn't valid. ");
 				}
 			} // end while
 			
@@ -87,7 +86,7 @@ public class BankingDriver {
 			// Go into an accepting state for the user's email and password to
 			// make a new account
 			while (currentState == StateEnum.STATE_CREATE_USER) {
-				System.out.println(
+				log.info(
 						"Pleae enter an email, a username, and a new password "
 						+ "separated by a space. Enter 'Back' to go back to "
 						+ "the login menu");
@@ -114,7 +113,7 @@ public class BankingDriver {
 						bankUserData.passwordHash = tokens[2];
 						
 						bankDatabase.addNewUser(bankUserData);
-						System.out.println("User Created");
+						log.info("User Created");
 						currentState = StateEnum.STATE_LOGIN_MENU;
 						
 						// Remove reference to new user
@@ -122,11 +121,11 @@ public class BankingDriver {
 					}
 					// Otherwise, the user exits. 
 					else {
-						System.out.println("That email already exists. ");
+						log.info("That email already exists. ");
 					}
 				}
 				else {
-					System.out.println("'" + userInput + "' isn't valid. ");
+					log.info("'" + userInput + "' isn't valid. ");
 				}
 			} // end while
 			
@@ -134,7 +133,7 @@ public class BankingDriver {
 			// Go into an accepting state for the user's email and password to
 			// log in
 			while (currentState == StateEnum.STATE_LOGIN) {
-				System.out.println(
+				log.info(
 						"Pleae enter your email and password separated by "
 						+ "a space. Enter 'Back' to go back to the login menu");
 				
@@ -154,27 +153,27 @@ public class BankingDriver {
 					if ((bankUserData = bankDatabase.getUserByEmail(tokens[0])) != null
 							&& bankUserData.passwordHash.equals(tokens[1]))
 					{
-						System.out.println("Login Successful");
+						log.info("Login Successful");
 						currentState = StateEnum.STATE_USER_MENU;
 					}
 					// Otherwise, the the user login credentials are invalid
 					else {
-						System.out.println("No Username / Password match found");
+						log.info("No Username / Password match found");
 					}
 				}
 				else {
-					System.out.println("'" + userInput + "' isn't valid. ");
+					log.info("'" + userInput + "' isn't valid. ");
 				}
 			} // end while
 			
 			
 			// Go into the accepting state for a logged in user
 			while (currentState == StateEnum.STATE_USER_MENU) {
-				System.out.println("Welcome " + bankUserData.userName + "!");
-				System.out.println("Type 'deposit <amount>' to deposit. ");
-				System.out.println("Type 'withdraw <amount>' to withdraw. ");
-				System.out.println("Type 'balance' to view your current balance");
-				System.out.println("Type 'logout' to log out. ");
+				log.info("Welcome " + bankUserData.userName + "!");
+				log.info("Type 'deposit <amount>' to deposit. ");
+				log.info("Type 'withdraw <amount>' to withdraw. ");
+				log.info("Type 'balance' to view your current balance");
+				log.info("Type 'logout' to log out. ");
 				
 				
 				userInput = scanner.nextLine();
@@ -188,7 +187,7 @@ public class BankingDriver {
 				case "deposit": 
 					// If the amount isn't specified, specify it
 					if (tokens.length < 2) {
-						System.out.println("Please specify <amount>");
+						log.info("Please specify <amount>");
 						continue;
 					}
 					
@@ -200,19 +199,19 @@ public class BankingDriver {
 						
 						// If the number is not positive, don't deposit
 						if (inputAmount.signum() != 1) {
-							System.out.println("Deposits must be positive. ");
+							log.info("Deposits must be positive. ");
 							break;
 						}
 						bankDatabase.deposit(bankUserData, inputAmount);
-						System.out.println("Deposit Successful. ");
+						log.info("Deposit Successful. ");
 					} catch (NumberFormatException ex) {
-						System.out.println("'" + tokens[1] + "' isn't a number");
+						log.info("'" + tokens[1] + "' isn't a number");
 					}
 					break;
 				case "withdraw":
 					// If the amount isn't specified, specify it
 					if (tokens.length < 2) {
-						System.out.println("Please specify <amount>");
+						log.info("Please specify <amount>");
 						continue;
 					}
 					
@@ -224,34 +223,34 @@ public class BankingDriver {
 						
 						// If the number is not positive, don't withdraw
 						if (inputAmount.signum() != 1) {
-							System.out.println("Withdrawls must be positive. ");
+							log.info("Withdrawls must be positive. ");
 							break;
 						}
 						// Also validate that there is enough in the account 
 						if (bankDatabase.withdraw(bankUserData, inputAmount)) 
 						{
-							System.out.println("Withdraw Successful. ");
+							log.info("Withdraw Successful. ");
 						}
 						// Otherwise, print that there wasn't enough
 						else {
-							System.out.println("Not Enough Funds In Account");
+							log.info("Not Enough Funds In Account");
 						}
 					} catch (NumberFormatException ex) {
-						System.out.println("'" + tokens[1] + "' isn't a number");
+						log.info("'" + tokens[1] + "' isn't a number");
 					}
 					break;
 				case "balance": 
 					// Get the latest data from the server
 					bankUserData = bankDatabase.getUserByEmail(bankUserData.email);
 					
-					System.out.println("Balance: " + bankUserData.balance);
+					log.info("Balance: " + bankUserData.balance);
 					break;
 				case "logout":
-					System.out.println("Logged Out");
+					log.info("Logged Out");
 					currentState = StateEnum.STATE_LOGIN_MENU;
 					break;
 				default:
-					System.out.println("'" + userInput + "' isn't valid. ");
+					log.info("'" + userInput + "' isn't valid. ");
 				} // end switch
 				
 				// Set inputAmount to null to free up any memory used. 
@@ -260,13 +259,17 @@ public class BankingDriver {
 			
 			
 			// Move to a new line every state change
-			System.out.println();
+//			log.info("");
 		} // end while
 		
 		
 		
 		
-		System.out.println("Thank you! Come again!");
+		log.info("Thank you! Come again!");
+		
+		
+		// Close the scanner 
+		scanner.close();
 		
 	} // end of main
 	
