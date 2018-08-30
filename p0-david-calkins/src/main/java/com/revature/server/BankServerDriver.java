@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 
+import org.apache.log4j.Logger;
+
 
 /**
  * A class with a main that launches a server with a back door. 
@@ -12,6 +14,8 @@ import java.net.Socket;
  */
 public class BankServerDriver {
 
+	
+	private static Logger log = Logger.getRootLogger();
 
     /** The port number to launch the server on. */
     private static final int _PORT = 8888;
@@ -33,13 +37,19 @@ public class BankServerDriver {
         //Attempt to open the server listener. Print error and exit if fails.
         try {
             serverSocket = new ServerSocket(_PORT);
-            System.out.println("Server Listening on Port: " + _PORT);
         } catch (IOException e) {
-            System.err.println("Failed to launch the server on port " + _PORT);
-            e.printStackTrace();
+            log.error("Failed to launch the server on port " + _PORT);
+            
+            // Only added to get rid of a "bug" according to solarlint.
+            // It thinks i need to close the server, but if we're here, 
+            // it means it never opened!
+            try {if (serverSocket != null) serverSocket.close();} 
+            										catch (IOException e2) {}
+            
             System.exit(1);
         }
         
+        log.info("Server Listening on Port: " + _PORT);
         
         //Enter a listening state. Keep going until the process is killed,
         // since there isn't a good way to kill it from command line in java.
@@ -60,8 +70,8 @@ public class BankServerDriver {
                 
                 //Pass the connection socket to our connection handler thread
 //                connection.setSocket(socket);
-                System.out.println();
-                System.out.println("Connection recieved from: " 
+                log.info("");
+                log.info("Connection recieved from: " 
                             + socket.getLocalAddress());
                 
                 //Start the connection thread
@@ -69,7 +79,7 @@ public class BankServerDriver {
                 
             } catch (IOException e) {
                 //If there is a problem accepting a connection, print error
-                System.err.println("Problem with incomming connection: " +
+                log.error("Problem with incomming connection: " +
                         e.getMessage());
             }
         } // while
