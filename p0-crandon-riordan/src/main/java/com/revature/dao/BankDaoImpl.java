@@ -18,18 +18,9 @@ import com.revature.util.ConnectionUtil;
 import com.revature.validation.Validator;
 
 public class BankDaoImpl implements BankDao {
+	private static final String AMOUNT_STRING = "AMOUNT";
 	static final Scanner sc = new Scanner(System.in);
 	static final Logger logger = Logger.getLogger(BankDaoImpl.class);
-	@Override
-	public List<Bank> getAllBanks() {
-		return new ArrayList<>();
-	}
-
-	@Override
-	public Bank getBankById(int id) {
-		return null;
-	}
-
 	@Override
 	public int createBank(Bank bank) {
 		int banksCreated = 0;
@@ -41,9 +32,7 @@ public class BankDaoImpl implements BankDao {
 				) {
 			ps.setInt(1, bank.getUserId());
 			banksCreated = ps.executeUpdate();
-		} catch (SQLException e) {
-			logger.info(e.getMessage());
-		} catch (IOException e) {
+		} catch (SQLException | IOException e) {
 			logger.info(e.getMessage());
 		}
 		if(banksCreated > 0) {
@@ -62,11 +51,9 @@ public class BankDaoImpl implements BankDao {
 				) {
 			ps.setInt(1, userId);
 			banksCreated = ps.executeUpdate();
-		} catch (SQLException e) {
+		} catch (SQLException | IOException e) {
 			logger.info(e.getMessage());
-		} catch (IOException e) {
-			logger.info(e.getMessage());
-		}
+		} 
 		if(banksCreated > 0) {
 			logger.info("Successfully created an account.");
 		}
@@ -94,11 +81,9 @@ public class BankDaoImpl implements BankDao {
 			cs.execute();
 			
 			logger.info("Successfully deposited $" + Validator.formatDecimals(amount));
-		} catch (SQLException e) {
+		} catch (SQLException | IOException e) {
 			logger.info(e.getMessage());
-		} catch (IOException e) {
-			logger.info(e.getMessage());
-		}
+		} 
 	}
 
 	@Override
@@ -120,12 +105,9 @@ public class BankDaoImpl implements BankDao {
 			cs.setFloat(2, amount);
 			cs.execute();
 			logger.info("Successfully withdrawn $" + Validator.formatDecimals(amount));
-		} catch (SQLException e) {
+		} catch (SQLException | IOException e) {
 			logger.info(e.getMessage());
-		} catch (IOException e) {
-			
-			logger.info(e.getMessage());
-		}
+		} 
 		
 	}
 	
@@ -138,11 +120,9 @@ public class BankDaoImpl implements BankDao {
 			ps.setInt(1, id);
 			rs = ps.executeQuery();
 			while(rs.next()) {
-				amount = rs.getFloat("AMOUNT");
+				amount = rs.getFloat(AMOUNT_STRING);
 			}
-		} catch (SQLException e) {
-			logger.info(e.getMessage());
-		} catch (IOException e) {
+		} catch (SQLException | IOException e) {
 			logger.info(e.getMessage());
 		} finally {
 			if(rs != null) {
@@ -165,7 +145,8 @@ public class BankDaoImpl implements BankDao {
 				String input = sc.nextLine();
 				amount = Float.parseFloat(input);
 			} catch (Exception e) {
-
+				logger.info("don't enter text");
+				logger.info("");
 			}
 		} while ( amount < 10 || !Validator.isCorrectScale(amount));
 		
@@ -183,11 +164,9 @@ public class BankDaoImpl implements BankDao {
 			ps.setInt(1, id);
 			rs = ps.executeQuery();
 			while(rs.next()) {
-				amount = rs.getFloat("AMOUNT");
+				amount = rs.getFloat(AMOUNT_STRING);
 			}
-		} catch (SQLException e) {
-			logger.info(e.getMessage());
-		} catch (IOException e) {
+		} catch (SQLException | IOException e) {
 			logger.info(e.getMessage());
 		} finally {
 			if(rs != null) {
@@ -216,14 +195,12 @@ public class BankDaoImpl implements BankDao {
 			
 			while(rs.next()) {
 				int bankId = rs.getInt("BANK_ID");
-				float amount = rs.getFloat("AMOUNT");
+				float amount = rs.getFloat(AMOUNT_STRING);
 				int userId = rs.getInt("USER_ID");
 				
 				bank = new Bank(bankId, amount, userId);
 			}
-		} catch (SQLException e) {
-			logger.info(e.getMessage());
-		} catch (IOException e) {
+		} catch (SQLException | IOException e) {
 			logger.info(e.getMessage());
 		} finally {
 			if(rs != null) {
@@ -255,6 +232,7 @@ public class BankDaoImpl implements BankDao {
 		
 		if(bank == null) {
 			logger.info("That user doesn't have a bank.");
+			return;
 		}
 		
 		
@@ -268,11 +246,14 @@ public class BankDaoImpl implements BankDao {
 			cs.execute();
 			logger.info("Transfer completed");
 			logger.info("");
-		} catch (SQLException e) {
+		} catch (SQLException | IOException e) {
 			logger.info(e.getMessage());
-		} catch (IOException e) {
-			logger.info(e.getMessage());
-		}
+		} 
+	}
+
+	@Override
+	public Bank getBankById(int id) {
+		return null;
 	}
 
 	

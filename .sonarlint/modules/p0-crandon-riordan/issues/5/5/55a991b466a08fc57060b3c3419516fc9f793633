@@ -1,60 +1,3 @@
 
-zsquid:S2147Á"ECombine this catch with the one at line 191, which has the same body.(ï­£Ä8ƒäï×,H»+RMINORZ
+xsquid:UselessImportCheck"7Remove this unused import 'com.revature.engine.Engine'.(ÙÎÎ¾8ÔĞ•±Ø,Hš3RMINORZ
 CODE_SMELL
-_squid:S1148M"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ï§ÿ‹×,H¼+RMINORZVULNERABILITY
-jsquid:S11350"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿ8¾ˆÏ‘×,H½+RINFOZ
-CODE_SMELL
-ksquid:S1135­"2Complete the task associated to this TODO comment.(» æÿÿÿÿÿ8î¦»‹×,H¾+RINFOZ
-CODE_SMELL
-ksquid:S1135“"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿ8îÅå×,H¿+RINFOZ
-CODE_SMELL
-ksquid:S1135–"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿ8ƒäï×,HÀ+RINFOZ
-CODE_SMELL
-`squid:S1148é"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8îÅå×,HÁ+RMINORZVULNERABILITY
-`squid:S1148á"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8¤™ó‹×,HÂ+RMINORZVULNERABILITY
-jsquid:S1135x"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿ8¾ˆÏ‘×,HÃ+RINFOZ
-CODE_SMELL
-_squid:S1148S"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8¾ˆÏ‘×,HÄ+RMINORZVULNERABILITY
-`squid:S1148Â"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8÷Áõ‹×,HÅ+RMINORZVULNERABILITY
-ysquid:S2147w"ECombine this catch with the one at line 116, which has the same body.(ï­£Ä8¾ˆÏ‘×,HÆ+RMINORZ
-CODE_SMELL
-jsquid:S1135u"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿ8¤™ó‹×,HÇ+RINFOZ
-CODE_SMELL
-ksquid:S1135§"2Complete the task associated to this TODO comment.(» æÿÿÿÿÿ8î¦»‹×,HÈ+RINFOZ
-CODE_SMELL
-xsquid:S2147("DCombine this catch with the one at line 37, which has the same body.(ï­£Ä8ï§ÿ‹×,HÉ+RMINORZ
-CODE_SMELL
-jsquid:S1135I"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿ8‡¶ª×,HÊ+RINFOZ
-CODE_SMELL
-jsquid:S1135&"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿ8 ´µ’×,HË+RINFOZ
-CODE_SMELL
-`squid:S1148À"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ï§ÿ‹×,HÌ+RMINORZVULNERABILITY
-£squid:S1192<"gDefine a constant instead of duplicating this literal "SELECT * FROM USERS WHERE USERNAME = ?" 3 times.(—®¨ùÿÿÿÿ8‡¶ª×,HÍ+RCRITICALZ
-CODE_SMELL
-_squid:S11481"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8 ´µ’×,HÎ+RMINORZVULNERABILITY
-`squid:S1148ã"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8îÅå×,HÏ+RMINORZVULNERABILITY
-`squid:S1148”"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ƒäï×,HĞ+RMINORZVULNERABILITY
-_squid:S1148y"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8î¦»‹×,HÑ+RMINORZVULNERABILITY
-jsquid:S1135L"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿ8î¦»‹×,HÒ+RINFOZ
-CODE_SMELL
-zsquid:S2147•"ECombine this catch with the one at line 146, which has the same body.(ï­£Ä8‡¶ª×,HÓ+RMINORZ
-CODE_SMELL
-jsquid:S1135"2Complete the task associated to this TODO comment.(» æÿÿÿÿÿ8î¦»‹×,HÔ+RINFOZ
-CODE_SMELL
-ksquid:S1481^"2Remove this unused "generatedKeys" local variable.(¶Ş³ğùÿÿÿÿ8³ş‡“×,HÕ+RMINORZ
-CODE_SMELL
-_squid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ƒäï×,HÖ+RMINORZVULNERABILITY
-_squid:S1148*"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8¾ˆÏ‘×,H×+RMINORZVULNERABILITY
-zsquid:S2147â"ECombine this catch with the one at line 224, which has the same body.(ï­£Ä8îÅå×,HØ+RMINORZ
-CODE_SMELL
-xsquid:S2147K"DCombine this catch with the one at line 72, which has the same body.(ï­£Ä8¤™ó‹×,HÙ+RMINORZ
-CODE_SMELL
-`squid:S1148—"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8‡¶ª×,HÚ+RMINORZVULNERABILITY
-_squid:S1148J"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8¤™ó‹×,HÛ+RMINORZVULNERABILITY
-`squid:S1148É"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8î¦»‹×,HÜ+RMINORZVULNERABILITY
-jsquid:S1135)"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿ8‡¶ª×,Hİ+RINFOZ
-CODE_SMELL
-_squid:S1148'"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8‡¶ª×,HŞ+RMINORZVULNERABILITY
-ksquid:S1135È"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿ8ƒäï×,Hß+RINFOZ
-CODE_SMELL
-_squid:S1148v"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8îÅå×,Hà+RMINORZVULNERABILITY

@@ -1,7 +1,5 @@
 package com.revature.model;
 
-import org.apache.log4j.Logger;
-
 public class Bank {
 	private int id;
 	private float amount;

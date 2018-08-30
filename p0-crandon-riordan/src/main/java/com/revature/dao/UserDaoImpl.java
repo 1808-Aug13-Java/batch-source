@@ -14,11 +14,40 @@ import com.revature.util.ConnectionUtil;
 
 public class UserDaoImpl implements UserDao {
 	
-	static final Logger logger = Logger.getLogger(Engine.class);
-	
+	static final Logger logger = Logger.getLogger(UserDaoImpl.class);
+	private static final String USER_BY_NAME = "SELECT * FROM USERS WHERE USERNAME = ?";
 	@Override
 	public User getUserById(int id) {
-		return null;
+		User user = null;
+		ResultSet rs = null;
+		String sql = "SELECT * FROM USERS WHERE USER_ID = ?";
+		try(Connection con = ConnectionUtil.getConnection();
+				PreparedStatement ps = con.prepareStatement(sql);) {
+			ps.setInt(1, id);
+			rs = ps.executeQuery();
+			String username;
+			String userEmail;
+			String userPassword;
+			while(rs.next()) {
+				username = rs.getString("USERNAME");
+				userEmail = rs.getString("USER_EMAIL");
+				userPassword = rs.getString("USER_PASSWORD");
+				id = rs.getInt("user_id");
+				user = new User(id, username, userEmail, userPassword);
+			}
+		} catch (SQLException | IOException e) {
+			logger.info(e.getMessage());
+		} finally {
+			if( rs != null) {
+				try {
+					rs.close();
+				} catch (SQLException e) {
+					logger.info(e.getMessage());
+				}
+			}
+		}
+		
+		return user;
 	}
 	
 	public boolean userHasBank(String name) {
@@ -34,10 +63,7 @@ public class UserDaoImpl implements UserDao {
 			if(rs.isBeforeFirst()) {
 				hasBank = true;
 			}
-		} catch (SQLException e) {
-			
-			logger.info(e.getMessage());
-		} catch (IOException e) {
+		} catch (SQLException | IOException e) {
 			
 			logger.info(e.getMessage());
 		} finally {
@@ -57,7 +83,7 @@ public class UserDaoImpl implements UserDao {
 	public int getUserIdByName(String name) {
 		ResultSet rs = null;
 		int id = 0;
-		String sql = "SELECT * FROM USERS WHERE USERNAME = ?";
+		String sql = USER_BY_NAME;
 		
 		try(Connection con = ConnectionUtil.getConnection();
 				PreparedStatement ps = con.prepareStatement(sql)) {
@@ -69,10 +95,7 @@ public class UserDaoImpl implements UserDao {
 			}
 			
 			
-		} catch (SQLException e) {
-			
-			logger.info(e.getMessage());
-		} catch (IOException e) {
+		} catch (SQLException | IOException e) {
 			
 			logger.info(e.getMessage());
 		} finally {
@@ -92,7 +115,7 @@ public class UserDaoImpl implements UserDao {
 	public User getUserByName(String name) {
 		ResultSet rs = null;
 		User user = null;
-		String sql = "SELECT * FROM USERS WHERE USERNAME = ?";
+		String sql = USER_BY_NAME;
 		
 		try(Connection con = ConnectionUtil.getConnection();
 				PreparedStatement ps = con.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS)) {
@@ -112,10 +135,7 @@ public class UserDaoImpl implements UserDao {
 			}
 			
 			
-		} catch (SQLException e) {
-			
-			logger.info(e.getMessage());
-		} catch (IOException e) {
+		} catch (SQLException | IOException e) {
 			
 			logger.info(e.getMessage());
 		} finally {
@@ -142,10 +162,7 @@ public class UserDaoImpl implements UserDao {
 			ps.setString(2, user.getUserEmail());
 			ps.setString(3, user.getUserPassword());
 			createdUsers = ps.executeUpdate();
-		} catch (SQLException e) {
-			
-			logger.info(e.getMessage());
-		} catch (IOException e) {
+		} catch (SQLException | IOException e) {
 			
 			logger.info(e.getMessage());
 		}
@@ -175,7 +192,7 @@ public class UserDaoImpl implements UserDao {
 	public boolean isUsernameUnique(User user) {
 		boolean isUnique = false;
 		String username = user.getUsername();
-		String sql = "SELECT * FROM USERS WHERE USERNAME = ?";
+		String sql = USER_BY_NAME;
 		ResultSet rs = null;
 		try(Connection con = ConnectionUtil.getConnection();
 				PreparedStatement ps = con.prepareStatement(sql);) {
@@ -185,9 +202,7 @@ public class UserDaoImpl implements UserDao {
 			if(!rs.isBeforeFirst()) {
 				isUnique = true;
 			}
-		} catch (SQLException e) {
-			logger.info(e.getMessage());
-		} catch (IOException e) {
+		} catch (SQLException|IOException e) {
 			logger.info(e.getMessage());
 		} finally {
 			if(rs != null) {
@@ -218,10 +233,8 @@ public class UserDaoImpl implements UserDao {
 			if(!rs.isBeforeFirst()) {
 				isUnique = true;
 			}
-		} catch (SQLException e) {
-			logger.info(e.getMessage());
-		} catch (IOException e) {
-			logger.info(e.getMessage());
+		} catch (SQLException | IOException e1) {
+			logger.info(e1.getMessage());
 		} finally {
 			if(rs != null) {
 				try {

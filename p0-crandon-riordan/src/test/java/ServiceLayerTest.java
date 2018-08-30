@@ -2,12 +2,24 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.SQLException;
+
+import org.apache.log4j.Logger;
 import org.junit.Test;
 
+import com.revature.dao.BankDaoImpl;
+import com.revature.dao.UserDaoImpl;
+import com.revature.model.Bank;
+import com.revature.model.User;
+import com.revature.util.ConnectionUtil;
 import com.revature.validation.Validator;
 
 public class ServiceLayerTest {
-
+	
+	static final Logger logger = Logger.getLogger(ServiceLayerTest.class);
+	
 	@Test
 	public void usernameNotValidEmail() {
 		boolean isValidEmail = Validator.validEmail("michaelscott");
@@ -106,13 +118,34 @@ public class ServiceLayerTest {
 		assertEquals("100.33", Validator.formatDecimals(100.33f));
 	}
 	
+	@Test
+	public void createUserWorks() {
+		try(Connection con = ConnectionUtil.getConnection()) {
+			con.commit();
+			con.setAutoCommit(false);
+			UserDaoImpl udi = new UserDaoImpl();
+			User user = new User(1005, "JimmyHalpert", "jimmy@gmail.com", "RevaturE1!");
+			udi.createUser(user);
+			assertEquals(1, udi.createUser(user));
+			con.rollback();
+		} catch (SQLException | IOException e) {
+			logger.info("createUserWorks() test threw exception " + e.getMessage());
+		}
+		
+	}
 	
-	
-	
-	
-	
-	
-	
-	
+	@Test
+	public void createBankWorks() {
+		try(Connection con = ConnectionUtil.getConnection()) {
+			con.commit();
+			con.setAutoCommit(false);
+			BankDaoImpl bdi = new BankDaoImpl();
+			Bank bank = new Bank(1005, 0, 1005);
+			assertEquals(1, bdi.createBank(bank));
+			con.rollback();
+		} catch (SQLException | IOException e) {
+			logger.info("createBankWorks() test threw exception " + e.getMessage());
+		}
+	}
 	
 }

@@ -52,10 +52,12 @@ public class Engine {
 	private void listCommands() {
 		UserDaoImpl udi = new UserDaoImpl();
 		if(activeUser == null) {
+			logger.info("Type an option");
 			logger.info("register");
 			logger.info("login");
 			logger.info("exit");
 		} else if (udi.userHasBank(activeUser.getUsername())) {
+			logger.info("Type an option");
 			logger.info("logout");
 			logger.info("deposit");
 			logger.info("withdraw");
@@ -64,6 +66,7 @@ public class Engine {
 			logger.info("history");
 			logger.info("exit");
 		} else {
+			logger.info("Type an option");
 			logger.info("create");
 			logger.info("logout");
 			logger.info("exit");
@@ -130,12 +133,14 @@ public class Engine {
 			case "history":
 				if(!udi.userHasBank(activeUser.getUsername())) {
 					logger.info("You don't have an account.");
+					break;
 				}
 				transactionHistory();
 				break;
 			case "transfer": 
 				if(!udi.userHasBank(activeUser.getUsername())) {
 					logger.info("You don't have an account.");
+					break;
 				}
 				transfer();
 				break;

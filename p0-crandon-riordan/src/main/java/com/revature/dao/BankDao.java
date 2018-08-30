@@ -5,7 +5,7 @@ import java.util.List;
 import com.revature.model.Bank;
 
 public interface BankDao {
-	public List<Bank> getAllBanks();
+
 	public Bank getBankById(int id);
 	public Bank getBankByUserId(int id);
 	public int createBank(Bank bank);

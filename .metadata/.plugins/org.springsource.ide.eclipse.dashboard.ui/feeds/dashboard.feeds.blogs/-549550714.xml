@@ -5,7 +5,42 @@
   <link rel="self" href="https://spring.io/blog.atom" />
   <id>http://spring.io/blog.atom</id>
   <icon>https://spring.io/favicon.ico</icon>
-  <updated>2018-08-28T15:36:00Z</updated>
+  <updated>2018-08-28T23:36:20Z</updated>
+  <entry>
+    <title>This Week in Spring - August 28, 2018</title>
+    <link rel="alternate" href="https://spring.io/blog/2018/08/28/this-week-in-spring-august-28-2018" />
+    <category term="engineering" label="Engineering" />
+    <author>
+      <name>Josh Long</name>
+    </author>
+    <id>tag:spring.io,2018-08-28:3377</id>
+    <updated>2018-08-28T23:36:20Z</updated>
+    <content type="html">&lt;p&gt;Hi Spring fans! Welcome to another installment of &lt;em&gt;This Week in Spring&lt;/em&gt;! This week I am in Chicago for the SpringOne Tour Chicago event. If you&amp;rsquo;re around, then of &lt;a href="http://twitter.com/starbuxman"&gt;course don&amp;rsquo;t hesitate to say hi&lt;/a&gt;! Mostly, though, I&amp;rsquo;ve been busily preparing for the &lt;a href="http://springoneplatform.io"&gt;epic SpringOnePlatform event&lt;/a&gt; event being held in historic Washington DC in September. I hope to see you there!&lt;/p&gt;
+&lt;p&gt;We&amp;rsquo;ve got a lot to get to so let&amp;rsquo;s get to it!&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href="https://content.pivotal.io/blog/spring-cloud-services-for-pcf-turns-2-0-adds-support-for-your-spring-boot-2-apps"&gt;Spring Cloud Services for PCF Turns 2.0&lt;/a&gt;, adds support for your Spring Boot 2 applications&lt;/li&gt;
+  &lt;li&gt;Nice article on the Pivotal blog on how to build &lt;a href="https://content.pivotal.io/pivotal-blog/how-to-build-modern-data-pipelines-with-pivotal-gemfire-and-spring-cloud-data-flow"&gt;modern data pipelines with Pivotal GemFire and Spring Cloud Data Flow&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://spring.io/blog/2018/08/28/spring-cloud-stream-fishtown-m2-2-1-0-m2-release-announcement"&gt;Spring Cloud Stream Fishtown.M2 /2.1.0.M2 Release Announcement&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;In this installment of my new eight part series introducing Spring Cloud GCP, &lt;em&gt;Bootiful GCP&lt;/em&gt;, I &lt;a href="https://spring.io/blog/2018/08/27/bootiful-gcp-globally-consistent-data-access-with-spanner-3-8"&gt;look at globally consistent data access with Spring Cloud GCP and Google Cloud Spanner&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;In this, the second of an eight part series looking at Spring Cloud GCP and Google Cloud GCP, I &lt;a href="https://spring.io/blog/2018/08/23/bootiful-gcp-relational-data-access-with-spring-cloud-gcp-2-8"&gt;introduce RDBMS-based data access with Spring Cloud GCP&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://content.pivotal.io/blog/love-spring-and-spring-boot-then-you-re-going-to-love-these-projects-too"&gt;Love Spring and Spring Boot? Then, You’re Going to Love these Projects, too.&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://spring.io/blog/2018/08/21/spring-integration-for-aws-2-0-ga-and-spring-cloud-stream-kinesis-binder-1-0-ga"&gt;Spring Integration for AWS 2.0 GA and Spring Cloud Stream Kinesis Binder 1.0 GA&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Nice post over on the Stark and Wayne blog &lt;a href="https://starkandwayne.com/blog/how-to-reload-buildpacks-in-cf/"&gt;on how to reload buildpacks in Cloud Foundry&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;The Cloud Foundry foundation &lt;a href="https://sdtimes.com/java/report-finds-java-and-javascript-remain-the-top-languages-for-enterprise-development/"&gt;ranked programming languages most used for enterprise application development&lt;/a&gt;. No surprise here: Java ranks first.&lt;/li&gt;
+  &lt;li&gt;Join us at the &lt;a href="https://www.cloudfoundry.org/blog/cloud-foundry-north-american-summit-coming-to-philadelphia-in-april-2019/"&gt;Cloud Foundry Summit in Philadelphia&lt;/a&gt;, PA on April 2nd-4th, 2019&lt;/li&gt;
+  &lt;li&gt;This is an interesting post on how to deploy &lt;a href="https://www.linkedin.com/pulse/deploying-spring-cloud-function-aws-lambda-platform-madhu-babu/"&gt;a Spring Cloud Function-based application using the &lt;code&gt;npm&lt;/code&gt;-based Serverless framework to deploy to AWS Lambda&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Check out this guide on things to &lt;a href="https://www.linkedin.com/pulse/springone-platform-my-guide-spring-developers-day-2-guedes-rettori/"&gt;see on day 2 of SpringOne Platform&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Check out this insightful post on using &lt;a href="https://www.lionmint.com/en/spring-boot-security-with-azure-b2c-1/amp/?__twitter_impression=true"&gt;Spring Security with Microsoft Azure B2C&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Benjamin Wilms &lt;a href="https://twitter.com/mrbwilms/status/1032945865898569728?s=12"&gt;updated the docs of Chaos Monkeys for Spring Boot&lt;/a&gt; and described how to use it without adding it to your dependencies.&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://twitter.com/sam_brannen/status/1032950245842399233?s=12"&gt;Spring Framework 5.1 will no longer proxy your test instances unnecessarily&lt;/a&gt;, thanks to Juergen Hoeller who is so amazing he sometimes &lt;em&gt;unwittingly&lt;/em&gt; resolves issues! In this case, the fix arrived in &lt;a href="https://jira.spring.io/browse/SPR-9478"&gt;SPR-9478&lt;/a&gt; while tackling a Kotlin-related issue &lt;a href="https://jira.spring.io/browse/SPR-17137"&gt;SPR-17137&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;The first &lt;a href="http://mail.openjdk.java.net/pipermail/jdk-dev/2018-August/001844.html"&gt;JDK 11 Release Candidate is now available &lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Check out the Netifi platform, a new platform based on RSocket, which &lt;a href="https://devops.com/netifi-rises-to-microservices-integration-challenge/"&gt;is in turn based on Reactor&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;This is pretty cool! The concept of buildpacks, which spun out of Heroku and have been embraced by the whole Cloud Foundry community, was &lt;a href="https://twitter.com/rettori/status/1031931357621104640"&gt;presented recently to the Cloud Native Foundation&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://twitter.com/springcentral/status/1032344392772726785"&gt;Do &lt;em&gt;not&lt;/em&gt; miss SpringOne Platform&lt;/a&gt;! The agenda is up and waiting!&lt;/li&gt;
+  &lt;li&gt;Check out this next nice installment of &lt;a href="https://www.youtube.com/watch?v=g59Q529fna0&amp;feature=youtu.be"&gt;a video series looking at Apache Geode&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://twitter.com/sebastien_pel/status/1031884585829888001?s=12"&gt;The latest release of the Assembler project&lt;/a&gt;, which is a functional, type-safe and stateless Java API for solving the N + 1 query problem in multi-databases and microservices aggregation, is now available. Of course, it also supports Reactor for composition!&lt;/li&gt;
+&lt;/ul&gt;</content>
+  </entry>
   <entry>
     <title>Spring Cloud Stream Fishtown.M2 /2.1.0.M2 Release Announcement</title>
     <link rel="alternate" href="https://spring.io/blog/2018/08/28/spring-cloud-stream-fishtown-m2-2-1-0-m2-release-announcement" />
@@ -61,7 +96,18 @@ public Function&amp;lt;String, String&amp;gt; wrapInQuotes() {&#xD;
 &lt;/ul&gt;&lt;h4&gt;&lt;a href="#quality-improvements" class="anchor" name="quality-improvements"&gt;&lt;/a&gt;Quality improvements&lt;/h4&gt;
 &lt;p&gt;As part of the continuing efforts to improve the code quality and to evaluate the framework components for its contract correctness, we have a new &lt;a href="https://github.com/spring-cloud/spring-cloud-stream-acceptance-tests"&gt;Acceptance Test project&lt;/a&gt; to bootstrap Spring Cloud Stream applications on Cloud Foundry and Kubernetes. These tests run multiple times in a day on a freshly repaved environment. We hope this provides a foundation for the community and customers to build more automation pipelines on target platforms.&lt;/p&gt;&lt;h4&gt;&lt;a href="#kinesis-binder" class="anchor" name="kinesis-binder"&gt;&lt;/a&gt;Kinesis Binder&lt;/h4&gt;
 &lt;p&gt;With this release we also want to highlight the recently release &lt;a href="https://spring.io/blog/2018/08/21/spring-integration-for-aws-2-0-ga-and-spring-cloud-stream-kinesis-binder-1-0-ga"&gt;Kinesis Binder&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Various other enhancements and bug fixes:&lt;br/&gt;&lt;a href="https://github.com/spring-cloud/spring-cloud-stream/milestone/46?closed=1"&gt;Core&lt;/a&gt;&lt;br/&gt;&lt;a href="https://github.com/spring-cloud/spring-cloud-stream-binder-rabbit/milestone/27?closed=1"&gt;Rabbit Binder&lt;/a&gt;&lt;br/&gt;&lt;a href="https://github.com/spring-cloud/spring-cloud-stream-binder-kafka/milestone/30?closed=1"&gt;Kafka Binder&lt;/a&gt;&lt;/p&gt;&lt;h4&gt;&lt;a href="#next-steps" class="anchor" name="next-steps"&gt;&lt;/a&gt;Next Steps&lt;/h4&gt;
+&lt;p&gt;Various other enhancements and bug fixes:&lt;br/&gt;&lt;a href="https://github.com/spring-cloud/spring-cloud-stream/milestone/46?closed=1"&gt;Core&lt;/a&gt;&lt;br/&gt;&lt;a href="https://github.com/spring-cloud/spring-cloud-stream-binder-rabbit/milestone/27?closed=1"&gt;Rabbit Binder&lt;/a&gt;&lt;br/&gt;&lt;a href="https://github.com/spring-cloud/spring-cloud-stream-binder-kafka/milestone/30?closed=1"&gt;Kafka Binder&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;NOTE:&lt;br/&gt;If the applications are created from Spring Initializr, they need to add this BOM snippet in maven dependency management before the spring-cloud BOM declaration, otherwise you&amp;rsquo;ll end up with the latest snapshot (which may be ok since it would include all the work from M2):&lt;/p&gt;
+  &lt;pre&gt;&lt;code class="prettyprint"&gt;&amp;lt;dependency&amp;gt;&#xD;
+           &amp;lt;groupId&amp;gt;org.springframework.cloud&amp;lt;/groupId&amp;gt;&#xD;
+           &amp;lt;artifactId&amp;gt;spring-cloud-stream-dependencies&amp;lt;/artifactId&amp;gt;&#xD;
+           &amp;lt;version&amp;gt;Fishtown.M2&amp;lt;/version&amp;gt;&#xD;
+           &amp;lt;type&amp;gt;pom&amp;lt;/type&amp;gt;&#xD;
+           &amp;lt;scope&amp;gt;import&amp;lt;/scope&amp;gt;&#xD;
+&amp;lt;/dependency&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/blockquote&gt;&lt;h4&gt;&lt;a href="#next-steps" class="anchor" name="next-steps"&gt;&lt;/a&gt;Next Steps&lt;/h4&gt;
 &lt;p&gt;The M3 is planned for the end of September and will contain primarily new binding features as well as more features and improvements around to support &lt;a href="https://cloud.spring.io/spring-cloud-function/"&gt;Spring Cloud Function&lt;/a&gt; as a programming model.&lt;/p&gt;
 &lt;p&gt;As always, we welcome feedback and contributions, so please reach out to us on &lt;a href="https://stackoverflow.com/questions/tagged/spring-cloud-stream"&gt;Stackoverflow&lt;/a&gt; or &lt;a href="https://github.com/spring-cloud/spring-cloud-stream/"&gt;GitHub&lt;/a&gt; or via &lt;a href="https://gitter.im/spring-cloud/spring-cloud-stream"&gt;Gitter&lt;/a&gt;. &lt;/p&gt;</content>
   </entry>
@@ -1650,81 +1696,6 @@ dependencies {&#xD;
 &lt;div class="paragraph"&gt;
 &lt;p&gt;&lt;a href="http://projects.spring.io/spring-kafka/"&gt;Project Page&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-kafka"&gt;GitHub&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-kafka/issues"&gt;Issues&lt;/a&gt; | &lt;a href="http://docs.spring.io/spring-kafka/docs/2.1.8.RELEASE/reference/html/"&gt;Documentation&lt;/a&gt; | &lt;a href="http://stackoverflow.com/questions/tagged/spring-kafka"&gt;Stack Overflow&lt;/a&gt; | &lt;a href="https://gitter.im/spring-projects/spring-kafka"&gt;Gitter&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
-&lt;/div&gt;</content>
-  </entry>
-  <entry>
-    <title>Spring Integration for AWS 2.0.0.RC1 and Spring Cloud Stream Kinesis Binder 1.0.0.RC1</title>
-    <link rel="alternate" href="https://spring.io/blog/2018/08/01/spring-integration-for-aws-2-0-0-rc1-and-spring-cloud-stream-kinesis-binder-1-0-0-rc1" />
-    <category term="releases" label="Releases" />
-    <author>
-      <name>Artem Bilan</name>
-    </author>
-    <id>tag:spring.io,2018-08-01:3355</id>
-    <updated>2018-08-01T14:31:53Z</updated>
-    <content type="html">&lt;div class="paragraph"&gt;
-&lt;p&gt;Dear Spring Community!&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;It’s my pleasure to announce first Release Candidates for Spring projects supporting Amazon Web Services: &lt;a href="https://aws.amazon.com/"&gt;Amazon Web Services&lt;/a&gt;: &lt;a href="https://github.com/spring-projects/spring-integration-aws"&gt;Spring Integration for AWS&lt;/a&gt; &lt;code&gt;2.0.0.RC1&lt;/code&gt; and &lt;a href="https://github.com/spring-cloud/spring-cloud-stream-binder-aws-kinesis"&gt;Spring Cloud Stream Binder for AWS Kinesis&lt;/a&gt; &lt;code&gt;1.0.0.RC1&lt;/code&gt;.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;Both artifacts are available in the &lt;a href="https://repo.spring.io/milestone/"&gt;Spring Milestone&lt;/a&gt; repository and they can be consumed as maven dependencies:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="listingblock"&gt;
-&lt;div class="content"&gt;
-&lt;pre class="prettyprint highlight"&gt;&lt;code class="language-xml" data-lang="xml"&gt;&amp;lt;dependency&amp;gt;
-    &amp;lt;groupId&amp;gt;org.springframework.integration&amp;lt;/groupId&amp;gt;
-    &amp;lt;artifactId&amp;gt;spring-integration-aws&amp;lt;/artifactId&amp;gt;
-    &amp;lt;version&amp;gt;2.0.0.RC1&amp;lt;/version&amp;gt;
-&amp;lt;/dependency&amp;gt;
-
-&amp;lt;dependency&amp;gt;
-    &amp;lt;groupId&amp;gt;org.springframework.cloud&amp;lt;/groupId&amp;gt;
-    &amp;lt;artifactId&amp;gt;spring-cloud-stream-binder-kinesis&amp;lt;/artifactId&amp;gt;
-    &amp;lt;version&amp;gt;1.0.0.RC1&amp;lt;/version&amp;gt;
-&amp;lt;/dependency&amp;gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;Where the first one is not needed to be includes when the second one is in use.
-The &lt;a href="https://aws.amazon.com/kinesis/"&gt;AWS Kinesis&lt;/a&gt; and &lt;a href="https://aws.amazon.com/dynamodb/"&gt;AWS DynamoDB&lt;/a&gt; Java SDK dependencies are included transitively for AWS Kinesis Binder as well.
-And now &lt;a href="https://github.com/awslabs/dynamodb-lock-client"&gt;AWS DynamoDB Lock Client&lt;/a&gt; is also included for leader election.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;Big thanks to the community for contribution and any feedback and especially for the help in testing these products in the real projects.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;Here are changes since the previously announced &lt;a href="https://spring.io/blog/2018/04/17/spring-integration-for-aws-2-0-0-m2-and-spring-cloud-stream-kinesis-binder-1-0-0-m2"&gt;Milestone 2&lt;/a&gt;:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="ulist"&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;A &lt;code&gt;DynamoDbLockRegistry&lt;/code&gt; implementation has been added for distributed locking based on the &lt;a href="https://github.com/awslabs/dynamodb-lock-client"&gt;AWS DynamoDB Lock Client&lt;/a&gt; foundation.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;The &lt;code&gt;KinesisMessageDrivenChannelAdapter&lt;/code&gt; can now be supplied with a &lt;code&gt;LockRegistry&lt;/code&gt; and exclusive access to shards before consuming.
-This way we ensure that only one consumer in a group reads records from the shard it is interested in.
-When one consumer goes (yields leadership), some other consumer may acquire a lock for the shard and continue to consume from the stored checkpoint.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Some other bug fixes and improvements in various components throughout the Spring Integration AWS project.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;The Kinesis Binder now exposes configuration properties for the underlying &lt;code&gt;DynamoDbLockRegistry&lt;/code&gt; used for binder consumers.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Some other fixes have been done in Kinesis Binder project as well.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;As usual any feedback, feature ideas, critics, bug reports and questions are welcome via appropriate communication channels!&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;We are aimed for GA release in a week or though.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;&lt;a href="https://cloud.spring.io/spring-cloud-gcp"&gt;Spring Integration AWS Project Page&lt;/a&gt; | &lt;a href="https://github.com/spring-cloud/spring-cloud-stream-binder-aws-kinesis"&gt;Spring Cloud Stream Binder for AWS Kinesis Project Page&lt;/a&gt; | &lt;a href="https://stackoverflow.com/questions/tagged/spring-integration"&gt;Help&lt;/a&gt; | &lt;a href="https://gitter.im/spring-cloud/spring-cloud-stream"&gt;Chat&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;</content>
   </entry>
 </feed>
