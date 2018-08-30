@@ -104,6 +104,7 @@ function isValidEmail(email) {
 	}
 	var regexp = /[^@]+@[^@]+/g;
 	console.log(email.match(regexp));
+	// Works properly on regexer, but not here for whatever reason. 
 	console.log(email.match("[!#$%&'*+\-/=?^_`{|}~.a-zA-Z0-9]+@.+\.[a-zA-Z]+"));
 	return ((email.match(regexp)||[""])[0].length == email.length) &&
 			(email.match("[!#$%&'*+\-/=?^_`{|}~.a-zA-Z0-9]+@.+\.[a-zA-Z]+") != null);
