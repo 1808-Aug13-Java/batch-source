@@ -77,13 +77,16 @@ function addNew() {
 	
 	console.log(`Student Name: ${name}  Email: ${email}`);
 	
+	// Get the span that we use for output. 
+	let outputSpan = document.getElementById("addStudentText");
+	
 	// If the inputs are not empty, insert them
 	if ((name && email && gender && cardNumber) != "") {
 		addRow(rows, name, email, gender, cardNumber);
-		document.getElementById("addStudentText").innerText = "";
+		outputSpan.innerText = "User Added";
 	}
 	else {
-		document.getElementById("addStudentText").innerText = "Invalid Input";
+		outputSpan.innerText = "Invalid Input";
 	}
 }
 
