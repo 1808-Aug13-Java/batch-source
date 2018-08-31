@@ -1,7 +1,7 @@
 // 1.      Longest String
 // Define function: maxLength(array)
 // Write a JavaScript to find the longest string from an given array of strings and returns the string’s array index.
-var my_array = ['This is the first string','This is a much longer string, made to be returned'];
+var my_array = ['This is the first string','This is a much longer string, made to be returned']; 
 
 function maxLength(array){
     var length = 0;
