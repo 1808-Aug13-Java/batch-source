@@ -1,0 +1,34 @@
+
+‡
+squid:S128ø"LEnd this switch case with an unconditional break, return or throw statement.(µ»ïşıÿÿÿÿ8¯“ü§Ø,H—RBLOCKERZ
+CODE_SMELL
+fsquid:S1199g"-Extract this nested code block into a method.(·ÿ½äûÿÿÿÿ8Û‹É§Ø,H”RMINORZ
+CODE_SMELL
+°squid:S1192³"xDefine a constant instead of duplicating this literal "Sorry but that was not a valid input, please try again." 3 times.(Ä†Ë¿8‹›©Ø,H‘RCRITICALZ
+CODE_SMELL
+rsquid:S2583”"DChange this condition so that it does not always evaluate to "false"(‚‘å8÷÷–©Ø,H–RMAJORZBUG
+gsquid:S1199í"-Extract this nested code block into a method.(ÒÌâ–øÿÿÿÿ8÷÷–©Ø,H“RMINORZ
+CODE_SMELL
+‡
+squid:S128ä"LEnd this switch case with an unconditional break, return or throw statement.(ªëÅŞúÿÿÿÿ8Û‹É§Ø,HRBLOCKERZ
+CODE_SMELL
+‡
+squid:S128ì"LEnd this switch case with an unconditional break, return or throw statement.(úâúÿÿÿÿ8Û‹É§Ø,HRBLOCKERZ
+CODE_SMELL
+gsquid:S1199ô"-Extract this nested code block into a method.(ÒÌâ–øÿÿÿÿ8÷÷–©Ø,HŒRMINORZ
+CODE_SMELL
+csquid:S1481ñ")Remove this unused "outW" local variable.(Ş™¯ııÿÿÿÿ8—ù‡¨Ø,H‰RMINORZ
+CODE_SMELL
+squid:S3776["RRefactor this method to reduce its Cognitive Complexity from 21 to the 15 allowed.(¿ÙùÂşÿÿÿÿ8÷÷–©Ø,HŠRCRITICALZ
+CODE_SMELL
+gsquid:S1199å"-Extract this nested code block into a method.(ÒÌâ–øÿÿÿÿ8Û‹É§Ø,H’RMINORZ
+CODE_SMELL
+rsquid:S1854ñ"8Remove this useless assignment to local variable "outW".(Ş™¯ııÿÿÿÿ8€‡¨Ø,HRMAJORZ
+CODE_SMELL
+¨squid:S2159”"zRemove this call to "equals"; comparisons against null always return false; consider using '== null' to check for nullity.(‚‘å8÷÷–©Ø,HRMAJORZBUG
+fsquid:S1199{"-Extract this nested code block into a method.(ğÁ–Óûÿÿÿÿ8¯“ü§Ø,H˜RMINORZ
+CODE_SMELL
+gsquid:S1199¦"-Extract this nested code block into a method.(úÀôãùÿÿÿÿ8Û‹É§Ø,H‹RMINORZ
+CODE_SMELL
+gsquid:S1199ù"-Extract this nested code block into a method.(ÒÌâ–øÿÿÿÿ8÷÷–©Ø,H•RMINORZ
+CODE_SMELL

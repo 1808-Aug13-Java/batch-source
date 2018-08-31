@@ -31,7 +31,7 @@ public class AccountTransactions {
 	}
 	
 	@Override
-	public boolean equals(Object obj) {
+	public boolean equals(Object obj) {				//making sure credentials are correct
 		if (obj == null)
 			return false;
 		if (this == obj)

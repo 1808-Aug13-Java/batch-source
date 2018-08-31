@@ -24,15 +24,15 @@ public class BankDaoImp implements BankDao{
 	Map<String, AccountTransactions> userList = new HashMap<>();
 	
 
-	public int deposit(float sum, AccountTransactions currentAccount) {
+	public int deposit(float sum, AccountTransactions currentAccount) {			//handles deposits
 		int uptodateAccount = 0;
 		if (currentAccount.isactiveAcc()) {
 			if(sum > 0) {
 				float currentBalance = currentAccount.getCurrentBalance();
 				currentBalance += sum;
 				currentAccount.setBalance(currentBalance);
-				String sql = "UPDATE BANK" + "SET BALANCE = ?" + "WHERE USERNAME = ?";
-				try(Connection con = retrieveConnection.getConnection();
+				String sql = "UPDATE BANK + SET BALANCE = ? + WHERE USERNAME = ?";
+				try(Connection con = retrieveConnection.getConnection();		//Prepared statement
 						PreparedStatement ps = con.prepareStatement(sql)){
 					con.setAutoCommit(false);
 					ps.setFloat(1, currentAccount.getCurrentBalance());
@@ -53,7 +53,7 @@ public class BankDaoImp implements BankDao{
 		}
 		return uptodateAccount;
 	}
-	public int withdraw(float sum, AccountTransactions currentAccount) {
+	public int withdraw(float sum, AccountTransactions currentAccount) {		//handles withdraws
 		int uptodateAccount = 0;
 		float updateBalance;
 		if(currentAccount.isactiveAcc()) {
@@ -83,13 +83,13 @@ public class BankDaoImp implements BankDao{
 		return uptodateAccount;
 	}
 	
-	public void currentBalance(AccountTransactions currentAccount) {
+	public void currentBalance(AccountTransactions currentAccount) {			//fetches current balance
 		if(currentAccount.isactiveAcc()) {
 			logger.info("This is your current balance: $" +currentAccount.getCurrentBalance());
 		}
 	}
-	public void menu() {
-		oldAccounts();
+	public void menu() {														//acts as a menu prompting a log in before showing a secondary set of options
+		oldAccounts();														
 		logger.info("Please choose an option by its corresponding number");
 		logger.info("1.Login");
 		logger.info("2.Create an account");
@@ -124,7 +124,7 @@ public class BankDaoImp implements BankDao{
 				
 				logger.info("Enter a username");
 				String newUsername=scanner.next();
-				if (usernameValid(newUsername) !=0) {
+				if (usernameOk(newUsername) !=0) {
 					 menu();
 				 }
 				if( userList.containsKey(newUsername)) {
@@ -132,14 +132,14 @@ public class BankDaoImp implements BankDao{
 					menu();
 				}
 
-				logger.info("Enter a password");
+				logger.info("Please enter a password");
 				String newPassword= scanner.next();
-				if(usernameValid(newPassword)!=0) {
+				if(usernameOk(newPassword)!=0) {
 					menu();
 				}
-				logger.info("Enter the amount you would like to initially deposit into your account.");
+				logger.info("Enter the amount you would like to deposit");
 				String bal=scanner.next();
-				if(nonFloatBalance(bal)!=0) {
+				if(correctBalance(bal)!=0) {
 					menu();
 				}
 				
@@ -174,12 +174,12 @@ public class BankDaoImp implements BankDao{
 		menu();
 	}
 
-	public int createAccount(AccountTransactions createAccount) {
-		String sql = "{call NEW_USER (?,?,?)}";
+	public int createAccount(AccountTransactions createAccount) {			//handles the creation of accounts
+		String sql = "{call CREATE_ACC (?,?,?)}";
 		int transaction = 0;
 		
 		try (
-				Connection con = retrieveConnection.getConnection();
+				Connection con = retrieveConnection.getConnection();	//Callable Statement
 				CallableStatement ssmt =con.prepareCall(sql);
 				){
 			con.setAutoCommit(false);
@@ -195,11 +195,11 @@ public class BankDaoImp implements BankDao{
 		}
 		return transaction;
 	}
-	public void oldAccounts() {
+	public void oldAccounts() {												//pulls the accounts that already exist
 		
 		String sql = "SELECT * FROM BANK";
 		try (
-			Connection con = retrieveConnection.getConnection();
+			Connection con = retrieveConnection.getConnection();		//Create Statement
 			Statement s = con.createStatement();
 			ResultSet rs = s.executeQuery(sql); ){
 		while(rs.next()) {
@@ -213,7 +213,7 @@ public class BankDaoImp implements BankDao{
 			logger.error(e.getMessage());
 		}
 	}
-	public void loginMenu(boolean state, AccountTransactions currentAccount) {
+	public void loginMenu(boolean state, AccountTransactions currentAccount) {		//Secondary menu that displays more options after login		
 		oldAccounts();
 		AccountTransactions loggedin = currentAccount;
 		if(state) {
@@ -262,7 +262,7 @@ public class BankDaoImp implements BankDao{
 		loginMenu(loggedin.isactiveAcc(), currentAccount);
 	}
 	
-	public int usernameValid(String user) {
+	public int usernameOk(String user) {							//Handles various forms of validation to ensure information entered is a correct format
 		int result =0;
 		if(user.isEmpty()) {
 			logger.info("A username must be entered.");
@@ -318,7 +318,7 @@ public class BankDaoImp implements BankDao{
 			}
 		return result;
 	}
-	public int nonFloatBalance(String in) {
+	public int correctBalance(String in) {
 		int result=0;
 		try {
 			Float.parseFloat(in);
