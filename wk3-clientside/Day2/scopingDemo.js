@@ -78,16 +78,27 @@ let c1 = increment();
 let c2 = increment();
 let c3 = increment();
 
-console.log('c1, c2, c3: ' + c1 + ' ' + c2 + ' ' + c3);
+// console.log('c1, c2, c3: ' + c1 + ' ' + c2 + ' ' + c3);
 
 
 
 const addThree = x => n => n+x;
 // addThree is a function that return a function that return n+x
 
-let adder = addThree(4);
-console.dir(adder);
-let result = adder(7);
-console.log('result: ' + result);
+// let adder = addThree(4);
+// console.dir(adder);
+// let result = adder(7);
+// // console.log('result: ' + result);
 
+// function apply2(fun) {
+//   return fun(2);
+// }
+
+// function add5(n) {
+//   return n+5;
+// }
+
+// let add5Again = n => n+5;
+
+// console.log(apply2(add5Again));
 
