@@ -103,11 +103,10 @@ function isValidEmail(email) {
 		return false;
 	}
 	var regexp = /[^@]+@[^@]+/g;
-	console.log(email.match(regexp));
-	// Works properly on regexer, but not here for whatever reason. 
-	console.log(email.match("[!#$%&'*+\-/=?^_`{|}~.a-zA-Z0-9]+@([a-zA-Z]+\.[a-zA-Z]+)+"));
+	//Assert that there is only one '@' symbol, and only allowed characters for the 
+	// local name, and one or more groups of letters surrounding a '.' after the '@'
 	return ((email.match(regexp)||[""])[0].length == email.length) &&
-			(email.match("[!#$%&'*+\-/=?^_`{|}~.a-zA-Z0-9]+@[a-zA-Z]+\.[a-zA-Z]+") != null);
+			(email.match("[!#$%&'*+\-/=?^_`{|}~.a-zA-Z0-9]+@([a-zA-Z]+\\.[a-zA-Z]+)+") != null);
 }
 
 let testEmail = "david.calkins.1000@gmail.com";
@@ -118,4 +117,105 @@ testEmail = "david.calkins.1000@gmail";
 console.log("'" + testEmail + "' validity: " + isValidEmail(testEmail));
 testEmail = "david.calkins.1000@";
 console.log("'" + testEmail + "' validity: " + isValidEmail(testEmail));
+testEmail = "david.calkins.1000@not.gmail.com";
+console.log("'" + testEmail + "' validity: " + isValidEmail(testEmail));
+testEmail = "@not.gmail.com";
+console.log("'" + testEmail + "' validity: " + isValidEmail(testEmail));
+
+
+// Returns a string with the charcter at the specified index removed. 
+function removeChar(string, index) {
+	// Note: second parameter is length of substring, not second index. 
+	return string.substr(0, index) + string.substr(index+1);
+}
+let testString = "asdfqwer";
+console.log("'" + testString + "' removed 0: " + removeChar(testString, 0));
+console.log("'" + testString + "' removed 7: " + removeChar(testString, 7));
+console.log("'" + testString + "' removed 3: " + removeChar(testString, 3));
+
+
+// Sorts the provided array using bubble sort. Provided elements must be 
+// numbers. 
+function bubbleSort(numArray) {
+	//If the length is less than 2, do nothing, as it is already sorted. 
+	if (numArray.length < 2) {
+		return numArray;
+	}
+	
+	// For each index above 0...
+	for (let i=1; i<numArray.length; i++) {
+		// Bubble down each element until i-1 by comparing it with the previous. 
+		for (let j=numArray.length-1; j>=i; j--) {
+			// If the previous element is greater than the current, swap them
+			if (numArray[j-1]>numArray[j]) {
+				let tempNum = numArray[j];
+				numArray[j] = numArray[j-1];
+				numArray[j-1] = tempNum;
+			}
+		}
+	}
+	
+	return numArray;
+} // end of bubbleSort
+
+console.log(bubbleSort([5, 1, 3, 2, 9, 6, 4, 7, 8]));
+
+
+
+// Returns true if a number is even, false otherwise. Non-numbers will return false.
+function isEven(someNum) {
+	// Account for special cases, like NaN and Infinity. 
+	if (someNum == NaN || someNum == Infinity || someNum == -Infinity) {
+		return false;
+	}
+	
+	// If a number divided by two, floored, and then multiplied by two equals 
+	// the original number, it is even. Flooring an even number/2 will do nothing, 
+	// while flooring a non-even number/2 will change it. 
+	return (Math.floor(someNum/2)*2) === someNum;
+} // end of isEven
+
+console.log("0 isEven: " + isEven(0));
+console.log("1 isEven: " + isEven(1));
+console.log("29 isEven: " + isEven(29));
+console.log("1000 isEven: " + isEven(1000));
+console.log("7.5 isEven: " + isEven(7.5));
+console.log("-6 isEven: " + isEven(-6));
+console.log("-2.1 isEven: " + isEven(-2.1));
+console.log("EmptyString isEven: " + isEven(""));
+
+
+
+function isPalindrome(someString) {
+	let lefthandQueue = [];
+	let righthandQueue = [];
+	
+	// Regex used for testing if a character isn't a whitespace character 
+	let nonWSRegex = /\S/
+	
+	// For each character at either end of the string, moving inward, test to see
+	// if the characters are equal in the same order, ignoring whitespace. 
+	// This is done through the use of two queues, from which, elements are compared 
+	// when there are two such elements to compare. 
+	for (let i=0; i<someString.length / 2; i++) {
+		// If the lefthand character isn't whitespace, add it to the queue. 
+		if (nonWSRegex.test(someString.charAt(i))) {
+			lefthandQueue.push(someString.charAt(i));
+		}
+		// If the righthand character isn't whitespace, add it to the queue. 
+		if (nonWSRegex.test(someString.charAt(someString.length-1-i))) {
+			righthandQueue.push(someString.charAt(someString.length-1-i));
+		}
+	}
+	
+	console.log(lefthandQueue);
+	console.log(righthandQueue);
+}
+
+
+let testPalindrome = "rats live on no evil star";
+console.log("'" + testPalindrome + "' isPalindrome: " + isPalindrome(testPalindrome));
+testPalindrome = "asd ffdsa";
+console.log("'" + testPalindrome + "' isPalindrome: " + isPalindrome(testPalindrome));
+
 
