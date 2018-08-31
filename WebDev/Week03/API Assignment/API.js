@@ -42,8 +42,8 @@ function handlePokemonResponse(xhr) {
 		`;
 	}
 	
-	document.getElementById("weight").innerHTML = `Weight: ${pokemon.weight}`;
-	document.getElementById("height").innerHTML = `Height: ${pokemon.height}`;
+	document.getElementById("weight").innerHTML = `Weight: ${pokemon.weight/10}kg`;
+	document.getElementById("height").innerHTML = `Height: ${pokemon.height/10}m`;
 }
 
 
