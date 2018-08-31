@@ -1,0 +1,48 @@
+
+|squid:S1192"GDefine a constant instead of duplicating this literal "EMP_ID" 3 times.(Ì‹ÎÛüÿÿÿÿHZRCRITICALZ
+CODE_SMELL
+€squid:S1192%"KDefine a constant instead of duplicating this literal "MANAGER_ID" 3 times.(¿ºøÿÿÿÿHZRCRITICALZ
+CODE_SMELL
+~squid:S1192 "IDefine a constant instead of duplicating this literal "EMP_NAME" 3 times.(ÜÈáıüÿÿÿÿH‘ZRCRITICALZ
+CODE_SMELL
+zsquid:S1192#"JDefine a constant instead of duplicating this literal "HIRE_DATE" 3 times.(¯ä“H’ZRCRITICALZ
+CODE_SMELL
+ysquid:S1192!"IDefine a constant instead of duplicating this literal "BIRTHDAY" 3 times.(ºşÊÊH“ZRCRITICALZ
+CODE_SMELL
+xsquid:S1192&"HDefine a constant instead of duplicating this literal "DEPT_ID" 3 times.(ª§ì¼H”ZRCRITICALZ
+CODE_SMELL
+~squid:S1192$"IDefine a constant instead of duplicating this literal "POSITION" 3 times.(êğæÇùÿÿÿÿH•ZRCRITICALZ
+CODE_SMELL
+}squid:CommentedOutCodeLine+"<This block of commented-out lines of code should be removed.(ª£â¸úÿÿÿÿH–ZRMAJORZ
+CODE_SMELL
+csquid:S11351"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿH—ZRINFOZ
+CODE_SMELL
+csquid:S11354"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿH˜ZRINFOZ
+CODE_SMELL
+csquid:S1135\"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿH™ZRINFOZ
+CODE_SMELL
+csquid:S1135_"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿHšZRINFOZ
+CODE_SMELL
+dsquid:S1135"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿH›ZRINFOZ
+CODE_SMELL
+dsquid:S1135Ÿ"2Complete the task associated to this TODO comment.(» æÿÿÿÿÿHœZRINFOZ
+CODE_SMELL
+dsquid:S1135¥"2Complete the task associated to this TODO comment.(» æÿÿÿÿÿHZRINFOZ
+CODE_SMELL
+dsquid:S1135«"2Complete the task associated to this TODO comment.(» æÿÿÿÿÿHZRINFOZ
+CODE_SMELL
+^squid:S1481&"1Remove this unused "departmentId" local variable.(ª§ì¼HŸZRMINORZ
+CODE_SMELL
+Usquid:S1481'"(Remove this unused "ddi" local variable.(¨Ô¡H ZRMINORZ
+CODE_SMELL
+qsquid:S21473"DCombine this catch with the one at line 48, which has the same body.(É®£H¡ZRMINORZ
+CODE_SMELL
+vsquid:S2147^"DCombine this catch with the one at line 91, which has the same body.(‹¦ˆ”ùÿÿÿÿH¢ZRMINORZ
+CODE_SMELL
+Xsquid:S11482"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿH£ZRMINORZVULNERABILITY
+Xsquid:S11485"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿH¤ZRMINORZVULNERABILITY
+Xsquid:S1148]"#Use a logger to log this exception.(‰œ‰ÕúÿÿÿÿH¥ZRMINORZVULNERABILITY
+Xsquid:S1148`"#Use a logger to log this exception.(‰œ‰ÕúÿÿÿÿH¦ZRMINORZVULNERABILITY
+Xsquid:S1148f"#Use a logger to log this exception.(ÂşÿâûÿÿÿÿH§ZRMINORZVULNERABILITY
+Ysquid:S1148"#Use a logger to log this exception.(‰œ‰ÕúÿÿÿÿH¨ZRMINORZVULNERABILITY
+Ysquid:S1148•"#Use a logger to log this exception.(ÂşÿâûÿÿÿÿH©ZRMINORZVULNERABILITY

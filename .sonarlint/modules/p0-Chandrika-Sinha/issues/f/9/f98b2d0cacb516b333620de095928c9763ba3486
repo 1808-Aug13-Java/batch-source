@@ -1,0 +1,111 @@
+
+s
+squid:S106‚"9Replace this use of System.out or System.err by a logger.(ÜûÛÜÿÿÿÿÿ8°ä…¨Ø,H½€RMAJORZ
+CODE_SMELL
+n
+squid:S106·"9Replace this use of System.out or System.err by a logger.(öú¯8å†¨Ø,HÛ€RMAJORZ
+CODE_SMELL
+m
+squid:S106›"9Replace this use of System.out or System.err by a logger.(ßŠÕƒ8áë²€Ø,Hã}RMAJORZ
+CODE_SMELL
+vsquid:S1854¤"@Remove this useless assignment to local variable "userAccounts".(‘÷âç8°ä…¨Ø,H¿€RMAJORZ
+CODE_SMELL
+r
+squid:S106Ÿ"9Replace this use of System.out or System.err by a logger.(Ü€öÿÿÿÿÿ8­Ç„€Ø,H’RMAJORZ
+CODE_SMELL
+l
+squid:S106<"9Replace this use of System.out or System.err by a logger.(š¼ÿ²8Ã³ç¢Ø,HšlRMAJORZ
+CODE_SMELL
+r
+squid:S106í"9Replace this use of System.out or System.err by a logger.(‰¸…«øÿÿÿÿ8‹ÙŞÿ×,Hù	RMAJORZ
+CODE_SMELL
+r
+squid:S106¬"9Replace this use of System.out or System.err by a logger.(î”½üÿÿÿÿ8”æ—€Ø,HÖRMAJORZ
+CODE_SMELL
+m
+squid:S106?"9Replace this use of System.out or System.err by a logger.(ôÔÁ8û˜ó§Ø,H¸€RMAJORZ
+CODE_SMELL
+xsquid:S2259ì"DA "NullPointerException" could be thrown; "amount" is nullable here.(Î¬Äúùÿÿÿÿ8·÷°ªØ,H˜RMAJORZBUG
+k
+squid:S106t"9Replace this use of System.out or System.err by a logger.(Õ¢÷z8æèá¦Ø,HÒzRMAJORZ
+CODE_SMELL
+m
+squid:S106Ä"9Replace this use of System.out or System.err by a logger.(Ø“şÄ8ÁÖÇ€Ø,HÓkRMAJORZ
+CODE_SMELL
+m
+squid:S106„"9Replace this use of System.out or System.err by a logger.(²Åì¦8ÿ’Û¡Ø,HákRMAJORZ
+CODE_SMELL
+r
+squid:S106ç"9Replace this use of System.out or System.err by a logger.(üÊëÃûÿÿÿÿ8‹ÙŞÿ×,H­RMAJORZ
+CODE_SMELL
+_squid:S1068"%Remove this unused "a" private field.(’•âÎÿÿÿÿÿ8Îáæ«Ø,HøRMAJORZ
+CODE_SMELL
+m
+squid:S106ª"9Replace this use of System.out or System.err by a logger.(¶—ô—8‹ÙŞÿ×,HªRMAJORZ
+CODE_SMELL
+‘squid:S1488\"]Immediately return this expression instead of assigning it to the temporary variable "input".(€Ëú©8¿£ß¡Ø,HûkRMINORZ
+CODE_SMELL
+l
+squid:S106Q"9Replace this use of System.out or System.err by a logger.(¯’×ã8‹ÙŞÿ×,H¬RMAJORZ
+CODE_SMELL
+ssquid:S2259Ã"DA "NullPointerException" could be thrown; "amount" is nullable here.(éìë…8ğ”¶ªØ,H RMAJORZBUG
+m
+squid:S106á"9Replace this use of System.out or System.err by a logger.(öú¯8šéìÿ×,H kRMAJORZ
+CODE_SMELL
+“squid:S20687"U'password' detected in this expression, review this potentially hardcoded credential.(ˆù©ëúÿÿÿÿ8Ñ²€Ø,HïRBLOCKERZVULNERABILITY
+q
+squid:S106,"9Replace this use of System.out or System.err by a logger.(›®Çôûÿÿÿÿ8û˜ó§Ø,HáRMAJORZ
+CODE_SMELL
+ƒ
+squid:S128Š"LEnd this switch case with an unconditional break, return or throw statement.(»è˜Ô8²ÙÜ«Ø,HéRBLOCKERZ
+CODE_SMELL
+n
+squid:S106Ø"9Replace this use of System.out or System.err by a logger.(¶â‚8§Ø«Ø,HäRMAJORZ
+CODE_SMELL
+m
+squid:S106½"9Replace this use of System.out or System.err by a logger.(ìğâ8ÁÖÇ€Ø,H‹
+RMAJORZ
+CODE_SMELL
+q
+squid:S106n"9Replace this use of System.out or System.err by a logger.(Ï½îûÿÿÿÿ8‹ÙŞÿ×,H©RMAJORZ
+CODE_SMELL
+q
+squid:S106z"9Replace this use of System.out or System.err by a logger.(í‰àğùÿÿÿÿ8‹ÙŞÿ×,HµRMAJORZ
+CODE_SMELL
+r
+squid:S106Ö"9Replace this use of System.out or System.err by a logger.(î”½üÿÿÿÿ8Îç“€Ø,H’RMAJORZ
+CODE_SMELL
+q
+squid:S106#"9Replace this use of System.out or System.err by a logger.(À¹úÅüÿÿÿÿ8û˜ó§Ø,HâRMAJORZ
+CODE_SMELL
+r
+squid:S106["9Replace this use of System.out or System.err by a logger.(¢Í½¥ÿÿÿÿÿ8°ä…¨Ø,H¼€RMAJORZ
+CODE_SMELL
+l
+squid:S106É"9Replace this use of System.out or System.err by a logger.(ïş&8­Ç„€Ø,H‘RMAJORZ
+CODE_SMELL
+l
+squid:S106L"9Replace this use of System.out or System.err by a logger.(Ã•È×8ÁÖÇ€Ø,HŒ
+RMAJORZ
+CODE_SMELL
+n
+squid:S106Ô"9Replace this use of System.out or System.err by a logger.(¶—ô—8°ä…¨Ø,H»€RMAJORZ
+CODE_SMELL
+usquid:S1854Î"@Remove this useless assignment to local variable "userAccounts".(‘÷âç8½ÕÅ¦Ø,HòyRMAJORZ
+CODE_SMELL
+csquid:S1172c")Remove this unused method parameter "sc".(ö¿äúıÿÿÿÿ8Îáæ«Ø,HùRMAJORZ
+CODE_SMELL
+m
+squid:S106ƒ"9Replace this use of System.out or System.err by a logger.(°‡¥ 8‹ÙŞÿ×,H®RMAJORZ
+CODE_SMELL
+vsquid:S1854÷"@Remove this useless assignment to local variable "userAccounts".(‘÷âç8å†¨Ø,Hâ€RMAJORZ
+CODE_SMELL
+n
+squid:S106ò"9Replace this use of System.out or System.err by a logger.(Œ­Š8û˜ó§Ø,Hº€RMAJORZ
+CODE_SMELL
+r
+squid:S106ü"9Replace this use of System.out or System.err by a logger.(‚§ìÕûÿÿÿÿ8áë²€Ø,H¡kRMAJORZ
+CODE_SMELL
+s
+squid:S106®"9Replace this use of System.out or System.err by a logger.(à¦ÃÔıÿÿÿÿ8û˜ó§Ø,H¹€RMAJORZ
+CODE_SMELL

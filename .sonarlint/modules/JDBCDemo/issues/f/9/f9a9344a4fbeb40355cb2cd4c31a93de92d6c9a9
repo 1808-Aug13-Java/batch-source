@@ -1,0 +1,34 @@
+
+rsquid:S2147{"ECombine this catch with the one at line 120, which has the same body.(É®£HµZRMINORZ
+CODE_SMELL
+{squid:S1192("FDefine a constant instead of duplicating this literal "STATE" 3 times.(úü™šøÿÿÿÿH¬ZRCRITICALZ
+CODE_SMELL
+}squid:S1192)"HDefine a constant instead of duplicating this literal "ZIPCODE" 3 times.(˜Ô¨òûÿÿÿÿH«ZRCRITICALZ
+CODE_SMELL
+csquid:S1135"2Complete the task associated to this TODO comment.(» æÿÿÿÿÿH­ZRINFOZ
+CODE_SMELL
+csquid:S1135|"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿH¯ZRINFOZ
+CODE_SMELL
+dsquid:S1135…"2Complete the task associated to this TODO comment.(» æÿÿÿÿÿH°ZRINFOZ
+CODE_SMELL
+wsquid:UselessImportCheck"8Remove this unused import 'com.revature.model.Employee'.(á¾ß†úÿÿÿÿH¶ZRMINORZ
+CODE_SMELL
+dsquid:S1135‹"2Complete the task associated to this TODO comment.(» æÿÿÿÿÿH±ZRINFOZ
+CODE_SMELL
+Xsquid:S1168"+Return an empty collection instead of null.(¥¹ïH³ZRMAJORZ
+CODE_SMELL
+qsquid:S2147/"DCombine this catch with the one at line 45, which has the same body.(ï­£ÄH´ZRMINORZ
+CODE_SMELL
+Xsquid:S1148."#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿH·ZRMINORZVULNERABILITY
+Xsquid:S1148R"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿHºZRMINORZVULNERABILITY
+Xsquid:S1148X"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿH»ZRMINORZVULNERABILITY
+csquid:S1135y"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿH®ZRINFOZ
+CODE_SMELL
+Xsquid:S11486"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿH¹ZRMINORZVULNERABILITY
+dsquid:S1135‘"2Complete the task associated to this TODO comment.(» æÿÿÿÿÿH²ZRINFOZ
+CODE_SMELL
+Xsquid:S1148z"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿH¼ZRMINORZVULNERABILITY
+Xsquid:S1148}"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿH½ZRMINORZVULNERABILITY
+|squid:S1192&"GDefine a constant instead of duplicating this literal "STREET" 3 times.(şÿÚ£üÿÿÿÿHªZRCRITICALZ
+CODE_SMELL
+Xsquid:S11480"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿH¸ZRMINORZVULNERABILITY

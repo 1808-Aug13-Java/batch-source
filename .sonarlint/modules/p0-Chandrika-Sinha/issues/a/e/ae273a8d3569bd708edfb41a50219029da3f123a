@@ -1,0 +1,72 @@
+
+jsquid:S1135;"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿ8ÈÊ¶›Ø,Hş`RINFOZ
+CODE_SMELL
+`squid:S1148Í"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8Ã¬å›Ø,HßcRMINORZVULNERABILITY
+ksquid:S1135á"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿ8µ£ı›Ø,H€fRINFOZ
+CODE_SMELL
+squid:S1192#"QDefine a constant instead of duplicating this literal "TRANSACTION_TYPE" 3 times.(¾ç¬Úÿÿÿÿÿ8ÈÊ¶›Ø,H¿`RCRITICALZ
+CODE_SMELL
+’squid:S1192$"[Define a constant instead of duplicating this literal "BEFORE_TRANSACTION_BALANCE" 3 times.(Üõ8ÈÊ¶›Ø,HÃ`RCRITICALZ
+CODE_SMELL
+zsquid:S2147ò"ECombine this catch with the one at line 239, which has the same body.(ï­£Ä8¤ ‚œØ,HÿfRMINORZ
+CODE_SMELL
+_squid:S11489"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8Ö³å™Ø,HÑVRMINORZVULNERABILITY
+ksquid:S1135‹"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿ8°ô—›Ø,H^RINFOZ
+CODE_SMELL
+ksquid:S1135’"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿ8°ô—›Ø,H€^RINFOZ
+CODE_SMELL
+ksquid:S1135Ï"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿ8Ã¬å›Ø,HİcRINFOZ
+CODE_SMELL
+_squid:S1148i"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ÈÊ¶›Ø,HÊ`RMINORZVULNERABILITY
+`squid:S1148ª"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8 âÀ›Ø,HµaRMINORZVULNERABILITY
+ksquid:S1135Ì"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿ8Ã¬å›Ø,HÜcRINFOZ
+CODE_SMELL
+†squid:S1192!"ODefine a constant instead of duplicating this literal "BANKACCOUNT_ID" 3 times.(‰“ˆ8ÈÊ¶›Ø,HÂ`RCRITICALZ
+CODE_SMELL
+jsquid:S1135a"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿ8ÈÊ¶›Ø,HÆ`RINFOZ
+CODE_SMELL
+_squid:S1148<"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8Ö³å™Ø,HĞVRMINORZVULNERABILITY
+ˆsquid:S1192 "QDefine a constant instead of duplicating this literal "TRANSACTION_TIME" 3 times.(³™ÚÖ8ÈÊ¶›Ø,HÄ`RCRITICALZ
+CODE_SMELL
+zsquid:S2147à"ECombine this catch with the one at line 221, which has the same body.(ï­£Ä8µ£ı›Ø,HfRMINORZ
+CODE_SMELL
+`squid:S1148Ğ"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8Ã¬å›Ø,HàcRMINORZVULNERABILITY
+_squid:S1148_"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8°ô—›Ø,H…^RMINORZVULNERABILITY
+xsquid:S2147:"DCombine this catch with the one at line 55, which has the same body.(ï­£Ä8°ô—›Ø,H‚^RMINORZ
+CODE_SMELL
+`squid:S1148Œ"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ÈÊ¶›Ø,Hÿ`RMINORZVULNERABILITY
+`squid:S1148“"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8°ô—›Ø,Hƒ^RMINORZVULNERABILITY
+`squid:S1148â"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8µ£ı›Ø,H‚fRMINORZVULNERABILITY
+‘squid:S1192%"ZDefine a constant instead of duplicating this literal "AFTER_TRANSACTION_BALANCE" 3 times.(â³8ÈÊ¶›Ø,HÅ`RCRITICALZ
+CODE_SMELL
+ksquid:S1135ğ"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿ8¤ ‚œØ,HıfRINFOZ
+CODE_SMELL
+ksquid:S1135ó"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿ8¤ ‚œØ,HşfRINFOZ
+CODE_SMELL
+`squid:S1148ñ"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8¤ ‚œØ,H€gRMINORZVULNERABILITY
+zsquid:S2147«"ECombine this catch with the one at line 168, which has the same body.(ï­£Ä8 âÀ›Ø,H³aRMINORZ
+CODE_SMELL
+jsquid:S1135h"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿ8°ô—›Ø,Hÿ]RINFOZ
+CODE_SMELL
+`squid:S1148ô"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8¤ ‚œØ,HgRMINORZVULNERABILITY
+xsquid:S2147`"DCombine this catch with the one at line 93, which has the same body.(ï­£Ä8Ö³å™Ø,HÏVRMINORZ
+CODE_SMELL
+`squid:S1148­"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8 âÀ›Ø,H´aRMINORZVULNERABILITY
+jsquid:S1135^"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿ8Ö³å™Ø,HÍVRINFOZ
+CODE_SMELL
+ksquid:S1135Ş"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿ8µ£ı›Ø,HÿeRINFOZ
+CODE_SMELL
+zsquid:S2147Î"ECombine this catch with the one at line 203, which has the same body.(ï­£Ä8Ã¬å›Ø,HŞcRMINORZ
+CODE_SMELL
+_squid:S1148b"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8°ô—›Ø,H„^RMINORZVULNERABILITY
+ksquid:S1135¬"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿ8 âÀ›Ø,H±aRINFOZ
+CODE_SMELL
+jsquid:S11358"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿ8Ö³å™Ø,HÎVRINFOZ
+CODE_SMELL
+`squid:S1148ß"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8µ£ı›Ø,HƒfRMINORZVULNERABILITY
+ksquid:S1135©"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿ8 âÀ›Ø,H²aRINFOZ
+CODE_SMELL
+†squid:S1192"ODefine a constant instead of duplicating this literal "TRANSACTION_ID" 3 times.(³øôø8ÈÊ¶›Ø,HÁ`RCRITICALZ
+CODE_SMELL
+Šsquid:S1192""NDefine a constant instead of duplicating this literal "BANK_USERNAME" 3 times.(®øûÅıÿÿÿÿ8ÈÊ¶›Ø,HÀ`RCRITICALZ
+CODE_SMELL

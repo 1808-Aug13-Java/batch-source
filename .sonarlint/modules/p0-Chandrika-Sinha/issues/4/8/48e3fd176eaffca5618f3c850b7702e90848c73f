@@ -1,0 +1,48 @@
+
+`squid:S1148¶"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8÷Í†Ø,HêRMINORZVULNERABILITY
+asquid:S1148È"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8œÀš¬Ø,Hí„RMINORZVULNERABILITY
+`squid:S1148İ"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8¢¢Ü—Ø,HURMINORZVULNERABILITY
+xsquid:S2147B"DCombine this catch with the one at line 64, which has the same body.(ï­£Ä8ÎØÆ™Ø,HÑURMINORZ
+CODE_SMELL
+`squid:S1148,"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8œÀš¬Ø,Hì„RMINORZVULNERABILITY
+~squid:S1192%"FDefine a constant instead of duplicating this literal "joint" 5 times.(„òÒç8ÛæÂ†Ø,H‡‡RCRITICALZ
+CODE_SMELL
+ysquid:S2147*"DCombine this catch with the one at line 40, which has the same body.(ï­£Ä8¯çò«Ø,HÙ‚RMINORZ
+CODE_SMELL
+`squid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8¯Ú…Ø,H»RMINORZVULNERABILITY
+`squid:S1148¹"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ÎØÆ™Ø,HÒURMINORZVULNERABILITY
+_squid:S1148C"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ÛæÂ†Ø,H¶RMINORZVULNERABILITY
+_squid:S1148a"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8¢¢Ü—Ø,HURMINORZVULNERABILITY
+‘squid:S1192 "TDefine a constant instead of duplicating this literal "CHECKING_OR_SAVINGS" 3 times.(Ò€Œ›üÿÿÿÿ8çŒÛ²Ø,H‰‡RCRITICALZ
+CODE_SMELL
+_squid:S1148A"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8÷Í†Ø,HëRMINORZVULNERABILITY
+{squid:S2095Q"GUse try-with-resources or close this "ResultSet" in a "finally" clause.(ĞÂé ûÿÿÿÿ8ÛæÂ†Ø,H²RBLOCKERZBUG
+Œsquid:S1192"TDefine a constant instead of duplicating this literal "BANKACCOUNT_BALANCE" 3 times.(¯Ëû§8ÛæÂ†Ø,Hˆ‡RCRITICALZ
+CODE_SMELL
+zsquid:S2147Û"ECombine this catch with the one at line 216, which has the same body.(ï­£Ä8÷Í†Ø,HéRMINORZ
+CODE_SMELL
+`squid:S1148^"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8¯çò«Ø,HÛ‚RMINORZVULNERABILITY
+`squid:S1148›"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8¦Âà™Ø,HšVRMINORZVULNERABILITY
+_squid:S1148)"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ãÉæ†Ø,H¶RMINORZVULNERABILITY
+{squid:S2147É"ECombine this catch with the one at line 198, which has the same body.(ï­£Ä8œÀš¬Ø,Hë„RMINORZ
+CODE_SMELL
+`squid:S1148{"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8¯çò«Ø,HÚ‚RMINORZVULNERABILITY
+`squid:S1148Ú"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ãÉæ†Ø,H·RMINORZVULNERABILITY
+xsquid:S11555">Use isEmpty() to check whether the collection is empty or not.(ç˜¡şÿÿÿÿ8ÿÙ¯²Ø,H„‡RMINORZ
+CODE_SMELL
+{squid:S2095n"GUse try-with-resources or close this "ResultSet" in a "finally" clause.(ĞÂé ûÿÿÿÿ8» †Ø,H†RBLOCKERZBUG
+zsquid:S2147š"ECombine this catch with the one at line 152, which has the same body.(ï­£Ä8¯Ú…Ø,H¹RMINORZ
+CODE_SMELL
+`squid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8¦Âà™Ø,H™VRMINORZVULNERABILITY
+`squid:S1148™"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ÎØÆ™Ø,HÓURMINORZVULNERABILITY
+‡squid:S1192"ODefine a constant instead of duplicating this literal "BANKACCOUNT_ID" 3 times.(ç¯‰±8úÜ¸²Ø,H†‡RCRITICALZ
+CODE_SMELL
+zsquid:S2147"ECombine this catch with the one at line 140, which has the same body.(ï­£Ä8ãÉæ†Ø,HµRMINORZ
+CODE_SMELL
+`squid:S1148Ë"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8¯Ú…Ø,HºRMINORZVULNERABILITY
+xsquid:S2147_"DCombine this catch with the one at line 92, which has the same body.(ï­£Ä8¢¢Ü—Ø,HURMINORZ
+CODE_SMELL
+zsquid:S2147·"ECombine this catch with the one at line 180, which has the same body.(ï­£Ä8¦Âà™Ø,H˜VRMINORZ
+CODE_SMELL
+‡squid:S1192!"PDefine a constant instead of duplicating this literal "SINGLE_OR_JOINT" 3 times.(’’Û8Ùïà²Ø,HŠ‡RCRITICALZ
+CODE_SMELL
