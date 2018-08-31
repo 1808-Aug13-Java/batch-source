@@ -87,15 +87,19 @@ console.log("'" + scriptString + "': '" + removeScript(scriptString) + "'");
 
 // Returns if the specified date is a leap year. 
 function isLeapYear(date) {
+	// If the date is a whole century, return if the century is divisible by 4. 
 	if (date.getYear() == 0) {
-		
+		return (date.getFullYear()/100 % 4) == 0;
 	}
+	// Otherwise, just return if the year is divisible by 4. 
 	return (date.getFullYear() % 4) == 0;
 }
 
 let testDate = new Date("Jan 20 1969");
 console.log(testDate + " is leap year: " + isLeapYear(testDate));
 testDate = new Date("Jan 20 2004");
+console.log(testDate + " is leap year: " + isLeapYear(testDate));
+testDate = new Date("Jan 20 1900");
 console.log(testDate + " is leap year: " + isLeapYear(testDate));
 
 
@@ -216,9 +220,132 @@ testPalindrome = "qwertrrewq";
 console.log("'" + testPalindrome + "' isPalindrome: " + isPalindrome(testPalindrome));
 
 
+// Prints a shape to the console. Shapes available are "Square", "Triange", or 
+// "Diamond". 
+// Param Shape - The shape to print. 
+// Param height - Height of the shape. Must be positive and odd. 
+// Param character - The character to use to print the shape
+function printShape(shape, height, character) {
+	let outputLine = "";
+	
+	
+	switch(shape) {
+		case "Square":
+			for (let i=0; i<height; i++) {
+				console.log(character.repeat(height));
+			}
+			break;
+		case "Triangle":
+			for (let i=0; i<height; i++) {
+				console.log(character.repeat(i+1));
+			}
+			break;
+		case "Diamond":
+			for (let i=0; i<height; i++) {
+				let spaces = Math.abs(0-Math.floor(height/2)+i);
+				console.log(" ".repeat(spaces) + character.repeat(height-spaces*2));
+			}
+			break;
+		default: 
+			console.log("'" + shape + "' is not a valid shape. ");
+	}
+} // end of printShape
+
+printShape ("Square" , 5, "%");
+printShape ("Triangle" , 5, "%");
+printShape ("Diamond" , 5, "%");
+printShape ("asdf" , 5, "%");
+
+
 // Returns a new array with the given contents rotatesd left 'n' times. 
 function rotate(array, n) {
+	let newArray = [];
+	let l = array.length
 	
+	// For each element in array, get the element 'n' spaces to the right of i
+	// moduloed to the size of the array, and push it to the new array. 
+	// Account for negative 'n' by adding the length after moding and 
+	// then moding again. 
+	for (let i=0; i<array.length; i++) {
+		newArray.push(array[ ((((i+n)%l)+l)%l) ]);
+	}
+	
+	return newArray;
+} // end of rotate
+
+
+console.log("Rotate 1: " + rotate([1, 2, 3, 4, 5, 6, 7, 8, 9], 1));
+console.log("Rotate 5: " + rotate([1, 2, 3, 4, 5, 6, 7, 8, 9], 5));
+console.log("Rotate 9: " + rotate([1, 2, 3, 4, 5, 6, 7, 8, 9], 9));
+console.log("Rotate 28: " + rotate([1, 2, 3, 4, 5, 6, 7, 8, 9], 28));
+console.log("Rotate -3: " + rotate([1, 2, 3, 4, 5, 6, 7, 8, 9], -3));
+
+
+// Returns true if this string has properly closed brackets. 
+function balanced(string) {
+	// A stack of open brackets. Used to compare against order of closing brackets
+	let bracketStack = [];
+	
+	// The set of characters that are brackets. 
+	let bracketSet = new Set(['(', ')', '[', ']', '{', '}']);
+	
+	// The set of characters that are open brackets. 
+	let openBracketSet = new Set(['(', '[', '{']);
+	
+	// A map of open brackets to their corresponding closing brackets
+	let bracketMap = {'(':')', '[':']', '{':'}'};
+	
+	// For each character, test to see if it 
+	for (character of string) {
+		// Ignore non-bracket characters
+		if (bracketSet.has(character)) {
+			// If it is an open bracket, push it onto the open bracket stack
+			if (openBracketSet.has(character)) {
+				bracketStack.push(character);
+			} // end if
+			// Otherwise, pull off an element from the stack. If there is no 
+			// element, or the elements don't match, then these are not properly 
+			// closed brackets. 
+			else if (bracketStack.length == 0 || 
+						bracketMap[bracketStack.pop()] !== character) {
+				return false;
+			}
+		} // end if 
+	} // end for
+	
+	// If we traversed everything and we have unmatched open brackets, return false.
+	// Otherwise, everything matched, so return true. 
+	return bracketStack.length == 0;
 }
+
+let testBrackets = "()";
+console.log("'" + testBrackets + "' is balanced: " + balanced(testBrackets));
+testBrackets = "(()";
+console.log("'" + testBrackets + "' is balanced: " + balanced(testBrackets));
+testBrackets = "())";
+console.log("'" + testBrackets + "' is balanced: " + balanced(testBrackets));
+testBrackets = "{[(){()}]}()";
+console.log("'" + testBrackets + "' is balanced: " + balanced(testBrackets));
+testBrackets = "(]";
+console.log("'" + testBrackets + "' is balanced: " + balanced(testBrackets));
+testBrackets = `
+function rotate(array, n) {
+	let newArray = [];
+	let l = array.length
+	
+	// For each element in array, get the element 'n' spaces to the right of i
+	// moduloed to the size of the array, and push it to the new array. 
+	// Account for negative 'n' by adding the length after moding and 
+	// then moding again. 
+	for (let i=0; i<array.length; i++) {
+		newArray.push(array[ ((((i+n)%l)+l)%l) ]);
+	}
+	
+	return newArray;
+} // end of rotate
+`;
+console.log("'" + testBrackets + "' is balanced: " + balanced(testBrackets));
+
+
 
 
