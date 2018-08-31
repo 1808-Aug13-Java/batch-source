@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="http://ruinjohnson.com/bootstrap.min.css"/>
+    <title>title</title>
+  </head>
+  <body>
+    <div id="quiz">
+    </div>
+    <script>
+  const myQuestions = [
+    {
+        question: '7 + 7 + "7" = ?',
+        answers: {
+            a: '"777"',
+            b: '"147"',
+            c: 21
+        },
+        correctAnswer: "b"
+    },
+    {
+        question: "What is the inherit boolean value of an empty object?",
+        answers: {
+            a: 'true',
+            b: 'false',
+            c: 'undefined'
+        },
+        correctAnswer: "a"
+    },
+    {
+        question: "What is the inherit boolean value of an empty array?",
+        answers: {
+            a: 'true',
+            b: 'false',
+            c: 'undefined' 
+        },
+        correctAnswer: "a"
+    },
+    {
+        question: "typeOf(NaN) = ?",
+        answers: {
+            a: 'NaN',
+            b: 'undefined',
+            c: 'Number',
+        },
+        correctAnswer: "c"
+    },
+    {
+        question: "NaN == NaN",
+        answers: {
+            a: "true",
+            b: "false",
+            c: "undefined"
+        },
+        correctAnswer: "b"
+    },
+    {
+        question: 'What is the inherit boolean value of "false"?',
+        answers: {
+            a: "true",
+            b: "false",
+            c: "undefined"
+        },
+        correctAnswer: "a"
+    }
+]
+
+
+      window.onload = function() {
+buildQuiz();
+function buildQuiz() {
+  var q = document.getElementById("quiz");
+  q.innerHTML = "<p>heyo</p>";
+}
+      }
+    </script>
+  </body>
+</html>
