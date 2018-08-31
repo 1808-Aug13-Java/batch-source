@@ -9,6 +9,15 @@ function searchMovie() {
         sendAjaxGet(baseUrl + input, displayMovie);
     } else {
         document.getElementById("invalidInput").innerHTML = "Invalid input";
+        document.getElementById("title").innerHTML = "";
+        document.getElementById("year").innerHTML = "";
+        document.getElementById("poster").setAttribute("src", "http://pngimg.com/uploads/question_mark/question_mark_PNG130.png");
+        document.getElementById("MPAARating").innerHTML = "";
+        document.getElementById("releaseDate").innerHTML = "";
+        document.getElementById("plot").innerHTML = "";
+        document.getElementById("runtime").innerHTML = "";
+        document.getElementById("actors").innerHTML = "";
+        document.getElementById("IMDBRating").innerHTML = "";
     }
 }
 
