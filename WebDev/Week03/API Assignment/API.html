@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8" />
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <title>Pokedex</title>
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+   <link rel="stylesheet" href="API.css">
+   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+</head>
+<body>
+       <div class="jumbotron jumbotron-fluid" style="background-color:#ee1515">
+           <div class="container">
+                 <h1 class="display-4" style="font-weight: 700">Pokedex Search</h1>
+                 <p class="lead" style="font-weight: 500">You can search for any pokemon</p>
+
+               <div class="form-group form-inline">
+                       <input type="number" id="pokemonId" class="form-control" placeholder="Pokemon ID"/>
+                       <button class="btn btn-default btn-center" id="submitBtn">Submit</button>
+               </div>
+
+               <div class="container">
+                       <h2 id="name"></h2>
+                       <h4 id="type"></h4>
+                       <h4 id="height"></h4>
+                       <h4 id="weight"></h4>
+               </div>
+           </div>
+       </div>
+	   
+       <img src= "http://getwallpapers.com/wallpaper/full/4/5/3/936787-pokemon-white-wallpaper-1920x1080-htc.jpg">
+
+   <script src="API.js"></script>
+</body>
+</html>
