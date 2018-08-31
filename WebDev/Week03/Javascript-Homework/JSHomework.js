@@ -87,6 +87,9 @@ console.log("'" + scriptString + "': '" + removeScript(scriptString) + "'");
 
 // Returns if the specified date is a leap year. 
 function isLeapYear(date) {
+	if (date.getYear() == 0) {
+		
+	}
 	return (date.getFullYear() % 4) == 0;
 }
 
@@ -185,37 +188,37 @@ console.log("-2.1 isEven: " + isEven(-2.1));
 console.log("EmptyString isEven: " + isEven(""));
 
 
-
+// Returns true if the string is a palindrome, false otherwise. 
 function isPalindrome(someString) {
-	let lefthandQueue = [];
-	let righthandQueue = [];
+	// Get rid of whitespace. 
+	let replaceRegex = / /g;
+	someString = someString.replace(replaceRegex, "");
 	
-	// Regex used for testing if a character isn't a whitespace character 
-	let nonWSRegex = /\S/
-	
-	// For each character at either end of the string, moving inward, test to see
-	// if the characters are equal in the same order, ignoring whitespace. 
-	// This is done through the use of two queues, from which, elements are compared 
-	// when there are two such elements to compare. 
+	// For each index from the front and back respectively, compare the chatracter
+	// from the fron and back. If not equal, it is not a palindrome. 
 	for (let i=0; i<someString.length / 2; i++) {
 		// If the lefthand character isn't whitespace, add it to the queue. 
-		if (nonWSRegex.test(someString.charAt(i))) {
-			lefthandQueue.push(someString.charAt(i));
-		}
-		// If the righthand character isn't whitespace, add it to the queue. 
-		if (nonWSRegex.test(someString.charAt(someString.length-1-i))) {
-			righthandQueue.push(someString.charAt(someString.length-1-i));
+		if (someString.charAt(i) !== someString.charAt(someString.length-1-i)) {
+			return false;
 		}
 	}
 	
-	console.log(lefthandQueue);
-	console.log(righthandQueue);
-}
-
+	return true;
+} // end of isPalindrome
 
 let testPalindrome = "rats live on no evil star";
 console.log("'" + testPalindrome + "' isPalindrome: " + isPalindrome(testPalindrome));
 testPalindrome = "asd ffdsa";
 console.log("'" + testPalindrome + "' isPalindrome: " + isPalindrome(testPalindrome));
+testPalindrome = "qwertrewq";
+console.log("'" + testPalindrome + "' isPalindrome: " + isPalindrome(testPalindrome));
+testPalindrome = "qwertrrewq";
+console.log("'" + testPalindrome + "' isPalindrome: " + isPalindrome(testPalindrome));
+
+
+// Returns a new array with the given contents rotatesd left 'n' times. 
+function rotate(array, n) {
+	
+}
 
 
