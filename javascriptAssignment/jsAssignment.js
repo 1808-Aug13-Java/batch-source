@@ -28,12 +28,12 @@ Example for printShape("Diamond", 5, "*");
 // 1.      Longest String
 // Define function: maxLength(array)
 // Write a JavaScript to find the longest string from an given array of strings and returns the string’s array index.
-function length(array)
+function length(str)
 {
-    sum = 0;
-    for(i in array)
-        sum++;
-    return sum;
+    len = 0;
+    for(j in str)
+        len++;
+    return len;
 }
 function maxLength(array)
 {
@@ -47,17 +47,19 @@ function maxLength(array)
     // }
     let maxLength = length(array[0]);
     let indexOfLongest = 0;
-//FIXME problems? :( i goes to 2 and then 4....    
+//problems? :( i goes to 2 and then 4....    
+//ok so if u use a helper function, use "let" for ur
+//variables, or change their names
     for(i = 0; i < array.length; i++)
     {
+        // console.log("array[]: "+i );
         if (length(array[i]) > maxLength)
         {
             maxLength = length(array[i]);
             indexOfLongest = i;
         }
-        console.log("array[]: "+array[i]+
-                ", "+indexOfLongest+", "+maxLength);
     }
+    return indexOfLongest;
 }
 
 console.log(maxLength(["cat","greyhound","dog","mouse"]));
