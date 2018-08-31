@@ -238,18 +238,40 @@ const rotate = function(arr, n) {
 // a bracket is one of the following (){}[];
 
 const balanced = function(string) {
-  let unclosedBrackets = 0;
-
+  let stack = [];
   let openingBrackets = "({[";
   let closingBrackets = "]})";
   for(character of string) {
     if(openingBrackets.includes(character)) {
-      unclosedBrackets++;
+      stack.push(character);
     } else if (closingBrackets.includes(character)) {
-      unclosedBrackets--;
+      let top = stack[stack.length - 1];
+      switch(character) {
+        case ")":
+          if(top == "("){
+            stack.pop();
+          } else {
+            return false;
+          }
+          break;
+        case "}":
+          if(top =="{") {
+            stack.pop();
+          } else {
+            return false;
+          }
+          break;
+        case "]":
+          if(top == "[") {
+            stack.pop();
+          } else {
+            return false;
+          }
+          break;
+      }
     }
   }
 
-  return unclosedBrackets ? false : true;
+  return stack.length > 0 ? false : true;
 } 
 

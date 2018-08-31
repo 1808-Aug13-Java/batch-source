@@ -209,7 +209,100 @@ document.addEventListener("DOMContentLoaded", function() {
   //      dark colors it could change to where we also
   //       couldn’t see the text but it’s enough to just
   //        accomodate for a black background)
+  let header = document.querySelector("h1");
+
+  header.addEventListener("click", function() {
+    setTimeout(changeBackground, 3000);
+  });
+
+  function changeBackground() {
+    let r = randomNum(0, 240);
+    let g = randomNum(0, 240);
+    let b = randomNum(0, 240);
+    let body = document.querySelector("body");
+    body.style.backgroundColor = `
+      rgba(${r},${g},${b},1)
+    `; 
+  }
+
+  function randomNum(lowerLimit, upperLimit) {
+    return Math.random() * (upperLimit - lowerLimit) + lowerLimit;
+
+  }
   
+
+  // 10. When inputs with id n1 and n2 
+  // have valid numerical input, perform the
+  //  operation specified in the select. Display the 
+  //  result in the element with id result.
+  let resultEl = document.getElementById("result");
+
+  let firstNumber = document.getElementById("n1");
+  firstNumber.addEventListener('keyup', performOperation);
+  let secondNumber = document.getElementById("n2");
+  secondNumber.addEventListener('keyup', performOperation);
+  // callback for event listener on input
+  function performOperation() {
+    let operationEl = document.getElementById("operation");
+    let operation = operationEl.options[operationEl.selectedIndex].text;
+    let output = NaN;
+    if(validNums()) {
+      console.log('doing operation');
+      
+      output = doOperation(operation);
+      resultEl.innerHTML = `Result is: ${output}`;
+    }
+    
+  } 
+ // ensure both numbers are valid
+  function validNums() {
+    let first = Number.isNaN(Number.parseFloat(firstNumber.value));
+    let second = Number.isNaN(Number.parseFloat(secondNumber.value));
+    
+    return !first && !second;
+  }
+// perform the passed operation on the two nuums
+  function doOperation(operation) {
+    let val1 = Number.parseFloat(firstNumber.value);
+    let val2 = Number.parseFloat(secondNumber.value);
+    switch(operation.toLowerCase()) {
+      case "add":
+        return val1 + val2;
+        break;
+      case "subtract":
+        return val1 - val2;
+        break;
+      case "divide":
+        return val1 / val2;
+        break;
+      case "multiply":
+        return val1 + val2;
+        break;
+    }
+  } 
+
+  // 11.Define function walkTheDom(node, func)
+	// This function should traverse every node in the DOM. 
+  // Use recursion. On each node, calle func(node).
+  
+  function walkTheDom(node, func) {
+
+    let childNodes = node.childNodes;
+
+    for(let i = 0; i < childNodes.length; i++) {
+      walkTheDom(childNodes[i], func);
+    }
+
+    func(node);
+  }
+
+  
+
+  walkTheDom(document.body, logNodeRecursive);
+
+  function logNodeRecursive(node) {
+    console.log(node);
+  }
 
   
 
