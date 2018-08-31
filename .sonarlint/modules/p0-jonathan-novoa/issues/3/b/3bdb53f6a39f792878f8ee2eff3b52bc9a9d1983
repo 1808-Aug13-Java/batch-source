@@ -1,21 +1,21 @@
 
-Šsquid:S3776Â"RRefactor this method to reduce its Cognitive Complexity from 21 to the 15 allowed.(¥ƒ¦¹8òÊ— Ø,H×;RCRITICALZ
+…squid:CommentedOutCodeLineÏ"<This block of commented-out lines of code should be removed.(©ÍÇ ÿÿÿÿÿ8ÏæþžØ,HŸ=RMAJORZ
 CODE_SMELL
-gsquid:S1199Ó"-Extract this nested code block into a method.(·ÿ½äûÿÿÿÿ8«¥±è×,Hï1RMINORZ
+gsquid:S1199í"-Extract this nested code block into a method.(ðÁ–Óûÿÿÿÿ8ë‹úî×,H =RMINORZ
 CODE_SMELL
-bsquid:S1199¬"-Extract this nested code block into a method.(ÎÞèº8òÊ— Ø,HÕ;RMINORZ
+bsquid:S1199¬"-Extract this nested code block into a method.(ÎÞèº8òÊ— Ø,H¡=RMINORZ
 CODE_SMELL
-gsquid:S1199¨"-Extract this nested code block into a method.(úÀôãùÿÿÿÿ8ë‹úî×,Hõ1RMINORZ
+gsquid:S1199Ó"-Extract this nested code block into a method.(·ÿ½äûÿÿÿÿ8«¥±è×,H¢=RMINORZ
 CODE_SMELL
-gsquid:S1199–"-Extract this nested code block into a method.(·ÿ½äûÿÿÿÿ8ë‹úî×,Hò1RMINORZ
+Šsquid:S3776Â"RRefactor this method to reduce its Cognitive Complexity from 21 to the 15 allowed.(¥ƒ¦¹8òÊ— Ø,H£=RCRITICALZ
 CODE_SMELL
-¨squid:S2159Ç"zRemove this call to "equals"; comparisons against null always return false; consider using '== null' to check for nullity.(‚‘å8‹Çí¡Ø,Há<RMAJORZBUG
-gsquid:S1199 "-Extract this nested code block into a method.(ðÁ–Óûÿÿÿÿ8×ï™Ø,H™8RMINORZ
+gsquid:S1199 "-Extract this nested code block into a method.(ðÁ–Óûÿÿÿÿ8×ï™Ø,H¤=RMINORZ
 CODE_SMELL
-gsquid:S1199š"-Extract this nested code block into a method.(úÀôãùÿÿÿÿ8«¥±è×,Hø1RMINORZ
+¨squid:S2159Ç"zRemove this call to "equals"; comparisons against null always return false; consider using '== null' to check for nullity.(‚‘å8‹Çí¡Ø,H¥=RMAJORZBUG
+gsquid:S1199š"-Extract this nested code block into a method.(úÀôãùÿÿÿÿ8«¥±è×,H¦=RMINORZ
 CODE_SMELL
-…squid:CommentedOutCodeLineÏ"<This block of commented-out lines of code should be removed.(©ÍÇ ÿÿÿÿÿ8ÏæþžØ,H÷:RMAJORZ
+gsquid:S1199¨"-Extract this nested code block into a method.(úÀôãùÿÿÿÿ8ë‹úî×,H§=RMINORZ
 CODE_SMELL
-rsquid:S2583Ç"DChange this condition so that it does not always evaluate to "false"(‚‘å8òÊ— Ø,HÖ;RMAJORZBUG
-gsquid:S1199í"-Extract this nested code block into a method.(ðÁ–Óûÿÿÿÿ8ë‹úî×,Hñ1RMINORZ
+rsquid:S2583Ç"DChange this condition so that it does not always evaluate to "false"(‚‘å8òÊ— Ø,H¨=RMAJORZBUG
+gsquid:S1199–"-Extract this nested code block into a method.(·ÿ½äûÿÿÿÿ8ë‹úî×,H©=RMINORZ
 CODE_SMELL
