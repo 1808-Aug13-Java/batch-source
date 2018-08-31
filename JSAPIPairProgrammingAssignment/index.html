@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>OMDB API Assignment</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B"
+        crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+        img {
+            height: 500px;
+            align-content: center;
+        }
+        #invalidInput {
+            text-align: center;
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-3">OMDB API</h1>
+            <p class="lead">Enter the name of a movie you want to search.</p>
+            <hr class="my-2">
+            <div class="form-group">
+                <input type="text" class="form-control" id="movie" />
+                <br>
+                <button type="submit" class="btn btn-primary" id="movieBtn">Search for movie</a>
+                </div>
+        </div>
+        <h2 id="invalidInput"></h2>
+        <div class="container">
+            <h1 id="title"></h1>
+            <h4 id="year"></h4>
+            <h4 id="MPAARating"></h4>
+            <img id="poster" src="http://pngimg.com/uploads/question_mark/question_mark_PNG130.png" />
+            <h4 id="releaseDate"></h4>
+            <h5 id="runtime"></h5>
+            <h4 id="actors"></h4>
+            <p id="plot"></p>
+            <p id="IMDBRating"></p>
+        </div>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em"
+        crossorigin="anonymous"></script>
+    <script src="APIAssignment.js"></script>
+</body>
+
+</html>
