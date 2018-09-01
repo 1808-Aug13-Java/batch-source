@@ -268,7 +268,22 @@ function closeDetails(node) {
 
 
 
-// 6.1 
+// 6.1 Concatenates all the span elements' innerHTML, and prints them to 
+// the console. 
+function concatSpans () {
+	spans = document.getElementsByTagName("span");
+
+	let spanHTML = "";
+
+	for (let i=0; i<spans.length; i++) {
+		spanHTML += spans[i].innerHTML;
+	}
+
+	console.log(spanHTML);
+} // end of concatSpans
+
+
+
 
 
 setAnchorLinks();
@@ -283,6 +298,6 @@ for (let i=0; i<detailsTags.length; i++) {
 	detailsTags[i].setAttribute("onmouseleave", "closeDetails(this)");
 }
 
-
+concatSpans();
 
 
