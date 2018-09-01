@@ -1,0 +1,52 @@
+#bodyMain{
+    background-color: steelblue;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+table {
+    width: 100%;
+    border: 1px solid black;
+}
+
+th, td {
+    border: 1px solid black;
+    height: 100%;
+ }
+
+
+input[type=text] {
+    padding:5px; 
+    border:2px solid #ccc; 
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+
+input[type=text]:focus {
+    border-color:#333;
+}
+
+input[type=submit] {
+    padding:5px 15px; 
+    background:#ccc; 
+    border:0 none;
+    cursor:pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 5px; 
+}
+
+#bodySeed{
+    background-color: lightgreen;
+}
+
+#bodyMeat {
+    background-color: darkred;
+}
+
+#bodyFlightless {
+    background-color: goldenrod;
+}
+
+#bodyTiny {
+    background-color: slateblue;
+}
