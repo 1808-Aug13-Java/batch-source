@@ -46,7 +46,7 @@ function insertRow() {
     if (firstName.length >= 2 && lastName.length >= 2) {
         name.innerHTML = firstName + " " + lastName;
     } else {
-        name.innerHTML = "Invalid input";
+        name.innerHTML = "Invalid name";
     }
     let email = document.createElement("td");
     let emailValue = document.getElementById("email").value;
@@ -54,22 +54,28 @@ function insertRow() {
     if (emailValue.match(emailRegex)) {
         email.innerHTML = emailValue;
     } else {
-        email.innerHTML = "Invalid input";
+        email.innerHTML = "Invalid email";
     }
     let phone = document.createElement("td");
     let phoneValue = document.getElementById("phone").value;
     if (phoneValue.match(/^[0-9]{10}$/)) {
         phone.innerHTML = phoneValue;
     } else {
-        phone.innerHTML = "Invalid input";
+        phone.innerHTML = "Invalid phone";
     }
     let birthday = document.createElement("td");
     let birthdayValue = new Date(document.getElementById("bday").value);
     birthday.innerHTML = formatBirthday(birthdayValue);
+    
     let gender = document.createElement("td");
-    gender.innerHTML = document.querySelector('input[name="gender"]:checked').nextSibling.nodeValue;
+    if (document.querySelector('input[name="gender"]:checked') == null) {
+        gender.innerHTML = "No gender selected";
+    } else {
+        gender.innerHTML = document.querySelector('input[name="gender"]:checked').nextSibling.nodeValue;
+    }
     let favoriteColor = document.createElement("td");
-    favoriteColor.innerHTML = document.getElementById("color").value;
+    let favoriteColorValue = document.getElementById("color").value;
+    favoriteColor.innerHTML = favoriteColorValue == null || favoriteColorValue == undefined ? "Invalid input" : favoriteColorValue;
     let activities = document.createElement("td");
     let individualActivities = document.getElementsByClassName("activity");
     let activitiesContent = `<ul>`;
@@ -78,9 +84,13 @@ function insertRow() {
             activitiesContent += `<li>${individualActivities[i].nextSibling.nodeValue}</li>`;
         }
     }
-    activities.innerHTML = activitiesContent;
+    if (activitiesContent === `<ul>`) {
+        activities.innerHTML = "No activities selected"
+    } else {
+        activities.innerHTML = activitiesContent;
+    }
     let row = document.createElement("tr");
-    row.append(firstName);
+    row.append(name);
     row.append(email);
     row.append(phone);
     row.append(birthday);
@@ -96,13 +106,20 @@ function formatBirthday(birthday) {
     let zeroMonth = "";
     if (month < 10) {
         zeroMonth = "0";
+    } else if (isNaN(month)) {
+        return "Invalid birthday";
     }
     const day = birthday.getDate() + 1;
     let zeroDay = "";
     if (day < 10) {
         zeroDay = "0";
+    } else if (isNaN(day)) {
+        return "Invalid birthday";
     }
     const year = birthday.getFullYear();
+    if (isNaN(year)) {
+        return "Invalid birthday";
+    }
     return zeroMonth + month + "/" + zeroDay + day + "/" + year;
 }
 
