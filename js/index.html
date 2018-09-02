@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>IGD</title>
+    <link rel="icon" href="https://www.speakcdn.com/assets/2216/c5_planets_concert_page.png">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- BootStrap CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
+                                                                                                           crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+                                                                   crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
+                                                                                            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
+                                                                                         crossorigin="anonymous"></script>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>
+        <span>Intergalactic </span>Directory</h1>
+      <hr>
+      <h4>Welcome to the Intergalactic Directory.</h4>
+      <br>
+      <br>
+      <div>
+        <h4>Here are some links</h4>
+
+        <a name="google" href="#">Click here</a>
+        <a name="twitter" href="#">Click here</a>
+        <a name="slack" href="#">Click here</a>
+        <a name="javadocs" href="#">Click here</a>
+      </div>
+      <br>
+      <br>
+      <div>
+        <h4>Here are some things
+          <span>Bob Ross </span>has said</h4>
+        <hr>
+        <p>This is an example of what you can do with just a few things, a little imagination and a happy dream in your
+        heart. Poor old tree. Imagination
+        <span>is the </span>key to painting. That's the way I look when I get home late; black and blue. Just relax and
+        let it flow. That easy.</p>
+
+        <p>You have to make
+        <span>almighty </span>decisions when you're the
+        <span>creator</span>. Just think about these things in your mind - then bring them into your world. See there,
+        told you that would be easy. Automatically, all of these beautiful, beautiful things will happen. So often
+        we avoid running water, and running water is a lot
+        <span> of </span>fun.</p>
+
+        <p>Let's make some happy little clouds in
+        <span>our world.</span> We need dark in order to show light. We don't really know where this goes - and I'm not
+        sure we really care. If you hypnotize it, it will go away.</p>
+
+        <details>
+          <summary>A happy cloud.</summary>
+          <p>Now let's put some happy little clouds in here. Work on one thing at a time. Don't get carried away - we
+          have plenty of time. Maybe there's a little something happening right here. Let's have a little bit of
+          fun today. Now we can begin working on lots of happy little things.</p>
+        </details>
+
+        <p>Now then, let's play. I get carried away with this brush cleaning. You don't have to be crazy to do this but
+        it does help.
+        </p>
+      </div>
+      <br>
+
+      <div>
+        <h4>Here is the form to be added to the directory</h4>
+        <hr>
+        <div class="container">
+          <form class="form-group">
+            <label>First Name:</label>
+            <input class="form-control" type="text" id="firstname">
+
+            <label>Last Name:</label>
+            <input class="form-control" type="text" id="lastname">
+            <label>Email:</label>
+            <input class="form-control" type="email" id="email">
+            <label>Phone:</label>
+            <input class="form-control" type="tel" id="phone">
+            <label>Birthday:</label>
+            <input class="form-control" type="date" id="bday">
+            <label>Planet of Residency:</label>
+            <select class="form-control" id="planet">
+              <option>Earth</option>
+              <option>Mars</option>
+              <option>Proxima Centauri b</option>
+              <option>Pluto</option>
+            </select>
+            <br>
+            <label>Gender:</label>
+            <br>
+            <input type="radio" name="gender" value="male">Male
+            <br>
+            <input type="radio" name="gender" value="female">Female
+            <br>
+            <input type="radio" name="gender" value="other">Other
+            <br>
+            <label>Favorite Color:</label>
+            <input id="color" type="color">
+            <br>
+            <label>Favorite Acvities:</label>
+            <br>
+            <input class="activity" type="checkbox" value="hiking">hiking
+            <br>
+            <input class="activity" type="checkbox" value="stamp">stamp collecting
+            <br>
+            <input class="activity" type="checkbox" value="birding">birding
+            <br>
+            <input class="activity" type="checkbox" value="basket">underwater basket weaving
+            <br><br>
+          </form>
+          <button id="form-sub" class="btn btn-outline-primary">Submit</button>
+        </div>
+      </div>
+
+      <p hidden>Beep boop</p>
+      <br>
+      <div>
+        <table class="table table-striped table-bordered table-hover table-sm">
+          <thead>
+            <tr>
+              <th scope="col">
+                <h4>Name</h4>
+              </th>
+              <th scope="col">
+                <h4>Email</h4>
+              </th>
+              <th scope="col">
+                <h4>Phone</h4>
+              </th>
+              <th scope="col">
+                <h4>Birthday</h4>
+              </th>
+              <th scope="col">
+                <h4>Favorite Color</h4>
+              </th>
+              <th scope="col">
+                <h4>Gender</h4>
+              </th>
+              <th scope="col">
+                <h4>Activities</h4>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr scope="row">
+              <td>
+                Veronica
+              </td>
+              <td>
+                v3r0n1c4@gmail.com
+              </td>
+              <td>
+                5558675309
+              </td>
+              <td>
+                11/13/1988
+              </td>
+              <td>
+                #77381a
+              </td>
+              <td>
+                Female
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    hiking
+                  </li>
+                  <li>
+                    underwater basket weaving
+                  </li>
+                </ul>
+              </td>
+            </tr>
+            <tr scope="row">
+              <td>
+                Paulina
+              </td>
+              <td>
+                sk8rgurl@gmail.com
+              </td>
+              <td>
+                9876543210
+              </td>
+              <td>
+                01/10/2000
+              </td>
+              <td>
+                #ADD8E6
+              </td>
+              <td>
+                Female
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    stamp collecting
+                  </li>
+                  <li>
+                    hiking
+                  </li>
+                </ul>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div>
+        <button id="earth_time_check" class="btn btn-info pull-left">Earth time</button>
+        <h4 id="earth_time"></h4>
+        <button id="mars_time_check" class="btn btn-danger pull-left">Mars time</button>
+        <h4 id="mars_time"></h4>
+        <button id="acb_time_check" class="btn btn-secondary pull-left">Alpha Centauri b time</button>
+        <h4 id="acb_time"></h4>
+      </div>
+      <br>
+      <h3>Calculator <small class="float-right" id="result"></small></h3>
+      <hr>
+      <select class="form-control" id="operation">
+        <option>Add</option>
+        <option>Subtract</option>
+        <option>Divide</option>
+        <option>Multiply</option>
+      </select>
+      <label>First Number:</label>
+      <input class="form-control" type="text" id="n1">
+      <label>Second Number:</label>
+      <input class="form-control" type="text" id="n2">
+    </div>
+    <script src="JavascriptAssignment.js"></script>
+  </body>
+
+</html>
