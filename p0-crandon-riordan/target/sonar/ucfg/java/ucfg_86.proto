@@ -1,0 +1,35 @@
+
+Acom.revature.validation.Validator#validEmail(Ljava/lang/String;)Z
+__unknown_file (email"1*ü
+1–
+‹C:\Users\Crandon\Documents\workspace-sts-3.9.5.RELEASE\batch-source\p0-crandon-riordan\src\main\java\com\revature\validation\Validator.java  (/ß
+–
+‹C:\Users\Crandon\Documents\workspace-sts-3.9.5.RELEASE\batch-source\p0-crandon-riordan\src\main\java\com\revature\validation\Validator.java  ('%0__concat"
+^[a-zA-Z0-9_+"#!
+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@Î
+–
+‹C:\Users\Crandon\Documents\workspace-sts-3.9.5.RELEASE\batch-source\p0-crandon-riordan\src\main\java\com\revature\validation\Validator.java  (+%1__concat"
+
+%0"
+(?:[a-zA-Z0-9-]+\\.)+[a-z¿
+–
+‹C:\Users\Crandon\Documents\workspace-sts-3.9.5.RELEASE\batch-source\p0-crandon-riordan\src\main\java\com\revature\validation\Validator.java   (%2__concat"
+
+%1"
+
+A-Z]{2,7}$½
+–
+‹C:\Users\Crandon\Documents\workspace-sts-3.9.5.RELEASE\batch-source\p0-crandon-riordan\src\main\java\com\revature\validation\Validator.java  (emailValidationRegEx__id"
+
+%2…
+–
+‹C:\Users\Crandon\Documents\workspace-sts-3.9.5.RELEASE\batch-source\p0-crandon-riordan\src\main\java\com\revature\validation\Validator.java! !(>%3Ljava.util.regex.Pattern#compile(Ljava/lang/String;)Ljava/util/regex/Pattern;"
+
+emailValidationRegExü
+–
+‹C:\Users\Crandon\Documents\workspace-sts-3.9.5.RELEASE\batch-source\p0-crandon-riordan\src\main\java\com\revature\validation\Validator.java$	 $($%4Rjava.util.regex.Pattern#matcher(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;"	
+
+email"¡
+–
+‹C:\Users\Crandon\Documents\workspace-sts-3.9.5.RELEASE\batch-source\p0-crandon-riordan\src\main\java\com\revature\validation\Validator.java$ $(/
+""

@@ -1,0 +1,13 @@
+
+┌squid:S1192="KDefine a constant instead of duplicating this literal "IS_MANAGER" 3 times.(цу²Г8шесяы,HЕ5RCRITICALZ
+CODE_SMELL
+┬squid:S11928"LDefine a constant instead of duplicating this literal "EMPLOYEE_ID" 3 times.(Я╖╥╪ЭЪЪЪЪ8шесяы,HФ5RCRITICALZ
+CODE_SMELL
+█squid:S2293r"YReplace the type specification in this constructor call with the diamond operator ("<>").(²╥сЗ8шесяы,HГ5RMINORZ
+CODE_SMELL
+┌squid:S11929"FDefine a constant instead of duplicating this literal "EMAIL" 3 times.(Х≤Ю╞ЩЪЪЪЪ8шесяы,HЦ5RCRITICALZ
+CODE_SMELL
+┘squid:S1192;"IDefine a constant instead of duplicating this literal "PASSWORD" 3 times.(╟╧шВЭЪЪЪЪ8шесяы,HБ5RCRITICALZ
+CODE_SMELL
+┌squid:S1192<"KDefine a constant instead of duplicating this literal "MANAGER_ID" 3 times.(Н╖зв8шесяы,HД5RCRITICALZ
+CODE_SMELL

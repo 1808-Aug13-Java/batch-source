@@ -1,5 +1,3 @@
 
-usquid:S1126I"AReplace this if-then-else statement by a single return statement.(ΫΟ½8ƒί…Χ,H.RMINORZ
-CODE_SMELL
-tsquid:UselessImportCheck"4Remove this unused import 'org.apache.log4j.Logger'.(ρθ½8¬ΌΧ,H.RMINORZ
+usquid:S1126G"AReplace this if-then-else statement by a single return statement.(ΫΟ½8ƒί…Χ,HΟ4RMINORZ
 CODE_SMELL

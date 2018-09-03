@@ -1,0 +1,27 @@
+
+‡squid:S1192u"KDefine a constant instead of duplicating this literal "IMAGER_URL" 6 times.(Ùøñ«øÿÿÿÿ8ŸşÌÒÙ,H§:RCRITICALZ
+CODE_SMELL
+“squid:S2293ö"YReplace the type specification in this constructor call with the diamond operator ("<>").(™şæ¸ıÿÿÿÿ8¿œÎÒÙ,H°:RMINORZ
+CODE_SMELL
+ƒsquid:S1192v"GDefine a constant instead of duplicating this literal "AMOUNT" 6 times.(¶®û‰şÿÿÿÿ8ŸşÌÒÙ,H¥:RCRITICALZ
+CODE_SMELL
+‰squid:S1192s"MDefine a constant instead of duplicating this literal "DATE_CREATED" 6 times.(£½‹±úÿÿÿÿ8ŸşÌÒÙ,H£:RCRITICALZ
+CODE_SMELL
+“squid:S2293¯"YReplace the type specification in this constructor call with the diamond operator ("<>").(™şæ¸ıÿÿÿÿ8ˆÅÒÙ,Hü9RMINORZ
+CODE_SMELL
+squid:S1192t"KDefine a constant instead of duplicating this literal "MANAGER_ID" 6 times.(Ğ­ô8ˆÅÒÙ,Hõ9RCRITICALZ
+CODE_SMELL
+…squid:S1192r"NDefine a constant instead of duplicating this literal "CURRENT_STATE" 6 times.(çÈ¶8ŸşÌÒÙ,H¤:RCRITICALZ
+CODE_SMELL
+ˆsquid:S1192q"LDefine a constant instead of duplicating this literal "EMPLOYEE_ID" 6 times.(¡Œùßûÿÿÿÿ8ŸşÌÒÙ,H¦:RCRITICALZ
+CODE_SMELL
+“squid:S2293™"YReplace the type specification in this constructor call with the diamond operator ("<>").(™şæ¸ıÿÿÿÿ8åÑÒÙ,H¸:RMINORZ
+CODE_SMELL
+“squid:S2293‰"YReplace the type specification in this constructor call with the diamond operator ("<>").(™şæ¸ıÿÿÿÿ8Úœ¿ÒÙ,HØ9RMINORZ
+CODE_SMELL
+’squid:S2293d"YReplace the type specification in this constructor call with the diamond operator ("<>").(™şæ¸ıÿÿÿÿ8°˜¨ÒÙ,HÓ8RMINORZ
+CODE_SMELL
+‡squid:S1192p"PDefine a constant instead of duplicating this literal "REIMBURSMENT_ID" 6 times.(ÀŠÍü8ŸşÌÒÙ,H¢:RCRITICALZ
+CODE_SMELL
+“squid:S2293Ò"YReplace the type specification in this constructor call with the diamond operator ("<>").(™şæ¸ıÿÿÿÿ8‘æËÒÙ,H›:RMINORZ
+CODE_SMELL

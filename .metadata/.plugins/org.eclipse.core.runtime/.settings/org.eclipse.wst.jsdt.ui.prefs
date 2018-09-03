@@ -1,6 +1,6 @@
 eclipse.preferences.version=1
 fontPropagated=true
-org.eclipse.jface.textfont=1|Hack|13.8|0|WINDOWS|1|-23|0|0|0|400|0|0|0|0|3|2|1|49|Hack;
+org.eclipse.jface.textfont=1|Hack|12.0|0|WINDOWS|1|0|0|0|0|0|0|0|0|1|0|0|0|0|Hack;
 org.eclipse.wst.jsdt.ui.editor.tab.width=
 org.eclipse.wst.jsdt.ui.formatterprofiles.version=11
 org.eclipse.wst.jsdt.ui.javadoclocations.migrated=true

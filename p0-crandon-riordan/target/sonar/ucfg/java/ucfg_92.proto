@@ -1,0 +1,21 @@
+
+4com.revature.validation.Validator#isCorrectScale(F)Z
+__unknown_file (amount"1*¤
+1–
+‹C:\Users\Crandon\Documents\workspace-sts-3.9.5.RELEASE\batch-source\p0-crandon-riordan\src\main\java\com\revature\validation\Validator.java` `(‚
+–
+‹C:\Users\Crandon\Documents\workspace-sts-3.9.5.RELEASE\batch-source\p0-crandon-riordan\src\main\java\com\revature\validation\Validator.java` `(2%0Ljava.util.regex.Pattern#compile(Ljava/lang/String;)Ljava/util/regex/Pattern;"
+^\\d+\\.\\d{0,2}$à
+–
+‹C:\Users\Crandon\Documents\workspace-sts-3.9.5.RELEASE\batch-source\p0-crandon-riordan\src\main\java\com\revature\validation\Validator.javaa a(4%1-java.lang.String#valueOf(F)Ljava/lang/String;"
+"""
+
+
+amountù
+–
+‹C:\Users\Crandon\Documents\workspace-sts-3.9.5.RELEASE\batch-source\p0-crandon-riordan\src\main\java\com\revature\validation\Validator.javaa a(5%2Rjava.util.regex.Pattern#matcher(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;"
+
+%1"¡
+–
+‹C:\Users\Crandon\Documents\workspace-sts-3.9.5.RELEASE\batch-source\p0-crandon-riordan\src\main\java\com\revature\validation\Validator.javab b(
+""

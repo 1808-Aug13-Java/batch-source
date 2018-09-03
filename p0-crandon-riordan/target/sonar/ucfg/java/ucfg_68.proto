@@ -1,0 +1,58 @@
+
+;com.revature.model.Transaction#toString()Ljava/lang/String;
+__unknown_file ("1*¦
+1“
+ˆC:\Users\Crandon\Documents\workspace-sts-3.9.5.RELEASE\batch-source\p0-crandon-riordan\src\main\java\com\revature\model\Transaction.javaw	 w(Æ
+“
+ˆC:\Users\Crandon\Documents\workspace-sts-3.9.5.RELEASE\batch-source\p0-crandon-riordan\src\main\java\com\revature\model\Transaction.javaw	 w((%0__concat"
+Transaction [userId="
+""Â
+“
+ˆC:\Users\Crandon\Documents\workspace-sts-3.9.5.RELEASE\batch-source\p0-crandon-riordan\src\main\java\com\revature\model\Transaction.javaw	 w(=%1__concat"
+
+%0"
+, transactionId=´
+“
+ˆC:\Users\Crandon\Documents\workspace-sts-3.9.5.RELEASE\batch-source\p0-crandon-riordan\src\main\java\com\revature\model\Transaction.javaw	 w(M%2__concat"
+
+%1"
+""Ä
+“
+ˆC:\Users\Crandon\Documents\workspace-sts-3.9.5.RELEASE\batch-source\p0-crandon-riordan\src\main\java\com\revature\model\Transaction.javaw	 w(d%3__concat"
+
+%2"
+, transactionType=´
+“
+ˆC:\Users\Crandon\Documents\workspace-sts-3.9.5.RELEASE\batch-source\p0-crandon-riordan\src\main\java\com\revature\model\Transaction.javaw	 x(%4__concat"
+
+%3"
+""»
+“
+ˆC:\Users\Crandon\Documents\workspace-sts-3.9.5.RELEASE\batch-source\p0-crandon-riordan\src\main\java\com\revature\model\Transaction.javaw	 x(#%5__concat"
+
+%4"
+	, amount=´
+“
+ˆC:\Users\Crandon\Documents\workspace-sts-3.9.5.RELEASE\batch-source\p0-crandon-riordan\src\main\java\com\revature\model\Transaction.javaw	 x(,%6__concat"
+
+%5"
+""Ä
+“
+ˆC:\Users\Crandon\Documents\workspace-sts-3.9.5.RELEASE\batch-source\p0-crandon-riordan\src\main\java\com\revature\model\Transaction.javaw	 x(C%7__concat"
+
+%6"
+, transactionDate=´
+“
+ˆC:\Users\Crandon\Documents\workspace-sts-3.9.5.RELEASE\batch-source\p0-crandon-riordan\src\main\java\com\revature\model\Transaction.javaw	 x(U%8__concat"
+
+%7"
+""³
+“
+ˆC:\Users\Crandon\Documents\workspace-sts-3.9.5.RELEASE\batch-source\p0-crandon-riordan\src\main\java\com\revature\model\Transaction.javaw	 x([%9__concat"
+
+%8"
+]"ž
+“
+ˆC:\Users\Crandon\Documents\workspace-sts-3.9.5.RELEASE\batch-source\p0-crandon-riordan\src\main\java\com\revature\model\Transaction.javaw x(\
+
+%9

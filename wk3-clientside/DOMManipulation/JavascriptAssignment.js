@@ -1,15 +1,15 @@
 document.addEventListener("DOMContentLoaded", function() {
   // 1. make each link direct the user to 
   // its respective website
-  let google = document.getElementsByName("google");
+  let google = document.getElementsByName("google")[0];
   google.href = "http://google.com";
 
-  let twitter = document.getElementsByName("twitter");
+  let twitter = document.getElementsByName("twitter")[0];
   twitter.href = "http://twitter.com";
-  let slack = document.getElementsByName("slack");
+  let slack = document.getElementsByName("slack")[0];
   slack.href = "http://slack.com";
 
-  let javadocs = document.getElementsByName("javadocs");
+  let javadocs = document.getElementsByName("javadocs")[0];
   javadocs.href = "https://docs.oracle.com/javase/8/docs/api/";
 
   // 2. disable the pluto plant of residency option
@@ -199,6 +199,22 @@ document.addEventListener("DOMContentLoaded", function() {
   // 8. calc mars time and alpha centauri bb
   let earthOrbitalPeriod = 365;
   let marsOrbitalPeriod = 687;
+  // returns seconds since unix epch
+  let secondsFromUnix = new Date() - new Date(0);
+  // based off this use
+  let totalDays = secondsFromUnix / 86400; 
+  // 1 day = 86400 seconds
+
+
+  let xhr = XMLHttpRequest();
+  xhr.onreadystatechange = function() {
+    let timeEl = document.getElementById("acb_time_check");
+
+    if(this.readyState == 4 && (this.statusCode >= 200 || this.statusCode < 300)) {
+      let data = JSON.parse(this.responseText);
+      timeEl.innerHTML += "";
+    }
+  }
   
 
   // 9. Three seconds after a user clicks on the

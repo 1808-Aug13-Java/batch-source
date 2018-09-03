@@ -1,0 +1,21 @@
+
+Dcom.revature.validation.Validator#validUsername(Ljava/lang/String;)Z
+__unknown_file (username"1*Š
+1–
+‹C:\Users\Crandon\Documents\workspace-sts-3.9.5.RELEASE\batch-source\p0-crandon-riordan\src\main\java\com\revature\validation\Validator.java3  3(4½
+–
+‹C:\Users\Crandon\Documents\workspace-sts-3.9.5.RELEASE\batch-source\p0-crandon-riordan\src\main\java\com\revature\validation\Validator.java3 3(5emailValidationRegEx__id"
+
+""…
+–
+‹C:\Users\Crandon\Documents\workspace-sts-3.9.5.RELEASE\batch-source\p0-crandon-riordan\src\main\java\com\revature\validation\Validator.java4 4(>%0Ljava.util.regex.Pattern#compile(Ljava/lang/String;)Ljava/util/regex/Pattern;"
+
+emailValidationRegExÿ
+–
+‹C:\Users\Crandon\Documents\workspace-sts-3.9.5.RELEASE\batch-source\p0-crandon-riordan\src\main\java\com\revature\validation\Validator.java6	 6('%1Rjava.util.regex.Pattern#matcher(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;"
+
+
+username"¡
+–
+‹C:\Users\Crandon\Documents\workspace-sts-3.9.5.RELEASE\batch-source\p0-crandon-riordan\src\main\java\com\revature\validation\Validator.java6 6(2
+""
