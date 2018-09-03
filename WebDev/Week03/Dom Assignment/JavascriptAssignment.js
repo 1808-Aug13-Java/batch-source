@@ -285,6 +285,37 @@ function concatSpans () {
 
 
 
+// 7.1 Displays the current time. 
+function displayEarthTime() {
+	document.getElementById("earth_time").innerHTML = new Date();
+} // end of displayEarthTime
+
+
+
+
+
+// 9.1 Changes the background color of the provied node after three seconds
+function delayedChangeBackground(node) {
+	// Define a callback function that changes the color of the background. 
+	let changeBackground = function (localNode) {
+		// Define the range of possible rgb values
+		const MAX_COLOR = 255;
+		const MIN_COLOR = 64;
+
+		// Get random integer RGB values within the specified range. 
+		let red = Math.floor(Math.random() * (MAX_COLOR - MIN_COLOR) + MIN_COLOR + 1);
+		let green =Math.floor(Math.random() * (MAX_COLOR - MIN_COLOR) + MIN_COLOR + 1);
+		let blue = Math.floor(Math.random() * (MAX_COLOR - MIN_COLOR) + MIN_COLOR + 1);
+
+
+		localNode.setAttribute("style", `background-color: rgb(${red}, ${green}, ${blue})`);
+	}
+
+	setTimeout(function () {changeBackground(node);}, 3000);
+} // end of delayedChandedBackground
+
+
+
 
 setAnchorLinks();
 disablePluto();
@@ -300,4 +331,15 @@ for (let i=0; i<detailsTags.length; i++) {
 
 concatSpans();
 
+// Add event listeners that trigger when the time buttons are clicked. 
+document.getElementById("earth_time_check").addEventListener("click", displayEarthTime);
 
+
+//TODO: Problem 8
+
+// Get the first h1 element and add a listener, that when clicked, changes the 
+// background color after three seconds. Not very robust, but can't refer to it 
+// by ID since it doesn't have one. 
+document.getElementsByTagName("h1")[0].addEventListener("click", function() {
+	delayedChangeBackground(document.getElementsByTagName("h1")[0]);
+});
