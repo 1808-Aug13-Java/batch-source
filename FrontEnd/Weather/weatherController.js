@@ -12,17 +12,16 @@ function searchWeather(){
     }
 }
 
-function sendAjaxGet(url,callback){
-    let xhr=(new XMLHttpRequest()|| new ActiveXObject("Microsoft.HTTPRequest"));
-    xhr.onreadystatechange=function(){
-        if(this.readyState ===4 && this.status ==200){
+function sendAjaxGet(url, callback) {
+    let xhr = (new XMLHttpRequest() || new ActiveXObject("Microsoft.HTTPRequest"));
+    xhr.onreadystatechange = function () {
+        if (this.readyState === 4 && this.status == 200) {
             callback(this);
-            console.log(xhr.responsetext);
+            //console.log(xhr.responseText);
         }
     }
-    xhr.open("GET",url);
+    xhr.open("GET", url);
     xhr.send();
-
 }
 
 function displayWeather(){
