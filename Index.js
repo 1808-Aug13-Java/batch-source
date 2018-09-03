@@ -195,29 +195,9 @@ elem4[0].addEventListener("click", function(){
 
 //#10
 
-var inputN1 = document.getElementById("n1")
- var   inputN2 = document.getElementById("n2")
-  var  output = document.getElementById("result");
-
-function operation1(){
-    operation = document.getElementById("operation").value;
-
-    if(operation == 'Add'){
-        document.getElementById("result").innerHTML = Number(n1.value)+Number(n2.value);
-    }else if(operation == 'Subtract'){
-        document.getElementById("result").innerHTML = Number(n1.value)-Number(n2.value);
-    }else if(operation == 'Divide'){
-        document.getElementById("result").innerHTML = Number(n1.value)/Number(n2.value);
-    }else if(operation == 'Multiply'){
-        document.getElementById("result").innerHTML = Number(n1.value)*Number(n2.value);
-    }
-}
-
-
-document.getElementById("n1").addEventListener("change", operation1);
-document.getElementById("n2").addEventListener("change", operation1);
-document.getElementById("operation").addEventListener("change", operation1);
-
+  document.getElementById("n1").addEventListener("change", operate1);
+  document.getElementById("n2").addEventListener("change", operate1);
+  document.getElementById("operation").addEventListener("change", operate1);
 
 function operate1() {
     console.log("hi");
@@ -231,6 +211,7 @@ function operate1() {
     } else if (operation.value == "Multiply") {
         output.innerHTML = inputN1.value * inputN2.value;
     }
+}
 
     // function XYZ(){
     
@@ -243,9 +224,7 @@ function operate1() {
     // }}
 
 
-inputN1.addEventListener("change", operate1);
-inputN2.addEventListener("change", operate1);
-output.addEventListener("change", operate1);
+
    
        
 
@@ -257,10 +236,10 @@ var walkTheDOM = function (node,func) {
         walkTheDOM(node,func);
         node = node.nextSibling;
     }
-};    
+}
 
 var functionToInvoke = function(node) {
 console.log(node.tagName);
 };
 
-walkTheDOM(document.body, functionToInvoke);}
+walkTheDOM(document.body, functionToInvoke);
