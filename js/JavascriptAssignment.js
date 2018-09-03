@@ -10,7 +10,6 @@ for(var i=0; i<as.length; i++)
 }
 //Disable the Pluto Planet of Residency option. (Pluto isn’t a planet!!)
 var planet = document.getElementById("planet");
-console.log(planet);
 for(s of planet) {
   if(s.value === "Pluto") {
     s.setAttribute("disabled", true);
@@ -109,7 +108,6 @@ var concatSpan = function() {
   for(var s of spans) {
     res += s.innerHTML;
   }
-  console.log(res);
 }
 
 //Create a function that displays the current time on earth in the span with id “earth_time”. Invoke this function when “Earth time” button is clicked. 
@@ -183,27 +181,69 @@ var getRandomColor = function() {
     return 'hsla(' + colorCode + ')';
     
 }
-for(var s of interspans) {
-  if(s.innerHTML === "Intergalactic ") {
-    var body = $.getElementsByTagName("body")[0];
-    var style = "background-color:" + getRandomColor();
-    body.setAttribute("style", style);
-    console.log(body);
+var findInter = function() {
+  for(var s of interspans) {
+    if(s.innerHTML === "Intergalactic ") {
+      return s;
+    }
   }
 }
-//When inputs with id n1 and n2 have valid numerical input, perform the operation specified in the select. Display the result in the element with id result.
-var doMath = function() {
-  var n1 = $.getElementById("n1");
-  var n2 = $.getElementById("n2");
-  var op = $.getElementById("operation");
-  if(op.value === 'Add') {
-    
-  }
-}
-console.log();
 
+var s = findInter().parentNode;
+s.addEventListener("click", function() {
+    setTimeout(function()  {
+      var body = $.getElementsByTagName("body")[0];
+      var style = "background-color:" + getRandomColor();
+      body.setAttribute("style", style);
+    }, 3000);
+});
+//When inputs with id n1 and n2 have valid numerical input, perform the operation specified in the select. Display the result in the element with id result.
+var op = $.getElementById("operation");
+var n1e = $.getElementById("n1");
+var n2e = $.getElementById("n2");
+var doMath = function() {
+  var res = 0;
+  var n1 = parseInt(n1e.value);
+  var n2 = parseInt(n2e.value);
+    if(!isNaN(n1) && !isNaN(n2))
+    {
+      if(op.value === 'Add') {
+        res = n1 + n2;
+      }
+      if(op.value === 'Subtract') {
+        res = n1 - n2;
+      }
+      if(n2 !== 0 && op.value === 'Divide') {
+        res = n1/n2;
+      }
+      if(op.value === 'Multiply') {
+        res = n1 * n2;
+      }
+      var resultEl = $.getElementById("result");
+      resultEl.innerHTML = res;
+    }
+  }
+
+n1e.addEventListener("input", doMath);
+n2e.addEventListener("input", doMath);
+op.addEventListener("change", doMath);
 
 //Define function walkTheDom(node, func)
 //    This function should traverse every node in the DOM. 
 //    Use recursion. On each node, calle func(node).
-//
+
+var walkTheDom = function(node, func) {
+  func(node);
+}
+
+var func = function(node) {
+  if((node) && (node.hasChildNodes())) {
+    console.log(node);
+    func(node.firstElementChild);
+  }
+  if((node) && (node.nextSibling)) {
+    func(node.nextSibling);
+  }
+  return;
+}
+walkTheDom($.getElementsByTagName("body")[0], func);
