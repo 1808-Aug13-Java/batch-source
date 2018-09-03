@@ -7,7 +7,6 @@ function setAnchorLinks() {
 
 	// Go through each anchor tag and set it's link accordingly. 
 	for (link of links) {
-		console.log("Link: " + link.getAttribute("name"));
 		if (link.getAttribute("name") == "google") {
 			link.setAttribute("href", "https://www.google.com");
 		}
@@ -300,11 +299,47 @@ function displayMarsTime() {
 }
 
 
-// 8.2 Displays the current time on Alpha Centauri relative to 
-// Alpha Centuri days / earth days since Jan 1st, 1970. 
+// 8.2 Sends a query to get the orbital period of Proxima Centauri b. For 
+// use when the Alpha Centauri b button is clicked. 
 function displayAlphaCentauriTime() {
-	// TODO: Have a planet that exists before we can query it's orbital period. 
+	const QUERY_URL = "http://www.astropical.space/astrodb/api-exo.php" +
+						"?which=name&limit=Proxima%20Centauri%20b&format=json";
+	
+	sendAjaxGet(QUERY_URL, handleExoPlanetResponse);
+} // end of displayAlphaCentauriTime
+
+// 8.3 Handles the respons from the planet by displaying the resulting time on
+// proxima centauri b relative to p.c.b. days / earth days 
+// since Jan 1st, 1970.
+function handleExoPlanetResponse(xhr) {
+	console.log(xhr);
+	let planets = JSON.parse(xhr.responseText);
+	console.log(planets);
+	let period = planets["exoplanets"][0]["per"];
+
+	document.getElementById("acb_time").innerHTML = "Proxima Centauri B Time: " +
+				new Date(Math.floor(new Date().getTime() * (365.25/period)));
 }
+
+// 8.4 Sends AJAX Requests. Calls the callback function provided when the request 
+// successfully returns. 
+function sendAjaxGet(url, callback) {
+	// Get a new XHR object, or an activeX object if the browser doesn't support XHL
+	let xhr = (new XMLHttpRequest() || new ActiveXObject("Microsoft.HTTPRequest"));
+	
+	// Set the behaviour when the ready state changes.
+	xhr.onreadystatechange = function () {
+		// If the request is done, and it returned a successful code, handle the weather
+		if (this.readyState === 4 && this.status === 200) {
+			console.log("Recieved XHR Response: " + xhr.responseText);
+			callback(this);
+		}
+	}
+	
+	xhr.open("GET", url);
+	xhr.send();
+}
+
 
 
 
@@ -403,9 +438,12 @@ function walkTheDom(node, func) {
 
 
 
-
+// Call functions to perform changes to the page or create console output
 setAnchorLinks();
 disablePluto();
+concatSpans();
+
+
 // Add event listeners for when the submit button is clicked. 
 document.getElementById("form-sub").addEventListener("click", alienText);
 
@@ -416,13 +454,10 @@ for (let i=0; i<detailsTags.length; i++) {
 	detailsTags[i].setAttribute("onmouseleave", "closeDetails(this)");
 }
 
-concatSpans();
-
 // Add event listeners that trigger when the time buttons are clicked. 
 document.getElementById("earth_time_check").addEventListener("click", displayEarthTime);
 document.getElementById("mars_time_check").addEventListener("click", displayMarsTime);
-
-//TODO: Problem 8
+document.getElementById("acb_time_check").addEventListener("click", displayAlphaCentauriTime);
 
 // Get the first h1 element and add a listener, that when clicked, changes the 
 // background color after three seconds. Not very robust, but can't refer to it 
@@ -442,9 +477,10 @@ document.getElementById("operation").addEventListener("change",
 
 // Walks the DOM, printing out the name of each element, and the number of 
 // direct children it possesses. 
-walkTheDom(document, function(node) {
-	console.log(node.nodeName + ": " + node.childNodes.length + " children. ");
-});
+// Commented out as it floods the console.  
+// walkTheDom(document, function(node) {
+// 	console.log(node.nodeName + ": " + node.childNodes.length + " children. ");
+// });
 
 
 
