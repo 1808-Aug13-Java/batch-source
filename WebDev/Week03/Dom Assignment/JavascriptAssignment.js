@@ -300,6 +300,14 @@ function displayMarsTime() {
 }
 
 
+// 8.2 Displays the current time on Alpha Centauri relative to 
+// Alpha Centuri days / earth days since Jan 1st, 1970. 
+function displayAlphaCentauriTime() {
+	// TODO: Have a planet that exists before we can query it's orbital period. 
+}
+
+
+
 
 // 9.1 Changes the background color of the provied node after three seconds
 function delayedChangeBackground(node) {
