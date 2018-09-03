@@ -84,8 +84,8 @@ function addRow(name, email, phone, birth, color, gender, activ){
     }
 
     // This isn't getting the table for some reason and I can't append to it
-    let doc = document.getElementsByTagName("tbody");
-    // doc.appendChild(row);
+    let doc = document.getElementsByTagName("tbody")[0];
+    doc.appendChild(row);
     console.log(doc);
 }
 
@@ -110,7 +110,7 @@ function insertTable(){
     let email = document.getElementById("email").value;
     let phone = document.getElementById("phone").value;
     let bday = document.getElementById("bday").value;
-    let planet = document.getElementById("planet").value;
+    let color = document.getElementById("color").value;
     let gender = document.getElementsByName("gender");
     let activ = document.getElementsByClassName("activity");
 
@@ -124,8 +124,8 @@ function insertTable(){
         alert("Invalid input - email is not of proper format");
     } else if (!validatePhone(phone)) {
         alert("Invalid input - phone number must contain no punctuation, letters, and spaces");
-    } else if (first && last && email && phone && bday && planet) {
-        addRow(first+last, email, phone, bday, planet, gender, activ);
+    } else if (first && last && email && phone && bday && color) {
+        addRow(first+last, email, phone, bday, color, gender, activ);
     }
 }
 
@@ -133,6 +133,16 @@ function insertTable(){
 // Create a function openDetails() which opens the details element. Invoke 
 // this function when the details’ summary is moused over. The details 
 // should be hidden when the mouse is removed from the summary.
+document.getElementsByTagName("details")[0].addEventListener("mouseover", openDetails);
+document.getElementsByTagName("details")[0].addEventListener("mouseleave", hideDetails);
+
+// console.log(document.getElementsByTagName("details")[0].childNodes[3]);
+document.getElementsByTagName("details")[0].childNodes[3].hidden = true;
+
 function openDetails(){
-    
+    document.getElementsByTagName("details")[0].childNodes[3].hidden = false;
 }
+function hideDetails(){
+    document.getElementsByTagName("details")[0].childNodes[3].hidden = true;
+}
+
