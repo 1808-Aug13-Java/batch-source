@@ -242,6 +242,7 @@ var func = function(node) {
     func(node.firstElementChild);
   }
   if((node) && (node.nextSibling)) {
+    console.log(node);
     func(node.nextSibling);
   }
   return;
