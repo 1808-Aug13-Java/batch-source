@@ -193,7 +193,44 @@ function calculate(){
         }
 }
 
+document.getElementById("mars_time_check").addEventListener("click", timePassedOnMars);
+function timePassedOnMars() {
+	var x = new Date();
+	let earthYearsPassed = x.getFullYear() - 1970;
+	let earthDays = (earthYearsPassed*365.25) + x.getDay();
+	let marsYears = earthDays / 687;
+	let marsDays = earthDays % 687;
+	document.getElementById("mars_time").innerText = Math.floor(marsYears) + " years and " + marsDays + " days";
+}
+
+var baseUrl = "http://www.astropical.space/astrodb/api.php?table=nearby&which=distance&limit=32&format=json";
+function timePassedOnACB() {
+	sendAjaxGet(baseUrl, displayACBTime);
+}
+
+document.getElementById("acb_time_check").addEventListener("click", timePassedOnACB);
 document.getElementsByTagName("h1")[0].onclick = makeDelayedHandler(colorChange, 3000);
+function displayACBTime(xhr) {
+	let info = JSON.parse(xhr.responseText);
+	let x = new Date();
+	let earthYearsPassed = x.getFullYear() - 1970;
+	let earthDays = (earthYearsPassed*365.25) + x.getDay();
+	let acbYears = earthDays / 687;
+	let acbDays = earthDays % 687;
+	document.getElementById("acb_time").innerText = Math.floor(acbYears) + " years and " + acbDays + " days";
+}
+
+function sendAjaxGet(url, callback) {
+	let xhr = (new XMLHttpRequest() || new ActiveXObject("Mircrosoft.HTTPRequest"));
+	xhr.onreadystatechange = function() {
+		if (this.readyState === 4 && this.status) {
+			callback(this);
+		}
+	}
+	xhr.open("GET", url);
+	xhr.send();	
+}
+
 function colorChange(e) {
     var colorValues = ["coral", "red", "blue", "green", "yellow", "light-green", "dark-green"];
     var color = colorValues[Math.floor(Math.random() * 7)];
