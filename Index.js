@@ -175,7 +175,8 @@ function onClick1(){
 }
 elem2.addEventListener("click", onClick1);
 
-//#8
+
+//#9
 var elem4 = document.getElementsByTagName("span");
 
 function colorChange(){
@@ -192,17 +193,74 @@ function colorChange(){
 elem4[0].addEventListener("click", function(){
     setTimeout(colorChange, 3000)});
 
-// // //#9
-// // function random_bg_color() {
-// //     var x = Math.floor(Math.random() * 256);
-// //     var y = Math.floor(Math.random() * 256);
-// //     var z = Math.floor(Math.random() * 256);
-// //     var bgColor = "rgb(" + x + "," + y + "," + z + ")";
-// //  console.log(bgColor);
-  
-// //     document.body.style.background = bgColor;
-// //     }
+//#10
 
-// // random_bg_color();
+var inputN1 = document.getElementById("n1")
+ var   inputN2 = document.getElementById("n2")
+  var  output = document.getElementById("result");
 
-// // object.onclick = random_bg_color();{"Intergalactic Directory"};
+function operation1(){
+    operation = document.getElementById("operation").value;
+
+    if(operation == 'Add'){
+        document.getElementById("result").innerHTML = Number(n1.value)+Number(n2.value);
+    }else if(operation == 'Subtract'){
+        document.getElementById("result").innerHTML = Number(n1.value)-Number(n2.value);
+    }else if(operation == 'Divide'){
+        document.getElementById("result").innerHTML = Number(n1.value)/Number(n2.value);
+    }else if(operation == 'Multiply'){
+        document.getElementById("result").innerHTML = Number(n1.value)*Number(n2.value);
+    }
+}
+
+
+document.getElementById("n1").addEventListener("change", operation1);
+document.getElementById("n2").addEventListener("change", operation1);
+document.getElementById("operation").addEventListener("change", operation1);
+
+
+function operate1() {
+    console.log("hi");
+    if (operation.value == 'Add') {
+        output.innerHTML = inputN1.value + inputN2.value;
+        console.log("hi add");
+    } else if (operation.value == 'Subtract') {
+        output.innerHTML = inputN1.value - inputN2.value;
+    } else if (operation.value == 'Divide') {
+        output.innerHTML = inputN1.value / inputN2.value;
+    } else if (operation.value == "Multiply") {
+        output.innerHTML = inputN1.value * inputN2.value;
+    }
+
+    // function XYZ(){
+    
+    //     var x = getInputs(inputN1),
+    //             y = getInputs(inputN2);
+        
+    //         if (isNaN(x) || isNaN(y)) {
+    //             alert("Please input an integer value");
+    //             return;
+    // }}
+
+
+inputN1.addEventListener("change", operate1);
+inputN2.addEventListener("change", operate1);
+output.addEventListener("change", operate1);
+   
+       
+
+//#11
+var walkTheDOM = function (node,func) {
+    func(node);  //this will invoke the functionToInvoke from arg
+    node = node.firstChild;
+    while(node) {
+        walkTheDOM(node,func);
+        node = node.nextSibling;
+    }
+};    
+
+var functionToInvoke = function(node) {
+console.log(node.tagName);
+};
+
+walkTheDOM(document.body, functionToInvoke);}
