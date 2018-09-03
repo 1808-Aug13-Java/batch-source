@@ -292,6 +292,13 @@ function displayEarthTime() {
 
 
 
+// 8.1 Displays the current time on mars relative to mars days / earth days 
+// since Jan 1st, 1970.
+function displayMarsTime() {
+	document.getElementById("mars_time").innerHTML = 
+				new Date(Math.floor(new Date().getTime() * (365.25/687)));
+}
+
 
 
 // 9.1 Changes the background color of the provied node after three seconds
@@ -405,7 +412,7 @@ concatSpans();
 
 // Add event listeners that trigger when the time buttons are clicked. 
 document.getElementById("earth_time_check").addEventListener("click", displayEarthTime);
-
+document.getElementById("mars_time_check").addEventListener("click", displayMarsTime);
 
 //TODO: Problem 8
 
@@ -425,7 +432,8 @@ document.getElementById("operation").addEventListener("change",
 												validateGetAndDoOperation);
 
 
-
+// Walks the DOM, printing out the name of each element, and the number of 
+// direct children it possesses. 
 walkTheDom(document, function(node) {
 	console.log(node.nodeName + ": " + node.childNodes.length + " children. ");
 });
