@@ -254,7 +254,7 @@ function calculateTimeMars() {
   console.log("the starting date:  " + startingDate);
   console.log("the ending date:  " + endingDate);
   console.log("the time passed: " + timePassed);
-  document.getElementById("mars_time_check").innerHTML = timePassed;
+  document.getElementById("mars_time_check").innerHTML = timePassed + " years passed";
 }
 
 document.getElementById("mars_time_check").addEventListener("click", calculateTimeMars);
