@@ -317,6 +317,78 @@ function delayedChangeBackground(node) {
 
 
 
+
+
+// 10.1 Validated input from 'n1' and 'n2' and them performed the operation 
+// that is specified in the select, 'operation'. 
+function validateGetAndDoOperation() {
+	// Get the two numbers, and the operation to perform. 
+	let num1Str = document.getElementById("n1").value;
+	let num2Str = document.getElementById("n2").value;
+	let opStr = document.getElementById("operation").value;
+
+	let result = undefined;
+
+
+	// Validate that the input is numberical, and not empty. 
+	if (!isNaN(num1Str) && !isNaN(num2Str) && num1Str.length !== 0 && 
+			num2Str.length !== 0) 
+	{
+		result = performOperation(Number(num1Str), Number(num2Str), opStr);
+	}
+	else {
+		console.log("Invalid Numbers: '" + num1Str + "' '" + num2Str);
+	}
+
+	// If we received a result, display the result. 
+	if (result !== undefined) {
+		document.getElementById("result").innerHTML = result;
+	}
+	else {
+		document.getElementById("result").innerHTML = NaN;
+	}
+} // end of validateGetAndDoOperation
+
+
+// 10.2 Takes two numbers and a string where the string is the textual representation
+// of the arithmetic operation to perform. Returns undefined if the operation is 
+// invalid. 
+function performOperation(num1, num2, operation) {
+	operation = operation.toLowerCase();
+
+	switch(operation) {
+		case "add": 
+			return num1 + num2;
+		case "subtract":
+			return num1 - num2;
+		case "multiply":
+			return num1 * num2;
+		case "divide":
+			return num1 / num2;
+		default:
+			console.log("Invalid Operation in 'performOperation': " + operation);
+	};
+	return;
+} // end of performOperation
+
+
+
+// 11. Walks all the children nodes from the provided node performing the given 
+// callback function upon each node. This uses a 'pre order' traversal. 
+function walkTheDom(node, func) {
+	// Call the function on the given node. 
+	func(node);
+
+	// Then, traverse any childnren this node may have. 
+	for (let i=0; i<node.childNodes.length; i++) {
+		walkTheDom(node.childNodes[i], func);
+	}
+} // end of walkTheDom
+
+
+
+
+
 setAnchorLinks();
 disablePluto();
 // Add event listeners for when the submit button is clicked. 
@@ -343,3 +415,21 @@ document.getElementById("earth_time_check").addEventListener("click", displayEar
 document.getElementsByTagName("h1")[0].addEventListener("click", function() {
 	delayedChangeBackground(document.getElementsByTagName("h1")[0]);
 });
+
+// Add event listeners for n1, n2, and operation HTML elements. These should 
+// perform the operation specified on the two numbers on any change to the 
+// fields. 
+document.getElementById("n1").addEventListener("input", validateGetAndDoOperation);
+document.getElementById("n2").addEventListener("input", validateGetAndDoOperation);
+document.getElementById("operation").addEventListener("change",
+												validateGetAndDoOperation);
+
+
+
+walkTheDom(document, function(node) {
+	console.log(node.nodeName + ": " + node.childNodes.length + " children. ");
+});
+
+
+
+
