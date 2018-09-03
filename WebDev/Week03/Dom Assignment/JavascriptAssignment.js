@@ -305,7 +305,8 @@ function displayAlphaCentauriTime() {
 	const QUERY_URL = "http://www.astropical.space/astrodb/api-exo.php" +
 						"?which=name&limit=Proxima%20Centauri%20b&format=json";
 	
-	sendAjaxGet(QUERY_URL, handleExoPlanetResponse);
+	// sendAjaxGet(QUERY_URL, handleExoPlanetResponse);
+	fetchQuery(QUERY_URL);
 } // end of displayAlphaCentauriTime
 
 // 8.3 Handles the respons from the planet by displaying the resulting time on
@@ -340,6 +341,19 @@ function sendAjaxGet(url, callback) {
 	xhr.send();
 }
 
+
+// 8.5 An implementation to get the rotational period using the fetch api 
+function fetchQuery(URL) {
+	fetch(URL).then(function(response) {
+		return response.json();
+	}).then(function(planets) {
+		console.log(planets);
+		let period = planets["exoplanets"][0]["per"];
+
+		document.getElementById("acb_time").innerHTML = "Proxima Centauri B Time: " +
+					new Date(Math.floor(new Date().getTime() * (365.25/period)));
+	});
+}
 
 
 
