@@ -42,7 +42,9 @@ function addRow(name, major, id){
     cell2.innerHTML = name;
     cell3.innerHTML = major;
 
-    document.getElementById("students").appendChild(row);
+    let doc = document.getElementById("students");
+    console.log(doc);
+    doc.appendChild(row);
 }
 
 document.getElementById("studentButton").addEventListener("click", addNew);
