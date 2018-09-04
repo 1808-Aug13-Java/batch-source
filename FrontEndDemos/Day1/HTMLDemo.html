@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Webpage</title>
+    <link rel="stylesheet" href="MyStyles.css" />
+    <style>
+        body {
+            background-color: magenta;
+            /* css comment */
+        }
+    </style>
+    <!-- html comments -->
+</head>
+<body style="background-color: lightsteelblue;">
+    <div>
+        <p class="myClass">Hello World</p>
+    </div>
+    <div>
+        <h1>Good Morning</h1>
+        <h3>Smaller Good Morning</h3>
+        <h6>Even smaller</h6>
+    </div>
+    <div>
+        <p>Now we just have some normal text</p>
+        <a href="https://revature.com/">Check out Revature's website</a>
+        <img id="coolPic" src="https://pbs.twimg.com/profile_images/1013830901963329536/6CsDuCDs_400x400.jpg" height="200" width="200" alt="pic of an otter" >
+    </div>
+    <div>
+        <p>That's a crooked tree. We'll send him to Washington. I like to beat the brush. In painting, you have unlimited power. You need the dark in order to show the light. </p> 
+        <p>Look around. Just go out and talk to a tree. There's nothing wrong with having a tree as a friend. </p>
+    </div>
+    <div>
+        <form method="post" action="Success.html">
+            some text: <input name="textInput" type="text" />
+            <br>
+            <br> 
+            <!-- <hr> -->
+            a number: <input name="numberInput" type="number" />
+            <br>
+            <br>
+            <select name="animals">
+                <option value="otter">Otter</option>
+                <option value="sloth">Sloth</option>
+                <option value="cat">Cat</option>
+            </select>
+            <br>
+            <br>
+            <textarea name="message" rows="4" cols="25">Your text here</textarea>
+            <br>
+            Radio buttons:
+            <input type="radio" name="animalRadio" value="otter">Otter</input>
+            <input type="radio" name="animalRadio" value="sloth" checked>Sloth</input>
+            <input type="radio" name="animalRadio" value="cat">Cat</input>
+            <br>
+            <input list="colors"/>
+            <datalist id="colors">
+                <option value="green"/>
+                <option value="blue"/>
+                <option value="purple"/>
+            </datalist>
+            <br>
+            <input type="submit" value="Submit!"/>
+        </form>
+    </div>
+
+    <div>
+        <table id="colorTable">
+            <tr>
+                <th>Color</th>
+                <th>Component A</th>
+                <th>Component B</th>
+            </tr>
+            <tr>
+                <td>Orange</td>
+                <td>Red</td>
+                <td>Yellow</td>
+            </tr>
+            <tr>
+                <td>Green</td>
+                <td>Blue</td>
+                <td>Yellow</td>
+            </tr>
+            <tr>
+                <td>Purple</td>
+                <td>Red</td>
+                <td>Blue</td>
+            </tr>
+        </table>
+    </div>
+
+
+    <div>
+
+        <ul>
+            <li>Item One</li>
+            <li>Item Two</li>
+            <li>Item Three</li>
+        </ul>
+
+    </div>
+
+    <br><br><hr><br><br>
+    HTML5 Specifics
+
+    <br>
+    <meter value=".4">40%</meter> <br>
+    <meter value="6" min="0" max="10">6/10</meter> <br>
+    <progress value="28" max="100"></progress>
+    <br>
+    <p>Today is August 28 2018</p>
+    <aside>
+        <p>August 28th is National Power Ranger Day!</p>
+        <figure>
+            <img src="https://consequenceofsound.files.wordpress.com/2018/08/mighty-morphin-power-rangers.jpg?quality=80" alt="power rangers">
+            <figcaption>Some power rangers</figcaption>
+        </figure>
+    </aside>
+
+    <!-- While something like our aside above, doesn't provide us much more visually than we've seen, it provides additional information about the content we expect to see in the tags. Semantic meaning can help with search engine optimization as well as provide additional information for non-browser interpretation (e.g. screen readers) -->
+    <br>
+    <article>
+        <header>
+            <h4>Here's a heading in my header</h4>
+        </header>
+        <main>
+            <p>Here's our main content</p>
+        </main>
+        <footer>
+            <p>Author: Molly</p>
+        </footer>
+    </article>
+
+    <details>
+        <summary>See full description</summary>
+        <p>Here's the full description</p>
+    </details>
+
+
+    <p>Just think about these things in your mind and drop em' on canvas. <mark>Isn't that fantastic?</mark> You can just push a little tree out of your brush like that. A fan brush is a fantastic piece of equipment. Use it. Make friends with it. This is where you take out all your <strong>hostilities</strong> and <b>frustrations.</b> </p>
+
+<script src="JSDemo.js"></script>
+</body>
+</html>
