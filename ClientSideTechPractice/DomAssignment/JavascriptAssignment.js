@@ -168,12 +168,25 @@ document.getElementById("acb_time_check").addEventListener("click", timePassedOn
 
 // QUESTION 9
 function question9() {
-	this.style.backgroundColor = "red";
+	var r = Math.floor(Math.random() * 255);
+	var g = Math.floor(Math.random() * 255);
+	var b = Math.floor(Math.random() * 255);
+	document.getElementsByTagName("h1")[0].style.backgroundColor = 'rgb(' + r + ',' + g + ',' + b + ')';
 }
-// window.setTimeout(question9, 3000);
-document.getElementsByTagName("h1")[0].addEventListener("click", question9);
+document.getElementsByTagName("h1")[0].addEventListener("click", function() {
+	setTimeout(question9, 3000);
+});
 
 // QUESTION 10
+function question10() {
+	var n1 = document.getElementById("n1");
+	var n2 = document.getElementById("n2");
+	console.log(n1.innerText);
 
+	if (isNaN(n1.nodeValue)) {
+
+	}
+}
+question10();
 
 // QUESTION 11
