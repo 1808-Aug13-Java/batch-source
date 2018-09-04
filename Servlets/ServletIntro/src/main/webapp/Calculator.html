@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>MyCalculator</title>
+</head>
+<body>
+	<div id="calcFormDiv">
+		<form action="calculator" method="post">
+		<label>Number 1:</label>
+		<input type="number" name="n1"><br><br>
+		<label>Number 2:</label>
+		<input type="number" name="n2"><br><br>
+		<label>operation</label>
+		<input list="operation" name="operation"><br><br>
+		<datalist id ="operation">
+				<option value="add">
+				<option value="subtract">
+				<option value="divide">
+				<option value="multiply">
+		</datalist>
+		<br>
+		<br>
+		<input type="submit" value="calculate!">
+		</form>
+	</div>
+</body>
+</html>
