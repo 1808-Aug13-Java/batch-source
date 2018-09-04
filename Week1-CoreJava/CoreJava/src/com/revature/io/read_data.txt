@@ -1,0 +1,3 @@
+This is my text file!
+We can use the BufferedReader object to read from it.
+Be sure to catch IOExceptions (as if STS would let you forget)
