@@ -7,6 +7,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
+- Create a new application which includes servlets and is packaged as a war
+- Create a servlet which performing a get request to will take you to a simple login page with an input field for username and password
+- Define doPost method which processes the post request sent when the login form is submitted
+- Check username and password (these can be hardcoded values) and have a user be brought to a page indicating that the username and/or password was incorrect if they are not correct, otherwise they should be brought to a successful login page
+
  * Servlet implementation class HelloWorld
  */
 public class HelloWorldServlet extends HttpServlet {
@@ -24,7 +29,7 @@ public class HelloWorldServlet extends HttpServlet {
 	 */
     @Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.getWriter().append("Hello World from our servlet!");
+		response.getWriter().append("<p>Hello World from our servlet!</p>");
 	}
 
 	/**

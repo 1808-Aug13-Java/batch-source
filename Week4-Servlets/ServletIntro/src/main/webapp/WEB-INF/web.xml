@@ -28,4 +28,8 @@
 		<servlet-name>AnswerServlet</servlet-name>
 		<url-pattern>/answer</url-pattern>
 	</servlet-mapping>
+
+  <servlet>
+    <servlet-name
+  </servlet>
 </web-app>
