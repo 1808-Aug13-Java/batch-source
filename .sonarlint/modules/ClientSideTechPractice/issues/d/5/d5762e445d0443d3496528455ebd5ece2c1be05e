@@ -1,9 +1,0 @@
-
-javascript:S2703"]Add the "let", "const" or "var" keyword to this declaration of "student" to make it explicit.(Ÿ á°úÿÿÿÿ8ô†§ÛØ,HÉˆRBLOCKERZ
-CODE_SMELL
-‚javascript:UnusedVariable5":Remove the declaration of the unused 'errorNode' variable.(×ã“ıÿÿÿÿ8êÙÜØ,HÍRMINORZ
-CODE_SMELL
-{javascript:S18545"<Remove this useless assignment to local variable "errorNode"(×ã“ıÿÿÿÿ8êÙÜØ,HÎRMAJORZ
-CODE_SMELL
-mjavascript:EmptyBlock=")Either remove or fill this block of code.(şòÂÒúÿÿÿÿ8¸¨ÛÜØ,HÚRMAJORZ
-CODE_SMELL

@@ -1,0 +1,5 @@
+
+sjavascript:UnusedVariable"2Remove the declaration of the unused 'x' variable.(åÇ÷èûÿÿÿÿHÁžRMINORZ
+CODE_SMELL
+ljavascript:S18543"4Remove this useless assignment to local variable "x"(ƒÑëØþÿÿÿÿHÂžRMAJORZ
+CODE_SMELL
