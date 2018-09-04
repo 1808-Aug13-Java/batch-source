@@ -29,7 +29,7 @@ public class PrivilegedServlet extends HttpServlet {
 			PrintWriter pw = response.getWriter();
 			pw.println("<p>I've Successfully Hacked The Data!</p>");
 		}
-		// Don't let the Hax0rs know of its existence. 
+		// Otherwise, don't let the Hax0rs know of its existence. 
 		else {
 			response.sendError(404, request.getRequestURI());
 		}
