@@ -20,9 +20,9 @@ public class LoginServlet extends HttpServlet {
 		
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
-		System.out.println(username + " " + password);
+//		System.out.println(username + " " + password);
 		if (username.equals("admin") && password.equals("password")) {
-			System.out.println("username and password match");
+//			System.out.println("username and password match");
 			RequestDispatcher rd = request.getRequestDispatcher("accessgranted");
 			rd.forward(request, response);
 		} else {
