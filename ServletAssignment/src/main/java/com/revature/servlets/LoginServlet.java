@@ -41,10 +41,10 @@ public class LoginServlet extends HttpServlet {
 			System.out.println("Forwarding Request");
 			rd.forward(request, response);
 		}
-		// Otherwise, tell them off. 
+		// Otherwise, send them back.
 		else {
-			response.getWriter().println("<p> That is a bad login, and you "
-					+ "should feel bad for having attempted it. </p>");
+			request.setAttribute("invalid", "");
+			doGet(request, response);
 		}
 	}
 } // end of class LoginServlet
