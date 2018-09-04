@@ -146,3 +146,96 @@ function hideDetails(){
     document.getElementsByTagName("details")[0].childNodes[3].hidden = true;
 }
 
+
+
+//------------------------------------------------------------------------
+// Create a function that concatenates the inner HTML of all of the span
+// elements and prints the results to the console.
+function concatSpan(){
+    let span = document.getElementsByTagName("span");
+    let concat;
+    for (i in span){
+        concat += span[i].innerHTML;
+    }
+    console.log(concat);
+}
+
+
+//------------------------------------------------------------------------
+// Create a function that displays the current time on earth in the h4 tag
+// with id “earth_time”. Invoke this function when “Earth time” button is clicked. 
+document.getElementById("earth_time_check").addEventListener("click", earthTime);
+
+function earthTime(){
+    var date = new Date();
+    document.getElementById("earth_time").innerHTML = `${date.getHours()}:${date.getMinutes()}`;
+}
+
+
+//------------------------------------------------------------------------
+// Create two other functions which calculates and displays the time passed
+// on Mars and Alpha Centauri Bb if the onset of January 1st, 1970 occured
+// at the same time. Invoke the respective functions when their time buttons
+// are clicked. An orbital period for Mars is 687 Earth days. Using an external
+// api to get the orbital period for Alpha Centauri Bb.
+// (try http://www.astropical.space/astrodb/apiref.php) Provide an implementation
+// for getting this value using both AJAX and the fetch API.
+
+// Ok I'm not a scientist and I really don't understand what this prompt is asking
+// me to do, nor how to do it. So I'm just gonna query data using the API
+
+// Using AJAX
+document.getElementById("mars_time_check").addEventListener("click", marsTime);
+
+function marsTime(){
+    sendAjaxGet("http://www.astropical.space/astrodb/api-ephem.php?lat=35&lon=139", displayTime);
+}
+
+function sendAjaxGet(url, callback){
+    let xhr = (new XMLHttpRequest() || new ActiveXObject("Microsoft.HTTPRequest"));
+    xhr.onreadystatechange = function(){
+        // console.log(xhr);
+        if (this.readyState === 4 && this.status == 200){
+            callback(this);
+            // console.log(xhr.responseText);
+        }
+    }
+    xhr.open("GET", url);
+    xhr.send();
+}
+
+function displayTime(xhr){
+    // console.log(xhr);
+    let planets = JSON.parse(xhr.responseText);
+    // console.log(planets.response[2]);
+    document.getElementById("mars_time").innerHTML = planets.response[2].lt_hms;
+
+}
+
+// Using fetch api
+document.getElementById("acb_time_check").addEventListener("click", acbTime);
+
+function acbTime(){
+    fetch('http://www.astropical.space/astrodb/api-exo.php?which=name&limit=gj%20625%20b&format=json')
+        .then(response => {
+            return response.json();
+        }).then(data => {
+            // console.log(data);
+            document.getElementById("acb_time").innerHTML= data.exoplanets[0].ra;
+        }).catch(err => {
+            console.log(err);
+        });
+}
+
+
+//------------------------------------------------------------------------
+// Three seconds after a user clicks on the “Intergalactic Directory” heading,
+// the background color should change to a random color. Make sure this color
+// is never black so we can still read our black text! (there are other dark
+// colors it could change to where we also couldn’t see the text but it’s enough
+// to just accomodate for a black background)
+document.getElementsByTagName("h1")[0].addEventListener("click", setTimeout(headingColor, 3000));
+
+function headingColor(){
+    
+}
