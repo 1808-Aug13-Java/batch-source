@@ -12,7 +12,7 @@ public class AnswerServlet extends HttpServlet {
 	
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		PrintWriter pw = response.getWriter();
-		String answer = (String) request.getAttribute("notanswer");
+		String answer = (String) request.getAttribute("answer");
 		pw.write(answer);
 		pw.write("<p><a href=\"Calculator.html\">Calculate again</a></p>");
 	}

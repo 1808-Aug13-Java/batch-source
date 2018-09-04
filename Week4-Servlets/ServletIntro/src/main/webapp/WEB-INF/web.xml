@@ -28,4 +28,13 @@
 		<servlet-name>AnswerServlet</servlet-name>
 		<url-pattern>/answer</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>EmployeeServlet</servlet-name>
+		<servlet-class>com.revature.servlets.EmployeeServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>EmployeeServlet</servlet-name>
+		<url-pattern>/employees</url-pattern>
+	</servlet-mapping>
 </web-app>
