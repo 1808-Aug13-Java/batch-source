@@ -19,4 +19,13 @@
   	<servlet-name>LoginServlet</servlet-name>
   	<url-pattern>/login</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>PrivilegedServlet</servlet-name>
+  	<servlet-class>com.revature.servlets.PrivilegedServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>PrivilegedServlet</servlet-name>
+  	<url-pattern>/privileged</url-pattern>
+  </servlet-mapping>
 </web-app>
