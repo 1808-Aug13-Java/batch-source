@@ -234,8 +234,73 @@ function acbTime(){
 // is never black so we can still read our black text! (there are other dark
 // colors it could change to where we also couldn’t see the text but it’s enough
 // to just accomodate for a black background)
-document.getElementsByTagName("h1")[0].addEventListener("click", setTimeout(headingColor, 3000));
+document.getElementsByTagName("h1")[0].addEventListener("click", function(){
+        setTimeout(headingColor, 3000);
+    });
 
 function headingColor(){
-    
+    let r = Math.random() * 255;
+    let g = Math.random() * 255;
+    let b = Math.random() * 255;
+    // console.log(`${r} ${g} ${b}`);
+    if(r+g+b <= 30){
+        r += 100;
+        g += 100;
+        b += 100;
+    }
+    document.getElementsByTagName("body")[0].style.backgroundColor = 'rgb(' + r + ',' + g + ',' + b + ')';
+}
+
+
+//------------------------------------------------------------------------
+// When inputs with id n1 and n2 have valid numerical input, perform the
+// operation specified in the select. Display the result in the element with
+// id result.
+
+function isNumber(input){
+    var regex = /^\d+$/;
+    return regex.test(input);
+}
+
+document.getElementById("n1").addEventListener("input", calculate);
+document.getElementById("n2").addEventListener("input", calculate);
+document.getElementById("operation").addEventListener("input", calculate);
+
+
+function calculate(){
+    let n1 = document.getElementById("n1").value;
+    let n2 = document.getElementById("n2").value;
+    let op = document.getElementById("operation").value;
+    let result = document.getElementById("result");
+    if (isNumber(n1) && isNumber(n2)){
+        console.log(n1 + " " + n2);
+        switch(op){
+            case "Add":
+                result.innerHTML = n1 + n2;
+                break;
+            case "Subtract":
+                result.innerHTML = n1 - n2;
+                break;
+            case "Divide":
+                result.innerHTML = n1 / n2;
+                break;
+            case "Multiply":
+                result.innerHTML = n1 * n2;
+                break;
+        }
+    }
+}
+
+
+//------------------------------------------------------------------------
+//Define function walkTheDom(node, func)
+    //This function should traverse every node in the DOM. 
+    //Use recursion. On each node, call func(node).
+function walkTheDom(node, func) {
+    func(node);
+    node = node.firstChild;
+    while(node) {
+        walkTheDom(node,func);
+        node = node.nextSibling;
+    }
 }
