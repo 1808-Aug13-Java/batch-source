@@ -54,6 +54,9 @@ public class Driver {
 //		}
 
 		
+		EmployeeDao ed = new EmployeeDaoImpl();
+		System.out.println(ed.getEmployeeById(1));
+		
 	}
 
 }

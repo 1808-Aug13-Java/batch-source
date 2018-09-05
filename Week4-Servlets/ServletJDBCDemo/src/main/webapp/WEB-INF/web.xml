@@ -21,4 +21,24 @@
     <servlet-name>DirectoryServlet</servlet-name>
     <url-pattern>/directory</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>MasterServlet</display-name>
+    <servlet-name>MasterServlet</servlet-name>
+    <servlet-class>com.revature.servlets.MasterServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MasterServlet</servlet-name>
+    <url-pattern>/home</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>NewEmployeeServlet</display-name>
+    <servlet-name>NewEmployeeServlet</servlet-name>
+    <servlet-class>com.revature.servlets.NewEmployeeServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>NewEmployeeServlet</servlet-name>
+    <url-pattern>/new</url-pattern>
+  </servlet-mapping>
 </web-app>
