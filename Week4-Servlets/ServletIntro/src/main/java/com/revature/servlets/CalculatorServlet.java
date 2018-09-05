@@ -49,10 +49,18 @@ public class CalculatorServlet extends HttpServlet {
 			result = "invalid operation";
 		}
 		
+		PrintWriter pw = response.getWriter();
+		pw.write("something before request dispatcher");
+		// if we used include this would be included in our response
+		
 		request.setAttribute("answer", result);
 		
 		RequestDispatcher rd = request.getRequestDispatcher("answer");
 		rd.forward(request, response);
+		// because we use forward we delegate control completely to the answer servlet
+		
+		pw.write("something after request dispatcher");
+		// if we used include this would be included in our response
 		
 //		PrintWriter pw = response.getWriter();
 //		pw.write(result);

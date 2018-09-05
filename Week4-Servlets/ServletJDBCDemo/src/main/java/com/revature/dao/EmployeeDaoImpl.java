@@ -143,7 +143,27 @@ public class EmployeeDaoImpl implements EmployeeDao {
 
 	@Override
 	public int createEmployee(Employee employee) {
-		return 0;
+		int employeesCreated = 0;
+		String sql = "INSERT INTO EMPLOYEE (EMP_NAME, MONTHLY_SALARY, DEPT_ID, LOCATION_ID) VALUES (?,?,?,?)";
+		
+		try(Connection con = ConnectionUtil.getConnection();
+				PreparedStatement ps = con.prepareStatement(sql)){
+			
+			ps.setString(1, employee.getName());
+			ps.setFloat(2, employee.getMonthlySalary());
+			ps.setInt(3, employee.getDepartment().getId());
+			ps.setInt(4, employee.getLocation().getId());
+			employeesCreated = ps.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return employeesCreated;
 	}
 
 	@Override
