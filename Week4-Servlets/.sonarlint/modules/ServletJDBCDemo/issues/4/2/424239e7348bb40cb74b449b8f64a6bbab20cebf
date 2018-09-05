@@ -1,0 +1,28 @@
+
+fsquid:S19891"1Add a "try/catch" block for "writeValueAsString".(Èœ†ıÿÿÿÿH£RMINORZVULNERABILITY
+csquid:S1135"2Complete the task associated to this TODO comment.(ƒŠ® úÿÿÿÿH¨RINFOZ
+CODE_SMELL
+xsquid:CommentedOutCodeLine)"<This block of commented-out lines of code should be removed.(ì»ˆŒH§RMAJORZ
+CODE_SMELL
+]squid:S19892"(Add a "try/catch" block for "getWriter".(“­†·øÿÿÿÿH¤RMINORZVULNERABILITY
+wsquid:UselessImportCheck"8Remove this unused import 'javax.servlet.ServletConfig'.(²ğÕ…ıÿÿÿÿHªRMINORZ
+CODE_SMELL
+]squid:S1989<"(Add a "try/catch" block for "getWriter".(“­†·øÿÿÿÿH¢RMINORZVULNERABILITY
+q
+squid:S106."9Replace this use of System.out or System.err by a logger.(¨¶ÑÍşÿÿÿÿ8§•Ì¿Ú,HÔRMAJORZ
+CODE_SMELL
+Ysquid:S1989F"$Add a "try/catch" block for "doGet".(®Ó‘ûÿÿÿÿÿH¥RMINORZVULNERABILITY
+fsquid:S2130'"9Use "Integer.parseInt" for this string-to-int conversion.(©µãH«RMINORZ
+CODE_SMELL
+msquid:S1989:"1Add a "try/catch" block for "writeValueAsString".(ÕĞŒûÿÿÿÿ8§å¤¿Ú,H³RMINORZVULNERABILITY
+csquid:S1135E"2Complete the task associated to this TODO comment.(» æÿÿÿÿÿH©RINFOZ
+CODE_SMELL
+gsquid:S1161D":Add the "@Override" annotation above this method signature(‹¨¯¿H­RMAJORZ
+CODE_SMELL
+Ysquid:S1989F"$Add a "try/catch" block for "doGet".(®Ó‘ûÿÿÿÿÿH¦RMINORZVULNERABILITY
+lsquid:S1161$":Add the "@Override" annotation above this method signature(Ïû©ÖûÿÿÿÿH¬RMAJORZ
+CODE_SMELL
+Vsquid:S1989'"&Add a "try/catch" block for "valueOf".(©µãH¡RMINORZVULNERABILITY
+q
+squid:S106/"9Replace this use of System.out or System.err by a logger.(£¹†ìúÿÿÿÿ8æÉç¿Ú,HİRMAJORZ
+CODE_SMELL

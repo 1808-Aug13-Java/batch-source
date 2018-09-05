@@ -1,0 +1,10 @@
+
+|squid:S1192""GDefine a constant instead of duplicating this literal "STREET" 3 times.(şÿÚ£üÿÿÿÿHûRCRITICALZ
+CODE_SMELL
+}squid:S1192$"HDefine a constant instead of duplicating this literal "ZIPCODE" 3 times.(˜Ô¨òûÿÿÿÿHüRCRITICALZ
+CODE_SMELL
+{squid:S1192#"FDefine a constant instead of duplicating this literal "STATE" 3 times.(úü™šøÿÿÿÿHıRCRITICALZ
+CODE_SMELL
+csquid:S1135l"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿHşRINFOZ
+CODE_SMELL
+Xsquid:S1148m"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿHÿRMINORZVULNERABILITY
