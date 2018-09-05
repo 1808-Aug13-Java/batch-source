@@ -82,6 +82,7 @@ Servers/
 .worksheet 
 
 # SonarLint data
+.sonarlint/*
 .sonarlint/
 
 # End of https://www.gitignore.io/api/eclipse
