@@ -20,13 +20,15 @@ public class LoginHandlerServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
 		String destination = helper.process(request);
+		
+		HttpSession session = request.getSession();
 		if(destination.equals("login")) {
+			
 			response.sendRedirect(destination);
 		} else {
-			HttpSession session = request.getSession();
 			session.setAttribute("email", request.getParameter("email"));
 			String email = (String) session.getAttribute("email");
-			SessionHelper sh = new SessionHelper();
+			
 			// add the is manager check to our session
 			sh.addIsManagerToSessionByEmail(email, session);
 			response.sendRedirect(destination);

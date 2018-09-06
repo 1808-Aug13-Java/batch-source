@@ -1,6 +1,7 @@
 package com.revature.util;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import com.revature.dao.EmpDaoImpl;
 import com.revature.models.Employee;
@@ -12,6 +13,9 @@ public class LoginHelper {
 		Employee e = new EmpDaoImpl().getEmployeeByEmail(request.getParameter("email"));
 		if(e.getId() == 0) {
 			// not a valid user
+			HttpSession session = request.getSession();
+			SessionHelper sh = new SessionHelper();
+			sh.addInvalidLoginToSession(session);
 			return "login";
 		}
 		Hasher hasher = new Hasher();

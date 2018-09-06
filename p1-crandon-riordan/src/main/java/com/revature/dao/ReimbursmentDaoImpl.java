@@ -27,17 +27,16 @@ public class ReimbursmentDaoImpl implements ReimbursmentDao {
 		int createdReimbursment = 0;
 		// triggers handle reimbursmentId and dateCreated
 		String sql = "INSERT INTO REIMBURSMENT (EMPLOYEE_ID, AMOUNT, "
-				+ "CURRENT_STATE, MANAGER_ID, IMAGE_URL, REASON) "
-				+ "VALUES (?,?,?,?,?,?)";
+				+ "CURRENT_STATE, IMAGE_URL, REASON) "
+				+ "VALUES (?,?,?,?,?)";
 		
 		try(Connection con = ConnectionUtil.getConnection();
 				PreparedStatement ps = con.prepareStatement(sql)) {
 			ps.setInt(1, reimbursment.getEmployeeId());
 			ps.setBigDecimal(2, reimbursment.getAmount());
 			ps.setString(3, reimbursment.getCurrentState());
-			ps.setInt(4, reimbursment.getManagerId());
-			ps.setString(5, reimbursment.getImageUrl());
-			ps.setString(6, reimbursment.getReason());
+			ps.setString(4, reimbursment.getImageUrl());
+			ps.setString(5, reimbursment.getReason());
 			createdReimbursment = ps.executeUpdate();
 		} catch (SQLException | IOException e) {
 			logger.info(e.getMessage());
@@ -96,8 +95,7 @@ public class ReimbursmentDaoImpl implements ReimbursmentDao {
 				reimbursment.setEmployeeId(rs.getInt("EMPLOYEE_ID"));
 				reimbursment.setCurrentState(rs.getString("CURRENT_STATE"));
 				reimbursment.setDateCreated(rs.getDate("DATE_CREATED"));
-				reimbursment.setManagerId(rs.getInt("MANAGER_ID"));
-				reimbursment.setImageUrl(rs.getString("IMAGER_URL"));
+				reimbursment.setImageUrl(rs.getString("image_URL"));
 				reimbursment.setAmount(rs.getBigDecimal("AMOUNT"));
 				reimbursment.setReason(rs.getString("REASON"));
 			}
@@ -133,8 +131,7 @@ public class ReimbursmentDaoImpl implements ReimbursmentDao {
 				reimbursment.setEmployeeId(rs.getInt("EMPLOYEE_ID"));
 				reimbursment.setCurrentState(rs.getString("CURRENT_STATE"));
 				reimbursment.setDateCreated(rs.getDate("DATE_CREATED"));
-				reimbursment.setManagerId(rs.getInt("MANAGER_ID"));
-				reimbursment.setImageUrl(rs.getString("IMAGER_URL"));
+				reimbursment.setImageUrl(rs.getString("image_URL"));
 				reimbursment.setAmount(rs.getBigDecimal("AMOUNT"));
 				reimbursment.setReason(rs.getString("REASON"));
 				reimbursments.add(reimbursment);
@@ -172,8 +169,7 @@ public class ReimbursmentDaoImpl implements ReimbursmentDao {
 				reimbursment.setEmployeeId(rs.getInt("EMPLOYEE_ID"));
 				reimbursment.setCurrentState(rs.getString("CURRENT_STATE"));
 				reimbursment.setDateCreated(rs.getDate("DATE_CREATED"));
-				reimbursment.setManagerId(rs.getInt("MANAGER_ID"));
-				reimbursment.setImageUrl(rs.getString("IMAGER_URL"));
+				reimbursment.setImageUrl(rs.getString("image_URL"));
 				reimbursment.setAmount(rs.getBigDecimal("AMOUNT"));
 				reimbursment.setReason(rs.getString("REASON"));
 				reimbursments.add(reimbursment);
@@ -208,13 +204,13 @@ public class ReimbursmentDaoImpl implements ReimbursmentDao {
 				reimbursment.setEmployeeId(rs.getInt("EMPLOYEE_ID"));
 				reimbursment.setCurrentState(rs.getString("CURRENT_STATE"));
 				reimbursment.setDateCreated(rs.getDate("DATE_CREATED"));
-				reimbursment.setManagerId(rs.getInt("MANAGER_ID"));
-				reimbursment.setImageUrl(rs.getString("IMAGER_URL"));
+				reimbursment.setImageUrl(rs.getString("IMAGE_URL"));
 				reimbursment.setAmount(rs.getBigDecimal("AMOUNT"));
 				reimbursment.setReason(rs.getString("REASON"));
 				reimbursments.add(reimbursment);
 			}
 		} catch (SQLException | IOException e) {
+			e.printStackTrace();
 			logger.info(e.getMessage());
 		} finally {
 			if(rs != null) {
@@ -245,8 +241,7 @@ public class ReimbursmentDaoImpl implements ReimbursmentDao {
 				reimbursment.setEmployeeId(rs.getInt("EMPLOYEE_ID"));
 				reimbursment.setCurrentState(rs.getString("CURRENT_STATE"));
 				reimbursment.setDateCreated(rs.getDate("DATE_CREATED"));
-				reimbursment.setManagerId(rs.getInt("MANAGER_ID"));
-				reimbursment.setImageUrl(rs.getString("IMAGER_URL"));
+				reimbursment.setImageUrl(rs.getString("IMAGE_URL"));
 				reimbursment.setAmount(rs.getBigDecimal("AMOUNT"));
 				reimbursment.setReason(rs.getString("REASON"));
 				reimbursments.add(reimbursment);
@@ -281,8 +276,7 @@ public class ReimbursmentDaoImpl implements ReimbursmentDao {
 				reimbursment.setEmployeeId(rs.getInt("EMPLOYEE_ID"));
 				reimbursment.setCurrentState(rs.getString("CURRENT_STATE"));
 				reimbursment.setDateCreated(rs.getDate("DATE_CREATED"));
-				reimbursment.setManagerId(rs.getInt("MANAGER_ID"));
-				reimbursment.setImageUrl(rs.getString("IMAGER_URL"));
+				reimbursment.setImageUrl(rs.getString("image_URL"));
 				reimbursment.setAmount(rs.getBigDecimal("AMOUNT"));
 				reimbursment.setReason(rs.getString("REASON"));
 				reimbursments.add(reimbursment);
@@ -318,13 +312,13 @@ public class ReimbursmentDaoImpl implements ReimbursmentDao {
 				reimbursment.setEmployeeId(rs.getInt("EMPLOYEE_ID"));
 				reimbursment.setCurrentState(rs.getString("CURRENT_STATE"));
 				reimbursment.setDateCreated(rs.getDate("DATE_CREATED"));
-				reimbursment.setManagerId(rs.getInt("MANAGER_ID"));
-				reimbursment.setImageUrl(rs.getString("IMAGER_URL"));
+				reimbursment.setImageUrl(rs.getString("image_URL"));
 				reimbursment.setAmount(rs.getBigDecimal("AMOUNT"));
 				reimbursment.setReason(rs.getString("REASON"));
 				reimbursments.add(reimbursment);
 			}
 		} catch (SQLException | IOException e) {
+			
 			logger.info(e.getMessage());
 		} finally {
 			if(rs != null) {

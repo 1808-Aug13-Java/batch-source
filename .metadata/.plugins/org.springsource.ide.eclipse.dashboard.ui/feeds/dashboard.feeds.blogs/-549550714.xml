@@ -5,7 +5,141 @@
   <link rel="self" href="https://spring.io/blog.atom" />
   <id>http://spring.io/blog.atom</id>
   <icon>https://spring.io/favicon.ico</icon>
-  <updated>2018-09-05T04:57:31Z</updated>
+  <updated>2018-09-06T00:00:00Z</updated>
+  <entry>
+    <title>Bootiful GCP: Supporting Observability with Spring Cloud GCP Stackdriver Trace (6/8)</title>
+    <link rel="alternate" href="https://spring.io/blog/2018/09/06/bootiful-gcp-supporting-observability-with-spring-cloud-gcp-stackdriver-trace-6-8" />
+    <category term="engineering" label="Engineering" />
+    <author>
+      <name>Josh Long</name>
+    </author>
+    <id>tag:spring.io,2018-08-18:3368</id>
+    <updated>2018-09-06T00:00:00Z</updated>
+    <content type="html">&lt;blockquote&gt;
+  &lt;p&gt;Hi Spring fans! In this brief series we’re going to look at the Spring Cloud integration for Google Cloud Platform, called Spring Cloud GCP. &lt;a href="https://cloud.spring.io/spring-cloud-gcp/"&gt;Spring Cloud GCP&lt;/a&gt; represents a joint effort between Google and Pivotal that endeavors to provide a first class experience for Spring Cloud developers when using the Google Cloud Platform. Pivotal Cloud Foundry users will enjoy an even &lt;a href="https://docs.pivotal.io/partners/gcp-sb/index.html"&gt;easier integration with the GCP service broker&lt;/a&gt;. These installments were written with help from Google Cloud Developer Advocate, and my buddy, &lt;a href="http://twitter.com/saturnism"&gt;Ray Tsang&lt;/a&gt;. You can also catch a walkthrough of Spring Cloud GCP in our Google Next 2018 session, &lt;a href="https://www.youtube.com/watch?v=2Jo3vy7iQf8"&gt;Bootiful Google Cloud Platform&lt;/a&gt;. Thanks buddy!&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;As we move more and more applications to the cloud, and introduce more and more microservices, the complexity of understanding what’s gone wrong - and &lt;em&gt;where??&lt;/em&gt; - grows. Distributed tracing addresses this problem. Distributed tracing, in theory, is a simple chore. For every request that enters or exits the system.. for every ingres or egress int he system, attach a UUID if one isnt already present and if it is present then propagate it. Unfortunately, this sort of logic is tedious and hard to get right as requests move from one node to another, synchronously and asynchrously, across thread and network boundaries. Spring Cloud Sleuth addresses this problem and provides an SPI into which backend distributed tracing systems, like OpenZipkin and Google Cloud Stack Driver, can plugin.&lt;/p&gt;
+&lt;p&gt;As with all GCP APIs, we must first enable this one.&lt;/p&gt;
+&lt;pre&gt;&lt;code class="prettyprint shell"&gt;gcloud services enable cloudtrace.googleapis.com
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We’re going to setup a trivial REST API and a trivial REST client, and use the Spring Cloud GCP Stack Driver support to make short work of tracing those interactions.&lt;/p&gt;
+&lt;p&gt;Let’s first look at our trivial REST API. Start a new project (using the skeletal &lt;code&gt;pom.xml&lt;/code&gt; from above) and add &lt;code&gt;org.springframework.boot&lt;/code&gt; : &lt;code&gt;spring-boot-starter-web&lt;/code&gt; and &lt;code&gt;org.springframework.cloud&lt;/code&gt; : &lt;code&gt;spring-cloud-gcp-starter-trace&lt;/code&gt;. Our REST API (well, endpoint, anyway) will return a &amp;ldquo;greetings, &lt;em&gt;a name here&lt;/em&gt;!&amp;rdquo; whenever &lt;code&gt;http://localhost:8080/greeting/{id}}&lt;/code&gt; is invoked. Here’s the code for the service, first:&lt;/p&gt;
+&lt;pre&gt;&lt;code class="prettyprint java"&gt;package com.example.gcp.trace;&#xD;
+&#xD;
+import org.springframework.boot.SpringApplication;&#xD;
+import org.springframework.boot.autoconfigure.SpringBootApplication;&#xD;
+import org.springframework.web.bind.annotation.GetMapping;&#xD;
+import org.springframework.web.bind.annotation.PathVariable;&#xD;
+import org.springframework.web.bind.annotation.RestController;&#xD;
+&#xD;
+@RestController&#xD;
+@SpringBootApplication&#xD;
+public class TraceServiceApplication {&#xD;
+&#xD;
+        @GetMapping(&amp;quot;/greeting/{id}&amp;quot;)&#xD;
+        String greet(@PathVariable String id) {&#xD;
+                return &amp;quot;greetings, &amp;quot; + id + &amp;quot;!&amp;quot;;&#xD;
+        }&#xD;
+&#xD;
+        public static void main(String args[]) {&#xD;
+                SpringApplication.run(TraceServiceApplication.class, args);&#xD;
+        }&#xD;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The configuration is arguably more interesting.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;src/main/resources/application.properties.&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class="prettyprint properties"&gt;spring.cloud.gcp.trace.enabled=true&#xD;
+&#xD;
+&#xD;
+spring.sleuth.sampler.probability=1&#xD;
+spring.sleuth.web.skipPattern=(^cleanup.*|.+favicon.*)&#xD;
+&#xD;
+&#xD;
+server.port=8081&#xD;
+&#xD;
+&#xD;
+spring.application.name=trace-service
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+  &lt;li&gt;we are opting-in to the trace support for Spring Cloud GCP. You could disable it when running the code on localhost but enable it in production with this flag.&lt;/li&gt;
+  &lt;li&gt;these properties tell Spring Cloud Sleuth to trace everything (a &amp;ldquo;probability&amp;rdquo; of 1.0 means 100% of all observed requests will be sampled and traced).&lt;/li&gt;
+  &lt;li&gt;if you’re running this demo on the same machine then you’ll want to avoid port conflicts in the client&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;spring.application.name&lt;/code&gt; is our application’s logical name and it can be used in distinguishing it from other applications in trace trees, service registries, etc.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The client lobs a hundred HTTP requests when the application starts up. The &lt;code&gt;RestTemplate&lt;/code&gt; it uses has been post-processed by the Spring Cloud Sleuth auto-configuration to intercept and trace all HTTP calls.&lt;/p&gt;
+&lt;pre&gt;&lt;code class="prettyprint java"&gt;package com.example.gcp.trace;&#xD;
+&#xD;
+import lombok.extern.slf4j.Slf4j;&#xD;
+import org.springframework.boot.SpringApplication;&#xD;
+import org.springframework.boot.autoconfigure.SpringBootApplication;&#xD;
+import org.springframework.boot.context.event.ApplicationReadyEvent;&#xD;
+import org.springframework.cloud.sleuth.annotation.NewSpan;&#xD;
+import org.springframework.context.annotation.Bean;&#xD;
+import org.springframework.context.event.EventListener;&#xD;
+import org.springframework.stereotype.Component;&#xD;
+import org.springframework.web.client.RestTemplate;&#xD;
+&#xD;
+import java.util.stream.IntStream;&#xD;
+&#xD;
+@Slf4j&#xD;
+@SpringBootApplication&#xD;
+public class TraceClientApplication {&#xD;
+&#xD;
+        @Component&#xD;
+        public static class Client {&#xD;
+&#xD;
+                private final RestTemplate restTemplate;&#xD;
+&#xD;
+                public Client(RestTemplate restTemplate) {&#xD;
+                        this.restTemplate = restTemplate;&#xD;
+                }&#xD;
+&#xD;
+                @EventListener(ApplicationReadyEvent.class)&#xD;
+                @NewSpan(&amp;quot;client&amp;quot;) &#xD;
+                public void before() {&#xD;
+                        IntStream&#xD;
+                            .range(0, 100)&#xD;
+                            .mapToObj(i -&amp;gt;&#xD;
+                                restTemplate&#xD;
+                                    .getForEntity(&amp;quot;http://localhost:8081/greeting/{id}&amp;quot;, String.class, i)&#xD;
+                                    .getBody())&#xD;
+                            .forEach(response -&amp;gt; log.info(&amp;quot;result: &amp;quot; + response));&#xD;
+                }&#xD;
+        }&#xD;
+&#xD;
+        @Bean&#xD;
+        RestTemplate restTemplate() {&#xD;
+                return new RestTemplate();&#xD;
+        }&#xD;
+&#xD;
+        public static void main(String args[]) {&#xD;
+                SpringApplication.run(TraceClientApplication.class, args);&#xD;
+        }&#xD;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+  &lt;li&gt;the client is a straightforward use of &lt;code&gt;RestTemplate&lt;/code&gt; to connect to our service. If we wanted to send 100 requests with no shared parent span, we wouldn’t need &lt;code&gt;@NewSpan&lt;/code&gt;. If we’d had 100 requests arrive from the outside and hit an HTTP endpoint in the client and that endpoint then resulted in 100 requests going to the service, we’d have a shared overarching span. A single trace with multiple spans.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;And the configuration for this node is virtually identical to that of the service.&lt;/p&gt;
+&lt;pre&gt;&lt;code class="prettyprint properties"&gt;spring.cloud.gcp.trace.enabled=true&#xD;
+&#xD;
+spring.sleuth.sampler.probability=1&#xD;
+spring.sleuth.web.skipPattern=(^cleanup.*|.+favicon.*)&#xD;
+&#xD;
+spring.application.name=trace-client&#xD;
+&#xD;
+server.port=8080
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+  &lt;li&gt;enable Spring Cloud GCP tracing..&lt;/li&gt;
+  &lt;li&gt;ensure that all requests are traced&lt;/li&gt;
+  &lt;li&gt;give our client a logical name&lt;/li&gt;
+  &lt;li&gt;and start on a different port than the service&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;In order to see this in action, you’ll need to start the service, then the client, and then make your way over to the &lt;a href="https://console.cloud.google.com/"&gt;Google Cloud Console&lt;/a&gt;. Click on the &amp;ldquo;Hamburger&amp;rdquo;menu on the left hand side of the screen and click on STACKDRIVER ? TRACE. There you’ll be given the ability to inspect the requests that just flew through your services.&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://pbs.twimg.com/media/Dk6aAXJU0AAe5Md.jpg:large" alt="Looking at trace information in the Google Cloud Console" /&gt;&lt;/p&gt;
+&lt;p&gt;Stackdriver is the umbrella name for a host of services including monitoring, tracing, and - and this is &lt;em&gt;so wicked cool!&lt;/em&gt; - live debugging of running applications. You could easily spend a lot more time - you &lt;em&gt;should&lt;/em&gt;! - in this section of the console. Suffice it to say that Google is &lt;em&gt;gets&lt;/em&gt; observability and that’s reflected in their services.&lt;/p&gt;</content>
+  </entry>
   <entry>
     <title>This Week in Spring - September 4th, 2018</title>
     <link rel="alternate" href="https://spring.io/blog/2018/09/05/this-week-in-spring-september-4th-2018" />
@@ -1847,55 +1981,5 @@ dependencies {
 &lt;p&gt;&lt;a href="https://jira.spring.io/secure/ReleaseNote.jspa?projectId=10000&amp;version=16853"&gt;Spring Framework 5.1 RC2&lt;/a&gt; comes with dependency updates such as the latest Reactor Californium M2, RxJava 2.2, and JUnit 5.3 RC1. It addresses several reported issues on JDK 11 and GraalVM (tracking their release candidates) and provides further refinements within our 5.1 themes, in particular with respect to log output and startup performance.&lt;/p&gt;
 &lt;p&gt;This is the foundation for the upcoming Spring Boot 2.1 M2 release next week. We&amp;rsquo;re aiming for a Spring Framework 5.1 RC3 in early September still, picking up Reactor Californium RC1 and wrapping up our JDK 11 efforts, moving on to 5.1 GA in late September.&lt;/p&gt;
 &lt;p&gt;Cheers,&lt;br/&gt;Juergen&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <title>This Week in Spring - August 14th, 2018</title>
-    <link rel="alternate" href="https://spring.io/blog/2018/08/15/this-week-in-spring-august-14th-2018" />
-    <category term="engineering" label="Engineering" />
-    <author>
-      <name>Josh Long</name>
-    </author>
-    <id>tag:spring.io,2018-08-15:3360</id>
-    <updated>2018-08-15T05:37:00Z</updated>
-    <content type="html">&lt;p&gt;Hi Spring fans! Welcome to another installment of &lt;em&gt;This Week in Spring&lt;/em&gt;! This week I&amp;rsquo;m in San Francisco, Seattle, and Los Angeles talking to customers.&lt;/p&gt;
-&lt;p&gt;We on the Spring team are heads down, preparing for this year&amp;rsquo;s event-to-not-miss, &lt;a href="https://springoneplatform.io/"&gt;SpringOne Platform&lt;/a&gt;. Come to learn about cloud-native application development, cloud computing, agile, devops, big-data, continuous-delivery, testing, and so much more. Get your tickets now! The event is September 24-27th, 2018 in Washington, D.C.&lt;/p&gt;
-&lt;p&gt;..Speaking of! &lt;a href="https://twitter.com/kmanthey/status/1025515975586852870"&gt;See this kid&lt;/a&gt;? He just passed his Java camp certification and if he gets 1000 likes/RTs, Pivotal&amp;rsquo;ll send him to SpringOne Platform. &lt;em&gt;Please RETWEET!&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;It&amp;rsquo;s been an absolutely crazy week so let&amp;rsquo;s get to it!&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;In which we look at an interesting look at how the Defense Information Systems Agency (DISA) has moved to change how they manage operating systems. A side-effect of this move? A new certification: Ubuntu from Canonical. This has a lot profound implications for Cloud Foundry - read &lt;a href="https://content.pivotal.io/blog/disa-new-stigs-include-ubuntu-an-embedded-operating-system-because-the-best-os-is-the-one-you-don-t-have-to-worry-about"&gt;on to learn how&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;M14 of the Spring Tools 4 has been released for Eclipse Java IDE, Visual Studio Code, and Atom Editor. Get the &lt;a href="https://spring.io/tools4"&gt;bits here&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;This webinar (August 15th) &lt;a href="https://content.pivotal.io/webinars/aug-15-enhance-application-security-with-automated-open-source-security-management-webinar"&gt;on enhancing security with automated, open-source, security management looks &lt;em&gt;very&lt;/em&gt; interesting&lt;/a&gt;!&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://spring.io/blog/2018/08/13/spring-cloud-open-service-broker-2-0-1-release-is-now-available"&gt;Spring Cloud Open Service Broker 2.0.1.RELEASE is now available&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://spring.io/blog/2018/08/09/spring-cloud-skipper-1-1-0-m1"&gt;Spring Cloud Skipper 1.1.0.M1&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://spring.io/blog/2018/08/09/spring-cloud-for-google-cloud-platform-1-0-goes-ga"&gt;Spring Cloud for Google Cloud Platform 1.0 goes GA!&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Matt Raible has &lt;a href="https://twitter.com/mraible/status/1029367544103280640?s=12"&gt; updated his &amp;ldquo;Develop a Microservices Architecture with OAuth 2.0 and JHipster&amp;rdquo;&lt;/a&gt; to use JHipster v5.1.0 and Spring Boot 2.0.3. We&amp;rsquo;ll ignore that Spring Boot 2.0.4 is already available! :D&lt;/li&gt;
-  &lt;li&gt;I love this JAXEnter blog post on the results of a Cloud Foundry survey &lt;a href="https://jaxenter.com/cloudfoundry-severless-container-146536.html"&gt;on serverless computing and container technologies&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;This is pretty cool! &lt;a href="https://www.youtube.com/watch?v=-BlJQqT8Kpg"&gt;Spring Boot and Spring Developer Stephane Nicoll has a nice video with Vaadin&amp;rsquo;s Matti Tahvonen on building Spring Boot applications with Vaadin 10&lt;/a&gt;. I&amp;rsquo;ve got this bookmarked and will watch.&lt;/li&gt;
-  &lt;li&gt;I love production and apparently so does &lt;a href="https://twitter.com/tkvangorder/status/1029422327811825664"&gt;Tyler Van Gorder and his company&lt;/a&gt; because they just moved a Spring Boot and Spring Cloud-based system with 657k lines of Java code to Spring Boot 2.0 and Spring Cloud Finchley and into production! Congratulations!&lt;/li&gt;
-  &lt;li&gt;Our friends at SUSE &lt;a href="https://www.linkedin.com/jobs/view/781140125/"&gt;are hiring for a product management&lt;/a&gt; role working on Cloudfoundry Kkubernetesio and OpenStack. Interested? Ping &lt;a href="https://twitter.com/DevinDavis"&gt;Devin Davis&lt;/a&gt; and he can make the introduction..&lt;/li&gt;
-  &lt;li&gt;The &lt;em&gt;Spring Framework Guru&lt;/em&gt; website has a very &lt;a href="https://springframework.guru/defining-spring-cloud-contracts-in-open-api/"&gt;interesting post on defining Spring Cloud Contracts with OpenAPI&lt;/a&gt;. This is &lt;em&gt;awesome&lt;/em&gt;!&lt;/li&gt;
-  &lt;li&gt;Spring is a good choice for services for JavaFX clients, especially in the reactive world made possible by Reactor. &lt;a href="https://twitter.com/bsideup/status/1029259551466553344?s=12"&gt;This thread is pretty inspiring&lt;/a&gt;.&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://twitter.com/springcentral/status/1029376610229600257"&gt; riff v0.1.1 on Knative is now available&lt;/a&gt;. The new release has system uninstall and command function invoker support. This is awesome!&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://www.infoq.com/presentations/ci-cd-jenkins-pcf"&gt;Continuous Integration and Deployment with Jenkins for PCF&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;The latest installment of [this Japanese language magazine on programming - &lt;em&gt;WEB+DB&lt;/em&gt; - has a &lt;a href="http://gihyo.jp/amp/magazine/wdpress/archive/2018/vol106?__twitter_impression=true"&gt;nice article on Spring Boot&lt;/a&gt;. Check it out!&lt;/li&gt;
-  &lt;li&gt;The Flowable BPMN engine - which works ideally with Spring Boot - &lt;a href="https://twitter.com/tijsrademakers/status/1028942097536180224?s=12"&gt;now supports running on MongoDB&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;I was interviewed, along with a number of other folks in the Java ecosystem, on the cadence of new Java releases. You &lt;a href="https://jaxenter.com/java-influencers-series-part-1-148058.html"&gt;might enjoy some of the insight&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;the SD Times have a nice writeup of the latest &lt;a href="https://sdtimes.com/softwaredev/sd-times-news-digest-spring-cloud-gcp-1-0-openmetrics-and-the-academy-software-foundation/"&gt;and greatest in Spring Cloud GCP&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Our friend Marten Deinum has a nice writeup of &lt;a href="https://mdeinum.github.io/2018-08-13-Use-JDBI-With-Spring-Boot/"&gt;how to integrate JDBI with Spring Boot&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Rackspace has a nice look at ways that organizations &lt;a href="https://blog.rackspace.com/companies-saving-millions-pivotal-cloud-foundry"&gt;are saving millions by running on Cloud Foundry&lt;/a&gt; - short and sweet!&lt;/li&gt;
-  &lt;li&gt;Now we come to JUnit5&amp;rsquo;s gem: parameterized tests. Never has it been more comfortable to &lt;a href="https://blog.codefx.org/libraries/junit-5-parameterized-tests/"&gt;execute the same test with varying inputs&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Want a fairly exhaustive look at how to create Spring-based microservices with Spring Cloud? This community example &lt;a href="https://github.com/pranav-patil/spring-microservices"&gt;from Pranav Patil looks to be an interesting start&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Going to be at the WomakersCode Summit Sergipe, held at the Department of Computing, held at the Federal University of Sergipe - São Cristóvão Campus? It&amp;rsquo;s going to have discussions of development, tools and good practices, as well as a panel focused on career acceleration and preparation of study plan, all presented by women. There is &lt;em&gt;so much&lt;/em&gt; to recommend this event! If you can only see one, though, &lt;a href="https://medium.com/@lasneves/falando-sobre-spring-boot-no-encontro-womenintech-que-voc%C3%AA-n%C3%A3o-pode-perder-em-aracaju-se-948ffbc4ec03"&gt;be sure to see Spring community heroine Laís Neves about Spring Boot and how it can make life easier for the Java developer&lt;/a&gt;.&lt;/li&gt;
-  &lt;li&gt;Tyler Lund has a nice post on the five &lt;a href="http://dadontherunblog.com/2018/06/05/the-five-mistakes-i-see-teams-new-to-chaos-engineering-make/"&gt;mistakes he sees teams new to Chaos Engineering make&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Swapnil Bhartiya has a nice post &lt;a href="https://twitter.com/cloudfoundry/status/1027998697429364737"&gt;on why Cloud Foundry chose Istio and Envoy for Routing&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://projectriff.io/blog/announcing-riff-0-1-1-on-Knative/"&gt;Riff 0.1.1 is now available&lt;/a&gt;! It supports command function invokers and system uninstallation support.&lt;/li&gt;
-  &lt;li&gt;This is a great thread by Spring Boot ninja Andy Wilkinson. Spring Boot is nearing 500 contributors to Spring Boot. Obviously, this merits a &lt;em&gt;huge&lt;/em&gt; thanks to the community. THANK YOU. Want to contribute? &lt;a href="https://twitter.com/springcentral/status/1027915835489148928"&gt;Well, we want you too, as well! Read this thread from Andy Wilkinson on how to do so!&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Zoltan Altfatter has a nice post on how &lt;a href="https://zoltanaltfatter.com/2018/08/10/spring-cloud-services-service-registry/"&gt;to use the Spring Cloud Services service registry&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;This is an oldie-but-a-goodie: Mohamed Sanaulla writes about sample Logback configuration for &lt;a href="https://sanaulla.info/2018/01/23/sample-logback-configuration-for-spring-boot-profile-based-logging/"&gt;Spring Boot profile-based logging&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Blaze Persistence have shipped some very compelling &lt;a href="https://persistence.blazebit.com/documentation/1.3/entity-view/manual/en_US/#spring-data-integration"&gt;integrations for Spring Data JPA&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Our &lt;a href="https://twitter.com/springcentral/status/1027647770990018560"&gt;Spring LinkedIn group now has 51,000 members&lt;/a&gt;! More are always welcomel of course! :)&lt;/li&gt;
-  &lt;li&gt;Wow! Spring Data Neo4j lead and awesome-sauce &lt;a href="https://github.com/neo4j-contrib/neo4j-jdbc/releases/tag/3.4.0"&gt;data legend Michael Hunger has just announced&lt;/a&gt; the release of the Neo4j JDBC driver 3.4.0 with support for spatial and date/time datatypes in Neo4j 3.4.x and full clustering/routing support.&lt;/li&gt;
-  &lt;li&gt;120+ of my videos from the years are available online at this &lt;a href="https://dev.tube/@starbuxman"&gt;aggregator called DevTube&lt;/a&gt;. Many of the videos are unique, of course, but some are duplicates. Either way, you might find the content videos worthwhile. It was interesting to me to think that there&amp;rsquo;s enough content out there to keep watching a talk a day for more than 3 months! Also, there&amp;rsquo;s a lot of &lt;em&gt;other&lt;/em&gt; great content on that portal from other speakers. So, again, worth a visit.&lt;/li&gt;
-&lt;/ul&gt;</content>
   </entry>
 </feed>

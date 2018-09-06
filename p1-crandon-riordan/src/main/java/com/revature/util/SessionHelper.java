@@ -15,5 +15,13 @@ public class SessionHelper {
 		Employee employee = ed.getEmployeeByEmail(email);
 		session.setAttribute("isManager", employee.getIsManager());
 	}
+	
+	public void addInvalidLoginToSession(HttpSession session) {
+		session.setAttribute("login", 1);
+	}
+	
+	public void removeLoginFromSession(HttpSession session) {
+		session.removeAttribute("login");
+	}
 
 }

@@ -21,15 +21,22 @@ public class SessionServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession(false);
 		// ensure json content
-					response.setContentType("application/json");
-					PrintWriter pw = response.getWriter();
+		response.setContentType("application/json");
+		PrintWriter pw = response.getWriter();
 		if(session != null) {
-			
 			String email = (String) session.getAttribute("email");
-			int isManager = (Integer) session.getAttribute("isManager");
-			String json = "{\"email\": \"" + email;
-			json += "\", \"" + "isManager\": " + isManager + "}"; 
-			pw.write(json);
+			Integer isManager = (Integer) session.getAttribute("isManager");
+			Integer login = (Integer) session.getAttribute("login");
+			if(email != null && isManager != null) {
+				String json = "{\"email\": \"" + email;
+				json += "\", \"" + "isManager\": " + isManager + "}"; 
+				pw.write(json);
+			} else if (login != null) {
+				String json = "{\"login\": " + login + "}";
+				pw.write(json);
+			}
+			
+			
 			
 		} else {
 			pw.write("null");
