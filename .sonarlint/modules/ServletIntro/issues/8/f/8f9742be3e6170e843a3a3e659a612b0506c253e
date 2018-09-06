@@ -1,3 +1,8 @@
 
-ysquid:UselessImportCheck":Remove this unused import 'java.io.FileNotFoundException'.(·î™ùÿÿÿÿH»4RMINORZ
+qsquid:UselessImportCheck"0Remove this unused import 'java.io.InputStream'.(¹»º8«Ú˜ÏÚ,HÃARMINORZ
+CODE_SMELL
+usquid:UselessImportCheck"4Remove this unused import 'java.io.FileInputStream'.(˜³ÉÓ8«Ú˜ÏÚ,HÂARMINORZ
+CODE_SMELL
+_squid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8«Ú˜ÏÚ,HÄARMINORZVULNERABILITY
+ysquid:UselessImportCheck":Remove this unused import 'java.io.FileNotFoundException'.(·î™ùÿÿÿÿHARMINORZ
 CODE_SMELL

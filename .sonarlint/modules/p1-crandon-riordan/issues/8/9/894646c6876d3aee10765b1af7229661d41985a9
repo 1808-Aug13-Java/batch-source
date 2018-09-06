@@ -1,0 +1,8 @@
+
+lsquid:S1161":Add the "@Override" annotation above this method signature(Ïû©ÖûÿÿÿÿHÜERMAJORZ
+CODE_SMELL
+gsquid:S1989"+Add a "try/catch" block for "sendRedirect".(âùÒúÿÿÿÿ8°ÄßÚ,HçERMINORZVULNERABILITY
+gsquid:S1161":Add the "@Override" annotation above this method signature(‹¨¯¿HİERMAJORZ
+CODE_SMELL
+Ysquid:S1989 "$Add a "try/catch" block for "doGet".(®Ó‘ûÿÿÿÿÿH×ERMINORZVULNERABILITY
+Ysquid:S1989 "$Add a "try/catch" block for "doGet".(®Ó‘ûÿÿÿÿÿHØERMINORZVULNERABILITY

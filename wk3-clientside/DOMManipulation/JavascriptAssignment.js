@@ -203,12 +203,15 @@ document.addEventListener("DOMContentLoaded", function() {
   let secondsFromUnix = new Date() - new Date(0);
   // based off this use
   let totalDays = secondsFromUnix / 86400; 
-  // 1 day = 86400 seconds
+  let totalMarsDays = totalDays / 687;
+  let totalMarsSeconds = totalMarsDays * 86400;
+  let marsTime = new Date(totalMarsSeconds);
+  let marsEl = document.getElementById("mars_time");
+  marsEl.innerHTML += marsTime.toLocaleTimeString();
 
-
-  let xhr = XMLHttpRequest();
+  let xhr = new XMLHttpRequest();
   xhr.onreadystatechange = function() {
-    let timeEl = document.getElementById("acb_time_check");
+    let timeEl = document.getElementById("acb_time");
 
     if(this.readyState == 4 && (this.statusCode >= 200 || this.statusCode < 300)) {
       let data = JSON.parse(this.responseText);
@@ -232,9 +235,9 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 
   function changeBackground() {
-    let r = randomNum(0, 240);
-    let g = randomNum(0, 240);
-    let b = randomNum(0, 240);
+    let r = randomNum(50, 240);
+    let g = randomNum(50, 240);
+    let b = randomNum(50, 240);
     let body = document.querySelector("body");
     body.style.backgroundColor = `
       rgba(${r},${g},${b},1)

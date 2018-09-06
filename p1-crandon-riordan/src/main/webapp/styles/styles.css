@@ -1,0 +1,11 @@
+div.formContainer form {
+  width: 20%;
+}
+
+.form-signin {
+  width: 50%;
+  display: inline-block;
+  margin: 0 auto;
+  margin-top: 2%;
+  margin-left: 2%;
+}

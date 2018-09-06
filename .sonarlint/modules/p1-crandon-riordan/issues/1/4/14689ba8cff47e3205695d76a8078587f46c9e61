@@ -1,0 +1,14 @@
+
+gsquid:S1989"+Add a "try/catch" block for "sendRedirect".(„¨¶Òûÿÿÿÿ8ÃÁ’ÛÚ,H—GRMINORZVULNERABILITY
+~squid:UselessImportCheck"8Remove this unused import 'com.revature.dao.EmpDaoImpl'.(º–ïÀûÿÿÿÿ8·˜¦ÕÚ,H–GRMINORZ
+CODE_SMELL
+gsquid:S1989 "+Add a "try/catch" block for "sendRedirect".(„¨¶Òûÿÿÿÿ8ŒÎ¾ÖÚ,HGRMINORZVULNERABILITY
+gsquid:S1161":Add the "@Override" annotation above this method signature(÷¤‹úH™GRMAJORZ
+CODE_SMELL
+Ysquid:S1989'"$Add a "try/catch" block for "doGet".(®Ó‘ûÿÿÿÿÿH˜GRMINORZVULNERABILITY
+lsquid:S1161%":Add the "@Override" annotation above this method signature(ş³‚”ûÿÿÿÿHšGRMAJORZ
+CODE_SMELL
+Ysquid:S1989'"$Add a "try/catch" block for "doGet".(®Ó‘ûÿÿÿÿÿH›GRMINORZVULNERABILITY
+‚squid:S1192"FDefine a constant instead of duplicating this literal "email" 3 times.(Ä®»÷şÿÿÿÿ8ˆáÄÛÚ,HGRCRITICALZ
+CODE_SMELL
+…squid:S2226"XRemove this misleading mutable servlet instance field or make it "static" and/or "final"(˜¸Åı8µğ£ÕÚ,HœGRMAJORZBUG

@@ -1,0 +1,12 @@
+
+`squid:S1989"$Add a "try/catch" block for "doGet".(®Ó‘ûÿÿÿÿÿ8¡úŸÕÚ,HÉERMINORZVULNERABILITY
+~squid:UselessImportCheck"8Remove this unused import 'com.revature.dao.EmpDaoImpl'.(º–ïÀûÿÿÿÿ8¡úŸÕÚ,HËERMINORZ
+CODE_SMELL
+`squid:S1989"$Add a "try/catch" block for "doGet".(®Ó‘ûÿÿÿÿÿ8¡úŸÕÚ,HÇERMINORZVULNERABILITY
+ssquid:S1161":Add the "@Override" annotation above this method signature(ş³‚”ûÿÿÿÿ8¡úŸÕÚ,HÈERMAJORZ
+CODE_SMELL
+]squid:S1989"&Add a "try/catch" block for "forward".(Ü«¹›8³ÚßÚ,HÏERMINORZVULNERABILITY
+]squid:S1989"&Add a "try/catch" block for "forward".(Ü«¹›8³ÚßÚ,HÎERMINORZVULNERABILITY
+nsquid:S1161":Add the "@Override" annotation above this method signature(÷¤‹ú8¡úŸÕÚ,HÆERMAJORZ
+CODE_SMELL
+gsquid:S1989"+Add a "try/catch" block for "sendRedirect".(âùÒúÿÿÿÿ8³ÚßÚ,HĞERMINORZVULNERABILITY
