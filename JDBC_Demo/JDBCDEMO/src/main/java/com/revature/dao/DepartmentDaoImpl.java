@@ -10,11 +10,14 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.revature.model.Department;
+import org.apache.log4j.Logger;
+
 import com.revature.model.Department;
 import com.revature.util.ConnectionUtil;
 
 public class DepartmentDaoImpl implements DepartmentDao{
+	
+	private static Logger log = Logger.getRootLogger();
 
 	@Override
 	public List<Department> getDepartments() {
@@ -56,9 +59,70 @@ public class DepartmentDaoImpl implements DepartmentDao{
 
 	@Override
 	public Department getDepartmentById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		Department d = null;
+		String sql = "SELECT * FROM DEPARTMENT WHERE DEPT_ID = ?";
+
+		ResultSet rs = null;
+
+		try (Connection con = ConnectionUtil.getConnection();
+				PreparedStatement ps = con.prepareStatement(sql);){
+
+			ps.setInt(1, id);
+			rs = ps.executeQuery();
+
+			while (rs.next()) {
+				int deptId = rs.getInt("DEPT_ID");
+				String name = rs.getString("DEPT_NAME");
+				int budget = rs.getInt("MONTHLY_BUDGET");
+				d = new Department(deptId, name, budget);
+			}
+		} catch (IOException|SQLException e) {
+			log.error(e.getMessage());
+		} finally {
+			if (rs!=null) {
+				try {
+					rs.close();
+				} catch (SQLException e) {
+					log.error(e.getMessage());
+				}
+			}
+		}
+
+		return d;
 	}
+
+	public Department getDepartmentById(int id, Connection con) {
+		Department d = null;
+		String sql = "SELECT * FROM DEPARTMENT WHERE DEPT_ID = ?";
+
+		ResultSet rs = null;
+
+		try (PreparedStatement ps = con.prepareStatement(sql);){
+
+			ps.setInt(1, id);
+			rs = ps.executeQuery();
+
+			while (rs.next()) {
+				int deptId = rs.getInt("DEPT_ID");
+				String name = rs.getString("DEPT_NAME");
+				float budget = rs.getFloat("MONTHLY_BUDGET");
+				d = new Department(deptId, name, budget);
+			}
+		} catch (SQLException e) {
+			log.error(e.getMessage());
+		} finally {
+			if (rs!=null) {
+				try {
+					rs.close();
+				} catch (SQLException e) {
+					log.error(e.getMessage());
+				}
+			}
+		}
+
+		return d;
+	}
+
 
 	@Override
 	public int createDepartment(Department department) {
@@ -121,25 +185,26 @@ public class DepartmentDaoImpl implements DepartmentDao{
 
 	@Override
 	public int deleteDepartmentById(int id) {
+		return 1;
 		// TODO Auto-generated method stub
-		
-		String sql="DELETE FROM DEPARTMENT WHERE DEPT_ID = ? ";
-		int rowsDeleted=0;
-		
-		try(Connection con= ConnectionUtil.getConnection();
-			PreparedStatement ps= con.prepareStatement(sql);
-			ps.setInt(1, id))
-		{
-			
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		return 0;
+//		
+//		String sql="DELETE FROM DEPARTMENT WHERE DEPT_ID = ? ";
+//		int rowsDeleted=0;
+//		
+//		try(Connection con= ConnectionUtil.getConnection();
+//			PreparedStatement ps= con.prepareStatement(sql);
+//			ps.setInt(1, id));
+//		{
+//			
+//		} catch (SQLException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		
+//		return 0;
 	}
 	
 	

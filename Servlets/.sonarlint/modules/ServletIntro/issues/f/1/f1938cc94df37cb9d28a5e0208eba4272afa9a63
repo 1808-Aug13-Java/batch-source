@@ -1,0 +1,36 @@
+
+`squid:S1481"'Remove this unused "pw" local variable.(“­†·øÿÿÿÿ8™²à®Ú,H£RMINORZ
+CODE_SMELL
+fsquid:S1199("-Extract this nested code block into a method.(æíÅ€ýÿÿÿÿ8ÜÜþ­Ú,H¡RMINORZ
+CODE_SMELL
+osquid:S1854"6Remove this useless assignment to local variable "pw".(“­†·øÿÿÿÿ8™²à®Ú,H¤RMAJORZ
+CODE_SMELL
+„squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(¾‹Ö¯ÿÿÿÿÿ8²ó­Ú,HœRMAJORZ
+CODE_SMELL
+fsquid:S1989""*Add a "try/catch" block for "parseDouble".(ô¼Ñàûÿÿÿÿ8›©ù­Ú,H˜RMINORZVULNERABILITY
+asquid:S11990"-Extract this nested code block into a method.(¸ßÞÚ8ÏÌû­Ú,H’RMINORZ
+CODE_SMELL
+nsquid:S1854 ":Remove this useless assignment to local variable "result".(•²¬†8ŠÄ’®Ú,HšRMAJORZ
+CODE_SMELL
+squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(¾úÙ8™²à®Ú,H¢RMAJORZ
+CODE_SMELL
+squid:CommentedOutCodeLine<"<This block of commented-out lines of code should be removed.(Âÿ¨¢8°ÀùÎÚ,H¨RMAJORZ
+CODE_SMELL
+]squid:S1989"&Add a "try/catch" block for "forward".(ãìÄ8Ä‰ç®Ú,H›RMINORZVULNERABILITY
+]squid:S1989"&Add a "try/catch" block for "forward".(ãìÄ8£ˆ‹¯Ú,H RMINORZVULNERABILITY
+q
+squid:S106"9Replace this use of System.out or System.err by a logger.(Çæàäÿÿÿÿÿ8Û¿—­Ú,H–RMAJORZ
+CODE_SMELL
+squid:CommentedOutCodeLine7"<This block of commented-out lines of code should be removed.(õ‹žä8«Šô®Ú,H“RMAJORZ
+CODE_SMELL
+fsquid:S1989!"*Add a "try/catch" block for "parseDouble".(±©Ð¤ÿÿÿÿÿ8›©ù­Ú,HRMINORZVULNERABILITY
+`squid:S1199$"-Extract this nested code block into a method.(éý"8íÜö­Ú,HžRMINORZ
+CODE_SMELL
+asquid:S1199,"-Extract this nested code block into a method.(¹ÊÚý8õ€û­Ú,H”RMINORZ
+CODE_SMELL
+dsquid:S1989"(Add a "try/catch" block for "getWriter".(“­†·øÿÿÿÿ8Õ¬Œ­Ú,H•RMINORZVULNERABILITY
+q
+squid:S106"9Replace this use of System.out or System.err by a logger.(¸ØÇèþÿÿÿÿ8Õ¬Œ­Ú,HŸRMAJORZ
+CODE_SMELL
+bsquid:S1989;"&Add a "try/catch" block for "include".(ß‘†¸üÿÿÿÿ8ÄúÎÚ,H­RMINORZVULNERABILITY
+bsquid:S1989;"&Add a "try/catch" block for "include".(ß‘†¸üÿÿÿÿ8ÄúÎÚ,H®RMINORZVULNERABILITY

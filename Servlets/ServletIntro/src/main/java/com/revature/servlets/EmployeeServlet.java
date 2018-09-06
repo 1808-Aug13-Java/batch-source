@@ -2,6 +2,7 @@ package com.revature.servlets;
 
 //import java.awt.Li
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,8 +24,11 @@ public class EmployeeServlet extends HttpServlet{
 		allEmployees.add(new Employee (321,"Big Jiln","bj@gmail.com"));
 		
 //		ObjectMapper om=new ObjectMapper();
-//		String employeeString=om.writeValueAsString(allEmployees);
-		
+//		String employeeString = om.writeValueAsString(allEmployees);
+//		employeeString = "{\"employees\":"+employeeString+"}";
+//		
+//		PrintWriter pw = response.getWriter();
+//		pw.write(employeeString);
 	}
 		
 		

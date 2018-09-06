@@ -1,0 +1,22 @@
+
+^squid:S1989-"'Add a "try/catch" block for "parseInt".(‚¿Á…8áàÿÖÚ,HûNRMINORZVULNERABILITY
+l
+squid:S106="9Replace this use of System.out or System.err by a logger.(Ã¥²Æ8æîû×Ú,HRRMAJORZ
+CODE_SMELL
+bsquid:S1989$"&Add a "try/catch" block for "forward".(Ì¯öËúÿÿÿÿ8çè‡ÖÚ,HúLRMINORZVULNERABILITY
+q
+squid:S1069"9Replace this use of System.out or System.err by a logger.(¨¶ÑÍşÿÿÿÿ8¬¨ä×Ú,H€RRMAJORZ
+CODE_SMELL
+bsquid:S1989A"+Add a "try/catch" block for "sendRedirect".(£Ä©¦8İ”ı×Ú,H¡RRMINORZVULNERABILITY
+lsquid:S1161"":Add the "@Override" annotation above this method signature(Ïû©ÖûÿÿÿÿH¿GRMAJORZ
+CODE_SMELL
+k
+squid:S106,"9Replace this use of System.out or System.err by a logger.(æï´8Ï Œ×Ú,HªORMAJORZ
+CODE_SMELL
+gsquid:S1161*":Add the "@Override" annotation above this method signature(‹¨¯¿HÀGRMAJORZ
+CODE_SMELL
+csquid:S1135"2Complete the task associated to this TODO comment.(ƒŠ® úÿÿÿÿH¼GRINFOZ
+CODE_SMELL
+bsquid:S1989$"&Add a "try/catch" block for "forward".(Ì¯öËúÿÿÿÿ8çè‡ÖÚ,HùLRMINORZVULNERABILITY
+csquid:S1989."'Add a "try/catch" block for "parseInt".(†›ö…üÿÿÿÿ8ê§şÖÚ,HòNRMINORZVULNERABILITY
+gsquid:S1989D"+Add a "try/catch" block for "sendRedirect".(¢§‘ùûÿÿÿÿ8Íş×Ú,H¥RRMINORZVULNERABILITY

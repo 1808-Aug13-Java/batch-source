@@ -1,54 +1,63 @@
 package com.revature.model;
 
 public class Department {
+
 	private int id;
 	private String name;
-	private int monthlyBudget;
+	private float monthlyBudget;
+	
 	public Department() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	
-	
-	
-	public Department( String name, int salary) {
+
+	public Department(int id, String name, float monthlyBudget) {
 		super();
-		this.name=name;
-		this.monthlyBudget=salary;
+		this.id = id;
+		this.name = name;
+		this.monthlyBudget = monthlyBudget;
 	}
+	
+	public Department(String name, float monthlyBudget) {
+		super();
+		this.name = name;
+		this.monthlyBudget = monthlyBudget;
+	}
+
 	public int getId() {
 		return id;
 	}
+
 	public void setId(int id) {
 		this.id = id;
 	}
+
 	public String getName() {
 		return name;
 	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
-	public int getMonthlyBudget() {
+
+	public float getMonthlyBudget() {
 		return monthlyBudget;
 	}
-	public void setMonthlyBudget(int monthlyBudget) {
+
+	public void setMonthlyBudget(float monthlyBudget) {
 		this.monthlyBudget = monthlyBudget;
 	}
-	public Department(int id, String name, int monthlyBudget) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.monthlyBudget = monthlyBudget;
-	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + id;
-		result = prime * result + monthlyBudget;
+		result = prime * result + Float.floatToIntBits(monthlyBudget);
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		return result;
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -60,7 +69,7 @@ public class Department {
 		Department other = (Department) obj;
 		if (id != other.id)
 			return false;
-		if (monthlyBudget != other.monthlyBudget)
+		if (Float.floatToIntBits(monthlyBudget) != Float.floatToIntBits(other.monthlyBudget))
 			return false;
 		if (name == null) {
 			if (other.name != null)
@@ -69,8 +78,10 @@ public class Department {
 			return false;
 		return true;
 	}
+
 	@Override
 	public String toString() {
 		return "Department [id=" + id + ", name=" + name + ", monthlyBudget=" + monthlyBudget + "]";
 	}
+	
 }

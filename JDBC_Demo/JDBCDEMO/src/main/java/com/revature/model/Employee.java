@@ -10,68 +10,18 @@ public class Employee {
 	private Date hireDate;
 	private String position;
 	private int managerId;
-	private int deptId;
-	private int locationId;
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public Date getBirthday() {
-		return birthday;
-	}
-	public void setBirthday(Date birthday) {
-		this.birthday = birthday;
-	}
-	public float getMonthlySalary() {
-		return monthlySalary;
-	}
-	public void setMonthlySalary(float monthlySalary) {
-		this.monthlySalary = monthlySalary;
-	}
-	public Date getHireDate() {
-		return hireDate;
-	}
-	public void setHireDate(Date hireDate) {
-		this.hireDate = hireDate;
-	}
-	public String getPosition() {
-		return position;
-	}
-	public void setPosition(String position) {
-		this.position = position;
-	}
-	public int getManagerId() {
-		return managerId;
-	}
-	public void setManagerId(int managerId) {
-		this.managerId = managerId;
-	}
-	public int getDeptId() {
-		return deptId;
-	}
-	public void setDeptId(int deptId) {
-		this.deptId = deptId;
-	}
-	public int getLocationId() {
-		return locationId;
-	}
-	public void setLocationId(int locationId) {
-		this.locationId = locationId;
-	}
+	//private int departmentId;
+	private Location location;
+	//private int locationId;
+	private Department department;
+	
 	public Employee() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+
 	public Employee(int id, String name, Date birthday, float monthlySalary, Date hireDate, String position,
-			int managerId, int deptId, int locationId) {
+			int managerId) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -80,24 +30,96 @@ public class Employee {
 		this.hireDate = hireDate;
 		this.position = position;
 		this.managerId = managerId;
-		this.deptId = deptId;
-		this.locationId = locationId;
 	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public Date getBirthday() {
+		return birthday;
+	}
+
+	public void setBirthday(Date birthday) {
+		this.birthday = birthday;
+	}
+
+	public float getMonthlySalary() {
+		return monthlySalary;
+	}
+
+	public void setMonthlySalary(float monthlySalary) {
+		this.monthlySalary = monthlySalary;
+	}
+
+	public Date getHireDate() {
+		return hireDate;
+	}
+
+	public void setHireDate(Date hireDate) {
+		this.hireDate = hireDate;
+	}
+
+	public String getPosition() {
+		return position;
+	}
+
+	public void setPosition(String position) {
+		this.position = position;
+	}
+
+	public int getManagerId() {
+		return managerId;
+	}
+
+	public void setManagerId(int managerId) {
+		this.managerId = managerId;
+	}
+
+	public Location getLocation() {
+		return location;
+	}
+
+	public void setLocation(Location location) {
+		this.location = location;
+	}
+
+	public Department getDepartment() {
+		return department;
+	}
+
+	public void setDepartment(Department department) {
+		this.department = department;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((birthday == null) ? 0 : birthday.hashCode());
-		result = prime * result + deptId;
+		result = prime * result + ((department == null) ? 0 : department.hashCode());
 		result = prime * result + ((hireDate == null) ? 0 : hireDate.hashCode());
 		result = prime * result + id;
-		result = prime * result + locationId;
+		result = prime * result + ((location == null) ? 0 : location.hashCode());
 		result = prime * result + managerId;
 		result = prime * result + Float.floatToIntBits(monthlySalary);
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		result = prime * result + ((position == null) ? 0 : position.hashCode());
 		return result;
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -112,7 +134,10 @@ public class Employee {
 				return false;
 		} else if (!birthday.equals(other.birthday))
 			return false;
-		if (deptId != other.deptId)
+		if (department == null) {
+			if (other.department != null)
+				return false;
+		} else if (!department.equals(other.department))
 			return false;
 		if (hireDate == null) {
 			if (other.hireDate != null)
@@ -121,7 +146,10 @@ public class Employee {
 			return false;
 		if (id != other.id)
 			return false;
-		if (locationId != other.locationId)
+		if (location == null) {
+			if (other.location != null)
+				return false;
+		} else if (!location.equals(other.location))
 			return false;
 		if (managerId != other.managerId)
 			return false;
@@ -139,11 +167,12 @@ public class Employee {
 			return false;
 		return true;
 	}
+
 	@Override
 	public String toString() {
 		return "Employee [id=" + id + ", name=" + name + ", birthday=" + birthday + ", monthlySalary=" + monthlySalary
-				+ ", hireDate=" + hireDate + ", position=" + position + ", managerId=" + managerId + ", deptId="
-				+ deptId + ", locationId=" + locationId + "]";
+				+ ", hireDate=" + hireDate + ", position=" + position + ", managerId=" + managerId + ", location="
+				+ location + ", department=" + department + "]";
 	}
 	
 	

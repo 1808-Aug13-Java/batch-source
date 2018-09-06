@@ -19,7 +19,6 @@ import com.revature.util.ConnectionUtil;
 public class Driver {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 //test the connection and ensure that we can acces our db
 		
 		try {
@@ -27,7 +26,6 @@ public class Driver {
 			Connection con = ConnectionUtil.getConnection();
 			System.out.println(con.getMetaData().getDriverName());
 		} catch (SQLException | IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		

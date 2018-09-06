@@ -1,0 +1,45 @@
+
+zsquid:S2147Ğ"ECombine this catch with the one at line 206, which has the same body.(ï­£Ä8³¿»êÚ,HÉfRMINORZ
+CODE_SMELL
+†squid:S00117)"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Š¶Û8’•ÎäÚ,HĞ]RMINORZ
+CODE_SMELL
+fsquid:S1199P"-Extract this nested code block into a method.(ÒÌâ–øÿÿÿÿ8ºä˜åÚ,Hì^RMINORZ
+CODE_SMELL
+ksquid:S1135¢"2Complete the task associated to this TODO comment.(» æÿÿÿÿÿ8½ÙåèÚ,H‹eRINFOZ
+CODE_SMELL
+psquid:UselessImportCheck	"/Remove this unused import 'java.sql.Statement'.(ÏÖÔø8†Ÿ˜ãÚ,HĞYRMINORZ
+CODE_SMELL
+`squid:S1148¾"#Use a logger to log this exception.(Âşÿâûÿÿÿÿ8»¸éÚ,HµeRMINORZVULNERABILITY
+gsquid:S1199„"-Extract this nested code block into a method.(ÒÌâ–øÿÿÿÿ8»¸éÚ,H±eRMINORZ
+CODE_SMELL
+l
+squid:S106="9Replace this use of System.out or System.err by a logger.(Ø³¸Ë8ø ¬æÚ,HªaRMAJORZ
+CODE_SMELL
+csquid:S00108P")Either remove or fill this block of code.(ÒÌâ–øÿÿÿÿ8ğ£æÚ,HÔ`RMAJORZ
+CODE_SMELL
+fsquid:S1199a"-Extract this nested code block into a method.(ÒÌâ–øÿÿÿÿ8ø©õçÚ,HãbRMINORZ
+CODE_SMELL
+†squid:S00117d"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ïŒó8ñ­ÁèÚ,HˆdRMINORZ
+CODE_SMELL
+‡squid:S00117³"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Š¶Û8½ÙåèÚ,HeRMINORZ
+CODE_SMELL
+asquid:S1481\"-Remove this unused "viewReim" local variable.(†à¦©8º¯èÚ,H–cRMINORZ
+CODE_SMELL
+~squid:S1192!"GDefine a constant instead of duplicating this literal "EMP_ID" 4 times.(‰Áš8½ÙåèÚ,HŠeRCRITICALZ
+CODE_SMELL
+`squid:S1148Ñ"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8³¿»êÚ,HËfRMINORZVULNERABILITY
+‡squid:S00117‡"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ïŒó8»¸éÚ,H³eRMINORZ
+CODE_SMELL
+_squid:S1148S"#Use a logger to log this exception.(½äÁéşÿÿÿÿ8§ß”åÚ,HÀ^RMINORZVULNERABILITY
+`squid:S1148™"#Use a logger to log this exception.(Âşÿâûÿÿÿÿ8½ÙåèÚ,HeRMINORZVULNERABILITY
+ksquid:UselessImportCheck"*Remove this unused import 'java.sql.Date'.(ÙÀ½Ê8†Ÿ˜ãÚ,HÑYRMINORZ
+CODE_SMELL
+_squid:S11486"#Use a logger to log this exception.(Âşÿâûÿÿÿÿ8šæõåÚ,Hî_RMINORZVULNERABILITY
+`squid:S1148Ï"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8³¿»êÚ,HÊfRMINORZVULNERABILITY
+_squid:S1148n"#Use a logger to log this exception.(½äÁéşÿÿÿÿ8ø©õçÚ,HæbRMINORZVULNERABILITY
+_squid:S1148t"#Use a logger to log this exception.(Âşÿâûÿÿÿÿ8òéòãÚ,Hä[RMINORZVULNERABILITY
+`squid:S1148“"#Use a logger to log this exception.(½äÁéşÿÿÿÿ8»¸éÚ,H´eRMINORZVULNERABILITY
+hsquid:EmptyStatementUsageCheck"Remove this empty statement.(É‹ı¢úÿÿÿÿ8İ¾ÖâÚ,H²XRMINORZ
+CODE_SMELL
+`squid:S1148¸"#Use a logger to log this exception.(½äÁéşÿÿÿÿ8½ÙåèÚ,HeRMINORZVULNERABILITY
+_squid:S11480"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8‡¼ÎãÚ,HÚZRMINORZVULNERABILITY

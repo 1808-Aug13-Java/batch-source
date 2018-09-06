@@ -1,21 +1,17 @@
 
-csquid:S1135"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿH¦&RINFOZ
+„squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(¥ØÈ°üÿÿÿÿ8±µîï×,H•?RMAJORZ
 CODE_SMELL
-xsquid:CommentedOutCodeLine*"<This block of commented-out lines of code should be removed.(•Äî H¢&RMAJORZ
+xsquid:CommentedOutCodeLine("<This block of commented-out lines of code should be removed.(•Äî H?RMAJORZ
 CODE_SMELL
-dsquid:S18543"7Remove this useless assignment to local variable "ddi".(¨Ô¡H &RMAJORZ
+}squid:CommentedOutCodeLine2"<This block of commented-out lines of code should be removed.(ëÿ¥úÿÿÿÿH–?RMAJORZ
 CODE_SMELL
-Usquid:S14813"(Remove this unused "ddi" local variable.(¨Ô¡H¤&RMINORZ
+dsquid:S18541"7Remove this useless assignment to local variable "ddi".(¨Ô¡H“?RMAJORZ
 CODE_SMELL
-„squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(¥ØÈ°üÿÿÿÿ8±µîï×,H®/RMAJORZ
+Usquid:S14811"(Remove this unused "ddi" local variable.(¨Ô¡H‘?RMINORZ
+CODE_SMELL
+Xsquid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿH”?RMINORZVULNERABILITY
+}squid:CommentedOutCodeLine!"<This block of commented-out lines of code should be removed.(ë±ÌÕûÿÿÿÿH’?RMAJORZ
 CODE_SMELL
 j
-squid:S106"9Replace this use of System.out or System.err by a logger.(ŸÅØúÿÿÿÿH¥&RMAJORZ
-CODE_SMELL
-}squid:CommentedOutCodeLine4"<This block of commented-out lines of code should be removed.(ëÿ¥úÿÿÿÿH&RMAJORZ
-CODE_SMELL
-}squid:CommentedOutCodeLine#"<This block of commented-out lines of code should be removed.(ë±ÌÕûÿÿÿÿH¡&RMAJORZ
-CODE_SMELL
-Xsquid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿH£&RMINORZVULNERABILITY
-jsquid:S1135"2Complete the task associated to this TODO comment.(» æÿÿÿÿÿ8Ï™úõ×,H¯0RINFOZ
+squid:S106"9Replace this use of System.out or System.err by a logger.(ŸÅØúÿÿÿÿH?RMAJORZ
 CODE_SMELL

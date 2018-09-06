@@ -1,0 +1,19 @@
+
+msquid:S1989="1Add a "try/catch" block for "writeValueAsString".(Èœ†ıÿÿÿÿ8‹äşÔÚ,HØGRMINORZVULNERABILITY
+nsquid:S1161M":Add the "@Override" annotation above this method signature(‹¨¯¿8²Â¬ÏÚ,HíBRMAJORZ
+CODE_SMELL
+]squid:S19896"'Add a "try/catch" block for "parseInt".(ÖæL8‹äşÔÚ,H×GRMINORZVULNERABILITY
+„squid:CommentedOutCodeLine#"<This block of commented-out lines of code should be removed.(¸¯¡ãøÿÿÿÿ8ŠÉşÔÚ,HÓGRMAJORZ
+CODE_SMELL
+ssquid:S1161!":Add the "@Override" annotation above this method signature(Ïû©Öûÿÿÿÿ8²Â¬ÏÚ,HìBRMAJORZ
+CODE_SMELL
+msquid:S1989C"1Add a "try/catch" block for "writeValueAsString".(è‚Çºûÿÿÿÿ8‹äşÔÚ,HÙGRMINORZVULNERABILITY
+squid:CommentedOutCodeLine("<This block of commented-out lines of code should be removed.(²çõ”8ŠÉşÔÚ,HÕGRMAJORZ
+CODE_SMELL
+dsquid:S19892"(Add a "try/catch" block for "getWriter".(“­†·øÿÿÿÿ8‹äşÔÚ,HÖGRMINORZVULNERABILITY
+`squid:S1989N"$Add a "try/catch" block for "doGet".(®Ó‘ûÿÿÿÿÿ8²Â¬ÏÚ,HçBRMINORZVULNERABILITY
+„squid:CommentedOutCodeLine."<This block of commented-out lines of code should be removed.(Ñªïıÿÿÿÿ8‹äşÔÚ,HÚGRMAJORZ
+CODE_SMELL
+`squid:S1989N"$Add a "try/catch" block for "doGet".(®Ó‘ûÿÿÿÿÿ8²Â¬ÏÚ,HèBRMINORZVULNERABILITY
+„squid:CommentedOutCodeLine%"<This block of commented-out lines of code should be removed.(É‚Ò›şÿÿÿÿ8ŠÉşÔÚ,HÔGRMAJORZ
+CODE_SMELL

@@ -1,21 +1,21 @@
 
-…squid:CommentedOutCodeLineÏ"<This block of commented-out lines of code should be removed.(©ÍÇ ÿÿÿÿÿ8ÏæþžØ,HŸ=RMAJORZ
+Šsquid:S3776Â"RRefactor this method to reduce its Cognitive Complexity from 21 to the 15 allowed.(¥ƒ¦¹8òÊ— Ø,Hñ=RCRITICALZ
 CODE_SMELL
-gsquid:S1199í"-Extract this nested code block into a method.(ðÁ–Óûÿÿÿÿ8ë‹úî×,H =RMINORZ
+gsquid:S1199–"-Extract this nested code block into a method.(·ÿ½äûÿÿÿÿ8ë‹úî×,Hï=RMINORZ
 CODE_SMELL
-bsquid:S1199¬"-Extract this nested code block into a method.(ÎÞèº8òÊ— Ø,H¡=RMINORZ
+gsquid:S1199 "-Extract this nested code block into a method.(ðÁ–Óûÿÿÿÿ8×ï™Ø,Hê=RMINORZ
 CODE_SMELL
-gsquid:S1199Ó"-Extract this nested code block into a method.(·ÿ½äûÿÿÿÿ8«¥±è×,H¢=RMINORZ
+¨squid:S2159Ç"zRemove this call to "equals"; comparisons against null always return false; consider using '== null' to check for nullity.(‚‘å8‹Çí¡Ø,Hë=RMAJORZBUG
+gsquid:S1199¨"-Extract this nested code block into a method.(úÀôãùÿÿÿÿ8ë‹úî×,Hí=RMINORZ
 CODE_SMELL
-Šsquid:S3776Â"RRefactor this method to reduce its Cognitive Complexity from 21 to the 15 allowed.(¥ƒ¦¹8òÊ— Ø,H£=RCRITICALZ
+gsquid:S1199í"-Extract this nested code block into a method.(ðÁ–Óûÿÿÿÿ8ë‹úî×,Hç=RMINORZ
 CODE_SMELL
-gsquid:S1199 "-Extract this nested code block into a method.(ðÁ–Óûÿÿÿÿ8×ï™Ø,H¤=RMINORZ
+rsquid:S2583Ç"DChange this condition so that it does not always evaluate to "false"(‚‘å8òÊ— Ø,Hé=RMAJORZBUG
+bsquid:S1199¬"-Extract this nested code block into a method.(ÎÞèº8òÊ— Ø,Hð=RMINORZ
 CODE_SMELL
-¨squid:S2159Ç"zRemove this call to "equals"; comparisons against null always return false; consider using '== null' to check for nullity.(‚‘å8‹Çí¡Ø,H¥=RMAJORZBUG
-gsquid:S1199š"-Extract this nested code block into a method.(úÀôãùÿÿÿÿ8«¥±è×,H¦=RMINORZ
+gsquid:S1199š"-Extract this nested code block into a method.(úÀôãùÿÿÿÿ8«¥±è×,Hì=RMINORZ
 CODE_SMELL
-gsquid:S1199¨"-Extract this nested code block into a method.(úÀôãùÿÿÿÿ8ë‹úî×,H§=RMINORZ
+…squid:CommentedOutCodeLineÏ"<This block of commented-out lines of code should be removed.(©ÍÇ ÿÿÿÿÿ8ÏæþžØ,Hè=RMAJORZ
 CODE_SMELL
-rsquid:S2583Ç"DChange this condition so that it does not always evaluate to "false"(‚‘å8òÊ— Ø,H¨=RMAJORZBUG
-gsquid:S1199–"-Extract this nested code block into a method.(·ÿ½äûÿÿÿÿ8ë‹úî×,H©=RMINORZ
+gsquid:S1199Ó"-Extract this nested code block into a method.(·ÿ½äûÿÿÿÿ8«¥±è×,Hî=RMINORZ
 CODE_SMELL

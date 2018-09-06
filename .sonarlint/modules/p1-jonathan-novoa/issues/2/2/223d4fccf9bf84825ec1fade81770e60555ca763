@@ -1,0 +1,11 @@
+
+Šsquid:UselessImportCheck"DRemove this unused import 'javax.swing.plaf.synth.SynthSeparatorUI'.(àŽó‰üÿÿÿÿ8Å´™æÚ,HŽaRMINORZ
+CODE_SMELL
+„squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Á‰Ç–ÿÿÿÿÿ8åŽ˜æÚ,H‰aRMAJORZ
+CODE_SMELL
+„squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ñ¥ùšøÿÿÿÿ8€µ¼ãÚ,HŒaRMAJORZ
+CODE_SMELL
+asquid:S1481"(Remove this unused "emp" local variable.(ÝÍ Îüÿÿÿÿ8Î•ÚëÚ,H‡gRMINORZ
+CODE_SMELL
+psquid:S1854"7Remove this useless assignment to local variable "emp".(ÝÍ Îüÿÿÿÿ8Î•ÚëÚ,HˆgRMAJORZ
+CODE_SMELL

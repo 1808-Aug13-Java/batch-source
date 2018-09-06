@@ -1,0 +1,10 @@
+
+`squid:S1989"$Add a "try/catch" block for "doGet".(®Ó‘ûÿÿÿÿÿ8×þþ®Ú,HØRMINORZVULNERABILITY
+nsquid:S1161":Add the "@Override" annotation above this method signature(‹¨¯¿8­¯ð®Ú,H¼RMAJORZ
+CODE_SMELL
+dsquid:S1989"(Add a "try/catch" block for "getWriter".(“­†·øÿÿÿÿ8¤¯‚¯Ú,HÜRMINORZVULNERABILITY
+`squid:S1989"$Add a "try/catch" block for "doGet".(®Ó‘ûÿÿÿÿÿ8×þþ®Ú,H×RMINORZVULNERABILITY
+½squid:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(´È®‚ýÿÿÿÿ8¶óí®Ú,H³RCRITICALZ
+CODE_SMELL
+ssquid:S1161":Add the "@Override" annotation above this method signature(´È®‚ýÿÿÿÿ8­¯ð®Ú,H»RMAJORZ
+CODE_SMELL

@@ -17,3 +17,45 @@ c
 3src/main/java/com/revature/dao/LocationDaoImpl.java,f\9\f9a9344a4fbeb40355cb2cd4c31a93de92d6c9a9
 `
 0src/test/java/com/reavture/JDBCDEMO/AppTest.java,1\6\16ca9135158c0926034e32019808416043653d11
+X
+(src/main/resources/connection.properties,a\4\a4f5c1b229ea9b9bd465c383485062d11f4ad316
+R
+"src/main/webapp/Views/Directory.js,7\3\73954a3f72d30f5221529d9a34b73f4c31882342
+a
+1src/main/webapp/Views/Scripts/CreateEmployee.html,8\f\8f3ce0614e116af40d7285c17a94c3b4e1138ca5
+e
+5src/main/java/com/revature/dao/DepartmentDaoImpl.java,d\a\da79db547be77231697300226e5ee42e01f95724
+^
+.src/main/java/com/revature/model/Employee.java,1\5\15593fa50cce9322763b7c1475568fb478ee279a
+^
+.src/main/java/com/revature/model/Location.java,1\9\19b8553fbf64de8d1498b8051bd62af19375b7a6
+b
+2src/main/java/com/revature/util/RequestHelper.java,9\2\92caca6ec4007e8b0bae359c7a9e74fee9cff399
+O
+src/main/webapp/Views/Home.html,c\5\c54c3964ff88df5668b6ee35eea24d57e7135a1c
+f
+6src/main/java/com/revature/servlets/MasterServlet.java,5\7\5798b8a50b0f23bd3016a0a29b6c9f6824a9fe3c
+O
+src/main/webapp/WEB-INF/web.xml,2\e\2e22b6edd746fa3dc40ad7276c87c8d87d72a392
+e
+5src/main/java/com/revature/servlets/ErrorServlet.java,4\8\48d4fe12059fdd1d173123b5fab80a8af5194ee5
+g
+7src/main/java/com/revature/servlets/SuccessServlet.java,e\7\e7efe8db57c9e003991034feef1b1d6b508d5001
+k
+;src/main/java/com/revature/servlets/NewEmployeeServlet.java,1\6\16aa26e2c7f17f5b1537375d1ea94bc92d59f247
+R
+"src/main/webapp/Views/Success.html,6\8\68e87328a5f46411d53df002229e5703210e44e9
+P
+ src/main/webapp/Views/Error.html,e\4\e44d2e80e9e4078480c0e451c05b7cca4f5c2978
+f
+6src/main/java/com/revature/servlets/LogoutSession.java,e\4\e452fc95d6fdaedd815968a593bdba6130e1ebcd
+i
+9src/main/java/com/revature/servlets/DirectoryServlet.java,c\9\c963df4f5e30644802f3c492e558a1fae3c626b1
+h
+8src/main/java/com/revature/servlets/EmployeeServlet.java,4\2\424239e7348bb40cb74b449b8f64a6bbab20cebf
+Z
+*src/main/webapp/Views/Scripts/Directory.js,1\f\1f718ead581523ca8c83968e2ed1c87689af01a3
+T
+$src/main/webapp/Views/Directory.html,e\c\ecf3b448b351419c0664b9671f5662a3488b2919
+Y
+)src/main/webapp/Views/CreateEmployee.html,8\9\8941c93ce382ffa69afc08c9833f16cc6d0b8e75

@@ -1,0 +1,13 @@
+
+Œsquid:S3973e"WUse curly braces or indentation to denote the code conditionally executed by this "if".( °òŠùÿÿÿÿH»KRCRITICALZ
+CODE_SMELL
+Œsquid:S3973Y"WUse curly braces or indentation to denote the code conditionally executed by this "if".(İÔ¦îüÿÿÿÿH¿KRCRITICALZ
+CODE_SMELL
+†squid:S3973`"WUse curly braces or indentation to denote the code conditionally executed by this "if".(ô˜ZH¼KRCRITICALZ
+CODE_SMELL
+‚squid:S3776N"RRefactor this method to reduce its Cognitive Complexity from 17 to the 15 allowed.(ÜÑãH½KRCRITICALZ
+CODE_SMELL
+csquid:S1135"2Complete the task associated to this TODO comment.(ƒŠ® úÿÿÿÿH¾KRINFOZ
+CODE_SMELL
+msquid:S1126g"AReplace this if-then-else statement by a single return statement.(Î¬¶HÀKRMINORZ
+CODE_SMELL

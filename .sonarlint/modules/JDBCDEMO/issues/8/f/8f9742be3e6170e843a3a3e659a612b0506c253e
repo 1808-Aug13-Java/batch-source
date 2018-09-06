@@ -1,7 +1,8 @@
 
-ysquid:UselessImportCheck":Remove this unused import 'java.io.FileNotFoundException'.(·î™ùÿÿÿÿHŞ/RMINORZ
+usquid:UselessImportCheck"4Remove this unused import 'java.io.FileInputStream'.(˜³ÉÓ8æŠÕÏÚ,H¡DRMINORZ
 CODE_SMELL
-}squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ş·àùÿÿÿÿHİ/RMAJORZ
+gsquid:S1118":Add a private constructor to hide the implicit public one.(ò°ªH¢CRMAJORZ
 CODE_SMELL
-gsquid:S1118":Add a private constructor to hide the implicit public one.(ò°ªHÜ/RMAJORZ
+_squid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8æŠÕÏÚ,H£DRMINORZVULNERABILITY
+qsquid:UselessImportCheck"0Remove this unused import 'java.io.InputStream'.(¹»º8æŠÕÏÚ,H¢DRMINORZ
 CODE_SMELL

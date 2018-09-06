@@ -1,0 +1,12 @@
+
+csquid:S1135-"2Complete the task associated to this TODO comment.(» æÿÿÿÿÿH›TRINFOZ
+CODE_SMELL
+gsquid:S1161,":Add the "@Override" annotation above this method signature(‹¨¯¿HTRMAJORZ
+CODE_SMELL
+csquid:S1135"2Complete the task associated to this TODO comment.(ƒŠ® úÿÿÿÿHšTRINFOZ
+CODE_SMELL
+dsquid:S1989""(Add a "try/catch" block for "getWriter".(“­†·øÿÿÿÿ8Ö»ÈÚÚ,HùTRMINORZVULNERABILITY
+Ysquid:S1989."$Add a "try/catch" block for "doGet".(®Ó‘ûÿÿÿÿÿH™TRMINORZVULNERABILITY
+Ysquid:S1989."$Add a "try/catch" block for "doGet".(®Ó‘ûÿÿÿÿÿH˜TRMINORZVULNERABILITY
+lsquid:S1161":Add the "@Override" annotation above this method signature(Ïû©ÖûÿÿÿÿHTRMAJORZ
+CODE_SMELL

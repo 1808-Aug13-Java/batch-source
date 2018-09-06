@@ -8,16 +8,16 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class CorrectLogin extends HttpServlet{
-	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException,IOException{
-		
+public class CorrectLogin extends HttpServlet {
+	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
 	}
-	
-	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-		doGet(request,response);
-		PrintWriter pw=response.getWriter();
-		String right=(String) request.getAttribute("correct");
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		doGet(request, response);
+		PrintWriter pw = response.getWriter();
+		String right = (String) request.getAttribute("correct");
 		pw.write(right);
 	}
 

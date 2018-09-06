@@ -31,7 +31,7 @@ public class LocationDaoImpl implements LocationDao{
 					{
 					Location l = new Location();
 					int locId= rs.getInt("LOC_ID");
-					l.setid(locId);
+					l.setId(locId);
 					
 					String street=rs.getString("STREET");
 					l.setStreet(street);

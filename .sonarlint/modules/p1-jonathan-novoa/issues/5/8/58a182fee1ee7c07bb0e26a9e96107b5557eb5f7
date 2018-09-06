@@ -1,0 +1,8 @@
+
+usquid:UselessImportCheck"4Remove this unused import 'java.io.FileInputStream'.(˜³ÉÓ8’ëÍâÚ,HÓWRMINORZ
+CODE_SMELL
+_squid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8’ëÍâÚ,HÕWRMINORZVULNERABILITY
+qsquid:UselessImportCheck"0Remove this unused import 'java.io.InputStream'.(¹»º8’ëÍâÚ,HÔWRMINORZ
+CODE_SMELL
+nsquid:S1118":Add a private constructor to hide the implicit public one.(ò°ª8†Ä¼¼Ú,HŒ?RMAJORZ
+CODE_SMELL
