@@ -1,0 +1,56 @@
+"use strict";
+exports.__esModule = true;
+var user_1 = require("./user");
+var account_1 = require("./account");
+var users = [
+    new user_1.User('Carl', 'password36'),
+    new user_1.User('John', 'pass1'),
+    new user_1.User('Bill', 'h*^352xksh')
+];
+//for(let user of users) {
+//    console.log(user.username+", " +user.password);
+//}
+//console.log("Hello from main")
+users[0].accounts = [
+    new account_1.Account(500, 'checking'),
+    new account_1.Account(800, 'saving')
+];
+users[1].accounts = [
+    new account_1.Account(450, 'checking'),
+    new account_1.Account(850, 'saving')
+];
+users[2].accounts = [
+    new account_1.Account(325, 'checking'),
+    new account_1.Account(250, 'saving')
+];
+var readline = require('readline'); // typescript does not recognize thiss, but its ok
+var rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
+var username;
+var password;
+var loggedUser;
+getUsername();
+function getUsername() {
+    rl.question("Iinput your username:", function (answer) {
+        username = answer;
+        getPassword();
+    }); // use to read line of input
+}
+function getPassword() {
+    rl.question("Input your password:", function (answer) {
+        password = answer;
+        login();
+    });
+}
+function login() {
+    loggedUser = users.filter(function (user) { return user.login(username, password); })[0];
+    if (loggedUser) {
+        console.log("welcome tothe bank");
+    }
+    else {
+        console.log("invalid credentials, please try again");
+        getUsername();
+    }
+}
