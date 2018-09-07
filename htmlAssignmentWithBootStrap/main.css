@@ -1,0 +1,97 @@
+body{
+    background-color: #F4ACB7;
+}
+h1{
+    color: #FFCAD4;
+    text-shadow: -1px 0 #9D8189, 0 1px #9D8189, 
+    1px 0 #9D8189, 0 -1px #9D8189;
+}
+
+h4{
+    color: #9D8189;
+}
+div{
+    width: 45%;
+    margin-left:  auto; 
+    margin-right: auto;
+}
+#NameTable{
+    float: center;
+    width: 100%;
+    padding-bottom: 10%;
+    padding-top: 10%;
+}
+.starter{
+    float: left;
+    width: 25%;
+    padding-bottom: 5%;
+}
+.input{
+    float: center;
+    width: 35%;
+}
+
+
+.fight_run{
+    float: left;
+    width: 15%;
+    padding-bottom: 5%;
+    padding-right: 5%;
+    padding-left: 10%;
+    padding-top: 5%;
+}
+
+table, th, td {
+    
+    color: #9D8189;
+    border: 3px solid #FFCAD4;
+}
+
+#Elm{
+    position: relative;
+}
+
+
+#starterTotadile{
+    display: block;
+}
+
+#starterCyndaquil{
+    position: relative;
+}
+
+#cyndaquil{
+    position: relative;
+}
+
+#starterChikorita{
+    position: relative;
+}
+
+#chikorita{
+    position: relative;
+}
+
+.text{
+    color: #9D8189;
+}
+
+#choosePkm{
+    color: #9D8189;
+
+}
+
+#fight{
+    color: #9D8189;
+
+}
+
+select{
+    color: #9D8189;
+    background-color: #FFE5D9;
+}
+
+input{
+    color: #9D8189;
+    background-color: #FFE5D9;
+}

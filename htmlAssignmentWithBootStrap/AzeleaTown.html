@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Azalea Town</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+</head>
+
+<body>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="pokemon.html">Home</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="CherryGroveCity.html">Cherrygrove City <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="AzeleaTown.html">Azalea Town</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="VioletCity.html">Violet City</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="VioletCityGym.html">Violet City Gym</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+    <div>
+        <h1>Welcome to Azalea Town</h1>
+    </div>
+    <div>
+        <p class="text">
+            Name that pokemon?!
+        </p>
+        <div id="NameTable">
+            <table class="table">
+                <form method="post" action="CherryGroveCity.html">
+                    <tr>
+                        <th><img id="mimkyu" src="https://cdn.bulbagarden.net/upload/thumb/9/9b/778Mimikyu.png/375px-778Mimikyu.png"
+                                alt="no cheating!" height="200"></th>
+                        <th>
+                            <input type="radio" name="ans" value="pickachu"> pickachu<br>
+                            <input type="radio" name="ans" value="mimikyu"> mimkyu<br>
+                            <input type="radio" name="ans" value="other"> zelda
+                        </th>
+                    </tr>
+                    <tr>
+                        <td><img id="chandelure" src="https://cdn.bulbagarden.net/upload/thumb/6/65/609Chandelure.png/375px-609Chandelure.png"
+                                alt="No cheating" height="200"></td>
+                        <td><input type="text" name="ans2"><br></td>
+                    </tr>
+                </form>
+            </table>
+            <a href="AzeleaTown.html" class="btn btn-default">Submit answers!</a>
+        </div>
+    </div>
+    <div>
+        <img id="beedrill" src="https://cdn.bulbagarden.net/upload/thumb/6/61/015Beedrill.png/375px-015Beedrill.png" alt="Beedrill"
+            height="200">
+        <img id="heracross" src="https://cdn.bulbagarden.net/upload/thumb/4/47/214Heracross.png/375px-214Heracross.png" alt="Heracross"
+            height="200">
+        <p class="text">Look out it's a double battle! A Beedrill and Heracross attack!!!</p>
+    </div>
+
+    <div>
+            <div class="container">
+                <a href="VioletCity.html" class="btn btn-default">Battle!</a>
+            </div>
+            <div class="container">
+                <a href="CherryGroveCity.html" class="btn btn-default">Super Run Away!</a>
+            </div>
+        </div>
+</body>
+
+</html>
