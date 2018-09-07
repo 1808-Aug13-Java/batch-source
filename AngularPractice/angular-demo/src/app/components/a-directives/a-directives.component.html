@@ -1,0 +1,21 @@
+<form>
+  <div>
+    <input type="checkbox" (click)='disableDropdown()' name='check'>
+  </div>
+  <label>Change Color: </label> <br>
+  <select *ngIf='check' [(ngModel)]='selectedColor' name='selectedColor'>
+    <option *ngFor='let color of colors' [value]='color'>
+      {{ color }}
+    </option>
+  </select>
+  <br>
+  <label>Change Format: </label> <br>
+  <select multiple (change)='updateClasses($event)'>
+    <option *ngFor='let class of classes' [value]='class'>{{class}}</option>
+  </select>
+</form>
+
+
+<p [ngClass]='selectedClasses' [ngStyle]="{'color': selectedColor}">color: {{selectedColor}}</p>
+
+<!-- create a checkbox enabled by default. When it's checked you can select, otherwise you can't-->
