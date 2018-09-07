@@ -22,7 +22,8 @@ import { appRoutes } from './routes';
 import { NavComponent } from './components/nav/nav.component';
 import { DirectivesComponent } from './components/directives/directives.component';
 import { HighlightComponent } from './components/highlight/highlight.component';
-import { AssignmentComponent } from './components/assignment/assignment.component';// Need to import the routes
+import { AssignmentComponent } from './components/assignment/assignment.component';
+import { PostDetailsComponent } from './components/post-details/post-details.component';// Need to import the routes
 
 @NgModule({
   declarations: [// Include any components one will use here
@@ -39,7 +40,7 @@ import { AssignmentComponent } from './components/assignment/assignment.componen
 	HttpExampleComponent, 
 	NavComponent, 
 	DirectivesComponent, 
-	HighlightComponent, AssignmentComponent,
+	HighlightComponent, AssignmentComponent, PostDetailsComponent,
   ],
   imports: [ // External Modules
 	BrowserModule,

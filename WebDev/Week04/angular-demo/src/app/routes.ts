@@ -9,6 +9,7 @@ import { DatabindComponent } from './components/databind/databind.component';
 import { DirectivesComponent } from './components/directives/directives.component';
 import { AssignmentComponent } from './components/assignment/assignment.component';
 import { HighlightComponent } from './components/highlight/highlight.component';
+import { PostDetailsComponent } from './components/post-details/post-details.component';
 
 // An array of Routes, which contains a Path, and a Component
 // This is used to rout different components/ display different 
@@ -31,6 +32,10 @@ export const appRoutes: Routes = [
 	{
 		path: 'posts',
 		component: HttpExampleComponent
+	}, 
+	{
+		path: 'posts/:id',
+		component: PostDetailsComponent
 	}, 
 	{
 		path: 'clicker',

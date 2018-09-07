@@ -17,4 +17,9 @@ export class PostService {
 	getPosts(): Observable<Post[]> {
 		return this.http.get<Post[]>(this.URL);
 	}
+
+	// Gets a json from a web service. Uses our custom 'Post' inteface in the modules folder. 
+	getPost(id: number): Promise<Post> {
+		return this.http.get<Post>(this.URL+"/"+id).toPromise();
+	}
 }
