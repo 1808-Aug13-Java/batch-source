@@ -1,16 +1,16 @@
 package com.revature.reim.dao;
 
+import java.util.List;
+
+import com.revature.reim.model.Employee;
+import com.revature.reim.model.Reimbursement;
+
 public interface ManagerDao {
-	
-	public void viewAllEmployees();
-	public void getPendingRequest();
-	public void getResolvedRequest();
-	public int denyRequest();
-	public int approveRequest();
-	public void getAllEmployees();
-	public void getReimbursementsByEmp();
-	public void createEmployee();
-	public void createManager();
-	
-	
+//isMan=1
+	public List<Employee> viewAllEmployees();//done
+	public List<Reimbursement> viewAllRequest(int i);//1 for pending, 2 for resolved, done
+	public int resolveRequest(int empId,int reim,int manId, int action);//1 approve,2 deny
+	public List<Reimbursement> getReimbursementsByEmp(int empId);//done
+	public void createEmployee(String fname,String lname,String emial,String pass,int isMan);
+	//only need create
 }

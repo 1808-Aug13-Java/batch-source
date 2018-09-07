@@ -19,10 +19,6 @@ c
 0src/test/java/com/reavture/JDBCDEMO/AppTest.java,1\6\16ca9135158c0926034e32019808416043653d11
 X
 (src/main/resources/connection.properties,a\4\a4f5c1b229ea9b9bd465c383485062d11f4ad316
-R
-"src/main/webapp/Views/Directory.js,7\3\73954a3f72d30f5221529d9a34b73f4c31882342
-a
-1src/main/webapp/Views/Scripts/CreateEmployee.html,8\f\8f3ce0614e116af40d7285c17a94c3b4e1138ca5
 e
 5src/main/java/com/revature/dao/DepartmentDaoImpl.java,d\a\da79db547be77231697300226e5ee42e01f95724
 ^

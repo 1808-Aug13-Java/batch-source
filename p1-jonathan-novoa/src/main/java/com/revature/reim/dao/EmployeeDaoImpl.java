@@ -21,28 +21,21 @@ public class EmployeeDaoImpl implements EmployeeDao {
 	@Override
 	public int logIn(String username,String password) {
 		int result=0;
-		List<Employee> allEmployees = new ArrayList<>();
 		Map<String,String> credentials= new HashMap<>();
+		Map<String,Integer> isManMap=new HashMap<>();
+		
 		String sql = "SELECT * FROM EMPLOYEES";
 		ResultSet rs = null;
 		try (Connection con = ConnectionUtil.getConnection(); PreparedStatement ps = con.prepareStatement(sql);) {
 
 			rs = ps.executeQuery();
 			while (rs.next()) {
-				Employee emp = new Employee();
-				int employeeId = rs.getInt("EMP_ID");
-				emp.setEmployeeID(employeeId);
-				String firstName = rs.getString("FIRST_NAME");
-				emp.setFirstName(firstName);
-				String lastName = rs.getString("LAST_NAME");
-				emp.setLastName(lastName);
 				String email = rs.getString("EMAIL");
-				emp.setEmail(email);
 				String e_key = rs.getString("E_KEY");
-				emp.setE_key(e_key);
+				int is=rs.getInt("IS_MANAGER");
+				
 				credentials.put(email, e_key);
-				allEmployees.add(emp);
-
+				isManMap.put(email, is);
 			}
 		} catch (SQLException | IOException e) {
 			e.printStackTrace();
@@ -58,6 +51,10 @@ public class EmployeeDaoImpl implements EmployeeDao {
 			if(!credentials.isEmpty() && credentials.containsKey(username) ) {
 				String current= credentials.remove(username);
 				result =(current.equals(password))? 1:0;
+				int man=isManMap.remove(username);
+				if(result==1 && man==1 ) {
+					result=2;
+				}
 				System.out.println("credentials check ran, username exists");
 			}
 		return result;
@@ -86,13 +83,15 @@ public class EmployeeDaoImpl implements EmployeeDao {
 	}
 
 	@Override
-	public List<Reimbursement> viewPendingReimbursments(int id) {
-		String sql = "SELECT * FROM REIM WHERE EMP_ID=? AND RESOLUTION='PENDING'";
+	public List<Reimbursement> viewReimbursments(int empId, int choice) {
+		String pending = "SELECT * FROM REIM WHERE EMP_ID=? AND RESOLUTION='PENDING'";
+		String resolved= "SELECT * FROM REIM WHERE EMP_ID=? AND RESOLUTION='APPROVED'";
+		String sql= (choice==1)? pending:resolved;
 		List<Reimbursement> pendingReim=new ArrayList<>();
 		int viewReim = 0;
 		ResultSet rs=null;
 		try (Connection con = ConnectionUtil.getConnection(); PreparedStatement ps = con.prepareStatement(sql);) {
-			ps.setInt(1, id);
+			ps.setInt(1, empId);
 			rs=ps.executeQuery();
 			{
 				while(rs.next()) {
@@ -103,6 +102,10 @@ public class EmployeeDaoImpl implements EmployeeDao {
 					current.setResolution(reso);
 					String status=rs.getString("STATUS");
 					current.setStatus(status);
+					double amt=rs.getDouble("AMOUNT");
+					current.setAmount(amt);
+					int reimId=rs.getInt("REIM_ID");
+					current.setReimId(reimId);
 					pendingReim.add(current);
 				}
 			}
@@ -122,44 +125,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
 	}
 
 	@Override
-	public List<Reimbursement> viewResolvedReimbursements(int id) {
-		List<Reimbursement> resReim = new ArrayList<>();
-		String sql = "SELECT * FROM REIM WHERE EMP_ID=? AND STATUS='RESOLVED'";
-		ResultSet rs=null;
-		try (Connection con = ConnectionUtil.getConnection(); PreparedStatement ps = con.prepareStatement(sql);) {
-			ps.setInt(1, id);
-			rs=ps.executeQuery();
-			{
-				while(rs.next()) {
-					Reimbursement current= new Reimbursement();
-					int new_id= rs.getInt("EMP_ID");
-					current.setEmpId(new_id);
-					String reso= rs.getString("RESOLUTION");
-					current.setResolution(reso);
-					int manid= rs.getInt("MANAGER_ID");
-					current.setManID(manid);
-					String status=rs.getString("STATUS");
-					current.setStatus(status);
-					resReim.add(current);
-				}
-			}
-		} catch (IOException | SQLException p) {
-			p.printStackTrace();
-		} finally {
-			if (rs != null) {
-				try {
-					rs.close();
-				} catch (SQLException e1) {
-					e1.printStackTrace();
-				}
-			}
-		}
-		return resReim;
-	}
-
-	@Override
 	public Employee viewProfile(int id) {
-		// TODO Auto-generated method stub
 		String sql = "SELECT * FROM EMPLOYEES WHERE EMP_ID=?";
 		Employee e = new Employee();
 		ResultSet rs = null;
@@ -178,8 +144,10 @@ public class EmployeeDaoImpl implements EmployeeDao {
 				e.setEmail(email);
 				String e_key = rs.getString("E_KEY");
 				e.setE_key(e_key);
+				int man=rs.getInt("IS_MANAGER");
+				e.setIsMan(man);
 			}
-
+			
 		} catch (IOException | SQLException p) {
 			p.printStackTrace();
 		} finally {

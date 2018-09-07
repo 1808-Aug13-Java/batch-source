@@ -1,12 +1,0 @@
-
-javascript:S2583"lChange this condition so that it does not always evaluate to "true"; some subsequent code is never executed.(¦¡µÊ8¶ƒ³ĞÚ,H‡ERMAJORZBUG
-¡javascript:S2703"aAdd the "let", "const" or "var" keyword to this declaration of "employeeArr" to make it explicit.(¶„†Îıÿÿÿÿ8úœ½ĞÚ,H™ERBLOCKERZ
-CODE_SMELL
-”javascript:S2703"YAdd the "let", "const" or "var" keyword to this declaration of "loc" to make it explicit.(®·˜Ï8ÖåĞÚ,H»ERBLOCKERZ
-CODE_SMELL
-—javascript:S2703"WAdd the "let", "const" or "var" keyword to this declaration of "i" to make it explicit.(Şïç¿üÿÿÿÿ8«õ½ĞÚ,H›ERBLOCKERZ
-CODE_SMELL
-Ÿjavascript:S2703"_Add the "let", "const" or "var" keyword to this declaration of "employees" to make it explicit.(çÅŒØùÿÿÿÿ8Õõ¿ĞÚ,HœERBLOCKERZ
-CODE_SMELL
-šjavascript:S2703$"ZAdd the "let", "const" or "var" keyword to this declaration of "dept" to make it explicit.(¦‹šªüÿÿÿÿ8ŒïèĞÚ,HèERBLOCKERZ
-CODE_SMELL

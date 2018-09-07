@@ -7,24 +7,28 @@ public class Employee {
 	private String lastName;
 	private String email;
 	private String e_key;
+	private int isMan;
 
 	public Employee() {
 		super();
 	}
 	
-	public Employee(int employeeID, String firstName, String lastName, String email, String e_key) {
+	public Employee(int employeeID, String firstName, String lastName, String email, String e_key,int isMan) {
 		super();
 		this.employeeID = employeeID;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
 		this.e_key = e_key;
+		this.isMan=isMan;
 	}
+
+
 
 	@Override
 	public String toString() {
 		return "Employee [employeeID=" + employeeID + ", firstName=" + firstName + ", lastName=" + lastName + ", email="
-				+ email + ", e_key=" + e_key + "]";
+				+ email + ", e_key=" + e_key + ", isMan=" + isMan + "]";
 	}
 
 	@Override
@@ -35,6 +39,7 @@ public class Employee {
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
 		result = prime * result + employeeID;
 		result = prime * result + ((firstName == null) ? 0 : firstName.hashCode());
+		result = prime * result + isMan;
 		result = prime * result + ((lastName == null) ? 0 : lastName.hashCode());
 		return result;
 	}
@@ -65,12 +70,22 @@ public class Employee {
 				return false;
 		} else if (!firstName.equals(other.firstName))
 			return false;
+		if (isMan != other.isMan)
+			return false;
 		if (lastName == null) {
 			if (other.lastName != null)
 				return false;
 		} else if (!lastName.equals(other.lastName))
 			return false;
 		return true;
+	}
+
+	public int getIsMan() {
+		return isMan;
+	}
+
+	public void setIsMan(int isMan) {
+		this.isMan = isMan;
 	}
 
 	public int getEmployeeID() {

@@ -7,8 +7,6 @@ f
 6src/main/java/com/revature/reim/util/package-info.java,1\b\1b9500ebb3b9d67de97f97dea7943d38ac782c7a
 j
 :src/main/java/com/revature/reim/servlets/package-info.java,c\d\cd44bd65023800ec3f437bdd2170dcb964c55162
-S
-#src/main/java/connection.properties,c\a\ca7935dbd16793171580ca278c9f2c902ae763ed
 O
 src/main/webapp/WEB-INF/web.xml,2\e\2e22b6edd746fa3dc40ad7276c87c8d87d72a392
 g

@@ -1,0 +1,8 @@
+
+<!-- 
+<span class="glyico glyphicon-star"></span> -->
+
+<span [ngClass]='clazz' (click)='clickStar()'></span>
+
+<span class='glyphicon' [class.glyphicon-star]='isFavorite' 
+[class.glyphicon-star-empty]='!isFavorite' (click)='onClickChange()'></span>

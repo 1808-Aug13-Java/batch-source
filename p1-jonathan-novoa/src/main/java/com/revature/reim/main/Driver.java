@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import javax.swing.plaf.synth.SynthSeparatorUI;
 
 import com.revature.reim.dao.EmployeeDaoImpl;
+import com.revature.reim.dao.ManagerDaoImpl;
 import com.revature.reim.util.ConnectionUtil;
 
 public class Driver {
@@ -20,13 +21,19 @@ public class Driver {
 //		}
 //		Database connection successful for far
 		EmployeeDaoImpl emp= new EmployeeDaoImpl();
+		ManagerDaoImpl manEmp= new ManagerDaoImpl();
 		
 //		System.out.println(emp.viewProfile(1));
-//		System.out.println(emp.logIn("smarguy@hotmail.com","pass123"));	
-//		System.out.println(emp.submitReimbursement(2, 3000.49)); 
-//		System.out.println(emp.viewPendingReimbursments(1));
-//		System.out.println(emp.viewResolvedReimbursements(1));
-//		System.out.println(emp.changeProfile(1, "admin"));
+		
+//		System.out.println(emp.logIn("smartguy@hotmail.com","pass123"));	
+//		System.out.println(emp.submitReimbursement(2, 3434.99)); 
+//		System.out.println(emp.viewReimbursments(1,1));
+//		System.out.println(emp.changeProfile(1, "pass123"));
+//		System.out.println(manEmp.viewAllEmployees());
+//		System.out.println(manEmp.viewAllRequest(1));
+//		System.out.println(manEmp.getReimbursementsByEmp(1));
+//		System.out.println(manEmp.resolveRequest(2, 4, 2, 2));
+		
 		
 		
 		
