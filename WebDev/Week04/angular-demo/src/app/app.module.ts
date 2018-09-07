@@ -20,7 +20,9 @@ import { RouterModule } from '../../node_modules/@angular/router';
 
 import { appRoutes } from './routes';
 import { NavComponent } from './components/nav/nav.component';
-import { DirectivesComponent } from './components/directives/directives.component';// Need to import the routes
+import { DirectivesComponent } from './components/directives/directives.component';
+import { HighlightComponent } from './components/highlight/highlight.component';
+import { AssignmentComponent } from './components/assignment/assignment.component';// Need to import the routes
 
 @NgModule({
   declarations: [// Include any components one will use here
@@ -34,7 +36,10 @@ import { DirectivesComponent } from './components/directives/directives.componen
 	PipeDemoComponent, 
 	ConvertToSpacePipe, 
 	CapitalizerPipe, 
-	HttpExampleComponent, NavComponent, DirectivesComponent,
+	HttpExampleComponent, 
+	NavComponent, 
+	DirectivesComponent, 
+	HighlightComponent, AssignmentComponent,
   ],
   imports: [ // External Modules
 	BrowserModule,
