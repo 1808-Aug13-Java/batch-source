@@ -1,0 +1,5 @@
+<div>
+  <button class="btn btn-primary" (click)='increment(1)'>Increment</button>
+  <!-- <p [class.myClass]="count%5==0" >Counter: {{count}}</p> -->
+  <p [ngClass]="{'myClass': count%5==0}" >Counter: {{count}}</p>
+</div>  

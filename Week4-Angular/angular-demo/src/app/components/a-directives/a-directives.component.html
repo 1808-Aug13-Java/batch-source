@@ -1,0 +1,10 @@
+<form>
+  <select [(ngModel)]='selectedColor' name='selectedColor' >
+    <option *ngFor='let color of colors' [value]='color'>
+      {{ color }}
+    </option>
+  </select>
+
+</form>
+
+<p [ngStyle]="{'color': selectedColor}">color: {{selectedColor}}</p>
