@@ -1,5 +1,6 @@
 package com.revature.util;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import com.revature.dao.EmpDaoImpl;
@@ -22,6 +23,15 @@ public class SessionHelper {
 	
 	public void removeLoginFromSession(HttpSession session) {
 		session.removeAttribute("login");
+	}
+	
+	public boolean checkValidUser(HttpServletRequest request) {
+		boolean foundUser = false;
+		HttpSession session = request.getSession(false);
+		if(session != null && session.getAttribute("email") != null) {
+			foundUser = true;
+		}
+		return foundUser;
 	}
 
 }

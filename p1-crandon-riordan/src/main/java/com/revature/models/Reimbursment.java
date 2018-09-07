@@ -12,8 +12,29 @@ public class Reimbursment {
 	private String reason;
 	private String imageUrl;
 	private Date dateCreated;
+	private Employee employee;
+	private Employee manager;
 	
-	
+	public Employee getEmployee() {
+		return employee;
+	}
+
+
+	public void setEmployee(Employee employee) {
+		this.employee = employee;
+	}
+
+
+	public Employee getManager() {
+		return manager;
+	}
+
+
+	public void setManager(Employee manager) {
+		this.manager = manager;
+	}
+
+
 	public Reimbursment() {
 		super();
 	}

@@ -20,10 +20,10 @@ public class LoginHandlerServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
 		String destination = helper.process(request);
-		
+		SessionHelper sh = new SessionHelper();
 		HttpSession session = request.getSession();
 		if(destination.equals("login")) {
-			
+			sh.addInvalidLoginToSession(session);
 			response.sendRedirect(destination);
 		} else {
 			session.setAttribute("email", request.getParameter("email"));

@@ -7,7 +7,7 @@ public class LogoutHelper {
 
 	public void invalidate(HttpServletRequest request) {
 		HttpSession session = request.getSession(false);
-		if(session != null || session.getAttribute("email") != null) {
+		if(session != null) {
 			session.invalidate();
 		}
 	}

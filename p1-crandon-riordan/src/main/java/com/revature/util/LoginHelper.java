@@ -22,8 +22,9 @@ public class LoginHelper {
 		String password = request.getParameter("password").replace("\n", "").replace("\r", "");
 		String hashedPassword = hasher.getHashPassword(password);
 		String empPassword = e.getPassword().replace("\n", "").replace("\r", "");
-		
+		// if authentication successfull
 		if(hashedPassword.equals(empPassword)) {
+			
 			if (e.getIsManager() == 0) {
 				// not a manager
 				return "employeeHome";

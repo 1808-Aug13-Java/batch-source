@@ -234,7 +234,7 @@ public class ReimbursmentDaoImpl implements ReimbursmentDao {
 				PreparedStatement ps = con.prepareStatement(sql);
 				) {
 			ps.setInt(1, id);
-			rs = ps.executeQuery(sql);
+			rs = ps.executeQuery();
 			while(rs.next()) {
 				Reimbursment reimbursment = new Reimbursment();
 				reimbursment.setReimbursmentId(rs.getInt("REIMBURSMENT_ID"));
@@ -247,6 +247,7 @@ public class ReimbursmentDaoImpl implements ReimbursmentDao {
 				reimbursments.add(reimbursment);
 			}
 		} catch (SQLException | IOException e) {
+			e.printStackTrace();
 			logger.info(e.getMessage());
 		} finally {
 			if(rs != null) {
@@ -301,7 +302,7 @@ public class ReimbursmentDaoImpl implements ReimbursmentDao {
 		
 		ResultSet rs = null;
 		String sql = "SELECT * FROM REIMBURSMENT WHERE "
-				+ "CURRENT_STATE = 'APPROVED' OR CURRENT_STATE = 'DENIED'";
+				+ "UPPER(CURRENT_STATE) = 'APPROVED' OR UPPER(CURRENT_STATE) = 'DENIED'";
 		try(Connection con = ConnectionUtil.getConnection();
 				Statement s = con.createStatement();
 				) {
@@ -312,7 +313,7 @@ public class ReimbursmentDaoImpl implements ReimbursmentDao {
 				reimbursment.setEmployeeId(rs.getInt("EMPLOYEE_ID"));
 				reimbursment.setCurrentState(rs.getString("CURRENT_STATE"));
 				reimbursment.setDateCreated(rs.getDate("DATE_CREATED"));
-				reimbursment.setImageUrl(rs.getString("image_URL"));
+				reimbursment.setImageUrl(rs.getString("IMAGE_URL"));
 				reimbursment.setAmount(rs.getBigDecimal("AMOUNT"));
 				reimbursment.setReason(rs.getString("REASON"));
 				reimbursments.add(reimbursment);
