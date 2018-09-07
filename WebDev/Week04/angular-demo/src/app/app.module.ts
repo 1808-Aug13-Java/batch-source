@@ -23,7 +23,8 @@ import { NavComponent } from './components/nav/nav.component';
 import { DirectivesComponent } from './components/directives/directives.component';
 import { HighlightComponent } from './components/highlight/highlight.component';
 import { AssignmentComponent } from './components/assignment/assignment.component';
-import { PostDetailsComponent } from './components/post-details/post-details.component';// Need to import the routes
+import { PostDetailsComponent } from './components/post-details/post-details.component';
+import { ProfileComponent } from './components/profile/profile.component';// Need to import the routes
 
 @NgModule({
   declarations: [// Include any components one will use here
@@ -40,7 +41,7 @@ import { PostDetailsComponent } from './components/post-details/post-details.com
 	HttpExampleComponent, 
 	NavComponent, 
 	DirectivesComponent, 
-	HighlightComponent, AssignmentComponent, PostDetailsComponent,
+	HighlightComponent, AssignmentComponent, PostDetailsComponent, ProfileComponent,
   ],
   imports: [ // External Modules
 	BrowserModule,
