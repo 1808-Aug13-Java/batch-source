@@ -11,5 +11,13 @@ export class HighlightComponent implements OnInit {
 
   ngOnInit() {
   }
-  classes: string = "hovered";
+  classes: string = "";
+
+  onHover() {
+	if (this.classes) {
+		this.classes = "";
+	} else {
+		this.classes = "hovered";
+	}
+  }
 }
