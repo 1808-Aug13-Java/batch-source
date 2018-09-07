@@ -1,0 +1,29 @@
+
+
+<input type="checkbox" name="enabledCheck" [(ngModel)]="enabledCheck"/>
+
+<!-- Bind the 'value' of a given element to a new or existing variable. 
+		The one in this example is named 'selectedColor'. -->
+<!--Note: 'name' doesn't have to be the same as [(ngModel)], but it is encouraged 
+		as errors can occur in a console. -->						<!-- The disabled attribute is now tied to enableCheck. -->
+<select [(ngModel)]="selectedColor" name="selectedColor" id="selectColor" [disabled]="!enabledCheck">
+	<!-- Dynamically Populate a list from an array-->
+	<option *ngFor="let color of colors" [value]='color'>{{color}}</option>
+</select>
+
+<p [ngClass]="selectedClasses" [ngStyle] ="{'color': selectedColor}">color: {{selectedColor}}</p>
+
+
+
+
+<!-- Multiple Select example. On change, performs a function. Pases in the event iteself. -->
+<select multiple (change)="updateClasses($event)" [(ngModel)]="selectClasses" name="selectClasses">
+	<option *ngFor = "let class of classes" [value]="class"><!-- Sets the value of the option to an element of the array. -->
+		{{class}}
+	</option>
+</select>
+<!-- ngClass = can be a string or an array of strings -->
+<br>
+<span [ngClass]="selectedClasses" [ngStyle]="{'color': selectedColor}">color: {{selectedColor}}</span>
+
+

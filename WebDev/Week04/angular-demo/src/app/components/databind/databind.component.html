@@ -1,0 +1,27 @@
+<h2>Data Binding</h2>
+<h4>One Way Data Bind</h4>
+<form>
+	<label>Name:</label>
+	<input type="text" value="{{person.name}}"/><!-- The bracket syntax is used to perform one-way databinding -->
+	<label>Email:</label>
+	<input type="text" value="{{person.email}}"/>
+</form>
+
+
+
+<p>{{person.name}}</p>
+<p>{{person.email}}</p>
+
+<hr/>
+
+<h4>Two Way Data Binding</h4>
+<form>
+	<label>Name:</label>
+	<input type="text" [(ngModel)]="name" name="name"/><!-- The bracket syntax is used to perform one-way databinding -->
+	<label>Email:</label>
+	<input type="text" [(ngModel)]="email" name="email"/>
+</form>
+
+<p>Display 2 Way data binding</p>
+<p>{{name}}</p>
+<p>{{email}}</p>

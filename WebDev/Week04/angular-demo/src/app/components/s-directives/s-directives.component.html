@@ -1,0 +1,59 @@
+<h2>Structural Directives</h2>
+
+<button (click)="changeCondition()" class="btn btn-danger">Change Contition</button>
+
+<div *ngIf='condition'>Condition is true</div>
+
+<div *ngIf='!condition'>Condition is false</div>
+
+
+<h4 *ngIf="courses.length>0;">Courses: </h4>
+
+<div *ngIf="courses.length>0; then courseList else noCourses"></div>
+<ng-template #courseList>Here they are</ng-template>
+<ng-template #noCourses>None To Show</ng-template>
+
+<!-- Demo of how to use a loop. This refers to the courses object in the TS file. -->
+<ul>
+	<li class="list-group-item" *ngFor="let course of courses">
+		{{course.id}}: {{course.name}}
+	</li>
+</ul>
+
+<br><br>
+
+<ul> <!-- Can declare an index and use that. -->
+	<li class="list-group-item" *ngFor="let course of courses; let i = index">
+		{{i+1}} ) {{course.id}}: {{course.name}}
+	</li>
+</ul>
+
+
+
+
+<br><br>
+
+<!-- This is an example of how to use a switch case statement in angular using templates. -->
+<!-- Note the single quotes in the cases. This is to provide a literal string. Otherwise it 
+		would attempt to look for a variable called 'night' or 'day'-->
+<div [ngSwitch]="time">
+	<span *ngSwitchCase="'night'">
+		It's Night Time
+		<!-- Note the inline script. While not best practice, scripts can be written inline.-->
+		<button (click)="time='day';">Change to Day</button>
+	</span>
+	
+	<span *ngSwitchCase="'day'">
+		It's Day Time
+		<button (click)="time='night';">Change to Night</button>
+	</span>
+	<span *ngSwitchDefault>
+		It's ? Time
+		<button (click)="time='day';">Change to Day</button>
+		<button (click)="time='night';">Change to Night</button>
+	</span>
+</div>
+
+
+
+

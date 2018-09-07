@@ -1,0 +1,45 @@
+
+
+<!-- The following demonstrates how pipes can be used to manipulate the output of data. -->
+<div>
+	<h2> Pipes: </h2>
+	<p>{{str}}</p>
+	<p>{{str | uppercase}}</p>
+
+	<br>
+	<p>{{num}}</p>
+	<!-- Some pipes take parameters, which can be with or without quotes. Recommend With?-->
+	<p>{{num | currency:usd}}</p>
+	<p>{{num | currency:'EUR'}}</p>
+
+	<br>
+	<p>{{today}}</p>
+	<p>{{today | date}}</p>
+	<p>{{today | date:'EEEE, MMMM, d, y'}}</p>
+	<p>{{today | date:'EEEE, MMMM, d, y' | lowercase}}</p>
+
+	<br>
+	Pipes Demo:
+	<ul>
+		<li *ngFor="let str of strArr">{{str}}</li>
+	</ul>
+	<ul>
+		<li *ngFor="let str of strArr">{{str | lowercase}}</li>
+	</ul>
+
+	Custom Pipes Demo: 
+	<ul>
+		<li *ngFor="let word of wordsArr">{{word}}</li>
+	</ul>
+	<ul>
+		<li *ngFor="let word of wordsArr">{{word | convertToSpace:'-'}}</li>
+	</ul>
+
+	Custom Pipe Capitalizer: 
+	<ul>
+		<li *ngFor="let word of wordsLowerArr">{{word}}</li>
+	</ul>
+	<ul>
+		<li *ngFor="let word of wordsLowerArr">{{word | capitalizer}}</li>
+	</ul>
+</div>

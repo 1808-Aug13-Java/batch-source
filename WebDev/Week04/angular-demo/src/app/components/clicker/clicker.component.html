@@ -1,0 +1,11 @@
+<div>
+	<!-- We bind the event click to the 'increment' function.  -->
+	<button class="btn btn-primary" (click)="increment(1)">Increment</button>
+
+	<!-- Binds .myClass (in css file) and the count (in typescript file) -->
+	<p [class.myClass]="count%5==0">Counter: {{count}}</p>
+	<!-- Another way of doing the same thing. -->
+	<p [ngClass]="{myClass: count%5==0}">Counter: {{count}}</p>
+	
+
+</div>

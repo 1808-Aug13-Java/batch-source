@@ -1,0 +1,13 @@
+<p>
+  favorite works!
+</p>
+
+<!-- <span class="glyphicon glyphicon-star"></span> -->
+
+<!-- Refereces a variable in Typescript that sets the class to variable 'clazz' -->
+<span [ngClass]="clazz" (click)="clickStar()"></span> 
+
+<!-- This is another way of binding data. The class is set based on if "isFavorite" is true or false. -->
+<span class="glyphicon" [class.glyphicon-star]="isFavorite"
+	[class.glyphicon-star-empty]="!isFavorite"
+	(click) = "onClickChange()"></span> 
