@@ -14,5 +14,26 @@ export class ADirectivesComponent implements OnInit {
 
   colors: string[] = ['blue','green','red','yellow'];
   selectedColor: string;
+  checked: boolean = true;
+  classes: string[] = ['italic', 'bold', 'highlight'];
+  selectedClasses: string[];
+
+  changeChecked(){
+    this.checked = !this.checked;
+  }
+
+  updateClasses(event){
+    this.selectedClasses = [];
+    let opts = event.target.options;
+    let current;
+
+    for(let i=0; i<opts.length; i++){
+      current = opts[i];
+      if(current.selected){
+        this.selectedClasses.push(current.text);
+      }
+    }
+
+  }
 
 }

@@ -10,6 +10,8 @@ import { FavoriteComponent } from './components/favorite/favorite.component';
 import { ClickerComponent } from './components/clicker/clicker.component';
 import { SDirectivesComponent } from './components/s-directives/s-directives.component';
 import { ADirectivesComponent } from './components/a-directives/a-directives.component';
+import { PipeDemoComponent } from './components/pipe-demo/pipe-demo.component';
+import { ConvertToSpacePipe } from './pipes/convert-to-space.pipe';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { ADirectivesComponent } from './components/a-directives/a-directives.com
     FavoriteComponent,
     ClickerComponent,
     SDirectivesComponent,
-    ADirectivesComponent
+    ADirectivesComponent,
+    PipeDemoComponent,
+    ConvertToSpacePipe
   ],
   imports: [
     BrowserModule,
