@@ -12,4 +12,17 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
   }
 
+  objectKeys = Object.keys;
+
+  userProfile = {
+	  name: "Danny",
+	  age: 14, 
+	  info: "He's a Phantom"
+  }
+  userProfile2 = [
+	"Danny",
+	"14",
+	"He's a Phantom"
+  ]
+
 }

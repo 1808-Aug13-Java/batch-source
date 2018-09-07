@@ -1,3 +1,4 @@
-<p>
-  profile works!
-</p>
+<p>User Profile: </p>
+<ul>
+	<li *ngFor = "let property of objectKeys(userProfile)">{{property | capitalizer}}: {{userProfile[property]}}</li>
+</ul>
