@@ -11,6 +11,7 @@ import { AssignmentComponent } from './components/assignment/assignment.componen
 import { HighlightComponent } from './components/highlight/highlight.component';
 import { PostDetailsComponent } from './components/post-details/post-details.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { SelectComponent } from './components/select/select.component';
 
 // An array of Routes, which contains a Path, and a Component
 // This is used to rout different components/ display different 
@@ -27,6 +28,10 @@ export const appRoutes: Routes = [
 			{
 				path: 'profile',
 				component: ProfileComponent
+			}, 
+			{
+				path: 'select',
+				component:SelectComponent
 			}
 		]
 	},
