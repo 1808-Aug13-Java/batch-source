@@ -37,16 +37,13 @@ public class ReimbursmentServlet extends HttpServlet {
 		PrintWriter pw = response.getWriter();
 		ReimbursmentDao rd = new ReimbursmentDaoImpl();
 		List<Reimbursment> reimbursments = new ArrayList<Reimbursment>();
-		System.out.println(reimbursmentId + action);
 		if(action != null && reimbursmentId != null) {
 			try {
 				int rIdInt = Integer.parseInt(reimbursmentId);
 				Reimbursment r = rd.getReimbursmentById(rIdInt);
 				if(action.equalsIgnoreCase("approve") && r != null) {
-					System.out.println("approving " + r);
 					rd.approveRequestById(rIdInt);
 				} else if (action.equalsIgnoreCase("deny") && r != null) {
-					System.out.println("denying " + r);
 					rd.denyReimbursmentById(rIdInt);
 				} else {
 					pw.write("null");

@@ -27,24 +27,28 @@ div.jumbotron {
 }
 
 #tabsNav {
+  display: flex;
+  justify-content: space-around;
   list-style: none;
   margin-top: 0;
   margin-bottom: 2%;
 }
 
-.tabsNavItem {
+.tabsNavItem, .empNavItem {
   display: inline-block;
   font-size: 1.2em;
   padding-left: 2%;
 }
 
-.tabsNavItem:hover {
+.tabsNavItem:hover, .empNavItem:hover {
   cursor: pointer;
   font-weight: 600;
+  font-size:1.3em
 }
 
 .activeTab {
   font-weight: bold;
+  text-decoration: underline;
 }
 
 .activeTab:hover {
@@ -61,3 +65,11 @@ div.jumbotron {
   display: block;
 }
 
+
+.form-control {
+  display: inline-block;
+}
+
+.input-group-text:hover {
+  cursor: pointer;
+}

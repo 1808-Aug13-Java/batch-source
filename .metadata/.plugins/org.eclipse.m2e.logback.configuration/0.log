@@ -9379,3 +9379,239 @@ org.eclipse.core.runtime.CoreException: Launch configuration DaoTest.canRetrieve
 2018-09-07 07:24:51,336 [Worker-368: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
 2018-09-07 07:24:51,338 [Worker-368: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
 2018-09-07 07:24:51,348 [Worker-368: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Crandon\Documents\workspace-sts-3.9.5.RELEASE\batch-source\p1-crandon-riordan\src\test\resources
+2018-09-07 14:52:37,278 [Worker-458: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-07 14:52:38,318 [Worker-458: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2018-09-07 14:52:38,396 [Worker-458: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-07 14:52:38,410 [Worker-458: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Crandon\Documents\workspace-sts-3.9.5.RELEASE\batch-source\p1-crandon-riordan\src\test\resources
+2018-09-07 14:53:02,130 [Worker-464: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-07 14:53:02,159 [Worker-464: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2018-09-07 14:53:02,166 [Worker-464: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-07 14:53:02,178 [Worker-464: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Crandon\Documents\workspace-sts-3.9.5.RELEASE\batch-source\p1-crandon-riordan\src\test\resources
+2018-09-07 19:37:27,444 [Worker-521: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-07 19:37:27,472 [Worker-521: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2018-09-07 19:37:27,474 [Worker-521: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-07 19:37:27,525 [Worker-521: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Crandon\Documents\workspace-sts-3.9.5.RELEASE\batch-source\p1-crandon-riordan\src\test\resources
+2018-09-07 19:38:37,553 [Worker-521: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-07 19:38:37,566 [Worker-521: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2018-09-07 19:38:37,574 [Worker-521: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-07 19:38:37,592 [Worker-521: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Crandon\Documents\workspace-sts-3.9.5.RELEASE\batch-source\p1-crandon-riordan\src\test\resources
+2018-09-07 19:39:28,942 [Worker-525: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-07 19:39:28,979 [Worker-525: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2018-09-07 19:39:28,980 [Worker-525: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-07 19:39:29,061 [Worker-525: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Crandon\Documents\workspace-sts-3.9.5.RELEASE\batch-source\p1-crandon-riordan\src\test\resources
+2018-09-07 19:41:48,980 [Worker-368: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-07 19:41:48,998 [Worker-368: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2018-09-07 19:41:49,006 [Worker-368: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-07 19:41:49,027 [Worker-368: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Crandon\Documents\workspace-sts-3.9.5.RELEASE\batch-source\p1-crandon-riordan\src\test\resources
+2018-09-07 19:43:41,747 [Worker-532: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-07 19:43:41,759 [Worker-532: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2018-09-07 19:43:41,760 [Worker-532: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-07 19:43:41,804 [Worker-532: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Crandon\Documents\workspace-sts-3.9.5.RELEASE\batch-source\p1-crandon-riordan\src\test\resources
+2018-09-07 19:45:36,836 [Worker-529: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-07 19:45:36,851 [Worker-529: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2018-09-07 19:45:36,856 [Worker-529: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-07 19:45:36,870 [Worker-529: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Crandon\Documents\workspace-sts-3.9.5.RELEASE\batch-source\p1-crandon-riordan\src\test\resources
+2018-09-07 19:47:17,982 [Worker-543: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-07 19:47:18,001 [Worker-543: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2018-09-07 19:47:18,007 [Worker-543: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-07 19:47:18,029 [Worker-543: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Crandon\Documents\workspace-sts-3.9.5.RELEASE\batch-source\p1-crandon-riordan\src\test\resources
+2018-09-07 19:49:19,289 [Worker-543: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-07 19:49:19,314 [Worker-543: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2018-09-07 19:49:19,330 [Worker-543: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-07 19:49:19,343 [Worker-543: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Crandon\Documents\workspace-sts-3.9.5.RELEASE\batch-source\p1-crandon-riordan\src\test\resources
+2018-09-07 19:50:08,519 [Worker-545: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-07 19:50:08,526 [Worker-545: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2018-09-07 19:50:08,528 [Worker-545: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-07 19:50:08,619 [Worker-545: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Crandon\Documents\workspace-sts-3.9.5.RELEASE\batch-source\p1-crandon-riordan\src\test\resources
+2018-09-07 19:52:20,925 [Worker-548: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-07 19:52:20,938 [Worker-548: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2018-09-07 19:52:20,943 [Worker-548: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-07 19:52:20,958 [Worker-548: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Crandon\Documents\workspace-sts-3.9.5.RELEASE\batch-source\p1-crandon-riordan\src\test\resources
+2018-09-07 19:53:38,405 [Worker-547: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-07 19:53:38,418 [Worker-547: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2018-09-07 19:53:38,419 [Worker-547: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-07 19:53:38,448 [Worker-547: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Crandon\Documents\workspace-sts-3.9.5.RELEASE\batch-source\p1-crandon-riordan\src\test\resources
+2018-09-07 19:55:37,918 [Worker-557: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-07 19:55:37,946 [Worker-557: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2018-09-07 19:55:37,953 [Worker-557: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-07 19:55:37,968 [Worker-557: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Crandon\Documents\workspace-sts-3.9.5.RELEASE\batch-source\p1-crandon-riordan\src\test\resources
+2018-09-07 19:56:37,615 [Worker-559: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-07 19:56:37,624 [Worker-559: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2018-09-07 19:56:37,625 [Worker-559: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-07 19:56:37,641 [Worker-559: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Crandon\Documents\workspace-sts-3.9.5.RELEASE\batch-source\p1-crandon-riordan\src\test\resources
+2018-09-07 19:57:17,978 [Worker-559: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-07 19:57:18,058 [Worker-559: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2018-09-07 19:57:18,065 [Worker-559: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-07 19:57:18,094 [Worker-559: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Crandon\Documents\workspace-sts-3.9.5.RELEASE\batch-source\p1-crandon-riordan\src\test\resources
+2018-09-07 19:58:25,666 [Worker-556: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-07 19:58:25,676 [Worker-556: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2018-09-07 19:58:25,677 [Worker-556: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-07 19:58:25,737 [Worker-556: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Crandon\Documents\workspace-sts-3.9.5.RELEASE\batch-source\p1-crandon-riordan\src\test\resources
+2018-09-07 19:59:26,389 [Worker-555: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-07 19:59:26,409 [Worker-555: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2018-09-07 19:59:26,442 [Worker-555: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-07 19:59:26,460 [Worker-555: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Crandon\Documents\workspace-sts-3.9.5.RELEASE\batch-source\p1-crandon-riordan\src\test\resources
+2018-09-07 20:00:47,745 [Worker-562: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-07 20:00:47,768 [Worker-562: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2018-09-07 20:00:47,768 [Worker-562: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-07 20:00:47,783 [Worker-562: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Crandon\Documents\workspace-sts-3.9.5.RELEASE\batch-source\p1-crandon-riordan\src\test\resources
+2018-09-07 20:03:55,355 [Worker-566: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-07 20:03:55,425 [Worker-566: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2018-09-07 20:03:55,443 [Worker-566: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-07 20:03:55,467 [Worker-566: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Crandon\Documents\workspace-sts-3.9.5.RELEASE\batch-source\p1-crandon-riordan\src\test\resources
+2018-09-07 20:05:02,560 [Worker-559: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-07 20:05:02,570 [Worker-559: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2018-09-07 20:05:03,237 [Worker-559: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-07 20:05:03,289 [Worker-559: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Crandon\Documents\workspace-sts-3.9.5.RELEASE\batch-source\p1-crandon-riordan\src\test\resources
+2018-09-07 20:05:56,714 [Worker-567: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-07 20:05:56,752 [Worker-567: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2018-09-07 20:05:56,763 [Worker-567: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-07 20:05:56,786 [Worker-567: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Crandon\Documents\workspace-sts-3.9.5.RELEASE\batch-source\p1-crandon-riordan\src\test\resources
+2018-09-07 20:08:36,863 [Worker-572: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-07 20:08:36,983 [Worker-572: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2018-09-07 20:08:37,020 [Worker-572: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-07 20:08:37,056 [Worker-572: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Crandon\Documents\workspace-sts-3.9.5.RELEASE\batch-source\p1-crandon-riordan\src\test\resources
+2018-09-07 20:27:22,046 [Worker-579: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-07 20:27:22,059 [Worker-579: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2018-09-07 20:27:22,065 [Worker-579: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-07 20:27:22,075 [Worker-579: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Crandon\Documents\workspace-sts-3.9.5.RELEASE\batch-source\p1-crandon-riordan\src\test\resources
+2018-09-07 20:27:27,602 [Worker-574: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-07 20:27:27,608 [Worker-574: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2018-09-07 20:27:27,608 [Worker-574: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-07 20:27:27,619 [Worker-574: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Crandon\Documents\workspace-sts-3.9.5.RELEASE\batch-source\p1-crandon-riordan\src\test\resources
+2018-09-07 20:28:46,606 [Worker-579: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-07 20:28:46,613 [Worker-579: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2018-09-07 20:28:46,618 [Worker-579: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-07 20:28:46,629 [Worker-579: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Crandon\Documents\workspace-sts-3.9.5.RELEASE\batch-source\p1-crandon-riordan\src\test\resources
+2018-09-07 20:29:07,689 [Worker-579: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-07 20:29:07,698 [Worker-579: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2018-09-07 20:29:07,699 [Worker-579: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-07 20:29:07,711 [Worker-579: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Crandon\Documents\workspace-sts-3.9.5.RELEASE\batch-source\p1-crandon-riordan\src\test\resources
+2018-09-07 20:29:45,241 [Worker-583: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-07 20:29:45,259 [Worker-583: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2018-09-07 20:29:45,266 [Worker-583: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-07 20:29:45,279 [Worker-583: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Crandon\Documents\workspace-sts-3.9.5.RELEASE\batch-source\p1-crandon-riordan\src\test\resources
+2018-09-07 20:30:03,044 [Worker-587: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-07 20:30:03,050 [Worker-587: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2018-09-07 20:30:03,051 [Worker-587: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-07 20:30:03,063 [Worker-587: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Crandon\Documents\workspace-sts-3.9.5.RELEASE\batch-source\p1-crandon-riordan\src\test\resources
+2018-09-07 20:30:18,740 [Worker-582: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-07 20:30:18,752 [Worker-582: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2018-09-07 20:30:18,758 [Worker-582: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-07 20:30:18,778 [Worker-582: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Crandon\Documents\workspace-sts-3.9.5.RELEASE\batch-source\p1-crandon-riordan\src\test\resources
+2018-09-07 20:31:14,188 [Worker-579: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-07 20:31:14,194 [Worker-579: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2018-09-07 20:31:14,195 [Worker-579: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-07 20:31:14,205 [Worker-579: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Crandon\Documents\workspace-sts-3.9.5.RELEASE\batch-source\p1-crandon-riordan\src\test\resources
+2018-09-07 20:31:32,902 [Worker-559: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-07 20:31:32,915 [Worker-559: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2018-09-07 20:31:32,919 [Worker-559: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-07 20:31:32,930 [Worker-559: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Crandon\Documents\workspace-sts-3.9.5.RELEASE\batch-source\p1-crandon-riordan\src\test\resources
+2018-09-07 20:31:44,156 [Worker-586: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-07 20:31:44,166 [Worker-586: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2018-09-07 20:31:44,167 [Worker-586: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-07 20:31:44,180 [Worker-586: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Crandon\Documents\workspace-sts-3.9.5.RELEASE\batch-source\p1-crandon-riordan\src\test\resources
+2018-09-07 20:32:03,567 [Worker-584: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-07 20:32:03,578 [Worker-584: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2018-09-07 20:32:03,584 [Worker-584: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-07 20:32:03,597 [Worker-584: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Crandon\Documents\workspace-sts-3.9.5.RELEASE\batch-source\p1-crandon-riordan\src\test\resources
+2018-09-07 20:32:11,592 [Worker-583: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-07 20:32:11,599 [Worker-583: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2018-09-07 20:32:11,600 [Worker-583: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-07 20:32:11,610 [Worker-583: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Crandon\Documents\workspace-sts-3.9.5.RELEASE\batch-source\p1-crandon-riordan\src\test\resources
+2018-09-07 20:32:40,160 [Worker-586: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-07 20:32:40,171 [Worker-586: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2018-09-07 20:32:40,177 [Worker-586: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-07 20:32:40,189 [Worker-586: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Crandon\Documents\workspace-sts-3.9.5.RELEASE\batch-source\p1-crandon-riordan\src\test\resources
+2018-09-07 20:32:42,220 [Worker-579: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-07 20:32:42,225 [Worker-579: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2018-09-07 20:32:42,227 [Worker-579: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-07 20:32:42,237 [Worker-579: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Crandon\Documents\workspace-sts-3.9.5.RELEASE\batch-source\p1-crandon-riordan\src\test\resources
+2018-09-07 20:32:54,084 [Worker-583: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-07 20:32:54,096 [Worker-583: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2018-09-07 20:32:54,100 [Worker-583: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-07 20:32:54,111 [Worker-583: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Crandon\Documents\workspace-sts-3.9.5.RELEASE\batch-source\p1-crandon-riordan\src\test\resources
+2018-09-07 20:33:44,195 [Worker-587: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-07 20:33:44,202 [Worker-587: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2018-09-07 20:33:44,202 [Worker-587: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-07 20:33:44,212 [Worker-587: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Crandon\Documents\workspace-sts-3.9.5.RELEASE\batch-source\p1-crandon-riordan\src\test\resources
+2018-09-07 20:33:49,235 [Worker-584: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-07 20:33:49,246 [Worker-584: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2018-09-07 20:33:49,251 [Worker-584: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-07 20:33:49,261 [Worker-584: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Crandon\Documents\workspace-sts-3.9.5.RELEASE\batch-source\p1-crandon-riordan\src\test\resources
+2018-09-07 20:33:56,667 [Worker-587: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-07 20:33:56,673 [Worker-587: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2018-09-07 20:33:56,674 [Worker-587: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-07 20:33:56,685 [Worker-587: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Crandon\Documents\workspace-sts-3.9.5.RELEASE\batch-source\p1-crandon-riordan\src\test\resources
+2018-09-07 20:34:26,612 [Worker-583: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-07 20:34:26,632 [Worker-583: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2018-09-07 20:34:26,642 [Worker-583: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-07 20:34:26,654 [Worker-583: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Crandon\Documents\workspace-sts-3.9.5.RELEASE\batch-source\p1-crandon-riordan\src\test\resources
+2018-09-07 20:34:33,633 [Worker-559: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-07 20:34:33,653 [Worker-559: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2018-09-07 20:34:33,654 [Worker-559: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-07 20:34:33,689 [Worker-559: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Crandon\Documents\workspace-sts-3.9.5.RELEASE\batch-source\p1-crandon-riordan\src\test\resources
+2018-09-07 21:27:31,348 [Worker-600: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-07 21:27:31,363 [Worker-600: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2018-09-07 21:27:31,372 [Worker-600: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-07 21:27:31,385 [Worker-600: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Crandon\Documents\workspace-sts-3.9.5.RELEASE\batch-source\p1-crandon-riordan\src\test\resources
+2018-09-07 21:31:56,022 [Worker-603: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-07 21:31:56,052 [Worker-603: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2018-09-07 21:31:56,072 [Worker-603: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-07 21:31:56,085 [Worker-603: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Crandon\Documents\workspace-sts-3.9.5.RELEASE\batch-source\p1-crandon-riordan\src\test\resources
+2018-09-07 21:34:08,327 [Worker-598: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-07 21:34:08,345 [Worker-598: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2018-09-07 21:34:08,353 [Worker-598: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-07 21:34:08,375 [Worker-598: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Crandon\Documents\workspace-sts-3.9.5.RELEASE\batch-source\p1-crandon-riordan\src\test\resources
+2018-09-07 21:34:59,003 [Worker-603: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-07 21:34:59,011 [Worker-603: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2018-09-07 21:34:59,012 [Worker-603: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-07 21:34:59,025 [Worker-603: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Crandon\Documents\workspace-sts-3.9.5.RELEASE\batch-source\p1-crandon-riordan\src\test\resources
+2018-09-07 21:35:44,011 [Worker-602: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-07 21:35:44,023 [Worker-602: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2018-09-07 21:35:44,030 [Worker-602: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-07 21:35:44,042 [Worker-602: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Crandon\Documents\workspace-sts-3.9.5.RELEASE\batch-source\p1-crandon-riordan\src\test\resources
+2018-09-07 21:37:49,522 [Worker-607: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-07 21:37:49,528 [Worker-607: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2018-09-07 21:37:49,529 [Worker-607: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-07 21:37:49,540 [Worker-607: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Crandon\Documents\workspace-sts-3.9.5.RELEASE\batch-source\p1-crandon-riordan\src\test\resources
+2018-09-07 21:37:50,629 [Worker-607: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-07 21:37:50,641 [Worker-607: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2018-09-07 21:37:50,646 [Worker-607: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-07 21:37:50,659 [Worker-607: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Crandon\Documents\workspace-sts-3.9.5.RELEASE\batch-source\p1-crandon-riordan\src\test\resources
+2018-09-07 21:41:59,658 [Worker-609: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-07 21:41:59,666 [Worker-609: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2018-09-07 21:41:59,666 [Worker-609: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-07 21:41:59,679 [Worker-609: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Crandon\Documents\workspace-sts-3.9.5.RELEASE\batch-source\p1-crandon-riordan\src\test\resources
+2018-09-07 21:42:15,242 [Worker-615: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-07 21:42:15,253 [Worker-615: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2018-09-07 21:42:15,257 [Worker-615: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-07 21:42:15,271 [Worker-615: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Crandon\Documents\workspace-sts-3.9.5.RELEASE\batch-source\p1-crandon-riordan\src\test\resources
+2018-09-07 21:42:47,908 [Worker-609: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-07 21:42:47,919 [Worker-609: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2018-09-07 21:42:47,919 [Worker-609: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-07 21:42:47,934 [Worker-609: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Crandon\Documents\workspace-sts-3.9.5.RELEASE\batch-source\p1-crandon-riordan\src\test\resources
+2018-09-08 05:56:59,776 [Worker-630: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-08 05:56:59,790 [Worker-630: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2018-09-08 05:56:59,801 [Worker-630: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-08 05:56:59,825 [Worker-630: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Crandon\Documents\workspace-sts-3.9.5.RELEASE\batch-source\p1-crandon-riordan\src\test\resources
+2018-09-08 05:58:41,397 [Worker-636: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-08 05:58:41,405 [Worker-636: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2018-09-08 05:58:41,406 [Worker-636: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-08 05:58:41,421 [Worker-636: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Crandon\Documents\workspace-sts-3.9.5.RELEASE\batch-source\p1-crandon-riordan\src\test\resources
+2018-09-08 05:59:00,855 [Worker-636: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-08 05:59:00,868 [Worker-636: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2018-09-08 05:59:00,875 [Worker-636: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-08 05:59:00,887 [Worker-636: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Crandon\Documents\workspace-sts-3.9.5.RELEASE\batch-source\p1-crandon-riordan\src\test\resources
+2018-09-08 06:00:08,729 [Worker-631: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-08 06:00:08,737 [Worker-631: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2018-09-08 06:00:08,738 [Worker-631: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-08 06:00:08,751 [Worker-631: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Crandon\Documents\workspace-sts-3.9.5.RELEASE\batch-source\p1-crandon-riordan\src\test\resources
+2018-09-08 06:00:58,563 [Worker-614: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-08 06:00:58,598 [Worker-614: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2018-09-08 06:00:58,610 [Worker-614: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-08 06:00:58,636 [Worker-614: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Crandon\Documents\workspace-sts-3.9.5.RELEASE\batch-source\p1-crandon-riordan\src\test\resources
+2018-09-08 06:01:22,127 [Worker-638: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-08 06:01:22,139 [Worker-638: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2018-09-08 06:01:22,140 [Worker-638: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-08 06:01:22,152 [Worker-638: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Crandon\Documents\workspace-sts-3.9.5.RELEASE\batch-source\p1-crandon-riordan\src\test\resources

@@ -47,13 +47,14 @@ public class ReimbursmentDaoImpl implements ReimbursmentDao {
 	}
 
 	@Override
-	public int denyReimbursmentById(int id) {
+	public int denyReimbursmentById(int id, int managerId) {
 		int deniedReimbursment = 0;
-		String sql = "UPDATE REIMBURSMENT SET CURRENT_STATE = 'DENIED'"
+		String sql = "UPDATE REIMBURSMENT SET CURRENT_STATE = 'DENIED' SET MANAGER_ID = ?"
 				+ " WHERE REIMBURSMENT_ID = ?";
 		try(Connection con = ConnectionUtil.getConnection();
 				PreparedStatement ps = con.prepareStatement(sql)) {
-			ps.setInt(1, id);
+			ps.setInt(1, managerId);
+			ps.setInt(2, id);
 			deniedReimbursment = ps.executeUpdate();
 		} catch (SQLException | IOException e) {
 			logger.info(e.getMessage());

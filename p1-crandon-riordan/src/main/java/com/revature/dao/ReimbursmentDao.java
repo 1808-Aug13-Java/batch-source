@@ -7,8 +7,8 @@ import com.revature.models.Reimbursment;
 public interface ReimbursmentDao {
 	
 	int createReimbursment(Reimbursment reimbursment);
-	int denyReimbursmentById(int id);
-	int approveRequestById(int id);
+	int denyReimbursmentById(int id, int managerId);
+	int approveRequestById(int id, int managerId);
 	Reimbursment getReimbursmentById(int id);
 	List<Reimbursment> getPendingByEmployeeId(int id);
 	List<Reimbursment> getResolvedByEmployeeId(int id);

@@ -5,7 +5,21 @@
   <link rel="self" href="https://spring.io/blog.atom" />
   <id>http://spring.io/blog.atom</id>
   <icon>https://spring.io/favicon.ico</icon>
-  <updated>2018-09-06T00:00:00Z</updated>
+  <updated>2018-09-07T15:15:11Z</updated>
+  <entry>
+    <title>Spring Framework 5.1 RC3, 5.0.9 and 4.3.19 available now</title>
+    <link rel="alternate" href="https://spring.io/blog/2018/09/07/spring-framework-5-1-rc3-5-0-9-and-4-3-19-available-now" />
+    <category term="releases" label="Releases" />
+    <author>
+      <name>Stéphane Nicoll</name>
+    </author>
+    <id>tag:spring.io,2018-09-07:3383</id>
+    <updated>2018-09-07T15:15:11Z</updated>
+    <content type="html">&lt;p&gt;On behalf of the team, I am pleased to announce Spring Framework 5.1 RC3, 5.0.9 and 4.3.19 &lt;a href="http://projects.spring.io/spring-framework"&gt;are available now&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Spring Framework 5.0.9 &lt;a href="https://jira.spring.io/secure/ReleaseNote.jspa?projectId=10000&amp;version=16891"&gt;includes 36 fixes and selected improvements&lt;/a&gt; while Spring Framework 4.3.19 &lt;a href="https://jira.spring.io/secure/ReleaseNote.jspa?projectId=10000&amp;version=16856"&gt;includes 23 fixes and selected improvements&lt;/a&gt;. We&amp;rsquo;re also approaching Spring Framework 5.1 with a third release candidate that includes &lt;a href="https://jira.spring.io/secure/ReleaseNote.jspa?projectId=10000&amp;version=16939"&gt;30 fixes and improvements&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;As usual, those are the base for the upcoming Spring Boot 2.1 M3, 2.0.5 and 1.5.16 releases early next week.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://spring.io/projects/spring-framework"&gt;Project Page&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-framework"&gt;GitHub&lt;/a&gt; | &lt;a href="https://jira.spring.io/browse/SPR"&gt;Issues&lt;/a&gt; | &lt;a href="https://docs.spring.io/spring-framework/docs/5.0.9.RELEASE/spring-framework-reference"&gt;Documentation&lt;/a&gt;&lt;/p&gt;</content>
+  </entry>
   <entry>
     <title>Bootiful GCP: Supporting Observability with Spring Cloud GCP Stackdriver Trace (6/8)</title>
     <link rel="alternate" href="https://spring.io/blog/2018/09/06/bootiful-gcp-supporting-observability-with-spring-cloud-gcp-stackdriver-trace-6-8" />
@@ -1966,20 +1980,5 @@ dependencies {
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;</content>
-  </entry>
-  <entry>
-    <title>Spring Framework 5.1 RC2 available now</title>
-    <link rel="alternate" href="https://spring.io/blog/2018/08/17/spring-framework-5-1-rc2-available-now" />
-    <category term="releases" label="Releases" />
-    <author>
-      <name>Juergen Hoeller</name>
-    </author>
-    <id>tag:spring.io,2018-08-17:3361</id>
-    <updated>2018-08-17T10:20:59Z</updated>
-    <content type="html">&lt;p&gt;Dear Spring community,&lt;/p&gt;
-&lt;p&gt;It is my pleasure to announce that our second Spring Framework 5.1 release candidate is available from our &lt;a href="https://repo.spring.io"&gt;milestone repository&lt;/a&gt; now. &lt;/p&gt;
-&lt;p&gt;&lt;a href="https://jira.spring.io/secure/ReleaseNote.jspa?projectId=10000&amp;version=16853"&gt;Spring Framework 5.1 RC2&lt;/a&gt; comes with dependency updates such as the latest Reactor Californium M2, RxJava 2.2, and JUnit 5.3 RC1. It addresses several reported issues on JDK 11 and GraalVM (tracking their release candidates) and provides further refinements within our 5.1 themes, in particular with respect to log output and startup performance.&lt;/p&gt;
-&lt;p&gt;This is the foundation for the upcoming Spring Boot 2.1 M2 release next week. We&amp;rsquo;re aiming for a Spring Framework 5.1 RC3 in early September still, picking up Reactor Californium RC1 and wrapping up our JDK 11 efforts, moving on to 5.1 GA in late September.&lt;/p&gt;
-&lt;p&gt;Cheers,&lt;br/&gt;Juergen&lt;/p&gt;</content>
   </entry>
 </feed>

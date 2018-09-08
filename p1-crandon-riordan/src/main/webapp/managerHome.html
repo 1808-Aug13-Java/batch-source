@@ -86,25 +86,74 @@
     </div>
     <!-- resolved tab -->
     <div class="reimbursmentTable noDisplay" id="resolvedTab">
-        <table class="table" id="resolvedRequest">
-          <caption>All Resolved Requests</caption>
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Employee ID</th>
-              <th>Employee Name</th>
-              <th>Reason</th>
-              <th>Amount</th>
-              <th>State</th>
-              <th>Date Created</th>
-              <th>Manager Approved</th>
-            </tr>
-          </thead>
-          <tbody id="tbodyResolved">
-           
-          </tbody>
-        </table>
-      </div>
+      <table class="table" id="resolvedRequest">
+        <caption>All Resolved Requests</caption>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Employee ID</th>
+            <th>Employee Name</th>
+            <th>Reason</th>
+            <th>Amount</th>
+            <th>State</th>
+            <th>Date Created</th>
+            <th>Manager Approved</th>
+          </tr>
+        </thead>
+        <tbody id="tbodyResolved">
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <br><br>
+
+  <div class="container text-center jumbotron">
+    <ul id="tabsNav">
+      <li class="empNavItem activeTab">All Employees</li>
+      <li class="empNavItem">Reimbursments By Employee</li>
+    </ul>
+    <div class="employeeTable doDisplay" id="allEmployees">
+      <table class="table">
+        <caption>All Employees</caption>
+        <thead>
+          <th>ID</th>
+          <th>Name</th>
+          <th>E-mail</th>
+          <th>Manager</th>
+        </thead>
+        <tbody id="tbodyEmployees">
+
+        </tbody>
+      </table>
+    </div>
+    <div class="employeeTable noDisplay">
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="material-icons">
+                  search
+                  </i></span>
+            </div>
+            <input type="text" class="form-control" placeholder="Employee ID">
+          </div>
+      
+      <table class="table">
+        <caption>Reimbursments by Employee</caption>
+        <thead>
+          <th>#</th>
+          <th>Name</th>
+          <th>Reason</th>
+          <th>Amount</th>
+          <th>State</th>
+          <th>Manager Approved</th>
+          <th>Date Created</th>
+        </thead>
+        <tbody id="tbodyById">
+
+        </tbody>
+      </table>
+    </div>
   </div>
 
 
@@ -112,8 +161,9 @@
 
 
 
-  <script type="text/javascript" src="./scripts/mngrSession.js"></script>
+  <script type=" text/javascript" src="./scripts/mngrSession.js"></script>
   <script type="text/javascript" src="./scripts/mngrReimbursments.js"></script>
+  <script type="text/javascript" src="./scripts/mngrEmployees.js"></script>
 
 </body>
 

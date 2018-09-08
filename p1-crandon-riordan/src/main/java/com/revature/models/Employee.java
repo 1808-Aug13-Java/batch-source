@@ -9,13 +9,18 @@ public class Employee {
 	private String password;
 	private int managerId;
 	private int isManager; // assumes 0 false, 1 true;
-	
+	private Employee manager;
 	
 	public Employee() {
 		super();
 	}
 	
 	
+
+
+	
+
+
 
 
 	public Employee(int id, String name, String username, String email, String password, 
@@ -28,6 +33,17 @@ public class Employee {
 		this.password = password;
 		this.managerId = managerId;
 		this.isManager = isManager;
+	}
+	
+	public Employee getManager() {
+		return manager;
+	}
+
+
+
+
+	public void setManager(Employee manager) {
+		this.manager = manager;
 	}
 
 
