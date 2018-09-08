@@ -10,7 +10,7 @@
 <h4 *ngIf="courses.length>0;">Courses: </h4>
 
 <div *ngIf="courses.length>0; then courseList else noCourses"></div>
-<ng-template #courseList>Here they are</ng-template>
+<ng-template #courseList>Here they are</ng-template><!-- Note: ng-template doesn't work with buttons. -->
 <ng-template #noCourses>None To Show</ng-template>
 
 <!-- Demo of how to use a loop. This refers to the courses object in the TS file. -->

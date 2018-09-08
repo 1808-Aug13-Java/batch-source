@@ -1,6 +1,10 @@
-<p>User Profile: </p>
-<ul>
+<button [hidden]="isVisible" (click) = "isVisible = !isVisible">Show</button>
+<button [hidden]="!isVisible" (click) = "isVisible = !isVisible">Hide</button>
+
+<p *ngIf="isVisible">User Profile: </p>
+<ul *ngIf="isVisible">
 	<li *ngFor = "let property of objectKeys(userProfile)">
 		{{property | capitalizer}}: {{userProfile[property]}}
 	</li>
 </ul>
+

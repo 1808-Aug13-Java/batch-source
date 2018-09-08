@@ -12,6 +12,8 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
   }
 
+  // Saves a function that returns an array of the keys. This is required as 
+  // to parse through the userProfile map. 
   objectKeys = Object.keys;
 
   userProfile = {
@@ -19,10 +21,6 @@ export class ProfileComponent implements OnInit {
 	  age: 14, 
 	  info: "He's a Phantom"
   }
-  userProfile2 = [
-	"Danny",
-	"14",
-	"He's a Phantom"
-  ]
-
+  
+  isVisible: boolean = false;
 }
