@@ -1,24 +1,27 @@
 <div>
   <h2>Binding radio buttons</h2>
   
-  <p>Binding radio button lists</p>
+  <p>Radio Buttons!!!!!</p>
   
-  <table>
-    <thead>
-      <td></td>
-    </thead>
-    <tbody>
-      <tr *ngFor="let entry of entries; let idx = index">
-        <td>{{ entry.description }}</td>
-        <td><input type="radio" name="radiogroup" (change)="onSelectionChange(entry)" [checked]="(idx === 0)" [value]="entry.id"></td>
-      </tr>
-    </tbody>
-  </table>
+  <!-- need functions inside of radio buttons -->
+  <input #animal type="radio" name="myVar" value="animals" (click)="onClick($event)">animals
   
-  <hr>
-  
-<!-- <pre>
-{{ this.selectedEntry | json }}
-</pre> -->
-  
+  <ul *ngIf = 'animal.checked'>
+        <li *ngFor="let an of animalArr">
+          {{ an }}
+        </li>
+    </ul>
+<input #color type="radio" name="myVar" value="colors" (click)="onClick($event)">colors
+<ul *ngIf = 'color.checked'>
+        <li *ngFor="let col of colorArr">
+          {{ col }}
+        </li>
+    </ul>
+<input #da type="radio" name="myVar" value="days" (click)="onClick($event)">days
+<ul *ngIf = 'da.checked'>
+        <li *ngFor="let day of dayArr">
+          {{ day }}
+        </li>
+    </ul>
 </div>
+
