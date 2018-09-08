@@ -1,3 +1,23 @@
-<p>
-  select works!
-</p>
+<div class="container">
+	<input type="radio" name="selected" value="animals" [(ngModel)] = "selected"/>
+	<label>Animals</label>
+	<br>
+	<input type="radio" name="selected" value="colors" [(ngModel)] = "selected"/>
+	<label>Colors</label>
+	<br>
+	<input type="radio" name="selected" value="days" [(ngModel)] = "selected"/>
+	<label>Days</label>
+	<br>
+
+	<div [ngSwitch]="selected">
+		<ul *ngSwitchCase="'animals'">
+			<li *ngFor = "let animal of animalArr">{{animal}}</li>
+		</ul>
+		<ul *ngSwitchCase="'colors'">
+				<li *ngFor = "let color of colorArr">{{color}}</li>
+		</ul>
+		<ul *ngSwitchCase="'days'">
+				<li *ngFor = "let day of dayArr">{{day}}</li>
+		</ul>
+	</div>
+</div>
