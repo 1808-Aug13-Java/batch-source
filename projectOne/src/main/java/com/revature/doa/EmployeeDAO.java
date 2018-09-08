@@ -6,7 +6,7 @@ import java.util.List;
 import com.revature.model.Employee;
 
 
-public interface EmployeeDOA {
+public interface EmployeeDAO {
 
 	public List<Employee> getEmployees();
 	public List<Employee> getEmployeesByManId(int manId);

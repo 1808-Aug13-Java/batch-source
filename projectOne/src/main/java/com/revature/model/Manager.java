@@ -3,18 +3,18 @@ package com.revature.model;
 public class Manager {
 
 	private int manId;
-	private String fName;
-	private String lName;
+	private String Name;
+	private String pswd;
 
 	public Manager() {
 		super();
 	}
 
-	public Manager(int manId, String fName, String lName) {
+	public Manager(int manId, String Name, String lName) {
 		super();
 		this.manId = manId;
-		this.fName = fName;
-		this.lName = lName;
+		this.Name = Name;
+		this.pswd = lName;
 	}
 
 	public int getManId() {
@@ -25,61 +25,67 @@ public class Manager {
 		this.manId = manId;
 	}
 
-	public String getfName() {
-		return fName;
+	public String getName() {
+		return Name;
 	}
 
-	public void setfName(String fName) {
-		this.fName = fName;
+	public void setName(String Name) {
+		this.Name = Name;
 	}
 
-	public String getlName() {
-		return lName;
+	public String getPswd() {
+		return pswd;
 	}
 
-	public void setlName(String lName) {
-		this.lName = lName;
+	public void setPswd(String pswd) {
+		this.pswd = pswd;
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((fName == null) ? 0 : fName.hashCode());
-		result = prime * result + ((lName == null) ? 0 : lName.hashCode());
+		result = prime * result + ((Name == null) ? 0 : Name.hashCode());
 		result = prime * result + manId;
+		result = prime * result + ((pswd == null) ? 0 : pswd.hashCode());
 		return result;
 	}
 
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj)
+		if (this == obj) {
 			return true;
-		if (obj == null)
+		}
+		if (obj == null) {
 			return false;
-		if (getClass() != obj.getClass())
+		}
+		if (!(obj instanceof Manager)) {
 			return false;
+		}
 		Manager other = (Manager) obj;
-		if (fName == null) {
-			if (other.fName != null)
+		if (Name == null) {
+			if (other.Name != null) {
 				return false;
-		} else if (!fName.equals(other.fName)) {
+			}
+		} else if (!Name.equals(other.Name)) {
 			return false;
 		}
-		if (lName == null) {
-			if (other.lName != null)
-				return false;
-		} else if (!lName.equals(other.lName)) {
+		if (manId != other.manId) {
 			return false;
 		}
-		if (manId != other.manId)
+		if (pswd == null) {
+			if (other.pswd != null) {
+				return false;
+			}
+		} else if (!pswd.equals(other.pswd)) {
 			return false;
+		}
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "Manager [manId=" + manId + ", fName=" + fName + ", lName=" + lName + "]";
+		return "Manager [manId=" + manId + ", Name=" + Name + ", pswd=" + pswd + "]";
 	}
 
 }

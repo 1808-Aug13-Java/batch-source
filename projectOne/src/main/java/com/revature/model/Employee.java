@@ -1,5 +1,11 @@
 package com.revature.model;
 
+/**
+ * 
+ *Employee model object. This is a representation
+ *of the employee table in the SQL database
+ * 
+ */
 public class Employee {
 
 	private int empId;
@@ -8,10 +14,22 @@ public class Employee {
 	private int manId;
 	private String pswrd;
 	
+	/**
+	 * Instantiates a new employee.
+	 */
 	public Employee() {
 		super();
 	}
 	
+	/**
+	 * Instantiates a new employee.
+	 *
+	 * @param empId the emp id
+	 * @param fName the f name
+	 * @param lName the l name
+	 * @param manId the man id
+	 * @param pswrd the pswrd
+	 */
 	public Employee(int empId, String fName, String lName, int manId, String pswrd) {
 		super();
 		this.empId = empId;
@@ -41,6 +59,7 @@ public class Employee {
 		return lName;
 	}
 
+	
 	public void setlName(String lName) {
 		this.lName = lName;
 	}
@@ -61,6 +80,12 @@ public class Employee {
 		this.pswrd = pswrd;
 	}
 
+
+
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#hashCode()
+	 */
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -73,37 +98,54 @@ public class Employee {
 		return result;
 	}
 
+	/* (non-Javadoc)
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj)
+		if (this == obj) {
 			return true;
-		if (obj == null)
+		}
+		if (obj == null) {
 			return false;
-		if (getClass() != obj.getClass())
+		}
+		if (!(obj instanceof Employee)) {
 			return false;
+		}
 		Employee other = (Employee) obj;
-		if (empId != other.empId)
+		if (empId != other.empId) {
 			return false;
+		}
 		if (fName == null) {
-			if (other.fName != null)
+			if (other.fName != null) {
 				return false;
-		} else if (!fName.equals(other.fName))
+			}
+		} else if (!fName.equals(other.fName)) {
 			return false;
+		}
 		if (lName == null) {
-			if (other.lName != null)
+			if (other.lName != null) {
 				return false;
-		} else if (!lName.equals(other.lName))
+			}
+		} else if (!lName.equals(other.lName)) {
 			return false;
-		if (manId != other.manId)
+		}
+		if (manId != other.manId) {
 			return false;
+		}
 		if (pswrd == null) {
-			if (other.pswrd != null)
+			if (other.pswrd != null) {
 				return false;
-		} else if (!pswrd.equals(other.pswrd))
+			}
+		} else if (!pswrd.equals(other.pswrd)) {
 			return false;
+		}
 		return true;
 	}
 
+	/**
+	 * Prints the contents of the Employee object
+	 */
 	@Override
 	public String toString() {
 		return "Employee [empId=" + empId + ", fName=" + fName + ", lName=" + lName + ", manId=" + manId + ", pswrd="

@@ -9,18 +9,21 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.log4j.Logger;
+
 import com.revature.model.Employee;
 import com.revature.util.ConnectionUtil;
 
-public class EmployeeDoaImp implements EmployeeDOA {
-//TODO remove reimb id from employee table. the reimb table points to employee
+public class EmployeeDoaImp implements EmployeeDAO {
+	
+	private static Logger log = Logger.getRootLogger();
 	
 	@Override
 	public List<Employee> getEmployees() {
 
 		List<Employee> employeeList = new ArrayList<>();
 		String sql = "SELECT * FROM EMPLOYEE";
-
+		
 		try (Connection con = ConnectionUtil.getConnection();
 				Statement s = con.createStatement();
 				ResultSet rs = s.executeQuery(sql)) {
@@ -33,9 +36,8 @@ public class EmployeeDoaImp implements EmployeeDOA {
 				e.setPswrd(rs.getString("PSWRD"));
 				employeeList.add(e);
 			}
-		} catch (IOException | SQLException e) {
-			e.printStackTrace();
-			// REPLACE WITH LOG4J
+		} catch (IOException | SQLException a) {
+			log.error(a);
 		}
 		return employeeList;
 	}
@@ -58,18 +60,16 @@ public class EmployeeDoaImp implements EmployeeDOA {
 				e.setManId(rs.getInt("MAN_ID"));
 				e.setPswrd(rs.getString("PSWRD"));
 			}
-		} catch (SQLException | IOException e1) {
-			// TODO log4j
-			e1.printStackTrace();
+		} catch (SQLException | IOException a) {
+			log.error(a);
 		} finally {
 			if (rs != null) {
 				try {
-					if (rs.isClosed()) {
+					if (!rs.isClosed()) {
 						rs.close();
 					}
-				} catch (SQLException e1) {
-					// TODO log4j
-					e1.printStackTrace();
+				} catch (SQLException a) {
+					log.error(a);
 				}
 			}
 		}
@@ -97,18 +97,16 @@ public class EmployeeDoaImp implements EmployeeDOA {
 				e.setPswrd(rs.getString("PSWRD"));
 				employeeList.add(e);
 			}
-		} catch (SQLException | IOException e1) {
-			// TODO log4j
-			e1.printStackTrace();
+		} catch (SQLException | IOException a) {
+			log.error(a);
 		} finally {
 			if (rs != null) {
 				try {
-					if (rs.isClosed()) {
+					if (!rs.isClosed()) {
 						rs.close();
 					}
-				} catch (SQLException e1) {
-					// TODO log4j
-					e1.printStackTrace();
+				} catch (SQLException a) {
+					log.error(a);
 				}
 			}
 		}
@@ -123,32 +121,94 @@ public class EmployeeDoaImp implements EmployeeDOA {
 
 	@Override
 	public int updateEmployee(Employee employee) {
-		// TODO Auto-generated method stub
-		return 0;
+		int emplUpdated = 0;
+
+		String sql = "UPDATE EMPLOYEE " + "SET FNAME = ?, " + "LNAME = ?, " + "PSWRD = ? " + "WHERE EMP_ID = ?";
+
+		try (Connection con = ConnectionUtil.getConnection(); PreparedStatement ps = con.prepareStatement(sql);) {
+			ps.setString(1, employee.getfName());
+			ps.setString(2, employee.getlName());
+			ps.setString(3, employee.getPswrd());
+			ps.setInt(4, employee.getEmpId());
+			emplUpdated = ps.executeUpdate();
+
+		} catch (SQLException | IOException a) {
+			log.error(a);
+		}
+
+		return emplUpdated;
 	}
 
 	@Override
 	public int deleteEmployeeById(int id) {
-		// TODO Auto-generated method stub
-		return 0;
+		int emplDeleted = 0;
+
+		String sql = "DELETE FROM EMPLOYEE WHERE EMP_ID = ?";
+
+		try (Connection con = ConnectionUtil.getConnection(); PreparedStatement ps = con.prepareStatement(sql);) {
+			ps.setInt(1, id);
+			emplDeleted = ps.executeUpdate();
+
+		} catch (SQLException | IOException a) {
+			log.error(a);
+		}
+
+		return emplDeleted;
 	}
 
 	@Override
 	public int createEmployee(Employee employee, Connection con) {
-		// TODO Auto-generated method stub
-		return 0;
+		int employeesCreated = 0;
+		String sql = "INSERT INTO EMPLOYEE (FNAME, LNAME, MAN_ID, PSWRD) VALUES (?, ?, ?, ?)";
+
+		try (PreparedStatement ps = con.prepareStatement(sql);) {
+			ps.setString(1, employee.getfName());
+			ps.setString(2, employee.getlName());
+			ps.setInt(3, employee.getManId());
+			ps.setString(4, employee.getPswrd());
+			employeesCreated = ps.executeUpdate();
+
+		} catch (SQLException a) {
+			log.error(a);
+		}
+		return employeesCreated;
 	}
 
 	@Override
 	public int updateEmployee(Employee employee, Connection con) {
-		// TODO Auto-generated method stub
-		return 0;
+		int emplUpdated = 0;
+
+		String sql = "UPDATE EMPLOYEE " + "SET FNAME = ?, " + "LNAME = ?, " + "PSWRD = ? " + "WHERE EMP_ID = ?";
+
+		try (PreparedStatement ps = con.prepareStatement(sql);) {
+			ps.setString(1, employee.getfName());
+			ps.setString(2, employee.getlName());
+			ps.setString(3, employee.getPswrd());
+			ps.setInt(4, employee.getEmpId());
+			emplUpdated = ps.executeUpdate();
+
+		} catch (SQLException a) {
+			log.error(a);
+		}
+
+		return emplUpdated;
 	}
 
 	@Override
 	public int deleteEmployeeById(int id, Connection con) {
-		// TODO Auto-generated method stub
-		return 0;
+		int emplDeleted = 0;
+
+		String sql = "DELETE FROM EMPLOYEE WHERE EMP_ID = ?";
+
+		try (PreparedStatement ps = con.prepareStatement(sql);) {
+			ps.setInt(1, id);
+			emplDeleted = ps.executeUpdate();
+
+		} catch (SQLException a) {
+			log.error(a);
+		}
+
+		return emplDeleted;
 	}
 
 }

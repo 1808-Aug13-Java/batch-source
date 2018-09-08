@@ -9,12 +9,15 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.log4j.Logger;
+
 import com.revature.model.Manager;
 import com.revature.util.ConnectionUtil;
 
-public class ManagerDAOImpl implements ManagerDAO{
+public class ManagerDaoImpl implements ManagerDAO {
 
-	
+	private static Logger log = Logger.getRootLogger();
+
 	@Override
 	public List<Manager> getManagers() {
 		List<Manager> manList = new ArrayList<>();
@@ -26,24 +29,23 @@ public class ManagerDAOImpl implements ManagerDAO{
 			while (rs.next()) {
 				Manager m = new Manager();
 				m.setManId(rs.getInt("MAN_ID"));
-				m.setfName(rs.getString("FNAME"));
-				m.setlName(rs.getString("LNAME"));
+				m.setName(rs.getString("NAME"));
+				m.setPswd(rs.getString("PSWD"));
 				manList.add(m);
 			}
-		} catch (IOException | SQLException e) {
-			e.printStackTrace();
-			// REPLACE WITH LOG4J
+		} catch (IOException | SQLException a) {
+			log.error(a);
 		}
 		return manList;
 	}
-	
+
 	@Override
 	public Manager getManagerById(int id) {
-		
+
 		String sql = "SELECT * FROM MANAGER WHERE MAN_ID = ?";
 		Manager m = new Manager();
 		ResultSet rs = null;
-		
+
 		try (Connection con = ConnectionUtil.getConnection(); PreparedStatement ps = con.prepareStatement(sql);) {
 
 			ps.setInt(1, id);
@@ -51,21 +53,19 @@ public class ManagerDAOImpl implements ManagerDAO{
 
 			while (rs.next()) {
 				m.setManId(rs.getInt("MAN_ID"));
-				m.setfName(rs.getString("FNAME"));
-				m.setlName(rs.getString("LNAME"));
+				m.setName(rs.getString("NAME"));
+				m.setPswd(rs.getString("PSWD"));
 			}
-		} catch (SQLException | IOException e1) {
-			// TODO log4j
-			e1.printStackTrace();
+		} catch (SQLException | IOException a) {
+			log.error(a);
 		} finally {
 			if (rs != null) {
 				try {
-					if (rs.isClosed()) {
+					if (!rs.isClosed()) {
 						rs.close();
 					}
-				} catch (SQLException e1) {
-					// TODO log4j
-					e1.printStackTrace();
+				} catch (SQLException a) {
+					log.error(a);
 				}
 			}
 		}
@@ -74,13 +74,39 @@ public class ManagerDAOImpl implements ManagerDAO{
 
 	@Override
 	public int updateManager(Manager manager) {
-		// TODO Auto-generated method stub
-		return 0;
+		int managerUpdated = 0;
+
+		String sql = "UPDATE MANAGER " + "SET NAME = ?, " + "PSWD = ? " + "WHERE MAN_ID = ?";
+
+		try (Connection con = ConnectionUtil.getConnection(); PreparedStatement ps = con.prepareStatement(sql);) {
+			ps.setString(1, manager.getName());
+			ps.setString(2, manager.getPswd());
+			ps.setInt(3, manager.getManId());
+			managerUpdated = ps.executeUpdate();
+
+		} catch (SQLException | IOException a) {
+			log.error(a);
+		}
+
+		return managerUpdated;
 	}
 
 	@Override
 	public int updateManager(Manager manager, Connection con) {
-		// TODO Auto-generated method stub
-		return 0;
+		int managerUpdated = 0;
+
+		String sql = "UPDATE MANAGER " + "SET NAME = ?, " + "PSWD = ? " + "WHERE MAN_ID = ?";
+
+		try (PreparedStatement ps = con.prepareStatement(sql);) {
+			ps.setString(1, manager.getName());
+			ps.setString(2, manager.getPswd());
+			ps.setInt(3, manager.getManId());
+			managerUpdated = ps.executeUpdate();
+
+		} catch (SQLException a) {
+			log.error(a);
+		}
+
+		return managerUpdated;
 	}
 }

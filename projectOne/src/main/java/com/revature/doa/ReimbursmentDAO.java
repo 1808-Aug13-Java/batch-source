@@ -12,6 +12,7 @@ public interface ReimbursmentDAO {
 	public Reimbursment getReimbursmentById(int id);
 	public List<Reimbursment> getReimbursmentByEmpId(int empId);
 	public List<Reimbursment> getReimbursmentByStatus(String status);
+	public List<Reimbursment> getReimbursmentByManId(int manId);
 	public int createReimbursment(Reimbursment reimbursment);
 	public int updateReimbursment(Reimbursment reimbursment);
 	public int createReimbursment(Reimbursment reimbursment, Connection con);
