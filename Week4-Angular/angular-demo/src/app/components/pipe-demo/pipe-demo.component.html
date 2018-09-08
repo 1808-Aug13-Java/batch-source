@@ -21,4 +21,8 @@
   <ul>
     <li *ngFor='let word of wordsArr'>{{word | convertToSpace:'-'}}</li>
   </ul>
+  <p>Our hyphenated list after applying both of our custom pipes:</p>
+  <ul>
+    <li *ngFor='let word of wordsArr'>{{word | convertToSpace:'-' | firstCap }}</li>
+  </ul>
 </div>
