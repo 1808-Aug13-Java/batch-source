@@ -1,0 +1,15 @@
+{{user}}
+<h2>{{user.name}} Details</h2>
+
+
+<body ng-app>
+  <!--When button clicked the variable toggle will equal NOT toggle (!toggle).  So if toggle==false it will change toggle=true.  If toggle==true, it will change toggle=false.-->
+	<button id="toggleMessage" (click)="toggle=!toggle"> 
+    <!--Watch toggle.  If toggle==true display Hide.  If toggle==false display Show.-->
+    {{toggle ? 'Hide' : 'Show'}}
+  </button>
+  <!--ng-show will only show the element if the expression equals true.  When toggle==true it will show the following element.  When toggle==false it will hide the element.-->
+	<div id="box" *ngIf="toggle"><div><span>id: </span>{{user.id}}</div>
+  <div><span>name: </span>{{user.name}}</div></div>
+</body>
+

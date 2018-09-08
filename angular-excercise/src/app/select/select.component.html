@@ -1,0 +1,24 @@
+<div>
+  <h2>Binding radio buttons</h2>
+  
+  <p>Binding radio button lists</p>
+  
+  <table>
+    <thead>
+      <td></td>
+    </thead>
+    <tbody>
+      <tr *ngFor="let entry of entries; let idx = index">
+        <td>{{ entry.description }}</td>
+        <td><input type="radio" name="radiogroup" (change)="onSelectionChange(entry)" [checked]="(idx === 0)" [value]="entry.id"></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <hr>
+  
+<!-- <pre>
+{{ this.selectedEntry | json }}
+</pre> -->
+  
+</div>

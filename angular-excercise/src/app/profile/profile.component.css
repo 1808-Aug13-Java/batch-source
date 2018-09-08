@@ -1,0 +1,37 @@
+#toggleMessage {
+    width:200px;
+    height:100px;
+    font-size:30px;
+  }
+  
+  #box {
+    width:200px;
+    height:100px;
+    background-color:lightgray;
+    margin-top: 10px;
+  }
+  
+  
+  /*The following styling isn't needed.  Just for aesthetics.*/
+  /* Found at css-tricks.com Centering the Unknown */
+  /* This parent can be any width and height */
+  html {
+    text-align: center;
+    height:100%;
+  }
+   
+  /* The ghost, nudged to maintain perfect centering */
+  html:before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    margin-right: -0.25em; /* Adjusts for spacing */
+  }
+  
+  /* The element to be centered, can
+     also be of any width and height */ 
+  body {
+    display: inline-block;
+    vertical-align: middle;
+  }
