@@ -31,3 +31,25 @@ g
 7src/main/java/com/revature/reim/dao/ManagerDaoImpl.java,4\c\4c5f278b39c9339905e1bc72895d0c2f4a963d3f
 h
 8src/main/java/com/revature/reim/util/ConnectionUtil.java,5\8\58a182fee1ee7c07bb0e26a9e96107b5557eb5f7
+S
+#src/main/webapp/Views/Employee.html,0\1\01e5611d72e3791214f418745297c2152bbf5ae0
+R
+"src/main/webapp/Views/Manager.html,a\0\a049a8b99a7c4e16e550621910965cd99b038a1f
+O
+src/main/webapp/Views/Home.html,c\5\c54c3964ff88df5668b6ee35eea24d57e7135a1c
+k
+;src/main/java/com/revature/reim/servlets/MasterServlet.java,f\8\f84c33777e6dcd6478940cc79fbf5703269e9b11
+e
+5src/main/java/com/revature/reim/util/LogInHelper.java,4\3\4372e001b93b76d6f2f075d9c45d21084933b1c2
+l
+<src/main/java/com/revature/reim/servlets/ManagerServlet.java,a\4\a40c70f86e054014c13b5de22335c0be62eb333b
+m
+=src/main/java/com/revature/reim/servlets/EmployeeServlet.java,e\b\ebd4aea8cba569dc5253bc521c9ed8d21d0823fc
+l
+<src/main/java/com/revature/reim/servlets/SessionServlet.java,a\e\aebb36fbae3737bd3efb8c42242a882c439e31b4
+W
+'src/main/webapp/Scripts/CheckSession.js,c\d\cdcf2924527ea6b7de3b8bad45b700b7cd49086e
+k
+;src/main/java/com/revature/reim/servlets/LogoutServlet.java,7\d\7d4dac09c4cae1cbc5a55b1dd683608fef27dad8
+Q
+!src/main/webapp/Views/Logout.html,6\a\6a66879868ea6d7c228056aa301c695e3566ab52

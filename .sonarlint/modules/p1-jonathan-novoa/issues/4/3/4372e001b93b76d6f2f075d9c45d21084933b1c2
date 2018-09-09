@@ -1,0 +1,5 @@
+
+nsquid:S1118":Add a private constructor to hide the implicit public one.(ôÖ´ğ8”¥Š·Û,HÑvRMAJORZ
+CODE_SMELL
+|squid:UselessImportCheck";Remove this unused import 'javax.servlet.http.HttpSession'.(í¨ô8Ï¿ª¸Û,HÍwRMINORZ
+CODE_SMELL

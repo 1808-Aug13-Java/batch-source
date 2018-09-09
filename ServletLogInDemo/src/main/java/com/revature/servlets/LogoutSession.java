@@ -31,10 +31,7 @@ public class LogoutSession extends HttpServlet {
 		if(session != null) {
 			session.invalidate();
 		}
-		PrintWriter pw = response.getWriter();
-		response.setContentType("text/html");
-		pw.write("<p> You have successfully been logged out </p>");
-		pw.close();
+		request.getRequestDispatcher("Views/Logout.html").forward(request, response);
 	}
 
 	/**

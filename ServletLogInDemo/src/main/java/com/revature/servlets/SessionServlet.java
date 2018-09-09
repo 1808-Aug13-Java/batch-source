@@ -31,7 +31,7 @@ public class SessionServlet extends HttpServlet {
 		PrintWriter pw = response.getWriter();
 		response.setContentType("application/json");
 		if( session != null) {
-			pw.write("{\"username\":\""+session.getAttribute("username")+"\"}");
+			pw.write("{\"username\":\""+session.getAttribute("username")+"\"}"); //write http response text
 		} else {
 			pw.write("{\"username\": null }");
 		}
@@ -42,7 +42,6 @@ public class SessionServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

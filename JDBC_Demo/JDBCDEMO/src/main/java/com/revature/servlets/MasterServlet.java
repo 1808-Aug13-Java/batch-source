@@ -20,15 +20,13 @@ public class MasterServlet extends HttpServlet {
      */
     public MasterServlet() {
         super();
-        
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("Views/Home.html").forward(request, response);
-		
+		request.getRequestDispatcher("Views/Home.html").forward(request, response);	
 	}
 
 	/**

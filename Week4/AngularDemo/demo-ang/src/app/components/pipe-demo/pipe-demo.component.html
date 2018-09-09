@@ -1,0 +1,32 @@
+<div>
+  <h2>Pipes</h2>
+
+<p>{{str}}<br>{{str| uppercase}}</p>
+
+<p> {{num}} <br>  {{num| currency:'USD'}}</p>
+<br>
+
+<p> {{day}} <br> {{day |date}}</p>
+<p> {{day}} <br> {{day |date:'EEEE,MMMM,d,y'|lowercase}}</p>
+<br>
+<ul>
+  <li *ngFor='let str of strArr' >{{str}}</li>
+</ul>
+<br>
+<ul>
+  <li *ngFor='let str of strArr'>{{str| lowercase}}</li>
+</ul>
+<br>
+<p>Hyphenated list</p>
+  <ul>
+    <li *ngFor='let word of wordsArr'> {{word}}</li>
+  </ul>
+<br>
+<ul>
+  <li *ngFor='let word of wordsArr'> {{word|convertToSpace:'-'}}</li>
+</ul>
+<br>
+<p>{{ex}} </p>
+<br>
+<p>{{ex|convertToZ:1}} </p>
+</div>

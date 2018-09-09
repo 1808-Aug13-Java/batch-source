@@ -24,7 +24,6 @@ public class Driver {
 		ManagerDaoImpl manEmp= new ManagerDaoImpl();
 		
 //		System.out.println(emp.viewProfile(1));
-		
 //		System.out.println(emp.logIn("smartguy@hotmail.com","pass123"));	
 //		System.out.println(emp.submitReimbursement(2, 3434.99)); 
 //		System.out.println(emp.viewReimbursments(1,1));
@@ -33,9 +32,7 @@ public class Driver {
 //		System.out.println(manEmp.viewAllRequest(1));
 //		System.out.println(manEmp.getReimbursementsByEmp(1));
 //		System.out.println(manEmp.resolveRequest(2, 4, 2, 2));
-		
-		
-		
+//		System.out.println(manEmp.createEmployee("Thomas", "Edison", "tedison@gmail.con", "asdf", 0));
 		
 	}
 }

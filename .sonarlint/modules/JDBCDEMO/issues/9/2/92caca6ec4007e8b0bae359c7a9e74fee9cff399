@@ -1,3 +1,15 @@
 
-msquid:S1118":Add a private constructor to hide the implicit public one.(šº¯`8àö€ÓÚ,H–GRMAJORZ
+l
+squid:S106
+"9Replace this use of System.out or System.err by a logger.(¯‘××8–’Ë¶Û,H•vRMAJORZ
+CODE_SMELL
+†squid:S1192	"JDefine a constant instead of duplicating this literal "directory" 3 times.(‡¤Äûÿÿÿÿ8–’Ë¶Û,H”vRCRITICALZ
+CODE_SMELL
+msquid:S1118":Add a private constructor to hide the implicit public one.(šº¯`8àö€ÓÚ,H’vRMAJORZ
+CODE_SMELL
+l
+squid:S106"9Replace this use of System.out or System.err by a logger.(âªÁ8éÌ¶Û,H–vRMAJORZ
+CODE_SMELL
+l
+squid:S106"9Replace this use of System.out or System.err by a logger.(İ¹Óç8éÌ¶Û,H—vRMAJORZ
 CODE_SMELL

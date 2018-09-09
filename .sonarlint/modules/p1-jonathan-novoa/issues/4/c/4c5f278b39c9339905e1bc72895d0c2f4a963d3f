@@ -1,3 +1,28 @@
 
-nsquid:S2094"BRemove this empty class, write its code or make it an "interface".(ü‡,H‰gRMINORZ
+csquid:S00108q")Either remove or fill this block of code.(ÒÌâ–øÿÿÿÿ8ƒ‹ÁÛ,HÌtRMAJORZ
+CODE_SMELL
+_squid:S11481"#Use a logger to log this exception.(Âşÿâûÿÿÿÿ8ÊûıŒÛ,HÚtRMINORZVULNERABILITY
+`squid:S1148°"#Use a logger to log this exception.(½äÁéşÿÿÿÿ8§¶Ú‹Û,HØtRMINORZVULNERABILITY
+`squid:S1148›"#Use a logger to log this exception.(Âşÿâûÿÿÿÿ8Ş÷ë²Û,H¤uRMINORZVULNERABILITY
+_squid:S1148T"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ˆ‡ŒÛ,HËtRMINORZVULNERABILITY
+fsquid:S1199q"-Extract this nested code block into a method.(ÒÌâ–øÿÿÿÿ8ƒ‹ÁÛ,HÑtRMINORZ
+CODE_SMELL
+_squid:S1148t"#Use a logger to log this exception.(½äÁéşÿÿÿÿ8ƒ‹ÁÛ,HÊtRMINORZVULNERABILITY
+l
+squid:S106>"9Replace this use of System.out or System.err by a logger.(Â–‘ö8À™›Û,HÖtRMAJORZ
+CODE_SMELL
+_squid:S1148Z"#Use a logger to log this exception.(Âşÿâûÿÿÿÿ8ˆ‡ŒÛ,HĞtRMINORZVULNERABILITY
+psquid:UselessImportCheck"*Remove this unused import 'java.util.Map'.(¼è½Òşÿÿÿÿ8ï”ß‹Û,HÍtRMINORZ
+CODE_SMELL
+q
+squid:S106o"9Replace this use of System.out or System.err by a logger.(ÇŞá”ıÿÿÿÿ8úƒ­Û,HÔtRMAJORZ
+CODE_SMELL
+_squid:S1148+"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8§¶Ú‹Û,HÒtRMINORZVULNERABILITY
+~squid:S1192"GDefine a constant instead of duplicating this literal "EMP_ID" 3 times.(‰Áš8ˆ‡ŒÛ,HÙtRCRITICALZ
+CODE_SMELL
+†squid:S00117$"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Š¶Û8§¶Ú‹Û,HÎtRMINORZ
+CODE_SMELL
+`squid:S1148•"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ÊûıŒÛ,HÕtRMINORZVULNERABILITY
+‘squid:S2077@"RUse a variable binding mechanism to construct this query instead of concatenation.(áªİ‘şÿÿÿÿ8´Ÿ¢Û,HÓtRCRITICALZVULNERABILITY
+tsquid:UselessImportCheck	".Remove this unused import 'java.util.HashMap'.(™˜”€ùÿÿÿÿ8ï”ß‹Û,H×tRMINORZ
 CODE_SMELL

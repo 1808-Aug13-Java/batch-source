@@ -27,7 +27,7 @@ public class ProfileServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession(false);
-		if( session!= null && session.getAttribute("username")!= null) {
+		if(session!= null && session.getAttribute("username")!= null) {
 			request.getRequestDispatcher("Profile.html").forward(request, response);
 		} else {
 			response.sendRedirect("login");

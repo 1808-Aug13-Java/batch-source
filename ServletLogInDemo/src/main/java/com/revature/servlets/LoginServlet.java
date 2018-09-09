@@ -19,26 +19,21 @@ public class LoginServlet extends HttpServlet {
      */
     public LoginServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 		request.getRequestDispatcher("Login.html").forward(request, response);
 	}
-
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String user=request.getParameter("username");
 		String pass=request.getParameter("password");
-		
-		HttpSession session = request.getSession();
-		
+		HttpSession session = request.getSession();//session created even if incorrect login
 		if(user.equals("admin") && pass.equals("pass123")) {
 			session.setAttribute("username", user);
 			response.sendRedirect("profile");

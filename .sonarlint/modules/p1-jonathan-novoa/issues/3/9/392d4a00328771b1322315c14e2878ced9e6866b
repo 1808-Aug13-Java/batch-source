@@ -1,21 +1,21 @@
 
-Šsquid:S00116	"PRename this field "e_key" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÉÇ±íÿÿÿÿÿ8£İ¾äÚ,Hñ\RMINORZ
+Šsquid:S00116	"PRename this field "e_key" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÉÇ±íÿÿÿÿÿ8£İ¾äÚ,HŞgRMINORZ
 CODE_SMELL
-†squid:S00117p"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ô®¡©8ş€ÂäÚ,H›]RMINORZ
+†squid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ô®¡©8ş€ÂäÚ,HâgRMINORZ
 CODE_SMELL
-†squid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ö¥‡8ş€ÂäÚ,Hš]RMINORZ
+ˆsquid:S00100{"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(²»´›şÿÿÿÿ8ş€ÂäÚ,HágRMINORZ
 CODE_SMELL
-ˆsquid:S00100l"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(²»´›şÿÿÿÿ8ş€ÂäÚ,H˜]RMINORZ
+‹squid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Œï£úÿÿÿÿ8ş€ÂäÚ,HÜgRMINORZ
 CODE_SMELL
-ƒsquid:S00100p"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ô®¡©8ş€ÂäÚ,H™]RMINORZ
+ƒsquid:S00100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ô®¡©8ş€ÂäÚ,HÙgRMINORZ
 CODE_SMELL
-squid:S39736"WUse curly braces or indentation to denote the code conditionally executed by this "if".(º‚’8‚³ÃäÚ,H¨]RCRITICALZ
+squid:S3973;"WUse curly braces or indentation to denote the code conditionally executed by this "if".(º‚’8’ êŠÛ,HÒhRCRITICALZ
 CODE_SMELL
-“squid:S3973;"WUse curly braces or indentation to denote the code conditionally executed by this "if".(ÁÀŸÈÿÿÿÿÿ8‚³ÃäÚ,H©]RCRITICALZ
+“squid:S3973@"WUse curly braces or indentation to denote the code conditionally executed by this "if".(ÁÀŸÈÿÿÿÿÿ8’ êŠÛ,HÓhRCRITICALZ
 CODE_SMELL
-squid:S3973B"WUse curly braces or indentation to denote the code conditionally executed by this "if".(Å›‘8‚³ÃäÚ,Hª]RCRITICALZ
+squid:S3973G"WUse curly braces or indentation to denote the code conditionally executed by this "if".(Å›‘8’ êŠÛ,HÔhRCRITICALZ
 CODE_SMELL
-squid:S3973G"WUse curly braces or indentation to denote the code conditionally executed by this "if".(öğ´98‚³ÃäÚ,H«]RCRITICALZ
+squid:S3973N"WUse curly braces or indentation to denote the code conditionally executed by this "if".(öğ´98’ êŠÛ,HÕhRCRITICALZ
 CODE_SMELL
-‰squid:S3776+"RRefactor this method to reduce its Cognitive Complexity from 20 to the 15 allowed.(ÜÑã8‚³ÃäÚ,H¬]RCRITICALZ
+‰squid:S37760"RRefactor this method to reduce its Cognitive Complexity from 21 to the 15 allowed.(ÜÑã8’ êŠÛ,HÖhRCRITICALZ
 CODE_SMELL

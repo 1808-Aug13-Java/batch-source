@@ -1,23 +1,23 @@
 
-‹squid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¯Ñ÷Ëúÿÿÿÿ8‚ûÆäÚ,H¿]RMINORZ
+ƒsquid:S001003"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ö±ğ‹8‚ûÆäÚ,H‘hRMINORZ
 CODE_SMELL
-“squid:S3973M"WUse curly braces or indentation to denote the code conditionally executed by this "if".(ÁÀŸÈÿÿÿÿÿ8‚ûÆäÚ,H¶]RCRITICALZ
+…squid:S00116	"PRename this field "m_key" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(„åÜÔ8Ÿû¸äÚ,H’hRMINORZ
 CODE_SMELL
-…squid:S00116	"PRename this field "m_key" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(„åÜÔ8Ÿû¸äÚ,Hâ\RMINORZ
+†squid:S001173"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ö±ğ‹8‚ûÆäÚ,H“hRMINORZ
 CODE_SMELL
-ƒsquid:S001003"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ö±ğ‹8‚ûÆäÚ,H½]RMINORZ
+squid:S3973R"WUse curly braces or indentation to denote the code conditionally executed by this "if".(Å›‘8‚ûÆäÚ,H”hRCRITICALZ
 CODE_SMELL
-squid:S3973R"WUse curly braces or indentation to denote the code conditionally executed by this "if".(Å›‘8‚ûÆäÚ,H·]RCRITICALZ
+ƒsquid:S001000"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ª˜óƒ8‚ûÆäÚ,H•hRMINORZ
 CODE_SMELL
-squid:S3973W"WUse curly braces or indentation to denote the code conditionally executed by this "if".(öğ´98‚ûÆäÚ,H¸]RCRITICALZ
+squid:S3973W"WUse curly braces or indentation to denote the code conditionally executed by this "if".(öğ´98‚ûÆäÚ,H–hRCRITICALZ
 CODE_SMELL
-zsquid:S1126^"AReplace this if-then-else statement by a single return statement.(íãËùÿÿÿÿ8‚ûÆäÚ,Hº]RMINORZ
+“squid:S3973\"WUse curly braces or indentation to denote the code conditionally executed by this "if".(£‡ø°üÿÿÿÿ8‚ûÆäÚ,H—hRCRITICALZ
 CODE_SMELL
-†squid:S001173"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ö±ğ‹8‚ûÆäÚ,H¾]RMINORZ
+zsquid:S1126^"AReplace this if-then-else statement by a single return statement.(íãËùÿÿÿÿ8‚ûÆäÚ,H˜hRMINORZ
 CODE_SMELL
-“squid:S3973\"WUse curly braces or indentation to denote the code conditionally executed by this "if".(£‡ø°üÿÿÿÿ8‚ûÆäÚ,H¹]RCRITICALZ
+‰squid:S3776B"RRefactor this method to reduce its Cognitive Complexity from 20 to the 15 allowed.(ÜÑã8‚ûÆäÚ,H™hRCRITICALZ
 CODE_SMELL
-‰squid:S3776B"RRefactor this method to reduce its Cognitive Complexity from 20 to the 15 allowed.(ÜÑã8‚ûÆäÚ,H»]RCRITICALZ
+“squid:S3973M"WUse curly braces or indentation to denote the code conditionally executed by this "if".(ÁÀŸÈÿÿÿÿÿ8‚ûÆäÚ,HšhRCRITICALZ
 CODE_SMELL
-ƒsquid:S001000"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ª˜óƒ8‚ûÆäÚ,H¼]RMINORZ
+‹squid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¯Ñ÷Ëúÿÿÿÿ8‚ûÆäÚ,H›hRMINORZ
 CODE_SMELL

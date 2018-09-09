@@ -19,11 +19,9 @@ public class ManagerDaoImpl implements ManagerDao{
 	@Override
 	public List<Employee> viewAllEmployees() {
 		List<Employee> allEmployees = new ArrayList<>();
-		
 		String sql = "SELECT * FROM EMPLOYEES WHERE IS_MANAGER=0"; 
 		ResultSet rs = null;
 		try (Connection con = ConnectionUtil.getConnection(); PreparedStatement ps = con.prepareStatement(sql);) {
-
 			rs = ps.executeQuery();
 			while (rs.next()) {
 				Employee emp = new Employee();
@@ -58,7 +56,6 @@ public class ManagerDaoImpl implements ManagerDao{
 	@Override
 	public List<Reimbursement> viewAllRequest(int i) {
 		List<Reimbursement> pendReims = new ArrayList<>();
-
 		String pending = "SELECT * FROM REIM WHERE RESOLUTION='PENDING'"; 
 		String resolved= "SELECT * FROM REIM WHERE RESOLUTION='APPROVED'";
 		String sql= (i==1)? pending:resolved;
@@ -100,7 +97,7 @@ public class ManagerDaoImpl implements ManagerDao{
 
 
 	@Override
-	public int resolveRequest(int empId,int reim, int manId,int action) {
+	public int resolveRequest(int empId,int reimId, int manId,int action) {
 		String sql = "UPDATE REIM"+
 				" SET RESOLUTION = ?"+
 				", MANAGER_ID= ? "+
@@ -110,7 +107,7 @@ public class ManagerDaoImpl implements ManagerDao{
 		try (Connection con = ConnectionUtil.getConnection(); PreparedStatement ps = con.prepareStatement(sql);) {
 			ps.setString(1, method);
 			ps.setInt(2, manId);
-			ps.setInt(3, reim);
+			ps.setInt(3, reimId);
 			System.out.println(ps);
 			requestResult = ps.executeUpdate();
 			{
@@ -163,8 +160,23 @@ public class ManagerDaoImpl implements ManagerDao{
 	}
 
 	@Override
-	public void createEmployee(String fname, String lname, String emial, String pass, int isMan) {
-		
+	public int createEmployee(String fname, String lname, String emial, String pass, int isMan) {
+		String sql = "INSERT INTO EMPLOYEES (FIRST_NAME,LAST_NAME,EMAIL,E_KEY,IS_MANAGER) VALUES (?,?,?,?,?) ";
+		int empSubmitted = 0;
+
+		try (Connection con = ConnectionUtil.getConnection(); PreparedStatement ps = con.prepareStatement(sql);) {
+			ps.setString(1,fname);
+			ps.setString(2, lname);
+			ps.setString(3, emial);
+			ps.setString(4,pass);
+			ps.setInt(5, isMan);
+			empSubmitted = ps.executeUpdate();
+			
+		} catch (IOException | SQLException p) {
+			p.printStackTrace();
+		}
+		return empSubmitted;
+	}
 	}
 
-}
+

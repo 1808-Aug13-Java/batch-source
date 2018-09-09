@@ -1,0 +1,27 @@
+
+<label>Hide color select</label>
+<input type="checkbox" (click)="changeChecked()">
+<!-- <div *ngIf="check">  -->
+<label>Change Color select</label>
+<form>
+  <select [(ngModel)]='selectedColor' name='selectedColor' [disabled]='check'>
+    <option *ngFor='let color of colors' [value]='color'>
+      {{ color }}
+    </option>
+  </select>
+
+</form>
+
+<!-- </div> -->
+
+<p [ngClass]='selectedClass' [ngStyle]="{'color': selectedColor}">color: {{selectedColor}}</p>
+
+<br>
+<label>Change Format</label><br>
+<select multiple (change)='updateClasses($event)'>
+
+  <option *ngFor='let class of classes' [value]='class'>
+    {{class}}
+  </option>
+</select>
+

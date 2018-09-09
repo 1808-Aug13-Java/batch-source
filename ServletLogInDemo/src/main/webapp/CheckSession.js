@@ -4,7 +4,7 @@
 
 
 
-let checkSessionUrl = "http://localhost:8082/ServletLoginDemo/session";
+let checkSessionUrl = "http://localhost:8082/ServletLogInDemo/session";
 
 function sendAjaxGet(url, func){
 	let xhr = new XMLHttpRequest() || new ActiveXObject("Microsoft.HTTPRequest");
@@ -16,7 +16,6 @@ function sendAjaxGet(url, func){
 	xhr.open("GET", url);
 	xhr.send();
 }
-
 sendAjaxGet(checkSessionUrl, populateUser);
 
 function populateUser(xhr){
@@ -24,6 +23,6 @@ function populateUser(xhr){
 	if(response.username != "null"){
 		document.getElementById("user").innerHTML = "You are logged in as: "+ response.username;
 	} else {
-		window.location = "http://localhost:8082/ServletLoginDemo/login";
+		window.location = "http://localhost:8082/ServletLogInDemo/login";
 	}
 }

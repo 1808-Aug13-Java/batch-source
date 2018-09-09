@@ -1,11 +1,15 @@
 
-Šsquid:UselessImportCheck"DRemove this unused import 'javax.swing.plaf.synth.SynthSeparatorUI'.(àŽó‰üÿÿÿÿ8Å´™æÚ,HŽaRMINORZ
+asquid:S1481"(Remove this unused "emp" local variable.(ÝÍ Îüÿÿÿÿ8¾½ÆŽÛ,H²uRMINORZ
 CODE_SMELL
-„squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Á‰Ç–ÿÿÿÿÿ8åŽ˜æÚ,H‰aRMAJORZ
+Šsquid:UselessImportCheck"DRemove this unused import 'javax.swing.plaf.synth.SynthSeparatorUI'.(àŽó‰üÿÿÿÿ8Å´™æÚ,H®uRMINORZ
 CODE_SMELL
-„squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ñ¥ùšøÿÿÿÿ8€µ¼ãÚ,HŒaRMAJORZ
+„squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Á‰Ç–ÿÿÿÿÿ8„ª‚ŒÛ,H°uRMAJORZ
 CODE_SMELL
-asquid:S1481"(Remove this unused "emp" local variable.(ÝÍ Îüÿÿÿÿ8Î•ÚëÚ,H‡gRMINORZ
+psquid:S1854"7Remove this useless assignment to local variable "emp".(ÝÍ Îüÿÿÿÿ8¾½ÆŽÛ,H­uRMAJORZ
 CODE_SMELL
-psquid:S1854"7Remove this useless assignment to local variable "emp".(ÝÍ Îüÿÿÿÿ8Î•ÚëÚ,HˆgRMAJORZ
+„squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ñ¥ùšøÿÿÿÿ8€µ¼ãÚ,H¯uRMAJORZ
+CODE_SMELL
+dsquid:S1481"+Remove this unused "manEmp" local variable.(áØµ’úÿÿÿÿ8‹˜ƒ´Û,HØuRMINORZ
+CODE_SMELL
+ssquid:S1854":Remove this useless assignment to local variable "manEmp".(áØµ’úÿÿÿÿ8‹˜ƒ´Û,HÙuRMAJORZ
 CODE_SMELL
