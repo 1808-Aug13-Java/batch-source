@@ -1,6 +1,9 @@
+// VALIDATING USER, POPULATING REIMBURSMENTS TABLE
+
 function sendAjaxGet(url, callback) {
   let xhr = new XMLHttpRequest();
-
+  console.log('sending ajax call to '+ url);
+  
   xhr.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
       callback(this);
@@ -11,10 +14,88 @@ function sendAjaxGet(url, callback) {
   xhr.send();
 }
 
+const isUserUrl = "http://localhost:8082/p1-crandon-riordan/session";
 const reimbursmentUrl = "http://localhost:8082/p1-crandon-riordan/reimbursment";
 
+
+function populatPendingReimbursments(xhr) {
+  let response = JSON.parse(xhr.responseText);
+  let reimbursments = response.reimbursments;
+
+  let table = document.getElementById("tbodyPending");
+  table.innerHTML = "";
+  for (let reimbursment of reimbursments) {
+    let trEl = document.createElement("tr");
+    trEl.innerHTML = `
+    <td>${reimbursment.reimbursmentId}</td>
+    <td>${reimbursment.employeeId}</td>
+    <td>${reimbursment.employee.name}</td>
+    <td>${reimbursment.reason}</td>
+    <td>${reimbursment.amount}</td>
+    <td>${reimbursment.currentState.toUpperCase()}</td>
+    <td>${new Date(reimbursment.dateCreated).toLocaleDateString()}</td>
+    <td>${reimbursment.manager != undefined ? reimbursment.manager.name : "N/A"}</td>
+    `;
+
+    if (reimbursment.currentState.toLowerCase() == "pending") {
+      trEl.innerHTML += `
+      <td>
+      <i onclick="approveRequest(event); " class="material-icons pointer approve">
+        done
+      </i>
+    </td>
+    <td>
+      <i onclick="denyRequest(event);" class="material-icons pointer deny">
+        delete_outline
+      </i>
+    </td>
+      `;
+    }
+
+    table.appendChild(trEl);
+  }
+}
+
+function populateResolvedReimbursments(xhr) {
+  let response = JSON.parse(xhr.responseText);
+  let reimbursments = response.reimbursments;
+
+  let table = document.getElementById("tbodyResolved");
+  table.innerHTML = "";
+  for (let reimbursment of reimbursments) {
+    let trEl = document.createElement("tr");
+    trEl.innerHTML = `
+    <td>${reimbursment.reimbursmentId}</td>
+    <td>${reimbursment.employeeId}</td>
+    <td>${reimbursment.employee.name}</td>
+    <td>${reimbursment.reason}</td>
+    <td>${reimbursment.amount}</td>
+    <td>${reimbursment.currentState.toUpperCase()}</td>
+    <td>${new Date(reimbursment.dateCreated).toLocaleDateString()}</td>
+    <td>${reimbursment.manager != undefined ? reimbursment.manager.name : "N/A"}</td>
+    `;
+
+    if (reimbursment.currentState.toLowerCase() == "pending") {
+      trEl.innerHTML += `
+        <td>
+          <i onclick="approveRequest(event)" class="material-icons pointer approve">
+            done
+          </i>
+        </td>
+        <td>
+          <i onclick="denyRequest(event)" class="material-icons pointer deny">
+            delete_outline
+          </i>
+        </td>
+      `;
+    }
+
+    table.appendChild(trEl);
+  }
+}
+
+
 document.addEventListener("DOMContentLoaded", function () {
-  const isUserUrl = "http://localhost:8082/p1-crandon-riordan/session";
   
 
   
@@ -31,8 +112,6 @@ document.addEventListener("DOMContentLoaded", function () {
       let emailEl = document.getElementById("email");
       emailEl.innerHTML = response.email;
       sendAjaxGet(reimbursmentUrl, populateReimbursments);
-      sendAjaxGet(reimbursmentUrl + "?currentState=pending", populatPendingReimbursments);
-      sendAjaxGet(reimbursmentUrl + "?currentState=resolved", populateResolvedReimbursments);
     }
 
 
@@ -65,12 +144,12 @@ document.addEventListener("DOMContentLoaded", function () {
       if (reimbursment.currentState.toLowerCase() == "pending") {
         trEl.innerHTML += `
         <td>
-        <i onclick="approveRequest(event)" class="material-icons pointer approve">
+        <i onclick="approveRequest(event); " class="material-icons pointer approve">
           done
         </i>
       </td>
       <td>
-        <i onclick="denyRequest(event)" class="material-icons pointer deny">
+        <i onclick="denyRequest(event); " class="material-icons pointer deny">
           delete_outline
         </i>
       </td>
@@ -79,86 +158,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
       table.appendChild(trEl);
     }
-  
-
   };
 
-  function populatPendingReimbursments(xhr) {
-    let response = JSON.parse(xhr.responseText);
-    let reimbursments = response.reimbursments;
-
-    let table = document.getElementById("tbodyPending");
-    table.innerHTML = "";
-    for (let reimbursment of reimbursments) {
-      let trEl = document.createElement("tr");
-      trEl.innerHTML = `
-      <td>${reimbursment.reimbursmentId}</td>
-      <td>${reimbursment.employeeId}</td>
-      <td>${reimbursment.employee.name}</td>
-      <td>${reimbursment.reason}</td>
-      <td>${reimbursment.amount}</td>
-      <td>${reimbursment.currentState.toUpperCase()}</td>
-      <td>${new Date(reimbursment.dateCreated).toLocaleDateString()}</td>
-      <td>${reimbursment.manager != undefined ? reimbursment.manager.name : "N/A"}</td>
-      `;
-
-      if (reimbursment.currentState.toLowerCase() == "pending") {
-        trEl.innerHTML += `
-        <td>
-        <i onclick="approveRequest(event)" class="material-icons pointer approve">
-          done
-        </i>
-      </td>
-      <td>
-        <i onclick="denyRequest(event)" class="material-icons pointer deny">
-          delete_outline
-        </i>
-      </td>
-        `;
-      }
-
-      table.appendChild(trEl);
-    }
-  }
-
-  function populateResolvedReimbursments(xhr) {
-
-    let response = JSON.parse(xhr.responseText);
-    let reimbursments = response.reimbursments;
-
-    let table = document.getElementById("tbodyResolved");
-    table.innerHTML = "";
-    for (let reimbursment of reimbursments) {
-      let trEl = document.createElement("tr");
-      trEl.innerHTML = `
-      <td>${reimbursment.reimbursmentId}</td>
-      <td>${reimbursment.employeeId}</td>
-      <td>${reimbursment.employee.name}</td>
-      <td>${reimbursment.reason}</td>
-      <td>${reimbursment.amount}</td>
-      <td>${reimbursment.currentState.toUpperCase()}</td>
-      <td>${new Date(reimbursment.dateCreated).toLocaleDateString()}</td>
-      <td>${reimbursment.manager != undefined ? reimbursment.manager.name : "N/A"}</td>
-      `;
-
-      if (reimbursment.currentState.toLowerCase() == "pending") {
-        trEl.innerHTML += `
-          <td>
-            <i onclick="approveRequest(event)" class="material-icons pointer approve">
-              done
-            </i>
-          </td>
-          <td>
-            <i onclick="denyRequest(event)" class="material-icons pointer deny">
-              delete_outline
-            </i>
-          </td>
-        `;
-      }
-
-      table.appendChild(trEl);
-    }
-  }
+  
 
 
 
@@ -195,10 +197,14 @@ function approveRequest(event) {
   let reimbursmentId = event
       .target
       .parentNode.parentNode.childNodes[1].innerHTML;
+  // remove all data and wait for response
+  event.target.parentNode.parentNode.parentNode.innerHTML = "";
+  event.target.parentNode.parentNode.style = "display: none";
   sendAjaxGet((reimbursmentUrl + 
     "?action=approve&reimbursmentId=" + 
     reimbursmentId), function() {
       console.log("approving request");
+      sendAjaxGet(reimbursmentUrl, populateReimbursments);
     });
 }
 
@@ -206,9 +212,10 @@ function denyRequest(event) {
   let reimbursmentId = event
       .target
       .parentNode.parentNode.childNodes[1].innerHTML;
+  event.target.parentNode.parentNode.style = "display: none";
   sendAjaxGet((reimbursmentUrl + 
     "?action=deny&reimbursmentId=" + 
     reimbursmentId), function() {
       console.log("deny request");
-    });
+  });
 }

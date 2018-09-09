@@ -1,14 +1,13 @@
 
-gsquid:S1989"+Add a "try/catch" block for "sendRedirect".(„¨¶Òûÿÿÿÿ8ÃÁ’ÛÚ,H—GRMINORZVULNERABILITY
-~squid:UselessImportCheck"8Remove this unused import 'com.revature.dao.EmpDaoImpl'.(º–ïÀûÿÿÿÿ8·˜¦ÕÚ,H–GRMINORZ
+‚squid:S1192"FDefine a constant instead of duplicating this literal "email" 3 times.(Ä®»÷þÿÿÿÿ8ˆáÄÛÚ,H®YRCRITICALZ
 CODE_SMELL
-gsquid:S1989 "+Add a "try/catch" block for "sendRedirect".(„¨¶Òûÿÿÿÿ8ŒÎ¾ÖÚ,HGRMINORZVULNERABILITY
-gsquid:S1161":Add the "@Override" annotation above this method signature(÷¤‹úH™GRMAJORZ
+gsquid:S1989$"+Add a "try/catch" block for "sendRedirect".(„¨¶Òûÿÿÿÿ8ÃÁ’ÛÚ,H¬YRMINORZVULNERABILITY
+psquid:S2441!">Make "Employee" serializable or don't store it in the session.(¿ì¢œþÿÿÿÿ8™«¸ÌÛ,H¶YRMAJORZBUG
+Ysquid:S1989+"$Add a "try/catch" block for "doGet".(®Ó‘ûÿÿÿÿÿH¨YRMINORZVULNERABILITY
+lsquid:S1161)":Add the "@Override" annotation above this method signature(þ³‚”ûÿÿÿÿH©YRMAJORZ
 CODE_SMELL
-Ysquid:S1989'"$Add a "try/catch" block for "doGet".(®Ó‘ûÿÿÿÿÿH˜GRMINORZVULNERABILITY
-lsquid:S1161%":Add the "@Override" annotation above this method signature(þ³‚”ûÿÿÿÿHšGRMAJORZ
+gsquid:S1161":Add the "@Override" annotation above this method signature(÷¤‹úH«YRMAJORZ
 CODE_SMELL
-Ysquid:S1989'"$Add a "try/catch" block for "doGet".(®Ó‘ûÿÿÿÿÿH›GRMINORZVULNERABILITY
-‚squid:S1192"FDefine a constant instead of duplicating this literal "email" 3 times.(Ä®»÷þÿÿÿÿ8ˆáÄÛÚ,HžGRCRITICALZ
-CODE_SMELL
-…squid:S2226"XRemove this misleading mutable servlet instance field or make it "static" and/or "final"(˜¸Åý8µð£ÕÚ,HœGRMAJORZBUG
+…squid:S2226"XRemove this misleading mutable servlet instance field or make it "static" and/or "final"(˜¸Åý8µð£ÕÚ,H­YRMAJORZBUG
+gsquid:S1989"+Add a "try/catch" block for "sendRedirect".(„¨¶Òûÿÿÿÿ8ŒÎ¾ÖÚ,H§YRMINORZVULNERABILITY
+Ysquid:S1989+"$Add a "try/catch" block for "doGet".(®Ó‘ûÿÿÿÿÿH¦YRMINORZVULNERABILITY

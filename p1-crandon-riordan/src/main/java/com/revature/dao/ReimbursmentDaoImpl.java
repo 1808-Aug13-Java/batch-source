@@ -29,6 +29,10 @@ public class ReimbursmentDaoImpl implements ReimbursmentDao {
 		String sql = "INSERT INTO REIMBURSMENT (EMPLOYEE_ID, AMOUNT, "
 				+ "CURRENT_STATE, IMAGE_URL, REASON) "
 				+ "VALUES (?,?,?,?,?)";
+		// should probably do this on SQL side
+		if(reimbursment.getCurrentState() == null) {
+			reimbursment.setCurrentState("PENDING");
+		}
 		
 		try(Connection con = ConnectionUtil.getConnection();
 				PreparedStatement ps = con.prepareStatement(sql)) {
@@ -39,6 +43,7 @@ public class ReimbursmentDaoImpl implements ReimbursmentDao {
 			ps.setString(5, reimbursment.getReason());
 			createdReimbursment = ps.executeUpdate();
 		} catch (SQLException | IOException e) {
+			e.printStackTrace();
 			logger.info(e.getMessage());
 		}
 		
@@ -49,7 +54,7 @@ public class ReimbursmentDaoImpl implements ReimbursmentDao {
 	@Override
 	public int denyReimbursmentById(int id, int managerId) {
 		int deniedReimbursment = 0;
-		String sql = "UPDATE REIMBURSMENT SET CURRENT_STATE = 'DENIED' SET MANAGER_ID = ?"
+		String sql = "UPDATE REIMBURSMENT SET CURRENT_STATE = 'DENIED', MANAGER_ID = ?"
 				+ " WHERE REIMBURSMENT_ID = ?";
 		try(Connection con = ConnectionUtil.getConnection();
 				PreparedStatement ps = con.prepareStatement(sql)) {
@@ -57,6 +62,7 @@ public class ReimbursmentDaoImpl implements ReimbursmentDao {
 			ps.setInt(2, id);
 			deniedReimbursment = ps.executeUpdate();
 		} catch (SQLException | IOException e) {
+			e.printStackTrace();
 			logger.info(e.getMessage());
 		}
 		
@@ -65,15 +71,17 @@ public class ReimbursmentDaoImpl implements ReimbursmentDao {
 	}
 
 	@Override
-	public int approveRequestById(int id) {
+	public int approveRequestById(int id, int managerId) {
 		int approvedReimbursment = 0;
-		String sql = "UPDATE REIMBURSMENT SET CURRENT_STATE = 'APPROVED'"
+		String sql = "UPDATE REIMBURSMENT SET CURRENT_STATE = 'APPROVED', MANAGER_ID = ?"
 				+ " WHERE REIMBURSMENT_ID = ?";
 		try(Connection con = ConnectionUtil.getConnection();
 				PreparedStatement ps = con.prepareStatement(sql)) {
-			ps.setInt(1, id);
+			ps.setInt(1, managerId);
+			ps.setInt(2, id);
 			approvedReimbursment = ps.executeUpdate();
 		} catch (SQLException | IOException e) {
+			e.printStackTrace();
 			logger.info(e.getMessage());
 		}
 		
@@ -99,8 +107,10 @@ public class ReimbursmentDaoImpl implements ReimbursmentDao {
 				reimbursment.setImageUrl(rs.getString("image_URL"));
 				reimbursment.setAmount(rs.getBigDecimal("AMOUNT"));
 				reimbursment.setReason(rs.getString("REASON"));
+				reimbursment.setManagerId(rs.getInt("MANAGER_ID"));
 			}
 		} catch (SQLException | IOException e) {
+			e.printStackTrace();
 			logger.info(e.getMessage());
 		} finally {
 			if(rs != null) {
@@ -135,9 +145,11 @@ public class ReimbursmentDaoImpl implements ReimbursmentDao {
 				reimbursment.setImageUrl(rs.getString("image_URL"));
 				reimbursment.setAmount(rs.getBigDecimal("AMOUNT"));
 				reimbursment.setReason(rs.getString("REASON"));
+				reimbursment.setManagerId(rs.getInt("MANAGER_ID"));
 				reimbursments.add(reimbursment);
 			}
 		} catch (SQLException | IOException e) {
+			e.printStackTrace();
 			logger.info(e.getMessage());
 		} finally {
 			if(rs != null) {
@@ -156,9 +168,9 @@ public class ReimbursmentDaoImpl implements ReimbursmentDao {
 		List<Reimbursment> reimbursments = new ArrayList<Reimbursment>();
 		
 		ResultSet rs = null;
-		String sql = "SELECT * FROM REIMBURSMENT WHERE CURRENT_STATE = 'APPROVED' "
-				+ "OR CURRENT_STATE = 'DENIED' "
-				+ "AND EMPLOYEE_ID = ?";
+		String sql = "SELECT * FROM REIMBURSMENT WHERE EMPLOYEE_ID = ? AND (CURRENT_STATE = 'APPROVED' "
+				+ "OR CURRENT_STATE = 'DENIED')"
+				+ "";
 		try(Connection con = ConnectionUtil.getConnection();
 				PreparedStatement ps = con.prepareStatement(sql);
 				) {
@@ -173,9 +185,11 @@ public class ReimbursmentDaoImpl implements ReimbursmentDao {
 				reimbursment.setImageUrl(rs.getString("image_URL"));
 				reimbursment.setAmount(rs.getBigDecimal("AMOUNT"));
 				reimbursment.setReason(rs.getString("REASON"));
+				reimbursment.setManagerId(rs.getInt("MANAGER_ID"));
 				reimbursments.add(reimbursment);
 			}
 		} catch (SQLException | IOException e) {
+			e.printStackTrace();
 			logger.info(e.getMessage());
 		} finally {
 			if(rs != null) {
@@ -208,6 +222,7 @@ public class ReimbursmentDaoImpl implements ReimbursmentDao {
 				reimbursment.setImageUrl(rs.getString("IMAGE_URL"));
 				reimbursment.setAmount(rs.getBigDecimal("AMOUNT"));
 				reimbursment.setReason(rs.getString("REASON"));
+				reimbursment.setManagerId(rs.getInt("MANAGER_ID"));
 				reimbursments.add(reimbursment);
 			}
 		} catch (SQLException | IOException e) {
@@ -245,6 +260,7 @@ public class ReimbursmentDaoImpl implements ReimbursmentDao {
 				reimbursment.setImageUrl(rs.getString("IMAGE_URL"));
 				reimbursment.setAmount(rs.getBigDecimal("AMOUNT"));
 				reimbursment.setReason(rs.getString("REASON"));
+				reimbursment.setManagerId(rs.getInt("MANAGER_ID"));
 				reimbursments.add(reimbursment);
 			}
 		} catch (SQLException | IOException e) {
@@ -281,9 +297,11 @@ public class ReimbursmentDaoImpl implements ReimbursmentDao {
 				reimbursment.setImageUrl(rs.getString("image_URL"));
 				reimbursment.setAmount(rs.getBigDecimal("AMOUNT"));
 				reimbursment.setReason(rs.getString("REASON"));
+				reimbursment.setManagerId(rs.getInt("MANAGER_ID"));
 				reimbursments.add(reimbursment);
 			}
 		} catch (SQLException | IOException e) {
+			e.printStackTrace();
 			logger.info(e.getMessage());
 		} finally {
 			if(rs != null) {
@@ -317,10 +335,11 @@ public class ReimbursmentDaoImpl implements ReimbursmentDao {
 				reimbursment.setImageUrl(rs.getString("IMAGE_URL"));
 				reimbursment.setAmount(rs.getBigDecimal("AMOUNT"));
 				reimbursment.setReason(rs.getString("REASON"));
+				reimbursment.setManagerId(rs.getInt("MANAGER_ID"));
 				reimbursments.add(reimbursment);
 			}
 		} catch (SQLException | IOException e) {
-			
+			e.printStackTrace();
 			logger.info(e.getMessage());
 		} finally {
 			if(rs != null) {

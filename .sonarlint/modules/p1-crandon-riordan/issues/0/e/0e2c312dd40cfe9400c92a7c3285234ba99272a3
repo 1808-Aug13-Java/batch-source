@@ -1,17 +1,17 @@
 
-squid:S3973•"WUse curly braces or indentation to denote the code conditionally executed by this "if".(ŠÈœ½úÿÿÿÿH©FRCRITICALZ
+squid:S3973ª"WUse curly braces or indentation to denote the code conditionally executed by this "if".(ŠÈœ½úÿÿÿÿHúSRCRITICALZ
 CODE_SMELL
-osquid:S1126ª"AReplace this if-then-else statement by a single return statement.(Òá¦HªFRMINORZ
+squid:S3973½"WUse curly braces or indentation to denote the code conditionally executed by this "if".(ı»„æ8åÂ•àÚ,HûSRCRITICALZ
 CODE_SMELL
-ƒsquid:S3776…"RRefactor this method to reduce its Cognitive Complexity from 26 to the 15 allowed.(ÜÑãH«FRCRITICALZ
+ˆsquid:S3973¥"WUse curly braces or indentation to denote the code conditionally executed by this "if".(–×İôHşSRCRITICALZ
 CODE_SMELL
-squid:S3973¡"WUse curly braces or indentation to denote the code conditionally executed by this "if".(ªøÕ…ıÿÿÿÿH¬FRCRITICALZ
+squid:S3973¶"WUse curly braces or indentation to denote the code conditionally executed by this "if".(ªøÕ…ıÿÿÿÿHüSRCRITICALZ
 CODE_SMELL
-ˆsquid:S3973"WUse curly braces or indentation to denote the code conditionally executed by this "if".(–×İôH­FRCRITICALZ
+{squid:S00107+"AConstructor has 8 parameters, which is greater than 7 authorized.(ığÔ‰şÿÿÿÿ8åÂ•àÚ,HTRMAJORZ
 CODE_SMELL
-squid:S3973š"WUse curly braces or indentation to denote the code conditionally executed by this "if".(ÉÏöºşÿÿÿÿH®FRCRITICALZ
+ƒsquid:S3776š"RRefactor this method to reduce its Cognitive Complexity from 26 to the 15 allowed.(ÜÑãHÿSRCRITICALZ
 CODE_SMELL
-squid:S3973¨"WUse curly braces or indentation to denote the code conditionally executed by this "if".(ı»„æ8åÂ•àÚ,H¯FRCRITICALZ
+squid:S3973¯"WUse curly braces or indentation to denote the code conditionally executed by this "if".(ÉÏöºşÿÿÿÿH€TRCRITICALZ
 CODE_SMELL
-{squid:S00107"AConstructor has 8 parameters, which is greater than 7 authorized.(ığÔ‰şÿÿÿÿ8åÂ•àÚ,H°FRMAJORZ
+osquid:S1126¿"AReplace this if-then-else statement by a single return statement.(Òá¦HıSRMINORZ
 CODE_SMELL

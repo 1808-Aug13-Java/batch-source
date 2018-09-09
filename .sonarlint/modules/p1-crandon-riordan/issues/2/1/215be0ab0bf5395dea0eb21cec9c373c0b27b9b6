@@ -1,30 +1,42 @@
 
-“squid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(™şæ¸ıÿÿÿÿ8ãÿœàÚ,HÂFRMINORZ
+_squid:S1148A"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8´­ÅÛ,H·SRMINORZVULNERABILITY
+‡squid:S1192Ş"JDefine a constant instead of duplicating this literal "IMAGE_URL" 3 times.(ÄÛ§°şÿÿÿÿ8´­ÅÛ,HµSRCRITICALZ
 CODE_SMELL
-~squid:S1192a"NDefine a constant instead of duplicating this literal "CURRENT_STATE" 7 times.(çÈ¶HÿERCRITICALZ
+“squid:S2293Ğ"YReplace the type specification in this constructor call with the diamond operator ("<>").(™şæ¸ıÿÿÿÿ8ãÿœàÚ,H±SRMINORZ
 CODE_SMELL
-’squid:S2293x"YReplace the type specification in this constructor call with the diamond operator ("<>").(™şæ¸ıÿÿÿÿ8ãÿœàÚ,H¿FRMINORZ
+|squid:S1192l"GDefine a constant instead of duplicating this literal "AMOUNT" 7 times.(¶®û‰şÿÿÿÿH³SRCRITICALZ
 CODE_SMELL
-“squid:S2293Å"YReplace the type specification in this constructor call with the diamond operator ("<>").(™şæ¸ıÿÿÿÿ8ãÿœàÚ,HÀFRMINORZ
+~squid:S1192m"GDefine a constant instead of duplicating this literal "REASON" 7 times.(ÊüĞÒ8®Â¢àÚ,H«SRCRITICALZ
 CODE_SMELL
-€squid:S1192_"PDefine a constant instead of duplicating this literal "REIMBURSMENT_ID" 7 times.(ÀŠÍüHıERCRITICALZ
+‚squid:S1192j"MDefine a constant instead of duplicating this literal "DATE_CREATED" 7 times.(£½‹±úÿÿÿÿH§SRCRITICALZ
 CODE_SMELL
-_squid:S1148o"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ãÿœàÚ,HÅFRMINORZVULNERABILITY
-“squid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(™şæ¸ıÿÿÿÿ8ãÿœàÚ,HÁFRMINORZ
+_squid:S1148."#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8´­ÅÛ,H¶SRMINORZVULNERABILITY
+_squid:S1148T"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8şÒÇÆÛ,H²TRMINORZVULNERABILITY
+`squid:S1148Ö"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8¡‹ÇÆÛ,H±TRMINORZVULNERABILITY
+“squid:S2293›"YReplace the type specification in this constructor call with the diamond operator ("<>").(™şæ¸ıÿÿÿÿ8ãÿœàÚ,H­SRMINORZ
 CODE_SMELL
-€squid:S1192d"KDefine a constant instead of duplicating this literal "IMAGER_URL" 7 times.(Ùøñ«øÿÿÿÿH‚FRCRITICALZ
+_squid:S1148x"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8“ÁÆÛ,H°TRMINORZVULNERABILITY
+`squid:S1148‹"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8œ¥ÉÆÛ,HµTRMINORZVULNERABILITY
+“squid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(™şæ¸ıÿÿÿÿ8ãÿœàÚ,H²SRMINORZ
 CODE_SMELL
-squid:S1192`"LDefine a constant instead of duplicating this literal "EMPLOYEE_ID" 7 times.(¡ŒùßûÿÿÿÿHFRCRITICALZ
+“squid:S2293À"YReplace the type specification in this constructor call with the diamond operator ("<>").(™şæ¸ıÿÿÿÿ8ãÿœàÚ,H©SRMINORZ
 CODE_SMELL
-‚squid:S1192b"MDefine a constant instead of duplicating this literal "DATE_CREATED" 7 times.(£½‹±úÿÿÿÿHşERCRITICALZ
+squid:S1192n"KDefine a constant instead of duplicating this literal "MANAGER_ID" 7 times.(Ğ­ô8­öˆÆÛ,H”TRCRITICALZ
 CODE_SMELL
-|squid:S1192e"GDefine a constant instead of duplicating this literal "AMOUNT" 7 times.(¶®û‰şÿÿÿÿH€FRCRITICALZ
+€squid:S1192g"PDefine a constant instead of duplicating this literal "REIMBURSMENT_ID" 7 times.(ÀŠÍüH®SRCRITICALZ
 CODE_SMELL
-“squid:S2293²"YReplace the type specification in this constructor call with the diamond operator ("<>").(™şæ¸ıÿÿÿÿ8ãÿœàÚ,HÃFRMINORZ
+“squid:S2293¨"YReplace the type specification in this constructor call with the diamond operator ("<>").(™şæ¸ıÿÿÿÿ8ãÿœàÚ,H°SRMINORZ
 CODE_SMELL
-“squid:S2293é"YReplace the type specification in this constructor call with the diamond operator ("<>").(™şæ¸ıÿÿÿÿ8ãÿœàÚ,HÄFRMINORZ
+`squid:S1148å"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ŸÂÉÆÛ,H¶TRMINORZVULNERABILITY
+`squid:S1148°"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ãÿœàÚ,H¬SRMINORZVULNERABILITY
+squid:S1192h"LDefine a constant instead of duplicating this literal "EMPLOYEE_ID" 7 times.(¡ŒùßûÿÿÿÿHªSRCRITICALZ
 CODE_SMELL
-zsquid:S1192c"KDefine a constant instead of duplicating this literal "MANAGER_ID" 7 times.(Ğ­ôHüERCRITICALZ
+_squid:S1148q"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8¨ÙáÅÛ,H‘TRMINORZVULNERABILITY
+`squid:S1148À"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ÁÜÈÆÛ,H´TRMINORZVULNERABILITY
+“squid:S2293õ"YReplace the type specification in this constructor call with the diamond operator ("<>").(™şæ¸ıÿÿÿÿ8ãÿœàÚ,H¯SRMINORZ
 CODE_SMELL
-~squid:S1192f"GDefine a constant instead of duplicating this literal "REASON" 7 times.(ÊüĞÒ8®Â¢àÚ,HÆFRCRITICALZ
+~squid:S1192i"NDefine a constant instead of duplicating this literal "CURRENT_STATE" 7 times.(çÈ¶H¨SRCRITICALZ
+CODE_SMELL
+`squid:S1148˜"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8û€ÈÆÛ,H³TRMINORZVULNERABILITY
+†squid:S1192k"JDefine a constant instead of duplicating this literal "image_URL" 4 times.(ÜáíØıÿÿÿÿ8´­ÅÛ,H´SRCRITICALZ
 CODE_SMELL

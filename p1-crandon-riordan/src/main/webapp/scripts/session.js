@@ -1,6 +1,7 @@
+
 document.addEventListener("DOMContentLoaded", function(){
   const isUserUrl = "http://localhost:8082/p1-crandon-riordan/session";
-
+  let sessionId;
   function sendAjaxGet(url, callback) {
     let xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function() {
@@ -18,6 +19,10 @@ document.addEventListener("DOMContentLoaded", function(){
     if(response == null || response.email == null) {
       window.location="http://localhost:8082/p1-crandon-riordan/login";
     }
+
+    let email = document.getElementById("email");
+    email.innerHTML = response.email;
+    sessionId = response.id;
   }
 
   sendAjaxGet(isUserUrl, validateUser);

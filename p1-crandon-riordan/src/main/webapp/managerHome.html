@@ -20,7 +20,7 @@
 
 <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#" id="email">email</a>
+    <a class="navbar-brand" href="#" id="email"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
       aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -31,8 +31,12 @@
           <a class="nav-link" href="home">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="">Manager Dash</a>
+          <a class="nav-link active" href="managerHome">Manager Dash</a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link active" href="employeeProfile">Profile</a>
+          </li>
+        <li class="nav-item">
         <li class="nav-item">
           <a class="nav-link" href="logout">Logout</a>
         </li>
@@ -130,15 +134,18 @@
     </div>
     <div class="employeeTable noDisplay">
         <div class="input-group mb-3">
-            <div class="input-group-prepend">
+            <div class="input-group-prepend" id="search">
               <span class="input-group-text"><i class="material-icons">
                   search
                   </i></span>
             </div>
-            <input type="text" class="form-control" placeholder="Employee ID">
+            <input id="employeeId" type="number" class="form-control" placeholder="Employee ID">
           </div>
       
       <table class="table">
+          <div id="employeeAlert" class="alert alert-info noDisplay" role="alert">
+              Invalid employee ID or no requests by employee
+            </div>
         <caption>Reimbursments by Employee</caption>
         <thead>
           <th>#</th>

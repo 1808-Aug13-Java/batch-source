@@ -46,8 +46,18 @@ public class EmployeeServlet extends HttpServlet {
 			response.sendRedirect("login");
 		}
 		if(employeeId != null) {
-			
+			// handle employeeId param
+			Employee employee = new Employee();
+			employee = ed.getEmployeeById(Integer.parseInt(employeeId));
+			if(employee != null) {
+				String employeeString = om.writeValueAsString(employee);
+				employeeString = "{\"employee\": " + employeeString + "}";
+				pw.write(employeeString);
+			} else {
+				pw.write("null");
+			}
 		} else {
+			// print all if no employeeId param in get request
 			employees = ed.getAllEmployees();
 			String employeesString = om.writeValueAsString(employees);
 			employeesString = "{\"employees\": " + employeesString + "}";

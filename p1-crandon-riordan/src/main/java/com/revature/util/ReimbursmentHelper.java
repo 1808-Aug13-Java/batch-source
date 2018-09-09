@@ -1,10 +1,17 @@
 package com.revature.util;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Enumeration;
 import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import com.revature.dao.EmpDaoImpl;
 import com.revature.dao.EmployeeDao;
+import com.revature.dao.ReimbursmentDao;
+import com.revature.dao.ReimbursmentDaoImpl;
 import com.revature.models.Employee;
 import com.revature.models.Reimbursment;
 
@@ -25,6 +32,24 @@ public class ReimbursmentHelper {
 		}
 		
 		return copy;
+	}
+	
+	public void createReimbursment(HttpServletRequest request) {
+		//TODO -> try catch for parsing to handle wrong data
+		HttpSession session = request.getSession();
+		Double amount = Double.parseDouble((String) request.getParameter("amount"));
+		String reason = request.getParameter("reason");
+		EmployeeDao ed = new EmpDaoImpl();
+		Employee employee = ed.getEmployeeByEmail((String) session.getAttribute("email"));
+		Integer id = employee.getId();
+		Reimbursment reimbursment = new Reimbursment();
+		// set a reimbursment object to create
+		reimbursment.setAmount(BigDecimal.valueOf(amount));
+		reimbursment.setEmployeeId(id);
+		reimbursment.setReason(reason);
+		
+		ReimbursmentDao rd = new ReimbursmentDaoImpl();
+		rd.createReimbursment(reimbursment);
 	}
 
 }

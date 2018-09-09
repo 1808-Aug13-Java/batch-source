@@ -9,6 +9,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.revature.dao.EmpDaoImpl;
+import com.revature.dao.EmployeeDao;
+import com.revature.models.Employee;
+
 /**
  * Servlet implementation class SessionServlet
  */
@@ -27,9 +31,15 @@ public class SessionServlet extends HttpServlet {
 			String email = (String) session.getAttribute("email");
 			Integer isManager = (Integer) session.getAttribute("isManager");
 			Integer login = (Integer) session.getAttribute("login");
+			EmployeeDao ed = new EmpDaoImpl();
+			Employee employee = ed.getEmployeeByEmail(email);
 			if(email != null && isManager != null) {
 				String json = "{\"email\": \"" + email;
-				json += "\", \"" + "isManager\": " + isManager + "}"; 
+				json += "\", \"" + "isManager\": " + isManager;
+				json +=  ", \"id\": " +  employee.getId() + ", " + 
+						"\"name\":" + "\""+employee.getName() + "\", " +
+						"\"username\":" + "\"" + employee.getUsername() +"\"}";
+				
 				pw.write(json);
 			} else if (login != null) {
 				String json = "{\"login\": " + login + "}";

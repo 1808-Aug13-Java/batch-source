@@ -1,0 +1,52 @@
+.jumbotron.container {
+  margin-top: 4%;
+}
+
+.submit {
+  margin: 0 auto;
+  margin-top: -50px;
+}
+
+
+input {
+  margin: 0 auto;
+  margin-top: 10px;
+}
+
+/* For hiding tabs/alerts */
+.noDisplay {
+  display: none;
+}
+
+.doDisplay {
+  display: block;
+}
+
+/* NAV for My Reimbursments */
+#tabsNav {
+  display: flex;
+  justify-content: center;
+}
+
+.rNav {
+  list-style: none;
+  display: inline-block;
+  font-size: 1.2em;
+  padding-left: 5%;
+  padding-right: 10%;
+}
+
+.activeTab {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.activeTab:hover {
+  font-weight: bold;
+}
+
+.rNav:hover {
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1.3em
+}

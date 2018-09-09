@@ -2,6 +2,7 @@ package com.revature.servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,12 +10,16 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.revature.dao.EmpDaoImpl;
+import com.revature.dao.EmployeeDao;
 import com.revature.dao.ReimbursmentDao;
 import com.revature.dao.ReimbursmentDaoImpl;
+import com.revature.models.Employee;
 import com.revature.models.Reimbursment;
 import com.revature.util.ReimbursmentHelper;
 import com.revature.util.SessionHelper;
@@ -36,15 +41,26 @@ public class ReimbursmentServlet extends HttpServlet {
 		ObjectMapper om = new ObjectMapper();
 		PrintWriter pw = response.getWriter();
 		ReimbursmentDao rd = new ReimbursmentDaoImpl();
+		EmployeeDao ed = new EmpDaoImpl();
+		
 		List<Reimbursment> reimbursments = new ArrayList<Reimbursment>();
+		
+		// get the current session manager and get his empId
+		HttpSession session = request.getSession();
+		String email = (String) session.getAttribute("email");
+		
+		// find the employee based on the email
+		Employee manager = ed.getEmployeeByEmail(email);
+		
 		if(action != null && reimbursmentId != null) {
 			try {
 				int rIdInt = Integer.parseInt(reimbursmentId);
 				Reimbursment r = rd.getReimbursmentById(rIdInt);
 				if(action.equalsIgnoreCase("approve") && r != null) {
-					rd.approveRequestById(rIdInt);
+					
+					rd.approveRequestById(rIdInt, manager.getId());
 				} else if (action.equalsIgnoreCase("deny") && r != null) {
-					rd.denyReimbursmentById(rIdInt);
+					rd.denyReimbursmentById(rIdInt, manager.getId());
 				} else {
 					pw.write("null");
 				}
@@ -60,20 +76,36 @@ public class ReimbursmentServlet extends HttpServlet {
 		if(currentState != null) {
 			// if param present that is looking for a pending reimbursment
 			if(currentState.equalsIgnoreCase("pending")) {
-				reimbursments = rd.getAllPendingReimbursments();
+				// check for emp id attr
+				if(employeeId != null) {
+					try {
+						int id = Integer.parseInt(employeeId);
+						reimbursments = rd.getPendingByEmployeeId(id);
+					} catch (Exception e){
+						pw.write("null");
+					}
+				} else {
+					reimbursments = rd.getAllPendingReimbursments(); 
+				}
+				
 			// if param present that is looking for resolved
 			} else if (currentState.equalsIgnoreCase("resolved")) {
-				reimbursments = rd.getAllResolvedReimbursments();
+				// check for emp id attr
+				if(employeeId != null) {
+					try {
+						int id = Integer.parseInt(employeeId);
+						reimbursments = rd.getResolvedByEmployeeId(id);
+					} catch (Exception e){
+						pw.write("null");
+					}
+				} else {
+					reimbursments = rd.getAllResolvedReimbursments();
+				}
 			}
 			// if there is an employeeId param present
 			// get the reimbursments associated with that employeeId
-		} else if (employeeId != null) {
-			try {
-				int id = Integer.parseInt(employeeId);
-				reimbursments = rd.getReimbursmentsByEmployeeId(id);
-			} catch (Exception e){
-				pw.write("null");
-			}
+		} else if (employeeId != null && currentState == null) {
+			reimbursments = rd.getReimbursmentsByEmployeeId(Integer.parseInt(employeeId));
 		} else {
 			// didn't find a current state param
 			reimbursments = rd.getAllReimbursments();
@@ -83,7 +115,6 @@ public class ReimbursmentServlet extends HttpServlet {
 		ReimbursmentHelper rh = new ReimbursmentHelper();
 		reimbursments = rh.addEmployee(reimbursments);
 		if(foundUser) {
-
 			String reimbursmentString = om.writeValueAsString(reimbursments);
 			reimbursmentString = "{\"reimbursments\": " + reimbursmentString + "}";
 			pw.write(reimbursmentString);
@@ -94,7 +125,8 @@ public class ReimbursmentServlet extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
+		ReimbursmentHelper rh = new ReimbursmentHelper();
+		rh.createReimbursment(request);
 	}
 
 }

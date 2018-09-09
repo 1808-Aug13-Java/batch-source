@@ -1,0 +1,20 @@
+
+]squid:S1989'"(Add a "try/catch" block for "getWriter".(“­†·øÿÿÿÿH‚TRMINORZVULNERABILITY
+`squid:S1989."+Add a "try/catch" block for "sendRedirect".(âùÒúÿÿÿÿHƒTRMINORZVULNERABILITY
+fsquid:S19894"1Add a "try/catch" block for "writeValueAsString".(€ØüøÿÿÿÿH„TRMINORZVULNERABILITY
+Ysquid:S1989C"$Add a "try/catch" block for "doGet".(®Ó‘ûÿÿÿÿÿH…TRMINORZVULNERABILITY
+Ysquid:S1989C"$Add a "try/catch" block for "doGet".(®Ó‘ûÿÿÿÿÿH†TRMINORZVULNERABILITY
+†squid:S2293)"YReplace the type specification in this constructor call with the diamond operator ("<>").(·ÓúH‡TRMINORZ
+CODE_SMELL
+csquid:S1135"2Complete the task associated to this TODO comment.(ƒŠ® úÿÿÿÿHˆTRINFOZ
+CODE_SMELL
+csquid:S1135B"2Complete the task associated to this TODO comment.(» æÿÿÿÿÿH‰TRINFOZ
+CODE_SMELL
+Wsquid:S001080")Either remove or fill this block of code.(Ì»€ÙHŠTRMAJORZ
+CODE_SMELL
+jsquid:S1854)"=Remove this useless assignment to local variable "employees".(·ÓúH‹TRMAJORZ
+CODE_SMELL
+lsquid:S1161$":Add the "@Override" annotation above this method signature(Ïû©ÖûÿÿÿÿHŒTRMAJORZ
+CODE_SMELL
+gsquid:S1161A":Add the "@Override" annotation above this method signature(‹¨¯¿HTRMAJORZ
+CODE_SMELL

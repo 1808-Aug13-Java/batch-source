@@ -1,3 +1,5 @@
+// POPULATING ALL EMPLOYEES AND EMPLOYEES SECTION
+// OF MANAGER HOMEPAGE
 function sendAjaxGet(url, callback) {
   let xhr = new XMLHttpRequest();
 
@@ -11,8 +13,7 @@ function sendAjaxGet(url, callback) {
   xhr.send();
 }
 
-let employeeUrl = "http://localhost:8082/p1-crandon-riordan/employee";
-
+const employeeUrl = "http://localhost:8082/p1-crandon-riordan/employee";
 document.addEventListener("DOMContentLoaded", function() {
   
   
@@ -79,9 +80,59 @@ document.addEventListener("DOMContentLoaded", function() {
 
   }
 
+  let searchBtn = document.getElementById("search");
+  let tbody = document.getElementById("tbodyById");
+  searchBtn.addEventListener("click", function() {
+    console.log("hey");
+    tbody.innerHTML = "";
+    let employeeId = document.getElementById("employeeId");
+    if(employeeId.value == "") {
+      console.log("invalid value");
+      return;
+    }
+    let url = `
+    ${reimbursmentUrl}?employeeId=${employeeId.value}
+  `;
+    sendAjaxGet(url, populateReimbursmentsById);
+  });
+
   function populateReimbursmentsById(xhr) {
+    
     let response = JSON.parse(xhr.responseText);
-    console.log(response);
+    let reimbursments = response.reimbursments;
+
+    if(reimbursments.length == 0) {
+      showPopupEmp();
+    }
+    for(let reimbursment of reimbursments) {
+      let trEl = document.createElement("tr");
+      trEl.innerHTML = `
+        <td>${reimbursment.reimbursmentId}</td>
+        <td>${reimbursment.employee.name}</td>
+        <td>${reimbursment.reason}</td>
+        <td>${reimbursment.amount}</td>
+        <td>${reimbursment.currentState}</td>
+        <td>${reimbursment.manager == null ? "N/A" : reimbursment.manager.name}</td>
+        <td>${new Date(reimbursment.dateCreated)
+          .toLocaleDateString()}</td>
+      
+      `;
+
+      tbody.appendChild(trEl);
+      unshowPopupEmp();
+    }
+
+  }
+
+  let alert = document.getElementById("employeeAlert");
+  function showPopupEmp() {
+    alert.classList.remove("noDisplay");
+    alert.classList.add("doDisplay");
+  }
+
+  function unshowPopupEmp() {
+    alert.classList.remove("doDisplay");
+    alert.classList.add("noDisplay");
   }
 
   

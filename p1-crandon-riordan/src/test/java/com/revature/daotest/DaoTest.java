@@ -87,6 +87,24 @@ public class DaoTest {
 		
 	}
 	
+	@Test
+	public void canCreateReimbursmentWithIncompleteData() {
+		try(Connection con = ConnectionUtil.getConnection()) {
+			con.commit();
+			con.setAutoCommit(false);
+			Reimbursment reimbursment = new Reimbursment();
+			reimbursment.setAmount(new BigDecimal(24124));
+			reimbursment.setEmployeeId(52121);
+			
+			ReimbursmentDaoImpl rdi = new ReimbursmentDaoImpl();
+			assertEquals(1, rdi.createReimbursment(reimbursment));
+			con.rollback();
+		} catch (SQLException | IOException e) {
+			logger.info("test threw exception " + e.getMessage());
+		}
+		
+	}
+	
 	@Test 
 	public void canRetrieveEmployeeByEmail() {
 		EmpDaoImpl edi = new EmpDaoImpl();
