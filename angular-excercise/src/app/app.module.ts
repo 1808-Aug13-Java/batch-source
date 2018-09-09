@@ -6,10 +6,10 @@ import { HighlightComponent } from './highlight/highlight.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SelectComponent } from './select/select.component';
 import { TableComponent } from './table/table.component';
-import { UserComponent } from './user/user.component';
+// import { UserComponent } from './user/user.component';
 import { NavComponent } from './nav/nav.component';
 import { CapitalizePipe } from './capitalize.pipe';
-import { AppRoutingModule } from './/app-routing.module';
+import { AppRoutingModule } from './app-routing.module';
 import { PostService } from './post.service';
 
 @NgModule({
@@ -19,7 +19,7 @@ import { PostService } from './post.service';
     ProfileComponent,
     SelectComponent,
     TableComponent,
-    UserComponent,
+    // UserComponent,
     NavComponent,
     CapitalizePipe
   ],
