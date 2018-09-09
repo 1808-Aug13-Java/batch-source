@@ -14,7 +14,7 @@ import org.apache.log4j.Logger;
 import com.revature.model.Zukemployee;
 import com.revature.util.ConnectionUtil;
 
-public class ZukemployeeDaoImpl implements ZukemployeeDao {
+public class ZukemployeeDaoImpl implements ZukemployeeDao { //ADD ABILIty TO GET EMPLOYEE BY THEIR USERNAME AS WELL AS BY ID!!!
 	
 	private static Logger log = Logger.getRootLogger();
 
@@ -41,10 +41,10 @@ public class ZukemployeeDaoImpl implements ZukemployeeDao {
 				e.setPosition(position);
 
 				String username = rs.getString("EMP_USERNAME");
-				e.setName(username);
+				e.setUsername(username);
 				
 				String password = rs.getString("EMP_PASSWORD");
-				e.setName(password);
+				e.setPassword(password);
 
 				int managerId = rs.getInt("REPORTS_TO");
 				e.setReportsTo(managerId);
@@ -69,7 +69,6 @@ public class ZukemployeeDaoImpl implements ZukemployeeDao {
 				PreparedStatement ps = con.prepareStatement(sql)){
 			
 			ps.setInt(1, id);
-			
 			rs = ps.executeQuery();
 		
 			while(rs.next()) {
@@ -83,10 +82,57 @@ public class ZukemployeeDaoImpl implements ZukemployeeDao {
 				e.setPosition(position);
 
 				String username = rs.getString("EMP_USERNAME");
-				e.setName(username);
+				e.setUsername(username);
 				
 				String password = rs.getString("EMP_PASSWORD");
-				e.setName(password);
+				e.setPassword(password);
+
+				int managerId = rs.getInt("REPORTS_TO");
+				e.setReportsTo(managerId);
+			}
+			
+		} catch (IOException|SQLException ex) {
+			log.error(ex.getMessage());
+		} finally {
+			if(rs!=null) {
+				try {
+					rs.close();
+				} catch (SQLException e1) {
+					log.error(e1.getMessage());
+				}
+			}
+		}
+		return e;
+	}
+	
+	@Override
+	public Zukemployee getEmployeeByUsername(String username) {
+		Zukemployee e = new Zukemployee();
+		String sql = "SELECT * FROM ZUKEMPLOYEE WHERE EMP_USERNAME = ?";
+		ResultSet rs = null;
+		
+		try (Connection con = ConnectionUtil.getConnection();
+				PreparedStatement ps = con.prepareStatement(sql)){
+			
+			ps.setString(1, username);
+			
+			rs = ps.executeQuery();
+		
+			while(rs.next()) {
+				int employeeId = rs.getInt("EMP_ID");
+				e.setId(employeeId);
+
+				String name = rs.getString("EMP_NAME");
+				e.setName(name);
+
+				String position = rs.getString("EMP_POSITION");
+				e.setPosition(position);
+
+				String empUsername = rs.getString("EMP_USERNAME");
+				e.setUsername(empUsername);
+				
+				String password = rs.getString("EMP_PASSWORD");
+				e.setPassword(password);
 
 				int managerId = rs.getInt("REPORTS_TO");
 				e.setReportsTo(managerId);
