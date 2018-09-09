@@ -1,0 +1,41 @@
+<button (click)="changeBootstrapOption()">{{bootstrapOption}}</button>
+<div *ngIf="show; else elseBlock">
+  <table>
+    <thead>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Email</th>
+      <th>Birthday</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let person of people">
+        <td>{{person.firstName | capitalizeName}}</td>
+        <td>{{person.lastName | capitalizeName}}</td>
+        <td>{{person.email}}</td>
+        <td>{{person.birthday | date: 'fullDate'}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<ng-template #elseBlock>
+  <div class="container">
+    <table class="table table-dark">
+      <thead>
+        <tr>
+          <th scope="col">First Name</th>
+          <th scope="col">Last Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Birthday</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let person of people">
+          <td>{{person.firstName | capitalizeName}}</td>
+          <td>{{person.lastName | capitalizeName}}</td>
+          <td>{{person.email}}</td>
+          <td>{{person.birthday | date: 'fullDate'}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</ng-template>

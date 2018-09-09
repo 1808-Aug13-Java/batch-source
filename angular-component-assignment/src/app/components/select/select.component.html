@@ -1,0 +1,6 @@
+<input type="radio" id="animals" name="selection" (change)="onSelectionChange($event)"><label for="animals">Animals</label>
+<input type="radio" id="colors" name="selection" (change)="onSelectionChange($event)"><label for="colors">Colors</label>
+<input type="radio" id="days" name="selection" (change)="onSelectionChange($event)"><label for="days">Days</label>
+<div *ngFor="let entry of entries">
+  <p>{{entry}}</p>
+</div>

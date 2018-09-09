@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="jumbotron">
+      <p>Click on this button to get all of our users:</p>
+      <button class="btn btn-info" (click)='getUsers()'>Get users!</button>
+    </div>
+    <div>
+      <div *ngFor='let user of users'>
+       <h4>{{user.id}}) {{user.name}}</h4> 
+       <p>{{user.email}}</p>
+       <p>{{user.address.street}}, {{user.address.suite}}</p>
+       <p>{{user.address.city}}, {{user.address.state}} {{user.address.zipcode}}</p>
+       <p>{{user.phone}}</p>
+       <p>{{user.website}}</p>
+       <p>{{user.company.name}}</p>
+       <p>{{user.company.catchPhrase}}</p>
+       <p>{{user.company.bs}}</p>
+      </div>
+    </div>
+  </div>

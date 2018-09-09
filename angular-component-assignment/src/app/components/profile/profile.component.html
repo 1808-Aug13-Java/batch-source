@@ -1,0 +1,9 @@
+
+<ng-container *ngIf="show">
+  Name: {{user.firstName}} {{user.lastName}}<br>
+  Email: {{user.email}}<br>
+  Address: {{user.address}}<br>
+  Phone: {{user.phone}}<br>
+</ng-container>
+
+<button (click)="toggleProfile()">{{option}}</button>
