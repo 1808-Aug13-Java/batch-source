@@ -2,6 +2,8 @@ package com.revature.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletResponse;
+
 import org.apache.log4j.Logger;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -31,5 +33,22 @@ public class EmployeeController {
 			log.error(a);
 		}
 		return "{\"employees\":" + employeeString + "}";
+	}
+	
+	public static String getEmployeeByUserName(String userName, HttpServletResponse response) {
+
+		EmployeeDAO ed = new EmployeeDoaImp();
+		ObjectMapper om = new ObjectMapper();
+
+		Employee employee = ed.getEmployeeByUserName(userName);
+		
+		String empStr = null;
+		try {
+			empStr = om.writeValueAsString(employee);
+		} catch (JsonProcessingException a) {
+			log.info(a);
+		}
+		return empStr;
+		
 	}
 }

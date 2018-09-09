@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.log4j.Logger;
+
 import com.revature.controller.EmployeeController;
 import com.revature.controller.ServiceController;
 
@@ -16,6 +18,7 @@ import com.revature.controller.ServiceController;
  */
 public class GetEmployeesServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private static Logger log = Logger.getRootLogger();
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -29,9 +32,10 @@ public class GetEmployeesServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		
+		log.info("in getemployee: " + request.getParameter("username"));
 		PrintWriter pw = response.getWriter();
-		pw.print(EmployeeController.getEmployees());
+		pw.print(EmployeeController.getEmployeeByUserName(request.getParameter("username"), response));
 		
 //		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}

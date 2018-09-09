@@ -13,21 +13,21 @@ function sendAjaxGet(url, func) {
 	xhr.send();
 }
 
-sendAjaxGet("http://localhost:8082/Project-1-jeremiah-laforge/GetEmployees", display);
+sendAjaxGet("http://localhost:8082/Project-1-jeremiah-laforge/GetEmployees?username=" + document.getElementById("username").innerHTML, display);
 
 function display(xhr){
 	let employees = JSON.parse(xhr.responseText);
 	
-	let employeeArr = employees.employees;
+	// let employeeArr = employees.employees;
 	
 	let table = document.getElementById("table");
 	
-	for(i in employeeArr){
+	// for(i in employeeArr){
 		let newRow = document.createElement("tr");
 		
-		newRow.innerHTML = `<td>${employeeArr[i].fName} ${employeeArr[i].lName}</td>
-                                <td>${employeeArr[i].userName}</td>`;
+		newRow.innerHTML = `<td>${employees.fName} ${employees.lName}</td>
+                                <td>${employees.userName}</td>`;
 		
 		table.appendChild(newRow);
-	}
+	// }
 }

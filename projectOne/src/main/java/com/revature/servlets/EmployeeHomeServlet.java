@@ -1,6 +1,8 @@
 package com.revature.servlets;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -28,9 +30,13 @@ public class EmployeeHomeServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		log.info("in employehome servlet");
-		response.getWriter().append("<p>UserName </p>").append(request.getContextPath());
-		request.getRequestDispatcher("views/employee.html").forward(request, response);
+		log.info("in employehome servlet: " + request.getParameter("userName") );
+		response.setContentType("text/html");
+	    PrintWriter out = response.getWriter();
+	    out.println("<p hidden id=\"username\">" + request.getParameter("userName") +"</p>");
+	    request.getRequestDispatcher("views/employee.html").include(request, response); 
+	    out.close();
+//		request.getRequestDispatcher("views/employee.html").forward(request, response);
 		
 	}
 
