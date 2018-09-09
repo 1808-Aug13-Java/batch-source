@@ -33,6 +33,7 @@ public class SessionServlet extends HttpServlet {
 			Integer login = (Integer) session.getAttribute("login");
 			EmployeeDao ed = new EmpDaoImpl();
 			Employee employee = ed.getEmployeeByEmail(email);
+			session.setAttribute("id", employee.getId());
 			if(email != null && isManager != null) {
 				String json = "{\"email\": \"" + email;
 				json += "\", \"" + "isManager\": " + isManager;

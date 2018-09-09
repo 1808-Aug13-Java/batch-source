@@ -183,5 +183,25 @@ public class EmpDaoImpl implements EmployeeDao {
 		
 		return emp;
 	}
+	
+	public int updateEmployee(Employee employee) {
+		int updated = 0;
+		String sql = "UPDATE EMPLOYEE SET NAME = ?, EMAIL = ?, USERNAME = ?, PASSWORD = ? WHERE EMPLOYEE_ID = ?";
+		
+		try(Connection con = ConnectionUtil.getConnection();
+				PreparedStatement ps = con.prepareStatement(sql)) {
+			
+			ps.setString(1, employee.getName());
+			ps.setString(2, employee.getEmail());
+			ps.setString(3, employee.getUsername());
+			ps.setString(4, employee.getPassword());
+			ps.setInt(5, employee.getId());
+			updated = ps.executeUpdate();
+		} catch (SQLException | IOException e) {
+			e.printStackTrace();
+			log.info(e.getMessage());
+		}
+		return updated;
+	}
 
 }
