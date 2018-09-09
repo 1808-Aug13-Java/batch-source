@@ -1,3 +1,4 @@
 # ignore all Java .class files
 *.class
 *.txt
+/node-modules
