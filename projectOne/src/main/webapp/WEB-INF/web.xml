@@ -29,4 +29,54 @@
     <servlet-name>HomeServlet</servlet-name>
     <url-pattern>/home</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>LogIn</display-name>
+    <servlet-name>LogIn</servlet-name>
+    <servlet-class>com.revature.servlets.LogInServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LogIn</servlet-name>
+    <url-pattern>/login</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description>Master Servlet for processing all get and post and put</description>
+    <display-name>DispatcherServlet</display-name>
+    <servlet-name>DispatcherServlet</servlet-name>
+    <servlet-class>com.revature.servlets.DispatcherServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DispatcherServlet</servlet-name>
+    <url-pattern>/dispatcher</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description>Employee home page after successful log in</description>
+    <display-name>EmployeeHomeServlet</display-name>
+    <servlet-name>EmployeeHomeServlet</servlet-name>
+    <servlet-class>com.revature.servlets.EmployeeHomeServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EmployeeHomeServlet</servlet-name>
+    <url-pattern>/employeeHome</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>GetEmployeeByIdServlet</display-name>
+    <servlet-name>GetEmployeeByIdServlet</servlet-name>
+    <servlet-class>com.revature.servlets.GetEmployeeByIdServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GetEmployeeByIdServlet</servlet-name>
+    <url-pattern>/GetEmployeeById</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ManagerHomeServlet</display-name>
+    <servlet-name>ManagerHomeServlet</servlet-name>
+    <servlet-class>com.revature.servlets.ManagerHomeServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ManagerHomeServlet</servlet-name>
+    <url-pattern>/managerhome</url-pattern>
+  </servlet-mapping>
 </web-app>

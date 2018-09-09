@@ -3,22 +3,32 @@ package com.revature.model;
 public class Manager {
 
 	private int manId;
-	private String Name;
+	private String name;
 	private String pswd;
+	private String userName;
 
 	public Manager() {
 		super();
 	}
 
-	public Manager(int manId, String Name, String lName) {
+	public Manager(int manId, String name, String pswd, String userName) {
 		super();
 		this.manId = manId;
-		this.Name = Name;
-		this.pswd = lName;
+		this.name = name;
+		this.pswd = pswd;
+		this.userName = userName;
 	}
 
 	public int getManId() {
 		return manId;
+	}
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 
 	public void setManId(int manId) {
@@ -26,11 +36,11 @@ public class Manager {
 	}
 
 	public String getName() {
-		return Name;
+		return name;
 	}
 
-	public void setName(String Name) {
-		this.Name = Name;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public String getPswd() {
@@ -45,9 +55,10 @@ public class Manager {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((Name == null) ? 0 : Name.hashCode());
 		result = prime * result + manId;
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		result = prime * result + ((pswd == null) ? 0 : pswd.hashCode());
+		result = prime * result + ((userName == null) ? 0 : userName.hashCode());
 		return result;
 	}
 
@@ -63,14 +74,14 @@ public class Manager {
 			return false;
 		}
 		Manager other = (Manager) obj;
-		if (Name == null) {
-			if (other.Name != null) {
-				return false;
-			}
-		} else if (!Name.equals(other.Name)) {
+		if (manId != other.manId) {
 			return false;
 		}
-		if (manId != other.manId) {
+		if (name == null) {
+			if (other.name != null) {
+				return false;
+			}
+		} else if (!name.equals(other.name)) {
 			return false;
 		}
 		if (pswd == null) {
@@ -80,12 +91,21 @@ public class Manager {
 		} else if (!pswd.equals(other.pswd)) {
 			return false;
 		}
+		if (userName == null) {
+			if (other.userName != null) {
+				return false;
+			}
+		} else if (!userName.equals(other.userName)) {
+			return false;
+		}
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "Manager [manId=" + manId + ", Name=" + Name + ", pswd=" + pswd + "]";
+		return "Manager [manId=" + manId + ", name=" + name + ", pswd=" + pswd + ", userName=" + userName + "]";
 	}
+
+	
 
 }

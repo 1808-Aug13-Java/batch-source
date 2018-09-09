@@ -13,6 +13,7 @@ public class Employee {
 	private String lName;
 	private int manId;
 	private String pswrd;
+	private String userName;
 	
 	/**
 	 * Instantiates a new employee.
@@ -30,13 +31,14 @@ public class Employee {
 	 * @param manId the man id
 	 * @param pswrd the pswrd
 	 */
-	public Employee(int empId, String fName, String lName, int manId, String pswrd) {
+	public Employee(int empId, String fName, String lName, int manId, String pswrd, String userName) {
 		super();
 		this.empId = empId;
 		this.fName = fName;
 		this.lName = lName;
 		this.manId = manId;
 		this.pswrd = pswrd;
+		this.userName = userName;
 	}
 
 	public int getEmpId() {
@@ -64,6 +66,14 @@ public class Employee {
 		this.lName = lName;
 	}
 
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
 	public int getManId() {
 		return manId;
 	}
@@ -80,12 +90,6 @@ public class Employee {
 		this.pswrd = pswrd;
 	}
 
-
-
-
-	/* (non-Javadoc)
-	 * @see java.lang.Object#hashCode()
-	 */
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -95,12 +99,10 @@ public class Employee {
 		result = prime * result + ((lName == null) ? 0 : lName.hashCode());
 		result = prime * result + manId;
 		result = prime * result + ((pswrd == null) ? 0 : pswrd.hashCode());
+		result = prime * result + ((userName == null) ? 0 : userName.hashCode());
 		return result;
 	}
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj) {
@@ -140,16 +142,20 @@ public class Employee {
 		} else if (!pswrd.equals(other.pswrd)) {
 			return false;
 		}
+		if (userName == null) {
+			if (other.userName != null) {
+				return false;
+			}
+		} else if (!userName.equals(other.userName)) {
+			return false;
+		}
 		return true;
 	}
 
-	/**
-	 * Prints the contents of the Employee object
-	 */
 	@Override
 	public String toString() {
 		return "Employee [empId=" + empId + ", fName=" + fName + ", lName=" + lName + ", manId=" + manId + ", pswrd="
-				+ pswrd + "]";
+				+ pswrd + ", userName=" + userName + "]";
 	}
 	
 	

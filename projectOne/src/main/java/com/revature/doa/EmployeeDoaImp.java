@@ -1,6 +1,7 @@
 package com.revature.doa;
 
 import java.io.IOException;
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -34,6 +35,7 @@ public class EmployeeDoaImp implements EmployeeDAO {
 				e.setlName(rs.getString("LNAME"));
 				e.setManId(rs.getInt("MAN_ID"));
 				e.setPswrd(rs.getString("PSWRD"));
+				e.setUserName(rs.getString("USERNAME"));
 				employeeList.add(e);
 			}
 		} catch (IOException | SQLException a) {
@@ -45,7 +47,7 @@ public class EmployeeDoaImp implements EmployeeDAO {
 	@Override
 	public Employee getEmployeeById(int id) {
 		String sql = "SELECT * FROM EMPLOYEE WHERE EMP_ID = ?";
-		Employee e = new Employee();
+		Employee e = null;
 		ResultSet rs = null;
 
 		try (Connection con = ConnectionUtil.getConnection(); PreparedStatement ps = con.prepareStatement(sql);) {
@@ -54,11 +56,13 @@ public class EmployeeDoaImp implements EmployeeDAO {
 			rs = ps.executeQuery();
 
 			while (rs.next()) {
+				e = new Employee();
 				e.setEmpId(rs.getInt("EMP_ID"));
 				e.setfName(rs.getString("FNAME"));
 				e.setlName(rs.getString("LNAME"));
 				e.setManId(rs.getInt("MAN_ID"));
 				e.setPswrd(rs.getString("PSWRD"));
+				e.setUserName(rs.getString("USERNAME"));
 			}
 		} catch (SQLException | IOException a) {
 			log.error(a);
@@ -81,7 +85,7 @@ public class EmployeeDoaImp implements EmployeeDAO {
 		
 		List<Employee> employeeList = new ArrayList<>();
 		String sql = "SELECT * FROM EMPLOYEE WHERE MAN_ID = ?";
-		Employee e = new Employee();
+		
 		ResultSet rs = null;
 
 		try (Connection con = ConnectionUtil.getConnection(); PreparedStatement ps = con.prepareStatement(sql);) {
@@ -90,11 +94,13 @@ public class EmployeeDoaImp implements EmployeeDAO {
 			rs = ps.executeQuery();
 
 			while (rs.next()) {
+				Employee e = new Employee();
 				e.setEmpId(rs.getInt("EMP_ID"));
 				e.setfName(rs.getString("FNAME"));
 				e.setlName(rs.getString("LNAME"));
 				e.setManId(rs.getInt("MAN_ID"));
 				e.setPswrd(rs.getString("PSWRD"));
+				e.setUserName(rs.getString("USERNAME"));
 				employeeList.add(e);
 			}
 		} catch (SQLException | IOException a) {
@@ -160,6 +166,7 @@ public class EmployeeDoaImp implements EmployeeDAO {
 	public int createEmployee(Employee employee, Connection con) {
 		int employeesCreated = 0;
 		String sql = "INSERT INTO EMPLOYEE (FNAME, LNAME, MAN_ID, PSWRD) VALUES (?, ?, ?, ?)";
+		//call stored procedure to create username!!
 
 		try (PreparedStatement ps = con.prepareStatement(sql);) {
 			ps.setString(1, employee.getfName());
@@ -171,6 +178,15 @@ public class EmployeeDoaImp implements EmployeeDAO {
 		} catch (SQLException a) {
 			log.error(a);
 		}
+		
+		sql = "{call TR_INSERT_EMP_USERNAME()}";
+
+		try (CallableStatement cs = con.prepareCall(sql);) {
+
+		} catch (SQLException e) {
+			log.error("Stored procedure failed: create employee username "+ e.getMessage());
+		}
+		
 		return employeesCreated;
 	}
 
@@ -209,6 +225,42 @@ public class EmployeeDoaImp implements EmployeeDAO {
 		}
 
 		return emplDeleted;
+	}
+
+	@Override
+	public Employee getEmployeeByUserName(String userName) {
+		String sql = "SELECT * FROM EMPLOYEE WHERE USERNAME = ?";
+		Employee e = null;
+		ResultSet rs = null;
+
+		try (Connection con = ConnectionUtil.getConnection(); PreparedStatement ps = con.prepareStatement(sql);) {
+
+			ps.setString(1, userName);
+			rs = ps.executeQuery();
+
+			while (rs.next()) {
+				e = new Employee();
+				e.setEmpId(rs.getInt("EMP_ID"));
+				e.setfName(rs.getString("FNAME"));
+				e.setlName(rs.getString("LNAME"));
+				e.setManId(rs.getInt("MAN_ID"));
+				e.setPswrd(rs.getString("PSWRD"));
+				e.setUserName(rs.getString("USERNAME"));
+			}
+		} catch (SQLException | IOException a) {
+			log.error(a);
+		} finally {
+			if (rs != null) {
+				try {
+					if (!rs.isClosed()) {
+						rs.close();
+					}
+				} catch (SQLException a) {
+					log.error(a);
+				}
+			}
+		}
+		return e;
 	}
 
 }

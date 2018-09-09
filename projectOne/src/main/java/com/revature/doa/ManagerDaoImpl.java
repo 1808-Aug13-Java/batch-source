@@ -1,6 +1,7 @@
 package com.revature.doa;
 
 import java.io.IOException;
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -31,6 +32,7 @@ public class ManagerDaoImpl implements ManagerDAO {
 				m.setManId(rs.getInt("MAN_ID"));
 				m.setName(rs.getString("NAME"));
 				m.setPswd(rs.getString("PSWD"));
+				m.setUserName(rs.getString("USERNAME"));
 				manList.add(m);
 			}
 		} catch (IOException | SQLException a) {
@@ -43,7 +45,7 @@ public class ManagerDaoImpl implements ManagerDAO {
 	public Manager getManagerById(int id) {
 
 		String sql = "SELECT * FROM MANAGER WHERE MAN_ID = ?";
-		Manager m = new Manager();
+		Manager m = null;
 		ResultSet rs = null;
 
 		try (Connection con = ConnectionUtil.getConnection(); PreparedStatement ps = con.prepareStatement(sql);) {
@@ -52,9 +54,11 @@ public class ManagerDaoImpl implements ManagerDAO {
 			rs = ps.executeQuery();
 
 			while (rs.next()) {
+				m = new Manager();
 				m.setManId(rs.getInt("MAN_ID"));
 				m.setName(rs.getString("NAME"));
 				m.setPswd(rs.getString("PSWD"));
+				m.setUserName(rs.getString("USERNAME"));
 			}
 		} catch (SQLException | IOException a) {
 			log.error(a);
@@ -108,5 +112,39 @@ public class ManagerDaoImpl implements ManagerDAO {
 		}
 
 		return managerUpdated;
+	}
+
+	@Override
+	public Manager getManagerByUserName(String userName) {
+		String sql = "SELECT * FROM MANAGER WHERE USERNAME = ?";
+		Manager m = null;
+		ResultSet rs = null;
+
+		try (Connection con = ConnectionUtil.getConnection(); PreparedStatement ps = con.prepareStatement(sql);) {
+
+			ps.setString(1, userName);
+			rs = ps.executeQuery();
+
+			while (rs.next()) {
+				m = new Manager();
+				m.setManId(rs.getInt("MAN_ID"));
+				m.setName(rs.getString("NAME"));
+				m.setPswd(rs.getString("PSWD"));
+				m.setUserName(rs.getString("USERNAME"));
+			}
+		} catch (SQLException | IOException a) {
+			log.error(a);
+		} finally {
+			if (rs != null) {
+				try {
+					if (!rs.isClosed()) {
+						rs.close();
+					}
+				} catch (SQLException a) {
+					log.error(a);
+				}
+			}
+		}
+		return m;
 	}
 }
