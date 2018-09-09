@@ -1,9 +1,9 @@
 <h2>Question 3</h2>
 <div>
     <form>
-      <input type="radio" name="animals" (click)='setAnimals()'>Animals<br>
-      <input type="radio" name="colors" (click)='setColors()'>Colors<br>
-      <input type="radio" name="days" (click)='setDays()'>Days<br>     
+      <input type="radio" name="randomlist" (click)='setAnimals()'>Animals<br>
+      <input type="radio" name="randomlist" (click)='setColors()'>Colors<br>
+      <input type="radio" name="randomlist" (click)='setDays()'>Days<br>     
     </form>
     <ul>
       <li class="list-group-item" *ngFor='let item of selected'>{{item}}</li>

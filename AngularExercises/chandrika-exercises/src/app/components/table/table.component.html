@@ -1,10 +1,11 @@
 <h2>Question 4</h2>
 <div>
-    <table class="table">
+    <table id="persontable" class="table">
         <tr *ngFor='let person of people'>
             <td>{{person.firstname | uppercase}} {{person.lastname | uppercase}}</td>
             <td>{{person.email}}</td>
             <td>{{person.birthday | date:'yyyy-MM-dd'}}</td>
         </tr>
     </table>
+    <button id="htmlorbootstraptable" (click)='toggle()'>See HTML table</button>
 </div>
