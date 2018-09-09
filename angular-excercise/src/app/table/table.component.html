@@ -1,3 +1,30 @@
-<p>
-  table works!
-</p>
+<br>
+<button (click)='boom=!boom'>Super Explosion 5000</button>
+<table [ngClass]="{'table':boom}">
+  <tr>
+    <th>
+     Name
+    </th>
+    <th>
+      Email
+    </th>
+    <th>
+      Birthday
+    </th>
+  </tr>
+  <tr *ngFor="let char of peopleArr">
+    <td>
+        {{ char.name | capitalize  }}
+    </td>
+    <td>
+      {{char.email}}
+    </td>
+    <td>
+      {{char.birthday}}
+    </td>
+  </tr>
+
+</table>
+
+
+<br>

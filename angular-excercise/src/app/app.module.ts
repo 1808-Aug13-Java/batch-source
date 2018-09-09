@@ -8,6 +8,9 @@ import { SelectComponent } from './select/select.component';
 import { TableComponent } from './table/table.component';
 import { UserComponent } from './user/user.component';
 import { NavComponent } from './nav/nav.component';
+import { CapitalizePipe } from './capitalize.pipe';
+import { AppRoutingModule } from './/app-routing.module';
+import { PostService } from './post.service';
 
 @NgModule({
   declarations: [
@@ -17,12 +20,14 @@ import { NavComponent } from './nav/nav.component';
     SelectComponent,
     TableComponent,
     UserComponent,
-    NavComponent
+    NavComponent,
+    CapitalizePipe
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule
   ],
-  providers: [],
+  providers: [PostService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
