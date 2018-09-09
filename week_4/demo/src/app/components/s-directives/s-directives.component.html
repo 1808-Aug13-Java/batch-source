@@ -1,0 +1,37 @@
+<h2> Structural Directives </h2>
+
+<div *ngIf='condition'> Condition is met </div>
+<div *ngIf='!condition'>Condition is not met</div>
+<button (click)='changeCondition()' class="btn btn-danger">Change condition</button>
+
+<!-- <br>
+<br>
+<ul>
+  <li class="list-group-item" *ngFor='let course of courses'>{{course.id}}:{{course.name</li>
+</ul> -->
+
+<br>
+<br>
+<ul>
+  <li class="list-group-item" *ngFor='let course of courses'>{{course.id}} : {{course.name}}</li>
+</ul>
+
+
+<br><br>
+<div [ngSwitch]='time'>
+  <span *ngSwitchCase="'night'">It's night time
+
+    <button (click)='changeDay()' type="button" class="btn btn-dark">change to day</button>
+  </span>
+  <span *ngSwitchCase="'day'">It's day time
+      <button (click)='changeNight()'>change to night</button>
+
+  </span>
+
+  <span *ngSwitchDefault>It's ? time
+      <button (click)='changeDay()'>change to day</button>
+      <button (click)='changeNight()'>change to night</button>
+
+  </span>
+
+</div>
