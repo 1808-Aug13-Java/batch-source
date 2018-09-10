@@ -1,0 +1,18 @@
+
+<div class="container">
+	<h2>My Heroes:</h2>
+
+	<table class="table">
+		<tbody>
+			<tr *ngFor="let heroId of objectKeys(heroes)" [attr.id]="'row' + heroId" (click)="clickRow(heroId)">
+				<td>{{heroId}}</td>
+				<td>{{heroes[heroId]}}</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<div *ngIf="displayHero">
+		<h3>{{heroes[currentHeroId]}} is my Hero!</h3>
+		<button [routerLink]="['/details', currentHeroId]">Details</button>
+	</div>
+</div>
