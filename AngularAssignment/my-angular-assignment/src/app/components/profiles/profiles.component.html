@@ -1,0 +1,8 @@
+<h2>2. Hero details</h2>
+<h3>{{hero.name}}</h3>
+<body ng-app>
+	<button id="toggleMessage" (click)="toggle=!toggle"> {{toggle ? 'Hide' : 'Show'}}</button>
+	<div id="box" *ngIf="toggle"><span>Id: </span>{{hero.id}}<br>
+  <span>Name: </span>{{hero.name}} <br>
+  <span>Class: </span>{{hero.class}}</div>
+</body>
