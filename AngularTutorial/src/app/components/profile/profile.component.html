@@ -1,0 +1,24 @@
+<p>
+  profile works!
+</p>
+
+<button class="btn btn-submit" (click)='toggleTable()' id='toggleButton'>Show</button>
+
+<table class="table" hidden='true' id='userTable'>
+  <tr>
+    <td>User Name</td>
+    <td>{{user.name}}</td>
+  </tr>
+  <tr>
+    <td>User Email</td>
+    <td>{{user.email}}</td>
+  </tr>
+  <tr>
+    <td>User Age</td>
+    <td>{{user.age}}</td>
+  </tr>
+  <tr>
+    <td>User Occupation</td>
+    <td>{{user.occupation}}</td>
+  </tr>
+</table>

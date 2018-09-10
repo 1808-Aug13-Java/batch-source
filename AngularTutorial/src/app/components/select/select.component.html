@@ -1,0 +1,13 @@
+<form>
+  <label>Animals</label>
+  <input (change)='updateArray()' type="radio" name="selectAssignment" value="animals"><br>
+  <label>Colors</label>
+  <input (change)='updateArray()' type="radio" name="selectAssignment" value="colors"><br>
+  <label>Days</label>
+  <input (change)='updateArray()' type="radio" name="selectAssignment" value="days"><br>
+
+</form>
+
+<ul>
+  <li *ngFor='let str of selectedArray'>{{str}}</li>
+</ul>
