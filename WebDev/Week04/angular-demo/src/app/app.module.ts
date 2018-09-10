@@ -25,7 +25,8 @@ import { HighlightComponent } from './components/highlight/highlight.component';
 import { AssignmentComponent } from './components/assignment/assignment.component';
 import { PostDetailsComponent } from './components/post-details/post-details.component';
 import { ProfileComponent } from './components/profile/profile.component';
-import { SelectComponent } from './components/select/select.component';// Need to import the routes
+import { SelectComponent } from './components/select/select.component';
+import { TableComponent } from './components/table/table.component';// Need to import the routes
 
 @NgModule({
   declarations: [// Include any components one will use here
@@ -42,7 +43,7 @@ import { SelectComponent } from './components/select/select.component';// Need t
 	HttpExampleComponent, 
 	NavComponent, 
 	DirectivesComponent, 
-	HighlightComponent, AssignmentComponent, PostDetailsComponent, ProfileComponent, SelectComponent,
+	HighlightComponent, AssignmentComponent, PostDetailsComponent, ProfileComponent, SelectComponent, TableComponent,
   ],
   imports: [ // External Modules
 	BrowserModule,

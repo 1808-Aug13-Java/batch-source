@@ -12,6 +12,7 @@ import { HighlightComponent } from './components/highlight/highlight.component';
 import { PostDetailsComponent } from './components/post-details/post-details.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { SelectComponent } from './components/select/select.component';
+import { TableComponent } from './components/table/table.component';
 
 // An array of Routes, which contains a Path, and a Component
 // This is used to rout different components/ display different 
@@ -31,7 +32,11 @@ export const appRoutes: Routes = [
 			}, 
 			{
 				path: 'select',
-				component:SelectComponent
+				component: SelectComponent
+			},
+			{
+				path: "table",
+				component: TableComponent
 			}
 		]
 	},

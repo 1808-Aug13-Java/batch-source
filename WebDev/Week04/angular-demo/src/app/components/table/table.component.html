@@ -1,0 +1,20 @@
+<button class="btn btn-danger" (click) = "toggleBootstrap()">Toggle Bootstrap</button>
+
+<div [ngClass]="divClass">
+	<table [ngClass]="tableClass">
+		<thead [ngClass]="tableHeadClass">
+			<tr>
+				<th>Full Name</th>
+				<th>Email</th>
+				<th>Birthday</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let person of people">
+				<td>{{(person.first_name + " " + person.last_name) | capitalizer}}</td>
+				<td>{{person.email}}</td>
+				<td>{{person.birthday | date:'longDate'}}</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
