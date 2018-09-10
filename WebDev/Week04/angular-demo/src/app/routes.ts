@@ -13,6 +13,7 @@ import { PostDetailsComponent } from './components/post-details/post-details.com
 import { ProfileComponent } from './components/profile/profile.component';
 import { SelectComponent } from './components/select/select.component';
 import { TableComponent } from './components/table/table.component';
+import { UsersComponent } from './components/users/users.component';
 
 // An array of Routes, which contains a Path, and a Component
 // This is used to rout different components/ display different 
@@ -37,6 +38,10 @@ export const appRoutes: Routes = [
 			{
 				path: "table",
 				component: TableComponent
+			}, 
+			{
+				path: "users",
+				component: UsersComponent
 			}
 		]
 	},
