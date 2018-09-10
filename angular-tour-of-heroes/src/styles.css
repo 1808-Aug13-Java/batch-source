@@ -2,12 +2,12 @@
 
 @font-face { 
     font-family: 'Dekar';
-    src: url('/Dekar.otf') format('opentype');
+    src: url('Dekar.otf') format('opentype');
     }
 
     @font-face { 
         font-family: 'DekarL';
-        src: url('/DekarLight.otf') format('opentype');
+        src: url('DekarLight.otf') format('opentype');
         }
 
         
