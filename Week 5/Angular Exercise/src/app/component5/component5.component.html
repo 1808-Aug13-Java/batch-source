@@ -1,0 +1,16 @@
+<h2>Question 5</h2>
+<div>
+    <div>
+        <button class="btn btn-info" (click)="getUsers()">Populate Users</button>
+    </div>
+  
+    <ul *ngFor="let post of posts">
+        <li > {{post.name}}   Id:  {{post.id}} 
+            <ul>
+                <li>{{post.phone}}</li>
+                <li>{{post.email}}</li>
+                <li>{{post.address.street}} {{post.address.suite}} {{post.address.city}} {{post.address.zipcode}}</li>
+            </ul>
+        </li>
+    </ul>
+</div>

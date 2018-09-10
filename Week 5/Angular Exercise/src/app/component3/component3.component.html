@@ -1,0 +1,47 @@
+<span>
+  <p>Create A list of animals</p>
+  <form>
+      <input type="radio" name="animals"
+      [(ngModel)]="check1"
+      [value]="false"
+     >
+  <ul *ngIf ='!check1'>
+      <!-- *ngFor= 'let class of classes'[value]='class'> -->
+      <!-- {{class}} -->
+    <li *ngFor='let animal of animals'[value]='animal'>
+      {{animal}}
+    </li>
+  </ul>
+  </form>
+</span>  
+  <span>
+      <p>Create A list of colors</p>
+    <form>
+        <input type="radio" name="colors"
+        [(ngModel)]="check2"
+        [value]="true"
+       >
+      <ul *ngIf ='check2'>
+    <li *ngFor='let color of colors'[value]='color'>
+        {{color}}
+      </li>
+      
+    </ul>
+    </form>
+    </span>
+
+  <span>
+      <p>Create A list of colors</p>
+   <form>
+      <input type="radio" name="days"
+      [(ngModel)]="check3"
+      [value]="true"
+     >
+    <ul *ngIf = 'check3'>
+      <li *ngFor='let day of days'[value]='day'>
+          {{day}}
+        </li>
+       
+  </ul>
+</form>
+</span>

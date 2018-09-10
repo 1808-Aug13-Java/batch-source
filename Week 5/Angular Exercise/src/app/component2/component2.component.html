@@ -1,0 +1,30 @@
+<div>
+  <label>name:
+    <input [(ngModel)]="name" placeholder="name"> 
+  </label>
+</div>
+<div>
+  <label>email:
+    <input [(ngModel)]="email" placeholder="email">
+  </label>
+</div>
+<div>
+  <label>birthdate:
+    <input [(ngModel)]="birthdate" placeholder="birthdate">
+  </label>
+</div>
+<div *ngIf = "!check">
+  <h1>UserInformation</h1>
+  <ul>
+    <li>
+     {{name}}
+    </li>
+    <li>
+        {{email}}
+       </li>
+       <li>
+          {{birthdate}}
+         </li>
+  </ul>
+</div>
+<button (click)='hideMe()' class='btn btn-danger'>Select to toggle hide User input</button>
