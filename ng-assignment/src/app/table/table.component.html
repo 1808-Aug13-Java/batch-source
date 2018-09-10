@@ -1,0 +1,13 @@
+<button (click)="toggleTableClass()">format</button>
+<table [ngClass]="tableClass">
+  <tr>
+    <th>fullname</th>
+    <th>email</th>
+    <th>birthday</th>
+  </tr>
+  <tr *ngFor="let p of people">
+    <td> {{p.firstname | titlecase}} {{p.lastname | titlecase}} </td>
+    <td> {{p.email}}</td>
+    <td> {{p.birthdate | date: 'MMMM dd, y'}}</td>
+  </tr>
+</table>

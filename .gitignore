@@ -91,7 +91,6 @@ Servers/
 */target/*
 */target/**
 */target/
-<<<<<<< HEAD
-=======
 .recommenders
->>>>>>> Carolyn_Rehm
+
+*/node_modules/*

@@ -1,0 +1,12 @@
+<form>
+  <input type="radio" label="colors" name="select" (click)="getList('colors')"> <span> Colors</span><br>
+  <input type="radio" label="days" name="select" (click)="getList('days')"> <span> Days</span><br>
+  <input type="radio" label="animals" name="select" (click)="getList('animals')"> <span> Animals</span><br>
+  
+  <ol>
+    <li *ngFor="let t of things">
+      {{t}}
+    </li>
+  </ol>
+
+</form>
