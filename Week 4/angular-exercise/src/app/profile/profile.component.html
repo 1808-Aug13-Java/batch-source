@@ -1,0 +1,11 @@
+<h3>Profile details</h3>
+
+<div>
+	<button (click)="toggle=!toggle"> 
+    {{toggle ? 'Hide' : 'Show'}}
+  </button>
+	<div *ngIf="toggle">
+    <div>id: {{user.id}}</div>
+    <div>name: {{user.name}}</div>
+  </div>
+</div>

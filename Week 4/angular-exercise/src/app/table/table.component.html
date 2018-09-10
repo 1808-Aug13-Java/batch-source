@@ -1,0 +1,11 @@
+<h3>People Table</h3>
+<table class="table">
+  <tr *ngFor='let person of people'>
+    <td>{{person.firstname | uppercase}} {{person.lastname | uppercase}}</td>
+    <td>{{person.email}}</td>
+    <td>{{person.birthday | date:'MMMM d, y'}}</td>
+  </tr>
+</table>
+<button (click)='removeBootstrap()'>Remove Bootstrap formatting</button>
+<!-- Implement remove bootstrap removing "class" from table header
+     need to figure out how to implement bootstrap correctly first -->
