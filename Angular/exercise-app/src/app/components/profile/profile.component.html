@@ -1,0 +1,11 @@
+<div *ngIf='!hiding'>
+  <br>
+  <button class="btn btn-success" (click)=hide()>Hide</button>
+  <br>
+  <span>{{user.name}}</span> <br>
+  <span>{{user.email}}</span>
+</div>
+<div *ngIf='hiding'>
+  <br>
+  <button class="btn btn-success" (click)=show()>Show</button>
+</div>

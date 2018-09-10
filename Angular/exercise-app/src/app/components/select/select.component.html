@@ -1,0 +1,26 @@
+<form (click)='check()'>
+  <input type="radio" name="form" [(ngModel)]="selectedForm" value="animals">Animals<br>
+  <input type="radio" name="form" [(ngModel)]="selectedForm" value="colors">Colors<br>
+  <input type="radio" name="form" [(ngModel)]="selectedForm" value="days">Days<br>
+</form>
+<div *ngIf='selectedForm == "animals"'>
+  <ul>
+    <li *ngFor='let animal of animalsArr'>
+      {{animal}}
+    </li>
+  </ul>
+</div>
+<div *ngIf='selectedForm == "colors"'>
+  <ul>
+    <li *ngFor='let color of colorsArr'>
+      {{color}}
+    </li>
+  </ul>
+</div>
+<div *ngIf='selectedForm == "days"'>
+  <ul>
+    <li *ngFor='let day of daysArr'>
+      {{day}}
+    </li>
+  </ul>
+</div>

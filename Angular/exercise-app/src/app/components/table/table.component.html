@@ -1,0 +1,14 @@
+<br>
+<button class="btn btn-success" (click)="changeClass()">Toggle</button>
+<table [class]="table">
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Birthday</th>
+  </tr>
+  <tr *ngFor='let person of people'>
+    <td>{{person.firstname | firstCap}} {{person.lastname | firstCap}}</td>
+    <td>{{person.email}}</td>
+    <td>{{person.birthday | date}}</td>
+  </tr>
+</table>

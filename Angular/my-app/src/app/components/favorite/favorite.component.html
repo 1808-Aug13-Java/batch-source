@@ -1,0 +1,12 @@
+<p>
+  favorite works!
+</p>
+
+<span [ngClass]='clazz'  (click)='clickStar()'></span>
+
+<span class='glyphicon' [class.glyphicon-star]='isFavorite' 
+[class.glyphicon-star-empty]='!isFavorite' (click)='onClickChange()'></span>
+
+<!-- Brackets are for attribute binding
+    Parenthesis are for event binding
+-->

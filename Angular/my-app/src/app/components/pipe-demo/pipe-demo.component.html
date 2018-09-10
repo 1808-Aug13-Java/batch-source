@@ -1,0 +1,28 @@
+<div>
+  <h2>Pipe</h2>
+  <p>{{str}} <br> {{str | uppercase}}</p>
+  <p>{{num}} <br> {{num | currency: 'EUR'}}</p>
+  <p>{{day}} <br> {{day | date}}
+     <br> {{day | date: 'EEEE, MMMM, d, y' | lowercase}}
+   </p>
+
+   <p>Our List:</p>
+   <ul>
+     <li *ngFor="let str of strArr">{{str}}</li>
+   </ul>
+   <p>Our List with Pipe:</p>
+   <ul>
+     <li *ngFor="let str of strArr">{{str | lowercase}}</li>
+   </ul>
+   <p>Our Hyphenated List:</p>
+   <ul>
+     <li *ngFor="let word of wordsArr">{{word}}</li>
+   </ul>
+   <p>Our Hyphenated List with Custom Pipe:</p>
+   <ul>
+      <li *ngFor="let word of wordsArr">{{word | convertToSpace: '-' | capitalize}}</li>
+   </ul>
+   <p>Our Hyphenated List with Custom Pipe:</p>
+   <ul>
+      <li *ngFor="let word of wordsArr">{{word | convertToSpace: '-' | firstCap}}</li>
+   </ul>

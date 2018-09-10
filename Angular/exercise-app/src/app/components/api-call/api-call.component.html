@@ -1,0 +1,10 @@
+<br>
+<div class="container">
+  <button class="btn btn-info" (click)="getUsers()">Get Users</button>
+  <br>
+  <div>
+    <div *ngFor="let user of users">
+        <h5 routerLink='/users/{{user.id}}'>{{user.id}}) {{post.name}}</h5>
+    </div>
+  </div>
+</div>
