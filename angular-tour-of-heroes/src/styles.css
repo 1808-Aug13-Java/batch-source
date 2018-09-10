@@ -1,0 +1,51 @@
+/* You can add global styles to this file, and also import other style files */
+
+@font-face { 
+    font-family: 'Dekar';
+    src: url('/Dekar.otf') format('opentype');
+    }
+
+    @font-face { 
+        font-family: 'DekarL';
+        src: url('/DekarLight.otf') format('opentype');
+        }
+
+        
+h1 {
+    color: #FF6AD5;
+    font-family: Dekar;
+    font-size: 250%;
+  }
+  h2, h3 {
+    color: #C774E8;
+    font-family: Dekar;
+    font-weight: lighter;
+  }
+  body {
+    background-image: linear-gradient(8deg, #A968C1, #967AC6, #384B6D);
+    margin: 2em;
+  }
+  body, input[text], button {
+    color: #94D0FF;
+    font-family: Dekar;
+  }
+  button{
+    box-shadow: none;
+    outline: 0 none;
+    border-color: transparent;
+    background-color : #AD8CFF;
+    color: #BF68B1;
+   }
+  input, textarea {
+    
+    box-shadow: none;
+    outline: 0 none;
+    border-color: transparent;
+    background-color : #94D0FF;
+    color: #BF68B1;
+  
+  }
+  /* everywhere else */
+  * {
+    font-family: Dekar;
+  }
