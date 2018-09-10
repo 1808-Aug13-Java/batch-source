@@ -8,7 +8,6 @@ import { Component, OnInit } from '@angular/core';
 export class SelectComponent implements OnInit {
 
   constructor() { }
-  animals:string;
   ngOnInit() {
   }
   things = [];

@@ -8,7 +8,6 @@ import { Component, OnInit } from '@angular/core';
 export class TableComponent implements OnInit {
   constructor() { 
   }
-  tableClass = "";
   people = [
     { firstname: "firstname1", lastname: "lastname1", email: "email1@email.com", birthdate: "2002-02-03" }, 
     { firstname: "firstname2", lastname: "lastname2", email: "email2@email.com", birthdate: "2003-03-04" }, 
