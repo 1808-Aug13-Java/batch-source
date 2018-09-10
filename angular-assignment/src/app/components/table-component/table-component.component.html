@@ -1,0 +1,13 @@
+<h2>Question 4</h2>
+
+<div>
+  <table id="people" class="peopletable">
+    <tr *ngFor='let p of person'>
+      <td>{{p.firstname | uppercase}} {{p.lastname | uppercase}}</td>
+      <td>{{p.email}}</td>
+      <td>{{p.birthday | date:'yyyy-MM-dd'}}</td>
+    </tr>
+  </table>
+
+  <button id="setPeople" (click)='togglePeople()'>View html table</button>
+</div>

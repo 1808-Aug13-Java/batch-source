@@ -1,0 +1,14 @@
+<h2>Question 3</h2>
+<div>
+  <form>
+    <input type='radio' name='alist' (click)='showAnimals()'>Animals
+    <br>
+    <input type='radio' name='alist' (click)='showColors()'>Colors
+    <br>
+    <input type='radio' name='alist' (click)='showDays()'>Days
+    <br>
+  </form>
+  <ul>
+    <li class="item" *ngFor='let s of selected'>{{s}}</li>
+  </ul>
+</div>
