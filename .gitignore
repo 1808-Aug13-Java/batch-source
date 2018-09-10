@@ -85,6 +85,9 @@ Servers/
 .sonarlint/*
 .sonarlint/
 
+# Connection Properties
+connection.properties
+
 # End of https://www.gitignore.io/api/eclipse
 
 */target/*
