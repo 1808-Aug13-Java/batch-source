@@ -29,4 +29,5 @@ export class Globals {
   // The Id's of the top heroes. 
   topHeroes: number[] = [12, 13, 14, 15];
 
+  
 }

@@ -16,7 +16,7 @@ import { TableComponent } from './components/table/table.component';
 import { UsersComponent } from './components/users/users.component';
 
 // An array of Routes, which contains a Path, and a Component
-// This is used to rout different components/ display different 
+// This is used to route different components/ display different 
 // components based on the routeLink. 
 export const appRoutes: Routes = [
 	{
