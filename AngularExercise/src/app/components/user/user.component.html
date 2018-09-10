@@ -1,0 +1,20 @@
+<button (click)='getUsers()' class='btn btn-submit'>Show Table</button>
+<table class="table">
+  <tr>
+    <th>Id</th>
+    <th>Name</th>
+    <th>Username</th>
+    <th>Email</th>
+    <th>Phone</th>
+    <th>Website</th>
+  </tr>
+  <tr *ngFor='let user of users'>
+    <td>{{user.id}}</td>
+    <td>{{user.name}}</td>
+    <td>{{user.username}}</td>
+    <td>{{user.email}}</td>
+    <td>{{user.phone}}</td>
+    <td>{{user.website}}</td>
+    
+  </tr>
+</table>

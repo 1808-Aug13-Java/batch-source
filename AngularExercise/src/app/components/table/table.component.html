@@ -1,0 +1,16 @@
+<button ng-model='buttonClass' class='{{buttonClass}}' (click)='toggleBoot()'>Toggle Table Style</button>
+
+
+<table ng-model='tableClass' class='{{tableClass}}'>
+
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Birthday</th>
+  </tr>
+  <tr *ngFor='let per of data'>
+    <td>{{per.first | titlecase}} {{per.last | titlecase}}</td>
+    <td>{{per.email | lowercase}}</td>
+    <td>{{per.birthdate | date}}</td>
+  </tr>
+</table>
