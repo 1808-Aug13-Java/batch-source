@@ -1,0 +1,26 @@
+<div>
+  <h2>Pipes</h2>
+
+  <p>{{str}} <br> {{str | uppercase}}</p>
+  <p>{{num}} <br> {{ num | currency:'EUR'}}</p>
+  <p>{{day}} <br> {{day | date: 'EEEE, MMMM, d, y' | lowercase}}</p>
+
+  <ul>
+    <li *ngFor='let str of strArray'>{{str}}</li>
+  </ul>
+
+  <ul>
+    <p>Our hyphenated list:</p>
+    <li *ngFor = 'let word of wordsArr'>{{word}}</li>
+  </ul>
+
+  <ul>
+    <p>Our Hyphenated list after applying our custom pipe</p>
+    <li *ngFor = 'let word of wordsArr'>{{word | convertToSpace:'-'}}</li>
+  </ul>
+
+  <p>This is my word: {{testWord}}</p>
+  <br>
+  <p>This is my word after I use my custom pipe: {{testWord | capitalA:'l'}}</p>
+
+</div>

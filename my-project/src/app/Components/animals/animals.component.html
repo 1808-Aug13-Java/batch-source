@@ -1,0 +1,38 @@
+
+<div class = "container">
+  <br><br>
+  <input type = "radio" name = "showListButton" (change) = "display(1)">
+  <label>Show Animals</label> 
+  <br><br>
+  <input type = "radio" name = "showListButton" (change) = "display(2)">
+  <label>Show Colors</label> 
+  <br><br>
+  <input type = "radio" name = "showListButton" (change) = "display(3)">
+  <label>Show Days</label> 
+  <br><br>
+</div>
+
+<div class = "container">
+  <ul id = "animals" [hidden] = "!showAnimals">
+    <li>{{animals[0]}}</li>
+    <li>{{animals[1]}}</li>
+    <li>{{animals[2]}}</li>
+    <li>{{animals[3]}}</li>
+    <li>{{animals[4]}}</li>
+  </ul>
+  <ul id = "colors" [hidden] = "!showColors">
+      <li>{{colors[0]}}</li>
+      <li>{{colors[1]}}</li>
+      <li>{{colors[2]}}</li>
+      <li>{{colors[3]}}</li>
+    </ul>
+    <ul id = "days" [hidden] = "!showDays">
+        <li>{{days[0]}}</li>
+        <li>{{days[1]}}</li>
+        <li>{{days[2]}}</li>
+        <li>{{days[3]}}</li>
+        <li>{{days[4]}}</li>
+        <li>{{days[5]}}</li>
+        <li>{{days[6]}}</li>
+      </ul>
+</div>

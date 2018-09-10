@@ -1,0 +1,10 @@
+<div class = 'container'>
+  <div class = 'jumbotron'>
+    <h4>{{currentPost.id}}:{{currentPost.title}}</h4>
+    <p>User #{{currentPost.id}}</p>
+    <p>User Body: {{currentPost.body}}</p>
+  </div>
+  <div *ngFor = 'let post of posts'>
+    <!--h4[routerLink]="['/posts', post.id]"></h4>-->
+  </div>1
+</div>

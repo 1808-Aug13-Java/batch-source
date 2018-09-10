@@ -1,0 +1,12 @@
+<div class = "container">
+    <div class = "jumbotron">
+        <h4>Get Users Example</h4>
+        <p>Click here to get all of our users</p>
+        <button class = "btn btn-info" (click) = 'getUsers()'>Get users!</button> 
+    </div>
+    <div>
+      <div *ngFor = 'let user of users'>
+        <h4>({{user.id}}) ({{user.name}})</h4>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,19 @@
+
+<br>
+<br>
+<button type = "submit" class = "btn btn-info" (click) = "switchFormat()">Switch Format</button>
+<br>
+<div class = "container">
+  <table class = {{format}}>
+    <tr id = "headerRow" class = "table">
+      <th>Name</th>
+      <th>Email</th>
+      <th>Birthday</th>
+    </tr>
+    <tr *ngFor = 'let person of people'>
+      <td>{{person.firstName | capitalFirstLetter}} {{person.lastName | capitalFirstLetter}} </td>
+      <td>{{person.email}}</td>
+      <td>{{person.birthday | date: 'EEEE, MMMM, d, y' }}</td>
+    </tr>
+    </table>
+</div>
