@@ -34,9 +34,11 @@
           <a class="nav-link active" href="managerHome">Manager Dash</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link active" href="employeeProfile">Profile</a>
-          </li>
+          <a class="nav-link" href="employeeProfile">Profile</a>
+        </li>
         <li class="nav-item">
+          <a class="nav-link" href="createEmployee">Employee</a>
+        </li>
         <li class="nav-item">
           <a class="nav-link" href="logout">Logout</a>
         </li>
@@ -133,19 +135,19 @@
       </table>
     </div>
     <div class="employeeTable noDisplay">
-        <div class="input-group mb-3">
-            <div class="input-group-prepend" id="search">
-              <span class="input-group-text"><i class="material-icons">
-                  search
-                  </i></span>
-            </div>
-            <input id="employeeId" type="number" class="form-control" placeholder="Employee ID">
-          </div>
-      
+      <div class="input-group mb-3">
+        <div class="input-group-prepend" id="search">
+          <span class="input-group-text"><i class="material-icons">
+              search
+            </i></span>
+        </div>
+        <input id="employeeId" type="number" class="form-control" placeholder="Employee ID">
+      </div>
+
       <table class="table">
-          <div id="employeeAlert" class="alert alert-info noDisplay" role="alert">
-              Invalid employee ID or no requests by employee
-            </div>
+        <div id="employeeAlert" class="alert alert-info noDisplay" role="alert">
+          Invalid employee ID or no requests by employee
+        </div>
         <caption>Reimbursments by Employee</caption>
         <thead>
           <th>#</th>

@@ -1,0 +1,19 @@
+.jumbotron {
+  margin-top: 30px;
+}
+
+.col-form-label {
+  margin-left: 2%;
+}
+
+h2.text-center {
+  margin-top: -20px;
+}
+
+.noDisplay {
+  display: none;
+} 
+
+.doDisplay {
+  display: block;
+}

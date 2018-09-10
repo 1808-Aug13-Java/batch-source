@@ -95,4 +95,14 @@
     <servlet-name>EmployeeProfile</servlet-name>
     <url-pattern>/employeeProfile</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>CreateEmployeeServlet</display-name>
+    <servlet-name>CreateEmployeeServlet</servlet-name>
+    <servlet-class>com.revature.servlets.CreateEmployeeServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CreateEmployeeServlet</servlet-name>
+    <url-pattern>/createEmployee</url-pattern>
+  </servlet-mapping>
 </web-app>

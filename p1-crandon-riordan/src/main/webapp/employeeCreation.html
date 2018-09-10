@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Employee Creation</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./styles/employeeCreation.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#" id="email"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="home">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="managerHome">Manager Dash</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="employeeProfile">Profile</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="createEmployee">Employee</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="logout">Logout</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="container">
+    <div class="jumbotron">
+      <h2 class="text-center">Create an Employee</h2>
+      <form action="createEmployee" method="post">
+        <div class="form-group form-inline row">
+          <label for="example-text-input" class="col-2 col-form-label"><strong>Name</strong></label>
+
+          <input class="form-control" type="text" value="" name="name" id="name" placeholder="Name" required>
+          <label for="example-text-input" class="col-2 col-form-label"><strong>Username</strong></label>
+          <input pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$" class="form-control" type="text" value="" name="name" id="username"
+            placeholder="Username" required>
+        </div>
+        <div class=" form-inline row">
+          <label for=" " class="col-2 col-form-label"><strong>Email</strong></label>
+          <input class="form-control" type="email" value="" placeholder="example@email.com" id="emailInput" required>
+          <label for="example-password-input" class="col-2 col-form-label"><strong>Password</strong></label>
+          <input pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" class="form-control" type="password"
+            value="" id="password" name="password" placeholder="Password" required>
+        </div>
+        <div class="form-group row">
+
+        </div>
+        <div class="form-group row">
+          <label for="example-password-input" class="col-2 col-form-label"><strong>Manager?</strong></label>
+          <div class="col-10">
+            <label for="" class="col-form-label">
+              Yes
+              <input type="radio" name="isManager" value="1" id="isManager" onclick="disableManagerId()" class="form-check">
+            </label>
+            <label for="" class="col-form-label">
+              No
+              <input type="radio" name="isManager" value="0" id="isNotManager" onclick="enableManagerId()" class="form-check"
+                checked>
+            </label>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for=" " class="col-2 col-form-label"><strong>ManagerID</strong></label>
+          <div class="col-10">
+            <input class="form-control" type="number" value="" placeholder="Manager ID" id="manager">
+          </div>
+        </div>
+        <div class="alert alert-success noDisplay" role="alert">
+          Employee created
+        </div>
+        <div class="alert alert-warning noDisplay" role="alert">
+          Invalid user input
+        </div>
+        <button class="btn btn-primary" type="submit" id="submit">Submit</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="./scripts/session.js"></script>
+  <script src="./scripts/creation.js"></script>
+</body>
+
+</html>
