@@ -1,0 +1,8 @@
+<div class="container" id="profile" *ngIf="shown">
+  <ul>
+    <li>{{user.name}}</li>
+    <li>{{user.email}}</li>
+  </ul>
+</div>
+<button id=btn (click)="this.shown = !this.shown;
+switchState()">hide</button>

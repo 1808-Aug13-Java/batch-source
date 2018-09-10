@@ -1,0 +1,13 @@
+<div class="container">
+    <div class="jumbotron">
+        <button class="btn btn-info" (click)="getUsers()">Show Users</button>
+    </div>
+    <ul *ngFor="let user of users">
+        <li [routerLink]="['/users']"> {{user.name}} 
+            <ul>
+                <li>{{user.email}}</li>
+                <li>{{user.company.name}}</li>
+            </ul>
+        </li>
+    </ul>
+</div>
