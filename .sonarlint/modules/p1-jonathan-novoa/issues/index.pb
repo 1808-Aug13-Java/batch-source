@@ -53,3 +53,7 @@ k
 ;src/main/java/com/revature/reim/servlets/LogoutServlet.java,7\d\7d4dac09c4cae1cbc5a55b1dd683608fef27dad8
 Q
 !src/main/webapp/Views/Logout.html,6\a\6a66879868ea6d7c228056aa301c695e3566ab52
+S
+#src/main/webapp/Scripts/Employee.js,5\0\50f12e9c48affc44139ea6e50a99ee45888889ad
+k
+;src/main/java/com/revature/reim/servlets/Employee_Info.java,9\0\90655305877b1965bd4cf626546098ca5e0ef7f7

@@ -2,20 +2,54 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Employee</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </head>
 <body>
 
-<div class="container">
+<div class="container"  id="user-containter">
 	<p id="user"></p>
+	<p hidden id="username"></p>
 	<br>
 
 </div>
 
 <p>This is the employee website</p>
-<script src="./Scripts/CheckSession.js"></script>
+
 <br> 
+
+<div class="container">
+	<form method="post" action="employee">
+	<label>Choose an option: </label>
+		<select name="action_option" class="form-control">
+			<option value="1">Submit a reimbursement</option>
+			<option value="2">View any pending reimbursements</option>
+			<option value="3">View any resolved reimbursements</option>
+			<option value="4"> View my Profile</option>
+			<option value="5"> Update my information</option>
+		</select><br>
+		<input type="submit" value="Go" class="btn btn-primary"/>
+	</form>
+	
+	   
+</div>
+<button class="btn btn-info" onclick="viewAllReim()"> View all reimbursements</button> 
 <hr>
+<div class="container">
+	<table id="table" class="table">
+	<tr id="headerRow">
+	<th>Status</th>
+	<th>Resolution</th>
+	<th>Approved by</th>
+	<th>Amount</th>
+	<th>Reimbursement Id<th>
+	</tr>
+</table>
+</div>
 <button class="btn btn-info" onclick="logout()">Logout</button>
+<script src="./Scripts/CheckSession.js"></script>
 </body>
 </html>

@@ -1,0 +1,15 @@
+<p>
+  table works!
+</p>
+
+<div>
+  <table id="this_table" class="table">
+    <tr *ngFor='let data of data_table'>
+      <td>{{data.firstname | uppercase}}</td>
+      <td>{{data.lastname | uppercase}}</td>
+      <td>{{data.email}}</td>
+      <td>{{data.birthday | date:'yyyy-MM-dd'}}</td>
+    </tr>
+  </table>
+  <button id="Populate" (click)='toggle()'>HTML</button>
+</div>

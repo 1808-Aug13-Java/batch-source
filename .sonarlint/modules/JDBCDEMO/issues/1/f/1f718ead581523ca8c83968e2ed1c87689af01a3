@@ -1,12 +1,12 @@
 
-”javascript:S2703"YAdd the "let", "const" or "var" keyword to this declaration of "loc" to make it explicit.(®·˜Ï8Ñ©¡ÓÚ,HÜsRBLOCKERZ
+”javascript:S2703"YAdd the "let", "const" or "var" keyword to this declaration of "loc" to make it explicit.(®·˜Ï8Ñ©¡ÓÚ,HÍ{RBLOCKERZ
 CODE_SMELL
-—javascript:S2583"lChange this condition so that it does not always evaluate to "true"; some subsequent code is never executed.(¦¡µÊHÝsRMAJORZBUG
-¡javascript:S2703"aAdd the "let", "const" or "var" keyword to this declaration of "employeeArr" to make it explicit.(¶„†Îýÿÿÿÿ8Ñ©¡ÓÚ,HÞsRBLOCKERZ
+—javascript:S2583"lChange this condition so that it does not always evaluate to "true"; some subsequent code is never executed.(¦¡µÊHÉ{RMAJORZBUG
+™javascript:S2703%"YAdd the "let", "const" or "var" keyword to this declaration of "dpt" to make it explicit.(ˆ¡À¹úÿÿÿÿ8ˆöäÕÚ,HË{RBLOCKERZ
 CODE_SMELL
-™javascript:S2703%"YAdd the "let", "const" or "var" keyword to this declaration of "dpt" to make it explicit.(ˆ¡À¹úÿÿÿÿ8ˆöäÕÚ,HßsRBLOCKERZ
+—javascript:S2703"WAdd the "let", "const" or "var" keyword to this declaration of "i" to make it explicit.(Þïç¿üÿÿÿÿ8Ñ©¡ÓÚ,HÊ{RBLOCKERZ
 CODE_SMELL
-—javascript:S2703"WAdd the "let", "const" or "var" keyword to this declaration of "i" to make it explicit.(Þïç¿üÿÿÿÿ8Ñ©¡ÓÚ,HàsRBLOCKERZ
+¡javascript:S2703"aAdd the "let", "const" or "var" keyword to this declaration of "employeeArr" to make it explicit.(¶„†Îýÿÿÿÿ8Ñ©¡ÓÚ,HÎ{RBLOCKERZ
 CODE_SMELL
-Ÿjavascript:S2703"_Add the "let", "const" or "var" keyword to this declaration of "employees" to make it explicit.(çÅŒØùÿÿÿÿ8ÐÜùÒÚ,HásRBLOCKERZ
+Ÿjavascript:S2703"_Add the "let", "const" or "var" keyword to this declaration of "employees" to make it explicit.(çÅŒØùÿÿÿÿ8ÐÜùÒÚ,HÌ{RBLOCKERZ
 CODE_SMELL

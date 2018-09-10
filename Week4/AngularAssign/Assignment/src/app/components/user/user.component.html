@@ -1,0 +1,20 @@
+<p>
+  user works!
+</p>
+
+<div class="container">
+    <button class="btn btn-info" (click)="populateUsers()">Show Users</button>
+  </div>
+
+
+  <div>
+  <ul *ngFor="let i of users">
+    <li [routerLink]="['/users']"> {{i.name}}
+      <ul>
+        <li>{{i.email}}</li>
+        <li>{{i.company.name}}</li>
+        <li>{{i.phone}}</li>
+      </ul>
+    </li>
+  </ul>
+</div>

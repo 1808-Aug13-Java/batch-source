@@ -1,0 +1,15 @@
+<p>
+  select works!
+</p>
+
+
+<div>
+  <form>
+    <input type="radio" name="radioList" (click)='popAnimals()'>Animals<br>
+    <input type="radio" name="radioList" (click)='popColors()'>Colors<br>
+    <input type="radio" name="radioList" (click)='popDays()'>Days<br>
+  </form>
+  <ul>
+    <li class="list-group-item" *ngFor='let i of radio'>{{i}}</li>
+  </ul>
+</div>

@@ -86,7 +86,23 @@ public class EmployeeDaoImpl implements EmployeeDao {
 	public List<Reimbursement> viewReimbursments(int empId, int choice) {
 		String pending = "SELECT * FROM REIM WHERE EMP_ID=? AND RESOLUTION='PENDING'";
 		String resolved= "SELECT * FROM REIM WHERE EMP_ID=? AND RESOLUTION='APPROVED'";
-		String sql= (choice==1)? pending:resolved;
+		String denied= "SELECT * FROM REIM WHERE EMP_ID=? AND RESOLUTION='DENIED'";
+		String sql=null;
+		switch(choice) {
+		case 1:{
+			sql=pending;
+			break;
+		}
+		case 2:{
+			sql=resolved;
+			break;
+		}
+		case 3:{
+			sql=denied;
+			break;
+		}
+		
+		}
 		List<Reimbursement> pendingReim=new ArrayList<>();
 		int viewReim = 0;
 		ResultSet rs=null;
@@ -169,15 +185,40 @@ public class EmployeeDaoImpl implements EmployeeDao {
 		String sql="UPDATE EMPLOYEES SET E_KEY=? WHERE EMP_ID=?";
 		try (Connection con = ConnectionUtil.getConnection(); PreparedStatement ps = con.prepareStatement(sql);) {
 		ps.setString(1,key);
-		ps.setInt(2, id);
+		ps.setInt(2, id); 
 		result = ps.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
 		return result;
+	}
+
+	@Override
+	public int getEmpId(String username) {
+		int empId=0;
+		String sql = "SELECT * FROM EMPLOYEES WHERE EMAIL=?";
+		Employee e = new Employee();
+		ResultSet rs = null;
+		try (Connection con = ConnectionUtil.getConnection(); PreparedStatement ps = con.prepareStatement(sql);) {
+			ps.setString(1, username);
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				empId=rs.getInt("EMP_ID");
+			}
+		}catch (IOException | SQLException p) {
+			p.printStackTrace();
+		} finally {
+			if (rs != null) {
+				try {
+					rs.close();
+				} catch (SQLException e1) {
+					e1.printStackTrace();
+				}
+			}
+		}
+		return empId;
 	}
 
 }

@@ -59,4 +59,14 @@
     <servlet-name>LogoutServlet</servlet-name>
     <url-pattern>/logout</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Employee_Info</display-name>
+    <servlet-name>Employee_Info</servlet-name>
+    <servlet-class>com.revature.reim.servlets.Employee_Info</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Employee_Info</servlet-name>
+    <url-pattern>/employee_info</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -79,4 +79,14 @@
     <servlet-name>LogoutSession</servlet-name>
     <url-pattern>/logout</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Employee_info</display-name>
+    <servlet-name>Employee_info</servlet-name>
+    <servlet-class>com.revature.servlets.Employee_info</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Employee_info</servlet-name>
+    <url-pattern>/employee_info</url-pattern>
+  </servlet-mapping>
 </web-app>

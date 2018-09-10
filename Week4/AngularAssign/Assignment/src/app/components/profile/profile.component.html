@@ -1,0 +1,22 @@
+<p>
+  profile works!
+</p>
+
+<br>
+
+
+<form>
+  <label>Name</label>
+  <input type='text' [(ngModel)]='name' name='name'>
+  <br>
+  <label>Email</label>
+  <input type='text' [(ngModel)]='email' name='email'>
+</form>
+
+<div *ngIf="hidden">
+<p>{{name}}</p>
+<p>{{email}}</p>
+</div>
+<br>
+<button class="btn btn-primary" (click)="bye()"> {{buttontext}}</button>
+

@@ -12,4 +12,17 @@ export class HighlightComponent implements OnInit {
   ngOnInit() {
   }
 
+ example:string =""
+  
+  change(){
+    this.example="example"
+  }
+  changeBack(){
+    this.example=""
+  }
+
+  // background($event){
+  //   // this.selectedcolor= "blue";
+  //   this.color = $event.type == 'mouseover' ? 'blue' : 'white';
+  // }
 }

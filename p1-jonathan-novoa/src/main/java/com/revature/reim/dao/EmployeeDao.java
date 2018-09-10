@@ -12,4 +12,5 @@ public interface EmployeeDao {
 	public List<Reimbursement> viewReimbursments(int empId,int choice); //should also use username now
 	public Employee viewProfile(int id);//also needs to work with the username
 	public int changeProfile(int id,String key);//also needs to work with the username
+	public int getEmpId(String username);
 }
