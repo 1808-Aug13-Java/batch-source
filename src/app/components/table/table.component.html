@@ -1,0 +1,36 @@
+<button class='btn btn-secondary' (click)='changeTableFlags()'>
+  Change styling formats for the table
+</button>
+<!-- go to bootstrap website -->
+<div *ngIf='usingBootstrapFlag; else NoBootstrap'>
+  <div class="container">
+    <table class='table'>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Birthdate</th>
+      </tr>
+      <tr *ngFor='let people of arrayPeople'>
+        <th>{{ people.name | titlecase }}</th>
+        <th>{{ people.email | titlecase }}</th>
+        <th>{{ people.birth | date }}</th>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<ng-template #NoBootstrap>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Birthdate</th>
+    </tr>
+    <tr *ngFor='let people of arrayPeople'>
+      <th>{{ people.name | titlecase }}</th>
+      <th>{{ people.email | titlecase }}</th>
+      <th>{{ people.birth | date }}</th>
+    </tr>
+  </table>
+</ng-template>
+  

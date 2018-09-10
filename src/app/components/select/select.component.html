@@ -1,0 +1,29 @@
+<div>
+  <label>Animals: </label>
+  <!-- list of angular events :) -->
+  <!-- https://www.w3schools.com/angular/angular_events.asp -->
+  <input type="radio" value="animals" (change)="yesAnimals()">
+  <label>Colors: </label>
+  <input type="radio" value="colors" (change)='yesColors()'>
+  <label>Days: </label>
+  <input type="radio" value="days" (change)='yesDays()'>
+</div>
+
+<div *ngIf='checkAnimals'>
+  <ul name="animals">
+    <li *ngFor='let animal of arrayAnimals'>{{animal}}</li>
+  </ul>
+</div>
+
+<div *ngIf='checkColors'>
+  <ul name="colors">
+    <li *ngFor='let color of arrayColors'>{{color}}</li>
+  </ul>
+</div>
+
+<div *ngIf='checkDays'>
+  <ul name="days">
+    <li *ngFor='let day of arrayDays'>{{day}}</li>
+  </ul>
+</div>
+
