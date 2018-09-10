@@ -1,0 +1,16 @@
+<table [class.table]="doDisplay" [class.container]="doDisplay">
+  <thead>
+    <th>Full Name</th>
+    <th>Email</th>
+    <th>Birthday</th>
+  </thead>
+  <tbody>
+    <tr *ngFor='let user of users'>
+      <td>{{user.firstName | titlecase}} {{user.lastName | titlecase}}</td>
+      <td>{{user.email}}</td>
+      <td>{{user.birthday | date : 'mediumDate'}}</td>
+    </tr>
+  </tbody>
+  <button type="submit" class="btn btn-primary" (click)='toggleClasses($event)'>
+    Turn On Bootstrap</button>
+</table>

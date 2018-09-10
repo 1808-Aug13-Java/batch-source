@@ -1,0 +1,20 @@
+<div class="jumbotron container">
+  <table class="table" *ngIf="notHidden">
+    <thead>
+      <th>E-mail</th>
+      <th>Name</th>
+      <th>Profession</th>
+      <th>Age</th>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{user.email}}</td>
+        <td>{{user.name}}</td>
+        <td>{{user.profession}}</td>
+        <td>{{user.age}}</td>
+      </tr>
+    </tbody>
+    
+  </table>
+  <button class="btn btn-primary" (click)="hideOrDisplayUser($event)">Hide</button>
+</div>

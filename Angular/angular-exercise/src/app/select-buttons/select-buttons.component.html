@@ -1,0 +1,35 @@
+<div class="container jumbotron bg-dark text-white">
+
+  <label>Animals
+    <input type="radio" value="animals" name="list" id="" (click)="changeSelected($event)">
+  </label>
+  <br>
+  <label>Colors
+    <input type="radio" value="colors" name="list" id="" (click)="changeSelected($event)">
+  </label>
+  <br>
+  <label>Days
+    <input type="radio" value="days" name="list" id="" (click)="changeSelected($event)">
+  </label>
+
+
+  <div class="container" [ngSwitch]='selected'>
+    <div *ngSwitchCase="'animals'">
+      <ul>
+        <li *ngFor='let animal of animals'>{{animal}}</li>
+      </ul>
+    </div>
+    <div *ngSwitchCase="'colors'">
+      <ul>
+        <li *ngFor='let color of colors'>{{color}}</li>
+      </ul>
+    </div>
+    <div *ngSwitchCase="'days'">
+      <ul>
+        <li *ngFor='let day of days'>{{day}}</li>
+      </ul>
+    </div>
+  </div>
+
+
+</div>

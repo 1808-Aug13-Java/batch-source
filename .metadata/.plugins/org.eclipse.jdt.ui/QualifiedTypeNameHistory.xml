@@ -42,4 +42,5 @@
 <fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
 <fullyQualifiedTypeName name="java.math.BigDecimal"/>
 <fullyQualifiedTypeName name="com.revature.dao.ReimbursmentDao"/>
+<fullyQualifiedTypeName name="com.revature.util.Validator"/>
 </qualifiedTypeNameHistroy>

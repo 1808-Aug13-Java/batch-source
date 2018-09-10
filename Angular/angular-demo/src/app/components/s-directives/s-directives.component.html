@@ -6,7 +6,7 @@
 
 <br><br>
 <!-- <h4 *ngIf='courses.length>0'>List of courses using ngFor</h4> -->
-<div *ngIf='courses.length>0; then courseList else noCourses'></div>
+<div *ngIf='courses.length'>0; then courseList else noCourses'></div>
 <ng-template #courseList>List of Courses</ng-template>
 <ng-template #noCourses>No Courses to Show</ng-template>
 <ul>
