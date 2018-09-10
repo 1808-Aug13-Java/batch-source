@@ -1,0 +1,38 @@
+<!-- <p>
+  heroes works!
+</p> -->
+
+<!-- {{hero}} -->
+
+<!-- <h2>{{hero.name | uppercase}} Details</h2>
+<div><span>id: </span>{{hero.id}}</div>
+<div><span>name: </span>{{hero.name}}</div> -->
+
+<!-- This is called the componene'ts template file, rather
+      than the html file -->
+
+<h2>My Heroes</h2>
+<ul>
+  <li *ngFor="let hero of heroes" >
+    <!-- "hero===selectedHero" is the condition. if true
+      will apply from css file, the .selected class -->
+    <!-- bullet points are just from <li> -->
+    <a routerLink='/detail/{{hero.id}}'>
+      <span class="badge">{{hero.id}}</span> {{hero.name}}
+    </a>
+  </li>
+</ul>
+
+<!-- <app-hero-detail [hero]="selectedHero"></app-hero-detail> -->
+<!-- <div *ngIf="selectedHero"> <!-- w/o this, will look bad
+ when no selected hero. page will be brojen til u select one-->
+ 
+    <!-- <h2>{{selectedHero.name | uppercase}} Details</h2>
+    <div><span>id: </span>{{selectedHero.id}}</div>
+    <div>
+      <label>name:
+        <input [(ngModel)]="selectedHero.name" placeholder="name">
+      </label>
+    </div>
+   
+  </div> --> -->

@@ -1,29 +1,24 @@
 import { NgModule } from '@angular/core';
+// import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
+import { HeroesComponent } from './heroes/heroes.component';
+import { DashboardComponent }   from './dashboard/dashboard.component';
+import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 
-import { HighlightComponent } from './components/highlight/highlight.component';
-import { ProfileComponent } from './components/profile/profile.component';
-import { SelectComponent } from './components/select/select.component';
-import { TableComponent } from './components/table/table.component';
-
-
-const routes: Routes = [
-  // {path: , component: }
-  //no '/path'. Just 'path'
-  {path: 'highlight', component: HighlightComponent},
-  {path: 'profile', component: ProfileComponent},
-  {path: 'select', component: SelectComponent},
-  {path: 'tab', component: TableComponent}
-]
+const routes: Routes =[
+  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+  { path: 'dashboard', component: DashboardComponent },
+  { path: 'detail/:id', component: HeroDetailComponent },
+  // ':id' means placehowlder id
+  { path: 'heroes', component: HeroesComponent}
+];
 
 @NgModule({
-  imports: [
-    // CommonModule
-    RouterModule.forRoot(routes) //routes is wat we're def
-              //in this class. We give it to the root
-              //of RouterModule (import it)
-  ],
-  // declarations: []
+  // imports: [
+  //   // CommonModule
+  // ],
+  // declarations: []  dont usualy declare anything in router
+  imports: [ RouterModule.forRoot(routes) ],
   exports: [
     RouterModule
   ]
