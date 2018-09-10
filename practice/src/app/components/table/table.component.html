@@ -1,0 +1,15 @@
+<h2>ye olde table</h2>
+
+<button class="btn btn-primary" (click)='style()'>boot</button>
+<table [ngClass]="{'table':boot}">
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Birthday</th>
+  </tr>
+  <tr *ngFor="let user of users">
+    <td>{{user.first|propercasing}} {{user.last|propercasing}}</td>
+    <td>{{user.email}}</td>
+    <td>{{user.birthday|date:'EEEE,d,MMMM,y'}}</td>
+  </tr>
+</table>

@@ -1,0 +1,17 @@
+<div class='container'>
+    <div class='jumbotron'>
+      <h4>YO YO YO!!!</h4>
+      <p>Clickity Clack this Button or you whack!</p>
+      <button class="btn btn-info" (click)='getUsers()'>Get Users!</button>
+    </div>
+    <div>
+      <div *ngFor="let user of users">
+        <h5>User</h5>
+        <h4>{{user.id}}) {{user.username}} {{user.email}}</h4>
+        <h6>Address</h6>
+        <p>{{user.address.street}} {{user.address.suite}}
+          <br>{{user.address.city}},{{user.address.zipcode}}<br>{{user.address.geo.lat}},{{user.address.geo.lng}}</p>
+        <p>{{user.phone}}<br>{{user.website}}<br>{{user.company.name}}<br>{{user.company.catchPhrase}} {{user.company.bs}}</p>
+        </div>
+    </div>
+  </div>

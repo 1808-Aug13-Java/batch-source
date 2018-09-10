@@ -1,0 +1,21 @@
+
+
+<input type="radio" #animal name="array" (click)='empty()'>Animals<br>
+<input type="radio" #color name="array" (click)='empty()'>Colors<br>
+<input type="radio" #day name="array" (click)='empty()'>Days<br>
+
+<div *ngIf='animal.checked'>
+    <ul>
+        <li *ngFor='let str of animals'>{{str}}</li>
+      </ul>
+</div>
+<div *ngIf='color.checked'>
+    <ul>
+        <li *ngFor='let str of colors'>{{str}}</li>
+      </ul>
+</div>
+<div *ngIf='day.checked'>
+    <ul>
+        <li *ngFor='let str of days'>{{str}}</li>
+      </ul>
+</div>

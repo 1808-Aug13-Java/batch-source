@@ -1,0 +1,4 @@
+<h4>Displays a User Object from profile.component.ts</h4>
+<button class="btn {{view==true?'btn-danger':'btn-primary'}}" 
+(click)="view=!view">{{view==true?'hide':'show'}}</button>
+<p><span *ngIf=view>{{bob.id}},{{bob.name}},{{bob.email}}</span></p>
