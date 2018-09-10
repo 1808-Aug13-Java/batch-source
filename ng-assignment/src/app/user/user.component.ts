@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import { User } from '../user';
+import { UserService } from '../user.service';
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserComponent implements OnInit {
 
-  constructor() { }
-
+  constructor( private userService : UserService ) { }
+  test : string; 
+  users : User[];
+  u: User;
   ngOnInit() {
   }
-https://jsonplaceholder.typicode.com/users
+  getUsers():void {
+    this.userService.getUsers().subscribe((data : User[]) => { this.users = data;});
+  }
 }
