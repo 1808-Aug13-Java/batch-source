@@ -1,0 +1,9 @@
+<br><br>
+<div class="container"><h2>User Details</h2>
+<button type="button" class="btn btn-primary" (click)="changeClicked()"> {{hideOrNah}}</button>
+
+<div *ngIf='isClicked'>
+  <div><span>age: </span>{{user.age}}</div>
+  <div><span>name: </span>{{user.name}}</div>
+</div>
+</div>
