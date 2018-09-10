@@ -1,3 +1,7 @@
-<p>
-  dashboard works!
-</p>
+
+<div class="container">
+	<div class="jumbotron">
+		<h3 class="centered">Top Heroes</h3>
+		<button *ngFor="let heroId of topHeroes" class="myButton btn btn-default" [routerLink]="['/details', heroId]">{{heroes[heroId]}}</button>
+	</div>
+</div>

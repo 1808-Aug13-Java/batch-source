@@ -1,0 +1,11 @@
+.myButton {
+	padding-top: 20px;
+	padding-bottom: 20px;
+	width: 120px;
+	margin-right: 10px;
+}
+
+.centered {
+	margin-left: auto;
+	margin-right: auto;
+}

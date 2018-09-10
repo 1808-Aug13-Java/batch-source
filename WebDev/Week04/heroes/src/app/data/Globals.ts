@@ -12,7 +12,7 @@ export class Globals {
   // to parse through the heroes map. 
   objectKeys = Object.keys;
 
-  // A Map of ID's to hero names. 
+  // A Map of ID's to hero names. There is no type for a map yet in Typescript.
   heroes = {
 	11: "Mr. Nice", 
 	12: "Narco",
@@ -26,6 +26,7 @@ export class Globals {
 	20: "Tornado"
   }
   
-
+  // The Id's of the top heroes. 
+  topHeroes: number[] = [12, 13, 14, 15];
 
 }
