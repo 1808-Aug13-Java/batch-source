@@ -27,7 +27,6 @@ document.addEventListener("DOMContentLoaded", function(){
 
   function invalidLoginCheck(xhr) {
     let response = JSON.parse(xhr.responseText);
-    console.log(response);
     if(response.login) {
       displayInvalidUser();
     }

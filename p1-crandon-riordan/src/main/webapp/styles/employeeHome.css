@@ -2,6 +2,11 @@
   margin-top: 4%;
 }
 
+div.jumbotron {
+  padding-top: 16px;
+  background-color: #e3f2fd;
+}
+
 .submit {
   margin: 0 auto;
   margin-top: -50px;

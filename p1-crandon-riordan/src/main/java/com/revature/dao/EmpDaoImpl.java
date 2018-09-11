@@ -24,6 +24,7 @@ public class EmpDaoImpl implements EmployeeDao {
 
 	@Override
 	public int createEmployee(Employee employee) {
+		System.out.println("creating "+employee);
 		int createdEmp = 0;
 		String sql = "INSERT INTO EMPLOYEE (NAME, USERNAME, EMAIL, "
 				+ "PASSWORD, MANAGER_ID, IS_MANAGER) VALUES (?,?,?,?,?,?)";
@@ -35,6 +36,28 @@ public class EmpDaoImpl implements EmployeeDao {
 			ps.setString(4, employee.getPassword());
 			ps.setInt(5, employee.getManagerId());
 			ps.setInt(6, employee.getIsManager());
+			
+			createdEmp = ps.executeUpdate();
+		} catch (SQLException | IOException e) {
+			log.info(e.getMessage());
+		}
+		
+		return createdEmp;
+	}
+	
+	@Override
+	public int createManager(Employee employee) {
+		System.out.println("creating manager "+employee);
+		int createdEmp = 0;
+		String sql = "INSERT INTO EMPLOYEE (NAME, USERNAME, EMAIL, "
+				+ "PASSWORD, IS_MANAGER) VALUES (?,?,?,?,?)";
+		try(Connection con = ConnectionUtil.getConnection();
+				PreparedStatement ps = con.prepareStatement(sql)) {
+			ps.setString(1, employee.getName());
+			ps.setString(2, employee.getUsername());
+			ps.setString(3, employee.getEmail());
+			ps.setString(4, employee.getPassword());
+			ps.setInt(5, employee.getIsManager());
 			
 			createdEmp = ps.executeUpdate();
 		} catch (SQLException | IOException e) {
@@ -111,6 +134,11 @@ public class EmpDaoImpl implements EmployeeDao {
 					log.info(e.getMessage());
 				}
 			}
+		}
+		
+		if(emp.getId() == 0) {
+			log.info("Couldn't find a user by specified ID");
+			return null;
 		}
 		
 		return emp;

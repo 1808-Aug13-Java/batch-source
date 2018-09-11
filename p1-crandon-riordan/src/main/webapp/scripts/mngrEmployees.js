@@ -83,7 +83,6 @@ document.addEventListener("DOMContentLoaded", function() {
   let searchBtn = document.getElementById("search");
   let tbody = document.getElementById("tbodyById");
   searchBtn.addEventListener("click", function() {
-    console.log("hey");
     tbody.innerHTML = "";
     let employeeId = document.getElementById("employeeId");
     if(employeeId.value == "") {
@@ -110,7 +109,7 @@ document.addEventListener("DOMContentLoaded", function() {
         <td>${reimbursment.reimbursmentId}</td>
         <td>${reimbursment.employee.name}</td>
         <td>${reimbursment.reason}</td>
-        <td>${reimbursment.amount}</td>
+        <td>$${reimbursment.amount}</td>
         <td>${reimbursment.currentState}</td>
         <td>${reimbursment.manager == null ? "N/A" : reimbursment.manager.name}</td>
         <td>${new Date(reimbursment.dateCreated)

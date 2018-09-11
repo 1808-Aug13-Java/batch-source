@@ -11,4 +11,5 @@ public interface EmployeeDao {
 	Employee getEmployeeByUsername(String username);
 	Employee getEmployeeById(int id);
 	List<Employee> getAllEmployees();
+	int createManager(Employee employee);
 }

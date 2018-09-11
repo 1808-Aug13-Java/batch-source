@@ -9,7 +9,6 @@ function enableManagerId() {
 }
 
 function sendAjaxPost(url, callback, data) {
-  console.log("url: ", url);
   let xhr = new XMLHttpRequest();
   xhr.onload = function () {
     if (this.readyState == 4 && this.status == 200) {
@@ -48,12 +47,10 @@ window.onload = function () {
       data += `&email=${email.value}&password=${password.value}`;
       data += `&managerId=${managerId.value}&isManager=${isManager.value}`;
 
-      console.log(data);
       // send data to employee creationg url
       sendAjaxPost(url, function (xhr) {
         displaySubmitAlert();
-        console.log(xhr);
-        clearEls(name, username, email, password, managerId, isManager);
+        clearEls(name, username, email, password, managerId, isManager);s
       }, data);
     }
   });

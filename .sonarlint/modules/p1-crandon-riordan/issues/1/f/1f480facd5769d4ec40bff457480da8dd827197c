@@ -1,11 +1,11 @@
 
-gsquid:S1161":Add the "@Override" annotation above this method signature(‹¨¯¿H¯YRMAJORZ
+Ysquid:S1989"$Add a "try/catch" block for "doGet".(®Ó‘ûÿÿÿÿÿHÔdRMINORZVULNERABILITY
+]squid:S1989"&Add a "try/catch" block for "forward".(‚´…š8Ó‘©ÖÚ,HÕdRMINORZVULNERABILITY
+lsquid:S1161":Add the "@Override" annotation above this method signature(Ïû©ÖûÿÿÿÿH×dRMAJORZ
 CODE_SMELL
-}squid:UselessImportCheck"<Remove this unused import 'javax.servlet.RequestDispatcher'.(Ëöò¼8Ó‘©ÖÚ,H°YRMINORZ
+gsquid:S1161":Add the "@Override" annotation above this method signature(‹¨¯¿HÙdRMAJORZ
 CODE_SMELL
-Ysquid:S1989"$Add a "try/catch" block for "doGet".(®Ó‘ûÿÿÿÿÿH±YRMINORZVULNERABILITY
-lsquid:S1161":Add the "@Override" annotation above this method signature(Ïû©ÖûÿÿÿÿH²YRMAJORZ
+Ysquid:S1989"$Add a "try/catch" block for "doGet".(®Ó‘ûÿÿÿÿÿHØdRMINORZVULNERABILITY
+}squid:UselessImportCheck"<Remove this unused import 'javax.servlet.RequestDispatcher'.(Ëöò¼8Ó‘©ÖÚ,HÓdRMINORZ
 CODE_SMELL
-]squid:S1989"&Add a "try/catch" block for "forward".(‚´…š8Ó‘©ÖÚ,H³YRMINORZVULNERABILITY
-]squid:S1989"&Add a "try/catch" block for "forward".(‚´…š8Ó‘©ÖÚ,H´YRMINORZVULNERABILITY
-Ysquid:S1989"$Add a "try/catch" block for "doGet".(®Ó‘ûÿÿÿÿÿHµYRMINORZVULNERABILITY
+]squid:S1989"&Add a "try/catch" block for "forward".(‚´…š8Ó‘©ÖÚ,HÖdRMINORZVULNERABILITY

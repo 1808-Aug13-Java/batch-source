@@ -1,36 +1,34 @@
 let sessionId;
 const isUserUrl = "http://localhost:8082/p1-crandon-riordan/session";
+
 function validateUser(xhr) {
   let response = JSON.parse(xhr.responseText);
-  if(response == null || response.email == null) {
-    window.location="http://localhost:8082/p1-crandon-riordan/login";
+  if (response == null || response.email == null) {
+    window.location = "http://localhost:8082/p1-crandon-riordan/login";
   }
 
   let email = document.getElementById("email");
   email.innerHTML = response.email;
-  console.log(response);
-  
+
   sessionId = response.id;
-  console.log('id', sessionId);
-  
-  let initUrl =`${reimbursmentUrl}?employeeId=${sessionId}&currentState=pending`;
+
+  let initUrl = `${reimbursmentUrl}?employeeId=${sessionId}&currentState=pending`;
   sendAjaxGet(initUrl, populateTable);
 }
 
 function populateTable(xhr) {
   let tbody = document.getElementById("tbody");
 
-  console.log(xhr);
   let response = JSON.parse(xhr.responseText);
   let reimbursments = response.reimbursments;
 
-  for(let reimbursment of reimbursments) {
+  for (let reimbursment of reimbursments) {
     let trEl = document.createElement("tr");
 
     trEl.innerHTML = `
       <td>${reimbursment.reimbursmentId}</td>
       <td>${reimbursment.reason}</td>
-      <td>${reimbursment.amount}</td>
+      <td>$${reimbursment.amount}</td>
       <td>${reimbursment.currentState}</td>
       <td>${new Date(reimbursment.dateCreated).toLocaleDateString()}</td>
       <td>${reimbursment.manager ? reimbursment.manager.name : "N/A"}</td>
@@ -62,7 +60,6 @@ function sendAjaxGet(url, callback) {
 sendAjaxGet(isUserUrl, validateUser);
 
 function sendAjaxPost(url, callback, data) {
-  console.log("url: ", url);
   let xhr = new XMLHttpRequest();
 
   xhr.onload = function () {
@@ -91,24 +88,33 @@ document.addEventListener("DOMContentLoaded", function () {
     } else {
       removeInvalidAlert(reqAlert);
       let formData = `amount=${amount.value}&reason=${reason.value}`;
-      console.log(formData);
       amount.value = "";
       reason.value = "";
-      sendAjaxPost(reimbursmentUrl, showAlert, formData);
+      sendAjaxPost(reimbursmentUrl, function () {
+        showAlert();
+        // repopulate the currently selected tab
+        let selectedTab = document.getElementsByClassName("activeTab")[0];
+        if (selectedTab.innerHTML.toLowerCase() == "pending") {
+          populatePending();
+        } else if (selectedTab.innerHTML.toLowerCase() == "resolved") {
+          populatedResolved();
+        }
+      }, formData);
       return;
     }
-    // tie form data to form for POSTing
+
+
   });
 
   // Populate pending tab already
-  
 
-  function showAlert(xhr) {
+
+  function showAlert() {
     let submitAlert = document.getElementById("submitAlert");
     submitAlert.classList.remove("noDisplay");
     submitAlert.classList.add("doDisplay");
     // hide after 2secs
-    setTimeout(function() {
+    setTimeout(function () {
       submitAlert.classList.remove("doDisplay");
       submitAlert.classList.add("noDisplay");
     }, 3000);
@@ -128,25 +134,29 @@ document.addEventListener("DOMContentLoaded", function () {
   // Event listeners for pending/resolved reimbursments
   let navTabs = document.getElementsByClassName("rNav");
   // pending populate table
-  navTabs[0].addEventListener("click", function() {
-    tbody.innerHTML = "";
-    navTabs[0].classList.add("activeTab");
-    navTabs[1].classList.remove("activeTab");
-    tbody.innerHTML = "";
-    let url =`${reimbursmentUrl}?employeeId=${sessionId}&currentState=pending`;
-    sendAjaxGet(url, populateTable);
-  });
+  navTabs[0].addEventListener("click", populatePending);
 
-  navTabs[1].addEventListener("click", function() {
+  navTabs[1].addEventListener("click", populateResolved);
+
+  function populatePending() {
     tbody.innerHTML = "";
-    navTabs[1].classList.add("activeTab");
+    navTabs[1].classList.remove("activeTab");
+    navTabs[0].classList.add("activeTab");
+    tbody.innerHTML = "";
+    let url = `${reimbursmentUrl}?employeeId=${sessionId}&currentState=pending`;
+    sendAjaxGet(url, populateTable);
+  }
+
+  function populateResolved() {
+    tbody.innerHTML = "";
     navTabs[0].classList.remove("activeTab");
-    let url =`${reimbursmentUrl}?employeeId=${sessionId}&currentState=resolved
+    navTabs[1].classList.add("activeTab");
+    let url = `${reimbursmentUrl}?employeeId=${sessionId}&currentState=resolved
     `;
     sendAjaxGet(url, populateTable);
-  });
+  }
 
-  
+
 
 
 });

@@ -1,19 +1,29 @@
 package com.revature.servlets;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.log4j.Logger;
+
+import com.revature.dao.EmpDaoImpl;
+import com.revature.dao.EmployeeDao;
+import com.revature.models.Employee;
+import com.revature.util.Hasher;
 import com.revature.util.SessionHelper;
+import com.revature.util.Validator;
 
 /**
  * Servlet implementation class CreateEmployeeServlet
  */
 public class CreateEmployeeServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	Logger logger = Logger.getLogger(CreateEmployeeServlet.class);
 
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.getRequestDispatcher("employeeCreation.html").forward(request, response);
 		SessionHelper sh = new SessionHelper();
@@ -31,8 +41,10 @@ public class CreateEmployeeServlet extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("posting");
+		
 		SessionHelper sh = new SessionHelper();
+		// hashing pw
+		Hasher hasher = new Hasher();
 		boolean foundUser = sh.checkValidUser(request);
 		
 		if(!foundUser) {
@@ -42,9 +54,39 @@ public class CreateEmployeeServlet extends HttpServlet {
 		String name = request.getParameter("name");
 		String username = request.getParameter("username");
 		String email = request.getParameter("email");
-		String password = request.getParameter("password");
+		String password = hasher.getHashPassword(request.getParameter("password"));
 		String managerId = request.getParameter("managerId");
 		String isManager = request.getParameter("isManager");
+		
+		Employee emp = new Employee();
+		EmployeeDao ed = new EmpDaoImpl();
+		System.out.println();
+		if(Validator.validEmail(email) && password.length() > 7) {
+			emp.setName(name);
+			emp.setUsername(username);
+			emp.setEmail(email);
+			emp.setPassword(password);
+			try {
+				// checking for correct input further
+				
+				emp.setIsManager(Integer.parseInt(isManager));
+				if(emp.getIsManager() == 0) {
+					emp.setManagerId(Integer.parseInt(managerId));
+					ed.createEmployee(emp);
+				} else {
+					// handle manager creation
+					ed.createManager(emp);
+				}
+				ed.createEmployee(emp);
+			} catch (Exception e) {
+				System.out.println("Parsing error for employee creation");
+				logger.info("Parsing error");
+				response.sendRedirect("createEmployee");
+			}
+			
+		} else {
+			System.out.println("Invalid email or password");
+		}
 	}
 
 }

@@ -65,7 +65,7 @@ public class ReimbursmentServlet extends HttpServlet {
 					pw.write("null");
 				}
 			} catch (Exception e) {
-				logger.info("invalid reimbusrmentId");
+				logger.info("invalid reimbursmentId");
 				pw.write("null");
 			}
 			

@@ -16,7 +16,6 @@ document.addEventListener("DOMContentLoaded", function () {
   }
   // data will be like: var=x&var1=y&var2=xx etc..
   function sendAjaxPost(url, callback, data) {
-    console.log("url: ", url);
     let xhr = new XMLHttpRequest();
 
     xhr.onload = function () {
@@ -114,7 +113,6 @@ document.addEventListener("DOMContentLoaded", function () {
     let numWrong;
     if (!validateEmail(email.value)) {
       numWrong++;
-      console.log('hey');
       toggleBadAlert("Enter a correct email");
     }
     let name = document.getElementById("name");

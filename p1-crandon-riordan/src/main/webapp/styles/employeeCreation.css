@@ -2,6 +2,11 @@
   margin-top: 30px;
 }
 
+div.jumbotron {
+  padding-top: 30px;
+  background-color: #e3f2fd;
+}
+
 .col-form-label {
   margin-left: 2%;
 }

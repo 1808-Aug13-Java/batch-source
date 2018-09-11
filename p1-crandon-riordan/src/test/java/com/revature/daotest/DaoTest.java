@@ -37,7 +37,7 @@ public class DaoTest {
 			employee.setUsername("kgoslo");
 			employee.setPassword(hasher.getHashPassword("password"));
 			employee.setEmail("kgoslo@gmail.com");
-			assertEquals(1, edi.createEmployee(employee));
+			assertEquals(1, edi.createManager(employee));
 			con.rollback();
 		} catch (SQLException | IOException e) {
 			logger.info("createUserWorks() test threw exception " + e.getMessage());
@@ -64,6 +64,34 @@ public class DaoTest {
 		} catch (SQLException | IOException e) {
 			logger.info("createUserWorks() test threw exception " + e.getMessage());
 		}
+	}
+	
+	@Test 
+	public void canRetrieveEmployeeByEmail() {
+		EmpDaoImpl edi = new EmpDaoImpl();
+		Employee emp = edi.getEmployeeByEmail("michaelscott@gmail.com");
+		assertEquals("michaelscott", emp.getUsername());
+	}
+	
+	@Test 
+	public void canRetrieveManagerByUsername() {
+		EmpDaoImpl edi = new EmpDaoImpl();
+		Employee emp = edi.getEmployeeByUsername("michaelscott");
+		assertEquals("michaelscott", emp.getUsername());
+	}
+	
+	@Test
+	public void canRetrieveEmployeeById() {
+		EmpDaoImpl edi = new EmpDaoImpl();
+		Employee emp = edi.getEmployeeById(21);
+		assertEquals("michaelscott", emp.getUsername());
+	}
+	
+	@Test
+	public void cantRetrieveNonExistentEmlpoyee() {
+		EmpDaoImpl edi = new EmpDaoImpl();
+		Employee emp = edi.getEmployeeById(90);
+		assertEquals(null, emp);
 	}
 	
 	@Test
@@ -105,31 +133,7 @@ public class DaoTest {
 		
 	}
 	
-	@Test 
-	public void canRetrieveEmployeeByEmail() {
-		EmpDaoImpl edi = new EmpDaoImpl();
-		Employee emp = edi.getEmployeeByEmail("example1@gmail.com");
-		assertEquals("example1", emp.getUsername());
-	}
-	
-	@Test 
-	public void canRetrieveManagerByEmail() {
-		EmpDaoImpl edi = new EmpDaoImpl();
-		Employee emp = edi.getEmployeeByEmail("michaelscott@gmail.com");
-		assertEquals("michaelscott", emp.getUsername());
-	}
 	
 	
-//	----------------------------
-//	Testing hashing
-//	----------------------------
-	@Test
-	public void hashingWorksWithSamePassword() {
-		Hasher hasher = new Hasher();
-		String password = "theoffice";
-		String hashedPassword = hasher.getHashPassword(password);
-		System.out.println(hashedPassword);
-		assertTrue(hasher.getHashPassword("theoffice").equals(hashedPassword));
-	}
 
 }

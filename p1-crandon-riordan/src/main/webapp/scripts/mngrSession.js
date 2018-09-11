@@ -2,7 +2,6 @@
 
 function sendAjaxGet(url, callback) {
   let xhr = new XMLHttpRequest();
-  console.log('sending ajax call to '+ url);
   
   xhr.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
@@ -31,7 +30,7 @@ function populatPendingReimbursments(xhr) {
     <td>${reimbursment.employeeId}</td>
     <td>${reimbursment.employee.name}</td>
     <td>${reimbursment.reason}</td>
-    <td>${reimbursment.amount}</td>
+    <td>$${reimbursment.amount}</td>
     <td>${reimbursment.currentState.toUpperCase()}</td>
     <td>${new Date(reimbursment.dateCreated).toLocaleDateString()}</td>
     <td>${reimbursment.manager != undefined ? reimbursment.manager.name : "N/A"}</td>
@@ -69,7 +68,7 @@ function populateResolvedReimbursments(xhr) {
     <td>${reimbursment.employeeId}</td>
     <td>${reimbursment.employee.name}</td>
     <td>${reimbursment.reason}</td>
-    <td>${reimbursment.amount}</td>
+    <td>$${reimbursment.amount}</td>
     <td>${reimbursment.currentState.toUpperCase()}</td>
     <td>${new Date(reimbursment.dateCreated).toLocaleDateString()}</td>
     <td>${reimbursment.manager != undefined ? reimbursment.manager.name : "N/A"}</td>
@@ -101,6 +100,7 @@ document.addEventListener("DOMContentLoaded", function () {
   
 
   function validateUser(xhr) {
+    console.log(xhr);
     let response = JSON.parse(xhr.responseText);
     // if they aren't logged in or logged in as employee
     // redirect
@@ -135,7 +135,7 @@ document.addEventListener("DOMContentLoaded", function () {
       <td>${reimbursment.employeeId}</td>
       <td>${reimbursment.employee.name}</td>
       <td>${reimbursment.reason}</td>
-      <td>${reimbursment.amount}</td>
+      <td>$${reimbursment.amount}</td>
       <td>${reimbursment.currentState.toUpperCase()}</td>
       <td>${new Date(reimbursment.dateCreated).toLocaleDateString()}</td>
       <td>${reimbursment.manager != undefined ? reimbursment.manager.name : "N/A"}</td>

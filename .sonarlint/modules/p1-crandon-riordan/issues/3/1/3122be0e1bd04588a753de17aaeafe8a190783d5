@@ -1,23 +1,29 @@
 
-~squid:S1192A"IDefine a constant instead of duplicating this literal "PASSWORD" 4 times.(°¹Û÷üÿÿÿÿH‰bRCRITICALZ
+l
+squid:S106Q"9Replace this use of System.out or System.err by a logger.(«‹Îõ8‚­¨¡Ü,HçfRMAJORZ
 CODE_SMELL
-†squid:S2293y"YReplace the type specification in this constructor call with the diamond operator ("<>").(·ÓúH†bRMINORZ
+~squid:S1192V"IDefine a constant instead of duplicating this literal "USERNAME" 4 times.(³Ûä¶øÿÿÿÿHŞcRCRITICALZ
 CODE_SMELL
-e
-squid:S106;"9Replace this use of System.out or System.err by a logger.(”¶¯®HˆbRMAJORZ
+j
+squid:S1062"9Replace this use of System.out or System.err by a logger.(Éïı ûÿÿÿÿHÜcRMAJORZ
 CODE_SMELL
-Ysquid:S1148¬"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿH‹bRMINORZVULNERABILITY
-{squid:S1192C"KDefine a constant instead of duplicating this literal "IS_MANAGER" 4 times.(ÃÕçH„bRCRITICALZ
+Ysquid:S1148È"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿHácRMINORZVULNERABILITY
+{squid:S1192Y"KDefine a constant instead of duplicating this literal "MANAGER_ID" 4 times.(î§Ú×HäcRCRITICALZ
 CODE_SMELL
-~squid:S1192?"IDefine a constant instead of duplicating this literal "USERNAME" 4 times.(³Ûä¶øÿÿÿÿHŒbRCRITICALZ
+‡squid:S2293•"YReplace the type specification in this constructor call with the diamond operator ("<>").(·ÓúHßcRMINORZ
 CODE_SMELL
-{squid:S1192>"FDefine a constant instead of duplicating this literal "EMAIL" 4 times.(è˜à¯ıÿÿÿÿH…bRCRITICALZ
+l
+squid:S106R"9Replace this use of System.out or System.err by a logger.(”¶¯®8Ê³ò£Ü,HgRMAJORZ
 CODE_SMELL
-e
-squid:S106:"9Replace this use of System.out or System.err by a logger.(«‹ÎõHŠbRMAJORZ
+{squid:S1192Z"KDefine a constant instead of duplicating this literal "IS_MANAGER" 4 times.(ÃÕçHàcRCRITICALZ
 CODE_SMELL
-`squid:S1148É"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ù©°öÛ,H¨bRMINORZVULNERABILITY
-squid:S1192="LDefine a constant instead of duplicating this literal "EMPLOYEE_ID" 4 times.(ñ§·¼üÿÿÿÿHbRCRITICALZ
+`squid:S1148å"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ù©°öÛ,HãcRMINORZVULNERABILITY
+squid:S1192T"LDefine a constant instead of duplicating this literal "EMPLOYEE_ID" 4 times.(ñ§·¼üÿÿÿÿHâcRCRITICALZ
 CODE_SMELL
-{squid:S1192B"KDefine a constant instead of duplicating this literal "MANAGER_ID" 4 times.(î§Ú×H‡bRCRITICALZ
+{squid:S1192U"FDefine a constant instead of duplicating this literal "EMAIL" 4 times.(è˜à¯ıÿÿÿÿHåcRCRITICALZ
+CODE_SMELL
+j
+squid:S106"9Replace this use of System.out or System.err by a logger.(×ÒáçøÿÿÿÿHİcRMAJORZ
+CODE_SMELL
+~squid:S1192X"IDefine a constant instead of duplicating this literal "PASSWORD" 4 times.(°¹Û÷üÿÿÿÿHæcRCRITICALZ
 CODE_SMELL

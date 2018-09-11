@@ -31,16 +31,16 @@
 <fullyQualifiedTypeName name="java.beans.Statement"/>
 <fullyQualifiedTypeName name="java.sql.Statement"/>
 <fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
-<fullyQualifiedTypeName name="com.revature.util.SessionHelper"/>
 <fullyQualifiedTypeName name="com.revature.dao.EmployeeDao"/>
 <fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="com.revature.dao.ReimbursmentDaoImpl"/>
-<fullyQualifiedTypeName name="com.revature.dao.EmpDaoImpl"/>
 <fullyQualifiedTypeName name="java.lang.System"/>
 <fullyQualifiedTypeName name="com.fasterxml.jackson.databind.ObjectMapper"/>
 <fullyQualifiedTypeName name="com.revature.models.Employee"/>
 <fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
 <fullyQualifiedTypeName name="java.math.BigDecimal"/>
 <fullyQualifiedTypeName name="com.revature.dao.ReimbursmentDao"/>
+<fullyQualifiedTypeName name="com.revature.util.SessionHelper"/>
+<fullyQualifiedTypeName name="com.revature.dao.EmpDaoImpl"/>
 <fullyQualifiedTypeName name="com.revature.util.Validator"/>
 </qualifiedTypeNameHistroy>

@@ -16,13 +16,15 @@ document.addEventListener("DOMContentLoaded", function(){
 
   function validateUser(xhr) {
     let response = JSON.parse(xhr.responseText);
-    if(response == null || response.email == null) {
+    if(response == null) {
       window.location="http://localhost:8082/p1-crandon-riordan/login";
+    } else {
+      let email = document.getElementById("email");
+      email.innerHTML = response.email;
+      sessionId = response.id;
     }
 
-    let email = document.getElementById("email");
-    email.innerHTML = response.email;
-    sessionId = response.id;
+    
   }
 
   sendAjaxGet(isUserUrl, validateUser);

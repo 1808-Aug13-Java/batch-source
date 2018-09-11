@@ -1,13 +1,13 @@
 
-‚squid:S1192"FDefine a constant instead of duplicating this literal "email" 3 times.(Ä®»÷þÿÿÿÿ8ˆáÄÛÚ,H®YRCRITICALZ
+lsquid:S1161)":Add the "@Override" annotation above this method signature(þ³‚”ûÿÿÿÿHÐdRMAJORZ
 CODE_SMELL
-gsquid:S1989$"+Add a "try/catch" block for "sendRedirect".(„¨¶Òûÿÿÿÿ8ÃÁ’ÛÚ,H¬YRMINORZVULNERABILITY
-psquid:S2441!">Make "Employee" serializable or don't store it in the session.(¿ì¢œþÿÿÿÿ8™«¸ÌÛ,H¶YRMAJORZBUG
-Ysquid:S1989+"$Add a "try/catch" block for "doGet".(®Ó‘ûÿÿÿÿÿH¨YRMINORZVULNERABILITY
-lsquid:S1161)":Add the "@Override" annotation above this method signature(þ³‚”ûÿÿÿÿH©YRMAJORZ
+gsquid:S1989"+Add a "try/catch" block for "sendRedirect".(„¨¶Òûÿÿÿÿ8ŒÎ¾ÖÚ,HÑdRMINORZVULNERABILITY
+…squid:S2226"XRemove this misleading mutable servlet instance field or make it "static" and/or "final"(˜¸Åý8µð£ÕÚ,HÌdRMAJORZBUG
+gsquid:S1161":Add the "@Override" annotation above this method signature(÷¤‹úHÏdRMAJORZ
 CODE_SMELL
-gsquid:S1161":Add the "@Override" annotation above this method signature(÷¤‹úH«YRMAJORZ
+gsquid:S1989$"+Add a "try/catch" block for "sendRedirect".(„¨¶Òûÿÿÿÿ8ÃÁ’ÛÚ,HÍdRMINORZVULNERABILITY
+psquid:S2441!">Make "Employee" serializable or don't store it in the session.(¿ì¢œþÿÿÿÿ8™«¸ÌÛ,HËdRMAJORZBUG
+Ysquid:S1989+"$Add a "try/catch" block for "doGet".(®Ó‘ûÿÿÿÿÿHÎdRMINORZVULNERABILITY
+‚squid:S1192"FDefine a constant instead of duplicating this literal "email" 3 times.(Ä®»÷þÿÿÿÿ8ˆáÄÛÚ,HÊdRCRITICALZ
 CODE_SMELL
-…squid:S2226"XRemove this misleading mutable servlet instance field or make it "static" and/or "final"(˜¸Åý8µð£ÕÚ,H­YRMAJORZBUG
-gsquid:S1989"+Add a "try/catch" block for "sendRedirect".(„¨¶Òûÿÿÿÿ8ŒÎ¾ÖÚ,H§YRMINORZVULNERABILITY
-Ysquid:S1989+"$Add a "try/catch" block for "doGet".(®Ó‘ûÿÿÿÿÿH¦YRMINORZVULNERABILITY
+Ysquid:S1989+"$Add a "try/catch" block for "doGet".(®Ó‘ûÿÿÿÿÿHÒdRMINORZVULNERABILITY

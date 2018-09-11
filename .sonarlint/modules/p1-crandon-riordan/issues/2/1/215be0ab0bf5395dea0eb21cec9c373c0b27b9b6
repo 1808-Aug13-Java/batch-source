@@ -1,42 +1,42 @@
 
-_squid:S1148A"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8´­ÅÛ,H·SRMINORZVULNERABILITY
-‡squid:S1192Ş"JDefine a constant instead of duplicating this literal "IMAGE_URL" 3 times.(ÄÛ§°şÿÿÿÿ8´­ÅÛ,HµSRCRITICALZ
+_squid:S1148x"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8“ÁÆÛ,HÿfRMINORZVULNERABILITY
+‚squid:S1192j"MDefine a constant instead of duplicating this literal "DATE_CREATED" 7 times.(£½‹±úÿÿÿÿHúfRCRITICALZ
 CODE_SMELL
-“squid:S2293Ğ"YReplace the type specification in this constructor call with the diamond operator ("<>").(™şæ¸ıÿÿÿÿ8ãÿœàÚ,H±SRMINORZ
+“squid:S2293À"YReplace the type specification in this constructor call with the diamond operator ("<>").(™şæ¸ıÿÿÿÿ8ãÿœàÚ,HëfRMINORZ
 CODE_SMELL
-|squid:S1192l"GDefine a constant instead of duplicating this literal "AMOUNT" 7 times.(¶®û‰şÿÿÿÿH³SRCRITICALZ
+squid:S1192n"KDefine a constant instead of duplicating this literal "MANAGER_ID" 7 times.(Ğ­ô8­öˆÆÛ,H€gRCRITICALZ
 CODE_SMELL
-~squid:S1192m"GDefine a constant instead of duplicating this literal "REASON" 7 times.(ÊüĞÒ8®Â¢àÚ,H«SRCRITICALZ
+“squid:S2293Ğ"YReplace the type specification in this constructor call with the diamond operator ("<>").(™şæ¸ıÿÿÿÿ8ãÿœàÚ,HşfRMINORZ
 CODE_SMELL
-‚squid:S1192j"MDefine a constant instead of duplicating this literal "DATE_CREATED" 7 times.(£½‹±úÿÿÿÿH§SRCRITICALZ
+“squid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(™şæ¸ıÿÿÿÿ8ãÿœàÚ,HïfRMINORZ
 CODE_SMELL
-_squid:S1148."#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8´­ÅÛ,H¶SRMINORZVULNERABILITY
-_squid:S1148T"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8şÒÇÆÛ,H²TRMINORZVULNERABILITY
-`squid:S1148Ö"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8¡‹ÇÆÛ,H±TRMINORZVULNERABILITY
-“squid:S2293›"YReplace the type specification in this constructor call with the diamond operator ("<>").(™şæ¸ıÿÿÿÿ8ãÿœàÚ,H­SRMINORZ
+~squid:S1192m"GDefine a constant instead of duplicating this literal "REASON" 7 times.(ÊüĞÒ8®Â¢àÚ,HùfRCRITICALZ
 CODE_SMELL
-_squid:S1148x"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8“ÁÆÛ,H°TRMINORZVULNERABILITY
-`squid:S1148‹"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8œ¥ÉÆÛ,HµTRMINORZVULNERABILITY
-“squid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(™şæ¸ıÿÿÿÿ8ãÿœàÚ,H²SRMINORZ
+“squid:S2293¨"YReplace the type specification in this constructor call with the diamond operator ("<>").(™şæ¸ıÿÿÿÿ8ãÿœàÚ,HífRMINORZ
 CODE_SMELL
-“squid:S2293À"YReplace the type specification in this constructor call with the diamond operator ("<>").(™şæ¸ıÿÿÿÿ8ãÿœàÚ,H©SRMINORZ
+_squid:S1148q"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8¨ÙáÅÛ,HüfRMINORZVULNERABILITY
+`squid:S1148À"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ÁÜÈÆÛ,HñfRMINORZVULNERABILITY
+`squid:S1148˜"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8û€ÈÆÛ,HòfRMINORZVULNERABILITY
+`squid:S1148‹"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8œ¥ÉÆÛ,HîfRMINORZVULNERABILITY
+`squid:S1148å"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ŸÂÉÆÛ,H„gRMINORZVULNERABILITY
+|squid:S1192l"GDefine a constant instead of duplicating this literal "AMOUNT" 7 times.(¶®û‰şÿÿÿÿHûfRCRITICALZ
 CODE_SMELL
-squid:S1192n"KDefine a constant instead of duplicating this literal "MANAGER_ID" 7 times.(Ğ­ô8­öˆÆÛ,H”TRCRITICALZ
+squid:S1192h"LDefine a constant instead of duplicating this literal "EMPLOYEE_ID" 7 times.(¡ŒùßûÿÿÿÿHõfRCRITICALZ
 CODE_SMELL
-€squid:S1192g"PDefine a constant instead of duplicating this literal "REIMBURSMENT_ID" 7 times.(ÀŠÍüH®SRCRITICALZ
+‡squid:S1192Ş"JDefine a constant instead of duplicating this literal "IMAGE_URL" 3 times.(ÄÛ§°şÿÿÿÿ8´­ÅÛ,HöfRCRITICALZ
 CODE_SMELL
-“squid:S2293¨"YReplace the type specification in this constructor call with the diamond operator ("<>").(™şæ¸ıÿÿÿÿ8ãÿœàÚ,H°SRMINORZ
+_squid:S1148T"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8şÒÇÆÛ,H‚gRMINORZVULNERABILITY
+~squid:S1192i"NDefine a constant instead of duplicating this literal "CURRENT_STATE" 7 times.(çÈ¶HğfRCRITICALZ
 CODE_SMELL
-`squid:S1148å"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ŸÂÉÆÛ,H¶TRMINORZVULNERABILITY
-`squid:S1148°"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ãÿœàÚ,H¬SRMINORZVULNERABILITY
-squid:S1192h"LDefine a constant instead of duplicating this literal "EMPLOYEE_ID" 7 times.(¡ŒùßûÿÿÿÿHªSRCRITICALZ
+`squid:S1148°"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ãÿœàÚ,HófRMINORZVULNERABILITY
+`squid:S1148Ö"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8¡‹ÇÆÛ,HôfRMINORZVULNERABILITY
+_squid:S1148A"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8´­ÅÛ,HgRMINORZVULNERABILITY
+“squid:S2293õ"YReplace the type specification in this constructor call with the diamond operator ("<>").(™şæ¸ıÿÿÿÿ8ãÿœàÚ,HıfRMINORZ
 CODE_SMELL
-_squid:S1148q"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8¨ÙáÅÛ,H‘TRMINORZVULNERABILITY
-`squid:S1148À"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ÁÜÈÆÛ,H´TRMINORZVULNERABILITY
-“squid:S2293õ"YReplace the type specification in this constructor call with the diamond operator ("<>").(™şæ¸ıÿÿÿÿ8ãÿœàÚ,H¯SRMINORZ
+†squid:S1192k"JDefine a constant instead of duplicating this literal "image_URL" 4 times.(ÜáíØıÿÿÿÿ8´­ÅÛ,HƒgRCRITICALZ
 CODE_SMELL
-~squid:S1192i"NDefine a constant instead of duplicating this literal "CURRENT_STATE" 7 times.(çÈ¶H¨SRCRITICALZ
+“squid:S2293›"YReplace the type specification in this constructor call with the diamond operator ("<>").(™şæ¸ıÿÿÿÿ8ãÿœàÚ,H÷fRMINORZ
 CODE_SMELL
-`squid:S1148˜"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8û€ÈÆÛ,H³TRMINORZVULNERABILITY
-†squid:S1192k"JDefine a constant instead of duplicating this literal "image_URL" 4 times.(ÜáíØıÿÿÿÿ8´­ÅÛ,H´SRCRITICALZ
+€squid:S1192g"PDefine a constant instead of duplicating this literal "REIMBURSMENT_ID" 7 times.(ÀŠÍüHøfRCRITICALZ
 CODE_SMELL
+_squid:S1148."#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8´­ÅÛ,HìfRMINORZVULNERABILITY
