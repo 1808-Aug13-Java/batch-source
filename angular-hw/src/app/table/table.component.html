@@ -1,0 +1,17 @@
+<table [class.table]="checked">
+  <thead>
+  <tr>
+      <td>Name</td>
+      <td>Email</td>
+      <td>Birthdate</td>
+  </tr>
+</thead>
+  <tbody>
+    <tr *ngFor = "let person of persons">
+      <td>{{person.name | firstCap}}</td>
+      <td>{{person.email}}</td>
+      <td>{{person.birthday | date }}</td>
+    </tr>
+  </tbody>
+</table>
+<div><button (click) = "toggle()" type="button" class="btn btn-primary">Toggle</button></div> 
