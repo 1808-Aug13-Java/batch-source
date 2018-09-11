@@ -19,7 +19,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
 	
 	@Override
 	public Employee getEmployeeByUsername(String username, Connection con) throws SQLException {
-		return getEmployee("emp_usrname", username, con);
+		return getEmployee("emp_username", "'"+username+"'", con);
 	} // end of getEmployeeByUsername
 	
 
@@ -76,8 +76,8 @@ public class EmployeeDaoImpl implements EmployeeDao {
 
 	
 	/**
-	 * Takes an sql statement, binding the two conditionals, namely column and 
-	 * value, and returns a list of all employees that matched the condition
+	 * Takes an sql statement, binding the values in the binds array, 
+	 * and returns a list of all employees that matched the condition
 	 * query. Any strings in {@code binds} will be bound to the query in the 
 	 * same order that they are provided in. 
 	 * where clause. 

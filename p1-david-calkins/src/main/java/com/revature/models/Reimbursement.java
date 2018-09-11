@@ -1,22 +1,22 @@
 package com.revature.models;
 
-import java.time.LocalDate;
+import java.util.Date;
 
 public class Reimbursement {
 	private long id;
 	private Employee requester;
 	private String status;
 	private double amount;
-	private LocalDate submitDate;
+	private Date submitDate;
 	private String description;
 	private Manager resolvedBy;
 	private String reason;
-	private LocalDate resolveDate;
+	private Date resolveDate;
 	
 	public Reimbursement() {}
 
-	public Reimbursement(long id, Employee requester, String status, double amount, LocalDate submitDate,
-			String description, Manager resolvedBy, String reason, LocalDate resolveDate) {
+	public Reimbursement(long id, Employee requester, String status, double amount, Date submitDate,
+			String description, Manager resolvedBy, String reason, Date resolveDate) {
 		super();
 		this.id = id;
 		this.requester = requester;
@@ -61,11 +61,11 @@ public class Reimbursement {
 		this.amount = amount;
 	}
 
-	public LocalDate getSubmitDate() {
+	public Date getSubmitDate() {
 		return submitDate;
 	}
 
-	public void setSubmitDate(LocalDate submitDate) {
+	public void setSubmitDate(Date submitDate) {
 		this.submitDate = submitDate;
 	}
 
@@ -93,11 +93,11 @@ public class Reimbursement {
 		this.reason = reason;
 	}
 
-	public LocalDate getResolveDate() {
+	public Date getResolveDate() {
 		return resolveDate;
 	}
 
-	public void setResolveDate(LocalDate resolveDate) {
+	public void setResolveDate(Date resolveDate) {
 		this.resolveDate = resolveDate;
 	}
 
