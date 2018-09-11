@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+	<title>Login Homepage</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+	<style>
+        body{
+            background-image: url("https://images.pexels.com/photos/220118/pexels-photo-220118.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+            /* background-position: center; */
+            /* background-size: 80%; */
+        }
+        #loginMenu{
+        	display: flex;
+        	justify-content: center;
+            width: 250px;
+            border-radius: 10px;
+            padding: 0px;
+        }
+        #loginFields{
+        	box-sizing: border-box;
+            position: relative;
+            left: 15px;
+            color: white;
+        }
+    </style>
+
+</head>
+<body>
+	<div class="container">
+        <div class="container" id="loginMenu">
+            <form class="form-group row" id="loginFields" action="login" method="post">
+                <label><strong>Username:</strong></label><br>
+                <input class="form-control" type="text" name="username"><br>
+                <label><strong>Password:</strong></label><br>
+                <input class="form-control" type="password" name="password"><br>
+                <input class="btn btn-info" type="submit" value="Submit">
+            </form>
+        </div>
+    </div>
+</body>
+</html>
