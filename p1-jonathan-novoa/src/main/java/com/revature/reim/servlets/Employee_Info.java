@@ -27,42 +27,26 @@ public class Employee_Info extends HttpServlet {
      */
     public Employee_Info() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//		String idStr = request.getParameter("id");
+
 		HttpSession session = request.getSession(false);
 		String uname=(String) session.getAttribute("username");
-		System.out.println(uname);
+//		System.out.println(uname);
 		EmployeeDao ed = new EmployeeDaoImpl();
 		int empId= ed.getEmpId(uname);
-		System.out.println(empId);
+//		System.out.println(empId);
 		ObjectMapper om = new ObjectMapper();
 		PrintWriter pw = response.getWriter();
-		
-		
-		//if we get a parameter we want to display a single employee
-//		if(uname != null) {
-//			int id = Integer.parseInt(idStr);
-//			Employee e = ed.getEmployeeById(id);
-//			List<Reimbursement> employeeReim= ed.viewReimbursments(empId, 1);
-			
-			//if we don't get anything from the database our id will be 0
 			if(empId==0) {
 				pw.print("invalid employee id");
-			//if we are returned an employee from the database we want to display it in json format
 			} 
-//			else {
-//				String reimbursementString = om.writeValueAsString(e);
-//				pw.write(reimbursementString);
-//			}
-		//if we do not get a valid parameter, we want to display all employees
 		else {
-			List<Reimbursement> reimbursementsList = ed.viewReimbursments(empId, 3);//denied reims
+			List<Reimbursement> reimbursementsList = ed.viewReimbursments(empId, 1);//pending reims
 			System.out.println(reimbursementsList);
 			String reimString = om.writeValueAsString(reimbursementsList);
 			reimString = "{\"reimbursements\":"+reimString+"}";

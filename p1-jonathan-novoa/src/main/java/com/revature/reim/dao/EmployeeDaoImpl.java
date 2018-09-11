@@ -85,26 +85,9 @@ public class EmployeeDaoImpl implements EmployeeDao {
 	@Override
 	public List<Reimbursement> viewReimbursments(int empId, int choice) {
 		String pending = "SELECT * FROM REIM WHERE EMP_ID=? AND RESOLUTION='PENDING'";
-		String resolved= "SELECT * FROM REIM WHERE EMP_ID=? AND RESOLUTION='APPROVED'";
-		String denied= "SELECT * FROM REIM WHERE EMP_ID=? AND RESOLUTION='DENIED'";
-		String sql=null;
-		switch(choice) {
-		case 1:{
-			sql=pending;
-			break;
-		}
-		case 2:{
-			sql=resolved;
-			break;
-		}
-		case 3:{
-			sql=denied;
-			break;
-		}
-		
-		}
+		String resolved= "SELECT * FROM REIM WHERE EMP_ID=? AND RESOLUTION !='PENDING'";
+		String sql=(choice==1)? pending:resolved;
 		List<Reimbursement> pendingReim=new ArrayList<>();
-		int viewReim = 0;
 		ResultSet rs=null;
 		try (Connection con = ConnectionUtil.getConnection(); PreparedStatement ps = con.prepareStatement(sql);) {
 			ps.setInt(1, empId);
@@ -199,7 +182,6 @@ public class EmployeeDaoImpl implements EmployeeDao {
 	public int getEmpId(String username) {
 		int empId=0;
 		String sql = "SELECT * FROM EMPLOYEES WHERE EMAIL=?";
-		Employee e = new Employee();
 		ResultSet rs = null;
 		try (Connection con = ConnectionUtil.getConnection(); PreparedStatement ps = con.prepareStatement(sql);) {
 			ps.setString(1, username);

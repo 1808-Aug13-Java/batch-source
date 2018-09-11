@@ -2,6 +2,7 @@ package com.revature.reim.servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -9,40 +10,57 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.revature.reim.dao.EmployeeDao;
+import com.revature.reim.dao.EmployeeDaoImpl;
+import com.revature.reim.model.Employee;
+import com.revature.reim.model.Reimbursement;
+
 /**
- * Servlet implementation class SessionServlet
+ * Servlet implementation class EmployeeProfile
  */
-public class SessionServlet extends HttpServlet {
+public class EmployeeProfile extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SessionServlet() {
+    public EmployeeProfile() {
         super();
+        // TODO Auto-generated constructor stub
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//		response.getWriter().append("Served at: ").append(request.getContextPath());
-		System.out.println("get request recieved");
+
 		HttpSession session = request.getSession(false);
+		String uname=(String) session.getAttribute("username");
+//		System.out.println(uname);
+		EmployeeDao ed = new EmployeeDaoImpl();
+		int empId= ed.getEmpId(uname);
+//		System.out.println(empId);
+		ObjectMapper om = new ObjectMapper();
 		PrintWriter pw = response.getWriter();
-		response.setContentType("application/json");
-		if( session != null) {
-			pw.write("{\"username\":\""+session.getAttribute("username")+"\"}"); //write http response text
-		} else {
-			pw.write("{\"username\": null }");
+			if(empId==0) {
+				pw.print("invalid employee id");
+			} 
+		else {
+			Employee e=ed.viewProfile(empId);
+			String empString = om.writeValueAsString(e);
+			empString = "{\"employee\":"+empString+"}";
+			pw.print(empString);
 		}
-		pw.close();
+		
+
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

@@ -1,28 +1,28 @@
 
-{squid:S00101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(æÇø°H’|RMINORZ
+m
+squid:S106B"9Replace this use of System.out or System.err by a logger.(—”×…8²¨‰…Ü,H¾ƒRMAJORZ
 CODE_SMELL
+isquid:S1989C"1Add a "try/catch" block for "writeValueAsString".(±¡¢ 8‡»Ê‚Ü,H¿ƒRMINORZVULNERABILITY
 l
-squid:S106("9Replace this use of System.out or System.err by a logger.(†ğÊa8¹¢Ù„Ü,H¼RMAJORZ
+squid:S106("9Replace this use of System.out or System.err by a logger.(†ğÊa8¹¢Ù„Ü,HÀƒRMAJORZ
+CODE_SMELL
+|squid:S00101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(æÇø°HÁƒRMINORZ
+CODE_SMELL
+hsquid:S1161L":Add the "@Override" annotation above this method signature(‹¨¯¿HÂƒRMAJORZ
+CODE_SMELL
+dsquid:S1135"2Complete the task associated to this TODO comment.(ƒŠ® úÿÿÿÿHÃƒRINFOZ
 CODE_SMELL
 m
-squid:S106+"9Replace this use of System.out or System.err by a logger.(â«èÆ8¥óÙ„Ü,H¿RMAJORZ
+squid:S106+"9Replace this use of System.out or System.err by a logger.(â«èÆ8¥óÙ„Ü,HÄƒRMAJORZ
 CODE_SMELL
-]squid:S1989-"(Add a "try/catch" block for "getWriter".(“­†·øÿÿÿÿHŸ|RMINORZVULNERABILITY
-asquid:S1989M"$Add a "try/catch" block for "doGet".(®Ó‘ûÿÿÿÿÿ8Ç¢¸ƒÜ,HÙ€RMINORZVULNERABILITY
-lsquid:S1161$":Add the "@Override" annotation above this method signature(Ïû©ÖûÿÿÿÿH“|RMAJORZ
+…squid:CommentedOutCodeLine;"<This block of commented-out lines of code should be removed.(ÚÓ¡·üÿÿÿÿ8Õ³‚Ü,HÅƒRMAJORZ
 CODE_SMELL
-€squid:CommentedOutCodeLine1"<This block of commented-out lines of code should be removed.(¬ãõú8ğ´­„Ü,H¹RMAJORZ
+€squid:CommentedOutCodeLine1"<This block of commented-out lines of code should be removed.(¬ãõú8ğ´­„Ü,HÆƒRMAJORZ
 CODE_SMELL
-gsquid:S1161L":Add the "@Override" annotation above this method signature(‹¨¯¿H”|RMAJORZ
+asquid:S1989M"$Add a "try/catch" block for "doGet".(®Ó‘ûÿÿÿÿÿ8Ç¢¸ƒÜ,HÇƒRMINORZVULNERABILITY
+…squid:CommentedOutCodeLine%"<This block of commented-out lines of code should be removed.(±†øÿÿÿÿ8İˆ¦‚Ü,HÈƒRMAJORZ
 CODE_SMELL
-„squid:CommentedOutCodeLine;"<This block of commented-out lines of code should be removed.(ÚÓ¡·üÿÿÿÿ8Õ³‚Ü,H·RMAJORZ
+msquid:S1161$":Add the "@Override" annotation above this method signature(Ïû©ÖûÿÿÿÿHÉƒRMAJORZ
 CODE_SMELL
-asquid:S1989M"$Add a "try/catch" block for "doGet".(®Ó‘ûÿÿÿÿÿ8Ç¢¸ƒÜ,HÚ€RMINORZVULNERABILITY
-csquid:S1135"2Complete the task associated to this TODO comment.(ƒŠ® úÿÿÿÿH|RINFOZ
-CODE_SMELL
-m
-squid:S106B"9Replace this use of System.out or System.err by a logger.(—”×…8²¨‰…Ü,HßRMAJORZ
-CODE_SMELL
-„squid:CommentedOutCodeLine%"<This block of commented-out lines of code should be removed.(±†øÿÿÿÿ8İˆ¦‚Ü,H—RMAJORZ
-CODE_SMELL
-hsquid:S1989C"1Add a "try/catch" block for "writeValueAsString".(±¡¢ 8‡»Ê‚Ü,HÂRMINORZVULNERABILITY
+^squid:S1989-"(Add a "try/catch" block for "getWriter".(“­†·øÿÿÿÿHÊƒRMINORZVULNERABILITY
+asquid:S1989M"$Add a "try/catch" block for "doGet".(®Ó‘ûÿÿÿÿÿ8Ç¢¸ƒÜ,HËƒRMINORZVULNERABILITY

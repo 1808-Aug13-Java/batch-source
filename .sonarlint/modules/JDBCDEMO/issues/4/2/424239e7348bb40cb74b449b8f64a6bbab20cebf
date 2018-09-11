@@ -1,19 +1,19 @@
 
-msquid:S1989C"1Add a "try/catch" block for "writeValueAsString".(è‚Çºûÿÿÿÿ8‹äşÔÚ,HÚ{RMINORZVULNERABILITY
-msquid:S1989="1Add a "try/catch" block for "writeValueAsString".(Èœ†ıÿÿÿÿ8‹äşÔÚ,Hß{RMINORZVULNERABILITY
-ssquid:S1161!":Add the "@Override" annotation above this method signature(Ïû©Öûÿÿÿÿ8²Â¬ÏÚ,HÕ{RMAJORZ
+osquid:S1161M":Add the "@Override" annotation above this method signature(‹¨¯¿8²Â¬ÏÚ,H¬ƒRMAJORZ
 CODE_SMELL
-]squid:S19896"'Add a "try/catch" block for "parseInt".(ÖæL8‹äşÔÚ,HÜ{RMINORZVULNERABILITY
-„squid:CommentedOutCodeLine#"<This block of commented-out lines of code should be removed.(¸¯¡ãøÿÿÿÿ8ŠÉşÔÚ,HÙ{RMAJORZ
+…squid:CommentedOutCodeLine."<This block of commented-out lines of code should be removed.(Ñªïıÿÿÿÿ8‹äşÔÚ,H­ƒRMAJORZ
 CODE_SMELL
-„squid:CommentedOutCodeLine."<This block of commented-out lines of code should be removed.(Ñªïıÿÿÿÿ8‹äşÔÚ,HØ{RMAJORZ
+nsquid:S1989C"1Add a "try/catch" block for "writeValueAsString".(è‚Çºûÿÿÿÿ8‹äşÔÚ,H®ƒRMINORZVULNERABILITY
+nsquid:S1989="1Add a "try/catch" block for "writeValueAsString".(Èœ†ıÿÿÿÿ8‹äşÔÚ,H¯ƒRMINORZVULNERABILITY
+^squid:S19896"'Add a "try/catch" block for "parseInt".(ÖæL8‹äşÔÚ,H°ƒRMINORZVULNERABILITY
+asquid:S1989N"$Add a "try/catch" block for "doGet".(®Ó‘ûÿÿÿÿÿ8²Â¬ÏÚ,H±ƒRMINORZVULNERABILITY
+€squid:CommentedOutCodeLine("<This block of commented-out lines of code should be removed.(²çõ”8ŠÉşÔÚ,H²ƒRMAJORZ
 CODE_SMELL
-`squid:S1989N"$Add a "try/catch" block for "doGet".(®Ó‘ûÿÿÿÿÿ8²Â¬ÏÚ,HÖ{RMINORZVULNERABILITY
-`squid:S1989N"$Add a "try/catch" block for "doGet".(®Ó‘ûÿÿÿÿÿ8²Â¬ÏÚ,Hİ{RMINORZVULNERABILITY
-squid:CommentedOutCodeLine("<This block of commented-out lines of code should be removed.(²çõ”8ŠÉşÔÚ,Hà{RMAJORZ
+asquid:S1989N"$Add a "try/catch" block for "doGet".(®Ó‘ûÿÿÿÿÿ8²Â¬ÏÚ,H³ƒRMINORZVULNERABILITY
+…squid:CommentedOutCodeLine#"<This block of commented-out lines of code should be removed.(¸¯¡ãøÿÿÿÿ8ŠÉşÔÚ,H´ƒRMAJORZ
 CODE_SMELL
-dsquid:S19892"(Add a "try/catch" block for "getWriter".(“­†·øÿÿÿÿ8‹äşÔÚ,H×{RMINORZVULNERABILITY
-nsquid:S1161M":Add the "@Override" annotation above this method signature(‹¨¯¿8²Â¬ÏÚ,HÛ{RMAJORZ
+tsquid:S1161!":Add the "@Override" annotation above this method signature(Ïû©Öûÿÿÿÿ8²Â¬ÏÚ,HµƒRMAJORZ
 CODE_SMELL
-„squid:CommentedOutCodeLine%"<This block of commented-out lines of code should be removed.(É‚Ò›şÿÿÿÿ8ŠÉşÔÚ,HŞ{RMAJORZ
+…squid:CommentedOutCodeLine%"<This block of commented-out lines of code should be removed.(É‚Ò›şÿÿÿÿ8ŠÉşÔÚ,H¶ƒRMAJORZ
 CODE_SMELL
+esquid:S19892"(Add a "try/catch" block for "getWriter".(“­†·øÿÿÿÿ8‹äşÔÚ,H·ƒRMINORZVULNERABILITY

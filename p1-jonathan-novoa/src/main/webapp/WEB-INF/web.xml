@@ -69,4 +69,34 @@
     <servlet-name>Employee_Info</servlet-name>
     <url-pattern>/employee_info</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ResolvedReim</display-name>
+    <servlet-name>ResolvedReim</servlet-name>
+    <servlet-class>com.revature.reim.servlets.ResolvedReim</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ResolvedReim</servlet-name>
+    <url-pattern>/resolved_reim</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>NewReim</display-name>
+    <servlet-name>NewReim</servlet-name>
+    <servlet-class>com.revature.reim.servlets.NewReim</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>NewReim</servlet-name>
+    <url-pattern>/newreim</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>EmployeeProfile</display-name>
+    <servlet-name>EmployeeProfile</servlet-name>
+    <servlet-class>com.revature.reim.servlets.EmployeeProfile</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EmployeeProfile</servlet-name>
+    <url-pattern>/employee_profile</url-pattern>
+  </servlet-mapping>
 </web-app>

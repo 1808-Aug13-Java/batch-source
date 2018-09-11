@@ -30,13 +30,47 @@ function populateUser(xhr){
 function viewAllReim() {
 	sendAjaxGet("http://localhost:8082/p1-jonathan-novoa/employee_info", display);
 }
+function viewResReim(){
+	sendAjaxGet("http://localhost:8082/p1-jonathan-novoa/resolved_reim", display);
+}
+function goToNew(){
+	window.location="http://localhost:8082/p1-jonathan-novoa/newreim";
+}
 
 function display(xhr) {
+	
 	//edit this for the employee table, display reimbursements
 	reimbursements = JSON.parse(xhr.responseText);
 	console.log(reimbursements)
 	reimArr=reimbursements.reimbursements;
 	let table = document.getElementById("table");
+	let headerRow = document.createElement("tr");
+	let button = document.getElementById("pending");
+	let button2 = document.getElementById("resolved");
+
+	while(table.childNodes.length >= 2 && table.firstChild!==table.lastChild){
+		table.removeChild(table.lastChild)
+	}
+	
+	headerRow.innerHTML = `	<th>Status</th>
+			<th> Resolution</th>
+			<th>Approved by</th>
+			<th>Amount</th>
+			<th id="last">Reimbursement Id</th> `;
+			table.appendChild(headerRow);
+	
+	if(table.getAttribute("hidden")==""){
+		table.removeAttribute("hidden");
+		button.innerHTML="Hide table";
+		button2.innerHTML="Hide table";
+
+	}else{
+		table.setAttribute("hidden", "");
+		button.innerHTML="View pending reimbursements";
+		button2.innerHTML="View pending reimbursements";
+	}
+
+	
 	
 	for(i in reimArr){
 		let newRow = document.createElement("tr");
@@ -73,32 +107,7 @@ function display(xhr) {
 	
 	}
 }
-	
-//	employeeArr = employees.employees;
-//	let table = document.getElementById("table");
-//	
-//	for(i in employeeArr){
-//		let newRow = document.createElement("tr");
-//		
-//		if(employeeArr[i].location){
-//			loc = `${employeeArr[i].location.city}, ${employeeArr[i].location.state}`;
-//		} else {
-//			loc = "n/a";
-//		}
-//		
-//		if(employeeArr[i].department){
-//			dpt = employeeArr[i].department.name;
-//		} else {
-//			dpt = "n/a";
-//		}
-//		
-//		
-//		newRow.innerHTML = `<td>${employeeArr[i].name} </td>
-//		<td> ${loc} </td>
-//		<td> ${dpt} </td> `;
-//		
-//		table.appendChild(newRow);
-//	 }
+
 		
 
 function logout(){

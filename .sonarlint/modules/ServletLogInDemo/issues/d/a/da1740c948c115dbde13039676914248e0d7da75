@@ -1,10 +1,10 @@
 
-Ysquid:S1989-"$Add a "try/catch" block for "doGet".(®Ó‘ûÿÿÿÿÿH‡vRMINORZVULNERABILITY
-csquid:S1135"2Complete the task associated to this TODO comment.(ƒŠ® úÿÿÿÿH…vRINFOZ
+dsquid:S1135"2Complete the task associated to this TODO comment.(ƒŠ® úÿÿÿÿHƒRINFOZ
 CODE_SMELL
-dsquid:S1989"(Add a "try/catch" block for "getWriter".(“­†·øÿÿÿÿ8ÂŒÚÚ,H†vRMINORZVULNERABILITY
-gsquid:S1161,":Add the "@Override" annotation above this method signature(‹¨¯¿HŠvRMAJORZ
+hsquid:S1161,":Add the "@Override" annotation above this method signature(‹¨¯¿HƒRMAJORZ
 CODE_SMELL
-Ysquid:S1989-"$Add a "try/catch" block for "doGet".(®Ó‘ûÿÿÿÿÿH‰vRMINORZVULNERABILITY
-lsquid:S1161":Add the "@Override" annotation above this method signature(Ïû©ÖûÿÿÿÿHˆvRMAJORZ
+esquid:S1989"(Add a "try/catch" block for "getWriter".(“­†·øÿÿÿÿ8ÂŒÚÚ,HƒRMINORZVULNERABILITY
+Zsquid:S1989-"$Add a "try/catch" block for "doGet".(®Ó‘ûÿÿÿÿÿH‘ƒRMINORZVULNERABILITY
+msquid:S1161":Add the "@Override" annotation above this method signature(Ïû©ÖûÿÿÿÿH’ƒRMAJORZ
 CODE_SMELL
+Zsquid:S1989-"$Add a "try/catch" block for "doGet".(®Ó‘ûÿÿÿÿÿH“ƒRMINORZVULNERABILITY

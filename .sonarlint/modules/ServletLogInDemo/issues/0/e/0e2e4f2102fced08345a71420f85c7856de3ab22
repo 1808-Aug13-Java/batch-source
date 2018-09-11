@@ -1,12 +1,12 @@
 
-bsquid:S1989"&Add a "try/catch" block for "forward".(õøùÜùÿÿÿÿ8™¤ğÙÚ,H‚vRMINORZVULNERABILITY
-lsquid:S1161":Add the "@Override" annotation above this method signature(Ïû©ÖûÿÿÿÿHÿuRMAJORZ
+csquid:S1989"&Add a "try/catch" block for "forward".(õøùÜùÿÿÿÿ8™¤ğÙÚ,H†ƒRMINORZVULNERABILITY
+csquid:S1989"&Add a "try/catch" block for "forward".(õøùÜùÿÿÿÿ8™¤ğÙÚ,H‡ƒRMINORZVULNERABILITY
+Zsquid:S1989)"$Add a "try/catch" block for "doGet".(®Ó‘ûÿÿÿÿÿHˆƒRMINORZVULNERABILITY
+Zsquid:S1989)"$Add a "try/catch" block for "doGet".(®Ó‘ûÿÿÿÿÿH‰ƒRMINORZVULNERABILITY
+hsquid:S1161(":Add the "@Override" annotation above this method signature(‹¨¯¿HŠƒRMAJORZ
 CODE_SMELL
-gsquid:S1989!"+Add a "try/catch" block for "sendRedirect".(âùÒúÿÿÿÿ8ü©ñÙÚ,HıuRMINORZVULNERABILITY
-Ysquid:S1989)"$Add a "try/catch" block for "doGet".(®Ó‘ûÿÿÿÿÿHûuRMINORZVULNERABILITY
-gsquid:S1161(":Add the "@Override" annotation above this method signature(‹¨¯¿H€vRMAJORZ
+hsquid:S1989!"+Add a "try/catch" block for "sendRedirect".(âùÒúÿÿÿÿ8ü©ñÙÚ,H‹ƒRMINORZVULNERABILITY
+dsquid:S1135"2Complete the task associated to this TODO comment.(ƒŠ® úÿÿÿÿHŒƒRINFOZ
 CODE_SMELL
-Ysquid:S1989)"$Add a "try/catch" block for "doGet".(®Ó‘ûÿÿÿÿÿHşuRMINORZVULNERABILITY
-csquid:S1135"2Complete the task associated to this TODO comment.(ƒŠ® úÿÿÿÿHvRINFOZ
+msquid:S1161":Add the "@Override" annotation above this method signature(Ïû©ÖûÿÿÿÿHƒRMAJORZ
 CODE_SMELL
-bsquid:S1989"&Add a "try/catch" block for "forward".(õøùÜùÿÿÿÿ8™¤ğÙÚ,HüuRMINORZVULNERABILITY

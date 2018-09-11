@@ -26,26 +26,27 @@
 	<label>Choose an option: </label>
 		<select name="action_option" class="form-control">
 			<option value="1">Submit a reimbursement</option>
-			<option value="2">View any pending reimbursements</option>
-			<option value="3">View any resolved reimbursements</option>
-			<option value="4"> View my Profile</option>
-			<option value="5"> Update my information</option>
+			<option value="2"> View my Profile</option>
+			<option value="3"> Update my information</option>
 		</select><br>
 		<input type="submit" value="Go" class="btn btn-primary"/>
 	</form>
 	
 	   
 </div>
-<button class="btn btn-info" onclick="viewAllReim()"> View all reimbursements</button> 
+<button class="btn btn-info" id="pending" onclick="viewAllReim()"> View pending reimbursements</button> 
+<button class="btn btn-info"  id="resolved" onclick="viewResReim()"> View resolved reimbursements</button> 
+<button class="btn btn-info"  id="new_employee" onclick="goToNew()"> Submit a new reimbursement</button> 
+
 <hr>
 <div class="container">
-	<table id="table" class="table">
+	<table id="table" hidden class="table">
 	<tr id="headerRow">
 	<th>Status</th>
 	<th>Resolution</th>
 	<th>Approved by</th>
 	<th>Amount</th>
-	<th>Reimbursement Id<th>
+	<th id="last">Reimbursement Id<th>
 	</tr>
 </table>
 </div>
