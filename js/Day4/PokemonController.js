@@ -15,8 +15,10 @@ function sendAjaxGet(url, callback){
     let xhr = (new XMLHttpRequest() || new ActiveXObject("Microsoft.HTTPRequest"));
     // console.log("test");
     xhr.onreadystatechange = function(){
+        console.log("1");
         if (this.readyState === 4 && this.status == 200){
             callback(this);
+            console.log("1-1");
             // console.log(xhr.responseText);
         } else if (this.status == 404){
             document.getElementById("alert").innerHTML = "404 not found";
@@ -27,8 +29,11 @@ function sendAjaxGet(url, callback){
             document.getElementById("type").innerHTML = "";
         }
     }
+    console.log("2");
     xhr.open("GET", url);
+    console.log("3");
     xhr.send();
+    console.log("4");
 }
 
 function displayWeather(xhr){

@@ -1,5 +1,6 @@
 import { UserService } from './../../services/user.service';
 import { Component, OnInit } from '@angular/core';
+import { User } from '../../models/user';
 
 @Component({
   selector: 'app-api-call',
@@ -11,25 +12,17 @@ export class ApiCallComponent implements OnInit {
   constructor(private userService: UserService) { }
 
   ngOnInit() {
+    this.getUsers();
   }
 
-  // users: User[];
+  users: User[];
   user: User;
 
   // getUsers(){
   //   this.userService.getUsers().subscribe((allUsers) => {this.users = allUsers})
   // }
-  showUsers() {
+  getUsers(): void {
     this.userService.getUsers()
-      .subscribe((data: User) => this.user = {
-          id: data['id'],
-          name:  data['name'],
-          username: data['username'],
-          email: data['email'],
-          address: data['address'],
-          phone: data['phone'],
-          website: data['website'],
-          company: data['company']
-      });
+      .subscribe(users => this.users = users);
   }
 }
