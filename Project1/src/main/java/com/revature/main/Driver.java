@@ -68,8 +68,9 @@ public class Driver {
 //		cal.set(Calendar.DAY_OF_MONTH, 15);
 //		Date dateRepresentation = cal.getTime();
 		
-		Reimbursement reimbursement = new Reimbursement("I love money", "Pending", amt, 6, 1);
-		System.out.println(rdi.createRequest(reimbursement));
+		Reimbursement reimbursement = new Reimbursement("I spent so much money getting here", "Pending", amt, 6, 1);
+		System.out.println("test create request; rows updated: " + rdi.createRequest(reimbursement));
+		
 
 	} // end main method
 

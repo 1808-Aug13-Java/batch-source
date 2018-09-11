@@ -17,7 +17,6 @@ public class EmployeeHomePageServlet extends HttpServlet {
      */
     public EmployeeHomePageServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
