@@ -13,11 +13,11 @@
 		<h3>Manager Navigation</h3><br>
 		<button class="btn btn-info" onClick="viewPending()">View Pending</button>
 		<button class="btn btn-info" onClick="viewResolved()">View Resolved</button>
-		<form action="manprofile" method="post">
+		<br>
 			<label>Search Employee ID</label>
-			<input type="number" class="form-control" name="empId">
-			<input type="submit" value="Search" class="btn" name="Submit">
-		</form>
+			<input type="number" class="form-control" name="empId" id="empId">
+			<button class="btn" onClick="searchEmployee()">Search</button>
+		
 		<br>
 		<table id = "reimbTable" class="table">
 			<tr>
