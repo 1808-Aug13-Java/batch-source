@@ -20,8 +20,9 @@ public class ReimbursementDaoImpl implements ReimbursementDao{
 	@Override
 	public Reimbursement getById(long id, Connection con) throws SQLException {
 		String[] binds = {"rem_id", Long.toString(id)};
+		String[] conditions = {"="};
 		
-		List<Reimbursement> reims = getReimbursements(binds, con);
+		List<Reimbursement> reims = getReimbursements(binds, conditions, con);
 		
 		if (reims.isEmpty()) {
 			return null;
@@ -33,41 +34,65 @@ public class ReimbursementDaoImpl implements ReimbursementDao{
 	@Override
 	public List<Reimbursement> getAll(Connection con) throws SQLException {
 		String[] binds = {"1", "1"};
-		return getReimbursements(binds, con);
+		String[] conditions = {"="};
+		return getReimbursements(binds, conditions, con);
 	}
 
 	@Override
 	public List<Reimbursement> getAllPending(Connection con) throws SQLException {
 		String[] binds = {"status_string", "'Pending'"};
-		return getReimbursements(binds, con);
+		String[] conditions = {"="};
+		return getReimbursements(binds, conditions, con);
 	}
 
 	@Override
+	public List<Reimbursement> getAllResolved(Connection con) throws SQLException {
+		String[] binds = {"status_string", "'Pending'"};
+		String[] conditions = {"!="};
+		return getReimbursements(binds, conditions, con);
+	}
+	
+	
+	@Override
 	public List<Reimbursement> getByRequester(Employee emp, Connection con) throws SQLException {
 		String[] binds = {"requester_id", Long.toString(emp.getId())};
-		return getReimbursements(binds, con);
+		String[] conditions = {"="};
+		return getReimbursements(binds, conditions, con);
 	}
+	
 
 	@Override
 	public List<Reimbursement> getPendingByRequester(Employee emp, Connection con) throws SQLException {
 		String[] binds = {"requester_id", Long.toString(emp.getId()), 
 				"status_string", "'Pending'"};
-		return getReimbursements(binds, con);
+		String[] conditions = {"=", "="};
+		return getReimbursements(binds, conditions, con);
 	}
 
+	@Override
+	public List<Reimbursement> getResolvedByRequester(Employee emp, Connection con) throws SQLException {
+		String[] binds = {"requester_id", Long.toString(emp.getId()), 
+				"status_string", "'Pending'"};
+		String[] conditions = {"=", "!="};
+		return getReimbursements(binds, conditions, con);
+	}
 	
-	private List<Reimbursement> getReimbursements(String[] binds,
+	
+	
+	
+	
+	private List<Reimbursement> getReimbursements(String[] binds, String[] conditions,
 											Connection con) throws SQLException 
 	{
 		String sql = "SELECT "
 				+ "REM_ID, AMOUNT, SUBMIT_DATE, DESCR, RESOLVED_BY, REASON, RESOLVE_DATE, STATUS_STRING, "
-				+ "E.EMP_ID as REQUESTER_ID, E.EMP_NAME as REQUESTER_NAME, E.EMP_USERNAME as REQUESTER_USERNAME, E.EMP_PASSWORD as REQUESTER_PASSWORD, "
-				+ "M.EMP_ID as RESOLVER_ID, M.EMP_NAME as RESOLVER_NAME, M.EMP_USERNAME as RESOLVER_USERNAME, M.EMP_PASSWORD as RESOLVER_PASSWORD "
+				+ "E.EMP_ID as REQUESTER_ID, E.EMP_NAME as REQUESTER_NAME, E.EMP_USERNAME as REQUESTER_USERNAME, "
+				+ "M.EMP_ID as RESOLVER_ID, M.EMP_NAME as RESOLVER_NAME, M.EMP_USERNAME as RESOLVER_USERNAME "
 				+ "FROM Reimbursement R "
 				+ "JOIN Reimbursement_status RS ON R.status = RS.status_number "
 				+ "LEFT JOIN Employee E ON E.emp_id = R.requester_id "
 				+ "LEFT JOIN Employee M ON M.emp_id = R.resolved_by "
-				+ "WHERE ? = ?";
+				+ "WHERE ? ~ ?";
 		// A list to return the reimbursements. 
 		ArrayList<Reimbursement> reimbursements = new ArrayList<>();
 
@@ -82,9 +107,14 @@ public class ReimbursementDaoImpl implements ReimbursementDao{
 		if (binds.length > 2) {
 			StringBuilder sb = new StringBuilder(sql);
 			for (int i=2; i<binds.length; i+=2) {
-				sb.append(" AND ? = ?");
+				sb.append(" AND ? ~ ?");
 			}
 			sql = sb.toString();
+		}
+		
+		// Replace the tildas with conditional. 
+		for (String condition : conditions) {
+			sql = sql.replaceFirst("~", condition);
 		}
 		
 		// TODO: Temporary Patch as Can't Test equality between a Bound String
@@ -139,7 +169,7 @@ public class ReimbursementDaoImpl implements ReimbursementDao{
 							rs.getLong("requester_id"),
 							rs.getString("requester_name"),
 							rs.getString("requester_username"),
-							rs.getString("requester_password")
+							null // No need for the user's hashed password
 						));
 				
 				// Set the manager who resolved the request. Possibly null. 
@@ -149,7 +179,7 @@ public class ReimbursementDaoImpl implements ReimbursementDao{
 							rs.getLong("resolver_id"),
 							rs.getString("resolver_name"),
 							rs.getString("resolver_username"),
-							rs.getString("resolver_password"),
+							null, // No need for the user's hashed password
 							new LinkedList<Employee>()
 						));
 				}
@@ -179,5 +209,7 @@ public class ReimbursementDaoImpl implements ReimbursementDao{
 		// TODO Auto-generated method stub
 		return 0;
 	}
+
+	
 
 }

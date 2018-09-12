@@ -32,6 +32,7 @@ public class ResourceRequestHelper {
 	
 	private static final String LOGOUT = "logout";
 	private static final String PENDING = "pending";
+	private static final String RESOLVED = "resolved";
 	
 	public static boolean isResourceRequest(HttpServletRequest request) {
 		return request.getParameter(RESOURCE_REQUEST) != null;
@@ -79,13 +80,27 @@ public class ResourceRequestHelper {
 			// Initialize object mapper. 
 			om = new ObjectMapper();
 			
-			// If the user is requesting pending reimbursements, fetch, and return 
+			// If the user is requesting pending reimbursements, fetch & return 
 			// as JSON. 
 			if (resourceReq.equals(PENDING)) {
 				Employee emp = empDao.getEmployeeByUsername(username, con);
 				
 				// Get the pending requests for the specified employee
 				List<Reimbursement> reimbursements = remDao.getPendingByRequester(emp, con);
+				
+				String remString = om.writeValueAsString(reimbursements);
+				
+				// Send the output and return. 
+				pw.println(remString);
+				return;
+			}
+			// If the user is requesting resolved reimbursements, fetch & return 
+			// as JSON. 
+			else if (resourceReq.equals(RESOLVED)) {
+				Employee emp = empDao.getEmployeeByUsername(username, con);
+				
+				// Get the pending requests for the specified employee
+				List<Reimbursement> reimbursements = remDao.getResolvedByRequester(emp, con);
 				
 				String remString = om.writeValueAsString(reimbursements);
 				

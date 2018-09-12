@@ -37,6 +37,19 @@ function getPending() {
 	return false;
 }
 
+//Attempts to get resolved reimbursements
+function getResolved() {
+	console.log("Requested Resolved");
+	sendAjaxGet(URL + "?" + REQUEST + "=" + "resolved", function (xhr) {
+		
+		// Display the reimbursements
+		let reimbursements = JSON.parse(xhr.responseText);
+		console.log(reimbursements);
+		displayReimbursements(reimbursements);
+	});
+	return false;
+}
+
 
 
 // ============================================================

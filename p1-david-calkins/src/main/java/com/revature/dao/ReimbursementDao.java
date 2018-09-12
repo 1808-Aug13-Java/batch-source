@@ -16,9 +16,15 @@ public interface ReimbursementDao {
 	
 	public List<Reimbursement> getAllPending(Connection con) throws SQLException;
 	
+	public List<Reimbursement> getAllResolved(Connection con) throws SQLException;
+	
+	
 	public List<Reimbursement> getByRequester(Employee emp, Connection con) throws SQLException;
 	
+	
 	public List<Reimbursement> getPendingByRequester(Employee emp, Connection con) throws SQLException;
+	
+	public List<Reimbursement> getResolvedByRequester(Employee emp, Connection con) throws SQLException;
 	
 	public long createReimRequest(Reimbursement reim) throws SQLException;
 	
