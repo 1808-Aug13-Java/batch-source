@@ -101,8 +101,8 @@ insert into employee (emp_id, emp_name, emp_username, emp_password) values (10, 
 -- Test Data
 insert into manager values (5, 1);
 insert into manager values (5, 2);
-insert into manager values (4, 1);
-insert into manager values (4, 3);
+insert into manager values (6, 1);
+insert into manager values (6, 3);
 
 -- Test Data
 INSERT INTO Reimbursement (rem_id,requester_id,status,amount,submit_date,descr,resolved_by,reason,resolve_date) VALUES (50,2,3,50,DATE '2017-10-24','ultricies ligula. Nullam enim.',4,'Vestibulum ante ipsum primis',DATE '2019-07-29');
