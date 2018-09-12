@@ -67,7 +67,7 @@ function display(xhr) {
 	}else{
 		table.setAttribute("hidden", "");
 		button.innerHTML="View pending reimbursements";
-		button2.innerHTML="View pending reimbursements";
+		button2.innerHTML="View resolved reimbursements";
 	}
 
 	

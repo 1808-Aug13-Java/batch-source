@@ -85,7 +85,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
 	@Override
 	public List<Reimbursement> viewReimbursments(int empId, int choice) {
 		String pending = "SELECT * FROM REIM WHERE EMP_ID=? AND RESOLUTION='PENDING'";
-		String resolved= "SELECT * FROM REIM WHERE EMP_ID=? AND RESOLUTION !='PENDING'";
+		String resolved= "SELECT * FROM REIM WHERE EMP_ID=? AND RESOLUTION!='PENDING'";
 		String all= "SELECT * FROM REIM WHERE EMP_ID=?";
 //		String sql=(choice==1)? pending:resolved;
 		String sql=null;
@@ -96,11 +96,13 @@ public class EmployeeDaoImpl implements EmployeeDao {
 		}
 		case 2:{
 			sql=resolved;
+			break;
 		}
 		default:{
 			sql=all;
 		}
 		}
+		System.out.println(sql);
 		List<Reimbursement> pendingReim=new ArrayList<>();
 		ResultSet rs=null;
 		try (Connection con = ConnectionUtil.getConnection(); PreparedStatement ps = con.prepareStatement(sql);) {
