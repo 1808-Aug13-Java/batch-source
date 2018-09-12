@@ -23,7 +23,11 @@ public class MasterServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException  {
 		System.out.println("Get Request Recieved");
-		System.out.println(request.getRequestURL().toString() + request.getQueryString());
+		
+		// Get and print the full URL + query args (if applicable)
+		String queryArgs = request.getQueryString() == null ?
+							"" : "?" + request.getQueryString();
+		System.out.println(request.getRequestURL().toString() + queryArgs);
 		
 		
 		try {

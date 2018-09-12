@@ -16,6 +16,8 @@ public class ResourceRequestHelper {
 	public static final String RESOURCE_REQUEST = "resourceRequest";
 	
 	
+	private static final String LOGOUT = "logout";
+	
 	public static boolean isResourceRequest(HttpServletRequest request) {
 		return request.getParameter(RESOURCE_REQUEST) != null;
 	}
@@ -37,7 +39,7 @@ public class ResourceRequestHelper {
 		LogUtil.logInfo("Requested Resource: " + resourceReq);
 		
 		// If this is a logout request, log the user out. 
-		if (resourceReq.equals("logout")) {
+		if (resourceReq.equals(LOGOUT)) {
 			System.out.println("Logged Out ");
 			request.getSession(false).invalidate();
 			return;
