@@ -52,9 +52,6 @@ public class RequestHelper {
 					rdi.createReimbursement(r);
 				}
 				return "Create";
-			case "Search":
-				
-				return "Search";
 			case "Handle":
 				int RId = Integer.parseInt(request.getParameter("RId").toString());
 				r = rdi.getReimbursementByRId(RId);

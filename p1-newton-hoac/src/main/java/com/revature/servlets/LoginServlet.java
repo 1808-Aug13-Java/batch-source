@@ -54,7 +54,6 @@ public class LoginServlet extends HttpServlet {
 		if (user.equals(l.getUser()) && pass.equals(l.getPwsd())) {
 			session.setAttribute("username", user);
 			session.setAttribute("id", l.getId());
-//			response.sendRedirect("session");
 			response.sendRedirect("choose?id=" + l.getId());
 		} else {
 			response.sendRedirect("loginfail");
