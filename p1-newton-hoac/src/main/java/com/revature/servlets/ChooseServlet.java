@@ -32,7 +32,7 @@ public class ChooseServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession(false);
 		request.getRequestDispatcher("Views/Choose.html").forward(request, response);
-		System.out.println("curr id: " +session.getAttribute("id"));
+//		System.out.println("curr id: " +session.getAttribute("id"));
 	}
 
 	/**
@@ -45,19 +45,19 @@ public class ChooseServlet extends HttpServlet {
 		int id = Integer.parseInt(session.getAttribute("id").toString());
 		ManagerDao mdi = new ManagerDaoImpl();
 		Manager m = mdi.getManagerById(id);
-		System.out.println("id: " + id);
-		System.out.println("emp: " + emp);
-		System.out.println("man: " + man);
-		System.out.println("manager received: " + m.getId());
+//		System.out.println("id: " + id);
+//		System.out.println("emp: " + emp);
+//		System.out.println("man: " + man);
+//		System.out.println("manager received: " + m.getId());
 		if (emp != null) {
 			response.sendRedirect("empprofile?id=" +id);
 			return;
 		} else if (man != null) {
 			if (m.getId() != 0) {
-				response.sendRedirect("manprofile");
+				response.sendRedirect("manprofile?id=" +id);
 				return;
 			}
-			System.out.println("Not a manager");
+//			System.out.println("Not a manager");
 		}
 		doGet(request, response);
 	}

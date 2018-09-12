@@ -41,9 +41,9 @@ public class EmpProfileServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession(false);
 		int id = Integer.parseInt(session.getAttribute("id").toString());
-		System.out.println(request.getParameter("Submit"));
-		System.out.println(request.getParameter("address"));
-		System.out.println();
+//		System.out.println(request.getParameter("Submit"));
+//		System.out.println(request.getParameter("address"));
+//		System.out.println();
 		String destination = RequestHelper.process(request);
 		if (destination.equals("Logout")) {
 			response.sendRedirect("login");

@@ -42,8 +42,8 @@ public class LoginServlet extends HttpServlet {
 		String pass = request.getParameter("password");
 		LoginDao ldi = new LoginDaoImpl();
 		Login l = ldi.getLoginByUser(user);
-		System.out.println(l.getId() + " " + l.getUser() + " " + l.getPwsd());
-		System.out.println(user + " " + pass);
+//		System.out.println(l.getId() + " " + l.getUser() + " " + l.getPwsd());
+//		System.out.println(user + " " + pass);
 		
 		PrintWriter pw = response.getWriter();
 		response.setContentType("text/html");

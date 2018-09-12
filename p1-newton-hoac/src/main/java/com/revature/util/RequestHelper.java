@@ -51,13 +51,15 @@ public class RequestHelper {
 					rdi.createReimbursement(r);
 				}
 				return "Create";
+			case "Search":
+				
+				return "Search";
 			case "Logout":
 				session.invalidate();
 				return "Logout";
-			case "empprofile":
-				return "empprofile";
 			default:
-				return "login";
+				session.invalidate();
+				return "Logout";
 		}
 	}
 }

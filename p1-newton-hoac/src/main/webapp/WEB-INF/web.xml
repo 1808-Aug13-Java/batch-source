@@ -91,4 +91,14 @@
     <servlet-name>SessionServlet</servlet-name>
     <url-pattern>/session</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ManProfileServlet</display-name>
+    <servlet-name>ManProfileServlet</servlet-name>
+    <servlet-class>com.revature.servlets.ManProfileServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ManProfileServlet</servlet-name>
+    <url-pattern>/manprofile</url-pattern>
+  </servlet-mapping>
 </web-app>

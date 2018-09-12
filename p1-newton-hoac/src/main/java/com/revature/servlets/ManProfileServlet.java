@@ -1,26 +1,24 @@
 package com.revature.servlets;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.revature.util.RequestHelper;
 
 /**
- * Servlet implementation class SessionServlet
+ * Servlet implementation class ManProfileServlet
  */
-public class SessionServlet extends HttpServlet {
+public class ManProfileServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SessionServlet() {
+    public ManProfileServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,11 +29,7 @@ public class SessionServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession(false);
 		if (session != null && session.getAttribute("username") != null) {
-			
-			ObjectMapper om = new ObjectMapper();
-			PrintWriter pw = response.getWriter();
-			
-			response.sendRedirect("choose");
+			request.getRequestDispatcher("Views/ManProfile.html").forward(request, response);
 		} else {
 			response.sendRedirect("login");
 		}
@@ -45,8 +39,14 @@ public class SessionServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		HttpSession session = request.getSession(false);
+		int id = Integer.parseInt(session.getAttribute("id").toString());
+		String destination = RequestHelper.process(request);
+		if (destination.equals("Logout")) {
+			response.sendRedirect("login");
+			return;
+		}
+		response.sendRedirect("manprofile?id=" +id);
 	}
 
 }
