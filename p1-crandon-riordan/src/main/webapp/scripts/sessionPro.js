@@ -85,6 +85,7 @@ document.addEventListener("DOMContentLoaded", function () {
   let submitBtn = document.getElementById("submit");
   // submit form w/out redirecting
   submitBtn.addEventListener("click", function (e) {
+    // updating user info
     e.preventDefault();
     let name = document.getElementById("name");
     let username = document.getElementById("username");
@@ -165,6 +166,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function validateEmail(email) {
+    //client side validation
     var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(email);
   }

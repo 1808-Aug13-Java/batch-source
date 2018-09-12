@@ -26,12 +26,16 @@ import com.revature.util.SessionHelper;
 
 /**
  * Servlet implementation class ReimbursmentServlet
+ * 
+ * SERVLET RESPONSIBILITY : REIMBURSMENT API ENDPOINT
  */
 public class ReimbursmentServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	Logger logger = Logger.getLogger(ReimbursmentServlet.class);
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//		ENDPOINT FOR GETTING REIMBURSMENT DATA
+		
 		SessionHelper sh = new SessionHelper();
 		
 		String currentState = request.getParameter("currentState");
@@ -53,6 +57,7 @@ public class ReimbursmentServlet extends HttpServlet {
 		Employee manager = ed.getEmployeeByEmail(email);
 		
 		if(action != null && reimbursmentId != null) {
+			// ?action=X&reimbusmentId=Y
 			try {
 				int rIdInt = Integer.parseInt(reimbursmentId);
 				Reimbursment r = rd.getReimbursmentById(rIdInt);
@@ -74,10 +79,12 @@ public class ReimbursmentServlet extends HttpServlet {
 		
 		
 		if(currentState != null) {
+			// check for ?currentState=Y
 			// if param present that is looking for a pending reimbursment
 			if(currentState.equalsIgnoreCase("pending")) {
 				// check for emp id attr
 				if(employeeId != null) {
+					// check for ?currentState=Y&employeeId=X
 					try {
 						int id = Integer.parseInt(employeeId);
 						reimbursments = rd.getPendingByEmployeeId(id);
@@ -126,6 +133,7 @@ public class ReimbursmentServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ReimbursmentHelper rh = new ReimbursmentHelper();
+		// ReimbursmentHelper will handle creation
 		rh.createReimbursment(request);
 	}
 

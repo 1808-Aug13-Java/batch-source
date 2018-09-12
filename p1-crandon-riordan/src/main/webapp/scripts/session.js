@@ -1,4 +1,6 @@
-
+// --------------------
+// MANAGE SESSION
+// --------------------
 document.addEventListener("DOMContentLoaded", function(){
   const isUserUrl = "http://localhost:8082/p1-crandon-riordan/session";
   let sessionId;

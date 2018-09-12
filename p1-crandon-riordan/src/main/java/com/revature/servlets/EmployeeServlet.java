@@ -22,22 +22,18 @@ import com.revature.util.Validator;
 
 /**
  * Servlet implementation class EmployeeServlet
+ * 
+ * SERVLET : EMPLOYEE API ENDPOINT TO GET EMPLOYEE DATA
  */
 public class EmployeeServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public EmployeeServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
-
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//		 ENDPOINT FOR EMPLOYEE DATA
+		
 		String employeeId = request.getParameter("employeeId");
 		ObjectMapper om = new ObjectMapper();
 		PrintWriter pw = response.getWriter();
@@ -45,6 +41,7 @@ public class EmployeeServlet extends HttpServlet {
 		List<Employee> employees = new ArrayList<Employee>();
 		SessionHelper sh = new SessionHelper();
 		boolean foundUser = sh.checkValidUser(request);
+		
 		 // ensure proper access to employee endpoint
 		if(!foundUser) {
 			response.sendRedirect("login");
@@ -73,9 +70,6 @@ public class EmployeeServlet extends HttpServlet {
 		
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// get the session associated with account
 		// then create an Employee obj to update w/

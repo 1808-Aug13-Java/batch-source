@@ -12,6 +12,8 @@ import com.revature.util.SessionHelper;
 
 /**
  * Servlet implementation class EmployeeProfile
+ * 
+ * SERVLET RESPONSIBILITY: VIEWING/EDITING PROFILE
  */
 public class EmployeeProfile extends HttpServlet {
 	private static final long serialVersionUID = 1L;

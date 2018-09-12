@@ -61,7 +61,7 @@ public final class Hasher {
 				hash.append(digits[b & 0x0f]);
 			}
 		} catch (NoSuchAlgorithmException e) {
-			// handle error here.
+			logger.info("Error hashing password");
 		}
 
 		return hash.toString();

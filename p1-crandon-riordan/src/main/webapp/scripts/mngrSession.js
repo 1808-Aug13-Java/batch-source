@@ -97,10 +97,7 @@ function populateResolvedReimbursments(xhr) {
 
 
 document.addEventListener("DOMContentLoaded", function () {
-  
-
-  
-
+  // validating user again
   function validateUser(xhr) {
     console.log(xhr);
     let response = JSON.parse(xhr.responseText);
@@ -115,10 +112,6 @@ document.addEventListener("DOMContentLoaded", function () {
       emailEl.innerHTML = response.email;
       sendAjaxGet(reimbursmentUrl, populateReimbursments);
     }
-
-
-
-
   }
 
 
@@ -188,6 +181,9 @@ document.addEventListener("DOMContentLoaded", function () {
     sendAjaxGet(reimbursmentUrl + "?currentState=resolved", populateResolvedReimbursments);
   });
 
+  // TODO
+// Three different populateXReimbursments is out of hand and not DRY
+// Need to instead change url and populate the corresponding table with data
 
   
 
@@ -207,6 +203,7 @@ function approveRequest(event) {
     "?action=approve&reimbursmentId=" + 
     reimbursmentId), function() {
       console.log("approving request");
+      // populates the reimbursments after approval/denial
       sendAjaxGet(reimbursmentUrl, populateReimbursments);
     });
 }
@@ -216,6 +213,8 @@ function denyRequest(event) {
       .target
       .parentNode.parentNode.childNodes[1].innerHTML;
   event.target.parentNode.parentNode.style = "display: none";
+  
+  // populates the reimbursments after approval/denial
   sendAjaxGet((reimbursmentUrl + 
     "?action=deny&reimbursmentId=" + 
     reimbursmentId), function() {

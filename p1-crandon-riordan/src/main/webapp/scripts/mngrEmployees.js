@@ -103,6 +103,7 @@ document.addEventListener("DOMContentLoaded", function() {
     if(reimbursments.length == 0) {
       showPopupEmp();
     }
+
     for(let reimbursment of reimbursments) {
       let trEl = document.createElement("tr");
       trEl.innerHTML = `
@@ -123,6 +124,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
   }
 
+  
   let alert = document.getElementById("employeeAlert");
   function showPopupEmp() {
     alert.classList.remove("noDisplay");

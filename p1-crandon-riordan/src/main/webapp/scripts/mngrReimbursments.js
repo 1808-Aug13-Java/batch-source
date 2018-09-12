@@ -3,7 +3,6 @@ document.addEventListener("DOMContentLoaded", function () {
   let reimbursmentDivs = document.getElementsByClassName("reimbursmentTable");
   // add event listeners to nav items
   // event listener for toggling styling of nav items\
-  let counter = 0;
   for (let navItem of reimbursmentNavs) {
     navItem.addEventListener("click", function () {
       // toggle style of nav tab

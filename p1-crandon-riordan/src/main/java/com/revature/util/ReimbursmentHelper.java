@@ -35,7 +35,6 @@ public class ReimbursmentHelper {
 	}
 	
 	public void createReimbursment(HttpServletRequest request) {
-		//TODO -> try catch for parsing to handle wrong data
 		HttpSession session = request.getSession();
 		Double amount = Double.parseDouble((String) request.getParameter("amount"));
 		String reason = request.getParameter("reason");

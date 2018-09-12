@@ -16,7 +16,7 @@ import com.revature.util.SessionHelper;
 
 public class LoginHandlerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	LoginHelper helper = new LoginHelper();
+	private final LoginHelper helper = new LoginHelper();
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
@@ -27,6 +27,7 @@ public class LoginHandlerServlet extends HttpServlet {
 			sh.addInvalidLoginToSession(session);
 			response.sendRedirect(destination);
 		} else {
+			// session management
 			session.setAttribute("email", request.getParameter("email"));
 			String email = (String) session.getAttribute("email");
 			EmployeeDao ed = new EmpDaoImpl();

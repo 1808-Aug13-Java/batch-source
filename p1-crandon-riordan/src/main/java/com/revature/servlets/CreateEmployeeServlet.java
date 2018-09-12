@@ -25,14 +25,14 @@ public class CreateEmployeeServlet extends HttpServlet {
 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("employeeCreation.html").forward(request, response);
+		
 		SessionHelper sh = new SessionHelper();
 		boolean foundUser = sh.checkValidUser(request);
 		// ensure valid user
 		if(!foundUser) {
 			response.sendRedirect("login");
 		} else {
-			
+			request.getRequestDispatcher("employeeCreation.html").forward(request, response);
 		}
 		
 		
@@ -60,8 +60,8 @@ public class CreateEmployeeServlet extends HttpServlet {
 		
 		Employee emp = new Employee();
 		EmployeeDao ed = new EmpDaoImpl();
-		System.out.println();
-		if(Validator.validEmail(email) && password.length() > 7) {
+		// validating input
+		if(Validator.validEmail(email) && password.length() > 7 && username.length() > 4) {
 			emp.setName(name);
 			emp.setUsername(username);
 			emp.setEmail(email);
@@ -79,13 +79,12 @@ public class CreateEmployeeServlet extends HttpServlet {
 				}
 				ed.createEmployee(emp);
 			} catch (Exception e) {
-				System.out.println("Parsing error for employee creation");
-				logger.info("Parsing error");
+				logger.info("Parsing error for employee creation");
 				response.sendRedirect("createEmployee");
 			}
 			
 		} else {
-			System.out.println("Invalid email or password");
+			logger.info("Invalid email or password");
 		}
 	}
 
