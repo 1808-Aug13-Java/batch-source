@@ -109,7 +109,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
 //				ps.setString(i+1, binds[i]);
 			}
 			
-			System.out.println(sql);
+//			System.out.println(sql);
 
 			// Keep in mind, this needs to be closed 
 			rs = ps.executeQuery();

@@ -23,7 +23,7 @@ public class MasterServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException  {
 		System.out.println("Get Request Recieved");
-		System.out.println(request.getRequestURL().toString());
+		System.out.println(request.getRequestURL().toString() + request.getQueryString());
 		
 		
 		try {
@@ -35,10 +35,12 @@ public class MasterServlet extends HttpServlet {
 				// If the user is requesting a resource, send it to the resource
 				// helper. 
 				if (ResourceRequestHelper.isResourceRequest(request)) {
+					System.out.println("Delegating to ResourceHelper");
 					ResourceRequestHelper.routeResource(request, response);
 				}
 				// Otherwise, just navigate to the appropriate page for the user
 				else {
+					System.out.println("Delegating to HtmlHelper");
 					HtmlManager.routePage(request, response);
 				}
 			}

@@ -35,6 +35,13 @@ public class ResourceRequestHelper {
 		// Get the string that represents the resource the user is requesting
 		String resourceReq = request.getParameter(RESOURCE_REQUEST) ;
 		LogUtil.logInfo("Requested Resource: " + resourceReq);
+		
+		// If this is a logout request, log the user out. 
+		if (resourceReq.equals("logout")) {
+			System.out.println("Logged Out ");
+			request.getSession(false).invalidate();
+			return;
+		}
 	} // end of routeResource
 	
 } // end of class ResourceRequestHelper
