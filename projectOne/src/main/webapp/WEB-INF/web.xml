@@ -10,16 +10,6 @@
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
   <servlet>
-    <description>gets all employees</description>
-    <display-name>GetEmployeesServlet</display-name>
-    <servlet-name>GetEmployeesServlet</servlet-name>
-    <servlet-class>com.revature.servlets.GetEmployeesServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>GetEmployeesServlet</servlet-name>
-    <url-pattern>/GetEmployees</url-pattern>
-  </servlet-mapping>
-  <servlet>
     <description>home page</description>
     <display-name>HomeServlet</display-name>
     <servlet-name>HomeServlet</servlet-name>
@@ -71,6 +61,16 @@
   </servlet-mapping>
   <servlet>
     <description></description>
+    <display-name>GetEmployeeByUserNameServlet</display-name>
+    <servlet-name>GetEmployeeByUserNameServlet</servlet-name>
+    <servlet-class>com.revature.servlets.GetEmployeeByUserNameServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GetEmployeeByUserNameServlet</servlet-name>
+    <url-pattern>/GetEmployeeByUserName</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
     <display-name>ManagerHomeServlet</display-name>
     <servlet-name>ManagerHomeServlet</servlet-name>
     <servlet-class>com.revature.servlets.ManagerHomeServlet</servlet-class>
@@ -78,5 +78,55 @@
   <servlet-mapping>
     <servlet-name>ManagerHomeServlet</servlet-name>
     <url-pattern>/managerhome</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>GetReimbursmetsByEmployee</display-name>
+    <servlet-name>GetReimbursmetsByEmployee</servlet-name>
+    <servlet-class>com.revature.servlets.GetReimbursmetsByEmployee</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GetReimbursmetsByEmployee</servlet-name>
+    <url-pattern>/GetReimbursmetsByEmployee</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>GetEmployees</display-name>
+    <servlet-name>GetEmployees</servlet-name>
+    <servlet-class>com.revature.servlets.GetEmployees</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GetEmployees</servlet-name>
+    <url-pattern>/GetEmployees</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>GetReimbursmets</display-name>
+    <servlet-name>GetReimbursmets</servlet-name>
+    <servlet-class>com.revature.servlets.GetReimbursmets</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GetReimbursmets</servlet-name>
+    <url-pattern>/GetReimbursmets</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SubmitRequestServlet</display-name>
+    <servlet-name>SubmitRequestServlet</servlet-name>
+    <servlet-class>com.revature.servlets.SubmitRequestServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SubmitRequestServlet</servlet-name>
+    <url-pattern>/SubmitRequest</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>LogOutServlet</display-name>
+    <servlet-name>LogOutServlet</servlet-name>
+    <servlet-class>com.revature.servlets.LogOutServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LogOutServlet</servlet-name>
+    <url-pattern>/LogOut</url-pattern>
   </servlet-mapping>
 </web-app>

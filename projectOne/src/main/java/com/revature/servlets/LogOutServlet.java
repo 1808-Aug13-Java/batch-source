@@ -1,26 +1,22 @@
 package com.revature.servlets;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import org.apache.log4j.Logger;
+import javax.servlet.http.HttpSession;
 
 /**
- * Servlet implementation class EmployeeHomeServlet
+ * Servlet implementation class LogOutServlet
  */
-public class EmployeeHomeServlet extends HttpServlet {
+public class LogOutServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static Logger log = Logger.getRootLogger();
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public EmployeeHomeServlet() {
+    public LogOutServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,9 +26,9 @@ public class EmployeeHomeServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		log.info("in employehome servlet: " + request.getParameter("userName") );
-	    request.getRequestDispatcher("views/employee.html").include(request, response); 
-		
+		HttpSession session = request.getSession();
+		session.invalidate();
+		request.getRequestDispatcher("home");
 	}
 
 	/**

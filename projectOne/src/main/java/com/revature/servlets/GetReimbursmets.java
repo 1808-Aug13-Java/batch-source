@@ -1,24 +1,31 @@
 package com.revature.servlets;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
 
+import com.revature.controller.EmployeeController;
+import com.revature.controller.ReimbursmentController;
+import com.revature.model.Reimbursment;
+
 /**
- * Servlet implementation class DispatcherServlet
+ * Servlet implementation class GetReimbursmets
  */
-public class DispatcherServlet extends HttpServlet {
+public class GetReimbursmets extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static Logger log = Logger.getRootLogger();
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public DispatcherServlet() {
+    public GetReimbursmets() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -26,37 +33,23 @@ public class DispatcherServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-    @Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		request.getRequestDispatcher("home").forward(request, response);
+		HttpSession session = request.getSession();
+		if(session.isNew())
+		{
+			log.info("user not logged in");
+		}
+		log.info("in getreimbursement: " + session.getAttribute("username").toString());
+		PrintWriter pw = response.getWriter();
+		pw.print(ReimbursmentController.getReimbursementForManView());
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		log.info(request.getParameter("destination"));
-		
-		switch (request.getParameter("destination")) {
-		
-		case "login":
-			request.getRequestDispatcher("login").forward(request, response);
-			break;
-		case "submitReimb":
-			request.getRequestDispatcher("SubmitRequest").forward(request, response);
-			break;
-		case "updateUserProf":
-			request.getRequestDispatcher("SubmitRequest").forward(request, response);
-			break;
-		case "processReimb":
-			request.getRequestDispatcher("SubmitRequest").forward(request, response);
-			break;
-		default:
-			response.sendRedirect("home");
-		}
-		
+		// TODO Auto-generated method stub
+		doGet(request, response);
 	}
 
 }

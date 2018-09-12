@@ -1,10 +1,12 @@
 package com.revature.servlets;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
 
@@ -38,6 +40,8 @@ public class LogInServlet extends HttpServlet {
 		switch (request.getParameter("loginOption")) {
 		case "manager":
 			if(ServiceController.managerLogIn(uName, pswd)) {
+				HttpSession session = request.getSession();
+				session.setAttribute("username", uName);
 				request.getRequestDispatcher("managerhome").forward(request, response);
 			}else {
 				request.getRequestDispatcher("home?login=fail").forward(request, response);
@@ -45,6 +49,8 @@ public class LogInServlet extends HttpServlet {
 			break;
 		case "employee":
 			if(ServiceController.employeeLogIn(uName, pswd)) {
+				HttpSession session = request.getSession();
+				session.setAttribute("username", uName);
 				request.getRequestDispatcher("employeeHome").forward(request, response);
 			}else {
 				request.getRequestDispatcher("home?login=fail").forward(request, response);

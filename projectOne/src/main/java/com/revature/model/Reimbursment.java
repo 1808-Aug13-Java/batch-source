@@ -8,6 +8,8 @@ public class Reimbursment {
 	private String status;
 	private String description;
 	private int resolvedBy;
+	private String managerName;
+	private String empName;
 
 	public Reimbursment() {
 		super();
@@ -29,6 +31,14 @@ public class Reimbursment {
 
 	public int getEmpId() {
 		return empId;
+	}
+
+	public String getEmpName() {
+		return empName;
+	}
+
+	public void setEmpName(String empName) {
+		this.empName = empName;
 	}
 
 	public void setEmpId(int empId) {
@@ -53,6 +63,14 @@ public class Reimbursment {
 
 	public int getResolvedBy() {
 		return resolvedBy;
+	}
+
+	public String getManagerName() {
+		return managerName;
+	}
+
+	public void setManagerName(String managerName) {
+		this.managerName = managerName;
 	}
 
 	public void setResolvedBy(int resolvedBy) {

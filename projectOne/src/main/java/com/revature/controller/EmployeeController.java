@@ -2,6 +2,7 @@ package com.revature.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
@@ -35,7 +36,7 @@ public class EmployeeController {
 		return "{\"employees\":" + employeeString + "}";
 	}
 	
-	public static String getEmployeeByUserName(String userName, HttpServletResponse response) {
+	public static String getEmployeeByUserName(String userName) {
 
 		EmployeeDAO ed = new EmployeeDoaImp();
 		ObjectMapper om = new ObjectMapper();
@@ -49,6 +50,23 @@ public class EmployeeController {
 			log.info(a);
 		}
 		return empStr;
+		
+	}
+	
+	public static void updateProfile(HttpServletRequest request, String username) {
+		EmployeeDAO ed = new EmployeeDoaImp();
+		Employee emp = new Employee();
+		
+		Employee oe = ed.getEmployeeByUserName(username);
+		emp.setEmpId(oe.getEmpId());
+		emp.setfName(request.getParameter("fName"));
+		log.info("in update profile: " + request.getParameter("fName"));
+		emp.setlName(request.getParameter("lName"));
+		log.info("in update profile: " + request.getParameter("lName"));
+		emp.setPswrd(request.getParameter("newPassword"));
+		log.info("in update profile: " + request.getParameter("newPassword"));
+		
+		ed.updateEmployee(emp);
 		
 	}
 }
