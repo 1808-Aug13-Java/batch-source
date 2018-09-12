@@ -10,6 +10,9 @@ const REQUEST = "resourceRequest"
 	
 var lastXHR = undefined;
 
+// Used to render the page differently if the user is a manager. 
+// Any possible exposed controls still have validation on the server side. 
+var isManager = false;
 
 // ============================================================
 // Request Functions 
@@ -152,11 +155,34 @@ console.log("Requested New Reimbursement");
 }
 
 
+// Approves or denies the reimbursement based on the reimId and the boolean 
+// which specifies if it is approved or denied. 
+// Manager Function
+function approveReimbursement(remId, approve) {
+	console.log("Requested Approve/Deny");
+	sendAjaxGet(URL + "?" + REQUEST + "=" + "approveDeny&remId=" + remId + "&bool=" + approve, function (xhr) {
+		
+		// Display the reimbursements
+		console.log("Successfully Approved or Denied");
+		
+	});
+	
+	// Remove the buttons so they can't be clicked again. 
+	document.getElementById("approve"+remId).remove();
+	document.getElementById("deny"+remId).remove();
+	return false;
+}
 
 
-// ============================================================
+
+
+
+
+
+
+// ============================================================================
 // Display Functions 
-// ============================================================
+// ============================================================================
 
 // Displays a message saying something was submitted successfully 
 function displaySubmitted() {
@@ -345,6 +371,9 @@ function displayReimbursements(reimbursements) {
 	addColumn("Resolve Date");
 	addColumn("Reason");
 	
+	// If this is a manager requesting, add another column for buttons
+	addColumn("Approve/Deny");
+	
 	// Add them to the table head. 
 	thead.appendChild(trHead);
 	table.appendChild(thead);
@@ -377,6 +406,30 @@ function displayReimbursements(reimbursements) {
 		if (status === "Pending") {
 			for (let i=0; i<3; i++) {
 				addToRow(trBody, "N/A");
+			}
+			// If this is a manager, in the last column, add two buttons, one for
+			// approve, one for deny. 
+			if (isManager) {
+				let approveButton = document.createElement("button");
+				approveButton.addEventListener("click", function(){approveReimbursement(reimbursements[i]["id"], true);});
+				approveButton.innerHTML = "Approve";
+				approveButton.setAttribute("id", "approve"+reimbursements[i]["id"])
+				let denyButton = document.createElement("button");
+				denyButton.addEventListener("click", function(){approveReimbursement(reimbursements[i]["id"], false);});
+				denyButton.innerHTML = "Deny";
+				denyButton.setAttribute("id", "deny"+reimbursements[i]["id"])
+				
+				// Put the buttons in the table
+				let td = document.createElement("td");
+				td.appendChild(approveButton);
+				td.appendChild(denyButton);
+				trBody.appendChild(td);
+				
+				
+				// Put the button in the table
+//				td = document.createElement("td");
+//				td.appendChild(denyButton);
+//				trBody.appendChild(td);
 			}
 		}
 		// Otherwise, add he applicable table rows. 
@@ -432,5 +485,8 @@ function sendAjaxGet(url, callback) {
 	// Set the last Request that we made. 
 	lastXHR = xhr;
 }
+
+
+
 
 

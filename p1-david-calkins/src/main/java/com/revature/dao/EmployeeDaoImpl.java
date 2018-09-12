@@ -194,9 +194,6 @@ public class EmployeeDaoImpl implements EmployeeDao {
 			ps.setLong(4, emp.getId());
 			
 			rowsAffected = ps.executeUpdate();
-		} finally {
-			// Do nothing. This is just here to allow auto closing of the 
-			// prepared statement. 
 		}
 		
 		return rowsAffected;

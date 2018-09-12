@@ -263,10 +263,51 @@ public class ReimbursementDaoImpl implements ReimbursementDao{
 		return key;
 	}
 
+	
+	
+	
 	@Override
 	public int updateReimRequest(Reimbursement reim, Connection con) throws SQLException {
-		// TODO Auto-generated method stub
-		return 0;
+		final String sql = "UPDATE Reimbursement SET requester_id=?, "
+				+ "status=?, amount=?, submit_date=?, descr=?, resolved_by=?, "
+				+ "reason=?, resolve_date=? WHERE rem_id = ?";
+		
+		//The number of affected rows by this insertion. 
+		int rowsAffected = 0;
+		
+		// Attempt to create a statement and execute it. 
+		try (PreparedStatement ps = con.prepareStatement(sql)){
+			ps.setLong(1, reim.getRequester().getId());
+			// Extract the status from the string
+			//TODO: Temporarily hardcoded
+			long status = 1;
+			switch (reim.getStatus()) {
+			case "Pending": status = 1; break;
+			case "Approved": status = 2; break;
+			case "Denied": status = 3; break;
+			}
+			ps.setLong(2, status);
+			ps.setDouble(3, reim.getAmount());
+			ps.setDate(4, (reim.getSubmitDate()==null? null :
+							new java.sql.Date(reim.getSubmitDate().getTime())));
+			ps.setString(5, reim.getDescription());
+			// Handle null variable
+			if (reim.getResolvedBy()==null) {
+				ps.setNull(6, java.sql.Types.INTEGER);
+			} else {
+				ps.setLong(6, reim.getResolvedBy().getId());
+			}
+			
+			ps.setString(7, reim.getReason());
+			ps.setDate(8,  reim.getResolveDate()==null? null : 
+							new java.sql.Date(reim.getResolveDate().getTime()));
+			
+			ps.setLong(9, reim.getId());
+			
+			rowsAffected = ps.executeUpdate();
+		}
+		
+		return rowsAffected;
 	}
 
 	

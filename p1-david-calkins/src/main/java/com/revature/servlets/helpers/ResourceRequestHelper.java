@@ -18,6 +18,7 @@ import com.revature.dao.ManagerDaoImpl;
 import com.revature.dao.ReimbursementDao;
 import com.revature.dao.ReimbursementDaoImpl;
 import com.revature.models.Employee;
+import com.revature.models.Manager;
 import com.revature.models.Reimbursement;
 import com.revature.util.DBConnectionUtil;
 import com.revature.util.LogUtil;
@@ -42,6 +43,7 @@ public class ResourceRequestHelper {
 	private static final String ALL_RESOLVED = "allResolved";
 	private static final String ALL_EMPLOYEES = "allEmployees";
 	private static final String EMPLOYEE_PENDING = "empPending";
+	private static final String APPROVE_DENY = "approveDeny";
 	
 	public static boolean isResourceRequest(HttpServletRequest request) {
 		return request.getParameter(RESOURCE_REQUEST) != null;
@@ -119,6 +121,7 @@ public class ResourceRequestHelper {
 				// manager functions 
 				if (manDao.tryCastManager(emp, con) == null) {
 					request.getSession(false).invalidate();
+					return;
 				}
 				
 				// Get all the pending requests
@@ -137,11 +140,13 @@ public class ResourceRequestHelper {
 				// manager functions 
 				if (manDao.tryCastManager(emp, con) == null) {
 					request.getSession(false).invalidate();
+					return;
 				}
 				
 				// If there are additional parameters, get them. 
 				String empId = request.getParameter("id");
-				if (empId != null) {// TODO better validation
+				if (empId != null) {
+					// TODO better validation
 					Employee otherEmp = empDao.getEmployeeById(Long.parseLong(empId), con);
 					
 					// Get all the pending requests for the employee
@@ -177,6 +182,7 @@ public class ResourceRequestHelper {
 				// manager functions 
 				if (manDao.tryCastManager(emp, con) == null) {
 					request.getSession(false).invalidate();
+					return;
 				}
 				
 				// Get all the resolved requests
@@ -195,6 +201,7 @@ public class ResourceRequestHelper {
 				// manager functions 
 				if (manDao.tryCastManager(emp, con) == null) {
 					request.getSession(false).invalidate();
+					return;
 				}
 				
 				// Get all the employees
@@ -255,6 +262,43 @@ public class ResourceRequestHelper {
 					System.out.println(reim);
 				} else {
 					// One of the additional parameters wasn't found, return error
+					response.sendError(400);
+				}
+			}
+			// Otherwise, if it is an approve or deny request, update the 
+			// reimbursement table accordingly. 
+			else if (resourceReq.equals(APPROVE_DENY)) {
+				// Confirm that the employee is a manager. If not, invalidate
+				// the session, as the employee shouldn't have tried to access
+				// manager functions 
+				Manager man = manDao.tryCastManager(emp, con);
+				if (man == null) {
+					request.getSession(false).invalidate();
+					return;
+				}
+				
+				// If there are additional parameters, get them. 
+				String remId = request.getParameter("remId");
+				String approve = request.getParameter("bool");
+				if (remId != null && approve != null) {
+					// TODO better validation
+					Reimbursement rem = remDao.getById(Long.parseLong(remId), con);
+					
+					rem.setResolveDate(new Date());
+					rem.setReason("");
+					rem.setResolvedBy(man);
+					switch(approve) {
+					case "true": rem.setStatus("Approved"); break;
+					case "false": rem.setStatus("Denied"); break;
+					default: LogUtil.logDebug("Invalid boolean string: " + approve);
+					}
+					
+					System.out.println(rem);
+					remDao.updateReimRequest(rem, con);
+				}
+				// Otherwise, there is a problem with this request. 
+				else {
+					LogUtil.logDebug("No Id Param");
 					response.sendError(400);
 				}
 			}
