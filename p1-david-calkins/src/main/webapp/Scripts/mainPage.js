@@ -37,10 +37,37 @@ function getPending() {
 	return false;
 }
 
+// Manager Function. Gets all pending requests. 
+function getAllPending() {
+	console.log("Requested All Pending");
+	sendAjaxGet(URL + "?" + REQUEST + "=" + "allPending", function (xhr) {
+		
+		// Display the reimbursements
+		let reimbursements = JSON.parse(xhr.responseText);
+//		console.log(reimbursements);
+		displayReimbursements(reimbursements);
+	});
+	return false;
+}
+
+
 //Attempts to get resolved reimbursements
 function getResolved() {
 	console.log("Requested Resolved");
 	sendAjaxGet(URL + "?" + REQUEST + "=" + "resolved", function (xhr) {
+		
+		// Display the reimbursements
+		let reimbursements = JSON.parse(xhr.responseText);
+//		console.log(reimbursements);
+		displayReimbursements(reimbursements);
+	});
+	return false;
+}
+
+//Manager Function. Gets all resolved requests. 
+function getAllResolved() {
+	console.log("Requested All Resolved");
+	sendAjaxGet(URL + "?" + REQUEST + "=" + "allResolved", function (xhr) {
 		
 		// Display the reimbursements
 		let reimbursements = JSON.parse(xhr.responseText);

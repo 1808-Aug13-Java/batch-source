@@ -11,6 +11,67 @@
 	
 </head>
 <body>
-Manager Pages
+	<nav class="navbar navbar-expand-md navbar-light bg-light">
+		<a class="navbar-brand" href="#">Navbar</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#navbarSupportedContent"
+			aria-controls="navbarSupportedContent" aria-expanded="false"
+			aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav mr-auto">
+			
+				<li class="nav-item active">
+					<a class="nav-link" href="#" onclick="return getProfile()">Profile
+						<span class="sr-only">(current)</span>
+					</a>
+				</li>
+				
+				
+				<li class="nav-item">
+					<a class="nav-link" href="#" onclick="return getPending()">Pending
+				</a></li>
+				
+				<li class="nav-item">
+					<a class="nav-link" href="#" onclick="return getResolved()">Resolved
+				</a></li>
+				
+				<li class="nav-item">
+					<a class="nav-link" href="#" onclick="return displaySubmitReimbursement()">New Request
+				</a></li>
+				
+				<!-- <li class="nav-item">
+					<a class="nav-link" href="#" onclick="return getAllPending()">All Pending
+				</a></li> -->
+				
+				<li class="nav-item dropdown"><a
+					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+					role="button" data-toggle="dropdown" aria-haspopup="true"
+					aria-expanded="false"> Manager </a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+						<a class="dropdown-item" href="#" onclick="return getAllPending()">All Pending</a> 
+						<a class="dropdown-item" href="#" onclick="return getAllResolved()">All Resolved</a> 
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href="#">Something else here</a>
+					</div>
+				</li>
+				
+				
+			</ul>
+			
+				<!-- <input class="form-control mr-sm-2" type="search"
+					placeholder="Search" aria-label="Search"> -->
+			
+			<button class="btn btn-outline-success my-2 my-sm-0" onclick="logout()">Logout</button>
+		</div>
+	</nav>
+	
+	<div id="outputContainer">
+		
+	</div>
+	
+	<script type="text/javascript" src="Scripts/mainPage.js"></script>
 </body>
 </html>

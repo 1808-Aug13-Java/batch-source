@@ -58,7 +58,6 @@ public class SessionManager {
 			// matches), and the password hash matches, make a new session, 
 			// and redirect the user. 
 			if (emp != null 
-				// TODO: Actually use the password system. 
 				&& emp.getPasswordHash().equals(StringHasher.sha256Hash(password)))
 			{
 				request.getSession().setAttribute("username", username);

@@ -33,8 +33,7 @@ public class MasterServlet extends HttpServlet {
 		try {
 			// If the request already has a session, say so
 			if (request.getSession(false) != null) {
-				System.out.println("Praise the LORD!");
-				System.out.println(request.getSession().getAttribute("username"));
+				System.out.println("User: " + request.getSession().getAttribute("username"));
 				
 				// If the user is requesting a resource, send it to the resource
 				// helper. 

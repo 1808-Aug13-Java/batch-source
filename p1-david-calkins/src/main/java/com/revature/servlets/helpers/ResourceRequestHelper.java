@@ -37,6 +37,11 @@ public class ResourceRequestHelper {
 	private static final String PROFILE = "profile";
 	private static final String NEW_REIMBURSEMENT = "newReim";
 	
+	// Manager Functions
+	private static final String ALL_PENDING = "allPending"; 
+	private static final String ALL_RESOLVED = "allResolved";
+	private static final String ALL_EMPLOYEES = "allEmployees";
+	
 	public static boolean isResourceRequest(HttpServletRequest request) {
 		return request.getParameter(RESOURCE_REQUEST) != null;
 	}
@@ -105,15 +110,69 @@ public class ResourceRequestHelper {
 				// Send the output and return. 
 				pw.println(remString);
 			}
+			// If the user is requesting pending reimbursements, fetch & return 
+			// as JSON. 
+			else if (resourceReq.equals(ALL_PENDING)) {
+				// Confirm that the employee is a manager. If not, invalidate
+				// the session, as the employee shouldn't have tried to access
+				// manager functions 
+				if (manDao.tryCastManager(emp, con) == null) {
+					request.getSession(false).invalidate();
+				}
+				
+				// Get all the pending requests
+				List<Reimbursement> reimbursements = remDao.getAllPending(con);
+				
+				String remString = om.writeValueAsString(reimbursements);
+				
+				// Send the output and return. 
+				pw.println(remString);
+			}
 			// If the user is requesting resolved reimbursements, fetch & return 
 			// as JSON. 
 			else if (resourceReq.equals(RESOLVED)) {
-				// Get the pending requests for the specified employee
+				// Get the resolved requests for the specified employee
 				List<Reimbursement> reimbursements = remDao.getResolvedByRequester(emp, con);
 				
 				String remString = om.writeValueAsString(reimbursements);
 				
 				// Send the output. 
+				pw.println(remString);
+			}
+			// If the user is requesting resolved reimbursements, fetch & return 
+			// as JSON. 
+			else if (resourceReq.equals(ALL_RESOLVED)) {
+				// Confirm that the employee is a manager. If not, invalidate
+				// the session, as the employee shouldn't have tried to access
+				// manager functions 
+				if (manDao.tryCastManager(emp, con) == null) {
+					request.getSession(false).invalidate();
+				}
+				
+				// Get all the resolved requests
+				List<Reimbursement> reimbursements = remDao.getAllResolved(con);
+				
+				String remString = om.writeValueAsString(reimbursements);
+				
+				// Send the output and return. 
+				pw.println(remString);
+			}
+			// If the user is requesting resolved reimbursements, fetch & return 
+			// as JSON. 
+			else if (resourceReq.equals(ALL_EMPLOYEES)) {
+				// Confirm that the employee is a manager. If not, invalidate
+				// the session, as the employee shouldn't have tried to access
+				// manager functions 
+				if (manDao.tryCastManager(emp, con) == null) {
+					request.getSession(false).invalidate();
+				}
+				
+				// Get all the employees
+				List<Employee> employees = empDao.getAllEmployees(con);
+				
+				String remString = om.writeValueAsString(employees);
+				
+				// Send the output and return. 
 				pw.println(remString);
 			}
 			// If the user is requesting resolved reimbursements, fetch & return 
