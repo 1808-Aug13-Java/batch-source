@@ -9,4 +9,5 @@ public interface ReimbursementDao {
 	public List<Reimbursement> listReimbursements(String sql);
 	public Reimbursement getRequestById(int requestId);
 	public int updateRequest(Reimbursement r);
+	public int createRequest(Reimbursement r);
 }

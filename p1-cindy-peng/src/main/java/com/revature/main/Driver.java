@@ -2,9 +2,9 @@ package com.revature.main;
 
 import org.apache.log4j.Logger;
 
-import com.revature.dao.StaffDao;
-import com.revature.dao.StaffDaoImpl;
-import com.revature.models.Staff;
+import com.revature.dao.ReimbursementDao;
+import com.revature.dao.ReimbursementDaoImpl;
+import com.revature.models.Reimbursement;
 import com.revature.util.LoggerSingleton;
 
 public class Driver {
@@ -38,6 +38,13 @@ public class Driver {
 		
 		//didn't test ReimbursementDao...but its like the same thing lol ;)
 		//REMEMBER TO TEST WHEN UR DOING THINGS!!!
+//		ReimbursementDao rd = new ReimbursementDaoImpl();
+//		Reimbursement r = rd.getRequestById(1044);
+//		System.out.println(r);
+//		
+//		r.setManId(3);
+//		r.setStatus("PENDING");
+//		System.out.println(rd.updateRequest(r));
 		
 	}
 

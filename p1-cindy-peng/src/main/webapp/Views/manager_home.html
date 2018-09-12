@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Manager Homepage</title>
+
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous">
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+	integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+	integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+	crossorigin="anonymous"></script>
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+	integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+	crossorigin="anonymous"></script>
+
+</head>
+<body>
+<div class="container">
+	<h2>Welcome to the Manager Directory</h2>
+		<!-- action is the servlte gonna be called -->
+	<form action="manager_home" method="POST">
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<a href="roster" class="nav-link">View All Employees</a>
+			<a href="updateRequest" class="nav-link">View and Resolve Pending Requests</a>
+			<a href="showResolved" class="nav-link">View Resolved Requests</a>
+			<a href="#NOTDONEYET" class="nav-link">View a Staff Member's Requests</a>
+		</nav>
+		<br><br>
+		<!-- here value is the text that shows on the button -->
+		<input type="submit" value="Log Out" name="logout" class="btn btn-secondary">   <!-- name is how we refer in getParameters() -->
+	</form>
+	</div>
+</body>
+</html>

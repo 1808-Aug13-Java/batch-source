@@ -97,11 +97,36 @@ public class ReimbursementDaoImpl implements ReimbursementDao {
 		return reimbursementRequest;
 	}
 
+	@Override 
+	public int createRequest(Reimbursement r)
+	{
+		String sql = "INSERT INTO P1_REIMBURSEMENTS (STAFF_ID, STATUS, MAN_ID, AMOUNT,  MESSAGE) " +
+					"VALUES(?, ?, ?, ?, ?)";
+		int numRowsChanged = 0;
+		try(Connection con = ConnectionUtil.getConnection(); 
+				PreparedStatement ps = con.prepareStatement(sql); )
+		{
+			ps.setInt(1, r.getStaffId());
+			ps.setString(2, r.getStatus());
+			ps.setInt(3, r.getManId());
+			ps.setFloat(4, r.getAmount());
+//			ps.setString(5, r.getReqDate());
+			ps.setString(5, r.getMessage());
+			
+			numRowsChanged = ps.executeUpdate();
+			
+		} catch (SQLException | IOException e) {
+			log.error(e.getMessage());
+		}
+		return numRowsChanged;
+	}
+	
 	@Override
 	public int updateRequest(Reimbursement r) {  
-		String sql = "UPDATE P1_STAFF "+
+		String sql = "UPDATE P1_REIMBURSEMENTS "+
 				 "SET STAFF_ID = ?, STATUS = ?, MAN_ID = ?, " +
-				 	"AMOUNT = ?, REQ_DATE = ?, MESSAGE = ? " +
+//				 	"AMOUNT = ?, REQ_DATE = ?, MESSAGE = ? " +
+					"AMOUNT = ?, MESSAGE = ? " +
 				 "WHERE REQUEST_ID = ?";
 		int numRowsChanged = 0;
 		
@@ -112,10 +137,9 @@ public class ReimbursementDaoImpl implements ReimbursementDao {
 			ps.setString(2, r.getStatus());
 			ps.setInt(3, r.getManId());
 			ps.setFloat(4, r.getAmount());
-			ps.setString(5, r.getReqDate());
-			ps.setString(6, r.getMessage());
-			ps.setInt(7, r.getRequestId());
-			
+//			ps.setString(5, r.getReqDate());
+			ps.setString(5, r.getMessage());
+			ps.setInt(6, r.getRequestId());
 			
 			numRowsChanged = ps.executeUpdate();
 			

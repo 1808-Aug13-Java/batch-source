@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Update a Request</title>
+
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous">
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+	integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+	integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+	crossorigin="anonymous"></script>
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+	integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+	crossorigin="anonymous"></script>
+
+</head>
+
+
+<body>
+	<div class="container">
+	<table id="pendingRequestTable" class="table">
+		<tr>
+			<th>Request ID</th>
+			<th>Requestor's Staff ID</th>
+			<th>Amount</th>
+			<th>Date of Request</th>
+			<th>Message</th>
+		</tr>
+	</table>
+	<br>
+	<hr>
+	<br>
+	
+	<p>Fill out which request you would like to do</p>
+	<form action='updateRequest' method="POST">
+		<label>Request ID: </label>
+		<input type="number" name="requestId" class="form-control">
+		<label>Change Status: </label>
+		<select name="selectStatus" class="form-control">    <!-- approved or denied -->
+			<option class="form-control">APPROVED</option>
+			<option class="form-control">DENIED</option>
+		</select>    <br>
+		<input type="submit" value="Enter" class="btn btn-secondary">
+	</form>
+	</div>
+	<script src="Scripts/UpdateRequests.js"></script>
+</body>
+</html>
