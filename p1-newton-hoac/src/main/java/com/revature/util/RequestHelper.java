@@ -61,8 +61,6 @@ public class RequestHelper {
 				rdi.updateReimbursement(r);
 				return "Handle";
 			case "Logout":
-				session.invalidate();
-				return "Logout";
 			default:
 				session.invalidate();
 				return "Logout";
