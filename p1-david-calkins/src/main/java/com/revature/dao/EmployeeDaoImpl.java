@@ -176,9 +176,10 @@ public class EmployeeDaoImpl implements EmployeeDao {
 		return key;
 	} // end of insertEmployee
 
+	
 	@Override
 	public int updateEmployee(Employee emp, Connection con) throws SQLException {
-		final String sql = "UPDATE Employee SET emp_id=?, emp_name=?, "
+		final String sql = "UPDATE Employee SET emp_name=?, "
 				+ "emp_username=?, emp_password=? WHERE emp_id = ?";
 		
 		//The number of affected rows by this insertion. 
@@ -187,11 +188,10 @@ public class EmployeeDaoImpl implements EmployeeDao {
 		// Attempt to create a statement and execute it. 
 		try (PreparedStatement ps = con.prepareStatement(sql)){
 			// Bind the variables to the statement
-			ps.setLong(1, emp.getId());
-			ps.setString(2, emp.getName());
-			ps.setString(3, emp.getUsername());
-			ps.setString(4, emp.getPasswordHash());
-			ps.setLong(5, emp.getId());
+			ps.setString(1, emp.getName());
+			ps.setString(2, emp.getUsername());
+			ps.setString(3, emp.getPasswordHash());
+			ps.setLong(4, emp.getId());
 			
 			rowsAffected = ps.executeUpdate();
 		} finally {

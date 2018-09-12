@@ -31,7 +31,7 @@ function getPending() {
 		
 		// Display the reimbursements
 		let reimbursements = JSON.parse(xhr.responseText);
-		console.log(reimbursements);
+//		console.log(reimbursements);
 		displayReimbursements(reimbursements);
 	});
 	return false;
@@ -44,18 +44,86 @@ function getResolved() {
 		
 		// Display the reimbursements
 		let reimbursements = JSON.parse(xhr.responseText);
-		console.log(reimbursements);
+//		console.log(reimbursements);
 		displayReimbursements(reimbursements);
 	});
 	return false;
 }
 
+//Attempts to get the user's profile
+function getProfile() {
+	console.log("Requested Profile");
+	sendAjaxGet(URL + "?" + REQUEST + "=" + "profile", function (xhr) {
+		// Display the profile
+		let profile = JSON.parse(xhr.responseText);
+//		console.log(profile);
+		displayProfile(profile);
+	});
+	return false;
+}
+
+
+// Attempts to update the user's profile
+function updateProfile() {
+	console.log("Requested UpdateProfile");
+	
+	// Get the new name
+	let newName = document.getElementById("nameInput").value;
+	
+	sendAjaxGet(URL + "?" + REQUEST + "=" + "profile&name=" + newName, function (xhr) {
+		// Display the profile
+		let profile = JSON.parse(xhr.responseText);
+//		console.log(profile);
+		displayProfile(profile);
+	});
+	return false;
+}
 
 
 // ============================================================
 // Display Functions 
 // ============================================================
 
+// Displays a profile, along with a form to update it. 
+function displayProfile(profile) {
+	// Get the container for the output
+	let container = document.getElementById("outputContainer");
+	// Clear the old output 
+	container.innerHTML = "";
+	
+	// Create new header elements to display the profile information
+	let idHeader = document.createElement("h4");
+	let nameHeader = document.createElement("h3");
+	let usernameHeader = document.createElement("h3");
+	
+	// Set the contents of the elements to the profile info
+	idHeader.innerHTML = "ID: " + profile["id"];
+	nameHeader.innerHTML = "Name: " + profile["name"];
+	usernameHeader.innerHTML = "Username: " + profile["username"];
+	
+	// Add the headers to the output container
+	container.appendChild(idHeader);
+	container.appendChild(nameHeader);
+	container.appendChild(usernameHeader);
+	
+	
+	// Create a simple input area for updating the user's name
+	let label = document.createElement("label");
+	label.innerHTML = "Change Name: ";
+	let input = document.createElement("input");
+	input.setAttribute("id", "nameInput");
+	let inputButton = document.createElement("button");
+	inputButton.setAttribute("onclick", "updateProfile()");
+	inputButton.innerHTML = "Update Name";
+	
+	container.appendChild(label);
+	container.appendChild(input);
+	container.appendChild(inputButton);
+}
+
+
+
+// Displays the specified reimbursements (in JSON) as a table. 
 function displayReimbursements(reimbursements) {
 	// Create the layout of the table
 	let table = document.createElement("table");

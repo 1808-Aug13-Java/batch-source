@@ -33,6 +33,7 @@ public class ResourceRequestHelper {
 	private static final String LOGOUT = "logout";
 	private static final String PENDING = "pending";
 	private static final String RESOLVED = "resolved";
+	private static final String PROFILE = "profile";
 	
 	public static boolean isResourceRequest(HttpServletRequest request) {
 		return request.getParameter(RESOURCE_REQUEST) != null;
@@ -107,6 +108,33 @@ public class ResourceRequestHelper {
 				// Send the output and return. 
 				pw.println(remString);
 				return;
+			}
+			// If the user is requesting resolved reimbursements, fetch & return 
+			// as JSON. 
+			else if (resourceReq.equals(PROFILE)) {
+				Employee emp = empDao.getEmployeeByUsername(username, con);
+				
+				// If there are additional parameters, get them, and update the 
+				// employee. 
+				String empName = request.getParameter("name");
+				if (empName != null) {
+					LogUtil.logInfo("Sending Update " + empName);
+					emp.setName(empName);
+					empDao.updateEmployee(emp, con);
+				}
+				
+				// Remove the password hash before marshaling. 
+				emp.setPasswordHash(null);
+				
+				String remString = om.writeValueAsString(emp);
+				
+				// Send the output and return. 
+				pw.println(remString);
+				return;
+			}
+			// Otherwise, log that we couldn't find a resource match. 
+			else {
+				LogUtil.logInfo("No Matching Resource Found: " + resourceReq);
 			}
 		} catch (SQLException ex) {
 			// If sql error, send a 500 code, and return. 
