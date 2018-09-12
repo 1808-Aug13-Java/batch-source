@@ -58,6 +58,7 @@ function getEmployeeView(caller) {
 				row.appendChild(text);
 				row.appendChild(status);
 				tab.appendChild(row);
+				requestListItem.push(row);
 				rust++;
 			}
 			

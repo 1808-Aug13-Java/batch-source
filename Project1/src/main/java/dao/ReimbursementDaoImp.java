@@ -53,7 +53,10 @@ public class ReimbursementDaoImp implements ReimbursementDao {
 		int characters = 0;
 		while((characters = read.read(str)) == 20)
 		{
-			ret += str;
+			for(int rust = 0; rust < characters && rust < str.length; rust++)
+			{
+				ret += str[rust];
+			}
 		}
 		
 		for(int rust = 0; rust < characters && rust < str.length; rust++)
