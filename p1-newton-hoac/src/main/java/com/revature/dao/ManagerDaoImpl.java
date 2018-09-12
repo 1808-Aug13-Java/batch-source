@@ -59,4 +59,12 @@ public class ManagerDaoImpl implements ManagerDao{
 		}
 		return manList;
 	}
+	
+	@Override
+	public int createManager(Manager manager) {
+		int mansCreated = 0;
+		
+		String sql = "INSERT INTO  ";
+		return mansCreated;
+	}
 }

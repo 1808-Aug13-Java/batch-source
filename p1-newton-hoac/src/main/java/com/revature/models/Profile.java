@@ -5,13 +5,13 @@ public class Profile {
 	private String firstname;
 	private String lastname;
 	private Location locId;
-	private int phone;
+	private Long phone;
 	private String email;
 	public Profile() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Profile(int id, String firstname, String lastname, Location locId, int phone, String email) {
+	public Profile(int id, String firstname, String lastname, Location locId, Long phone, String email) {
 		super();
 		this.id = id;
 		this.firstname = firstname;
@@ -44,10 +44,10 @@ public class Profile {
 	public void setLocId(Location locId) {
 		this.locId = locId;
 	}
-	public int getPhone() {
+	public Long getPhone() {
 		return phone;
 	}
-	public void setPhone(int phone) {
+	public void setPhone(Long phone) {
 		this.phone = phone;
 	}
 	public String getEmail() {
@@ -65,7 +65,7 @@ public class Profile {
 		result = prime * result + id;
 		result = prime * result + ((lastname == null) ? 0 : lastname.hashCode());
 		result = prime * result + ((locId == null) ? 0 : locId.hashCode());
-		result = prime * result + phone;
+		result = prime * result + ((phone == null) ? 0 : phone.hashCode());
 		return result;
 	}
 	@Override
@@ -99,7 +99,10 @@ public class Profile {
 				return false;
 		} else if (!locId.equals(other.locId))
 			return false;
-		if (phone != other.phone)
+		if (phone == null) {
+			if (other.phone != null)
+				return false;
+		} else if (!phone.equals(other.phone))
 			return false;
 		return true;
 	}
@@ -108,5 +111,6 @@ public class Profile {
 		return "Profile [id=" + id + ", firstname=" + firstname + ", lastname=" + lastname + ", locId=" + locId
 				+ ", phone=" + phone + ", email=" + email + "]";
 	}
+	
 	
 }

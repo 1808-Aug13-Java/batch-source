@@ -26,8 +26,11 @@ public class ProfileDaoImpl implements ProfileDao{
 			ps.setInt(1, id);
 			
 			rs = ps.executeQuery();
-			
+
 			while(rs.next()) {
+				int empId = rs.getInt("EMP_ID");
+				p.setId(empId);
+				
 				String firstname = rs.getString("FIRSTNAME");
 				p.setFirstname(firstname);
 				
@@ -36,10 +39,10 @@ public class ProfileDaoImpl implements ProfileDao{
 				
 				int locId = rs.getInt("LOC_ID");
 				LocationDao ldi = new LocationDaoImpl();
-				Location l = ldi.getLocationById(locId);
+				Location l = ldi.getLocationById(locId, con);
 				p.setLocId(l);
 				
-				int phone = rs.getInt("PHONE");
+				Long phone = rs.getLong("PHONE");
 				p.setPhone(phone);
 				
 				String email = rs.getString("EMAIL");
@@ -72,22 +75,25 @@ public class ProfileDaoImpl implements ProfileDao{
 			
 			while(rs.next()) {
 				Profile p = new Profile();
+				int empId = rs.getInt("EMP_ID");
+				p.setId(empId);
+				
 				String firstname = rs.getString("FIRSTNAME");
 				p.setFirstname(firstname);
 				
 				String lastname = rs.getString("LASTNAME");
 				p.setLastname(lastname);
 				
-				int locId = rs.getInt("LOC_ID");
-				LocationDao ldi = new LocationDaoImpl();
-				Location l = ldi.getLocationById(locId);
-				p.setLocId(l);
-				
-				int phone = rs.getInt("PHONE");
+				Long phone = rs.getLong("PHONE");
 				p.setPhone(phone);
 				
 				String email = rs.getString("EMAIL");
 				p.setEmail(email);
+				
+				int locId = rs.getInt("LOC_ID");
+				LocationDao ldi = new LocationDaoImpl();
+				Location l = ldi.getLocationById(locId, con);
+				p.setLocId(l);
 				
 				profileList.add(p);
 			}
@@ -101,11 +107,11 @@ public class ProfileDaoImpl implements ProfileDao{
 	public int updateProfile(Profile profile) {
 		int profsUpdated = 0;
 		String sql = "UPDATE P1_PROFILE "
-				+ "SET FIRSTNAME = ? "
-				+ "SET LASTNAME = ? "
-				+ "SET LOC_ID = ? "
-				+ "SET PHONE = ? "
-				+ "SET EMAIL = ? "
+				+ "SET FIRSTNAME = ? ,"
+				+ " LASTNAME = ? ,"
+				+ " LOC_ID = ? ,"
+				+ " PHONE = ? ,"
+				+ " EMAIL = ? "
 				+ "WHERE EMP_ID = ?";
 		
 		try (Connection con = ConnectionUtil.getConnection();
@@ -113,7 +119,7 @@ public class ProfileDaoImpl implements ProfileDao{
 			ps.setString(1, profile.getFirstname());
 			ps.setString(2,  profile.getLastname());
 			ps.setInt(3, profile.getLocId().getlocId());
-			ps.setInt(4, profile.getPhone());
+			ps.setLong(4, profile.getPhone());
 			ps.setString(5, profile.getEmail());
 			ps.setInt(6, profile.getId());
 			profsUpdated = ps.executeUpdate();

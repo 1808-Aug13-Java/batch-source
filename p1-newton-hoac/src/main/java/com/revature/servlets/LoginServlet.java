@@ -9,6 +9,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.revature.dao.LoginDao;
+import com.revature.dao.LoginDaoImpl;
+import com.revature.models.Login;
+
 /**
  * Servlet implementation class LoginServlet
  */
@@ -36,6 +40,9 @@ public class LoginServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String user = request.getParameter("username");
 		String pass = request.getParameter("password");
+		LoginDao ldi = new LoginDaoImpl();
+		Login l = ldi.getLoginByUser(user);
+		System.out.println(l.getId() + " " + l.getUser() + " " + l.getPwsd());
 		System.out.println(user + " " + pass);
 		
 		PrintWriter pw = response.getWriter();
@@ -44,9 +51,11 @@ public class LoginServlet extends HttpServlet {
 		// Create a new session
 		HttpSession session = request.getSession();
 		
-		if (user.equals("admin") && pass.equals("pass123")) {
+		if (user.equals(l.getUser()) && pass.equals(l.getPwsd())) {
 			session.setAttribute("username", user);
-			response.sendRedirect("choose");
+			session.setAttribute("id", l.getId());
+//			response.sendRedirect("session");
+			response.sendRedirect("choose?id=" + l.getId());
 		} else {
 			response.sendRedirect("loginfail");
 		}

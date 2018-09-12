@@ -88,6 +88,9 @@ public class ReimbursementDaoImpl implements ReimbursementDao{
 				String action = rs.getString("ACTION");
 				r.setAction(action);
 				
+				String desc = rs.getString("DESCRIPTION");
+				r.setDescription(desc);
+				
 				reimbList.add(r);
 			}
 		} catch (IOException | SQLException e) {
@@ -98,8 +101,49 @@ public class ReimbursementDaoImpl implements ReimbursementDao{
 
 	@Override
 	public List<Reimbursement> getReimbursementsByEmpId(int empId) {
-		// Might not need to implement
-		return null;
+		List<Reimbursement> reimbList = new ArrayList<>();
+		
+		String sql = "SELECT * FROM P1_REIMBURSEMENT WHERE EMP_ID = ?";
+		ResultSet rs = null;
+		
+		try (Connection con = ConnectionUtil.getConnection();
+				PreparedStatement ps = con.prepareStatement(sql)){
+			ps.setInt(1, empId);
+			
+			rs = ps.executeQuery();
+			
+			while(rs.next()) {
+				Reimbursement r = new Reimbursement();
+				int reimbId = rs.getInt("R_ID");
+				r.setRId(reimbId);
+				
+				r.setEmpId(empId);
+				
+				int manId = rs.getInt("MAN_ID");
+				r.setManId(manId);
+				
+				String status = rs.getString("STATUS");
+				r.setStatus(status);
+				
+				String action = rs.getString("ACTION");
+				r.setAction(action);
+				
+				String desc = rs.getString("DESCRIPTION");
+				r.setDescription(desc);
+				reimbList.add(r);
+			}
+		} catch (IOException | SQLException e) {
+			e.printStackTrace();
+		} finally {
+			if(rs!= null){
+				try {
+					rs.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return reimbList;
 	}
 
 	@Override

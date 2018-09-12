@@ -3,10 +3,72 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Profile</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </head>
 <body>
 	<div class="container">
-		<h3>Employee Profile</h3>
+		<h3>Employee Navigation</h3><br>
+		<button class="btn btn-info" onClick="viewProfile()">View Profile</button>
+		<table id = "profTable" class="table">
+			<tr id="headerRow">
+				<th>Name</th>
+				<th>Address</th>
+				<th>Phone</th>
+				<th>Email</th>
+				</tr>
+		</table>
+		<br>
+		<hr>
+		<br>
+		<button class="btn btn-info" onClick="viewPending()">View Pending</button>
+		<button class="btn btn-info" onClick="viewResolved()">View Resolved</button>
+		<table id = "reimbTable" class="table">
+			<tr>
+				<th>ID</th>
+				<th>Status</th>
+				<th>Description</th>
+				<th>Action</th>
+			</tr>
+		</table>
+		<br>
+		<hr>
+		<br>
+		<h4>Update Profile</h4>
+		<form action="empprofile" method="post">
+			<label>First Name</label><br>
+			<input type="text" class="form-control" name="firstname"><br>
+			<label>Last Name</label><br>
+			<input type="text" class="form-control" name="lastname"><br>
+			<label>Address</label><br>
+			<select name="address" class="form-control">
+				<option value="1">City, VA</option>
+				<option value="2">Littleton, CA</option>
+			</select><br>
+			<label>Phone</label><br>
+			<input type="number" class="form-control" min="1" max="9999999999" name="phone"><br>
+			<label>Email</label><br>
+			<input type="text" class="form-control" name="email"><br>
+			<input type="submit" value="Update" class="btn" name="Submit">
+		</form>
+		<br>
+		<hr>
+		<br>
+		<h4>Create Reimbursement</h4>
+		<form action="empprofile" method="post">
+			<label>Description</label><br>
+			<input type="text" class="form-control" name="description"><br>
+			<input type="submit" value="Create" class="btn" name="Submit">
+		</form>
+		<br>
+		<hr>
+		<br>
+		<form action="empprofile" method="post">
+			<input type="submit" value="Logout" class="btn btn-danger" name="Submit">
+		</form>
 	</div>
+	<script type="text/javascript" src="Scripts/EmpProfile.js"></script>
 </body>
 </html>

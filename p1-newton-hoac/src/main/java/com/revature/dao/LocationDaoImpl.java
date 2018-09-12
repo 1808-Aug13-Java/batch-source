@@ -55,6 +55,47 @@ public class LocationDaoImpl implements LocationDao{
 		}
 		return l;
 	}
+	
+	@Override
+	public Location getLocationById(int locId, Connection con) {
+		Location l = new Location();
+		
+		String sql = "SELECT * FROM P1_LOCATION WHERE LOC_ID = ?";
+		ResultSet rs = null;
+		try (PreparedStatement ps = con.prepareStatement(sql)){
+			ps.setInt(1, locId);
+			
+			rs = ps.executeQuery();
+			
+			while(rs.next()) {
+				int locationId = rs.getInt("LOC_ID");
+				l.setlocId(locationId);
+				
+				String street = rs.getString("STREET");
+				l.setStreet(street);
+				
+				String city = rs.getString("CITY");
+				l.setCity(city);
+				
+				String state = rs.getString("STATE");
+				l.setState(state);
+				
+				int zip = rs.getInt("ZIP");
+				l.setZip(zip);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			if (rs != null) {
+				try {
+					rs.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return l;
+	}
 
 	@Override
 	public List<Location> getLocations() {

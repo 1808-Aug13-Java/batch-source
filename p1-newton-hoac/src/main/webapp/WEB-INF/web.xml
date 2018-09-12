@@ -41,4 +41,54 @@
     <servlet-name>EmpProfileServlet</servlet-name>
     <url-pattern>/empprofile</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ManagerServlet</display-name>
+    <servlet-name>ManagerServlet</servlet-name>
+    <servlet-class>com.revature.servlets.ManagerServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ManagerServlet</servlet-name>
+    <url-pattern>/manager</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>LocationServlet</display-name>
+    <servlet-name>LocationServlet</servlet-name>
+    <servlet-class>com.revature.servlets.LocationServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LocationServlet</servlet-name>
+    <url-pattern>/location</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ProfileServlet</display-name>
+    <servlet-name>ProfileServlet</servlet-name>
+    <servlet-class>com.revature.servlets.ProfileServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ProfileServlet</servlet-name>
+    <url-pattern>/profile</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ReimbursementServlet</display-name>
+    <servlet-name>ReimbursementServlet</servlet-name>
+    <servlet-class>com.revature.servlets.ReimbursementServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ReimbursementServlet</servlet-name>
+    <url-pattern>/reimbursement</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SessionServlet</display-name>
+    <servlet-name>SessionServlet</servlet-name>
+    <servlet-class>com.revature.servlets.SessionServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SessionServlet</servlet-name>
+    <url-pattern>/session</url-pattern>
+  </servlet-mapping>
 </web-app>
