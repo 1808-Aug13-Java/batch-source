@@ -166,7 +166,6 @@ public class EmployeeDoaImp implements EmployeeDAO {
 	public int createEmployee(Employee employee, Connection con) {
 		int employeesCreated = 0;
 		String sql = "INSERT INTO EMPLOYEE (FNAME, LNAME, MAN_ID, PSWRD) VALUES (?, ?, ?, ?)";
-		//call stored procedure to create username!!
 
 		try (PreparedStatement ps = con.prepareStatement(sql);) {
 			ps.setString(1, employee.getfName());
@@ -182,7 +181,7 @@ public class EmployeeDoaImp implements EmployeeDAO {
 		sql = "{call TR_INSERT_EMP_USERNAME()}";
 
 		try (CallableStatement cs = con.prepareCall(sql);) {
-
+			 employeesCreated += cs.executeUpdate();
 		} catch (SQLException e) {
 			log.error("Stored procedure failed: create employee username "+ e.getMessage());
 		}

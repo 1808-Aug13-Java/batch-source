@@ -32,9 +32,12 @@ public class ReimbursmentController {
 		ReimbursmentDAO reimb = new ReimbursmentDaoImpl();
 		EmployeeDAO ed = new EmployeeDoaImp();
 		ObjectMapper om = new ObjectMapper();
-
 		List<Reimbursment> reimbursements = reimb.getReimbursmentByEmpId(ed.getEmployeeByUserName(userName).getEmpId());
+		
+		
 		String reimbursementStr = null;
+		
+		
 		try {
 			reimbursementStr = om.writeValueAsString(reimbursements);
 		} catch (JsonProcessingException a) {
@@ -53,7 +56,6 @@ public class ReimbursmentController {
 
 		List<Reimbursment> r = reimb.getReimbursments();
 		for (Reimbursment rb : r) {
-			log.info("in getreimbformanview method adding man name");
 			rb.setEmpName(
 					ed.getEmployeeById(rb.getEmpId()).getfName() + " " + 
 							ed.getEmployeeById(rb.getEmpId()).getfName());
@@ -93,8 +95,6 @@ public class ReimbursmentController {
 		ManagerDAO manD = new ManagerDaoImpl();
 		ReimbursmentDAO rd = new ReimbursmentDaoImpl();	
 		Reimbursment r = new Reimbursment();
-		log.info("in reimburs update control man name: " + username);
-		log.info("in reimburs update control manID: " + manD.getManagerByUserName(username).getManId());
 		r.setResolvedBy(manD.getManagerByUserName(username).getManId());
 		r.setStatus(request.getParameter("reimOption"));
 		r.setReimbId(Integer.parseInt(request.getParameter("reimbursment")));

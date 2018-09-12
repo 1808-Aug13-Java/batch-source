@@ -34,7 +34,6 @@ public class ReimbursmentDaoImpl implements ReimbursmentDAO {
 				r.setStatus(rs.getString("STATUS"));
 				r.setDescription(rs.getString("DESCRIPTION"));
 				r.setResolvedBy(rs.getInt("RESOLVED_BY"));
-				log.info("in reimb doa impl man id: "+ rs.getInt("RESOLVED_BY"));
 				reimbList.add(r);
 			}
 		} catch (IOException | SQLException a) {

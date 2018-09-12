@@ -160,6 +160,6 @@ end;
 
 
 --TEST DATA REIMBURSMENT
-insert into REIMBURSMENT (EMP_ID, STATUS, DESCRIPTION) values (100, 'pending', 'luctus rutrum nulla tellus in');
-insert into REIMBURSMENT (EMP_ID, STATUS, DESCRIPTION) values (101, 'pending', 'ante ipsum primis');
-insert into REIMBURSMENT (EMP_ID, STATUS, DESCRIPTION, RESOLVED_BY) values (101, 'resolved', 'nam nulla integer pede justo lacinia eget tincidunt eget tempus vel', 101);
+insert into REIMBURSMENT (EMP_ID, STATUS, DESCRIPTION) values (100, 'pending', 'travel - less than 50');
+insert into REIMBURSMENT (EMP_ID, STATUS, DESCRIPTION) values (101, 'pending', 'Training');
+insert into REIMBURSMENT (EMP_ID, STATUS, DESCRIPTION, RESOLVED_BY) values (101, 'resolved', 'Supplies - max of 60', 101);

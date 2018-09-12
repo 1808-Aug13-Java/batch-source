@@ -18,6 +18,13 @@ public class Manager {
 		this.pswd = pswd;
 		this.userName = userName;
 	}
+	
+	public Manager(int manId, String name, String pswd) {
+		super();
+		this.manId = manId;
+		this.name = name;
+		this.pswd = pswd;
+	}
 
 	public int getManId() {
 		return manId;

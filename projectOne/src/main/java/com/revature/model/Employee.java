@@ -40,6 +40,15 @@ public class Employee {
 		this.pswrd = pswrd;
 		this.userName = userName;
 	}
+	
+	public Employee(int empId, String fName, String lName, int manId, String pswrd) {
+		super();
+		this.empId = empId;
+		this.fName = fName;
+		this.lName = lName;
+		this.manId = manId;
+		this.pswrd = pswrd;
+	}
 
 	public int getEmpId() {
 		return empId;
