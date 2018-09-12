@@ -77,6 +77,34 @@ function getAllResolved() {
 	return false;
 }
 
+
+//Manager Function. Gets all employees. 
+function getAllEmployees() {
+	console.log("Requested All Employees");
+	sendAjaxGet(URL + "?" + REQUEST + "=" + "allEmployees", function (xhr) {
+		
+		// Display the reimbursements
+		let employees = JSON.parse(xhr.responseText);
+		console.log(employees);
+		displayEmployees(employees);
+	});
+	return false;
+}
+
+
+function getEmployeeReimbursements (empId) {
+	console.log("Clicked Employee: " + empId);
+	sendAjaxGet(URL + "?" + REQUEST + "=" + "empPending&id=" + empId, function (xhr) {
+		// Display the reimbursements
+		let reimbursements = JSON.parse(xhr.responseText);
+		console.log(reimbursements);
+		displayReimbursements(reimbursements);
+	});
+	return false;
+}
+
+
+
 //Attempts to get the user's profile
 function getProfile() {
 	console.log("Requested Profile");
@@ -221,6 +249,75 @@ function displayProfile(profile) {
 
 
 
+// Displays the specified employees (in JSON) as a table. 
+function displayEmployees(employees) {
+	// Create the layout of the table
+	let table = document.createElement("table");
+	let thead = document.createElement("thead");
+	let tbody = document.createElement("tbody");
+	
+	// Create 9 columns
+	let trHead = document.createElement("tr");
+	
+	// Creates a new column and ads it to the trHead
+	function addColumn (newColumnText) {
+		let th = document.createElement("th");
+		th.innerHTML = newColumnText;
+		trHead.appendChild(th);
+	}
+	
+	addColumn("ID");
+	addColumn("Name");
+	addColumn("Username");
+	addColumn("");
+	
+	
+	// Add them to the table head. 
+	thead.appendChild(trHead);
+	table.appendChild(thead);
+	
+	
+	
+	// A function to facilitate adding elements to a row
+	function addToRow(tableRow, newData) {
+		let td = document.createElement("td");
+		td.innerHTML = newData;
+		tableRow.appendChild(td);
+	}
+	// For each reimbursement, create a row and add it to the table
+	for (let i=0; i < employees.length; i++) {
+		let trBody = document.createElement("tr");
+		
+		addToRow(trBody, employees[i]["id"])
+		addToRow(trBody, employees[i]["name"]);
+		addToRow(trBody, employees[i]["username"]);
+		
+		// Create a button that views an employee's reimbursements when clicked. 
+		let button = document.createElement("button");
+		button.innerHTML = "View Reimbursements";
+		button.addEventListener("click", function() {getEmployeeReimbursements(employees[i]["id"]);});
+		
+		// Put the button in the table
+		let td = document.createElement("td");
+		td.appendChild(button);
+		trBody.appendChild(td);
+		
+		tbody.appendChild(trBody);
+	}
+	
+	
+	// Add the elements to the table
+	table.appendChild(tbody);
+	
+	// Remove the old output. 
+	document.getElementById("outputContainer").innerHTML = "";
+	
+	// Add the table to the output. 
+	document.getElementById("outputContainer").appendChild(table);
+} // end of displayEmployees
+
+
+
 // Displays the specified reimbursements (in JSON) as a table. 
 function displayReimbursements(reimbursements) {
 	// Create the layout of the table
@@ -333,7 +430,7 @@ function sendAjaxGet(url, callback) {
 	xhr.send();
 	
 	// Set the last Request that we made. 
-	LastXHR = xhr;
+	lastXHR = xhr;
 }
 
 

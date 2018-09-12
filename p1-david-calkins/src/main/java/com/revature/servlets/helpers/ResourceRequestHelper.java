@@ -41,6 +41,7 @@ public class ResourceRequestHelper {
 	private static final String ALL_PENDING = "allPending"; 
 	private static final String ALL_RESOLVED = "allResolved";
 	private static final String ALL_EMPLOYEES = "allEmployees";
+	private static final String EMPLOYEE_PENDING = "empPending";
 	
 	public static boolean isResourceRequest(HttpServletRequest request) {
 		return request.getParameter(RESOURCE_REQUEST) != null;
@@ -127,6 +128,35 @@ public class ResourceRequestHelper {
 				
 				// Send the output and return. 
 				pw.println(remString);
+			}
+			// If the user is requesting pending reimbursement request for a 
+			// specific employee, fetch and return as JSON
+			else if (resourceReq.equals(EMPLOYEE_PENDING)) {
+				// Confirm that the employee is a manager. If not, invalidate
+				// the session, as the employee shouldn't have tried to access
+				// manager functions 
+				if (manDao.tryCastManager(emp, con) == null) {
+					request.getSession(false).invalidate();
+				}
+				
+				// If there are additional parameters, get them. 
+				String empId = request.getParameter("id");
+				if (empId != null) {// TODO better validation
+					Employee otherEmp = empDao.getEmployeeById(Long.parseLong(empId), con);
+					
+					// Get all the pending requests for the employee
+					List<Reimbursement> employees = remDao.getByRequester(otherEmp, con);
+					
+					String remString = om.writeValueAsString(employees);
+					
+					// Send the output and return. 
+					pw.println(remString);
+				}
+				// Otherwise, there is a problem with this request. 
+				else {
+					LogUtil.logDebug("No Id Param");
+					response.sendError(400);
+				}
 			}
 			// If the user is requesting resolved reimbursements, fetch & return 
 			// as JSON. 
