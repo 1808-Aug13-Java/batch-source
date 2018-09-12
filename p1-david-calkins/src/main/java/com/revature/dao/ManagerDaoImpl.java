@@ -53,7 +53,7 @@ public class ManagerDaoImpl implements ManagerDao {
 				m.setName(e.getName());
 				m.setUsername(e.getUsername());
 				m.setPasswordHash(e.getPasswordHash());
-				System.out.println(m);
+//				System.out.println(m);
 				// Read the row and add employees to the list
 				do {
 					employees.add(new Employee(

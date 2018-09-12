@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.revature.servlets.helpers.HtmlManager;
 import com.revature.servlets.helpers.ResourceRequestHelper;
 import com.revature.servlets.helpers.SessionManager;
+import com.revature.util.LogUtil;
 
 public class MasterServlet extends HttpServlet {
 	
@@ -22,28 +23,28 @@ public class MasterServlet extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException  {
-		System.out.println("Get Request Recieved");
+		LogUtil.logInfo("Get Request Recieved");
 		
 		// Get and print the full URL + query args (if applicable)
 		String queryArgs = request.getQueryString() == null ?
 							"" : "?" + request.getQueryString();
-		System.out.println(request.getRequestURL().toString() + queryArgs);
+		LogUtil.logInfo(request.getRequestURL().toString() + queryArgs);
 		
 		
 		try {
 			// If the request already has a session, say so
 			if (request.getSession(false) != null) {
-				System.out.println("User: " + request.getSession().getAttribute("username"));
+				LogUtil.logInfo("User: " + request.getSession().getAttribute("username"));
 				
 				// If the user is requesting a resource, send it to the resource
 				// helper. 
 				if (ResourceRequestHelper.isResourceRequest(request)) {
-					System.out.println("Delegating to ResourceHelper");
+					LogUtil.logInfo("Delegating to ResourceHelper");
 					ResourceRequestHelper.routeResource(request, response);
 				}
 				// Otherwise, just navigate to the appropriate page for the user
 				else {
-					System.out.println("Delegating to HtmlHelper");
+					LogUtil.logInfo("Delegating to HtmlHelper");
 					HtmlManager.routePage(request, response);
 				}
 			}
@@ -72,19 +73,19 @@ public class MasterServlet extends HttpServlet {
 	
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("POST Request Recieved");
+		LogUtil.logInfo("POST Request Recieved");
 		
 		// If a username has been provided for this request, check the username and 
 		// password. If it is a good match, save a new session. 
 		if (request.getParameter("username") != null) {
-			System.out.println("username: " + request.getParameter("username"));
-			System.out.println("pasword: " + request.getParameter("password"));
+			LogUtil.logInfo("username: " + request.getParameter("username"));
+			LogUtil.logInfo("pasword: " + request.getParameter("password"));
 			SessionManager.tryCreateSession(request, response);
 			return;
 		}
 		// Otherwise, if there is already a session, 
 		else if (request.getSession(false) != null){
-			System.out.println("Already Logged! " + request.getSession().getAttribute("username"));
+			LogUtil.logInfo("Already Logged! " + request.getSession().getAttribute("username"));
 			HtmlManager.routePage(request, response);
 		}
 		

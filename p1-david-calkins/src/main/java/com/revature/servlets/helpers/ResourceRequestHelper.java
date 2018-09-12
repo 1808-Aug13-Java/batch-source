@@ -26,6 +26,8 @@ import com.revature.util.LogUtil;
 public class ResourceRequestHelper {
 	
 	
+	private ResourceRequestHelper () {}
+	
 	/**
 	 * This string represents the expected parameter of a resource request
 	 */
@@ -81,7 +83,7 @@ public class ResourceRequestHelper {
 		
 		// If this is a logout request, log the user out. 
 		if (resourceReq.equals(LOGOUT)) {
-			System.out.println("Logged Out ");
+			LogUtil.logInfo("Logged Out ");
 			request.getSession(false).invalidate();
 			return;
 		}
@@ -259,7 +261,7 @@ public class ResourceRequestHelper {
 					// Update the server with the new Reimbursement
 					remDao.createReimRequest(reim, con);
 					
-					System.out.println(reim);
+					LogUtil.logInfo(reim);
 				} else {
 					// One of the additional parameters wasn't found, return error
 					response.sendError(400);
@@ -293,7 +295,6 @@ public class ResourceRequestHelper {
 					default: LogUtil.logDebug("Invalid boolean string: " + approve);
 					}
 					
-					System.out.println(rem);
 					remDao.updateReimRequest(rem, con);
 				}
 				// Otherwise, there is a problem with this request. 
@@ -309,7 +310,7 @@ public class ResourceRequestHelper {
 		} catch (SQLException ex) {
 			// If sql error, send a 500 code, and return. 
 			response.sendError(500);
-			ex.printStackTrace();
+			LogUtil.logDebug(ex);
 		}
 	} // end of routeResource
 	
