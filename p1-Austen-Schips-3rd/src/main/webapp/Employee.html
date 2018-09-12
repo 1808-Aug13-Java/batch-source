@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  
+  <title>Home</title>
+  <meta http-equiv ="X-UA-Compatible" content="IE=edge">
+    <style>
+  .modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+  </style>
+</head>
+<body> <!-- onload="onLoad()"-->
+  <div class="container"> <!-- Add space around text and underline-->
+    <div class="page-header">
+      <h1>Employee Home</h1>
+    </div>
+    <table id="Empinfo" class="table">
+      <tr style="border:2px solid black;">
+        <th>Employee Info:</th> <th><a href=# onclick="logout()">Log Out</a></th>
+      </tr>
+      <tr>
+        <td style="border:2px solid black;">Employee Name:</td><td id="empname" style="border:2px solid black;">Data</td>
+      </tr>
+      <tr>
+        <td style="border:2px solid black;">Employee Email:</td><td id="empmail" style="border:2px solid black;">Data</td>
+      </tr>
+      <tr style="border:2px solid black;">
+        <th>Update Info:</th> <th><button class="btn btn-primary" id="myBtn">Click Here:</button></th>
+      </tr>
+    </table>
+  <!-- The Modal -->
+<div id="myModal" class="modal" >
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <form action="Update" method="post">
+      <div class="form-group">
+      <label for="textinput" class="col-form-label">Username*</label>
+       <div class="col-10">
+        <input class="form-control" type="text" id="user1" name="user1" placeholder="Username">
+       </div>
+     </div>
+     <div class="form-group">
+      <label for="textinput" class="col-form-label">FirstName*</label>
+       <div class="col-10">
+        <input class="form-control" type="text" id="fname" name="fname" placeholder="First Name">
+       </div>
+     </div>
+     <div class="form-group">
+      <label for="textinput" class="col-form-label">LastName*</label>
+       <div class="col-10">
+        <input class="form-control" type="text" id="lname" name="lname" placeholder="Last Name">
+       </div>
+     </div>
+      <div class="form-group">
+      <label for="textinput" class="col-form-label">E-Mail*</label>
+       <div class="col-10">
+        <input class="form-control" type="email" id="email" name="email" placeholder="Example@abc.com" value=sessionStorage.email required>
+       </div>
+     </div>
+     <div class="form-group">
+      <label for="InputPassword1">Password*</label>
+      <input type="password" class="form-control" id="pass1" name="pass1" placeholder="Password" required>
+     </div>
+      </br>
+  <input type="submit" value="Change Info" class="btn btn-primary"/>
+    </form>
+  </div>
+
+</div>
+  <form action="Submit" method="post">
+    <div class="page-header">
+      <h1>Submit New Requests</h1>
+    </div>
+     <div class="form-group">
+      <label for="exampleTextarea">Amount</label><br/>
+      $<input type="number" value="10.00" min="0" step=".01" data-number-to-fixed="2" data-number-stepfactor="100" class="currency" id="amount" name="amount" />
+    </div>
+  <div class="form-group">
+  <div class="form-group">
+    <label for="exampleTextarea">Description</label>
+    <textarea class="form-control" id="reimbdesc" name="reimbdesc" rows="3">Dummy Text</textarea>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputFile">Upload File (BETA)</label>
+    <input type="file" class="form-control-file" id="fileIn" name="fileIn" aria-describedby="file">
+    <small id="fileHelp" class="form-text text-muted">Upload file here.</small>
+  </div>
+    <input type="number" name="HiddenID" id="HiddenID" style="display:none;"/>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+  <div class="page-header">
+      <h1>Existing Requests</h1>
+    </div>
+  <table class="table">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Status</th>
+      <th>Date Submitted</th>
+      <th>Date Viewed</th>
+      <th>Amount</th>
+    </tr>
+  </thead>
+  <tbody id="toReplace">
+    <tr>
+      <th scope="row">1</th>
+      <td>Data</td>
+      <td>Data</td>
+      <td>Data</td>
+      <td>Data</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<!--
+<a href='#' onclick='betafunction()'>BETA: APPROVE ALL</a> <br/>
+<a href='#' onclick='betafunction2()'>BETA: DENY ALL</a>  -->
+</body>
+<!-- <script>
+function onLoad(){
+	if(!sessionStorage.user){
+		logout();
+	}
+	document.getElementById("empname").innerHTML = sessionStorage.user;
+	document.getElementById("empmail").innerHTML = sessionStorage.email;
+	document.getElementById("toReplace").innerHTML = sessionStorage.table;
+    document.getElementById("HiddenID").value = sessionStorage.id;
+    
+}
+function logout(){
+    sessionStorage.removeItem("user");
+    sessionStorage.removeItem("pass");
+    sessionStorage.removeItem("manager");
+    sessionStorage.removeItem("id");
+    sessionStorage.removeItem("email");
+    sessionStorage.clear();
+    
+    window.location.href = 'Index.html';
+  }
+function betafunction(){
+	alert("You clicked...");
+	let xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function() {
+		console.log(this.readyState);
+		if (this.readyState === 4 && this.status === 200){
+			alert("Completed");
+		}
+	};
+	xhttp.open("GET", "Approve", true);
+	xhttp.send();
+}
+function betafunction2(){
+	alert("You clicked...");
+	let xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function() {
+		console.log(this.readyState);
+		if (this.readyState === 4 && this.status === 200){
+			alert("Completed");
+		}
+	};
+	xhttp.open("GET", "Deny", true);
+	xhttp.send();
+}
+  // Get the modal
+var modal = document.getElementById('myModal');
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+// When the user clicks on the button, open the modal 
+btn.onclick = function() {
+    modal.style.display = "block";
+    document.getElementById("user1").value = sessionStorage.user;
+	document.getElementById("email").value = sessionStorage.email;
+	document.getElementById("fname").value = sessionStorage.fname;
+	document.getElementById("lname").value = sessionStorage.lname;
+}
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    modal.style.display = "none";
+}
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>-->
+</html>

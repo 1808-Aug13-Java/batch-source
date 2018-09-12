@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  
+  <title>Home</title>
+  <meta http-equiv ="X-UA-Compatible" content="IE=edge">
+</head>
+<body onload="onLoad()">
+  <div class="container"> <!-- Add space around text and underline-->
+    <div class="page-header">
+      <h1>Manager Home</h1>
+    </div>
+    <table id="Empinfo" class="table">
+      <tr style="border:2px solid black;">
+        <th>Employee Info:</th> <th><a href=# onclick="logout()">Log Out</a></th>
+      </tr>
+      <tr>
+        <td style="border:2px solid black;">Employee Name:</td><td id="empname" style="border:2px solid black;">DUMMY</td>
+      </tr>
+      <tr>
+        <td style="border:2px solid black;">Employee Email:</td><td id="empmail" style="border:2px solid black;">DUMMY</td>
+      </tr>
+    </table>
+  
+  <div class="page-header">
+      <h1>Existing Requests</h1>
+    </div>
+  <table class="table">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Status</th>
+      <th>Date Submitted</th>
+      <th>Date Viewed</th>
+      <th>Amount</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody id="toReplace">
+    <tr>
+      <th scope="row">1</th>
+      <td>Data</td>
+      <td>Data</td>
+      <td>Data</td>
+      <td>Data</td>
+      <td>Data</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<script type="text/javascript" src="Scripts/Directory.js"></script>	
+</body>
+</html>

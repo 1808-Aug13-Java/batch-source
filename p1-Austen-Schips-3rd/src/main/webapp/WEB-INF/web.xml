@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+  <display-name>p1-Austen-Schips-3rd</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  <servlet>
+  <servlet-name>Login</servlet-name>
+<servlet-class>com.revature.servlets.Login</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>Login</servlet-name>
+	<url-pattern>/Login</url-pattern>
+</servlet-mapping>
+<servlet>
+  <servlet-name>Register</servlet-name>
+<servlet-class>com.revature.servlets.Register</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>Register</servlet-name>
+	<url-pattern>/Register</url-pattern>
+</servlet-mapping>
+<servlet>
+  <servlet-name>Submit</servlet-name>
+<servlet-class>com.revature.servlets.Submit</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>Submit</servlet-name>
+	<url-pattern>/Submit</url-pattern>
+</servlet-mapping>
+<servlet>
+  <servlet-name>Approve</servlet-name>
+<servlet-class>com.revature.servlets.Approve</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>Approve</servlet-name>
+	<url-pattern>/Approve</url-pattern>
+</servlet-mapping>
+<servlet>
+  <servlet-name>Deny</servlet-name>
+<servlet-class>com.revature.servlets.Deny</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>Deny</servlet-name>
+	<url-pattern>/Deny</url-pattern>
+</servlet-mapping>
+<servlet>
+  <servlet-name>Manage</servlet-name>
+<servlet-class>com.revature.servlets.Manage</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>Manage</servlet-name>
+	<url-pattern>/Manage</url-pattern>
+</servlet-mapping>
+</web-app>
