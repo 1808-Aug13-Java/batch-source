@@ -57,9 +57,9 @@ public class SessionManager {
 			// If the returned value isn't null (which means the username 
 			// matches), and the password hash matches, make a new session, 
 			// and redirect the user. 
-			if (emp != null )
+			if (emp != null 
 				// TODO: Actually use the password system. 
-//				&& emp.getPasswordHash().equals(StringHasher.sha256Hash(password)))
+				&& emp.getPasswordHash().equals(StringHasher.sha256Hash(password)))
 			{
 				request.getSession().setAttribute("username", username);
 				request.getSession().setMaxInactiveInterval(TIMEOUT_SECONDS);

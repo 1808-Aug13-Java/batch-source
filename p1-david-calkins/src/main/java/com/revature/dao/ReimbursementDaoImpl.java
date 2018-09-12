@@ -1,11 +1,9 @@
 package com.revature.dao;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -13,10 +11,11 @@ import java.util.List;
 import com.revature.models.Employee;
 import com.revature.models.Manager;
 import com.revature.models.Reimbursement;
-import com.revature.util.LogUtil;
 
 public class ReimbursementDaoImpl implements ReimbursementDao{
-
+	
+	
+	
 	@Override
 	public Reimbursement getById(long id, Connection con) throws SQLException {
 		String[] binds = {"rem_id", Long.toString(id)};
@@ -198,14 +197,74 @@ public class ReimbursementDaoImpl implements ReimbursementDao{
 	
 	
 	
+	
 	@Override
-	public long createReimRequest(Reimbursement reim) throws SQLException {
-		// TODO Auto-generated method stub
-		return 0;
+	public long createReimRequest(Reimbursement reim, Connection con) throws SQLException {
+		final String sql = "INSERT INTO Reimbursement "
+				+ "(rem_id, requester_id, status, amount, submit_date, descr, "
+				+ "resolved_by, reason, resolve_date)"
+				+ " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		// Used to hold the key from the generated object
+		long key = -1;
+		
+		// A result set for getting the generated key
+		ResultSet rs = null;
+		
+		// This is necessary as OracleDB doesn't properly return the generated 
+		// key when using the Statement.RETURN_GENERATED_KEYS flag in a 
+		// statement. 
+		String[] keyName = {"rem_id"};
+		
+		// Attempt to create a statement and execute it. 
+		try (PreparedStatement ps = con.prepareStatement(sql, keyName)) {
+			// Bind the variables to the statement
+			ps.setLong(1, reim.getId());
+			ps.setLong(2, reim.getRequester().getId());
+			// Extract the status from the string
+			//TODO: Temporarily hardcoded
+			long status = 1;
+			switch (reim.getStatus()) {
+			case "Pending": status = 1; break;
+			case "Approved": status = 2; break;
+			case "Denied": status = 3; break;
+			}
+			ps.setLong(3, status);
+			ps.setDouble(4, reim.getAmount());
+			ps.setDate(5, (reim.getSubmitDate()==null? null :
+							new java.sql.Date(reim.getSubmitDate().getTime())));
+			ps.setString(6, reim.getDescription());
+			// Handle null variable
+			if (reim.getResolvedBy()==null) {
+				ps.setNull(7, java.sql.Types.INTEGER);
+			} else {
+				ps.setLong(7, reim.getResolvedBy().getId());
+			}
+			
+			ps.setString(8, reim.getReason());
+			ps.setDate(9,  reim.getResolveDate()==null? null : 
+							new java.sql.Date(reim.getResolveDate().getTime()));
+			
+			ps.executeUpdate();
+			
+			// Get the key that was generated from the insertion of the account
+			rs = ps.getGeneratedKeys();
+			if (rs.next()) {
+				key = rs.getLong(1);
+				
+				// Also set the client's key
+				reim.setId(key);
+			}
+			
+		} finally {
+			// Try to close the result set
+			try {if (rs!=null) rs.close();} catch(SQLException e) {}
+		}
+		
+		return key;
 	}
 
 	@Override
-	public int updateReimRequest(Reimbursement reim) throws SQLException {
+	public int updateReimRequest(Reimbursement reim, Connection con) throws SQLException {
 		// TODO Auto-generated method stub
 		return 0;
 	}

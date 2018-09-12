@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -34,6 +35,7 @@ public class ResourceRequestHelper {
 	private static final String PENDING = "pending";
 	private static final String RESOLVED = "resolved";
 	private static final String PROFILE = "profile";
+	private static final String NEW_REIMBURSEMENT = "newReim";
 	
 	public static boolean isResourceRequest(HttpServletRequest request) {
 		return request.getParameter(RESOURCE_REQUEST) != null;
@@ -81,11 +83,20 @@ public class ResourceRequestHelper {
 			// Initialize object mapper. 
 			om = new ObjectMapper();
 			
+			// Get the employee associated with the user. 
+			Employee emp = empDao.getEmployeeByUsername(username, con);
+			
+			// If there isn't an employee associated with the user, invalidate
+			// the sesion. 
+			if (emp == null) {
+				request.getSession(false).invalidate();
+				response.sendError(400);
+				return;
+			}
+			
 			// If the user is requesting pending reimbursements, fetch & return 
 			// as JSON. 
 			if (resourceReq.equals(PENDING)) {
-				Employee emp = empDao.getEmployeeByUsername(username, con);
-				
 				// Get the pending requests for the specified employee
 				List<Reimbursement> reimbursements = remDao.getPendingByRequester(emp, con);
 				
@@ -93,27 +104,21 @@ public class ResourceRequestHelper {
 				
 				// Send the output and return. 
 				pw.println(remString);
-				return;
 			}
 			// If the user is requesting resolved reimbursements, fetch & return 
 			// as JSON. 
 			else if (resourceReq.equals(RESOLVED)) {
-				Employee emp = empDao.getEmployeeByUsername(username, con);
-				
 				// Get the pending requests for the specified employee
 				List<Reimbursement> reimbursements = remDao.getResolvedByRequester(emp, con);
 				
 				String remString = om.writeValueAsString(reimbursements);
 				
-				// Send the output and return. 
+				// Send the output. 
 				pw.println(remString);
-				return;
 			}
 			// If the user is requesting resolved reimbursements, fetch & return 
 			// as JSON. 
 			else if (resourceReq.equals(PROFILE)) {
-				Employee emp = empDao.getEmployeeByUsername(username, con);
-				
 				// If there are additional parameters, get them, and update the 
 				// employee. 
 				String empName = request.getParameter("name");
@@ -128,9 +133,41 @@ public class ResourceRequestHelper {
 				
 				String remString = om.writeValueAsString(emp);
 				
-				// Send the output and return. 
+				// Send the output. 
 				pw.println(remString);
-				return;
+			}
+			// If this is a new reimbursement request, get the parameters and 
+			// insert it into the database. 
+			else if (resourceReq.equals(NEW_REIMBURSEMENT)) {
+				// If there are additional parameters, get them, and submit the 
+				// reimbursement. 
+				String amount = request.getParameter("amount");
+				String description = request.getParameter("description");
+				if (amount != null && description != null) {
+					LogUtil.logInfo("New Reimbursement Request");
+					
+					// Create and populate a new Reimbursement
+					Reimbursement reim = new Reimbursement();
+					reim.setRequester(emp);
+					reim.setDescription(description);
+					reim.setStatus("Pending");
+					reim.setSubmitDate(new Date());
+					try {
+						reim.setAmount(Double.parseDouble(amount));
+					} catch (NumberFormatException ex2) {
+						// If there is a problem parsing the number, return error
+						response.sendError(400);
+						return;
+					}
+					
+					// Update the server with the new Reimbursement
+					remDao.createReimRequest(reim, con);
+					
+					System.out.println(reim);
+				} else {
+					// One of the additional parameters wasn't found, return error
+					response.sendError(400);
+				}
 			}
 			// Otherwise, log that we couldn't find a resource match. 
 			else {
@@ -139,6 +176,7 @@ public class ResourceRequestHelper {
 		} catch (SQLException ex) {
 			// If sql error, send a 500 code, and return. 
 			response.sendError(500);
+			ex.printStackTrace();
 		}
 	} // end of routeResource
 	

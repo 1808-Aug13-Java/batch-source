@@ -26,7 +26,7 @@ public interface ReimbursementDao {
 	
 	public List<Reimbursement> getResolvedByRequester(Employee emp, Connection con) throws SQLException;
 	
-	public long createReimRequest(Reimbursement reim) throws SQLException;
+	public long createReimRequest(Reimbursement reim, Connection con) throws SQLException;
 	
-	public int updateReimRequest(Reimbursement reim) throws SQLException;
+	public int updateReimRequest(Reimbursement reim, Connection con) throws SQLException;
 }

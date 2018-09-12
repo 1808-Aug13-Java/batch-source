@@ -80,9 +80,80 @@ function updateProfile() {
 }
 
 
+// Attempts to submit a reimbursement request
+function submitReimRequest() {
+console.log("Requested New Reimbursement");
+	
+	// Get the user values for the new reimbursement request
+	let amount = document.getElementById("ammountId").value;
+	let description = document.getElementById("descriptionId").value;
+	
+	sendAjaxGet(URL + "?" + REQUEST + "=" + "newReim&amount=" + amount 
+				+ "&description=" + description, function (xhr) 
+	{
+		displaySubmitted();
+	});
+	return false;
+}
+
+
+
+
 // ============================================================
 // Display Functions 
 // ============================================================
+
+// Displays a message saying something was submitted successfully 
+function displaySubmitted() {
+	// Get the container for the output
+	let container = document.getElementById("outputContainer");
+	// Clear the old output, and display message
+	container.innerHTML = "<h4>Successfully Submitted</h4>";
+} // end of displaySubmitted
+
+
+// Displays a form for submitting a reimbursement request
+function displaySubmitReimbursement() {
+	// Get the container for the output
+	let container = document.getElementById("outputContainer");
+	// Clear the old output 
+	container.innerHTML = "";
+	
+	// Add a header for this form
+	let header = document.createElement("h4");
+	header.innerHTML = "Submit Reimbursement Request";
+	container.appendChild(header);
+	
+	// Create new elements for the form
+	let label1 = document.createElement("label");
+	let amountInput = document.createElement("input");
+	let label2 = document.createElement("label");
+	let descriptionInput = document.createElement("input");
+	let submitButton = document.createElement("button");
+	
+	// Set the inner html of the labels and button
+	label1.innerHTML = "Amount: ";
+	label2.innerHTML = "Description: ";
+	submitButton.innerHTML = "Submit Request";
+	
+	// Apply attributes, id's for getting input, input type, and an event handler
+	amountInput.setAttribute("id", "ammountId");
+	amountInput.setAttribute("type", "number");
+	descriptionInput.setAttribute("id", "descriptionId");
+	descriptionInput.setAttribute("type", "text");
+	submitButton.setAttribute("onclick", "submitReimRequest()");
+	
+	// Append the new elements to the HTML page.
+	container.appendChild(label1);
+	container.appendChild(amountInput);
+	container.appendChild(document.createElement("br"));
+	container.appendChild(label2);
+	container.appendChild(descriptionInput);
+	container.appendChild(document.createElement("br"));
+	container.appendChild(submitButton);
+	
+} // end of displaySubmitReimbursement
+
 
 // Displays a profile, along with a form to update it. 
 function displayProfile(profile) {
@@ -119,7 +190,7 @@ function displayProfile(profile) {
 	container.appendChild(label);
 	container.appendChild(input);
 	container.appendChild(inputButton);
-}
+} // end of displayProfile
 
 
 
@@ -204,7 +275,7 @@ function displayReimbursements(reimbursements) {
 	
 	// Add the table to the output. 
 	document.getElementById("outputContainer").appendChild(table);
-}
+} // end of displayReimbursements
 
 
 
