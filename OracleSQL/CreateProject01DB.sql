@@ -77,9 +77,12 @@ insert into Reimbursement_Status values(3, 'Denied');
 -- Test Manager, password is 'man'
 insert into employee (emp_id, emp_name, emp_username, emp_password) values (1, 'TestManager', 'man', '48b676e2b107da679512b793d5fd4cc4329f0c7c17a97cf6e0e3d1005b600b03');
 insert into manager values (1, 1);
+insert into employee (emp_id, emp_name, emp_username, emp_password) values (2, 'TestManager2', 'man2', '48b676e2b107da679512b793d5fd4cc4329f0c7c17a97cf6e0e3d1005b600b03');
+insert into manager values (2, 1);
 
 -- Test Emploee, password is 'emp'
-insert into employee (emp_id, emp_name, emp_username, emp_password) values (2, 'TestEmployee', 'emp', '9d586dc0a48a2ed04839e0a69750893438e8d379e2fa45e94e82c5b3abb00daa');
+insert into employee (emp_id, emp_name, emp_username, emp_password) values (3, 'TestEmployee', 'emp', '9d586dc0a48a2ed04839e0a69750893438e8d379e2fa45e94e82c5b3abb00daa');
+insert into employee (emp_id, emp_name, emp_username, emp_password) values (4, 'TestEmployee2', 'emp2', '9d586dc0a48a2ed04839e0a69750893438e8d379e2fa45e94e82c5b3abb00daa');
 
 
 -- Test Data

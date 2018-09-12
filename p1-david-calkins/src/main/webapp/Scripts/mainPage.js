@@ -372,7 +372,9 @@ function displayReimbursements(reimbursements) {
 	addColumn("Reason");
 	
 	// If this is a manager requesting, add another column for buttons
-	addColumn("Approve/Deny");
+	if (isManager) {
+		addColumn("Approve/Deny");
+	}
 	
 	// Add them to the table head. 
 	thead.appendChild(trHead);
