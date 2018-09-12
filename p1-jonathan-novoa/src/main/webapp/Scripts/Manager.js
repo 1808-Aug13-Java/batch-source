@@ -25,7 +25,9 @@ function populateUser(xhr){
 }
 
 
-
+function oneReim(){
+	sendAjaxGet("http://localhost:8082/p1-jonathan-novoa/one_reim", displayReim);
+}
 
 function viewPendReim() {
 	sendAjaxGet("http://localhost:8082/p1-jonathan-novoa/pend_reim", displayReim);
@@ -58,7 +60,8 @@ function displayReim(xhr) {
 		table.removeChild(table.lastChild)
 	}
 	
-	headerRow.innerHTML = `	<th>Status</th>
+	headerRow.innerHTML = `	<th> Employee Id</th> 
+			<th>Status</th>
 			<th> Resolution</th>
 			<th>Resolved by</th>
 			<th>Amount</th>
@@ -81,6 +84,7 @@ function displayReim(xhr) {
 	
 	for(i in empArr){
 		let newRow = document.createElement("tr");
+		
 	
 	if(empArr[i].empId){
 		empId = `${empArr[i].empId}`;
@@ -103,7 +107,9 @@ function displayReim(xhr) {
 	if(empArr[i].reimId){
 		reimId = `${empArr[i].reimId}`;
 	} 
-		newRow.innerHTML = `<td>${status} </td>
+
+		newRow.innerHTML = `<td> ${empId}</td> 
+			<td>${status} </td>
 			<td> ${reso} </td>
 			<td> ${manId} </td>
 			<td> ${amount} </td>

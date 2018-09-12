@@ -86,7 +86,21 @@ public class EmployeeDaoImpl implements EmployeeDao {
 	public List<Reimbursement> viewReimbursments(int empId, int choice) {
 		String pending = "SELECT * FROM REIM WHERE EMP_ID=? AND RESOLUTION='PENDING'";
 		String resolved= "SELECT * FROM REIM WHERE EMP_ID=? AND RESOLUTION !='PENDING'";
-		String sql=(choice==1)? pending:resolved;
+		String all= "SELECT * FROM REIM WHERE EMP_ID=?";
+//		String sql=(choice==1)? pending:resolved;
+		String sql=null;
+		switch(choice) {
+		case 1:{
+			sql=pending;
+			break;
+		}
+		case 2:{
+			sql=resolved;
+		}
+		default:{
+			sql=all;
+		}
+		}
 		List<Reimbursement> pendingReim=new ArrayList<>();
 		ResultSet rs=null;
 		try (Connection con = ConnectionUtil.getConnection(); PreparedStatement ps = con.prepareStatement(sql);) {
@@ -123,6 +137,9 @@ public class EmployeeDaoImpl implements EmployeeDao {
 		
 	}
 
+	public void viewAllReimbursements (int empId) {
+		
+	}
 	@Override
 	public Employee viewProfile(int id) {
 		String sql = "SELECT * FROM EMPLOYEES WHERE EMP_ID=?";
@@ -165,14 +182,26 @@ public class EmployeeDaoImpl implements EmployeeDao {
 	@Override
 	public int changeProfile(int id,String key, String firstName, String lastname, String username) {
 		int result=0;
-		String sql="UPDATE EMPLOYEES SET E_KEY=?, FIRST_NAME=?,LAST_NAME=?, EMAIL=? WHERE EMP_ID=?";
+		String sql="UPDATE EMPLOYEES"+
+				" SET E_KEY=?,"+
+				" FIRST_NAME=?,"+
+				"LAST_NAME=?,"+
+				"EMAIL=?"+
+				"WHERE EMP_ID=?";
+//		String sql = "UPDATE DEPARTMENT"+
+//				" SET DEPT_NAME = ?"+
+//				" MONTHLY_BUDGET = ?"+
+//				" WHERE DEPT_ID = ?";
+		
 		try (Connection con = ConnectionUtil.getConnection(); PreparedStatement ps = con.prepareStatement(sql);) {
-		ps.setString(1,key);
+			con.setAutoCommit(false);
+			ps.setString(1,key);
 		ps.setString(2, firstName);
 		ps.setString(3, lastname);
 		ps.setString(4, username);
 		ps.setInt(5, id);
 		result = ps.executeUpdate();
+		con.commit();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} catch (IOException e) {

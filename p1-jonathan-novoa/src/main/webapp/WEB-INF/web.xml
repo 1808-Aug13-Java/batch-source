@@ -149,4 +149,14 @@
     <servlet-name>ManViewAll</servlet-name>
     <url-pattern>/view_all_emp</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ManViewOneReim</display-name>
+    <servlet-name>ManViewOneReim</servlet-name>
+    <servlet-class>com.revature.reim.servlets.ManViewOneReim</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ManViewOneReim</servlet-name>
+    <url-pattern>/one_reim</url-pattern>
+  </servlet-mapping>
 </web-app>

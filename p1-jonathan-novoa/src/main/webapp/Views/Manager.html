@@ -34,6 +34,7 @@
 <div class="container">
 	<table id="table" hidden class="table" data-toggle="table" data-search="true" data-filter-control="true" data-show-export="true" data-click-to-select="true" data-toolbar="#toolbar">
 		<tr id="headerRow">
+			<th>Employee Id</th>
 			<th>Status</th>
 			<th>Resolution</th>
 			<th>Approved by</th>
@@ -58,8 +59,6 @@
 </div>
 <div class="container">
 	<form method="post" action="manager">
-	
-
 		<label>reimbursement id: </label><br>
 		<input type="text" name="reimId" class="form-control" />
 		<br>
@@ -71,9 +70,17 @@
 		
 		<input type="submit" value="Go" class="btn btn-primary" />
 	</form>
-
-
 </div>
+<div class="container">
+	<form method="post" action="one_reim">
+		<label>employee Id: </label><br>
+		<input type="text" name="empId" class="form-control" />
+		<br>
+		<input type="submit" value="Go" class="btn btn-primary" />
+	</form>
+</div>
+<br>
+<button class="btn btn-info" onclick="oneReim()">See one employee</button>
 
 
 
