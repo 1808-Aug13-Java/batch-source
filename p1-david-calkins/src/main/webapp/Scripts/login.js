@@ -2,7 +2,13 @@
 
 console.log("Hello World from directory.js");
 
+// The link to try and login at
 const URL = "http://localhost:8080/p1-david-calkins/reimbursement";
+
+
+const SUCCESS = "success";
+const FAIL = "no match";
+
 
 function onLoginClick() {
 	console.log("Button Clicked");
@@ -14,7 +20,18 @@ function onLoginClick() {
 	let postData = "username=" + username +"&password=" + password;
 	
 	sendAjaxPost("http://localhost:8080/p1-david-calkins/reimbursement", postData, function (xhr) {
-		console.log("Reponse.get" + xhr.responseText);
+		console.log("Reponse.get:" + xhr.responseText);
+		
+		// If the response was a successful login, reload the correct page
+		if ("" + xhr.responseText.trim() == SUCCESS) {
+			window.location.assign(URL);
+		}
+		// Otherwise, inform the user of invalid login
+		else {
+			document.getElementById("invalidHeader").removeAttribute("hidden");
+			console.log("Didn't Work");
+		}
+			
 	});
 }
 

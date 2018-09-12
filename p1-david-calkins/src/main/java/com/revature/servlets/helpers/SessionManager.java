@@ -21,9 +21,9 @@ public class SessionManager {
 	
 	private static final int TIMEOUT_SECONDS = 7200;
 	
-	private static final String NO_MATCH_STRING = "no match";
+	public static final String NO_MATCH_STRING = "no match";
 	
-	private static final String MATCH_STRING = "success";
+	public static final String MATCH_STRING = "success";
 	
 	/** Provided an HttpServletRequest and an HttpServletResponse, attempts
 	 * to create a session. Attempts to pull 'username' and 'password' 
@@ -34,14 +34,15 @@ public class SessionManager {
 	public static void tryCreateSession(HttpServletRequest request, 
 							HttpServletResponse response) throws IOException 
 	{
+		// Get the PrintWriter for the response
+		PrintWriter pw = response.getWriter();
+		
 		EmployeeDao empDao = new EmployeeDaoImpl();
 		
 		// Get the parameters from the user. 
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		
-		// Get the PrintWriter for the response
-		PrintWriter pw = response.getWriter();
 		
 		// If the request didn't have a recognizable username or password, 
 		// send a 400 status code. 
@@ -54,7 +55,7 @@ public class SessionManager {
 			Employee emp = empDao.getEmployeeByUsername(username, con);
 			
 			// If the returned value isn't null (which means the username 
-			// matches), and the pasword hash matches, make a new session, 
+			// matches), and the password hash matches, make a new session, 
 			// and redirect the user. 
 			if (emp != null )
 				// TODO: Actually use the password system. 
@@ -75,7 +76,6 @@ public class SessionManager {
 			ex.printStackTrace();
 			response.sendError(500);
 		}
-		
 	} // end of tryCreateSession
 	
 } // end of class SessionManager

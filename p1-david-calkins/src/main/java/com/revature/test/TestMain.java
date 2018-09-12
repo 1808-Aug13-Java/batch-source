@@ -100,20 +100,6 @@ public class TestMain {
 			con.rollback();
 		}
 		
-//		byte b1 = -127;
-//		
-//		int i1 = (0xFF & b1);
-//		
-//		System.out.println(i1);
-//		
-//		System.out.println(StringHasher.sha256Hash("asdf"));
-//		System.out.println(StringHasher.sha256Hash("asdf"));
-//		System.out.println(StringHasher.sha256Hash("qwer"));
-//		System.out.println(StringHasher.sha256Hash("qwer"));
-//		System.out.println(StringHasher.sha256Hash("asdf"));
-//		System.out.println(StringHasher.sha256Hash("asdf").length());
-//		System.out.println(StringHasher.sha256Hash("qwer").length());
-		
 	} // end of main
 
 }
