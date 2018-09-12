@@ -57,3 +57,17 @@ S
 #src/main/webapp/Scripts/Employee.js,5\0\50f12e9c48affc44139ea6e50a99ee45888889ad
 k
 ;src/main/java/com/revature/reim/servlets/Employee_Info.java,9\0\90655305877b1965bd4cf626546098ca5e0ef7f7
+j
+:src/main/java/com/revature/reim/servlets/ResolvedReim.java,8\3\83d21e954a2af6ed8ca4f526188fb57ff0e87ad8
+e
+5src/main/java/com/revature/reim/servlets/NewReim.java,7\7\7790a69b66ba2179f039039a5c5f297d67b4939d
+R
+"src/main/webapp/Views/Profile.html,0\f\0f00f7ba933c6ba78f7cf0b76bc7699393690435
+R
+"src/main/webapp/Views/NewReim.html,6\7\67f405239aff362926e15a4900208e5585ca7897
+R
+"src/main/webapp/Scripts/Profile.js,f\c\fc197ea5252af18d8d7be72c43c32d31098f4a63
+h
+8src/main/java/com/revature/reim/util/EmployeeHelper.java,4\e\4eb08ee502b212105a4904ca0e5fd75f50dd3a56
+m
+=src/main/java/com/revature/reim/servlets/EmployeeProfile.java,f\a\fa5280d963c678f656a2595f0989cc7d54267527

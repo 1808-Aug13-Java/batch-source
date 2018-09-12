@@ -17,7 +17,69 @@
 	<br>
 
 </div>
-<script src="./Scripts/CheckSession.js"></script>
+
+
+
+<hr>
+<button class="btn btn-info" id="pending" onclick="viewPendReim()"> View pending reimbursements</button>
+<button class="btn btn-info" id="resolved" onclick="viewResReim()"> View resolved reimbursements</button>
+<button class="btn btn-info" id="employee" onclick="viewEmployees()"> View Only Employees</button>
+<button class="btn btn-info" id="emp_man" onclick="viewAllEmp()"> View Employees and Managers</button>
+<br>
+<input type="text" id="userInput" onkeyup="search()" placeholder="Search for names..">
+
+
+
+<hr>
+<div class="container">
+	<table id="table" hidden class="table" data-toggle="table" data-search="true" data-filter-control="true" data-show-export="true" data-click-to-select="true" data-toolbar="#toolbar">
+		<tr id="headerRow">
+			<th>Status</th>
+			<th>Resolution</th>
+			<th>Approved by</th>
+			<th>Amount</th>
+			<th >Reimbursement Id
+				<th>
+		</tr>
+	</table>
+</div>
+<hr>
+<div class="container">
+	<table id="table2" hidden class="table" >
+		<tr id="headerRow">
+			<th>Employee ID</th>
+			<th>First</th>
+			<th>Last</th>
+			<th>email</th>
+			<th>Is Manager<th>
+			
+		</tr>
+	</table>
+</div>
+<div class="container">
+	<form method="post" action="manager">
+	
+
+		<label>reimbursement id: </label><br>
+		<input type="text" name="reimId" class="form-control" />
+		<br>
+		<select name="action" id="resolve">
+			<option value="1"> Approved</option>
+			<option value="2">Denied</option>
+		</select>
+			
+		
+		<input type="submit" value="Go" class="btn btn-primary" />
+	</form>
+
+
+</div>
+
+
+
+
+
+<script src="./Scripts/Manager.js"></script>
 <br>
 <br>
 <button class="btn btn-info" onclick="logout()">Logout</button>

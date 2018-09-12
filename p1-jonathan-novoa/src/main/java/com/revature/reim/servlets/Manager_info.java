@@ -1,26 +1,33 @@
 package com.revature.reim.servlets;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.revature.reim.dao.EmployeeDao;
 import com.revature.reim.dao.EmployeeDaoImpl;
 import com.revature.reim.dao.ManagerDao;
 import com.revature.reim.dao.ManagerDaoImpl;
+import com.revature.reim.model.Reimbursement;
+import com.revature.reim.util.EmployeeHelper;
 
 /**
- * Servlet implementation class ManagerServlet
+ * Servlet implementation class Manager_info
  */
-public class ManagerServlet extends HttpServlet {
+public class Manager_info extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ManagerServlet() {
+    public Manager_info() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,35 +36,18 @@ public class ManagerServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("Views/Manager.html").forward(request, response);
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		String reim=request.getParameter("reimId");
-		int reimId=Integer.parseInt(reim);
-		System.out.println(reim);
-		
-		String action=request.getParameter("action");
-		int actionInt=Integer.parseInt(action);
-		
-		EmployeeDaoImpl emp = new EmployeeDaoImpl();
-		ManagerDao man= new ManagerDaoImpl();
-		HttpSession session = request.getSession(false);
-		String uname=(String) session.getAttribute("username");
-		System.out.println(uname);
-
-		int empId=emp.getEmpId(uname);
-//		int result =emp.submitReimbursement(empId, amount);
-		int result =man.resolveRequest(reimId, empId, actionInt);
-		
-		System.out.println(result);
-		response.sendRedirect("manager");
-		
-		
+		String selection = request.getParameter("option");
+		int choice=Integer.parseInt(selection);
+		String path=EmployeeHelper.employeeSelect(choice);
+		request.getRequestDispatcher(path).forward(request, response);
 	}
 
 }

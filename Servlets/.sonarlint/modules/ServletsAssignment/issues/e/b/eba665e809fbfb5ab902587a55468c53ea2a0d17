@@ -1,32 +1,32 @@
 
+]squid:S19890"&Add a "try/catch" block for "forward".(ãìÄ8©€ı±Ú,HêRMINORZVULNERABILITY
+q
+squid:S106"9Replace this use of System.out or System.err by a logger.(¸ØÇèşÿÿÿÿ8°á¢²Ú,HëRMAJORZ
+CODE_SMELL
+l
+squid:S106"9Replace this use of System.out or System.err by a logger.(‹ÿî­8ŠÊ˜²Ú,HìRMAJORZ
+CODE_SMELL
+]squid:S1989"&Add a "try/catch" block for "forward".(ãìÄ8ÏŠ²Ú,HíRMINORZVULNERABILITY
+osquid:S1854"6Remove this useless assignment to local variable "pw".(“­†·øÿÿÿÿ8şè°Ú,HîRMAJORZ
+CODE_SMELL
+]squid:S19890"&Add a "try/catch" block for "forward".(ãìÄ8şè°Ú,HïRMINORZVULNERABILITY
+l
+squid:S106""9Replace this use of System.out or System.err by a logger.(¦±…¡8°á¢²Ú,HğRMAJORZ
+CODE_SMELL
 k
-squid:S106"9Replace this use of System.out or System.err by a logger.(Î±ä8şè°Ú,HÖRMAJORZ
+squid:S106"9Replace this use of System.out or System.err by a logger.(Î±ä8şè°Ú,HñRMAJORZ
 CODE_SMELL
-]squid:S19890"&Add a "try/catch" block for "forward".(ãìÄ8©€ı±Ú,HàRMINORZVULNERABILITY
-ssquid:S1161":Add the "@Override" annotation above this method signature(ş³‚”ûÿÿÿÿ8æê…±Ú,HÛRMAJORZ
+l
+squid:S106!"9Replace this use of System.out or System.err by a logger.(†±˜‚8ŠÊ˜²Ú,HòRMAJORZ
 CODE_SMELL
+ssquid:S1161":Add the "@Override" annotation above this method signature(ş³‚”ûÿÿÿÿ8æê…±Ú,HóRMAJORZ
+CODE_SMELL
+]squid:S1989)"&Add a "try/catch" block for "forward".(ãìÄ8şè°Ú,HôRMINORZVULNERABILITY
 q
-squid:S106"9Replace this use of System.out or System.err by a logger.(¸ØÇèşÿÿÿÿ8°á¢²Ú,HÒRMAJORZ
+squid:S106"9Replace this use of System.out or System.err by a logger.(Çæàäÿÿÿÿÿ8„úÍ±Ú,HõRMAJORZ
 CODE_SMELL
-l
-squid:S106"9Replace this use of System.out or System.err by a logger.(‹ÿî­8ŠÊ˜²Ú,H×RMAJORZ
+]squid:S1989"&Add a "try/catch" block for "forward".(ãìÄ8ÏŠ²Ú,HöRMINORZVULNERABILITY
+`squid:S1481"'Remove this unused "pw" local variable.(“­†·øÿÿÿÿ8şè°Ú,H÷RMINORZ
 CODE_SMELL
-`squid:S1481"'Remove this unused "pw" local variable.(“­†·øÿÿÿÿ8şè°Ú,HİRMINORZ
-CODE_SMELL
-]squid:S1989)"&Add a "try/catch" block for "forward".(ãìÄ8şè°Ú,HÙRMINORZVULNERABILITY
-dsquid:S1989"(Add a "try/catch" block for "getWriter".(“­†·øÿÿÿÿ8şè°Ú,HÓRMINORZVULNERABILITY
-]squid:S1989)"&Add a "try/catch" block for "forward".(ãìÄ8©€ı±Ú,HÜRMINORZVULNERABILITY
-]squid:S1989"&Add a "try/catch" block for "forward".(ãìÄ8ÏŠ²Ú,HÔRMINORZVULNERABILITY
-osquid:S1854"6Remove this useless assignment to local variable "pw".(“­†·øÿÿÿÿ8şè°Ú,HÑRMAJORZ
-CODE_SMELL
-l
-squid:S106""9Replace this use of System.out or System.err by a logger.(¦±…¡8°á¢²Ú,HÚRMAJORZ
-CODE_SMELL
-q
-squid:S106"9Replace this use of System.out or System.err by a logger.(Çæàäÿÿÿÿÿ8„úÍ±Ú,HÕRMAJORZ
-CODE_SMELL
-]squid:S1989"&Add a "try/catch" block for "forward".(ãìÄ8ÏŠ²Ú,HØRMINORZVULNERABILITY
-]squid:S19890"&Add a "try/catch" block for "forward".(ãìÄ8şè°Ú,HáRMINORZVULNERABILITY
-l
-squid:S106!"9Replace this use of System.out or System.err by a logger.(†±˜‚8ŠÊ˜²Ú,HßRMAJORZ
-CODE_SMELL
+dsquid:S1989"(Add a "try/catch" block for "getWriter".(“­†·øÿÿÿÿ8şè°Ú,HøRMINORZVULNERABILITY
+]squid:S1989)"&Add a "try/catch" block for "forward".(ãìÄ8©€ı±Ú,HùRMINORZVULNERABILITY

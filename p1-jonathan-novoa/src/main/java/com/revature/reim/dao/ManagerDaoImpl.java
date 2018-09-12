@@ -17,9 +17,12 @@ import com.revature.reim.util.ConnectionUtil;
 public class ManagerDaoImpl implements ManagerDao{
 
 	@Override
-	public List<Employee> viewAllEmployees() {
+	public List<Employee> viewAllEmployees(int choice) {
 		List<Employee> allEmployees = new ArrayList<>();
-		String sql = "SELECT * FROM EMPLOYEES WHERE IS_MANAGER=0"; 
+		String sql1 = "SELECT * FROM EMPLOYEES WHERE IS_MANAGER=0"; 
+		String sql2= "SELECT * FROM EMPLOYEES"; 
+		String sql= (choice==3)? sql1:sql2;
+		
 		ResultSet rs = null;
 		try (Connection con = ConnectionUtil.getConnection(); PreparedStatement ps = con.prepareStatement(sql);) {
 			rs = ps.executeQuery();
@@ -57,7 +60,7 @@ public class ManagerDaoImpl implements ManagerDao{
 	public List<Reimbursement> viewAllRequest(int i) {
 		List<Reimbursement> pendReims = new ArrayList<>();
 		String pending = "SELECT * FROM REIM WHERE RESOLUTION='PENDING'"; 
-		String resolved= "SELECT * FROM REIM WHERE RESOLUTION='APPROVED'";
+		String resolved= "SELECT * FROM REIM WHERE RESOLUTION!='PENDING'";
 		String sql= (i==1)? pending:resolved;
 		System.out.println(sql);
 		ResultSet rs = null;
@@ -97,7 +100,7 @@ public class ManagerDaoImpl implements ManagerDao{
 
 
 	@Override
-	public int resolveRequest(int empId,int reimId, int manId,int action) {
+	public int resolveRequest(int reimId, int manId,int action) {
 		String sql = "UPDATE REIM"+
 				" SET RESOLUTION = ?"+
 				", MANAGER_ID= ? "+

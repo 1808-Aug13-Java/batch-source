@@ -113,3 +113,7 @@ function display(xhr) {
 function logout(){
 	window.location="http://localhost:8082/p1-jonathan-novoa/logout"
 }
+
+function goHome(){
+	window.location = "http://localhost:8082/p1-jonathan-novoa/employee";
+}

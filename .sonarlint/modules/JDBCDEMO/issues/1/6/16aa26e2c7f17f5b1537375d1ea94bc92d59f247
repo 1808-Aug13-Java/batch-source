@@ -1,22 +1,22 @@
 
-csquid:S1989$"&Add a "try/catch" block for "forward".(Ì¯öËúÿÿÿÿ8çè‡ÖÚ,H„€RMINORZVULNERABILITY
-dsquid:S1989."'Add a "try/catch" block for "parseInt".(†›ö…üÿÿÿÿ8ê§şÖÚ,H…€RMINORZVULNERABILITY
-csquid:S1989A"+Add a "try/catch" block for "sendRedirect".(£Ä©¦8İ”ı×Ú,H†€RMINORZVULNERABILITY
-l
-squid:S106,"9Replace this use of System.out or System.err by a logger.(æï´8Ï Œ×Ú,H‡€RMAJORZ
+hsquid:S1161*":Add the "@Override" annotation above this method signature(‹¨¯¿HÀ‡RMAJORZ
 CODE_SMELL
+hsquid:S1989D"+Add a "try/catch" block for "sendRedirect".(¢§‘ùûÿÿÿÿ8Íş×Ú,H¯ˆRMINORZVULNERABILITY
 m
-squid:S106="9Replace this use of System.out or System.err by a logger.(Ã¥²Æ8æîû×Ú,Hˆ€RMAJORZ
+squid:S106="9Replace this use of System.out or System.err by a logger.(Ã¥²Æ8àÀ±Ü,H°ˆRMAJORZ
 CODE_SMELL
-csquid:S1989$"&Add a "try/catch" block for "forward".(Ì¯öËúÿÿÿÿ8çè‡ÖÚ,H‰€RMINORZVULNERABILITY
-dsquid:S1135"2Complete the task associated to this TODO comment.(ƒŠ® úÿÿÿÿHŠ€RINFOZ
+csquid:S1989$"&Add a "try/catch" block for "forward".(Ì¯öËúÿÿÿÿ8çè‡ÖÚ,H·‡RMINORZVULNERABILITY
+csquid:S1989A"+Add a "try/catch" block for "sendRedirect".(£Ä©¦8İ”ı×Ú,H±ˆRMINORZVULNERABILITY
+_squid:S1989-"'Add a "try/catch" block for "parseInt".(‚¿Á…8áàÿÖÚ,H²ˆRMINORZVULNERABILITY
+dsquid:S1135"2Complete the task associated to this TODO comment.(ƒŠ® úÿÿÿÿH¶‡RINFOZ
 CODE_SMELL
-msquid:S1161"":Add the "@Override" annotation above this method signature(Ïû©ÖûÿÿÿÿH‹€RMAJORZ
+msquid:S1161"":Add the "@Override" annotation above this method signature(Ïû©ÖûÿÿÿÿH¸‡RMAJORZ
 CODE_SMELL
-hsquid:S1161*":Add the "@Override" annotation above this method signature(‹¨¯¿HŒ€RMAJORZ
-CODE_SMELL
-hsquid:S1989D"+Add a "try/catch" block for "sendRedirect".(¢§‘ùûÿÿÿÿ8Íş×Ú,H€RMINORZVULNERABILITY
-_squid:S1989-"'Add a "try/catch" block for "parseInt".(‚¿Á…8áàÿÖÚ,H€RMINORZVULNERABILITY
 r
-squid:S1069"9Replace this use of System.out or System.err by a logger.(¨¶ÑÍşÿÿÿÿ8¬¨ä×Ú,H€RMAJORZ
+squid:S1069"9Replace this use of System.out or System.err by a logger.(¨¶ÑÍşÿÿÿÿ8¬¨ä×Ú,H³ˆRMAJORZ
 CODE_SMELL
+csquid:S1989$"&Add a "try/catch" block for "forward".(Ì¯öËúÿÿÿÿ8çè‡ÖÚ,Hº‡RMINORZVULNERABILITY
+l
+squid:S106,"9Replace this use of System.out or System.err by a logger.(æï´8Ï Œ×Ú,H´ˆRMAJORZ
+CODE_SMELL
+dsquid:S1989."'Add a "try/catch" block for "parseInt".(†›ö…üÿÿÿÿ8ÆôÇ±Ü,HµˆRMINORZVULNERABILITY

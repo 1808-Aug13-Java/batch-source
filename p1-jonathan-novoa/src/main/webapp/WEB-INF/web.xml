@@ -99,4 +99,54 @@
     <servlet-name>EmployeeProfile</servlet-name>
     <url-pattern>/employee_profile</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Manager_info</display-name>
+    <servlet-name>Manager_info</servlet-name>
+    <servlet-class>com.revature.reim.servlets.Manager_info</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Manager_info</servlet-name>
+    <url-pattern>/manager_info</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ManPendReim</display-name>
+    <servlet-name>ManPendReim</servlet-name>
+    <servlet-class>com.revature.reim.servlets.ManPendReim</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ManPendReim</servlet-name>
+    <url-pattern>/pend_reim</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ManResReim</display-name>
+    <servlet-name>ManResReim</servlet-name>
+    <servlet-class>com.revature.reim.servlets.ManResReim</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ManResReim</servlet-name>
+    <url-pattern>/res_reim</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ManViewEmp</display-name>
+    <servlet-name>ManViewEmp</servlet-name>
+    <servlet-class>com.revature.reim.servlets.ManViewEmp</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ManViewEmp</servlet-name>
+    <url-pattern>/view_emp</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ManViewAll</display-name>
+    <servlet-name>ManViewAll</servlet-name>
+    <servlet-class>com.revature.reim.servlets.ManViewAll</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ManViewAll</servlet-name>
+    <url-pattern>/view_all_emp</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -11,6 +11,6 @@ public interface EmployeeDao {
 	public int submitReimbursement(int id, double amount);//should need username now instead
 	public List<Reimbursement> viewReimbursments(int empId,int choice); //should also use username now
 	public Employee viewProfile(int id);//also needs to work with the username
-	public int changeProfile(int id,String key);//also needs to work with the username
+	public int changeProfile(int id,String key, String firstName, String lastName, String username);//also needs to work with the username
 	public int getEmpId(String username);
 }

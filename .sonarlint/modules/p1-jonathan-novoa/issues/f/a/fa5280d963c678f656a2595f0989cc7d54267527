@@ -1,0 +1,22 @@
+
+msquid:S1161$":Add the "@Override" annotation above this method signature(œ˚©÷˚ˇˇˇˇHÑçRMAJORZ
+CODE_SMELL
+nsquid:S19893"1Add a "try/catch" block for "writeValueAsString".(ƒñ‚¥˛ˇˇˇˇ8âÂ»≥‹,HÖçRMINORZVULNERABILITY
+Ésquid:UselessImportCheck"BRemove this unused import 'com.revature.reim.model.Reimbursement'.(Êîü
+8âÂ»≥‹,HÜçRMINORZ
+CODE_SMELL
+Zsquid:S1989@"$Add a "try/catch" block for "doGet".(Æ”ë˚ˇˇˇˇˇHáçRMINORZVULNERABILITY
+dsquid:S1135?"2Complete the task associated to this TODO comment.(ª†ÊûˇˇˇˇˇHàçRINFOZ
+CODE_SMELL
+Zsquid:S1989@"$Add a "try/catch" block for "doGet".(Æ”ë˚ˇˇˇˇˇHâçRMINORZVULNERABILITY
+dsquid:S1135"2Complete the task associated to this TODO comment.(ÉäÆ†˙ˇˇˇˇHäçRINFOZ
+CODE_SMELL
+hsquid:S1161>":Add the "@Override" annotation above this method signature(ã®ØøHãçRMAJORZ
+CODE_SMELL
+Äsquid:CommentedOutCodeLine+"<This block of commented-out lines of code should be removed.(ÚıÜ˜8óûÇµ‹,HåçRMAJORZ
+CODE_SMELL
+rsquid:UselessImportCheck"+Remove this unused import 'java.util.List'.(’Î±ƒ¯ˇˇˇˇ8âÂ»≥‹,HççRMINORZ
+CODE_SMELL
+^squid:S1989-"(Add a "try/catch" block for "getWriter".(ì≠Ü∑¯ˇˇˇˇHéçRMINORZVULNERABILITY
+Äsquid:CommentedOutCodeLine("<This block of commented-out lines of code should be removed.(—∂◊‰8óûÇµ‹,HèçRMAJORZ
+CODE_SMELL

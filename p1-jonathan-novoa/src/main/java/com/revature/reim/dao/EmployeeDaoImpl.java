@@ -163,12 +163,15 @@ public class EmployeeDaoImpl implements EmployeeDao {
 	}
 
 	@Override
-	public int changeProfile(int id,String key) {
+	public int changeProfile(int id,String key, String firstName, String lastname, String username) {
 		int result=0;
-		String sql="UPDATE EMPLOYEES SET E_KEY=? WHERE EMP_ID=?";
+		String sql="UPDATE EMPLOYEES SET E_KEY=?, FIRST_NAME=?,LAST_NAME=?, EMAIL=? WHERE EMP_ID=?";
 		try (Connection con = ConnectionUtil.getConnection(); PreparedStatement ps = con.prepareStatement(sql);) {
 		ps.setString(1,key);
-		ps.setInt(2, id); 
+		ps.setString(2, firstName);
+		ps.setString(3, lastname);
+		ps.setString(4, username);
+		ps.setInt(5, id);
 		result = ps.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();

@@ -13,19 +13,20 @@ import javax.servlet.http.HttpSession;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.revature.reim.dao.EmployeeDao;
 import com.revature.reim.dao.EmployeeDaoImpl;
+import com.revature.reim.dao.ManagerDao;
+import com.revature.reim.dao.ManagerDaoImpl;
 import com.revature.reim.model.Employee;
-import com.revature.reim.model.Reimbursement;
 
 /**
- * Servlet implementation class EmployeeProfile
+ * Servlet implementation class ManViewEmp
  */
-public class EmployeeProfile extends HttpServlet {
+public class ManViewEmp extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public EmployeeProfile() {
+    public ManViewEmp() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,41 +35,34 @@ public class EmployeeProfile extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
 		HttpSession session = request.getSession(false);
 		String uname=(String) session.getAttribute("username");
-//		System.out.println(uname);
+
+		System.out.println(uname);
 		EmployeeDao ed = new EmployeeDaoImpl();
+		ManagerDao man= new ManagerDaoImpl();
 		int empId= ed.getEmpId(uname);
-//		System.out.println(empId);
+		System.out.println(empId);
 		ObjectMapper om = new ObjectMapper();
 		PrintWriter pw = response.getWriter();
 			if(empId==0) {
 				pw.print("invalid employee id");
-			} 
+			}
 		else {
-			Employee e=ed.viewProfile(empId);
-			String empString = om.writeValueAsString(e);
-			empString = "{\"employee\":"+empString+"}";
-			pw.print(empString);
-		}
-		
-
+			List<Employee> reimbursementsList = man.viewAllEmployees(3);//pending reims
+			System.out.println(reimbursementsList);
+			String reimString = om.writeValueAsString(reimbursementsList);
+			reimString = "{\"employees\":"+reimString+"}";
+			pw.print(reimString);
+		}		
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String fname=request.getParameter("firstName");
-		String lname=request.getParameter("lastName");
-		String username=request.getParameter("email");
-		String password=request.getParameter("password");
-		EmployeeDaoImpl emp = new EmployeeDaoImpl();
-		int empId=emp.getEmpId(username);
-		int result=emp.changeProfile(empId, password, fname, lname, username);
-		System.out.println(result);
-		response.sendRedirect("employee");
+		// TODO Auto-generated method stub
+		doGet(request, response);
 	}
 
 }

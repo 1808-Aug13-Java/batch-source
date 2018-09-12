@@ -1,10 +1,13 @@
 
-…squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ü“ñûþÿÿÿÿ8º˜í»Û,HËRMAJORZ
+…squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ü“ñûþÿÿÿÿ8º˜í»Û,Há…RMAJORZ
 CODE_SMELL
-osquid:S1161,":Add the "@Override" annotation above this method signature(‹¨¯¿8Ô­©»Û,HÌRMAJORZ
+asquid:S1989."$Add a "try/catch" block for "doGet".(®Ó‘ûÿÿÿÿÿ8Ô­©»Û,Hå…RMINORZVULNERABILITY
+osquid:S1161-":Add the "@Override" annotation above this method signature(‹¨¯¿8Ô­©»Û,Hä…RMAJORZ
 CODE_SMELL
-tsquid:S1161":Add the "@Override" annotation above this method signature(Ïû©Öûÿÿÿÿ8Ô­©»Û,HÍRMAJORZ
+esquid:S1989 "(Add a "try/catch" block for "getWriter".(“­†·øÿÿÿÿ8¼¨î»Û,Hâ…RMINORZVULNERABILITY
+asquid:S1989."$Add a "try/catch" block for "doGet".(®Ó‘ûÿÿÿÿÿ8Ô­©»Û,Hà…RMINORZVULNERABILITY
+tsquid:S1161":Add the "@Override" annotation above this method signature(Ïû©Öûÿÿÿÿ8Ô­©»Û,Hã…RMAJORZ
 CODE_SMELL
-esquid:S1989"(Add a "try/catch" block for "getWriter".(“­†·øÿÿÿÿ8¼¨î»Û,HÎRMINORZVULNERABILITY
-asquid:S1989-"$Add a "try/catch" block for "doGet".(®Ó‘ûÿÿÿÿÿ8Ô­©»Û,HÏRMINORZVULNERABILITY
-asquid:S1989-"$Add a "try/catch" block for "doGet".(®Ó‘ûÿÿÿÿÿ8Ô­©»Û,HÐRMINORZVULNERABILITY
+m
+squid:S106"9Replace this use of System.out or System.err by a logger.(ãÅÛ¡8èŽ¤¯Ü,Hæ…RMAJORZ
+CODE_SMELL
