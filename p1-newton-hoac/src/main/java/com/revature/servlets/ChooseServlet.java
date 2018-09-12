@@ -31,8 +31,11 @@ public class ChooseServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession(false);
-		request.getRequestDispatcher("Views/Choose.html").forward(request, response);
-//		System.out.println("curr id: " +session.getAttribute("id"));
+		if (session != null && session.getAttribute("username") != null) {
+			request.getRequestDispatcher("Views/Choose.html").forward(request, response);
+		} else {
+			response.sendRedirect("login");
+		}
 	}
 
 	/**

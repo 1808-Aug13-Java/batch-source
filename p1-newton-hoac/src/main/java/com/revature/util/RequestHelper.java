@@ -19,6 +19,8 @@ public class RequestHelper {
 	public static String process(HttpServletRequest request) throws IOException{
 		HttpSession session = request.getSession();
 		int id = Integer.parseInt(session.getAttribute("id").toString());
+		ReimbursementDao rdi = new ReimbursementDaoImpl();
+		Reimbursement r = null;
 		switch(request.getParameter("Submit")) {
 			case "Update":
 				ProfileDao pdi = new ProfileDaoImpl();
@@ -42,8 +44,7 @@ public class RequestHelper {
 				pdi.updateProfile(p);
 				return "Update";
 			case "Create":
-				ReimbursementDao rdi = new ReimbursementDaoImpl();
-				Reimbursement r = new Reimbursement();
+				r = new Reimbursement();
 				r.setEmpId(id);
 				r.setStatus("PENDING");
 				if(request.getParameter("decription")  != "") {
@@ -54,6 +55,14 @@ public class RequestHelper {
 			case "Search":
 				
 				return "Search";
+			case "Handle":
+				int RId = Integer.parseInt(request.getParameter("RId").toString());
+				r = rdi.getReimbursementByRId(RId);
+				r.setManId(id);
+				r.setStatus("RESOLVED");
+				r.setAction(request.getParameter("action"));
+				rdi.updateReimbursement(r);
+				return "Handle";
 			case "Logout":
 				session.invalidate();
 				return "Logout";

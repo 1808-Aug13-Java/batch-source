@@ -43,8 +43,19 @@
 				<th>Email</th>
 				</tr>
 		</table>
-		
-		
+		<br>
+		<hr>
+		<br>
+		<h4>Handle Reimbursements</h4>
+		<form action="manprofile" method="post">
+			<label>Reimbursement ID</label><br>
+			<input type="number" class="form-control" name="RId"><br>
+			<select name="action" class="form-control">
+				<option value="APPROVED">Approve</option>
+				<option value="DENIED">Deny</option>
+			</select><br>
+			<input type="submit" value="Handle" class="btn btn-info" name="Submit">
+		</form>
 		<br>
 		<hr>
 		<br>
