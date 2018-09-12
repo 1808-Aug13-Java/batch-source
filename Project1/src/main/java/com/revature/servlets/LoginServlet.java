@@ -1,11 +1,15 @@
 package com.revature.servlets;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import com.revature.util.RequestHelper;
 
 /**
  * Servlet implementation class LoginServlet
@@ -24,7 +28,7 @@ public class LoginServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("Login.html").forward(request, response);
+		request.getRequestDispatcher("Views/Login.html").forward(request, response);
 	}
 
 	/**
@@ -36,18 +40,13 @@ public class LoginServlet extends HttpServlet {
 		
 		// get session
 		HttpSession session = request.getSession();
+
+		String destination = RequestHelper.loggingIn(request, user, pass);
 		
-		if(user.equals("admin") && pass.equals("pass123")) {
-			// set some attribute using session
-			session.setAttribute("username", user);
-			
-			// send redirect to profile
-			response.sendRedirect("profile");
-		} else {
-			// we want to send a redirect if correct username and password not provided
-			response.sendRedirect("login");
-			
-		}
+		session.setAttribute("username", user);
+		
+		response.sendRedirect(destination);
+		
 	}
 
 }

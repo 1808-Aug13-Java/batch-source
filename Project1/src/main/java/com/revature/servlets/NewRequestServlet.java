@@ -7,6 +7,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.revature.dao.ReimbursementDao;
 import com.revature.dao.ReimbursementDaoImpl;
@@ -41,20 +42,29 @@ public class NewRequestServlet extends HttpServlet {
 	 * note: should NOT have logic in servlets. They should only be for getting and retrieving info really
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession session = request.getSession();
+		String currentUser = "" + session.getAttribute("username");
+		
+		System.out.println("currentUser:  " + currentUser);
+		
 		String name = request.getParameter("name");
-		//int reimbursementId = Integer.parseInt(request.getParameter(""));
+		String reason = request.getParameter("reason");
+		
 		String requestAmountDollars= request.getParameter("dollars");
-		String requestAmountCents= request.getParameter("cents");
+		String requestAmountCents= ""+request.getParameter("cents");
 		String requestAmtString = requestAmountDollars + "." + requestAmountCents;
 		BigDecimal totalRequestAmt = new BigDecimal(requestAmtString);
-
-		Zukemployee e = new Zukemployee();
-		e.setName(name);
-		Reimbursement r = new Reimbursement();
-		//r.setId(reimbursementId);
-
-		System.out.println(e);
-		System.out.println(totalRequestAmt);
+		
+		//System.out.println("requesting amt (in BigDecimal):  " + totalRequestAmt);
+		
+		ZukemployeeDao zdi = new ZukemployeeDaoImpl();
+		Zukemployee z = zdi.getEmployeeByUsername(currentUser);
+		int currentUserId = z.getId();
+		System.out.println("current user id:  " + currentUserId);
+		
+		Reimbursement r = new Reimbursement(reason, "PENDING", totalRequestAmt, 0, currentUserId);
+		
+		System.out.println("the reimbursement:  " + r);
 
 		ReimbursementDao rd = new ReimbursementDaoImpl();
 

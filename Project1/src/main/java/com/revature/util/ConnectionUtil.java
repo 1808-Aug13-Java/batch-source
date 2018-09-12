@@ -14,7 +14,7 @@ public class ConnectionUtil {
 
 	// want to create a private connection
 	private static Connection connection; // must import Connection
-
+/*
 	// we do not want to do this hard coding in future, but to test connection
 	public static Connection getHardCodedConnection() throws SQLException {
 		// our string should be in format:
@@ -29,6 +29,7 @@ public class ConnectionUtil {
 		// otherwise connect
 		return connection;
 	}
+*/
 
 	//this is going to return to me a connection
 	public static Connection getConnection() throws IOException, SQLException {

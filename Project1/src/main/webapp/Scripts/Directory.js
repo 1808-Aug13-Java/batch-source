@@ -27,23 +27,23 @@ function display(xhr){
 	for(i in employeeArr){
 		let newRow = document.createElement("tr");
 		
-		if(employeeArr[i].location){
-			loc = `${employeeArr[i].location.city}, ${employeeArr[i].location.state}`;
+		if(employeeArr[i].position){
+			pos = employeeArr[i].position;
 		} else {
-			loc = "n/a";
+			pos = "n/a";
 		}
 		
-		if(employeeArr[i].department){
-			dpt = employeeArr[i].department.name;
+		if(employeeArr[i].reportsTo){
+			managerId = employeeArr[i].reportsTo;
 		} else {
-			dpt = "n/a";
+			managerId = "n/a";
 		}
-		
-		newRow.innerHTML = `<td>${employeeArr[i].name} </td>
-		<td> ${loc} </td>
-		<td> ${dpt} </td> `;
+	
+		newRow.innerHTML = `<td>${employeeArr[i].id} </td>
+		<td>${employeeArr[i].name} </td>
+		<td> ${pos} </td>
+		<td> ${managerId} </td> `;
 		
 		table.appendChild(newRow);
-		
 	}	
 }

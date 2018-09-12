@@ -18,7 +18,6 @@ public class ProfileServlet extends HttpServlet {
      */
     public ProfileServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
@@ -34,7 +33,7 @@ public class ProfileServlet extends HttpServlet {
 		// if not null
 		if(session != null && session.getAttribute("username") != null) {
 			//forward our request
-			request.getRequestDispatcher("Profile.html").forward(request, response);
+			request.getRequestDispatcher("Views/Profile.html").forward(request, response);
 		} else {
 		//otherwise redirect (url change)
 			response.sendRedirect("login");
@@ -45,7 +44,6 @@ public class ProfileServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

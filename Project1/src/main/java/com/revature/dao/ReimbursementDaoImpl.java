@@ -398,11 +398,6 @@ public class ReimbursementDaoImpl implements ReimbursementDao {
 		return r;
 	}
 
-	//	@Override
-	//	public Reimbursement getSingleRequestById(int id, Connection con) {
-	//		return null;
-	//	}
-
 	@Override
 	public int createRequest(Reimbursement reimbursement) {
 		int requestsCreated = 0;

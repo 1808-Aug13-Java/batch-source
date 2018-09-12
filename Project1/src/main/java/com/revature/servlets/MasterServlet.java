@@ -17,7 +17,7 @@ public class MasterServlet extends HttpServlet {
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public MasterServlet() {
+    public MasterServlet() { // this master servlet will link to the different home pages
         super();
     }
 

@@ -20,7 +20,6 @@ public class LogoutServlet extends HttpServlet {
      */
     public LogoutServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
@@ -30,8 +29,7 @@ public class LogoutServlet extends HttpServlet {
 		HttpSession session = request.getSession(false);
 		if(session != null) {
 			session.invalidate();
-		} // otherwise it's null anyway, so no need to do anything
-		
+		}
 		PrintWriter pw = response.getWriter();
 		response.setContentType("text/html");
 		pw.write("<p> You have successfully been logged out </p>");
@@ -42,7 +40,6 @@ public class LogoutServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 
