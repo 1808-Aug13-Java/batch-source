@@ -18,10 +18,9 @@ public class ReimbursementDaoImpl implements ReimbursementDao{
 	
 	@Override
 	public Reimbursement getById(long id, Connection con) throws SQLException {
-		String[] binds = {"rem_id", Long.toString(id)};
-		String[] conditions = {"="};
+		SQLCondition[] conditions = {new SQLCondition("rem_id", id, "=")};
 		
-		List<Reimbursement> reims = getReimbursements(binds, conditions, con);
+		List<Reimbursement> reims = getReimbursements(conditions, con);
 		
 		if (reims.isEmpty()) {
 			return null;
@@ -32,55 +31,53 @@ public class ReimbursementDaoImpl implements ReimbursementDao{
 
 	@Override
 	public List<Reimbursement> getAll(Connection con) throws SQLException {
-		String[] binds = {"1", "1"};
-		String[] conditions = {"="};
-		return getReimbursements(binds, conditions, con);
+		SQLCondition[] conditions = {new SQLCondition("1", "1", "=")};
+		return getReimbursements(conditions, con);
 	}
 
 	@Override
 	public List<Reimbursement> getAllPending(Connection con) throws SQLException {
-		String[] binds = {"status_string", "'Pending'"};
-		String[] conditions = {"="};
-		return getReimbursements(binds, conditions, con);
+		SQLCondition[] conditions = {new SQLCondition("status_string", "Pending", "=")};
+		return getReimbursements(conditions, con);
 	}
 
 	@Override
 	public List<Reimbursement> getAllResolved(Connection con) throws SQLException {
-		String[] binds = {"status_string", "'Pending'"};
-		String[] conditions = {"!="};
-		return getReimbursements(binds, conditions, con);
+		SQLCondition[] conditions = {new SQLCondition("status_string", "Pending", "!=")};
+		return getReimbursements(conditions, con);
 	}
 	
 	
 	@Override
 	public List<Reimbursement> getByRequester(Employee emp, Connection con) throws SQLException {
-		String[] binds = {"requester_id", Long.toString(emp.getId())};
-		String[] conditions = {"="};
-		return getReimbursements(binds, conditions, con);
+		SQLCondition[] conditions = {new SQLCondition("requester_id", emp.getId(), "=")};
+		return getReimbursements(conditions, con);
 	}
 	
 
 	@Override
 	public List<Reimbursement> getPendingByRequester(Employee emp, Connection con) throws SQLException {
-		String[] binds = {"requester_id", Long.toString(emp.getId()), 
-				"status_string", "'Pending'"};
-		String[] conditions = {"=", "="};
-		return getReimbursements(binds, conditions, con);
+		SQLCondition[] conditions = {
+				new SQLCondition("requester_id", emp.getId(), "="),
+				new SQLCondition("status_string", "Pending", "=")
+			};
+		return getReimbursements(conditions, con);
 	}
 
 	@Override
 	public List<Reimbursement> getResolvedByRequester(Employee emp, Connection con) throws SQLException {
-		String[] binds = {"requester_id", Long.toString(emp.getId()), 
-				"status_string", "'Pending'"};
-		String[] conditions = {"=", "!="};
-		return getReimbursements(binds, conditions, con);
+		SQLCondition[] conditions = {
+				new SQLCondition("requester_id", emp.getId(), "="),
+				new SQLCondition("status_string", "Pending", "!=")
+			};
+		return getReimbursements(conditions, con);
 	}
 	
 	
 	
 	
 	
-	private List<Reimbursement> getReimbursements(String[] binds, String[] conditions,
+	private List<Reimbursement> getReimbursements(SQLCondition[] conditions,
 											Connection con) throws SQLException 
 	{
 		String sql = "SELECT "
@@ -91,7 +88,7 @@ public class ReimbursementDaoImpl implements ReimbursementDao{
 				+ "JOIN Reimbursement_status RS ON R.status = RS.status_number "
 				+ "LEFT JOIN Employee E ON E.emp_id = R.requester_id "
 				+ "LEFT JOIN Employee M ON M.emp_id = R.resolved_by "
-				+ "WHERE ? ~ ?";
+				+ "WHERE ";
 		// A list to return the reimbursements. 
 		ArrayList<Reimbursement> reimbursements = new ArrayList<>();
 
@@ -102,37 +99,34 @@ public class ReimbursementDaoImpl implements ReimbursementDao{
 		Object tempObject = null;
 		
 		
-		// If here are more than two binds, add more and clauses. 
-		if (binds.length > 2) {
-			StringBuilder sb = new StringBuilder(sql);
-			for (int i=2; i<binds.length; i+=2) {
-				sb.append(" AND ? ~ ?");
+		// Add the SQLConditionals to a string builder, placing a '?' in place 
+		// of the right-hand argument. 
+		StringBuilder sqlBuilder = new StringBuilder(sql);
+		for (int i=0; i<conditions.length; i++) {
+			sqlBuilder.append(conditions[i].getLeftHand());
+			sqlBuilder.append(" ");
+			sqlBuilder.append(conditions[i].getCondition());
+			sqlBuilder.append(" ?");
+			
+			// If this is not the last condition, add an and clause. 
+			if (conditions.length - i > 1) {
+				sqlBuilder.append(" AND ");
 			}
-			sql = sb.toString();
 		}
+		// Set the new sql string. 
+		sql = sqlBuilder.toString();
 		
-		// Replace the tildas with conditional. 
-		for (String condition : conditions) {
-			sql = sql.replaceFirst("~", condition);
-		}
+		System.out.println(sql);
 		
-		// TODO: Temporary Patch as Can't Test equality between a Bound String
-		// and a Bound Number. Sigh
-		for (int i=0; i<binds.length; i++) {
-			sql = sql.replaceFirst("\\?", binds[i]);
-		}
 		
 		// Attempt to create a statement and execute it. 
 		try (PreparedStatement ps = con.prepareStatement(sql)) {
 			// Bind the variables to the query
-//			for (int i=0; i<columns.length; i++) {
-//				sql = sql.replaceFirst("\\?", columns[i]);
-////				ps.setObject(i*2+1, columns[i]);
-//				ps.setObject(i+1, values[i]);
-//			}
+			for (int i=0; i<conditions.length; i++) {
+				ps.setObject(i+1, conditions[i].getRightHand());
+			}
 			
 			
-
 			// Keep in mind, this needs to be closed 
 			rs = ps.executeQuery();
 
