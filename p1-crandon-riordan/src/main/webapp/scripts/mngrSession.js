@@ -24,26 +24,27 @@ function populatPendingReimbursments(xhr) {
   let table = document.getElementById("tbodyPending");
   table.innerHTML = "";
   for (let reimbursment of reimbursments) {
+    let color = reimbursment.manager == undefined ? "table-light" : "";
     let trEl = document.createElement("tr");
     trEl.innerHTML = `
-    <td>${reimbursment.reimbursmentId}</td>
-    <td>${reimbursment.employeeId}</td>
-    <td>${reimbursment.employee.name}</td>
-    <td>${reimbursment.reason}</td>
-    <td>$${reimbursment.amount}</td>
-    <td>${reimbursment.currentState.toUpperCase()}</td>
-    <td>${new Date(reimbursment.dateCreated).toLocaleDateString()}</td>
-    <td>${reimbursment.manager != undefined ? reimbursment.manager.name : "N/A"}</td>
+    <td class=${color}>${reimbursment.reimbursmentId}</td>
+    <td class=${color}>${reimbursment.employeeId}</td>
+    <td class=${color}>${reimbursment.employee.name}</td>
+    <td class=${color}>${reimbursment.reason}</td>
+    <td class=${color}>$${reimbursment.amount}</td>
+    <td class=${color}>${reimbursment.currentState.toUpperCase()}</td>
+    <td class=${color}>${new Date(reimbursment.dateCreated).toLocaleDateString()}</td>
+    <td class=${color}>${reimbursment.manager != undefined ? reimbursment.manager.name : "N/A"}</td>
     `;
 
     if (reimbursment.currentState.toLowerCase() == "pending") {
       trEl.innerHTML += `
-      <td>
+      <td class=${color}>
       <i onclick="approveRequest(event); " class="material-icons pointer approve">
         done
       </i>
     </td>
-    <td>
+    <td class=${color}>
       <i onclick="denyRequest(event);" class="material-icons pointer deny">
         delete_outline
       </i>
@@ -58,30 +59,31 @@ function populatPendingReimbursments(xhr) {
 function populateResolvedReimbursments(xhr) {
   let response = JSON.parse(xhr.responseText);
   let reimbursments = response.reimbursments;
-
+  
   let table = document.getElementById("tbodyResolved");
   table.innerHTML = "";
   for (let reimbursment of reimbursments) {
+    let color = reimbursment.manager == undefined ? "table-light" : "";
     let trEl = document.createElement("tr");
     trEl.innerHTML = `
-    <td>${reimbursment.reimbursmentId}</td>
-    <td>${reimbursment.employeeId}</td>
-    <td>${reimbursment.employee.name}</td>
-    <td>${reimbursment.reason}</td>
-    <td>$${reimbursment.amount}</td>
-    <td>${reimbursment.currentState.toUpperCase()}</td>
-    <td>${new Date(reimbursment.dateCreated).toLocaleDateString()}</td>
-    <td>${reimbursment.manager != undefined ? reimbursment.manager.name : "N/A"}</td>
+    <td class=${color}>${reimbursment.reimbursmentId}</td>
+    <td class=${color}>${reimbursment.employeeId}</td>
+    <td class=${color}>${reimbursment.employee.name}</td>
+    <td class=${color}>${reimbursment.reason}</td>
+    <td class=${color}>$${reimbursment.amount}</td>
+    <td class=${color}>${reimbursment.currentState.toUpperCase()}</td>
+    <td class=${color}>${new Date(reimbursment.dateCreated).toLocaleDateString()}</td>
+    <td class=${color}>${reimbursment.manager != undefined ? reimbursment.manager.name : "N/A"}</td>
     `;
 
     if (reimbursment.currentState.toLowerCase() == "pending") {
       trEl.innerHTML += `
-        <td>
+        <td class=${color}>
           <i onclick="approveRequest(event)" class="material-icons pointer approve">
             done
           </i>
         </td>
-        <td>
+        <td class=${color}>
           <i onclick="denyRequest(event)" class="material-icons pointer deny">
             delete_outline
           </i>
@@ -130,25 +132,26 @@ document.addEventListener("DOMContentLoaded", function () {
 
     for (let reimbursment of reimbursments) {
       let trEl = document.createElement("tr");
+      let color = reimbursment.manager == undefined ? "table-light" : "";
       trEl.innerHTML = `
-      <td>${reimbursment.reimbursmentId}</td>
-      <td>${reimbursment.employeeId}</td>
-      <td>${reimbursment.employee.name}</td>
-      <td>${reimbursment.reason}</td>
-      <td>$${reimbursment.amount}</td>
-      <td>${reimbursment.currentState.toUpperCase()}</td>
-      <td>${new Date(reimbursment.dateCreated).toLocaleDateString()}</td>
-      <td>${reimbursment.manager != undefined ? reimbursment.manager.name : "N/A"}</td>
+      <td class=${color}>${reimbursment.reimbursmentId}</td>
+      <td class=${color}>${reimbursment.employeeId}</td>
+      <td class=${color}>${reimbursment.employee.name}</td>
+      <td class=${color} class=${color}>${reimbursment.reason}</td>
+      <td class=${color}>$${reimbursment.amount}</td>
+      <td class=${color}>${reimbursment.currentState.toUpperCase()}</td>
+      <td class=${color}>${new Date(reimbursment.dateCreated).toLocaleDateString()}</td>
+      <td class=${color}>${reimbursment.manager != undefined ? reimbursment.manager.name : "N/A"}</td>
       `;
 
       if (reimbursment.currentState.toLowerCase() == "pending") {
         trEl.innerHTML += `
-        <td>
+        <td class=${color}>
         <i onclick="approveRequest(event); " class="material-icons pointer approve">
           done
         </i>
       </td>
-      <td>
+      <td class=${color}>
         <i onclick="denyRequest(event); " class="material-icons pointer deny">
           delete_outline
         </i>

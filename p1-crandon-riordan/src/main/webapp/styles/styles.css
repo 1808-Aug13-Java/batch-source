@@ -2,11 +2,29 @@
   width: 50%;
   display: inline-block;
   margin: 0 auto;
-  margin-top: 2%;
   margin-left: 2%;
+}
+
+.form-signin-heading {
+  margin-bottom: 30px;
 }
 
 div.alert.alert-warning {
   margin: 0 auto;
   margin-top: 1%;
 }
+
+div.jumbotron {
+  margin-top: 30px;
+  background-color: #e3f2fd;
+}
+
+button.btn-block {
+  margin: 0 auto;
+  margin-top: 30px;
+}
+
+input.form-control {
+  margin: 0 auto;
+}
+
