@@ -25,6 +25,13 @@ public class Bear {
 		this.beehives = beehives;
 	}
 
+	public Bear(String name, Date birthday, Cave cave) {
+		super();
+		this.name = name;
+		this.birthday = birthday;
+		this.cave = cave;
+	}
+	
 	public int getId() {
 		return id;
 	}
@@ -63,6 +70,10 @@ public class Bear {
 
 	public void setBeehives(List<Beehive> beehives) {
 		this.beehives = beehives;
+	}
+	
+	public void addBeehive(Beehive bh) {
+		this.beehives.add(bh);
 	}
 
 	@Override

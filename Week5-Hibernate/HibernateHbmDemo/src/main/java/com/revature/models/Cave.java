@@ -14,6 +14,11 @@ public class Cave {
 		this.id = id;
 		this.name = name;
 	}
+	
+	public Cave(String name) {
+		super();
+		this.name = name;
+	}
 
 	public int getId() {
 		return id;

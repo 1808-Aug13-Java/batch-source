@@ -9,6 +9,11 @@ public class Beehive {
 		super();
 	}
 
+	public Beehive(int weight) {
+		super();
+		this.weight = weight;
+	}
+	
 	public Beehive(int id, int weight) {
 		super();
 		this.id = id;
