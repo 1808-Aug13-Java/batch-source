@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.revature.models.Invoice" table="INVOICE">
+		<id name="id" column="INVOICE_ID">
+			<generator class="increment"></generator>
+		</id>
+		
+		<property name="submitDate" type="org.hibernate.type.DateType" column="SUBMIT_DATE"></property>
+		
+		<property name="amount" column="INVOICE_AMOUNT"></property>
+	</class>
+</hibernate-mapping>

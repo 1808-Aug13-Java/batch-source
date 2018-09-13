@@ -88,6 +88,9 @@ Servers/
 # Connection Properties
 connection.properties
 
+# Hibernate Configuration Properties
+hibernate.cfg.xml
+
 # End of https://www.gitignore.io/api/eclipse
 
 */target/*
