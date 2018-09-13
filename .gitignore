@@ -85,10 +85,11 @@ Servers/
 # End of https://www.gitignore.io/api/eclipse
 
 */target/*
+
 */target/**
 */target/
 .recommenders
 
 #sonar
-.sonarlint
+.sonarlint/
 
