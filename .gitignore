@@ -88,3 +88,7 @@ Servers/
 */target/**
 */target/
 .recommenders
+
+#sonar
+.sonarlint
+
