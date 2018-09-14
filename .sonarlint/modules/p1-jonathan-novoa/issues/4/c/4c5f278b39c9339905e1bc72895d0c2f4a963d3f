@@ -1,28 +1,29 @@
 
-csquid:S00108q")Either remove or fill this block of code.(ÒÌâ–øÿÿÿÿ8ƒ‹ÁÛ,HÌtRMAJORZ
+gsquid:S1199t"-Extract this nested code block into a method.(ÒÌâ–øÿÿÿÿ8äöÎßÜ,HŠ“RMINORZ
 CODE_SMELL
-_squid:S11481"#Use a logger to log this exception.(Âşÿâûÿÿÿÿ8ÊûıŒÛ,HÚtRMINORZVULNERABILITY
-`squid:S1148°"#Use a logger to log this exception.(½äÁéşÿÿÿÿ8§¶Ú‹Û,HØtRMINORZVULNERABILITY
-`squid:S1148›"#Use a logger to log this exception.(Âşÿâûÿÿÿÿ8Ş÷ë²Û,H¤uRMINORZVULNERABILITY
-_squid:S1148T"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ˆ‡ŒÛ,HËtRMINORZVULNERABILITY
-fsquid:S1199q"-Extract this nested code block into a method.(ÒÌâ–øÿÿÿÿ8ƒ‹ÁÛ,HÑtRMINORZ
+`squid:S1148."#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8äöÎßÜ,H“RMINORZVULNERABILITY
+`squid:S1148]"#Use a logger to log this exception.(Âşÿâûÿÿÿÿ8äöÎßÜ,H’“RMINORZVULNERABILITY
+`squid:S1148W"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8äöÎßÜ,H‘“RMINORZVULNERABILITY
+asquid:S1148˜"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8äöÎßÜ,H”“RMINORZVULNERABILITY
+asquid:S1148³"#Use a logger to log this exception.(½äÁéşÿÿÿÿ8äöÎßÜ,H–“RMINORZVULNERABILITY
+dsquid:S00108t")Either remove or fill this block of code.(ÒÌâ–øÿÿÿÿ8äöÎßÜ,H“RMAJORZ
 CODE_SMELL
-_squid:S1148t"#Use a logger to log this exception.(½äÁéşÿÿÿÿ8ƒ‹ÁÛ,HÊtRMINORZVULNERABILITY
-l
-squid:S106>"9Replace this use of System.out or System.err by a logger.(Â–‘ö8À™›Û,HÖtRMAJORZ
+qsquid:UselessImportCheck"*Remove this unused import 'java.util.Map'.(¼è½Òşÿÿÿÿ8ï”ß‹Û,Hö‘RMINORZ
 CODE_SMELL
-_squid:S1148Z"#Use a logger to log this exception.(Âşÿâûÿÿÿÿ8ˆ‡ŒÛ,HĞtRMINORZVULNERABILITY
-psquid:UselessImportCheck"*Remove this unused import 'java.util.Map'.(¼è½Òşÿÿÿÿ8ï”ß‹Û,HÍtRMINORZ
+’squid:S2077"RUse a variable binding mechanism to construct this query instead of concatenation.(áªİ‘şÿÿÿÿ8äöÎßÜ,H‡“RCRITICALZVULNERABILITY
+`squid:S1148w"#Use a logger to log this exception.(½äÁéşÿÿÿÿ8äöÎßÜ,H““RMINORZVULNERABILITY
+usquid:UselessImportCheck	".Remove this unused import 'java.util.HashMap'.(™˜”€ùÿÿÿÿ8ï”ß‹Û,Hü‘RMINORZ
 CODE_SMELL
-q
-squid:S106o"9Replace this use of System.out or System.err by a logger.(ÇŞá”ıÿÿÿÿ8úƒ­Û,HÔtRMAJORZ
+m
+squid:S106A"9Replace this use of System.out or System.err by a logger.(Â–‘ö8äöÎßÜ,H‹“RMAJORZ
 CODE_SMELL
-_squid:S1148+"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8§¶Ú‹Û,HÒtRMINORZVULNERABILITY
-~squid:S1192"GDefine a constant instead of duplicating this literal "EMP_ID" 3 times.(‰Áš8ˆ‡ŒÛ,HÙtRCRITICALZ
+’squid:S2077C"RUse a variable binding mechanism to construct this query instead of concatenation.(áªİ‘şÿÿÿÿ8äöÎßÜ,Hˆ“RCRITICALZVULNERABILITY
+`squid:S11484"#Use a logger to log this exception.(Âşÿâûÿÿÿÿ8äöÎßÜ,H“RMINORZVULNERABILITY
+asquid:S1148"#Use a logger to log this exception.(Âşÿâûÿÿÿÿ8äöÎßÜ,H•“RMINORZVULNERABILITY
+‡squid:S00117'"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Š¶Û8äöÎßÜ,H“RMINORZ
 CODE_SMELL
-†squid:S00117$"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Š¶Û8§¶Ú‹Û,HÎtRMINORZ
+r
+squid:S106r"9Replace this use of System.out or System.err by a logger.(ÇŞá”ıÿÿÿÿ8äöÎßÜ,HŒ“RMAJORZ
 CODE_SMELL
-`squid:S1148•"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ÊûıŒÛ,HÕtRMINORZVULNERABILITY
-‘squid:S2077@"RUse a variable binding mechanism to construct this query instead of concatenation.(áªİ‘şÿÿÿÿ8´Ÿ¢Û,HÓtRCRITICALZVULNERABILITY
-tsquid:UselessImportCheck	".Remove this unused import 'java.util.HashMap'.(™˜”€ùÿÿÿÿ8ï”ß‹Û,H×tRMINORZ
+squid:S1192"GDefine a constant instead of duplicating this literal "EMP_ID" 3 times.(‰Áš8äöÎßÜ,H‰“RCRITICALZ
 CODE_SMELL

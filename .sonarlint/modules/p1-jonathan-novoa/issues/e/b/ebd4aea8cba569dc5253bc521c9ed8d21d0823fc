@@ -1,10 +1,10 @@
 
-]squid:S1989"&Add a "try/catch" block for "forward".(ã©„48«Ğ¥¸Û,HŸ„RMINORZVULNERABILITY
-]squid:S1989"&Add a "try/catch" block for "forward".(ã©„48«Ğ¥¸Û,H›„RMINORZVULNERABILITY
-msquid:S1161":Add the "@Override" annotation above this method signature(Ïû©ÖûÿÿÿÿHš„RMAJORZ
+hsquid:S1161!":Add the "@Override" annotation above this method signature(‹¨¯¿H¢RMAJORZ
 CODE_SMELL
-_squid:S1989#"'Add a "try/catch" block for "parseInt".(°Ó É8¤÷Ã²Ü,H©‹RMINORZVULNERABILITY
-hsquid:S1161!":Add the "@Override" annotation above this method signature(‹¨¯¿Hœ„RMAJORZ
+msquid:S1161":Add the "@Override" annotation above this method signature(Ïû©ÖûÿÿÿÿH RMAJORZ
 CODE_SMELL
-csquid:S1989%"&Add a "try/catch" block for "forward".(Ì¢úÿÿÿÿ8¦¬Ô´Ü,HÕŒRMINORZVULNERABILITY
-csquid:S1989%"&Add a "try/catch" block for "forward".(Ì¢úÿÿÿÿ8¦¬Ô´Ü,HÖŒRMINORZVULNERABILITY
+csquid:S1989%"&Add a "try/catch" block for "forward".(Ì¢úÿÿÿÿ8¦¬Ô´Ü,H¦RMINORZVULNERABILITY
+]squid:S1989"&Add a "try/catch" block for "forward".(ã©„48«Ğ¥¸Û,H¥RMINORZVULNERABILITY
+csquid:S1989%"&Add a "try/catch" block for "forward".(Ì¢úÿÿÿÿ8¦¬Ô´Ü,H¤RMINORZVULNERABILITY
+_squid:S1989#"'Add a "try/catch" block for "parseInt".(°Ó É8¤÷Ã²Ü,H£RMINORZVULNERABILITY
+]squid:S1989"&Add a "try/catch" block for "forward".(ã©„48«Ğ¥¸Û,H¡RMINORZVULNERABILITY

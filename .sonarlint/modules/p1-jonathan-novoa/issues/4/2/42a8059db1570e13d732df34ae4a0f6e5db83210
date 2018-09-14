@@ -1,0 +1,22 @@
+
+dsquid:S1135"2Complete the task associated to this TODO comment.(ƒŠ® úÿÿÿÿH¦–RINFOZ
+CODE_SMELL
+Zsquid:S1989A"$Add a "try/catch" block for "doGet".(®Ó‘ûÿÿÿÿÿH¤–RMINORZVULNERABILITY
+isquid:S19896"1Add a "try/catch" block for "writeValueAsString".(±¡¢ 8èÊÝâÜ,Hú–RMINORZVULNERABILITY
+^squid:S1989/"(Add a "try/catch" block for "getWriter".(“­†·øÿÿÿÿHù–RMINORZVULNERABILITY
+m
+squid:S1065"9Replace this use of System.out or System.err by a logger.(—”×…8èÊÝâÜ,Hý–RMAJORZ
+CODE_SMELL
+m
+squid:S106-"9Replace this use of System.out or System.err by a logger.(â«èÆ8èÊÝâÜ,Hü–RMAJORZ
+CODE_SMELL
+msquid:S1161%":Add the "@Override" annotation above this method signature(Ïû©ÖûÿÿÿÿH©–RMAJORZ
+CODE_SMELL
+Zsquid:S1989A"$Add a "try/catch" block for "doGet".(®Ó‘ûÿÿÿÿÿH¥–RMINORZVULNERABILITY
+l
+squid:S106)"9Replace this use of System.out or System.err by a logger.(†ðÊa8èÊÝâÜ,Hû–RMAJORZ
+CODE_SMELL
+dsquid:S1135@"2Complete the task associated to this TODO comment.(» æžÿÿÿÿÿH§–RINFOZ
+CODE_SMELL
+hsquid:S1161?":Add the "@Override" annotation above this method signature(‹¨¯¿Hª–RMAJORZ
+CODE_SMELL

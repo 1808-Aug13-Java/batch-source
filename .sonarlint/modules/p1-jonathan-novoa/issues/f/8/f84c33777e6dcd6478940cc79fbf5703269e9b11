@@ -1,14 +1,14 @@
 
-dsquid:S1135"2Complete the task associated to this TODO comment.(ƒŠ® úÿÿÿÿH—‡RINFOZ
+csquid:S1989"&Add a "try/catch" block for "forward".(ö©Í›şÿÿÿÿ8î¤Ú’Û,H¸RMINORZVULNERABILITY
+csquid:S1989."+Add a "try/catch" block for "sendRedirect".(Ÿò¿ˆ8‚²¦·Û,H¹RMINORZVULNERABILITY
+hsquid:S1161$":Add the "@Override" annotation above this method signature(‹¨¯¿H»RMAJORZ
 CODE_SMELL
-†squid:S1192%"IDefine a constant instead of duplicating this literal "username" 3 times.(ı”€óşÿÿÿÿ8Ğéù·Û,H˜‡RCRITICALZ
+csquid:S1989"&Add a "try/catch" block for "forward".(ö©Í›şÿÿÿÿ8î¤Ú’Û,H¾RMINORZVULNERABILITY
+dsquid:S1135"2Complete the task associated to this TODO comment.(ƒŠ® úÿÿÿÿH¼RINFOZ
 CODE_SMELL
-csquid:S1989"&Add a "try/catch" block for "forward".(ö©Í›şÿÿÿÿ8î¤Ú’Û,H™‡RMINORZVULNERABILITY
-msquid:S1161":Add the "@Override" annotation above this method signature(Ïû©ÖûÿÿÿÿHš‡RMAJORZ
+msquid:S1161":Add the "@Override" annotation above this method signature(Ïû©ÖûÿÿÿÿH½RMAJORZ
 CODE_SMELL
-hsquid:S1989*"+Add a "try/catch" block for "sendRedirect".(ÜÀ©¸úÿÿÿÿ8‚²¦·Û,H›‡RMINORZVULNERABILITY
-csquid:S1989"&Add a "try/catch" block for "forward".(ö©Í›şÿÿÿÿ8î¤Ú’Û,Hœ‡RMINORZVULNERABILITY
-hsquid:S19890"+Add a "try/catch" block for "sendRedirect".(×©ëÿÿÿÿÿ8Ğéù·Û,H‡RMINORZVULNERABILITY
-hsquid:S1161$":Add the "@Override" annotation above this method signature(‹¨¯¿H‡RMAJORZ
+hsquid:S19890"+Add a "try/catch" block for "sendRedirect".(×©ëÿÿÿÿÿ8Ğéù·Û,H¿RMINORZVULNERABILITY
+†squid:S1192%"IDefine a constant instead of duplicating this literal "username" 3 times.(ı”€óşÿÿÿÿ8Ğéù·Û,HºRCRITICALZ
 CODE_SMELL
-csquid:S1989."+Add a "try/catch" block for "sendRedirect".(Ÿò¿ˆ8‚²¦·Û,HŸ‡RMINORZVULNERABILITY
+hsquid:S1989*"+Add a "try/catch" block for "sendRedirect".(ÜÀ©¸úÿÿÿÿ8‚²¦·Û,H·RMINORZVULNERABILITY

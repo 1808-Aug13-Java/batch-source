@@ -1,0 +1,21 @@
+
+m
+squid:S106,"9Replace this use of System.out or System.err by a logger.(Áß‡Ü8Ä¸ù¤Ý,H¬§RMAJORZ
+CODE_SMELL
+€squid:CommentedOutCodeLine""<This block of commented-out lines of code should be removed.(ÿÞ é8€éø£Ý,HŸ¥RMAJORZ
+CODE_SMELL
+€squid:CommentedOutCodeLine/"<This block of commented-out lines of code should be removed.(°›Ã8íÑŽ¥Ý,HÙ§RMAJORZ
+CODE_SMELL
+bsquid:S1481"(Remove this unused "bhd" local variable.(‡ËÚœÿÿÿÿÿ8íÑŽ¥Ý,HÚ§RMINORZ
+CODE_SMELL
+qsquid:S1854"7Remove this useless assignment to local variable "bhd".(‡ËÚœÿÿÿÿÿ8íÑŽ¥Ý,HÝ§RMAJORZ
+CODE_SMELL
+€squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ôÌ¬˜8†æÁ£Ý,Hº¤RMAJORZ
+CODE_SMELL
+…squid:CommentedOutCodeLine "<This block of commented-out lines of code should be removed.(ì½ŒÜøÿÿÿÿ8ºªÛ£Ý,Hú¤RMAJORZ
+CODE_SMELL
+r
+squid:S106G"9Replace this use of System.out or System.err by a logger.(š—°øÿÿÿÿ8Ÿ…’¥Ý,Hæ§RMAJORZ
+CODE_SMELL
+squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(¨ÅÀM8êþñ£Ý,H˜¥RMAJORZ
+CODE_SMELL

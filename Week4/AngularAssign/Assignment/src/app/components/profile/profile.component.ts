@@ -12,6 +12,8 @@ export class ProfileComponent{
 
   hidden:boolean =false;
   buttontext:string="show";
+  name;
+  email;
 bye(){
   this.hidden=!this.hidden;
   if(this.buttontext==="show"){

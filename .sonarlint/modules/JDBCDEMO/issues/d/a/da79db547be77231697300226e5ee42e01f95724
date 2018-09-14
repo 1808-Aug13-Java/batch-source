@@ -1,60 +1,60 @@
 
-_squid:S1135œ"2Complete the task associated to this TODO comment.(úİ®Hı?RINFOZ
+esquid:S1135"2Complete the task associated to this TODO comment.(» æÿÿÿÿÿHíœRINFOZ
 CODE_SMELL
-ssquid:S2147’"ECombine this catch with the one at line 143, which has the same body.(ï­£ÄH‡@RMINORZ
+`squid:S1135Ë"2Complete the task associated to this TODO comment.(ÉÚõÎHîœRINFOZ
 CODE_SMELL
-Ysquid:S1148³"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿH‹@RMINORZVULNERABILITY
-ysquid:CommentedOutCodeLineÌ"<This block of commented-out lines of code should be removed.(†€éˆHô?RMAJORZ
+ysquid:CommentedOutCodeLine¿"<This block of commented-out lines of code should be removed.(ì“ŠWHïœRMAJORZ
 CODE_SMELL
-dsquid:S1135"2Complete the task associated to this TODO comment.(» æÿÿÿÿÿHú?RINFOZ
+squid:CommentedOutCodeLineÇ"<This block of commented-out lines of code should be removed.(¤Î–éûÿÿÿÿHğœRMAJORZ
 CODE_SMELL
-xsquid:CommentedOutCodeLine¿"<This block of commented-out lines of code should be removed.(ì“ŠWHñ?RMAJORZ
+esquid:S1135"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿHñœRINFOZ
 CODE_SMELL
-dsquid:S1135"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿHû?RINFOZ
+Zsquid:S1148°"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿHòœRMINORZVULNERABILITY
+squid:CommentedOutCodeLineÂ"<This block of commented-out lines of code should be removed.(Ô±ó‡ÿÿÿÿÿHóœRMAJORZ
 CODE_SMELL
-~squid:CommentedOutCodeLineÇ"<This block of commented-out lines of code should be removed.(¤Î–éûÿÿÿÿHó?RMAJORZ
+Zsquid:S1148ã"#Use a logger to log this exception.(ÂşÿâûÿÿÿÿHôœRMINORZVULNERABILITY
+esquid:S1135ß"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿHõœRINFOZ
 CODE_SMELL
-Ysquid:S1148à"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿH@RMINORZVULNERABILITY
-dsquid:S1135¯"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿHü?RINFOZ
+esquid:S1135²"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿHöœRINFOZ
 CODE_SMELL
-hsquid:S1172Ó"5Remove this unused method parameter "incearseAmount".(ã³¸ÉıÿÿÿÿH†@RMAJORZ
+ksquid:S1481"7Remove this unused "departmentsUpdated" local variable.(ß¶¸®ÿÿÿÿÿH÷œRMINORZ
 CODE_SMELL
-Ysquid:S1148ã"#Use a logger to log this exception.(ÂşÿâûÿÿÿÿHŒ@RMINORZVULNERABILITY
-_squid:S1135È"2Complete the task associated to this TODO comment.(ÉÚõÎH‚@RINFOZ
+Zsquid:S1148”"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿHøœRMINORZVULNERABILITY
+dsquid:S11354"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿHùœRINFOZ
 CODE_SMELL
-ssquid:S2147±"ECombine this catch with the one at line 174, which has the same body.(ï­£ÄHˆ@RMINORZ
+dsquid:S1135"2Complete the task associated to this TODO comment.(» æÿÿÿÿÿHúœRINFOZ
 CODE_SMELL
-_squid:S1135Ë"2Complete the task associated to this TODO comment.(ÉÚõÎH@RINFOZ
+esquid:S1135½"2Complete the task associated to this TODO comment.(» æÿÿÿÿÿHûœRINFOZ
 CODE_SMELL
-dsquid:S1135ß"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿHƒ@RINFOZ
+esquid:S1135“"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿHüœRINFOZ
 CODE_SMELL
-csquid:S1135"2Complete the task associated to this TODO comment.(» æÿÿÿÿÿH÷?RINFOZ
+zsquid:CommentedOutCodeLineÌ"<This block of commented-out lines of code should be removed.(†€éˆHıœRMAJORZ
 CODE_SMELL
-dsquid:S1135²"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿHÿ?RINFOZ
+`squid:S1135œ"2Complete the task associated to this TODO comment.(úİ®HşœRINFOZ
 CODE_SMELL
-ysquid:CommentedOutCodeLineÉ"<This block of commented-out lines of code should be removed.(†€éˆHõ?RMAJORZ
+`squid:S1135È"2Complete the task associated to this TODO comment.(ÉÚõÎHÿœRINFOZ
 CODE_SMELL
-Ssquid:S11485"#Use a logger to log this exception.(»Ô£H@RMINORZVULNERABILITY
-dsquid:S1135½"2Complete the task associated to this TODO comment.(» æÿÿÿÿÿH€@RINFOZ
+Zsquid:S1148³"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿH€RMINORZVULNERABILITY
+…squid:S1192("HDefine a constant instead of duplicating this literal "DEPT_ID" 3 times.(µ’ò—şÿÿÿÿ8ç÷ÉÕÚ,HRCRITICALZ
 CODE_SMELL
-dsquid:S1135“"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿH„@RINFOZ
+‚squid:S1192+"JDefine a constant instead of duplicating this literal "DEPT_NAME" 3 times.(ßªÏ‘8ç÷ÉÕÚ,H‚RCRITICALZ
 CODE_SMELL
-jsquid:S1481"7Remove this unused "departmentsUpdated" local variable.(ß¶¸®ÿÿÿÿÿH…@RMINORZ
+esquid:S1135¯"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿHƒRINFOZ
 CODE_SMELL
-~squid:CommentedOutCodeLineÏ"<This block of commented-out lines of code should be removed.(€“ªµıÿÿÿÿHö?RMAJORZ
+tsquid:S2147±"ECombine this catch with the one at line 174, which has the same body.(ï­£ÄH„RMINORZ
 CODE_SMELL
-Ysquid:S1148‘"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿHŠ@RMINORZVULNERABILITY
-Ysquid:S1148”"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿH@RMINORZVULNERABILITY
-Ysquid:S1148°"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿH@RMINORZVULNERABILITY
-dsquid:S1135â"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿHş?RINFOZ
+squid:CommentedOutCodeLineÏ"<This block of commented-out lines of code should be removed.(€“ªµıÿÿÿÿH…RMAJORZ
 CODE_SMELL
-~squid:CommentedOutCodeLineÂ"<This block of commented-out lines of code should be removed.(Ô±ó‡ÿÿÿÿÿHò?RMAJORZ
+Zsquid:S1148‘"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿH†RMINORZVULNERABILITY
+Zsquid:S1148à"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿH‡RMINORZVULNERABILITY
+esquid:S1135â"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿHˆRINFOZ
 CODE_SMELL
-csquid:S11354"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿHø?RINFOZ
+tsquid:S2147’"ECombine this catch with the one at line 143, which has the same body.(ï­£ÄH‰RMINORZ
 CODE_SMELL
-„squid:S1192("HDefine a constant instead of duplicating this literal "DEPT_ID" 3 times.(µ’ò—şÿÿÿÿ8ç÷ÉÕÚ,HøKRCRITICALZ
+‡squid:S1192."ODefine a constant instead of duplicating this literal "MONTHLY_BUDGET" 3 times.(ÖËµ8ç÷ÉÕÚ,HŠRCRITICALZ
 CODE_SMELL
-squid:S1192+"JDefine a constant instead of duplicating this literal "DEPT_NAME" 3 times.(ßªÏ‘8ç÷ÉÕÚ,HùKRCRITICALZ
+isquid:S1172Ó"5Remove this unused method parameter "incearseAmount".(ã³¸ÉıÿÿÿÿH‹RMAJORZ
 CODE_SMELL
-†squid:S1192."ODefine a constant instead of duplicating this literal "MONTHLY_BUDGET" 3 times.(ÖËµ8ç÷ÉÕÚ,HúKRCRITICALZ
+zsquid:CommentedOutCodeLineÉ"<This block of commented-out lines of code should be removed.(†€éˆHŒRMAJORZ
 CODE_SMELL
+Tsquid:S11485"#Use a logger to log this exception.(»Ô£HRMINORZVULNERABILITY

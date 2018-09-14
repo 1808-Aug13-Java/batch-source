@@ -1,15 +1,15 @@
 
-csquid:S1135Y"2Complete the task associated to this TODO comment.(» æÿÿÿÿÿH¿sRINFOZ
+Zsquid:S1148¤"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿH·RMINORZVULNERABILITY
+†squid:CommentedOutCodeLine…"<This block of commented-out lines of code should be removed.(æß›¼ûÿÿÿÿ8¿ôÂÕÚ,H¸RMAJORZ
 CODE_SMELL
-Xsquid:S1148M"#Use a logger to log this exception.(ÂşÿâûÿÿÿÿHÀsRMINORZVULNERABILITY
-`squid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8¹¬ª×Ú,HÁsRMINORZVULNERABILITY
-…squid:CommentedOutCodeLine…"<This block of commented-out lines of code should be removed.(æß›¼ûÿÿÿÿ8¿ôÂÕÚ,HÂsRMAJORZ
+dsquid:S1135L"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿH¹RINFOZ
 CODE_SMELL
-csquid:S1135L"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿHÃsRINFOZ
+esquid:S1135"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿHºRINFOZ
 CODE_SMELL
-zsquid:S2147¥"ECombine this catch with the one at line 163, which has the same body.(ï­£Ä8¹¬ª×Ú,HÄsRMINORZ
+asquid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8¹¬ª×Ú,H»RMINORZVULNERABILITY
+Ysquid:S1148M"#Use a logger to log this exception.(ÂşÿâûÿÿÿÿH¼RMINORZVULNERABILITY
+asquid:S1148¦"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8¹¬ª×Ú,H½RMINORZVULNERABILITY
+{squid:S2147¥"ECombine this catch with the one at line 163, which has the same body.(ï­£Ä8¹¬ª×Ú,H¾RMINORZ
 CODE_SMELL
-dsquid:S1135"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿHÅsRINFOZ
+dsquid:S1135Y"2Complete the task associated to this TODO comment.(» æÿÿÿÿÿH¿RINFOZ
 CODE_SMELL
-Ysquid:S1148¤"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿHÆsRMINORZVULNERABILITY
-`squid:S1148¦"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8¹¬ª×Ú,HÇsRMINORZVULNERABILITY

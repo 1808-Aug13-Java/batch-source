@@ -1,22 +1,22 @@
 
-msquid:S1161#":Add the "@Override" annotation above this method signature(Οϋ©ΦϋÿÿÿÿHζ„RMAJORZ
-CODE_SMELL
-^squid:S1989,"(Add a "try/catch" block for "getWriter".(“­†·ψÿÿÿÿHπ„RMINORZVULNERABILITY
-Zsquid:S1989A"$Add a "try/catch" block for "doGet".(®Σ‘ϋÿÿÿÿÿHβ„RMINORZVULNERABILITY
-isquid:S19895"1Add a "try/catch" block for "writeValueAsString".(±΅Ά 8µσί®ά,Hρ„RMINORZVULNERABILITY
-m
-squid:S1064"9Replace this use of System.out or System.err by a logger.(—”Χ…8µσί®ά,Hτ„RMAJORZ
+hsquid:S1161?":Add the "@Override" annotation above this method signature(‹¨―ΏHΰRMAJORZ
 CODE_SMELL
 m
-squid:S106*"9Replace this use of System.out or System.err by a logger.(β«θΖ8µσί®ά,Hσ„RMAJORZ
+squid:S1064"9Replace this use of System.out or System.err by a logger.(—”Χ…8µσί®ά,HβRMAJORZ
 CODE_SMELL
-hsquid:S1161?":Add the "@Override" annotation above this method signature(‹¨―ΏHη„RMAJORZ
+isquid:S19895"1Add a "try/catch" block for "writeValueAsString".(±΅Ά 8µσί®ά,HηRMINORZVULNERABILITY
+dsquid:S1135@"2Complete the task associated to this TODO comment.(» ζÿÿÿÿÿHγRINFOZ
+CODE_SMELL
+Zsquid:S1989A"$Add a "try/catch" block for "doGet".(®Σ‘ϋÿÿÿÿÿHθRMINORZVULNERABILITY
+^squid:S1989,"(Add a "try/catch" block for "getWriter".(“­†·ψÿÿÿÿHκRMINORZVULNERABILITY
+m
+squid:S106*"9Replace this use of System.out or System.err by a logger.(β«θΖ8µσί®ά,HδRMAJORZ
 CODE_SMELL
 l
-squid:S106'"9Replace this use of System.out or System.err by a logger.(†πΚa8µσί®ά,Hς„RMAJORZ
+squid:S106'"9Replace this use of System.out or System.err by a logger.(†πΚa8µσί®ά,HαRMAJORZ
 CODE_SMELL
-Zsquid:S1989A"$Add a "try/catch" block for "doGet".(®Σ‘ϋÿÿÿÿÿHα„RMINORZVULNERABILITY
-dsquid:S1135@"2Complete the task associated to this TODO comment.(» ζÿÿÿÿÿHδ„RINFOZ
+dsquid:S1135"2Complete the task associated to this TODO comment.(ƒ® ϊÿÿÿÿHεRINFOZ
 CODE_SMELL
-dsquid:S1135"2Complete the task associated to this TODO comment.(ƒ® ϊÿÿÿÿHγ„RINFOZ
+Zsquid:S1989A"$Add a "try/catch" block for "doGet".(®Σ‘ϋÿÿÿÿÿHιRMINORZVULNERABILITY
+msquid:S1161#":Add the "@Override" annotation above this method signature(Οϋ©ΦϋÿÿÿÿHζRMAJORZ
 CODE_SMELL

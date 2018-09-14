@@ -1,37 +1,37 @@
 
-csquid:S1135Q"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿHÚLRINFOZ
+dsquid:S1135="2Complete the task associated to this TODO comment.(» æÿÿÿÿÿHÀRINFOZ
 CODE_SMELL
-dsquid:S1135Š"2Complete the task associated to this TODO comment.(» æÿÿÿÿÿHçLRINFOZ
+Ysquid:S1148y"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿHÁRMINORZVULNERABILITY
+dsquid:S1135x"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿHÂRINFOZ
 CODE_SMELL
-csquid:S1135"2Complete the task associated to this TODO comment.(» æÿÿÿÿÿHæLRINFOZ
+dsquid:S1135"2Complete the task associated to this TODO comment.(» æÿÿÿÿÿHÃRINFOZ
 CODE_SMELL
-dsquid:S1135–"2Complete the task associated to this TODO comment.(» æÿÿÿÿÿHäLRINFOZ
+Ysquid:S1148U"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿHÄRMINORZVULNERABILITY
+Zsquid:S1148€"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿHÅRMINORZVULNERABILITY
+dsquid:S1135["2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿHÆRINFOZ
 CODE_SMELL
-|squid:S1192$"GDefine a constant instead of duplicating this literal "STREET" 3 times.(şÿÚ£üÿÿÿÿH×LRCRITICALZ
+esquid:S1135"2Complete the task associated to this TODO comment.(» æÿÿÿÿÿHÇRINFOZ
 CODE_SMELL
-qsquid:S2147S"DCombine this catch with the one at line 80, which has the same body.(ï­£ÄHèLRMINORZ
+Tsquid:S11484"#Use a logger to log this exception.(¼¶×ĞHÈRMINORZVULNERABILITY
+dsquid:S1135Q"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿHÉRINFOZ
 CODE_SMELL
-csquid:S11353"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿHéLRINFOZ
+~squid:S1192-"HDefine a constant instead of duplicating this literal "ZIPCODE" 3 times.(˜Ô¨òûÿÿÿÿHÊRCRITICALZ
 CODE_SMELL
-csquid:S1135="2Complete the task associated to this TODO comment.(» æÿÿÿÿÿHãLRINFOZ
+rsquid:S2147S"DCombine this catch with the one at line 80, which has the same body.(ï­£ÄHËRMINORZ
 CODE_SMELL
-csquid:S1135"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿHÛLRINFOZ
+esquid:S1135Š"2Complete the task associated to this TODO comment.(» æÿÿÿÿÿHÌRINFOZ
 CODE_SMELL
-Xsquid:S1148\"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿHâLRMINORZVULNERABILITY
-csquid:S1135T"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿHàLRINFOZ
+Ysquid:S1148R"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿHÍRMINORZVULNERABILITY
+Ysquid:S1148\"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿHÎRMINORZVULNERABILITY
+esquid:S1135–"2Complete the task associated to this TODO comment.(» æÿÿÿÿÿHÏRINFOZ
 CODE_SMELL
-csquid:S1135x"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿHØLRINFOZ
+|squid:S1192*"FDefine a constant instead of duplicating this literal "STATE" 3 times.(úü™šøÿÿÿÿHĞRCRITICALZ
 CODE_SMELL
-Xsquid:S1148R"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿHÜLRMINORZVULNERABILITY
-}squid:S1192-"HDefine a constant instead of duplicating this literal "ZIPCODE" 3 times.(˜Ô¨òûÿÿÿÿHåLRCRITICALZ
+dsquid:S1135"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿHÑRINFOZ
 CODE_SMELL
-Ssquid:S11484"#Use a logger to log this exception.(¼¶×ĞHİLRMINORZVULNERABILITY
-dsquid:S1135"2Complete the task associated to this TODO comment.(» æÿÿÿÿÿHÙLRINFOZ
+dsquid:S1135T"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿHÒRINFOZ
 CODE_SMELL
-Xsquid:S1148y"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿHßLRMINORZVULNERABILITY
-Ysquid:S1148€"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿHŞLRMINORZVULNERABILITY
-Xsquid:S1148U"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿHáLRMINORZVULNERABILITY
-csquid:S1135["2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿHêLRINFOZ
+}squid:S1192$"GDefine a constant instead of duplicating this literal "STREET" 3 times.(şÿÚ£üÿÿÿÿHÓRCRITICALZ
 CODE_SMELL
-{squid:S1192*"FDefine a constant instead of duplicating this literal "STATE" 3 times.(úü™šøÿÿÿÿHëLRCRITICALZ
+dsquid:S11353"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿHÔRINFOZ
 CODE_SMELL

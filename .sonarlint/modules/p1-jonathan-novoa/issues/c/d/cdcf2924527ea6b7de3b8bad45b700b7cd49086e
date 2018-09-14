@@ -1,18 +1,18 @@
 
-—javascript:S2703Y"\Add the "let", "const" or "var" keyword to this declaration of "amount" to make it explicit.(¤€›8•È¹‹Ü,Hå†RBLOCKERZ
+—javascript:S2703Y"\Add the "let", "const" or "var" keyword to this declaration of "amount" to make it explicit.(¤€›8•È¹‹Ü,H÷RBLOCKERZ
 CODE_SMELL
- javascript:S2703+"dAdd the "let", "const" or "var" keyword to this declaration of "reimbursements" to make it explicit.(Ó¬«Ç8¡ºöƒÜ,Hê†RBLOCKERZ
+ javascript:S2703+"dAdd the "let", "const" or "var" keyword to this declaration of "reimbursements" to make it explicit.(Ó¬«Ç8¡ºöƒÜ,HóRBLOCKERZ
 CODE_SMELL
-˜javascript:S2703K"WAdd the "let", "const" or "var" keyword to this declaration of "i" to make it explicit.(ŒéÇæùÿÿÿÿ8§šŞŠÜ,Hè†RBLOCKERZ
+˜javascript:S2703K"WAdd the "let", "const" or "var" keyword to this declaration of "i" to make it explicit.(ŒéÇæùÿÿÿÿ8§šŞŠÜ,HôRBLOCKERZ
 CODE_SMELL
-–javascript:S2703V"ZAdd the "let", "const" or "var" keyword to this declaration of "reso" to make it explicit.(“‰8Ø…´‹Ü,Hæ†RBLOCKERZ
+Ÿjavascript:S2583"lChange this condition so that it does not always evaluate to "true"; some subsequent code is never executed.(¦¡µÊ8Å‘»Û,HñRMAJORZBUG
+–javascript:S2703V"ZAdd the "let", "const" or "var" keyword to this declaration of "reso" to make it explicit.(“‰8Ø…´‹Ü,HøRBLOCKERZ
 CODE_SMELL
-Ÿjavascript:S2583"lChange this condition so that it does not always evaluate to "true"; some subsequent code is never executed.(¦¡µÊ8Å‘»Û,Hç†RMAJORZBUG
-œjavascript:S2703\"[Add the "let", "const" or "var" keyword to this declaration of "manId" to make it explicit.(ÎèäÍÿÿÿÿÿ8•È¹‹Ü,Hé†RBLOCKERZ
+—javascript:S2703O"[Add the "let", "const" or "var" keyword to this declaration of "empId" to make it explicit.(ËÂš”8Å˜¼‹Ü,HöRBLOCKERZ
 CODE_SMELL
-javascript:S2703a"\Add the "let", "const" or "var" keyword to this declaration of "reimId" to make it explicit.(ÇÅª€ùÿÿÿÿ8Â•Ó‹Ü,Hë†RBLOCKERZ
+javascript:S2703a"\Add the "let", "const" or "var" keyword to this declaration of "reimId" to make it explicit.(ÇÅª€ùÿÿÿÿ8Â•Ó‹Ü,HõRBLOCKERZ
 CODE_SMELL
-™javascript:S2703-"]Add the "let", "const" or "var" keyword to this declaration of "reimArr" to make it explicit.(Ç÷ªä8¬¢ÚŠÜ,Hä†RBLOCKERZ
+™javascript:S2703-"]Add the "let", "const" or "var" keyword to this declaration of "reimArr" to make it explicit.(Ç÷ªä8¬¢ÚŠÜ,HòRBLOCKERZ
 CODE_SMELL
-—javascript:S2703O"[Add the "let", "const" or "var" keyword to this declaration of "empId" to make it explicit.(ËÂš”8Å˜¼‹Ü,Hã†RBLOCKERZ
+œjavascript:S2703\"[Add the "let", "const" or "var" keyword to this declaration of "manId" to make it explicit.(ÎèäÍÿÿÿÿÿ8•È¹‹Ü,HğRBLOCKERZ
 CODE_SMELL

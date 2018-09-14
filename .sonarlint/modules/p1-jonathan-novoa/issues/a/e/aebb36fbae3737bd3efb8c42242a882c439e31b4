@@ -1,13 +1,13 @@
 
-…squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ü“ñûþÿÿÿÿ8º˜í»Û,Há…RMAJORZ
-CODE_SMELL
-asquid:S1989."$Add a "try/catch" block for "doGet".(®Ó‘ûÿÿÿÿÿ8Ô­©»Û,Hå…RMINORZVULNERABILITY
-osquid:S1161-":Add the "@Override" annotation above this method signature(‹¨¯¿8Ô­©»Û,Hä…RMAJORZ
-CODE_SMELL
-esquid:S1989 "(Add a "try/catch" block for "getWriter".(“­†·øÿÿÿÿ8¼¨î»Û,Hâ…RMINORZVULNERABILITY
-asquid:S1989."$Add a "try/catch" block for "doGet".(®Ó‘ûÿÿÿÿÿ8Ô­©»Û,Hà…RMINORZVULNERABILITY
-tsquid:S1161":Add the "@Override" annotation above this method signature(Ïû©Öûÿÿÿÿ8Ô­©»Û,Hã…RMAJORZ
-CODE_SMELL
 m
-squid:S106"9Replace this use of System.out or System.err by a logger.(ãÅÛ¡8èŽ¤¯Ü,Hæ…RMAJORZ
+squid:S106"9Replace this use of System.out or System.err by a logger.(ãÅÛ¡8èŽ¤¯Ü,H—RMAJORZ
 CODE_SMELL
+…squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ü“ñûþÿÿÿÿ8º˜í»Û,H„—RMAJORZ
+CODE_SMELL
+tsquid:S1161":Add the "@Override" annotation above this method signature(Ïû©Öûÿÿÿÿ8Ô­©»Û,H†—RMAJORZ
+CODE_SMELL
+asquid:S1989."$Add a "try/catch" block for "doGet".(®Ó‘ûÿÿÿÿÿ8Ô­©»Û,H‚—RMINORZVULNERABILITY
+osquid:S1161-":Add the "@Override" annotation above this method signature(‹¨¯¿8Ô­©»Û,H…—RMAJORZ
+CODE_SMELL
+esquid:S1989 "(Add a "try/catch" block for "getWriter".(“­†·øÿÿÿÿ8¼¨î»Û,H€—RMINORZVULNERABILITY
+asquid:S1989."$Add a "try/catch" block for "doGet".(®Ó‘ûÿÿÿÿÿ8Ô­©»Û,Hƒ—RMINORZVULNERABILITY

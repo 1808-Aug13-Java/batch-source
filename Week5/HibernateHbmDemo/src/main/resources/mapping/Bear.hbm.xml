@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.revature.models.Bear" >
+		<id name="id" column="BEAR_ID">
+			<generator class="increment"></generator>
+		</id>
+		<property name="name" type="org.hibernate.type.StringType" column="BEAR_NAME"></property>
+		<property name="birthday" type="org.hibernate.type.DateType"></property>
+		<many-to-one name="cave" column="CAVE_ID" class="com.revature.models.Cave">
+			
+		</many-to-one>
+		<bag name="beehives" table="BEAR_BEEHIVE">
+		<key>
+			<column name="BEAR_ID" not-null="true"></column> </key>
+			<many-to-many entity-name="com.revature.models.Beehive">
+				<column name="BEEHIVE_ID" not-null="true"></column>
+				
+			</many-to-many>
+			
+		</bag>
+	</class>
+</hibernate-mapping>

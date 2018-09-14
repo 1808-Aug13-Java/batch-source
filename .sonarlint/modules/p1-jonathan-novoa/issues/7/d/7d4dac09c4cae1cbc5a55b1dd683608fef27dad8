@@ -1,11 +1,11 @@
 
-bsquid:S1989!"&Add a "try/catch" block for "forward".(™Ëş’üÿÿÿÿ8Ä‹†öÛ,HÿzRMINORZVULNERABILITY
-qsquid:UselessImportCheck"0Remove this unused import 'java.io.PrintWriter'.(ÓŞÏÛ8ã°öÛ,Hˆ{RMINORZ
+csquid:S1989!"&Add a "try/catch" block for "forward".(™Ëş’üÿÿÿÿ8Ä‹†öÛ,Hÿ˜RMINORZVULNERABILITY
+Zsquid:S1989("$Add a "try/catch" block for "doGet".(®Ó‘ûÿÿÿÿÿHú˜RMINORZVULNERABILITY
+msquid:S1161":Add the "@Override" annotation above this method signature(Ïû©ÖûÿÿÿÿHı˜RMAJORZ
 CODE_SMELL
-bsquid:S1989!"&Add a "try/catch" block for "forward".(™Ëş’üÿÿÿÿ8Ä‹†öÛ,H€{RMINORZVULNERABILITY
-gsquid:S1161'":Add the "@Override" annotation above this method signature(‹¨¯¿HêzRMAJORZ
+hsquid:S1161'":Add the "@Override" annotation above this method signature(‹¨¯¿Hş˜RMAJORZ
 CODE_SMELL
-Ysquid:S1989("$Add a "try/catch" block for "doGet".(®Ó‘ûÿÿÿÿÿHëzRMINORZVULNERABILITY
-lsquid:S1161":Add the "@Override" annotation above this method signature(Ïû©ÖûÿÿÿÿHìzRMAJORZ
+csquid:S1989!"&Add a "try/catch" block for "forward".(™Ëş’üÿÿÿÿ8Ä‹†öÛ,Hû˜RMINORZVULNERABILITY
+rsquid:UselessImportCheck"0Remove this unused import 'java.io.PrintWriter'.(ÓŞÏÛ8ã°öÛ,Hù˜RMINORZ
 CODE_SMELL
-Ysquid:S1989("$Add a "try/catch" block for "doGet".(®Ó‘ûÿÿÿÿÿHçzRMINORZVULNERABILITY
+Zsquid:S1989("$Add a "try/catch" block for "doGet".(®Ó‘ûÿÿÿÿÿHü˜RMINORZVULNERABILITY

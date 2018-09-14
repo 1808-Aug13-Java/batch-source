@@ -1,9 +1,9 @@
 
-gsquid:S1199"-Extract this nested code block into a method.(ðÁ–Óûÿÿÿÿ8˜…µ´Ü,H¨ŒRMINORZ
+gsquid:S1199"-Extract this nested code block into a method.(ðÁ–Óûÿÿÿÿ8˜…µ´Ü,Hã•RMINORZ
 CODE_SMELL
-gsquid:S1199"-Extract this nested code block into a method.(·ÿ½äûÿÿÿÿ8˜…µ´Ü,H§ŒRMINORZ
+gsquid:S1199"-Extract this nested code block into a method.(·ÿ½äûÿÿÿÿ8˜…µ´Ü,Hä•RMINORZ
 CODE_SMELL
-tsquid:S1118":Add a private constructor to hide the implicit public one.(£‡‚ïþÿÿÿÿ8‰ú´´Ü,HšŒRMAJORZ
+gsquid:S1199"-Extract this nested code block into a method.(Î—­Šþÿÿÿÿ8˜…µ´Ü,Hå•RMINORZ
 CODE_SMELL
-gsquid:S1199"-Extract this nested code block into a method.(Î—­Šþÿÿÿÿ8˜…µ´Ü,H¦ŒRMINORZ
+tsquid:S1118":Add a private constructor to hide the implicit public one.(£‡‚ïþÿÿÿÿ8‰ú´´Ü,Hæ•RMAJORZ
 CODE_SMELL

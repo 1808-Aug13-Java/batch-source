@@ -1,13 +1,23 @@
 
-gsquid:S1161!":Add the "@Override" annotation above this method signature(‹¨¯¿H¾wRMAJORZ
+hsquid:S1989:"+Add a "try/catch" block for "sendRedirect".(³ùÎÿÿÿÿÿ8÷›åÜ,H½—RMINORZVULNERABILITY
+dsquid:S1135"2Complete the task associated to this TODO comment.(ƒŠ® úÿÿÿÿH˜RINFOZ
 CODE_SMELL
-Ysquid:S1989#"$Add a "try/catch" block for "doGet".(®Ó‘ûÿÿÿÿÿH¹wRMINORZVULNERABILITY
-csquid:S1135""2Complete the task associated to this TODO comment.(» æÿÿÿÿÿH»wRINFOZ
+r
+squid:S106*"9Replace this use of System.out or System.err by a logger.(ŸÊ” şÿÿÿÿ8÷›åÜ,H¾—RMAJORZ
 CODE_SMELL
-]squid:S1989"&Add a "try/catch" block for "forward".(‡€Œ 8ÚŞ§¸Û,HÉwRMINORZVULNERABILITY
-Ysquid:S1989#"$Add a "try/catch" block for "doGet".(®Ó‘ûÿÿÿÿÿH¸wRMINORZVULNERABILITY
-lsquid:S1161":Add the "@Override" annotation above this method signature(Ïû©ÖûÿÿÿÿH½wRMAJORZ
+^squid:S1989 "&Add a "try/catch" block for "forward".(‡€Œ 8ÚŞ§¸Û,H—RMINORZVULNERABILITY
+dsquid:S1989)"'Add a "try/catch" block for "parseInt".(»şİ®ûÿÿÿÿ8à¾åÜ,Hà˜RMINORZVULNERABILITY
+l
+squid:S1063"9Replace this use of System.out or System.err by a logger.(†ğÊa8÷›åÜ,HÀ—RMAJORZ
 CODE_SMELL
-]squid:S1989"&Add a "try/catch" block for "forward".(‡€Œ 8ÚŞ§¸Û,HÊwRMINORZVULNERABILITY
-csquid:S1135"2Complete the task associated to this TODO comment.(ƒŠ® úÿÿÿÿHºwRINFOZ
+…squid:CommentedOutCodeLine6"<This block of commented-out lines of code should be removed.(½£ˆÍøÿÿÿÿ8à¾åÜ,Hâ˜RMAJORZ
+CODE_SMELL
+r
+squid:S1069"9Replace this use of System.out or System.err by a logger.(®ıáëûÿÿÿÿ8à¾åÜ,Hã˜RMAJORZ
+CODE_SMELL
+hsquid:S1161&":Add the "@Override" annotation above this method signature(‹¨¯¿H›RMAJORZ
+CODE_SMELL
+^squid:S1989 "&Add a "try/catch" block for "forward".(‡€Œ 8ÚŞ§¸Û,H™RMINORZVULNERABILITY
+dsquid:S1989-"'Add a "try/catch" block for "parseInt".(ôÖœèûÿÿÿÿ8à¾åÜ,Há˜RMINORZVULNERABILITY
+msquid:S1161":Add the "@Override" annotation above this method signature(Ïû©ÖûÿÿÿÿHœRMAJORZ
 CODE_SMELL

@@ -1,4 +1,12 @@
 
-Ÿjavascript:S2583"lChange this condition so that it does not always evaluate to "true"; some subsequent code is never executed.(¦¡µÊ8ÍÏ•³Ü,HĞ‹RMAJORZBUG
-Ÿjavascript:S2703"^Add the "let", "const" or "var" keyword to this declaration of "employee" to make it explicit.(©½Õùûÿÿÿÿ8»±Ì³Ü,H’ŒRBLOCKERZ
+Ÿjavascript:S2703 "^Add the "let", "const" or "var" keyword to this declaration of "password" to make it explicit.(”¨ùúÿÿÿÿ8•‘É×Ü,HèRBLOCKERZ
+CODE_SMELL
+›javascript:S2703"_Add the "let", "const" or "var" keyword to this declaration of "firstName" to make it explicit.(“§Ñ¨8•‘É×Ü,HëRBLOCKERZ
+CODE_SMELL
+Ÿjavascript:S2703"^Add the "let", "const" or "var" keyword to this declaration of "lastName" to make it explicit.(„™èüÿÿÿÿ8•‘É×Ü,HéRBLOCKERZ
+CODE_SMELL
+Ÿjavascript:S2703"^Add the "let", "const" or "var" keyword to this declaration of "employee" to make it explicit.(©½Õùûÿÿÿÿ8»±Ì³Ü,HÛRBLOCKERZ
+CODE_SMELL
+Ÿjavascript:S2583"lChange this condition so that it does not always evaluate to "true"; some subsequent code is never executed.(¦¡µÊ8ÍÏ•³Ü,HÚRMAJORZBUG
+Ÿjavascript:S2703"^Add the "let", "const" or "var" keyword to this declaration of "username" to make it explicit.(£ê®»üÿÿÿÿ8•‘É×Ü,HêRBLOCKERZ
 CODE_SMELL

@@ -1,22 +1,22 @@
 
-msquid:S1161$":Add the "@Override" annotation above this method signature(Ïû©ÖûÿÿÿÿH„RMAJORZ
+hsquid:S1161>":Add the "@Override" annotation above this method signature(‹¨¯¿H€RMAJORZ
 CODE_SMELL
-nsquid:S19893"1Add a "try/catch" block for "writeValueAsString".(Ä–â´şÿÿÿÿ8‰åÈ³Ü,H…RMINORZVULNERABILITY
+rsquid:UselessImportCheck"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ8‰åÈ³Ü,H†RMINORZ
+CODE_SMELL
+r
+squid:S106F"9Replace this use of System.out or System.err by a logger.(®ıáëûÿÿÿÿ8Æ·×ÙÜ,HÓRMAJORZ
+CODE_SMELL
+€squid:CommentedOutCodeLine+"<This block of commented-out lines of code should be removed.(òõ†÷8—‚µÜ,HŠRMAJORZ
+CODE_SMELL
+hsquid:S1989G"+Add a "try/catch" block for "sendRedirect".(…ùœ²ùÿÿÿÿ8¬ŸØÙÜ,H×RMINORZVULNERABILITY
+€squid:CommentedOutCodeLine("<This block of commented-out lines of code should be removed.(Ñ¶×ä8—‚µÜ,H‚RMAJORZ
+CODE_SMELL
+dsquid:S1135"2Complete the task associated to this TODO comment.(ƒŠ® úÿÿÿÿH…RINFOZ
+CODE_SMELL
+nsquid:S19893"1Add a "try/catch" block for "writeValueAsString".(Ä–â´şÿÿÿÿ8‰åÈ³Ü,H„RMINORZVULNERABILITY
+^squid:S1989-"(Add a "try/catch" block for "getWriter".(“­†·øÿÿÿÿH‰RMINORZVULNERABILITY
 ƒsquid:UselessImportCheck"BRemove this unused import 'com.revature.reim.model.Reimbursement'.(æ”Ÿ
-8‰åÈ³Ü,H†RMINORZ
+8‰åÈ³Ü,HˆRMINORZ
 CODE_SMELL
-Zsquid:S1989@"$Add a "try/catch" block for "doGet".(®Ó‘ûÿÿÿÿÿH‡RMINORZVULNERABILITY
-dsquid:S1135?"2Complete the task associated to this TODO comment.(» æÿÿÿÿÿHˆRINFOZ
-CODE_SMELL
-Zsquid:S1989@"$Add a "try/catch" block for "doGet".(®Ó‘ûÿÿÿÿÿH‰RMINORZVULNERABILITY
-dsquid:S1135"2Complete the task associated to this TODO comment.(ƒŠ® úÿÿÿÿHŠRINFOZ
-CODE_SMELL
-hsquid:S1161>":Add the "@Override" annotation above this method signature(‹¨¯¿H‹RMAJORZ
-CODE_SMELL
-€squid:CommentedOutCodeLine+"<This block of commented-out lines of code should be removed.(òõ†÷8—‚µÜ,HŒRMAJORZ
-CODE_SMELL
-rsquid:UselessImportCheck"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ8‰åÈ³Ü,HRMINORZ
-CODE_SMELL
-^squid:S1989-"(Add a "try/catch" block for "getWriter".(“­†·øÿÿÿÿHRMINORZVULNERABILITY
-€squid:CommentedOutCodeLine("<This block of commented-out lines of code should be removed.(Ñ¶×ä8—‚µÜ,HRMAJORZ
+msquid:S1161$":Add the "@Override" annotation above this method signature(Ïû©ÖûÿÿÿÿHRMAJORZ
 CODE_SMELL

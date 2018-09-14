@@ -1,0 +1,27 @@
+
+dsquid:S1135 "2Complete the task associated to this TODO comment.(ƒŠ® úÿÿÿÿHöšRINFOZ
+CODE_SMELL
+esquid:S19893"(Add a "try/catch" block for "getWriter".(“­†·øÿÿÿÿ8‡–ÔæÜ,H¾›RMINORZVULNERABILITY
+€squid:CommentedOutCodeLine-"<This block of commented-out lines of code should be removed.(Ñ¶×ä8‡–ÔæÜ,HÀ›RMAJORZ
+CODE_SMELL
+m
+squid:S106'"9Replace this use of System.out or System.err by a logger.(ãÅÛ¡8‡–ÔæÜ,HÂ›RMAJORZ
+CODE_SMELL
+m
+squid:S1061"9Replace this use of System.out or System.err by a logger.(â«èÆ8ÿÛ§æÜ,H››RMAJORZ
+CODE_SMELL
+ƒsquid:S1192+"FDefine a constant instead of duplicating this literal "empId" 3 times.(ÒÂ­±ùÿÿÿÿ8¹«ÖæÜ,HÅ›RCRITICALZ
+CODE_SMELL
+hsquid:S1989J"+Add a "try/catch" block for "sendRedirect".(³ùžÎÿÿÿÿÿ8ŒÍ²æÜ,H«›RMINORZVULNERABILITY
+nsquid:S1989;"1Add a "try/catch" block for "writeValueAsString".(—¦ù³ûÿÿÿÿ8åžâæÜ,Há›RMINORZVULNERABILITY
+r
+squid:S106G"9Replace this use of System.out or System.err by a logger.(ŸÊ” þÿÿÿÿ8‡–ÔæÜ,HÁ›RMAJORZ
+CODE_SMELL
+dsquid:S1989F"'Add a "try/catch" block for "parseInt".(ãí¾‚þÿÿÿÿ8ÿÛ§æÜ,Hš›RMINORZVULNERABILITY
+msquid:S1161&":Add the "@Override" annotation above this method signature(Ïû©ÖûÿÿÿÿHùšRMAJORZ
+CODE_SMELL
+hsquid:S1161D":Add the "@Override" annotation above this method signature(‹¨¯¿HúšRMAJORZ
+CODE_SMELL
+m
+squid:S106:"9Replace this use of System.out or System.err by a logger.(¼»ëñ8£µ¿æÜ,H®›RMAJORZ
+CODE_SMELL

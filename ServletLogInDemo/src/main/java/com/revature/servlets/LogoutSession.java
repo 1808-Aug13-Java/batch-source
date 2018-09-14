@@ -31,7 +31,7 @@ public class LogoutSession extends HttpServlet {
 		if(session != null) {
 			session.invalidate();
 		}
-		request.getRequestDispatcher("Views/Logout.html").forward(request, response);
+		request.getRequestDispatcher("Logout.html").forward(request, response);
 	}
 
 	/**

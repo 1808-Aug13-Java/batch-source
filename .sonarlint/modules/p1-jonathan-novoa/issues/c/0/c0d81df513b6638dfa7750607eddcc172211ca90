@@ -1,0 +1,12 @@
+
+msquid:S1118
+":Add a private constructor to hide the implicit public one.(ð£ ÉûÿÿÿÿHÆ•RMAJORZ
+CODE_SMELL
+gsquid:S1199"-Extract this nested code block into a method.(·ÿ½äûÿÿÿÿ8ä’ãàÜ,Hï•RMINORZ
+CODE_SMELL
+gsquid:S1199!"-Extract this nested code block into a method.(ðÁ–Óûÿÿÿÿ8ä’ãàÜ,Hð•RMINORZ
+CODE_SMELL
+gsquid:S1199&"-Extract this nested code block into a method.(Î—­Šþÿÿÿÿ8ä’ãàÜ,Hñ•RMINORZ
+CODE_SMELL
+~squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ÙØŸÈúÿÿÿÿHÅ•RMAJORZ
+CODE_SMELL

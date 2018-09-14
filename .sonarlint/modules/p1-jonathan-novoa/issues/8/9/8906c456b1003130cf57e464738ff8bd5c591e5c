@@ -1,0 +1,34 @@
+
+csquid:S19892"&Add a "try/catch" block for "forward".(ÂÚ­ÿÿÿÿÿ8 ØÖàÜ,H¬•RMINORZVULNERABILITY
+hsquid:S1161.":Add the "@Override" annotation above this method signature(‹¨¯¿Hæ‘RMAJORZ
+CODE_SMELL
+|squid:S00101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(½ÍÄêHä‘RMINORZ
+CODE_SMELL
+dsquid:S1135'"2Complete the task associated to this TODO comment.(» æÿÿÿÿÿHâ‘RINFOZ
+CODE_SMELL
+ˆsquid:UselessImportCheck"ARemove this unused import 'com.revature.reim.dao.ManagerDaoImpl'.(›ÕúËüÿÿÿÿ8âÉÒàÜ,Hœ•RMINORZ
+CODE_SMELL
+€squid:UselessImportCheck">Remove this unused import 'com.revature.reim.dao.EmployeeDao'.(ú°œÎ8âÉÒàÜ,H•RMINORZ
+CODE_SMELL
+ƒsquid:UselessImportCheck"BRemove this unused import 'com.revature.reim.model.Reimbursement'.(æ”Ÿ
+8âÉÒàÜ,HŸ•RMINORZ
+CODE_SMELL
+msquid:S1161&":Add the "@Override" annotation above this method signature(Ïû©ÖûÿÿÿÿHå‘RMAJORZ
+CODE_SMELL
+‰squid:UselessImportCheck"BRemove this unused import 'com.revature.reim.dao.EmployeeDaoImpl'.(·ˆ€Ğşÿÿÿÿ8âÉÒàÜ,H™•RMINORZ
+CODE_SMELL
+Šsquid:UselessImportCheck"HRemove this unused import 'com.fasterxml.jackson.databind.ObjectMapper'.(´‘¨™8âÉÒàÜ,H›•RMINORZ
+CODE_SMELL
+`squid:S1989("(Add a "try/catch" block for "getWriter".(ÏÚ‚´8àúşŞÜ,Hé‘RMINORZVULNERABILITY
+dsquid:S1135 "2Complete the task associated to this TODO comment.(ƒŠ® úÿÿÿÿHá‘RINFOZ
+CODE_SMELL
+rsquid:UselessImportCheck"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ8âÉÒàÜ,H•RMINORZ
+CODE_SMELL
+}squid:UselessImportCheck";Remove this unused import 'javax.servlet.http.HttpSession'.(í¨ô8âÉÒàÜ,H˜•RMINORZ
+CODE_SMELL
+_squid:S19890"'Add a "try/catch" block for "parseInt".(°Ó É8 ØÖàÜ,H«•RMINORZVULNERABILITY
+csquid:S19892"&Add a "try/catch" block for "forward".(ÂÚ­ÿÿÿÿÿ8 ØÖàÜ,H­•RMINORZVULNERABILITY
+rsquid:UselessImportCheck"0Remove this unused import 'java.io.PrintWriter'.(ÓŞÏÛ8âÉÒàÜ,H—•RMINORZ
+CODE_SMELL
+squid:UselessImportCheck"=Remove this unused import 'com.revature.reim.dao.ManagerDao'.(¢·£¾8âÉÒàÜ,Hš•RMINORZ
+CODE_SMELL

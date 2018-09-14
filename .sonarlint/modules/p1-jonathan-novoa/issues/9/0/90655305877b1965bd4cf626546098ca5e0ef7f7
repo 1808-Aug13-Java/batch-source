@@ -1,18 +1,18 @@
 
-hsquid:S1161<":Add the "@Override" annotation above this method signature(‹¨¯¿HéƒRMAJORZ
+msquid:S1161#":Add the "@Override" annotation above this method signature(Ïû©ÖûÿÿÿÿHßRMAJORZ
 CODE_SMELL
-^squid:S1989,"(Add a "try/catch" block for "getWriter".(“­†·øÿÿÿÿHêƒRMINORZVULNERABILITY
-asquid:S1989="$Add a "try/catch" block for "doGet".(®Ó‘ûÿÿÿÿÿ8Ç¢¸ƒÜ,HëƒRMINORZVULNERABILITY
-asquid:S1989="$Add a "try/catch" block for "doGet".(®Ó‘ûÿÿÿÿÿ8Ç¢¸ƒÜ,HìƒRMINORZVULNERABILITY
-isquid:S19893"1Add a "try/catch" block for "writeValueAsString".(±¡¢ 8‡»Ê‚Ü,HïƒRMINORZVULNERABILITY
+isquid:S19893"1Add a "try/catch" block for "writeValueAsString".(±¡¢ 8‡»Ê‚Ü,HçRMINORZVULNERABILITY
+^squid:S1989,"(Add a "try/catch" block for "getWriter".(“­†·øÿÿÿÿHäRMINORZVULNERABILITY
+€squid:CommentedOutCodeLine*"<This block of commented-out lines of code should be removed.(òõ†÷8—Ê½³Ü,HåRMAJORZ
+CODE_SMELL
+asquid:S1989="$Add a "try/catch" block for "doGet".(®Ó‘ûÿÿÿÿÿ8Ç¢¸ƒÜ,HâRMINORZVULNERABILITY
+|squid:S00101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(æÇø°HáRMINORZ
+CODE_SMELL
 m
-squid:S1062"9Replace this use of System.out or System.err by a logger.(—”×…8²¨‰…Ü,HíƒRMAJORZ
+squid:S1062"9Replace this use of System.out or System.err by a logger.(—”×…8²¨‰…Ü,HŞRMAJORZ
 CODE_SMELL
-|squid:S00101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(æÇø°HîƒRMINORZ
+€squid:CommentedOutCodeLine'"<This block of commented-out lines of code should be removed.(Ñ¶×ä8—Ê½³Ü,HàRMAJORZ
 CODE_SMELL
-msquid:S1161#":Add the "@Override" annotation above this method signature(Ïû©ÖûÿÿÿÿHåƒRMAJORZ
+hsquid:S1161<":Add the "@Override" annotation above this method signature(‹¨¯¿HãRMAJORZ
 CODE_SMELL
-€squid:CommentedOutCodeLine'"<This block of commented-out lines of code should be removed.(Ñ¶×ä8—Ê½³Ü,HÜ‹RMAJORZ
-CODE_SMELL
-€squid:CommentedOutCodeLine*"<This block of commented-out lines of code should be removed.(òõ†÷8—Ê½³Ü,Hİ‹RMAJORZ
-CODE_SMELL
+asquid:S1989="$Add a "try/catch" block for "doGet".(®Ó‘ûÿÿÿÿÿ8Ç¢¸ƒÜ,HæRMINORZVULNERABILITY

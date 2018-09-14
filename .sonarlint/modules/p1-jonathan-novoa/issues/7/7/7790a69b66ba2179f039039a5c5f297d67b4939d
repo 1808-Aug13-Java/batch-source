@@ -1,27 +1,27 @@
 
-r
-squid:S106-"9Replace this use of System.out or System.err by a logger.(Ÿžö·þÿÿÿÿ8µùõ±Ü,HîŠRMAJORZ
+…squid:CommentedOutCodeLine9"<This block of commented-out lines of code should be removed.(éØ»Úûÿÿÿÿ8âÓ®²Ü,H¥ŽRMAJORZ
 CODE_SMELL
-csquid:S1989#"&Add a "try/catch" block for "forward".(Ì¯öËúÿÿÿÿ8âóí°Ü,HèŠRMINORZVULNERABILITY
-csquid:S1989#"&Add a "try/catch" block for "forward".(Ì¯öËúÿÿÿÿ8âóí°Ü,HéŠRMINORZVULNERABILITY
-bsquid:S1989,"*Add a "try/catch" block for "parseDouble".(Â¼‹’8Ñï²Ü,H‹‹RMINORZVULNERABILITY
-msquid:S1161!":Add the "@Override" annotation above this method signature(Ïû©ÖûÿÿÿÿH“‡RMAJORZ
+hsquid:S1161)":Add the "@Override" annotation above this method signature(‹¨¯¿H¦ŽRMAJORZ
 CODE_SMELL
 ƒsquid:UselessImportCheck"BRemove this unused import 'com.revature.reim.model.Reimbursement'.(æ”Ÿ
-8µùõ±Ü,HïŠRMINORZ
-CODE_SMELL
-dsquid:S1135"2Complete the task associated to this TODO comment.(ƒŠ® úÿÿÿÿH‡RINFOZ
+8µùõ±Ü,H£ŽRMINORZ
 CODE_SMELL
 r
-squid:S106+"9Replace this use of System.out or System.err by a logger.(­ ‘ˆüÿÿÿÿ8µùõ±Ü,HìŠRMAJORZ
+squid:S106-"9Replace this use of System.out or System.err by a logger.(Ÿžö·þÿÿÿÿ8µùõ±Ü,H¤ŽRMAJORZ
+CODE_SMELL
+…squid:CommentedOutCodeLine6"<This block of commented-out lines of code should be removed.(Þø ˜üÿÿÿÿ8âÓ®²Ü,H­ŽRMAJORZ
+CODE_SMELL
+msquid:S1161!":Add the "@Override" annotation above this method signature(Ïû©ÖûÿÿÿÿH«ŽRMAJORZ
 CODE_SMELL
 r
-squid:S1063"9Replace this use of System.out or System.err by a logger.(®ýáëûÿÿÿÿ8µùõ±Ü,HíŠRMAJORZ
+squid:S1063"9Replace this use of System.out or System.err by a logger.(®ýáëûÿÿÿÿ8µùõ±Ü,H¨ŽRMAJORZ
 CODE_SMELL
-hsquid:S1161)":Add the "@Override" annotation above this method signature(‹¨¯¿H”‡RMAJORZ
+dsquid:S1135"2Complete the task associated to this TODO comment.(ƒŠ® úÿÿÿÿH©ŽRINFOZ
 CODE_SMELL
-…squid:CommentedOutCodeLine6"<This block of commented-out lines of code should be removed.(Þø ˜üÿÿÿÿ8âÓ®²Ü,Hš‹RMAJORZ
+bsquid:S1989,"*Add a "try/catch" block for "parseDouble".(Â¼‹’8Ñï²Ü,H®ŽRMINORZVULNERABILITY
+hsquid:S19894"+Add a "try/catch" block for "sendRedirect".(…ùœ²ùÿÿÿÿ8ÿô°²Ü,H¢ŽRMINORZVULNERABILITY
+r
+squid:S106+"9Replace this use of System.out or System.err by a logger.(­ ‘ˆüÿÿÿÿ8µùõ±Ü,HªŽRMAJORZ
 CODE_SMELL
-…squid:CommentedOutCodeLine9"<This block of commented-out lines of code should be removed.(éØ»Úûÿÿÿÿ8âÓ®²Ü,H›‹RMAJORZ
-CODE_SMELL
-hsquid:S19894"+Add a "try/catch" block for "sendRedirect".(…ùœ²ùÿÿÿÿ8ÿô°²Ü,Hž‹RMINORZVULNERABILITY
+csquid:S1989#"&Add a "try/catch" block for "forward".(Ì¯öËúÿÿÿÿ8âóí°Ü,H¬ŽRMINORZVULNERABILITY
+csquid:S1989#"&Add a "try/catch" block for "forward".(Ì¯öËúÿÿÿÿ8âóí°Ü,H§ŽRMINORZVULNERABILITY
