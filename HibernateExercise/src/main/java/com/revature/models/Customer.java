@@ -9,8 +9,8 @@ import javax.persistence.*;
 @Table
 public class Customer {
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="customerGenerator")
-	@SequenceGenerator(name="customerGenerator", allocationSize=1, sequenceName="SQ_CUSTOMER_PK")
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="customerSequence")
+	@SequenceGenerator(name="customerSequence", allocationSize=1, sequenceName="SQ_CUSTOMER_PK")
 	@Column(name="CUSTOMER_ID")
 	private int id;
 	

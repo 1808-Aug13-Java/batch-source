@@ -9,4 +9,7 @@ public interface BearDao {
 	public Bear getBearById(int id);
 	public int createBear(Bear b);
 	List<Bear> getBearsByCave(int id);
+	public List<Bear> getBearsByName(String name);
+	public List<Bear> getSBears();
+	public long getBearCount();
 }

@@ -2,9 +2,13 @@ package com.revature.daos;
 
 import java.util.List;
 
+import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.Order;
+import org.hibernate.criterion.Projections;
+import org.hibernate.criterion.Restrictions;
 
 import com.revature.models.Bear;
 import com.revature.util.HibernateUtil;
@@ -49,6 +53,37 @@ public class BearDaoImpl implements BearDao {
 		List<Bear> bears = q.list();
 		s.close();
 		return bears;
+	}
+
+	@Override
+	public List<Bear> getBearsByName(String name) {
+		Session s = HibernateUtil.getSession();
+		Query q = s.createSQLQuery("SELECT * FROM BEAR WHERE BEAR_NAME = ?").addEntity(Bear.class);
+		q.setString(0, name);
+		List<Bear> bears = q.list();
+		s.close();
+		return bears;
+	}
+
+	@Override
+	public List<Bear> getSBears() {
+		Session s = HibernateUtil.getSession();
+		Criteria c = s.createCriteria(Bear.class);
+		c.add(Restrictions.like("name", "S%"));
+		c.addOrder(Order.asc("name"));
+		List<Bear> bears = c.list();
+		s.close();
+		return bears;
+	}
+
+	@Override
+	public long getBearCount() {
+		Session s = HibernateUtil.getSession();
+		Criteria c = s.createCriteria(Bear.class);
+		c.setProjection(Projections.rowCount());
+		List<Long> rows = c.list();
+		s.close();
+		return rows.get(0);
 	}
 
 }

@@ -23,11 +23,8 @@ public class Driver {
 	
 	public static void main(String[] args) {
 		BearDao bd = new BearDaoImpl();
-		List<Bear> bears = bd.getBearsByCave(7);
 		
-		for(Bear b: bears) {
-			System.out.println(b);
-		}
+		System.out.println(bd.getBearCount());
 	
 	}
 
