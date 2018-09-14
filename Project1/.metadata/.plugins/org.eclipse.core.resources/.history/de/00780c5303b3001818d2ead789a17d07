@@ -1,0 +1,43 @@
+package com.revature;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
+
+import org.junit.Test;
+
+import com.revature.dao.EmployeeDao;
+import com.revature.dao.EmployeeDaoInterface;
+import com.revature.dao.RequestDao;
+import com.revature.dao.RequestDaoInterface;
+public class FunctionalityTest {
+
+	@Test
+	public void testRequestFetchAll() {
+		RequestDaoInterface rd = new RequestDao();
+		assertEquals(rd.getAllRequests().size(),600);
+	}
+	
+	@Test
+	public void testEmployeeFetchAll() {
+		EmployeeDaoInterface ed = new EmployeeDao();
+		assertEquals(ed.getAllEmployees().size(),100);
+	}
+	
+	@Test
+	public void testEmployeeFetchManagers() {
+		EmployeeDaoInterface ed = new EmployeeDao();
+		assertEquals(ed.getAllManagers().size(),11);
+	}	
+	
+	@Test
+	public void testEmployeeFetchNonManagers() {
+		EmployeeDaoInterface ed = new EmployeeDao();
+		assertEquals(ed.getNonManagers().size(),89);
+	}
+	
+	@Test
+	public void testEmployeeFetchOneEmployee() {
+		EmployeeDaoInterface ed = new EmployeeDao();
+		assertNotEquals(ed.getEmployeeById(30),null);
+	}
+}

@@ -1,0 +1,15 @@
+package com.revature.models;
+
+public class Employee {
+
+	private int empID;
+	private String username;
+	private String pass;
+	private String email;
+	private String fName;
+	private String lName;
+	private int phone;
+	private int secondary;
+	private String stateAbbr;
+	private boolean manager;
+}

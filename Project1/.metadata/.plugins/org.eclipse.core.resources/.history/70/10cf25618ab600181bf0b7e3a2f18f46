@@ -1,0 +1,51 @@
+package com.revature.servlets;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.log4j.Logger;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.revature.dao.RequestDao;
+
+/**
+ * Servlet implementation class EmployeeData
+ */
+public class EmployeeData extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	private static Logger log = Logger.getRootLogger();
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public EmployeeData() {
+        super();
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		log.info("Request from EmployeeLanding");
+		String table = request.getParameter("dir");
+		switch(table) {}
+		PrintWriter pw = response.getWriter();
+		RequestDao rd = new RequestDao(); 
+		ObjectMapper om = new ObjectMapper();
+		String employees = om.writeValueAsString(rd.getRequestsByEmpID(12));////////////////TODO SOFTEN CODE
+		pw.append("{\"employees\":" + employees + "}");
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doGet(request, response);
+	}
+
+}

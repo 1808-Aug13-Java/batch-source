@@ -1,0 +1,19 @@
+package com.revature.dao;
+
+import java.util.List;
+
+import com.revature.models.Employee;
+
+public interface EmployeeDaoInterface {
+
+	public List<Employee> getAllEmployees();
+	public List<Employee> getAllManagers();
+	public List<Employee> getNonManagers();
+	public Employee getEmployeeById(int id);
+	public Employee getEmployeeByUsername(String user);
+	public boolean matchPassword(String user, String pass);
+	public int addEmployee(Employee emp);
+	public void addManager();
+	public void updateInfo();
+	public void deleteEmployee();
+}

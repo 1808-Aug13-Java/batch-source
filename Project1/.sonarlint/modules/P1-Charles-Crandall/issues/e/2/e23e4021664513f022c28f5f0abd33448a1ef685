@@ -1,0 +1,11 @@
+
+dsquid:S1989$"(Add a "try/catch" block for "getWriter".(“­†·øÿÿÿÿ8»¡¤ûÜ,Hª;RMINORZVULNERABILITY
+msquid:S1989'"1Add a "try/catch" block for "writeValueAsString".(ê ŠÏıÿÿÿÿ8Ö¹™ûÜ,H©;RMINORZVULNERABILITY
+csquid:S1135"2Complete the task associated to this TODO comment.(ƒŠ® úÿÿÿÿH©7RINFOZ
+CODE_SMELL
+jsquid:S1135/"2Complete the task associated to this TODO comment.(å“Öìüÿÿÿÿ8ÜĞ†İ,HÏ=RINFOZ
+CODE_SMELL
+lsquid:S1161/":Add the "@Override" annotation above this method signature(å“ÖìüÿÿÿÿH­7RMAJORZ
+CODE_SMELL
+lsquid:S1161"":Add the "@Override" annotation above this method signature(Ïû©ÖûÿÿÿÿH¬7RMAJORZ
+CODE_SMELL

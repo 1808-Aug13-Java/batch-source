@@ -1,0 +1,202 @@
+package com.revature.dao;
+
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.apache.log4j.Logger;
+
+import com.revature.models.Employee;
+import com.revature.models.Request;
+import com.revature.util.ConnectionUtil;
+
+public class RequestDao implements RequestDaoInterface{
+	private static Logger log = Logger.getRootLogger();
+	
+	@Override
+	public List<Request> getAllRequests() {
+		List<Request> output = null;
+		String sql = "SELECT * FROM REQUEST";
+		try(Connection conn = ConnectionUtil.getConnection();
+				Statement st = conn.createStatement();
+				ResultSet rs = st.executeQuery(sql);){
+			if (rs.next()) {
+				output = new ArrayList<>();
+				do {
+					output.add(new Request(
+							rs.getInt("REQUEST_ID"),
+							rs.getInt("EMP_ID"),
+							rs.getFloat("AMOUNT"),
+							rs.getShort("STATUS"),
+							rs.getInt("MAN_REVIEWED"),
+							rs.getString("DESCRIPTION")
+							));
+				} while(rs.next());
+			}
+		}catch(SQLException | IOException e) {
+			e.printStackTrace();
+		}
+		return output;
+	}
+
+	@Override
+	public Request getRequestByID(int id) {
+		Request output = null;
+		ResultSet rs = null;
+		String sql = "SELECT * FROM REQUEST WHERE REQUEST_ID = ?";
+		try(Connection conn = ConnectionUtil.getConnection();
+				PreparedStatement st = conn.prepareStatement(sql);){
+			st.setInt(1, id);
+			rs = st.executeQuery();
+			if(rs.next()) {
+				output = new Request();
+				output.setRequestID(rs.getInt("REQUEST_ID"));
+				output.setEmpID(rs.getInt("EMP_ID"));
+				output.setAmount(rs.getFloat("AMOUNT"));
+				output.setStatus(rs.getShort("STATUS"));
+				output.setManagerID(rs.getInt("MAN_REVIEWED"));
+				output.setDescription(rs.getString("DESCRIPTION"));
+			}
+			
+		}catch(SQLException | IOException e) {
+			e.printStackTrace();
+		}finally {
+			if(rs!=null) {
+				try {
+					rs.close();
+				}catch(Exception e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return output;
+	}
+
+	@Override
+	public List<Request> getRequestsByEmpID(int id) {
+		List<Request> output = null;
+		ResultSet rs = null;
+		String sql = "SELECT * FROM REQUEST WHERE EMP_ID = ?";
+		try(Connection conn = ConnectionUtil.getConnection();
+				PreparedStatement st = conn.prepareStatement(sql);){
+			st.setInt(1, id);
+			rs = st.executeQuery();
+			if(rs.next()) {
+				output = new ArrayList<>();
+				do{
+					Request tmp = new Request();
+					tmp.setRequestID(rs.getInt("REQUEST_ID"));
+					tmp.setEmpID(rs.getInt("EMP_ID"));
+					tmp.setAmount(rs.getFloat("AMOUNT"));
+					tmp.setStatus(rs.getShort("STATUS"));
+					tmp.setManagerID(rs.getInt("MAN_REVIEWED"));
+					tmp.setDescription(rs.getString("DESCRIPTION"));
+				}while(rs.next());
+			}
+		}catch(SQLException | IOException e) {
+			e.printStackTrace();
+		}finally {
+			if(rs!=null) {
+				try {
+					rs.close();
+				}catch(Exception e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		
+		return output;
+	}
+
+	@Override
+	public List<Request> getRequestByManagerId(int id) {
+		List<Request> output = null;
+		ResultSet rs = null;
+		String sql = "SELECT * FROM REQUEST WHERE MAN_REVIEWED = ?";
+		try(Connection conn = ConnectionUtil.getConnection();
+				PreparedStatement st = conn.prepareStatement(sql);){
+			st.setInt(1, id);
+			rs = st.executeQuery();
+			if(rs.next()) {
+				output = new ArrayList<>();
+				do{
+					Request tmp = new Request();
+					tmp.setRequestID(rs.getInt("REQUEST_ID"));
+					tmp.setEmpID(rs.getInt("EMP_ID"));
+					tmp.setAmount(rs.getFloat("AMOUNT"));
+					tmp.setStatus(rs.getShort("STATUS"));
+					tmp.setManagerID(rs.getInt("MAN_REVIEWED"));
+					tmp.setDescription(rs.getString("DESCRIPTION"));
+				}while(rs.next());
+			}
+		}catch(SQLException | IOException e) {
+			e.printStackTrace();
+		}finally {
+			if(rs!=null) {
+				try {
+					rs.close();
+				}catch(Exception e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		
+		return output;
+	}
+
+	@Override
+	public int addRequest(int emp, float amount, String description) {
+		int output = 0;
+		String sql = "INSERT INTO REQUEST (EMP_ID, AMOUNT, DESCRIPTION) VALUES (?,?,?)";
+		
+		try(Connection conn = ConnectionUtil.getConnection();
+				PreparedStatement st = conn.prepareStatement(sql);){
+			st.setInt(1, emp);
+			st.setFloat(2, amount);
+			st.setString(3, description);
+			
+			output = st.executeUpdate();
+
+			conn.rollback();////////////////////////////////////////////////////////////TODO DELETE FOR TESTING PURPOSES ONLY
+		}catch(SQLException | IOException e) {
+			e.printStackTrace();
+		}
+		
+		return output;
+	}
+
+	@Override
+	public int approveRequest(int id) {
+		int output = 0;
+		String sql = "UPDATE REQUEST SET APPROVED = 1 WHERE REQUEST_ID = ?";
+		
+		try (Connection conn = ConnectionUtil.getConnection();
+				PreparedStatement st = conn.prepareStatement(sql);){
+			st.setInt(1, id);
+			output = st.executeUpdate();
+
+			conn.rollback();////////////////////////////////////////////////////////////TODO DELETE FOR TESTING PURPOSES ONLY			
+		} catch(SQLException | IOException e) {
+			e.printStackTrace();
+		}
+		return output;
+	}
+
+	@Override
+	public void denyRequest() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void deleteRequest() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

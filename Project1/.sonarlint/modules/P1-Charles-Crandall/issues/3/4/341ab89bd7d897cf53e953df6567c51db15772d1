@@ -1,0 +1,26 @@
+
+˜javascript:S2703«"\Add the "let", "const" or "var" keyword to this declaration of "detail" to make it explicit.(Ñë¬8¸ğÛúÜ,Hú6RBLOCKERZ
+CODE_SMELL
+™javascript:S2703©"XAdd the "let", "const" or "var" keyword to this declaration of "id" to make it explicit.(¬Ïîÿÿÿÿÿ8èÅËúÜ,H”6RBLOCKERZ
+CODE_SMELL
+œjavascript:S2703<"\Add the "let", "const" or "var" keyword to this declaration of "amount" to make it explicit.(”ì«…ûÿÿÿÿ8¾Ñ­íÜ,Hç4RBLOCKERZ
+CODE_SMELL
+javascript:S2703Q"]Add the "let", "const" or "var" keyword to this declaration of "manName" to make it explicit.(á”Ğùşÿÿÿÿ8òÂùôÜ,Hå4RBLOCKERZ
+CODE_SMELL
+bjavascript:S1442¤" Remove this usage of alert(...).(ö†“…úÿÿÿÿ8ûİãôÜ,Hã4RMINORZVULNERABILITY
+javascript:S2703="]Add the "let", "const" or "var" keyword to this declaration of "compare" to make it explicit.(éÜ©±şÿÿÿÿ8‚à¶îÜ,Há4RBLOCKERZ
+CODE_SMELL
+Ÿjavascript:S2703;"_Add the "let", "const" or "var" keyword to this declaration of "requestID" to make it explicit.(‘¥ã¹úÿÿÿÿ8õ´íÜ,Hè4RBLOCKERZ
+CODE_SMELL
+˜javascript:S2703l"]Add the "let", "const" or "var" keyword to this declaration of "empName" to make it explicit.(â×„ 8¦İ‹õÜ,Hä4RBLOCKERZ
+CODE_SMELL
+œjavascript:S2703?"aAdd the "let", "const" or "var" keyword to this declaration of "description" to make it explicit.(»ÉßŒ8¾Ñ­íÜ,Hâ4RBLOCKERZ
+CODE_SMELL
+ejavascript:EmptyBlock&")Either remove or fill this block of code.(™“òøÿÿÿÿH•RMAJORZ
+CODE_SMELL
+›javascript:S2703ª"ZAdd the "let", "const" or "var" keyword to this declaration of "body" to make it explicit.(…×Ì˜úÿÿÿÿ8¸Ñ×úÜ,HÑ6RBLOCKERZ
+CODE_SMELL
+javascript:S2583"lChange this condition so that it does not always evaluate to "true"; some subsequent code is never executed.(¦¡µÊ8Í¶Ü†İ,HÃ>RMAJORZBUG
+javascript:S2583"lChange this condition so that it does not always evaluate to "true"; some subsequent code is never executed.(¦¡µÊ8•–¹ßÜ,HôRMAJORZBUG
+”javascript:S27039"YAdd the "let", "const" or "var" keyword to this declaration of "emp" to make it explicit.(Éñµ·8Å¶ëìÜ,Hæ4RBLOCKERZ
+CODE_SMELL

@@ -1,0 +1,33 @@
+package com.revature.util;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+import com.revature.dao.EmployeeDao;
+import com.revature.models.Employee;
+
+public class RequestHelper {
+//static logic dump, take the thought out of servlets
+	public static void verifyLogin(HttpServletRequest request,String user, String pass) {
+		EmployeeDao ed = new EmployeeDao();
+		if (ed.matchPassword(user, pass)) {
+			int id = ed.getEmployeeByUsername(user).getEmpID();
+		HttpSession session = request.getSession();
+		session.setAttribute("username", user);
+		session.setAttribute("id", id);
+		//TODO go to the proper login page
+		
+		response.sendRedirect(RequestHelper.employeeManager(user));
+		}
+		else
+			response.sendRedirect("login");
+	}
+	
+	public static String employeeManager(String user) {
+		String dir = "";
+		EmployeeDao ed = new EmployeeDao();
+		Employee e = ed.getEmployeeByUsername(user);
+		dir = e.isManager()? "manager": "employee";
+		return dir;
+	}
+}

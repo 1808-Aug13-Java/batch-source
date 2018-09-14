@@ -1,0 +1,17 @@
+
+`squid:S1068"'Remove this unused "log" private field.(ƒΓ¥ύÿÿÿÿ8„Φηχά,H1RMAJORZ
+CODE_SMELL
+]squid:S1989$"&Add a "try/catch" block for "forward".(γμΔ8χ§£¶ά,HΗRMINORZVULNERABILITY
+]squid:S1989$"&Add a "try/catch" block for "forward".(γμΔ8χ§£¶ά,HΚRMINORZVULNERABILITY
+dsquid:S19893"(Add a "try/catch" block for "getWriter".(ΰκΎΨωÿÿÿÿ8„Φηχά,H1RMINORZVULNERABILITY
+squid:UselessImportCheck"9Remove this unused import 'com.revature.dao.EmployeeDao'.(φΌΩ§ϋÿÿÿÿ8Ψαφά,Hψ/RMINORZ
+CODE_SMELL
+gsquid:S1161*":Add the "@Override" annotation above this method signature(‹¨―ΏH†RMAJORZ
+CODE_SMELL
+lsquid:S1161"":Add the "@Override" annotation above this method signature(Οϋ©ΦϋÿÿÿÿHΙRMAJORZ
+CODE_SMELL
+csquid:S1135"2Complete the task associated to this TODO comment.(ƒ® ϊÿÿÿÿH‚RINFOZ
+CODE_SMELL
+gsquid:S1989."+Add a "try/catch" block for "sendRedirect".(βÿ…ώÿÿÿÿ8›ηφά,Hϋ/RMINORZVULNERABILITY
+„squid:CommentedOutCodeLine4"<This block of commented-out lines of code should be removed.(®—¨΄ωÿÿÿÿ8ªζχά,H‹1RMAJORZ
+CODE_SMELL

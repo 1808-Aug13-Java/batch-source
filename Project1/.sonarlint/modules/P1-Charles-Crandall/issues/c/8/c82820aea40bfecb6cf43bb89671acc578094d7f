@@ -1,0 +1,17 @@
+
+msquid:S19899"1Add a "try/catch" block for "writeValueAsString".(Ÿú¦¾ÿÿÿÿÿ8šÕŸõÜ,H„,RMINORZVULNERABILITY
+gsquid:S1989>"+Add a "try/catch" block for "sendRedirect".(âùÒúÿÿÿÿ8ç¹şÜ,HÂ9RMINORZVULNERABILITY
+esquid:S1135("2Complete the task associated to this TODO comment.(âìÑÓ8éõà•İ,H²@RINFOZ
+CODE_SMELL
+msquid:S1989+"1Add a "try/catch" block for "writeValueAsString".(•ãøØúÿÿÿÿ8İµ«óÜ,HÕ(RMINORZVULNERABILITY
+jsquid:S1135E"2Complete the task associated to this TODO comment.(–°´Õıÿÿÿÿ8éõà•İ,H³@RINFOZ
+CODE_SMELL
+lsquid:S1161!":Add the "@Override" annotation above this method signature(Ïû©ÖûÿÿÿÿH±RMAJORZ
+CODE_SMELL
+]squid:S1989%"(Add a "try/catch" block for "getWriter".(“­†·øÿÿÿÿHÔ(RMINORZVULNERABILITY
+hsquid:S19894"1Add a "try/catch" block for "writeValueAsString".(±ò¢¶8° ìÜ,HÓ(RMINORZVULNERABILITY
+Œsquid:S1192,"PDefine a constant instead of duplicating this literal "{\"employees\":" 4 times.(íãÃ™øÿÿÿÿ8£Á¢õÜ,HŠ,RCRITICALZ
+CODE_SMELL
+lsquid:S1161E":Add the "@Override" annotation above this method signature(–°´ÕıÿÿÿÿH²RMAJORZ
+CODE_SMELL
+msquid:S1989/"1Add a "try/catch" block for "writeValueAsString".(»ÓÈìıÿÿÿÿ8šÕŸõÜ,H…,RMINORZVULNERABILITY

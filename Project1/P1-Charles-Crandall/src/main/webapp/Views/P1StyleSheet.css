@@ -1,0 +1,26 @@
+.logo{
+    width:75%;
+}
+.tableDiv{
+    background-color: #f26925;
+    border-radius: 10px;
+    padding:10px 15px;
+}
+.bottomOptions{
+    padding: 10px;
+}
+.filterOptions{
+    padding: 10px;
+}
+.words{
+    color: #474c55;
+}
+
+#userGreet{
+    margin: 20px;
+}
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}

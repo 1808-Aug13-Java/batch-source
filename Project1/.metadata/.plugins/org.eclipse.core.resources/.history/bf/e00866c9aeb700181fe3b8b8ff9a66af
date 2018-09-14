@@ -1,0 +1,72 @@
+package com.revature.servlets;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.log4j.Logger;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.revature.dao.RequestDao;
+
+/**
+ * Servlet implementation class EmployeeData
+ */
+public class EmployeeData extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	private static Logger log = Logger.getRootLogger();
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public EmployeeData() {
+        super();
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		int id = (int) request.getSession().getAttribute("id");
+		String table = request.getParameter("directive");
+		String employees;
+		PrintWriter pw = response.getWriter();
+		RequestDao rd = new RequestDao(); 
+		ObjectMapper om = new ObjectMapper();
+		switch(table) {///////////////////////////////////////////////TODO FUCK OFF WITH ALL THIS SHIT
+		case"Pending":
+			log.info("Take pending table, id: " + id);
+			employees = om.writeValueAsString(rd.getPendingRequestsByEmpID(id));
+			pw.append("{\"employees\":" + employees + "}");
+			break;
+		case"Reviewed":
+			employees = om.writeValueAsString(rd.getRespondedRequestsByEmpID(id));
+			log.info("Take reviewed table, id: " + id);
+			pw.append("{\"employees\":" + employees + "}");
+			break;
+		case"ManPending":
+			employees = om.writeValueAsString(rd.getAllPendingRequests());
+			pw.append("{\"employees\":" + employees + "}");
+			log.info("Take manager's pending table");
+			break;
+		case"ManReviewed":
+			employees = om.writeValueAsString(rd.getAllRespondedRequests());
+			pw.append("{\"employees\":" + employees + "}");
+			log.info("Take manager's reviewed table");
+			break;
+		default:
+			response.sendRedirect("login");
+		}
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {///////TODO MAKE THIS ONE DO THE EDITS
+	}
+
+}

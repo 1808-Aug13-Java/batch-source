@@ -1,0 +1,13 @@
+package com.revature.dao;
+
+public interface RequestDaoInterface {
+
+	public List<Request> getAllRequests();
+	public void getRequestByID();
+	public void getRequestsByEmpID();
+	public void getRequestByManager();
+	public void addRequest();
+	public void approveRequest();
+	public void denyRequest();
+	public void deleteRequest();
+}

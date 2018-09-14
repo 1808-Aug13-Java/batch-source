@@ -1,0 +1,30 @@
+
+`squid:S1148λ"#Use a logger to log this exception.(€ΙΤ…ύÿÿÿÿ8σ²Υμά,H΅RMINORZVULNERABILITY
+`squid:S1148Ϊ"#Use a logger to log this exception.(€ΙΤ…ύÿÿÿÿ8σ²Υμά,H¤RMINORZVULNERABILITY
+`squid:S1148"#Use a logger to log this exception.(€ΙΤ…ύÿÿÿÿ8¶’πά,Hί'RMINORZVULNERABILITY
+_squid:S1148Q"#Use a logger to log this exception.(€ΙΤ…ύÿÿÿÿ8σ²Υμά,HΆRMINORZVULNERABILITY
+`squid:S1148ϋ"#Use a logger to log this exception.(€ΙΤ…ύÿÿÿÿ8¶’πά,H¦'RMINORZVULNERABILITY
+psquid:UselessImportCheck"/Remove this unused import 'java.sql.Statement'.(ΟΦΤψ8Ί―”ρά,Hγ'RMINORZ
+CODE_SMELL
+ƒsquid:S1192$"LDefine a constant instead of duplicating this literal "DESCRIPTION" 5 times.(·χυ8σ²Υμά,HΫ'RCRITICALZ
+CODE_SMELL
+_squid:S1148."#Use a logger to log this exception.(€ΙΤ…ύÿÿÿÿ8σ²Υμά,H£RMINORZVULNERABILITY
+ƒsquid:S1192""GDefine a constant instead of duplicating this literal "STATUS" 3 times.(γζƒηÿÿÿÿÿ8Γή§υά,H,RCRITICALZ
+CODE_SMELL
+squid:UselessImportCheck"9Remove this unused import 'com.revature.models.Employee'.(Ϊ®»ϊÿÿÿÿ8σ²Υμά,H›RMINORZ
+CODE_SMELL
+‡squid:S1192"KDefine a constant instead of duplicating this literal "REQUEST_ID" 5 times.(ªς‘¤ωÿÿÿÿ8σ²Υμά,Hα'RCRITICALZ
+CODE_SMELL
+_squid:S1148K"#Use a logger to log this exception.(€ΙΤ…ύÿÿÿÿ8‚’Θςά,H§(RMINORZVULNERABILITY
+_squid:S1148x"#Use a logger to log this exception.(€ΙΤ…ύÿÿÿÿ8ΊόΖρά,Hψ'RMINORZVULNERABILITY
+~squid:S1192!"GDefine a constant instead of duplicating this literal "AMOUNT" 5 times.(Ι΅ªΌ8σ²Υμά,Hά'RCRITICALZ
+CODE_SMELL
+_squid:S1148r"#Use a logger to log this exception.(€ΙΤ…ύÿÿÿÿ8¶’πά,H¤'RMINORZVULNERABILITY
+`squid:S1068"'Remove this unused "log" private field.(ƒΓ¥ύÿÿÿÿ8ω™ώά,HΤ9RMAJORZ
+CODE_SMELL
+_squid:S1148("#Use a logger to log this exception.(€ΙΤ…ύÿÿÿÿ8σ²Υμά,Hή'RMINORZVULNERABILITY
+`squid:S1148—"#Use a logger to log this exception.(€ΙΤ…ύÿÿÿÿ8σ²Υμά,HRMINORZVULNERABILITY
+`squid:S1148Ύ"#Use a logger to log this exception.(€ΙΤ…ύÿÿÿÿ8ΊόΖρά,Hω'RMINORZVULNERABILITY
+ƒsquid:S1192 "GDefine a constant instead of duplicating this literal "EMP_ID" 4 times.(‚ΫΜωÿÿÿÿ8σ²Υμά,Hΰ'RCRITICALZ
+CODE_SMELL
+`squid:S1148Δ"#Use a logger to log this exception.(€ΙΤ…ύÿÿÿÿ8‚’Θςά,H¨(RMINORZVULNERABILITY

@@ -1,0 +1,11 @@
+package com.revature.models;
+
+public class Request {
+
+	private int requestID;
+	private int empID;
+	private double amount;
+	private short status;
+	private int managerID;
+	private String description;
+}

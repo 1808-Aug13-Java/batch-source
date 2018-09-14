@@ -1,0 +1,34 @@
+
+Xsquid:S1989"(Add a "try/catch" block for "getWriter".(ÏÚ‚´Hñ?RMINORZVULNERABILITY
+csquid:S1135"2Complete the task associated to this TODO comment.(ƒŠ® úÿÿÿÿHô?RINFOZ
+CODE_SMELL
+]squid:S1135"2Complete the task associated to this TODO comment.(ê—ÄBHõ?RINFOZ
+CODE_SMELL
+lsquid:S1161":Add the "@Override" annotation above this method signature(Ïû©ÖûÿÿÿÿH÷?RMAJORZ
+CODE_SMELL
+gsquid:S1161"":Add the "@Override" annotation above this method signature(‹¨¯¿Hø?RMAJORZ
+CODE_SMELL
+csquid:S1135#"2Complete the task associated to this TODO comment.(è”Ä…ùÿÿÿÿHö?RINFOZ
+CODE_SMELL
+`squid:S1989'")Add a "try/catch" block for "parseFloat".(ï†”8ĞÊÚ•İ,H’@RMINORZVULNERABILITY
+gsquid:S1989)"+Add a "try/catch" block for "sendRedirect".(¿ˆïÿÿÿÿÿ8ĞÊÚ•İ,H“@RMINORZVULNERABILITY
+„squid:CommentedOutCodeLine("<This block of commented-out lines of code should be removed.(‰÷ãÑûÿÿÿÿ8ĞÊÚ•İ,H”@RMAJORZ
+CODE_SMELL
+squid:CommentedOutCodeLine*"<This block of commented-out lines of code should be removed.(íıµç8ĞÊÚ•İ,H•@RMAJORZ
+CODE_SMELL
+\squid:S1905%")Remove this unnecessary cast to "String".(À‚şQ8ĞÊÚ•İ,H–@RMINORZ
+CODE_SMELL
+bsquid:S1905&")Remove this unnecessary cast to "String".(²©òŒüÿÿÿÿ8ĞÊÚ•İ,H—@RMINORZ
+CODE_SMELL
+[squid:S1481$"'Remove this unused "id" local variable.(£¯óÔ8ĞÊÚ•İ,H˜@RMINORZ
+CODE_SMELL
+csquid:S1481%"0Remove this unused "description" local variable.(À‚şQ8ĞÊÚ•İ,H™@RMINORZ
+CODE_SMELL
+_squid:S1481'"+Remove this unused "amount" local variable.(ï†”8ĞÊÚ•İ,Hš@RMINORZ
+CODE_SMELL
+nsquid:S1854'":Remove this useless assignment to local variable "amount".(ï†”8ĞÊÚ•İ,H›@RMAJORZ
+CODE_SMELL
+rsquid:S1854%"?Remove this useless assignment to local variable "description".(À‚şQ8ĞÊÚ•İ,Hœ@RMAJORZ
+CODE_SMELL
+jsquid:S1854$"6Remove this useless assignment to local variable "id".(£¯óÔ8ĞÊÚ•İ,H@RMAJORZ
+CODE_SMELL

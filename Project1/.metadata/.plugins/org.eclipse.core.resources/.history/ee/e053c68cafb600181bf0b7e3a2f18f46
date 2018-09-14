@@ -1,0 +1,19 @@
+package com.revature.util;
+
+import com.revature.dao.EmployeeDao;
+import com.revature.models.Employee;
+
+public class RequestHelper {
+//static logic dump, take the thought out of servlets
+	public static boolean checkPassword(String user, String pass) {
+		return  new EmployeeDao().matchPassword(user, pass); 
+	}
+	
+	public static String employeeManager(String user) {
+		String dir = "";
+		EmployeeDao ed = new EmployeeDao();
+		Employee e = ed.getEmployeeByUsername(user);
+		dir = e.isManager()? "manager": "employee";
+		return dir;
+	}
+}

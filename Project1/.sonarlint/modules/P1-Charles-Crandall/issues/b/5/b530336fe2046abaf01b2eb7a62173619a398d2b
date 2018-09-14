@@ -1,0 +1,11 @@
+
+Ysquid:S1989&"$Add a "try/catch" block for "doGet".(®Ó‘ûÿÿÿÿÿHµRMINORZVULNERABILITY
+]squid:S1989"&Add a "try/catch" block for "forward".(çº¸8Ï®ÀÛÜ,HÈRMINORZVULNERABILITY
+gsquid:S1161$":Add the "@Override" annotation above this method signature(‹¨¯¿HºRMAJORZ
+CODE_SMELL
+lsquid:S1161":Add the "@Override" annotation above this method signature(Ïû©ÖûÿÿÿÿH¹RMAJORZ
+CODE_SMELL
+csquid:S1135%"2Complete the task associated to this TODO comment.(» æÿÿÿÿÿH·RINFOZ
+CODE_SMELL
+]squid:S1989"&Add a "try/catch" block for "forward".(çº¸8Ï®ÀÛÜ,HÉRMINORZVULNERABILITY
+Ysquid:S1989&"$Add a "try/catch" block for "doGet".(®Ó‘ûÿÿÿÿÿH´RMINORZVULNERABILITY

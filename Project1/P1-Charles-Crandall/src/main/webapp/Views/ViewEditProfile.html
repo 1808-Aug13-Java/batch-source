@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>View Profile</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="Views/P1StyleSheet.css">
+  <link rel="icon" type="image/x-icon" href="https://3g4d13k75x47q7v53surz1gi-wpengine.netdna-ssl.com/wp-content/themes/revature/imgs/favicon.ico">
+</head>
+<body>
+<div class="container">
+  <button id="back" class="btn" onclick="returnLanding()">Go Back</button>
+  <div class="container tableDiv">
+    <form action="edit" method="POST" class="flex-row form-group ">
+      <table class="table">
+        <tbody>
+          <tr>
+            <td>
+              <label for="password">Change Password: </label>
+            </td><td>
+              <input type="password" name="password">
+            </td><td>
+              <label for="confirmPassword" hidden>Confirm Password: </label>
+            </td><td>
+                <input type="password" name="confirmPassword" hidden>
+        </td>
+      </tr><tr>
+        <td>
+          <label for="phone">Phone: </label>
+        </td><td>
+          <input type="phone" name="phone">
+        </td><td>
+          <label for="secondary">Backup Phone: </label>
+        </td><td>
+          <input type="phone" name="secondary">
+        </td>
+      </tr><tr>
+        <td>
+          <label for="email">Email: </label>
+        </td><td>
+            <input type="email" name="email">
+          </td>
+        </tr><tr>
+          <td>
+            <label for="manager">Manager: </label>
+          </td><td>
+            <input type="checkbox" name="manager" id="manager" value="check" onclick="enableManager()">
+	      </td>
+	    </tr><tr id="managerRow" hidden=true>
+          <td>
+            <label for="manUsername" id="manUsernameLbl">Manager Override: </label>
+          </td><td>
+            <input type="text" id="manUsername">
+          </td>
+        </tr><tr id="managerRow2" hidden=true>
+          <td>
+            <label for="manPass" id="manPassLbl">Manager Password: </label>
+          </td><td>
+            <input type="password" id="manPass">
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="form-group form-inline justify-content-between">
+      <button class="btn btn-link" id="cancel" onClick="disableEdit()" disabled>Cancel</button>
+      <button class="btn btn-link" id="edit" onclick="enableEdit()">Edit</button>
+      <button type=submit class="btn btn-secondary" id="save" disabled>Save</button>
+    </div>
+  </form>
+  </div>
+</div>
+</body>
+<script src="Scripts/landing.js"></script>
+</html>

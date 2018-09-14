@@ -1,0 +1,36 @@
+
+tsquid:UselessImportCheck"4Remove this unused import 'org.apache.log4j.Logger'.(ñè½8¸ìÜ,H†RMINORZ
+CODE_SMELL
+‚squid:S1192""FDefine a constant instead of duplicating this literal "EMAIL" 5 times.(…µı¬ıÿÿÿÿ8Ğæˆ´Û,HûRCRITICALZ
+CODE_SMELL
+`squid:S1148Ï"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8¸ìÜ,HˆRMINORZVULNERABILITY
+`squid:S1148É"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8¸ìÜ,H‡RMINORZVULNERABILITY
+`squid:S1148µ"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8Í‹¢µÛ,HõRMINORZVULNERABILITY
+„squid:S1192("HDefine a constant instead of duplicating this literal "MANAGER" 5 times.(‡èòşÿÿÿÿ8Ğæˆ´Û,HıRCRITICALZ
+CODE_SMELL
+‚squid:S1192%"FDefine a constant instead of duplicating this literal "PHONE" 5 times.(„¯’†şÿÿÿÿ8Ğæˆ´Û,H‚RCRITICALZ
+CODE_SMELL
+squid:S1192'"JDefine a constant instead of duplicating this literal "STATE_ABR" 5 times.(¹ÕŒÄ8Ğæˆ´Û,HøRCRITICALZ
+CODE_SMELL
+`squid:S1148Ì"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8¸ìÜ,H‹RMINORZVULNERABILITY
+`squid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ù´§Û,H÷RMINORZVULNERABILITY
+‚squid:S1192#"FDefine a constant instead of duplicating this literal "FNAME" 5 times.(¤úÎùÿÿÿÿ8Ğæˆ´Û,HúRCRITICALZ
+CODE_SMELL
+squid:S1192&"JDefine a constant instead of duplicating this literal "SECONDARY" 5 times.(×°«8Ğæˆ´Û,HùRCRITICALZ
+CODE_SMELL
+~squid:S1192"GDefine a constant instead of duplicating this literal "EMP_ID" 5 times.(‹êÇÖ8Ğæˆ´Û,HüRCRITICALZ
+CODE_SMELL
+`squid:S1148‰"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8Ğæˆ´Û,HöRMINORZVULNERABILITY
+`squid:S1148¯"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8°•ıµÛ,HRMINORZVULNERABILITY
+‡squid:ModifiersOrderCheck"EReorder the modifiers to comply with the Java Language Specification.(‡ ›ä8¸ìÜ,H…RMINORZ
+CODE_SMELL
+`squid:S1148õ"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8¸ìÜ,H‰RMINORZVULNERABILITY
+_squid:S1148L"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ˆıÌ´Û,H€RMINORZVULNERABILITY
+`squid:S1148š"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8¸ìÜ,HŠRMINORZVULNERABILITY
+_squid:S1148k"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8é ¹ Û,H„RMINORZVULNERABILITY
+‚squid:S1192$"FDefine a constant instead of duplicating this literal "LNAME" 5 times.(°÷üóıÿÿÿÿ8Ğæˆ´Û,HşRCRITICALZ
+CODE_SMELL
+`squid:S1148è"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8¸ìÜ,HŒRMINORZVULNERABILITY
+…squid:S1192 "IDefine a constant instead of duplicating this literal "USERNAME" 5 times.(ÂœÛ°üÿÿÿÿ8Ğæˆ´Û,HƒRCRITICALZ
+CODE_SMELL
+_squid:S1148-"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8‹¬øµÛ,HÿRMINORZVULNERABILITY

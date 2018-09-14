@@ -1,0 +1,15 @@
+
+gsquid:S1161'":Add the "@Override" annotation above this method signature(‹¨¯¿H©RMAJORZ
+CODE_SMELL
+jsquid:S1135("2Complete the task associated to this TODO comment.(šË…·þÿÿÿÿ8ªý™…Ý,H´=RINFOZ
+CODE_SMELL
+}squid:UselessImportCheck"<Remove this unused import 'javax.servlet.RequestDispatcher'.(Ëöò¼8ªý™…Ý,Hµ=RMINORZ
+CODE_SMELL
+„squid:CommentedOutCodeLine*"<This block of commented-out lines of code should be removed.(®—¨´ùÿÿÿÿ8¼º¤ÿÜ,Hî;RMAJORZ
+CODE_SMELL
+qsquid:UselessImportCheck"0Remove this unused import 'java.io.PrintWriter'.(ÓÞÏÛ8Ãñï„Ý,HÛ<RMINORZ
+CODE_SMELL
+bsquid:S1989!"&Add a "try/catch" block for "forward".(ÍÂéžúÿÿÿÿ8Ëé¾ÛÜ,HÅRMINORZVULNERABILITY
+bsquid:S1989!"&Add a "try/catch" block for "forward".(ÍÂéžúÿÿÿÿ8Ëé¾ÛÜ,HÄRMINORZVULNERABILITY
+lsquid:S1161":Add the "@Override" annotation above this method signature(Ïû©ÖûÿÿÿÿH¨RMAJORZ
+CODE_SMELL

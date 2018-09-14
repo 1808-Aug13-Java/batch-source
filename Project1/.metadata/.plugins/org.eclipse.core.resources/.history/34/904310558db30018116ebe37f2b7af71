@@ -1,0 +1,78 @@
+package com.revature;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertTrue;
+
+import org.junit.Test;
+
+import com.revature.dao.EmployeeDao;
+import com.revature.dao.EmployeeDaoInterface;
+import com.revature.dao.RequestDao;
+import com.revature.dao.RequestDaoInterface;
+import com.revature.models.Employee;
+public class FunctionalityTest {
+
+	@Test
+	public void testRequestFetchAll() {
+		RequestDaoInterface rd = new RequestDao();
+		assertEquals(600,rd.getAllRequests().size());
+	}
+	
+	@Test
+	public void testEmployeeFetchAll() {
+		EmployeeDaoInterface ed = new EmployeeDao();
+		assertEquals(102,ed.getAllEmployees().size());
+	}
+	
+	@Test
+	public void testEmployeeFetchManagers() {
+		EmployeeDaoInterface ed = new EmployeeDao();
+		assertEquals(12,ed.getAllManagers().size());
+	}	
+	
+	@Test
+	public void testEmployeeFetchNonManagers() {
+		EmployeeDaoInterface ed = new EmployeeDao();
+		assertEquals(90,ed.getNonManagers().size());
+	}
+	
+	@Test
+	public void testEmployeeFetchOneEmployee() {
+		EmployeeDaoInterface ed = new EmployeeDao();
+		assertNotEquals(null,ed.getEmployeeById(30));
+	}	
+	
+	@Test
+	public void testEmployeeFetchOneEmployeeByUsername() {
+		EmployeeDaoInterface ed = new EmployeeDao();
+		assertNotEquals(null,ed.getEmployeeByUsername("11ccrandall"));
+	}
+	
+	@Test
+	public void testEmployeeFetchNullEmployee() {
+		EmployeeDaoInterface ed = new EmployeeDao();
+		assertEquals(null,ed.getEmployeeById(-1));
+	}
+
+	@Test
+	public void checkRightPassword() {
+		EmployeeDaoInterface ed = new EmployeeDao();
+		assertTrue(ed.matchPassword("11ccrandall", "test"));
+	}
+
+	@Test
+	public void checkWrongPassword() {
+		EmployeeDaoInterface ed = new EmployeeDao();
+		assertFalse(ed.matchPassword("11ccrandall", "THIS PASSWORD IS WRONG"));
+	}
+	
+	@Test
+	public void testAddRollback() {
+		EmployeeDaoInterface ed = new EmployeeDao();
+		Employee emp = new Employee();
+		assertEquals(1,ed.addEmployee(emp));
+	}
+	
+}

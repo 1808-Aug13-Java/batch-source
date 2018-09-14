@@ -1,0 +1,13 @@
+package com.revature.dao;
+
+public interface EmployeeDaoInterface {
+
+	public void getAllEmployees();
+	public void getAllManagers();
+	public void getNonManagers();
+	public void getEmployeeById();
+	public void matchPassword();
+	public void addEmployee();
+	public void addManager();
+	public void updateInfo();
+}
