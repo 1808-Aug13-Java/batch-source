@@ -4,7 +4,7 @@
 console.log("Main Page Script Loaded");
 
 
-const URL = "http://localhost:8080/p1-david-calkins/reimbursement";
+const URL = window.location.href;
 
 const REQUEST = "resourceRequest"
 	

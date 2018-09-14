@@ -3,7 +3,7 @@
 console.log("Hello World from directory.js");
 
 // The link to try and login at
-const URL = "http://localhost:8080/p1-david-calkins/reimbursement";
+const URL = window.location.href;
 
 
 const SUCCESS = "success";
@@ -19,7 +19,7 @@ function onLoginClick() {
 	
 	let postData = "username=" + username +"&password=" + password;
 	
-	sendAjaxPost("http://localhost:8080/p1-david-calkins/reimbursement", postData, function (xhr) {
+	sendAjaxPost(URL, postData, function (xhr) {
 		console.log("Reponse.get:" + xhr.responseText);
 		
 		// If the response was a successful login, reload the correct page
