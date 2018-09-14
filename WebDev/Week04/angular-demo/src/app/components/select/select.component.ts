@@ -11,6 +11,8 @@ export class SelectComponent implements OnInit {
 
   ngOnInit() {
   }
+  
+  selected:string = "";
 
   animalArr = ["Dog", "Wolf", "Cuddlefish", "Velociraptor", "Blob Fish", "Glaucus Atlanticus"]
   colorArr = ["Red", "Green", "Blue", "Yellow", "Gold", "Silver", "Crystal", "Leaf Green", "Fire Red", 

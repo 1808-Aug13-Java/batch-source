@@ -17,7 +17,7 @@
 
 
 <!-- Multiple Select example. On change, performs a function. Pases in the event iteself. -->
-<select multiple (change)="updateClasses($event)" [(ngModel)]="selectClasses" name="selectClasses">
+<select multiple (change)="updateClasses($event)"  name="selectClasses">
 	<option *ngFor = "let class of classes" [value]="class"><!-- Sets the value of the option to an element of the array. -->
 		{{class}}
 	</option>

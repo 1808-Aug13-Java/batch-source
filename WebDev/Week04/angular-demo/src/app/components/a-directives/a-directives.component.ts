@@ -12,7 +12,7 @@ export class ADirectivesComponent implements OnInit {
   ngOnInit() {
   }
 
-
+  selectedColor: string = "";
 
   colors: string[] = ["red", "blue", "yellow"];
 
