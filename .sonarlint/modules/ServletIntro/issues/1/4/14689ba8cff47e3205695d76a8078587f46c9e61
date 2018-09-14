@@ -1,11 +1,0 @@
-
-lsquid:S1161":Add the "@Override" annotation above this method signature(ş³‚”ûÿÿÿÿHARMAJORZ
-CODE_SMELL
-gsquid:S1161":Add the "@Override" annotation above this method signature(÷¤‹úHœARMAJORZ
-CODE_SMELL
-Ysquid:S1989"$Add a "try/catch" block for "doGet".(®Ó‘ûÿÿÿÿÿH›ARMINORZVULNERABILITY
-Ysquid:S1989"$Add a "try/catch" block for "doGet".(®Ó‘ûÿÿÿÿÿHšARMINORZVULNERABILITY
-Xsquid:S1989"(Add a "try/catch" block for "getWriter".(ÏÚ‚´H™ARMINORZVULNERABILITY
-q
-squid:S106"9Replace this use of System.out or System.err by a logger.(Æƒáıÿÿÿÿ8¨©ÏÚ,HÉARMAJORZ
-CODE_SMELL

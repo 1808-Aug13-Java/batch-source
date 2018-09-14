@@ -1,8 +1,8 @@
 
-Ysquid:S1989="$Add a "try/catch" block for "doGet".(®Ó‘ûÿÿÿÿÿHî`RMINORZVULNERABILITY
-Ysquid:S1989="$Add a "try/catch" block for "doGet".(®Ó‘ûÿÿÿÿÿHë`RMINORZVULNERABILITY
-lsquid:S1161":Add the "@Override" annotation above this method signature(Ïû©ÖûÿÿÿÿHï`RMAJORZ
+gsquid:S1161<":Add the "@Override" annotation above this method signature(‹¨¯¿HƒkRMAJORZ
 CODE_SMELL
-gsquid:S1161<":Add the "@Override" annotation above this method signature(‹¨¯¿Hì`RMAJORZ
+lsquid:S1161":Add the "@Override" annotation above this method signature(Ïû©ÖûÿÿÿÿH„kRMAJORZ
 CODE_SMELL
-dsquid:S1989"(Add a "try/catch" block for "getWriter".(“­†·øÿÿÿÿ8ÂˆÚÛÚ,Hí`RMINORZVULNERABILITY
+Ysquid:S1989="$Add a "try/catch" block for "doGet".(®Ó‘ûÿÿÿÿÿH…kRMINORZVULNERABILITY
+Ysquid:S1989="$Add a "try/catch" block for "doGet".(®Ó‘ûÿÿÿÿÿH†kRMINORZVULNERABILITY
+dsquid:S1989"(Add a "try/catch" block for "getWriter".(“­†·øÿÿÿÿ8ÂˆÚÛÚ,H‡kRMINORZVULNERABILITY

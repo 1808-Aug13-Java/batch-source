@@ -57,3 +57,7 @@ n
 >src/main/java/com/revature/servlets/CreateEmployeeServlet.java,f\1\f1df8645659025812a46eabb1b66077d761d0386
 `
 0src/test/java/com/revature/daotest/UtilTest.java,a\e\ae1da1aeb15fc12c6f87d35a45741411abbd05fb
+X
+(src/main/resources/connection.properties,a\4\a4f5c1b229ea9b9bd465c383485062d11f4ad316
+[
++src/main/java/com/revature/util/Hasher.java,5\c\5c90484edb0f4a28ccb28478287e8e07e51fec79

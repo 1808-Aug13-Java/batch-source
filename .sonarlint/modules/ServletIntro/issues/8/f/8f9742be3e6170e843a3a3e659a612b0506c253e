@@ -1,8 +1,0 @@
-
-qsquid:UselessImportCheck"0Remove this unused import 'java.io.InputStream'.(╧╩╨²8╚з≤оз,HцARMINORZ
-CODE_SMELL
-usquid:UselessImportCheck"4Remove this unused import 'java.io.FileInputStream'.(≤Ёис8╚з≤оз,HбARMINORZ
-CODE_SMELL
-_squid:S1148"#Use a logger to log this exception.(─ит┘ЩЪЪЪЪ8╚з≤оз,HдARMINORZVULNERABILITY
-ysquid:UselessImportCheck":Remove this unused import 'java.io.FileNotFoundException'.(╥Н≥²ЫЪЪЪЪH▐ARMINORZ
-CODE_SMELL

@@ -1,0 +1,15 @@
+
+csquid:S1135"2Complete the task associated to this TODO comment.(ƒŠ® úÿÿÿÿH¨lRINFOZ
+CODE_SMELL
+squid:S3973u"WUse curly braces or indentation to denote the code conditionally executed by this "if".(ç…–8€ó·›İ,H»lRCRITICALZ
+CODE_SMELL
+squid:S3973"WUse curly braces or indentation to denote the code conditionally executed by this "if".(íš½8€ó·›İ,H½lRCRITICALZ
+CODE_SMELL
+”squid:S3973†"WUse curly braces or indentation to denote the code conditionally executed by this "if".(©âèåùÿÿÿÿ8€ó·›İ,H¾lRCRITICALZ
+CODE_SMELL
+‰squid:S3776j"RRefactor this method to reduce its Cognitive Complexity from 20 to the 15 allowed.(ÜÑã8€ó·›İ,H¿lRCRITICALZ
+CODE_SMELL
+“squid:S3973z"WUse curly braces or indentation to denote the code conditionally executed by this "if".(®ÊªØùÿÿÿÿ8€ó·›İ,H¼lRCRITICALZ
+CODE_SMELL
+™squid:S4165"`Remove this useless assignment; "id" already holds the assigned value along all execution paths.(£©èÚşÿÿÿÿ8¯Åğ¤İ,HŞpRMAJORZ
+CODE_SMELL

@@ -1,13 +1,0 @@
-
-}squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ï¾28î˜Þ¹Ù,H¦5RMAJORZ
-CODE_SMELL
-”squid:S3973‘"WUse curly braces or indentation to denote the code conditionally executed by this "if".(ÁÀŸÈÿÿÿÿÿ8ƒå¹Ù,H§5RCRITICALZ
-CODE_SMELL
-Šsquid:S3776†"RRefactor this method to reduce its Cognitive Complexity from 22 to the 15 allowed.(ÜÑã8„å¹Ù,H¨5RCRITICALZ
-CODE_SMELL
-”squid:S3973œ"WUse curly braces or indentation to denote the code conditionally executed by this "if".(©âèåùÿÿÿÿ8„å¹Ù,H©5RCRITICALZ
-CODE_SMELL
-”squid:S3973¡"WUse curly braces or indentation to denote the code conditionally executed by this "if".(‹»¢’ûÿÿÿÿ8„å¹Ù,Hª5RCRITICALZ
-CODE_SMELL
-squid:S3973¦"WUse curly braces or indentation to denote the code conditionally executed by this "if".(‘ÈÁ•8„å¹Ù,H«5RCRITICALZ
-CODE_SMELL

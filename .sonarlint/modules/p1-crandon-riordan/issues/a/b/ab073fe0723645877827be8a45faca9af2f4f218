@@ -1,14 +1,12 @@
 
-]squid:S1989""&Add a "try/catch" block for "forward".(ú¿¬‚8‘ßƒÛÚ,HÅfRMINORZVULNERABILITY
-|squid:UselessImportCheck"<Remove this unused import 'com.revature.util.SessionHelper'.(ðŒ™i8«çÇÛÚ,HÆfRMINORZ
+]squid:S1989"&Add a "try/catch" block for "forward".(ú¿¬‚8‘ßƒÛÚ,HôjRMINORZVULNERABILITY
+gsquid:S1989"+Add a "try/catch" block for "sendRedirect".(âùÒúÿÿÿÿ8ÕýÈÛÚ,HöjRMINORZVULNERABILITY
+Ysquid:S1989""$Add a "try/catch" block for "doGet".(®Ó‘ûÿÿÿÿÿH÷jRMINORZVULNERABILITY
+Ysquid:S1989""$Add a "try/catch" block for "doGet".(®Ó‘ûÿÿÿÿÿHõjRMINORZVULNERABILITY
+lsquid:S1161":Add the "@Override" annotation above this method signature(Ïû©ÖûÿÿÿÿHójRMAJORZ
 CODE_SMELL
-gsquid:S1161-":Add the "@Override" annotation above this method signature(‹¨¯¿HÇfRMAJORZ
+]squid:S1989"&Add a "try/catch" block for "forward".(ú¿¬‚8‘ßƒÛÚ,HðjRMINORZVULNERABILITY
+gsquid:S1161!":Add the "@Override" annotation above this method signature(‹¨¯¿HïjRMAJORZ
 CODE_SMELL
-csquid:S1135"2Complete the task associated to this TODO comment.(ƒŠ® úÿÿÿÿHÈfRINFOZ
+|squid:UselessImportCheck"<Remove this unused import 'com.revature.util.SessionHelper'.(ðŒ™i8«çÇÛÚ,HòjRMINORZ
 CODE_SMELL
-Ysquid:S1989."$Add a "try/catch" block for "doGet".(®Ó‘ûÿÿÿÿÿHÉfRMINORZVULNERABILITY
-lsquid:S1161":Add the "@Override" annotation above this method signature(Ïû©ÖûÿÿÿÿHÊfRMAJORZ
-CODE_SMELL
-]squid:S1989""&Add a "try/catch" block for "forward".(ú¿¬‚8‘ßƒÛÚ,HËfRMINORZVULNERABILITY
-Ysquid:S1989."$Add a "try/catch" block for "doGet".(®Ó‘ûÿÿÿÿÿHÌfRMINORZVULNERABILITY
-gsquid:S1989$"+Add a "try/catch" block for "sendRedirect".(âùÒúÿÿÿÿ8ÕýÈÛÚ,HÍfRMINORZVULNERABILITY

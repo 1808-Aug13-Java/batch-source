@@ -1,0 +1,7 @@
+
+Ssquid:S1170"!Make this final field static too.(©®¢ŒûÿÿÿÿH°jRMINORZ
+CODE_SMELL
+‰squid:S00116"VRename this field "SALT_PHRASE" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(©®¢ŒûÿÿÿÿH±jRMINORZ
+CODE_SMELL
+“squid:S1488"fImmediately return this expression instead of assigning it to the temporary variable "hashedPassword".(¨ˆ»H¯jRMINORZ
+CODE_SMELL
