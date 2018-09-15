@@ -1,0 +1,28 @@
+
+xsquid:CommentedOutCodeLine;"<This block of commented-out lines of code should be removed.(ÄƒæíHÊRMAJORZ
+CODE_SMELL
+e
+squid:S106="9Replace this use of System.out or System.err by a logger.(Î™­¥HËRMAJORZ
+CODE_SMELL
+³%squid:RedundantThrowsDeclarationCheck"lRemove the declaration of thrown exception 'java.io.IOException', as it cannot be thrown from method's body.(œû¿ØHÌRMINORZ
+CODE_SMELL
+}squid:CommentedOutCodeLine "<This block of commented-out lines of code should be removed.(ë±ÌÕûÿÿÿÿHÍRMAJORZ
+CODE_SMELL
+csquid:S1135"2Complete the task associated to this TODO comment.(ÕÌ®þÿÿÿÿHÎRINFOZ
+CODE_SMELL
+xsquid:CommentedOutCodeLine0"<This block of commented-out lines of code should be removed.(»ôÁöHÏRMAJORZ
+CODE_SMELL
+}squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(¡»¢üùÿÿÿÿHÐRMAJORZ
+CODE_SMELL
+xsquid:CommentedOutCodeLine,"<This block of commented-out lines of code should be removed.(þ±ŠHÑRMAJORZ
+CODE_SMELL
+xsquid:CommentedOutCodeLine&"<This block of commented-out lines of code should be removed.(•Äî HÒRMAJORZ
+CODE_SMELL
+Rsquid:S1481:"&Remove this unused "d" local variable.( ÒÛHÓRMINORZ
+CODE_SMELL
+asquid:S1854:"5Remove this useless assignment to local variable "d".( ÒÛHÔRMAJORZ
+CODE_SMELL
+xsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(»ôÁöHÕRMAJORZ
+CODE_SMELL
+xsquid:CommentedOutCodeLine6"<This block of commented-out lines of code should be removed.(Ù²Å«HÖRMAJORZ
+CODE_SMELL

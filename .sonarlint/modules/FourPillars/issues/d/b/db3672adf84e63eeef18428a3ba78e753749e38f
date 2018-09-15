@@ -1,0 +1,27 @@
+
+…squid:ModifiersOrderCheck"EReorder the modifiers to comply with the Java Language Specification.(šŒšıÿÿÿÿHëRMINORZ
+CODE_SMELL
+‡squid:S39732"WUse curly braces or indentation to denote the code conditionally executed by this "if".(ÊŒÇïHìRCRITICALZ
+CODE_SMELL
+j
+squid:S106!"9Replace this use of System.out or System.err by a logger.(ÇıÉøÿÿÿÿHíRMAJORZ
+CODE_SMELL
+e
+squid:S106A"9Replace this use of System.out or System.err by a logger.(øÌîHîRMAJORZ
+CODE_SMELL
+j
+squid:S106F"9Replace this use of System.out or System.err by a logger.(À­¡­øÿÿÿÿHïRMAJORZ
+CODE_SMELL
+e
+squid:S106J"9Replace this use of System.out or System.err by a logger.(òÃÄÅHğRMAJORZ
+CODE_SMELL
+[squid:S1125F")Remove the literal "false" boolean value.(À­¡­øÿÿÿÿHñRMINORZ
+CODE_SMELL
+Vsquid:S1125J")Remove the literal "false" boolean value.(òÃÄÅHòRMINORZ
+CODE_SMELL
+[squid:S1481"")Remove this unused "name" local variable.(„Ï ËúÿÿÿÿHóRMINORZ
+CODE_SMELL
+jsquid:S1854""8Remove this useless assignment to local variable "name".(„Ï ËúÿÿÿÿHôRMAJORZ
+CODE_SMELL
+Xsquid:S1148*"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿHõRMINORZVULNERABILITY
+Xsquid:S11486"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿHöRMINORZVULNERABILITY

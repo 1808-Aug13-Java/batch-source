@@ -1,0 +1,25 @@
+
+csquid:S1135x"2Complete the task associated to this TODO comment.(╒╠Ро■    HАRINFOZ
+CODE_SMELL
+dsquid:S1135М"2Complete the task associated to this TODO comment.(╒╠Ро■    HБRINFOZ
+CODE_SMELL
+dsquid:S1135й"2Complete the task associated to this TODO comment.(╗ацЮ     HВRINFOZ
+CODE_SMELL
+Ysquid:S1148О"#Use a logger to log this exception.(А╔╘Е¤    HГRMINORZVULNERABILITY
+rsquid:UselessImportCheck"8Remove this unused import 'com.revature.model.Location'.(РЮд┘HДRMINORZ
+CODE_SMELL
+\squid:S1481]"/Remove this unused "employeeId" local variable.(Й┴ЪЮHЕRMINORZ
+CODE_SMELL
+rsquid:S2147|"ECombine this catch with the one at line 118, which has the same body.(янг─HЖRMINORZ
+CODE_SMELL
+Ysquid:S1148А"#Use a logger to log this exception.(А╔╘Е¤    HЗRMINORZVULNERABILITY
+csquid:S1135~"2Complete the task associated to this TODO comment.(╒╠Ро■    HИRINFOZ
+CODE_SMELL
+dsquid:S1135Э"2Complete the task associated to this TODO comment.(╗ацЮ     HЙRINFOZ
+CODE_SMELL
+Xsquid:S1148>"#Use a logger to log this exception.(А╔╘Е¤    HКRMINORZVULNERABILITY
+Xsquid:S1148z"#Use a logger to log this exception.(А╔╘Е¤    HЛRMINORZVULNERABILITY
+dsquid:S1135г"2Complete the task associated to this TODO comment.(╗ацЮ     HМRINFOZ
+CODE_SMELL
+csquid:S1135="2Complete the task associated to this TODO comment.(╒╠Ро■    HНRINFOZ
+CODE_SMELL

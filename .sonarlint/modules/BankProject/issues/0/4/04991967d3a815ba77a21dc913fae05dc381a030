@@ -1,0 +1,17 @@
+
+usquid:S2095%"HUse try-with-resources or close this "FileWriter" in a "finally" clause.(¨æô˜üÿÿÿÿHâ
+RBLOCKERZBUG
+ysquid:S2095'"LUse try-with-resources or close this "BufferedWriter" in a "finally" clause.(îŞÀ‘ûÿÿÿÿHã
+RBLOCKERZBUG
+e
+squid:S106-"9Replace this use of System.out or System.err by a logger.(¦ÓÔ™Hä
+RMAJORZ
+CODE_SMELL
+csquid:S11357"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿHå
+RINFOZ
+CODE_SMELL
+Xsquid:S11489"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿHæ
+RMINORZVULNERABILITY
+v
+squid:S899"BDo something with the "boolean" value returned by "createNewFile".(Ğ’ÍùÿÿÿÿHç
+RMINORZVULNERABILITY

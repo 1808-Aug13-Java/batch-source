@@ -1,0 +1,61 @@
+
+e
+squid:S106"9Replace this use of System.out or System.err by a logger.(ì“¢ùH¡RMAJORZ
+CODE_SMELL
+Xsquid:S1148]"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿH¢RMINORZVULNERABILITY
+†squid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(ŠàÚH£RMINORZ
+CODE_SMELL
+ksquid:S2696h"6Make the enclosing method "static" or remove this set.(Ü©ş“şÿÿÿÿH¤RCRITICALZ
+CODE_SMELL
+dsquid:S1135¬"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿH¥RINFOZ
+CODE_SMELL
+vsquid:S2095š"HUse try-with-resources or close this "FileWriter" in a "finally" clause.(¶Á²„úÿÿÿÿH¦RBLOCKERZBUG
+fsquid:S2696"6Make the enclosing method "static" or remove this set.(Üê÷H§RCRITICALZ
+CODE_SMELL
+\squid:S1066}"/Merge this if statement with the enclosing one.(Ş¤½¡H¨RMAJORZ
+CODE_SMELL
+tsquid:S2095F"LUse try-with-resources or close this "BufferedReader" in a "finally" clause.(Òø·•H©RBLOCKERZBUG
+zsquid:S2095œ"LUse try-with-resources or close this "BufferedWriter" in a "finally" clause.(îŞÀ‘ûÿÿÿÿHªRBLOCKERZBUG
+xsquid:CommentedOutCodeLine7"<This block of commented-out lines of code should be removed.(‡ãØ˜H«RMAJORZ
+CODE_SMELL
+fsquid:S2696/"6Make the enclosing method "static" or remove this set.(¹­ìšH¬RCRITICALZ
+CODE_SMELL
+j
+squid:S106"9Replace this use of System.out or System.err by a logger.(»Ø®àûÿÿÿÿH­RMAJORZ
+CODE_SMELL
+j
+squid:S106"9Replace this use of System.out or System.err by a logger.(»Ø®àûÿÿÿÿH®RMAJORZ
+CODE_SMELL
+j
+squid:S106k"9Replace this use of System.out or System.err by a logger.(·è‰±şÿÿÿÿH¯RMAJORZ
+CODE_SMELL
+|squid:S00100z"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(±¯‰ØH°RMINORZ
+CODE_SMELL
+Ysquid:S1148®"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿH±RMINORZVULNERABILITY
+ksquid:S2696j"6Make the enclosing method "static" or remove this set.(—äß˜ûÿÿÿÿH²RCRITICALZ
+CODE_SMELL
+d
+squid:S106o"9Replace this use of System.out or System.err by a logger.(ÃÆ›uH³RMAJORZ
+CODE_SMELL
+e
+squid:S106t"9Replace this use of System.out or System.err by a logger.(È–†ÅH´RMAJORZ
+CODE_SMELL
+}squid:S00116"ORename this field "Bank" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ŠàÚHµRMINORZ
+CODE_SMELL
+w
+squid:S899’"BDo something with the "boolean" value returned by "createNewFile".(Ğ’ÍùÿÿÿÿH¶RMINORZVULNERABILITY
+ksquid:S2696"6Make the enclosing method "static" or remove this set.(¸ÕèİúÿÿÿÿH·RCRITICALZ
+CODE_SMELL
+xsquid:CommentedOutCodeLine<"<This block of commented-out lines of code should be removed.(«üûH¸RMAJORZ
+CODE_SMELL
+fsquid:S26963"6Make the enclosing method "static" or remove this set.(Å†£ÆH¹RCRITICALZ
+CODE_SMELL
+csquid:S1135["2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿHºRINFOZ
+CODE_SMELL
+j
+squid:S106#"9Replace this use of System.out or System.err by a logger.(ó à¯şÿÿÿÿH»RMAJORZ
+CODE_SMELL
+ksquid:S2696+"6Make the enclosing method "static" or remove this set.(®ƒğşÿÿÿÿH¼RCRITICALZ
+CODE_SMELL
+fsquid:S2696i"6Make the enclosing method "static" or remove this set.(üüÊŞH½RCRITICALZ
+CODE_SMELL

@@ -1,0 +1,43 @@
+
+Ysquid:S1148й"#Use a logger to log this exception.(А╔╘Е¤    HШRMINORZVULNERABILITY
+csquid:S1135D"2Complete the task associated to this TODO comment.(╒╠Ро■    HЩRINFOZ
+CODE_SMELL
+psquid:S2095Л"GUse try-with-resources or close this "ResultSet" in a "finally" clause.(╖ж├ЕHЪRBLOCKERZBUG
+Ysquid:S1148з"#Use a logger to log this exception.(А╔╘Е¤    HЫRMINORZVULNERABILITY
+qsquid:S2147d"DCombine this catch with the one at line 97, which has the same body.(янг─HЬRMINORZ
+CODE_SMELL
+Xsquid:S1148f"#Use a logger to log this exception.(А╔╘Е¤    HЭRMINORZVULNERABILITY
+rsquid:UselessImportCheck"8Remove this unused import 'com.revature.model.Location'.(РЮд┘HЮRMINORZ
+CODE_SMELL
+Xsquid:S1148y"#Use a logger to log this exception.(А╔╘Е¤    HЯRMINORZVULNERABILITY
+Xsquid:S1148H"#Use a logger to log this exception.(А╔╘Е¤    HаRMINORZVULNERABILITY
+csquid:S1135x"2Complete the task associated to this TODO comment.(╒╠Ро■    HбRINFOZ
+CODE_SMELL
+csquid:S11353"2Complete the task associated to this TODO comment.(╗ацЮ     HвRINFOZ
+CODE_SMELL
+qsquid:S2147F"DCombine this catch with the one at line 67, which has the same body.(янг─HгRMINORZ
+CODE_SMELL
+Xsquid:S1148E"#Use a logger to log this exception.(А╔╘Е¤    HдRMINORZVULNERABILITY
+Xsquid:S1148+"#Use a logger to log this exception.(А╔╘Е¤    HеRMINORZVULNERABILITY
+csquid:S1135{"2Complete the task associated to this TODO comment.(╒╠Ро■    HжRINFOZ
+CODE_SMELL
+Xsquid:S1148|"#Use a logger to log this exception.(А╔╘Е¤    HзRMINORZVULNERABILITY
+dsquid:S1135Х"2Complete the task associated to this TODO comment.(╒╠Ро■    HиRINFOZ
+CODE_SMELL
+Xsquid:S1148c"#Use a logger to log this exception.(А╔╘Е¤    HйRMINORZVULNERABILITY
+csquid:S1135b"2Complete the task associated to this TODO comment.(╒╠Ро■    HкRINFOZ
+CODE_SMELL
+rsquid:S2147z"ECombine this catch with the one at line 119, which has the same body.(янг─HлRMINORZ
+CODE_SMELL
+csquid:S1135G"2Complete the task associated to this TODO comment.(╒╠Ро■    HмRINFOZ
+CODE_SMELL
+ssquid:S2147и"ECombine this catch with the one at line 166, which has the same body.(янг─HнRMINORZ
+CODE_SMELL
+csquid:S1135e"2Complete the task associated to this TODO comment.(╒╠Ро■    HоRINFOZ
+CODE_SMELL
+Ysquid:S1148Ц"#Use a logger to log this exception.(А╔╘Е¤    HпRMINORZVULNERABILITY
+csquid:S1135*"2Complete the task associated to this TODO comment.(╒╠Ро■    H░RINFOZ
+CODE_SMELL
+Еsquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(тў╫*H▒RMINORZ
+CODE_SMELL
+}squid:S2095Й"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(р°ДШ·    H▓RBLOCKERZBUG

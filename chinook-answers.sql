@@ -1,3 +1,5 @@
+SET SERVEROUTPUT ON;
+
 --2.1 SELECT
 
 SELECT * FROM CHINOOK.EMPLOYEE;
@@ -95,6 +97,108 @@ BEGIN
     RETURN Y;
 END; 
 /
+
+
+--3.3 User Defined Scalar Functions
+--Task – Create a function that returns the average price of invoiceline items in the invoiceline table
+
+CREATE OR REPLACE FUNCTION RETURN_AVERAGE
+RETURN NUMBER
+IS
+AVG_PRICE NUMBER(20,2);
+BEGIN
+    SELECT AVG(UNITPRICE)INTO AVG_PRICE
+    FROM CHINOOK.INVOICELINE;
+    
+    RETURN AVG_PRICE;
+END;
+/
+BEGIN
+    DBMS_OUTPUT.PUT_LINE(RETURN_AVERAGE());
+END;
+
+--3.4 User Defined Table Valued Functions
+--Task – Create a function that returns all employees who are born after 1968.
+
+CREATE OR REPLACE FUNCTION GETALL_EMPLOYEES
+RETURN VARCHAR2
+IS
+    SVAR SYS_REFCURSOR;
+
+    TEMP_ID CHINOOK.EMPLOYEE.EMPLOYEEID%TYPE; --NUMBER;
+
+    FIRST_NAME CHINOOK.EMPLOYEE.FIRSTNAME%TYPE; --VARCHAR2(50);
+    
+    LAST_NAME CHINOOK.EMPLOYEE.FIRSTNAME%TYPE; --VARCHAR2(50);
+    
+    BDAY CHINOOK.EMPLOYEE.BIRTHDATE%TYPE;
+BEGIN
+
+    OPEN SVAR FOR
+
+    SELECT EMPLOYEEID, FIRSTNAME, LASTNAME, BIRTHDATE FROM CHINOOK.EMPLOYEE WHERE BIRTHDATE > '31-DEC-68';
+    
+        LOOP
+
+        FETCH SVAR INTO TEMP_ID, FIRST_NAME, LAST_NAME, BDAY; -- "ACTIVE SET" IS EACH ROW RETURNED BY THE CURSOR
+
+        EXIT WHEN SVAR%NOTFOUND;
+
+        DBMS_OUTPUT.PUT_LINE(TEMP_ID||' IS CURRENT ID, '||FIRST_NAME|| ' '||LAST_NAME||
+        ' IS CURRENT NAME' || ' BIRTHDAY ' || BDAY );
+
+    END LOOP;
+
+    CLOSE SVAR;
+    RETURN '';
+
+END;
+
+/
+
+BEGIN
+
+DBMS_OUTPUT.PUT_LINE(GETALL_EMPLOYEES());
+
+END;
+
+
+
+--4.1 Basic Stored Procedure
+--Task – Create a stored procedure that selects the first and last names of all the employees.
+CREATE OR REPLACE PROCEDURE FIRST_AND_LAST
+IS
+FIRST_NAME CHINOOK.EMPLOYEE.FIRSTNAME%TYPE;
+LAST_NAME CHINOOK.EMPLOYEE.LASTNAME%TYPE;
+BEGIN
+
+    SELECT FIRSTNAME, LASTNAME INTO FIRST_NAME, LAST_NAME FROM CHINOOK.EMPLOYEE;
+
+END;
+
+/
+
+BEGIN
+    FIRST_AND_LAST();
+END;
+
+4.2 Stored Procedure Input Parameters
+Task – Create a stored procedure that updates the personal information of an employee.
+Task – Create a stored procedure that returns the managers of an employee.
+4.3 Stored Procedure Output Parameters
+Task – Create a stored procedure that returns the name and company of a customer.
+5.0 Transactions
+In this section you will be working with transactions. Transactions are usually nested within a stored procedure.
+Task – Create a transaction that given a invoiceId will delete that invoice (There may be constraints that rely on this, find out how to resolve them).
+Task – Create a transaction nested within a stored procedure that inserts a new record in the Customer table
+6.0 Triggers
+In this section you will create various kinds of triggers that work when certain DML statements are executed on a table.
+6.1 AFTER/FOR
+Task - Create an after insert trigger on the employee table fired after a new record is inserted into the table.
+Task – Create an after update trigger on the album table that fires after a row is inserted in the table
+Task – Create an after delete trigger on the customer table that fires after a row is deleted from the table.
+
+
 
 --7.1 INNER
 SELECT *

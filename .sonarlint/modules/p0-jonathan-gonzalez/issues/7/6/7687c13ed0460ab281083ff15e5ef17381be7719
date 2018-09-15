@@ -1,0 +1,13 @@
+
+„squid:CommentedOutCodeLineT"<This block of commented-out lines of code should be removed.(Û‚ÛÖùÿÿÿÿ8ƒ¼Í¬Ø,H°RMAJORZ
+CODE_SMELL
+‚squid:S1192"FDefine a constant instead of duplicating this literal "user1" 3 times.(§†ßÎûÿÿÿÿ8’€­œØ,HÁRCRITICALZ
+CODE_SMELL
+bsquid:S2140")Use "java.util.Random.nextInt()" instead.(–”ú½øÿÿÿÿ8þìÐ Ø,HŸRMINORZ
+CODE_SMELL
+squid:CommentedOutCodeLineV"<This block of commented-out lines of code should be removed.(¦°½‚8ƒ¼Í¬Ø,H±RMAJORZ
+CODE_SMELL
+…squid:S1192"IDefine a constant instead of duplicating this literal "password" 3 times.(§†ßÎûÿÿÿÿ8’€­œØ,HÂRCRITICALZ
+CODE_SMELL
+„squid:CommentedOutCodeLineY"<This block of commented-out lines of code should be removed.(éØ»Úûÿÿÿÿ8ƒ¼Í¬Ø,H¨RMAJORZ
+CODE_SMELL

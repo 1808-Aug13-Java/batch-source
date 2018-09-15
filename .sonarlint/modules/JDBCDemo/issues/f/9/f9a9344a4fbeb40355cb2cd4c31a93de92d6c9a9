@@ -1,0 +1,27 @@
+
+csquid:S1135]"2Complete the task associated to this TODO comment.(╒╠Ро■    HЛRINFOZ
+CODE_SMELL
+csquid:S1135c"2Complete the task associated to this TODO comment.(╒╠Ро■    HМRINFOZ
+CODE_SMELL
+csquid:S1135q"2Complete the task associated to this TODO comment.(╒╠Ро■    HНRINFOZ
+CODE_SMELL
+dsquid:S1135В"2Complete the task associated to this TODO comment.(╗ацЮ     HОRINFOZ
+CODE_SMELL
+qsquid:S2147a"DCombine this catch with the one at line 91, which has the same body.(янг─HПRMINORZ
+CODE_SMELL
+Xsquid:S1148e"#Use a logger to log this exception.(А╔╘Е¤    HРRMINORZVULNERABILITY
+Xsquid:S1148_"#Use a logger to log this exception.(А╔╘Е¤    HСRMINORZVULNERABILITY
+csquid:S1135."2Complete the task associated to this TODO comment.(╒╠Ро■    HТRINFOZ
+CODE_SMELL
+dsquid:S1135О"2Complete the task associated to this TODO comment.(╗ацЮ     HУRINFOZ
+CODE_SMELL
+wsquid:UselessImportCheck"8Remove this unused import 'com.revature.model.Employee'.(с╛▀Ж·    HФRMINORZ
+CODE_SMELL
+Xsquid:S1148/"#Use a logger to log this exception.(А╔╘Е¤    HХRMINORZVULNERABILITY
+dsquid:S1135И"2Complete the task associated to this TODO comment.(╗ацЮ     HЦRINFOZ
+CODE_SMELL
+Еsquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(ЛУ┴HЧRMINORZ
+CODE_SMELL
+dsquid:UselessImportCheck"*Remove this unused import 'java.sql.Date'.(┘└╜╩HШRMINORZ
+CODE_SMELL
+Xsquid:S1148s"#Use a logger to log this exception.(А╔╘Е¤    HЩRMINORZVULNERABILITY
