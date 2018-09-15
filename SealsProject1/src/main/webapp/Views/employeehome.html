@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+	integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+	integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+	crossorigin="anonymous"></script>
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+	integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+	crossorigin="anonymous"></script>
+
+<title>Employee Home</title>
+</head>
+<body>
+	<div class='container'>
+		<h1>EMPLOYEE PROFILE</h1>
+	</div>
+
+	<div class="container" id='user'></div>
+	<br>
+	<div class='container'><a href="logout">Log out</a></div>
+	<br><br>
+	<div class="container">
+		<button class="btn btn-info" id="employeeUpdate">Update
+			Personal Information</button>
+		<div class='container' id="empUpdate">
+			<form action="employeeupdate" id='employeeupdate' method="POST">
+				<div class="form-group row" id="empId"></div>
+				<div class="form-group row">
+					<label for="fname" class="col-2 col-form-label">First Name</label>
+					<div class="col-10" id="fname"></div>
+					<input class="form-control" type="text" id="fname" name="fname">
+				</div>
+				<div class="form-group row">
+					<label for="lname" class="col-2 col-form-label">Last Name</label>
+					<div class="col-10" id="lname"></div>
+					<input class="form-control" type="text" id="lname" name="lname">
+				</div>
+				<div id="empUN"></div>
+				<div class="form-group row">
+					<label for="password" class="col-2 col-form-label">Password</label>
+					<div class="col-10" id="password"></div>
+					<input class="form-control" type="text" id="password"
+						name="password">
+				</div>
+
+				<button type="submit" class="btn btn-primary">Submit</button>
+			</form>
+		</div>
+		<br> <br>
+		<div id='displayEmpTable' class='container'>
+			<table id="tableEmp" class="table">
+				<tr id="headerRow">
+					<th>ID</th>
+					<th>First Name</th>
+					<th>Last Name</th>
+					<th>Username</th>
+					<th>Manager ID</th>
+				</tr>
+			</table>
+		</div>
+		<br> <br>
+		<div class="container">
+			<button class="btn btn-success" id="reimbursementView">View
+				Reimbursement Requests</button>
+		</div>
+
+		<div id='displayReimburseTable' class='container'>
+			<table id="tableReimburse" class="table">
+				<tr id="headerRow">
+					<th>Reimbursement ID</th>
+					<th>Description</th>
+					<th>Amount</th>
+					<th>Status</th>
+					<th>Manager ID</th>
+				</tr>
+			</table>
+		</div>
+		<br> <br>
+		<div class='container'>
+			<form action="reimbursementcreate" id='createReimbursement'
+				method="POST">
+				<div class="form-group row">
+					<label for="empId" class="col-2 col-form-label">Employee ID</label>
+					<div class="col-10">
+						<input class="form-control" type="number" id="empId" name="empId">
+					</div>
+				</div>
+				<div class="form-group row">
+					<label for="description" class="col-2 col-form-label">Description</label>
+					<div class="col-10">
+						<input class="form-control" type="text" value="Describe expense"
+							id="description" name="description">
+					</div>
+				</div>
+				<div class="form-group row">
+					<label for="amount" class="col-2 col-form-label">Amount</label>
+					<div class="col-10">
+						<input class="form-control" type="number" min="0.01" step="0.01"
+							id="amount" name="amount">
+					</div>
+				</div>
+				<div class="form-group row">
+					<label for="status" class="col-2 col-form-label">Status</label>
+					<div class="col-10">
+						<input class="form-control" type="number" id="status" value="0"
+							name="status">
+					</div>
+				</div>
+				<div class="form-group row">
+					<label for="managerId" class="col-2 col-form-label">Manager
+						ID</label>
+					<div class="col-10">
+						<input class="form-control" type="number" id="managerId"
+							name="managerId">
+					</div>
+				</div>
+		</div>
+		<div class="container">
+			<button class="btn btn-danger" type='submit' id="reimbursementCreate">Submit
+				Reimbursement Request</button>
+		</div>
+		</form>
+		<div class='container' id='submitoccurred'></div>
+		<br> <br>
+
+		<script type="text/javascript" src="Scripts/CheckSession.js"></script>
+		<script type="text/javascript" src="Scripts/employeehome.js"></script>
+</body>
+</html>

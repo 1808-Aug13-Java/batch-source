@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>StrexCorps Overlords</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+	integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+	integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+	crossorigin="anonymous"></script>
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+	integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+	crossorigin="anonymous"></script>
+</head>
+<body>
+	<div class="container">
+	<div class="container"><h1>OVERLORD PAGE</h1></div>
+		<div class="container">
+			<h4>All Subordinates</h4>
+			<table id="table" class="table">
+				<tr>
+					<th>Name</th>
+					<th>Username</th>
+					<th>Employee ID</th>
+				</tr>
+			</table>
+		</div>
+		<div class="container">
+			<h4>Finalized Reimbursements</h4>
+			<table id="rTable" class="table">
+				<tr>
+					<th>Employee ID</th>
+					<th>Status</th>
+					<th>Description</th>
+					<th>Amount</th>
+					<th>Overlord ID</th>
+				</tr>
+			</table>
+		</div>
+	</div>
+<div class="container">
+		<h3>Reimbursement Finalization</h3>
+		<form action="updatereimbursement" method="POST">
+			<div class="form-group row">
+				<label class="col-sm-2 col-form-label">Select Reimbursement</label>
+				<div class="col-sm-10">
+					<select class="custom-select" name="reimbursement"
+						id="reimburseselect">
+						<option value="0" selected>Select Reimbursement</option>
+					</select>
+				</div>
+			</div>
+			<div class="form-group row">
+				<fieldset class="form-group">
+					<div class="form-check">
+						<label class="form-check-label"> <input type="radio"
+							class="form-check-input" name="status" id="approved"
+							value="1" checked> Approved
+						</label>
+					</div>
+					<div class="form-check">
+						<label class="form-check-label"> <input type="radio"
+							class="form-check-input" name="status" id="denied"
+							value="-1"> Denied
+						</label>
+					</div>
+				</fieldset>
+			</div>
+			<div class="form-group row">
+				<div class="col-sm-10">
+					<button name="destination" value="processReimb" type="submit"
+						class="btn btn-primary">Submit</button>
+				</div>
+			</div>
+		</form>
+	</div>
+		<div class="container"><div class='container'><a href="logout">Log out</a></div>
+		<br><br>
+		
+		<script type="text/javascript" src="Scripts/getemployees.js"></script>
+		<script type="text/javascript" src="Scripts/getreimbursements.js"></script>
+</body>
+</html>
