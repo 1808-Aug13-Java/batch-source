@@ -19,4 +19,8 @@
 			</many-to-many>
 		</bag>
 	</class>
+	
+	<query name="getBearsByCave">
+		<![CDATA[from Bear where cave = :caveVar]]>
+	</query>
 </hibernate-mapping>
