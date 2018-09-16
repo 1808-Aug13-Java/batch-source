@@ -10,5 +10,6 @@
 		</id>
 		<property name="invDate"></property>
 		<property name="amount"></property>
+		<many-to-one name="cust_id" column="CUST_ID" class="com.revature.models.Customer"></many-to-one>
 	</class>
 </hibernate-mapping>
