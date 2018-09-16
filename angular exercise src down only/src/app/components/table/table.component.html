@@ -1,0 +1,44 @@
+<br><br><br>
+
+<button class="btn btn-dark" (click)="toggleFormatting()">{{ isBootstrap }}</button><br><br>
+
+<div *ngIf='oldStyle'>
+    <div>
+        <table>
+          <thead>
+            <tr>
+              <th *ngFor="let head of headers">{{ head }}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let person of people">
+              <td>{{ person.firstname | titlecase }} {{ person.lastname | titlecase }}</td>
+              <td>{{ person.email }}</td>
+              <td>{{ person.birthday | date: 'dd/MM/yyyy' }}</td>
+            </tr>
+          </tbody>
+          </table>
+      </div>
+    </div>
+
+    <div *ngIf='!oldStyle'>
+
+        <div class="container">
+          <table class="table">
+            <thead class="thead-dark">
+              <tr>
+                <th *ngFor="let head of headers">{{ head }}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let person of people">
+                <td>{{ person.firstname | uppercase}} {{ person.lastname | uppercase}}</td>
+                <td>{{ person.email }}</td>
+                <td>{{ person.birthday | date: 'dd/MM/yyyy' }}</td>
+              </tr>
+            </tbody>
+            </table>
+        </div>
+    
+  </div>
+
