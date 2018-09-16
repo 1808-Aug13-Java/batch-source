@@ -1,16 +1,21 @@
 package com.revature.util;
 
-import org.hibernate.Session;
+import com.revature.dao.CustomerDAO;
+import com.revature.dao.CustomerDAOImpl;
+import com.revature.models.Customer;
 
 public class Driver {
 
-	public Driver() {
-		super();
-	}
-
 	public static void main(String[] args) {
-		Session s = HibernateUtil.getSession();
-		s.close();
+		
+		CustomerDAO cdao = new CustomerDAOImpl();
+		Customer customer = new Customer(1, "JJJohnas", "55555555");
+		cdao.createCustomer(customer);
+		
+		Customer c = cdao.getCustomerById(1);
+		
+		System.out.println(c.toString());
+		
 	}
 
 }

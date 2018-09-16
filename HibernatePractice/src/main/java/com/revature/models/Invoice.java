@@ -6,9 +6,9 @@ public class Invoice {
 
 	private int id;
 	private Date date;
-	private double amount;
+	private float amount;
 	
-	public Invoice(int id, Date date, double amount) {
+	public Invoice(int id, Date date, float amount) {
 		super();
 		this.id = id;
 		this.date = date;
@@ -35,11 +35,11 @@ public class Invoice {
 		this.date = date;
 	}
 
-	public double getAmount() {
+	public float getAmount() {
 		return amount;
 	}
 
-	public void setAmount(double amount) {
+	public void setAmount(float amount) {
 		this.amount = amount;
 	}
 
@@ -52,9 +52,7 @@ public class Invoice {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		long temp;
-		temp = Double.doubleToLongBits(amount);
-		result = prime * result + (int) (temp ^ (temp >>> 32));
+		result = prime * result + Float.floatToIntBits(amount);
 		result = prime * result + ((date == null) ? 0 : date.hashCode());
 		result = prime * result + id;
 		return result;
@@ -72,7 +70,7 @@ public class Invoice {
 			return false;
 		}
 		Invoice other = (Invoice) obj;
-		if (Double.doubleToLongBits(amount) != Double.doubleToLongBits(other.amount)) {
+		if (Float.floatToIntBits(amount) != Float.floatToIntBits(other.amount)) {
 			return false;
 		}
 		if (date == null) {
@@ -87,5 +85,6 @@ public class Invoice {
 		}
 		return true;
 	}
+
 	
 }

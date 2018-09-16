@@ -10,7 +10,7 @@
 	<property name="hibernate.connection.password">newpass</property>
 	
 	<property name="hibernate.connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
-	<property name="hibernate.hbm2ddl.auto">create</property> <!-- change to update after tables are created -->
+	<property name="hibernate.hbm2ddl.auto">validate</property> <!-- change to validate after tables are created -->
 	<property name="hibernate.show.sql">true</property>
 	
 	<mapping resource="mapping/Customer.hbm.xml"/>
