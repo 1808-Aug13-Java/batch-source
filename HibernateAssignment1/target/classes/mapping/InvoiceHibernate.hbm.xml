@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- dtd -->
+
+<hibernate-mapping>
+	<class name="com.revature.models.InvoiceHibernate">
+		<id name="invId" column="INV_ID">
+			<generator class="increment"></generator>
+		</id>
+		
+ 		<property name="amount" column="AMOUNT" type="org.hibernate.type.FloatType"></property>
+		<property name="cusId" column="CUS_ID"></property>
+		<property name="date" column="INV_DATE" type="org.hibernate.type.DateType"></property>    
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- dtd -->
+
+<hibernate-mapping>
+	<class name="com.revature.models.CustomerHibernate" table="CustomerHibernate">
+		<id name="cusId" column="CUS_ID">
+			<generator class="increment"></generator>
+		</id>
+				<!-- name is variable name in pojo -->
+		<property name="name" type="org.hibernate.type.StringType" column="NAME"></property>
+		<property name="email" type="org.hibernate.type.StringType" column="EMAIL"></property>
+		<property name="phone" type="org.hibernate.type.StringType" column="PHONE"></property>
+		
+		
+	</class>
+</hibernate-mapping>
