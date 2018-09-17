@@ -1,6 +1,9 @@
 org/hibernate/tutorial/domain/Event.class
 org/hibernate/tutorial/domain/Customer.class
 org/hibernate/tutorial/EventManager.class
+org/hibernate/tutorial/domain/Invoice.class
 org/hibernate/tutorial/dao/CustomerDao.class
 org/hibernate/tutorial/util/HibernateUtil.class
+org/hibernate/tutorial/dao/InvoiceDaoImpl.class
+org/hibernate/tutorial/dao/InvoiceDao.class
 org/hibernate/tutorial/dao/CustomerDaoImpl.class

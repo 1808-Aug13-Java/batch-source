@@ -17,5 +17,6 @@
             <property name="hbm2ddl.auto">update</property>
 
             <mapping resource="org/hibernate/tutorial/domain/Customer.hbm.xml"/>
+            <mapping resource="org/hibernate/tutorial/domain/Invoice.hbm.xml"/>
           </session-factory>
         </hibernate-configuration>
