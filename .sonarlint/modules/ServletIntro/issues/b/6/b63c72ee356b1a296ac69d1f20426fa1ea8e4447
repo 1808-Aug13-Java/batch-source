@@ -1,0 +1,16 @@
+
+r
+squid:S106"9Replace this use of System.out or System.err by a logger.(‚é™ûÿÿÿÿ8ãñªÚ,HéRMAJORZ
+CODE_SMELL
+m
+squid:S106"9Replace this use of System.out or System.err by a logger.(­…°Ã8Ù–ªÚ,HóRMAJORZ
+CODE_SMELL
+r
+squid:S106"9Replace this use of System.out or System.err by a logger.(çÆ¦Üşÿÿÿÿ8Ù–ªÚ,HòRMAJORZ
+CODE_SMELL
+tsquid:S1161":Add the "@Override" annotation above this method signature(Æ¢°Ëıÿÿÿÿ8½€ªÚ,HâRMAJORZ
+CODE_SMELL
+osquid:S1161":Add the "@Override" annotation above this method signature(®´š¥8„º–ªÚ,HõRMAJORZ
+CODE_SMELL
+osquid:S1161":Add the "@Override" annotation above this method signature(‚“¶î8•Š—ªÚ,H÷RMAJORZ
+CODE_SMELL

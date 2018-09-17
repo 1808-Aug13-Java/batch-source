@@ -1,0 +1,9 @@
+
+ksquid:S1135"2Complete the task associated to this TODO comment.(ƒŠ® úÿÿÿÿ8îêËıÚ,HÎêRINFOZ
+CODE_SMELL
+€squid:CommentedOutCodeLine9"<This block of commented-out lines of code should be removed.(ÛÖ‚š8Ò ×ıÚ,HÏêRMAJORZ
+CODE_SMELL
+squid:S3973P"WUse curly braces or indentation to denote the code conditionally executed by this "if".(–×İô8îêËıÚ,HĞêRCRITICALZ
+CODE_SMELL
+squid:S3973W"WUse curly braces or indentation to denote the code conditionally executed by this "if".(’ú¢8îêËıÚ,HÑêRCRITICALZ
+CODE_SMELL

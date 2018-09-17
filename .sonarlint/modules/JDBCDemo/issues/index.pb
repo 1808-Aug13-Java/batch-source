@@ -3,8 +3,6 @@ _
 /src/main/java/com/revature/dao/EmployeeDao.java,a\6\a69cdebb2a8765866c3bcf87f15965022da5d11a
 c
 3src/main/java/com/revature/util/ConnectionUtil.java,8\f\8f9742be3e6170e843a3a3e659a612b0506c253e
-E
-connection.properties,4\8\4812ae94ab36c235d4e7b3d7a3f63a4227950a7c
 [
 +src/main/java/com/revature/main/Driver.java,7\2\7259f1f7639c95f91062eb0ecbbf583a9e4e45b2
 `

@@ -1,0 +1,32 @@
+body {
+	background-color: lightskyblue;
+}
+
+img {
+	display: block;
+}
+
+.myClass {
+	color: brown;
+	font-family: 'Courier New';
+	text-align: center;
+}
+
+#coolPic {
+	margin: 20px;
+	border-style: solid;
+	border-color: darkslategrey;
+	border-width: 10px;
+	padding:  20px;
+}
+
+
+
+table, th, td {
+	border: 1px, darkslategrey;
+	border-collapse: collapse;
+}
+
+#colorTable {
+	margin-top: 30px;
+}

@@ -1,0 +1,53 @@
+
+ksquid:S1135/"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿ8ËÆ¾Û,H£àRINFOZ
+CODE_SMELL
+squid:S1192"RDefine a constant instead of duplicating this literal "EMPLOYEE_PASSWORD" 3 times.(æ¨­üøÿÿÿÿ8á–˜àÜ,HãàRCRITICALZ
+CODE_SMELL
+ksquid:S1135C"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿ8ÛîºşÚ,HŸàRINFOZ
+CODE_SMELL
+m
+squid:S106+"9Replace this use of System.out or System.err by a logger.(ÀñØè8ÛîºşÚ,H¤àRMAJORZ
+CODE_SMELL
+`squid:S11486"#Use a logger to log this exception.(Âşÿâûÿÿÿÿ8ËÆ¾Û,HœàRMINORZVULNERABILITY
+dsquid:S1135i"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿHáàRINFOZ
+CODE_SMELL
+`squid:S1148E"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ÜéÁÛ,H™àRMINORZVULNERABILITY
+€squid:S1192+"HDefine a constant instead of duplicating this literal "sql grr" 4 times.(ÀñØè8ÜéÁÛ,H˜àRCRITICALZ
+CODE_SMELL
+ksquid:S1135e"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿ8‹Ş“àÜ,HÇàRINFOZ
+CODE_SMELL
+esquid:S1135"2Complete the task associated to this TODO comment.(» æÿÿÿÿÿHàRINFOZ
+CODE_SMELL
+|squid:S2095v"GUse try-with-resources or close this "ResultSet" in a "finally" clause.(ĞÂé ûÿÿÿÿ8Ôğˆ†Û,H àRBLOCKERZBUG
+|squid:S2095V"GUse try-with-resources or close this "ResultSet" in a "finally" clause.(ĞÂé ûÿÿÿÿ8á–˜àÜ,HæàRBLOCKERZBUG
+`squid:S1148j"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8éçÊàÜ,HªáRMINORZVULNERABILITY
+squid:S1192"IDefine a constant instead of duplicating this literal "LASTNAME" 3 times.(™£±“8á–˜àÜ,HåàRCRITICALZ
+CODE_SMELL
+f
+squid:S106f"9Replace this use of System.out or System.err by a logger.(ÀñØèHààRMAJORZ
+CODE_SMELL
+lsquid:S1135…"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿ8úµÊàÜ,H¡áRINFOZ
+CODE_SMELL
+`squid:S1148,"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ÛîºşÚ,H–àRMINORZVULNERABILITY
+f
+squid:S106."9Replace this use of System.out or System.err by a logger.(ŠÏªH“àRMAJORZ
+CODE_SMELL
+ksquid:S1135H"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿ8ÜéÁÛ,H—àRINFOZ
+CODE_SMELL
+`squid:S1148g"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8‹Ş“àÜ,HŞàRMINORZVULNERABILITY
+n
+squid:S106†"9Replace this use of System.out or System.err by a logger.(ÀñØè8‹Ş“àÜ,HßàRMAJORZ
+CODE_SMELL
+Ysquid:S11480"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿH¡àRMINORZVULNERABILITY
+m
+squid:S106D"9Replace this use of System.out or System.err by a logger.(ÀñØè8ÜéÁÛ,H”àRMAJORZ
+CODE_SMELL
+Ysquid:S1148I"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿH’àRMINORZVULNERABILITY
+f
+squid:S106G"9Replace this use of System.out or System.err by a logger.(ŠÏªHàRMAJORZ
+CODE_SMELL
+asquid:S1148‡"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8‹Ş“àÜ,HÉàRMINORZVULNERABILITY
+ksquid:S1135*"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿ8ÛîºşÚ,HšàRINFOZ
+CODE_SMELL
+squid:S1192"JDefine a constant instead of duplicating this literal "FIRSTNAME" 3 times.(±­É8á–˜àÜ,HäàRCRITICALZ
+CODE_SMELL

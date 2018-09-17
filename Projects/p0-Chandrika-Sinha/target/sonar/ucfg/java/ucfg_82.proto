@@ -1,0 +1,59 @@
+
+'model.User#toString()Ljava/lang/String;
+__unknown_file ("1*´
+
+1M
+CC:\Users\sinhac\batch-source\p0-Chandrika-Sinha\src\model\User.javah	 h(z
+M
+CC:\Users\sinhac\batch-source\p0-Chandrika-Sinha\src\model\User.javah	 h(%%0__concat"
+User [username="
+""v
+M
+CC:\Users\sinhac\batch-source\p0-Chandrika-Sinha\src\model\User.javah	 h(5%1__concat"
+
+%0"
+, password=m
+M
+CC:\Users\sinhac\batch-source\p0-Chandrika-Sinha\src\model\User.javah	 h(@%2__concat"
+
+%1"
+""w
+M
+CC:\Users\sinhac\batch-source\p0-Chandrika-Sinha\src\model\User.javah	 h(Q%3__concat"
+
+%2"
+, firstname=m
+M
+CC:\Users\sinhac\batch-source\p0-Chandrika-Sinha\src\model\User.javah	 h(]%4__concat"
+
+%3"
+""v
+M
+CC:\Users\sinhac\batch-source\p0-Chandrika-Sinha\src\model\User.javah	 h(m%5__concat"
+
+%4"
+, lastname=m
+M
+CC:\Users\sinhac\batch-source\p0-Chandrika-Sinha\src\model\User.javah	 i(%6__concat"
+
+%5"
+""x
+M
+CC:\Users\sinhac\batch-source\p0-Chandrika-Sinha\src\model\User.javah	 i( %7__concat"
+
+%6"
+, isLoggedIn=m
+M
+CC:\Users\sinhac\batch-source\p0-Chandrika-Sinha\src\model\User.javah	 i(-%8__concat"
+
+%7"
+""l
+M
+CC:\Users\sinhac\batch-source\p0-Chandrika-Sinha\src\model\User.javah	 i(3%9__concat"
+
+%8"
+]"W
+M
+CC:\Users\sinhac\batch-source\p0-Chandrika-Sinha\src\model\User.javah i(4
+
+%9

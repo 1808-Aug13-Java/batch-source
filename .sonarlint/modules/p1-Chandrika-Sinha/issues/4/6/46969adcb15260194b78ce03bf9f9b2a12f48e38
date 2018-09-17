@@ -1,0 +1,15 @@
+
+ksquid:S11351"2Complete the task associated to this TODO comment.(» æÿÿÿÿÿ8—Ç ×Ü,HÙRINFOZ
+CODE_SMELL
+osquid:S11610":Add the "@Override" annotation above this method signature(‹¨¯¿8‡¢×Ü,HšÙRMAJORZ
+CODE_SMELL
+esquid:S1989""(Add a "try/catch" block for "getWriter".(“­†·øÿÿÿÿ8‡¢×Ü,H¼èRMINORZVULNERABILITY
+nsquid:S1989$"1Add a "try/catch" block for "writeValueAsString".(À˜»Çüÿÿÿÿ8‡¢×Ü,H½èRMINORZVULNERABILITY
+asquid:S19892"$Add a "try/catch" block for "doGet".(®Ó‘ûÿÿÿÿÿ8‡¢×Ü,H˜ÙRMINORZVULNERABILITY
+tsquid:S1161":Add the "@Override" annotation above this method signature(Ïû©Öûÿÿÿÿ8‡¢×Ü,H™ÙRMAJORZ
+CODE_SMELL
+ksquid:S1135"2Complete the task associated to this TODO comment.(ƒŠ® úÿÿÿÿ8—Ç ×Ü,HÙRINFOZ
+CODE_SMELL
+csquid:S1989)"&Add a "try/catch" block for "forward".(Ì¯öËúÿÿÿÿ8 É¼ãÜ,H¾èRMINORZVULNERABILITY
+asquid:S19892"$Add a "try/catch" block for "doGet".(®Ó‘ûÿÿÿÿÿ8‡¢×Ü,H—ÙRMINORZVULNERABILITY
+csquid:S1989)"&Add a "try/catch" block for "forward".(Ì¯öËúÿÿÿÿ8 É¼ãÜ,H¿èRMINORZVULNERABILITY

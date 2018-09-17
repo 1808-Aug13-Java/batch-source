@@ -1,0 +1,53 @@
+
+`squid:S1148r"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ä÷„Û,HüáRMINORZVULNERABILITY
+lsquid:S1135"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿ8ƒÜ´áÜ,H‰ãRINFOZ
+CODE_SMELL
+ksquid:S1135/"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿ8‘ê…şÚ,HşáRINFOZ
+CODE_SMELL
+squid:S1192"IDefine a constant instead of duplicating this literal "LASTNAME" 3 times.(™£±“8ç¼áÜ,H‘âRCRITICALZ
+CODE_SMELL
+ksquid:S1135q"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿ8‘ê…şÚ,HÿáRINFOZ
+CODE_SMELL
+ksquid:S1135T"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿ8ç¼áÜ,H”âRINFOZ
+CODE_SMELL
+ksquid:S1135l"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿ8Î™åÛ,H‚âRINFOZ
+CODE_SMELL
+`squid:S1148Y"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8‘ê…şÚ,HâRMINORZVULNERABILITY
+`squid:S1148_"#Use a logger to log this exception.(Âşÿâûÿÿÿÿ8ç¼áÜ,H•âRMINORZVULNERABILITY
+€squid:S1192+"HDefine a constant instead of duplicating this literal "sql grr" 4 times.(ÀñØè8Î™åÛ,HôáRCRITICALZ
+CODE_SMELL
+`squid:S1148n"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ğõ‡Û,H€âRMINORZVULNERABILITY
+ksquid:S1135X"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿ8¯à¬€Û,H÷áRINFOZ
+CODE_SMELL
+asquid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ç¼áÜ,H–âRMINORZVULNERABILITY
+`squid:S11486"#Use a logger to log this exception.(Âşÿâûÿÿÿÿ8Î™åÛ,HƒâRMINORZVULNERABILITY
+€squid:UselessImportCheck"9Remove this unused import 'com.chandrika.model.Employee'.(£úÄ¨øÿÿÿÿ8äëÒ€Û,HùáRMINORZ
+CODE_SMELL
+n
+squid:S106"9Replace this use of System.out or System.err by a logger.(ÀñØè8‘ê…şÚ,HúáRMAJORZ
+CODE_SMELL
+`squid:S1148,"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8¯à¬€Û,HûáRMINORZVULNERABILITY
+m
+squid:S106m"9Replace this use of System.out or System.err by a logger.(ÀñØè8¯à¬€Û,HöáRMAJORZ
+CODE_SMELL
+m
+squid:S106."9Replace this use of System.out or System.err by a logger.(ŠÏª8¯à¬€Û,HõáRMAJORZ
+CODE_SMELL
+ksquid:S1135*"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿ8¯à¬€Û,HıáRINFOZ
+CODE_SMELL
+m
+squid:S106p"9Replace this use of System.out or System.err by a logger.(ŠÏª8‘ê…şÚ,HóáRMAJORZ
+CODE_SMELL
+m
+squid:S106+"9Replace this use of System.out or System.err by a logger.(ÀñØè8‘ê…şÚ,H„âRMAJORZ
+CODE_SMELL
+m
+squid:S106U"9Replace this use of System.out or System.err by a logger.(ÀñØè8ç¼áÜ,H“âRMAJORZ
+CODE_SMELL
+asquid:S1148•"#Use a logger to log this exception.(Âşÿâûÿÿÿÿ8ƒÜ´áÜ,HŠãRMINORZVULNERABILITY
+squid:S1192"JDefine a constant instead of duplicating this literal "FIRSTNAME" 3 times.(±­É8ç¼áÜ,HâRCRITICALZ
+CODE_SMELL
+`squid:S1148V"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8¯à¬€Û,HøáRMINORZVULNERABILITY
+`squid:S11480"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8‘ê…şÚ,H…âRMINORZVULNERABILITY
+‰squid:S1192"QDefine a constant instead of duplicating this literal "MANAGER_PASSWORD" 3 times.(ÑŸì8ç¼áÜ,HâRCRITICALZ
+CODE_SMELL

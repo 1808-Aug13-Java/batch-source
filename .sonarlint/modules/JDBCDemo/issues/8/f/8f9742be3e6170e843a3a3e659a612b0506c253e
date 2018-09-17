@@ -1,4 +1,9 @@
 
-Œsquid:S2068"U'password' detected in this expression, review this potentially hardcoded credential.(áõ¦ùÿÿÿÿHíRBLOCKERZVULNERABILITY
-gsquid:S1118":Add a private constructor to hide the implicit public one.(ò°ªHîRMAJORZ
+squid:S2068"U'password' detected in this expression, review this potentially hardcoded credential.(áõ¦ùÿÿÿÿHÈ±RBLOCKERZVULNERABILITY
+hsquid:S1118":Add a private constructor to hide the implicit public one.(ò°ªHÉ±RMAJORZ
 CODE_SMELL
+vsquid:UselessImportCheck"4Remove this unused import 'java.io.FileInputStream'.(˜³ÉÓ8¢ÁøŒÛ,HÊ±RMINORZ
+CODE_SMELL
+rsquid:UselessImportCheck"0Remove this unused import 'java.io.InputStream'.(¹»º8¢ÁøŒÛ,HË±RMINORZ
+CODE_SMELL
+`squid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8¢ÁøŒÛ,HÌ±RMINORZVULNERABILITY

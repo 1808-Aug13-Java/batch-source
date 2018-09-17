@@ -1,0 +1,17 @@
+
+tsquid:S1161":Add the "@Override" annotation above this method signature(Ïû©Öûÿÿÿÿ8»ó¤×Ü,H§ÙRMAJORZ
+CODE_SMELL
+osquid:S1161/":Add the "@Override" annotation above this method signature(‹¨¯¿8…µØÜ,H”ÚRMAJORZ
+CODE_SMELL
+asquid:S19891"$Add a "try/catch" block for "doGet".(®Ó‘ûÿÿÿÿÿ8…µØÜ,H‘ÚRMINORZVULNERABILITY
+~squid:UselessImportCheck"<Remove this unused import 'javax.servlet.RequestDispatcher'.(Ëöò¼8ÍèÙÜ,H”ÛRMINORZ
+CODE_SMELL
+esquid:S1989""(Add a "try/catch" block for "getWriter".(“­†·øÿÿÿÿ8»ó¤×Ü,H÷çRMINORZVULNERABILITY
+asquid:S19891"$Add a "try/catch" block for "doGet".(®Ó‘ûÿÿÿÿÿ8…µØÜ,H’ÚRMINORZVULNERABILITY
+^squid:S1989("&Add a "try/catch" block for "forward".(¸«ŠŞ8Úê¤ãÜ,H…èRMINORZVULNERABILITY
+nsquid:S1989$"1Add a "try/catch" block for "writeValueAsString".(À˜»Çüÿÿÿÿ8»ó¤×Ü,HøçRMINORZVULNERABILITY
+ksquid:S1135"2Complete the task associated to this TODO comment.(ƒŠ® úÿÿÿÿ8£ü˜×Ü,HÑØRINFOZ
+CODE_SMELL
+ksquid:S11350"2Complete the task associated to this TODO comment.(» æÿÿÿÿÿ8…µØÜ,H“ÚRINFOZ
+CODE_SMELL
+^squid:S1989("&Add a "try/catch" block for "forward".(¸«ŠŞ8Úê¤ãÜ,H†èRMINORZVULNERABILITY

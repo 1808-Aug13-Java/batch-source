@@ -1,0 +1,10 @@
+
+˜javascript:S2703"WAdd the "let", "const" or "var" keyword to this declaration of "i" to make it explicit.(¼Û†…ùÿÿÿÿ8Ì‰©ÞÜ,HÑÞRBLOCKERZ
+CODE_SMELL
+šjavascript:S2703"^Add the "let", "const" or "var" keyword to this declaration of "requests" to make it explicit.(›àåá8Ì‰©ÞÜ,HÏÞRBLOCKERZ
+CODE_SMELL
+šjavascript:S2703"YAdd the "let", "const" or "var" keyword to this declaration of "man" to make it explicit.(ÛÑ€¯ùÿÿÿÿ8Ì‰©ÞÜ,HÐÞRBLOCKERZ
+CODE_SMELL
+Ÿjavascript:S2583"lChange this condition so that it does not always evaluate to "true"; some subsequent code is never executed.(¦¡µÊ8Ì‰©ÞÜ,HÍÞRMAJORZBUG
+¡javascript:S2703"`Add the "let", "const" or "var" keyword to this declaration of "requestArr" to make it explicit.(°×Ãˆùÿÿÿÿ8Ì‰©ÞÜ,HÒÞRBLOCKERZ
+CODE_SMELL

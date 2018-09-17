@@ -1,0 +1,13 @@
+
+ksquid:S1135"2Complete the task associated to this TODO comment.(ƒŠ® úÿÿÿÿ8´Ò¢ýÚ,H“ãRINFOZ
+CODE_SMELL
+€squid:CommentedOutCodeLineE"<This block of commented-out lines of code should be removed.(’Ý—8Î ÿýÚ,H•ãRMAJORZ
+CODE_SMELL
+”squid:S3973\"WUse curly braces or indentation to denote the code conditionally executed by this "if".(‹»¢’ûÿÿÿÿ8´Ò¢ýÚ,H—ãRCRITICALZ
+CODE_SMELL
+€squid:CommentedOutCodeLineC"<This block of commented-out lines of code should be removed.(æäð©8Î ÿýÚ,H–ãRMAJORZ
+CODE_SMELL
+fsquid:S1068	",Remove this unused "loggedIn" private field.(‡±ªêúÿÿÿÿ8»•½áÜ,H¹ãRMAJORZ
+CODE_SMELL
+squid:S3973a"WUse curly braces or indentation to denote the code conditionally executed by this "if".(‘ÈÁ•8´Ò¢ýÚ,H”ãRCRITICALZ
+CODE_SMELL

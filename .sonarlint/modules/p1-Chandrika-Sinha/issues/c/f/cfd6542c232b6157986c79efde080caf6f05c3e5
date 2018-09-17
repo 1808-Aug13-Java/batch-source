@@ -1,0 +1,10 @@
+
+…squid:CommentedOutCodeLine "<This block of commented-out lines of code should be removed.(Àµºçûÿÿÿÿ8¶÷áäÜ,H¤îRMAJORZ
+CODE_SMELL
+ksquid:S1135"2Complete the task associated to this TODO comment.(ƒŠ® úÿÿÿÿ8ä˜«äÜ,HðéRINFOZ
+CODE_SMELL
+bsquid:S1989"*Add a "try/catch" block for "parseDouble".(ÜûÎÞ8áÈÄìÜ,H¥îRMINORZVULNERABILITY
+osquid:S1161":Add the "@Override" annotation above this method signature(‹¨¯¿8¬Þ®äÜ,HøéRMAJORZ
+CODE_SMELL
+csquid:S1989-"&Add a "try/catch" block for "forward".(ð¡¡¯ûÿÿÿÿ8¡¯äìÜ,H²îRMINORZVULNERABILITY
+csquid:S1989-"&Add a "try/catch" block for "forward".(ð¡¡¯ûÿÿÿÿ8¡¯äìÜ,H³îRMINORZVULNERABILITY

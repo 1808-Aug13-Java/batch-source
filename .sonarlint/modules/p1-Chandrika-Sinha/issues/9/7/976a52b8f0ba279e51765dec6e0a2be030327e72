@@ -1,0 +1,15 @@
+
+fsquid:S1068	",Remove this unused "loggedIn" private field.(‡±ªêúÿÿÿÿ8®“¶ÜÜ,H¨ÜRMAJORZ
+CODE_SMELL
+Šsquid:S3776K"RRefactor this method to reduce its Cognitive Complexity from 20 to the 15 allowed.(ÜÑã8¤Ğ‰şÚ,H—ÜRCRITICALZ
+CODE_SMELL
+”squid:S3973V"WUse curly braces or indentation to denote the code conditionally executed by this "if".(¾†Ïûşÿÿÿÿ8¤Ğ‰şÚ,H˜ÜRCRITICALZ
+CODE_SMELL
+”squid:S3973b"WUse curly braces or indentation to denote the code conditionally executed by this "if".(‹»¢’ûÿÿÿÿ8¤Ğ‰şÚ,H–ÜRCRITICALZ
+CODE_SMELL
+ksquid:S1135"2Complete the task associated to this TODO comment.(ƒŠ® úÿÿÿÿ8¤Ğ‰şÚ,H“ÜRINFOZ
+CODE_SMELL
+”squid:S3973]"WUse curly braces or indentation to denote the code conditionally executed by this "if".(Ñ–ÂÅøÿÿÿÿ8¤Ğ‰şÚ,H•ÜRCRITICALZ
+CODE_SMELL
+squid:S3973g"WUse curly braces or indentation to denote the code conditionally executed by this "if".(‘ÈÁ•8¤Ğ‰şÚ,H”ÜRCRITICALZ
+CODE_SMELL
