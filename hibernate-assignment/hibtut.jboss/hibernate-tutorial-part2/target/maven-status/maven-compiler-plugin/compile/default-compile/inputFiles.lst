@@ -1,0 +1,9 @@
+/home/chat/batch-source/hibernate-assignment/hibtut.jboss/hibernate-tutorial-initial/src/main/java/org/hibernate/tutorial/EventManager.java
+/home/chat/batch-source/hibernate-assignment/hibtut.jboss/hibernate-tutorial-initial/src/main/java/org/hibernate/tutorial/domain/Event.java
+/home/chat/batch-source/hibernate-assignment/hibtut.jboss/hibernate-tutorial-initial/src/main/java/org/hibernate/tutorial/dao/InvoiceDao.java
+/home/chat/batch-source/hibernate-assignment/hibtut.jboss/hibernate-tutorial-initial/src/main/java/org/hibernate/tutorial/domain/Customer.java
+/home/chat/batch-source/hibernate-assignment/hibtut.jboss/hibernate-tutorial-initial/src/main/java/org/hibernate/tutorial/dao/CustomerDaoImpl.java
+/home/chat/batch-source/hibernate-assignment/hibtut.jboss/hibernate-tutorial-initial/src/main/java/org/hibernate/tutorial/domain/Invoice.java
+/home/chat/batch-source/hibernate-assignment/hibtut.jboss/hibernate-tutorial-initial/src/main/java/org/hibernate/tutorial/util/HibernateUtil.java
+/home/chat/batch-source/hibernate-assignment/hibtut.jboss/hibernate-tutorial-initial/src/main/java/org/hibernate/tutorial/dao/InvoiceDaoImpl.java
+/home/chat/batch-source/hibernate-assignment/hibtut.jboss/hibernate-tutorial-initial/src/main/java/org/hibernate/tutorial/dao/CustomerDao.java
