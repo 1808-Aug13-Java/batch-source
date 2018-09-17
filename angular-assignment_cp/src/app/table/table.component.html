@@ -1,0 +1,33 @@
+<div class='container'>
+  <h2>Table</h2>
+</div>
+<table id='peopleTable' *ngIf='this.bsButton' class='table table-dark'>
+  <thead class='thead dark'>
+    <th scope='col'>First Name</th>
+    <th scope='col'>Last Name</th>
+    <th scope='col'>Birthday</th>
+    <th scope='col'>Email</th>
+  </thead>
+  <tr *ngFor='let p of person'>
+    <td>{{ p.fname | uppercase }}</td>
+    <td>{{ p.lname | uppercase }}</td>
+    <td>{{ p.birthday | date: 'yyyy-MM-dd' }}</td>
+    <td>{{ p.email }}</td>
+  </tr>
+</table>
+<table id='peopleTable' *ngIf='this.htmlButton'>
+  <th>First Name</th>
+  <th>Last Name</th>
+  <th>Birthday</th>
+  <th>Email</th>
+  <tr *ngFor='let p of person'>
+    <td>{{ p.fname | uppercase }}</td>
+    <td>{{ p.lname | uppercase }}</td>
+    <td>{{ p.birthday | date: 'yyyy-MM-dd' }}</td>
+    <td>{{ p.email }}</td>
+  </tr>
+</table>
+
+
+<button class='btn btn-primary' id='html' *ngIf='this.htmlButton' (click)='this.htmlButton = false; this.bsButton = true'>Bootstrap</button>
+<button class='btn btn-success' id='bootstrap' *ngIf='this.bsButton' (click)='this.bsButton = false; this.htmlButton = true'>HTML</button>

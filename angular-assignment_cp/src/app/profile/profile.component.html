@@ -1,0 +1,15 @@
+<br><br>
+<hr>
+<div class="container">
+<h2>Profile</h2>
+<div id="profile">
+ 
+  <p *ngIf="this.isButtonVisible">Name: {{profile.name}}<br>
+  Phone: {{profile.phone}}<br>
+  Username: {{profile.username}}</p>
+
+  <button class='btn btn-danger' id="btnhide" *ngIf="this.isButtonVisible" (click)="this.isButtonVisible = false; this.hiddenButtonVisible = true">hide</button>
+  <button class='btn btn-success' id="btnshow" *ngIf="this.hiddenButtonVisible" (click)="this.isButtonVisible = true; this.hiddenButtonVisible = false">show</button>
+</div>
+
+</div>
