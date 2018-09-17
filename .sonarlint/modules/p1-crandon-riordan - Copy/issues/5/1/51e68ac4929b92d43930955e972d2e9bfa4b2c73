@@ -1,0 +1,20 @@
+
+psquid:S1854"6Remove this useless assignment to local variable "ud".(æë²¶ıÿÿÿÿ8Ëñ¤§Ş,H„RMAJORZ
+CODE_SMELL
+esquid:S1989#"(Add a "try/catch" block for "getWriter".(“­†·øÿÿÿÿ8 Ğ˜§Ş,HóƒRMINORZVULNERABILITY
+msquid:S1161":Add the "@Override" annotation above this method signature(Ïû©ÖûÿÿÿÿH›RMAJORZ
+CODE_SMELL
+asquid:S1989)"$Add a "try/catch" block for "doGet".(®Ó‘ûÿÿÿÿÿ8™­ó¤Ş,HŸRMINORZVULNERABILITY
+_squid:S1481"*Remove this unused "posts" local variable.(ÎÁ˜8öÄ”§Ş,HéƒRMINORZ
+CODE_SMELL
+asquid:S1989)"$Add a "try/catch" block for "doGet".(®Ó‘ûÿÿÿÿÿ8™­ó¤Ş,H RMINORZVULNERABILITY
+nsquid:S1854"9Remove this useless assignment to local variable "posts".(ÎÁ˜8öÄ”§Ş,HêƒRMAJORZ
+CODE_SMELL
+osquid:S1161(":Add the "@Override" annotation above this method signature(‹¨¯¿8™­ó¤Ş,H¡RMAJORZ
+CODE_SMELL
+m
+squid:S106!"9Replace this use of System.out or System.err by a logger.(Ÿı¡û8¨ºš§Ş,HøƒRMAJORZ
+CODE_SMELL
+asquid:S1481"'Remove this unused "ud" local variable.(æë²¶ıÿÿÿÿ8Ëñ¤§Ş,H€„RMINORZ
+CODE_SMELL
+nsquid:S1989$"1Add a "try/catch" block for "writeValueAsString".(“ÿï£üÿÿÿÿ8ÖÎÆ§Ş,H‹„RMINORZVULNERABILITY

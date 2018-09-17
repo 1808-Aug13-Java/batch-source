@@ -1,0 +1,13 @@
+
+…squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(˜ÅÏ’øÿÿÿÿ8±Ö¤¦Þ,Hò‚RMAJORZ
+CODE_SMELL
+…squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(îÕõŠüÿÿÿÿ8öšÁ¦Þ,HˆƒRMAJORZ
+CODE_SMELL
+\squid:S1481"'Remove this unused "pd" local variable.(ìŸÓÿ8öšÁ¦Þ,H‰ƒRMINORZ
+CODE_SMELL
+\squid:S1481"'Remove this unused "u1" local variable.(‚Úåé8öšÁ¦Þ,HŠƒRMINORZ
+CODE_SMELL
+ksquid:S1854"6Remove this useless assignment to local variable "u1".(‚Úåé8öšÁ¦Þ,H‹ƒRMAJORZ
+CODE_SMELL
+ksquid:S1854"6Remove this useless assignment to local variable "pd".(ìŸÓÿ8öšÁ¦Þ,HŒƒRMAJORZ
+CODE_SMELL

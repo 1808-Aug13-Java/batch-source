@@ -46,10 +46,14 @@
 <fullyQualifiedTypeName name="com.revature.daos.CaveDaoImpl"/>
 <fullyQualifiedTypeName name="com.revature.models.Cave"/>
 <fullyQualifiedTypeName name="javax.transaction.Transaction"/>
-<fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="org.hibernate.Query"/>
-<fullyQualifiedTypeName name="com.revature.util.HibernateUtil"/>
+<fullyQualifiedTypeName name="java.sql.Date"/>
+<fullyQualifiedTypeName name="org.hibernate.annotations.Entity"/>
 <fullyQualifiedTypeName name="org.hibernate.Session"/>
 <fullyQualifiedTypeName name="org.hibernate.Transaction"/>
-<fullyQualifiedTypeName name="java.sql.Date"/>
+<fullyQualifiedTypeName name="com.revature.util.HibernateUtil"/>
+<fullyQualifiedTypeName name="com.revature.models.User"/>
+<fullyQualifiedTypeName name="com.revature.dao.PostDao"/>
+<fullyQualifiedTypeName name="com.revature.models.Post"/>
+<fullyQualifiedTypeName name="java.util.List"/>
 </qualifiedTypeNameHistroy>

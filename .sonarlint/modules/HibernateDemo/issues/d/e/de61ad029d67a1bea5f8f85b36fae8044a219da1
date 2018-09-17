@@ -1,0 +1,21 @@
+
+j
+squid:S106"9Replace this use of System.out or System.err by a logger.(š—°øÿÿÿÿH˜{RMAJORZ
+CODE_SMELL
+tsquid:UselessImportCheck":Remove this unused import 'com.revature.daos.CaveDaoImpl'.(Í•ãƒH™{RMINORZ
+CODE_SMELL
+ssquid:UselessImportCheck
+"9Remove this unused import 'com.revature.daos.BeehiveDao'.(Ù˜İHš{RMINORZ
+CODE_SMELL
+wsquid:UselessImportCheck"=Remove this unused import 'com.revature.daos.BeehiveDaoImpl'.(åŒ‰H›{RMINORZ
+CODE_SMELL
+rsquid:UselessImportCheck"8Remove this unused import 'com.revature.models.Beehive'.(‚â¤¿Hœ{RMINORZ
+CODE_SMELL
+qsquid:UselessImportCheck"2Remove this unused import 'org.hibernate.Session'.(È¹›§ùÿÿÿÿH{RMINORZ
+CODE_SMELL
+osquid:UselessImportCheck"5Remove this unused import 'com.revature.models.Cave'.(¡÷–ßH{RMINORZ
+CODE_SMELL
+dsquid:UselessImportCheck"*Remove this unused import 'java.sql.Date'.(ÙÀ½ÊHŸ{RMINORZ
+CODE_SMELL
+usquid:UselessImportCheck"6Remove this unused import 'com.revature.daos.CaveDao'.(ıéÿûÿÿÿÿH {RMINORZ
+CODE_SMELL
