@@ -1,0 +1,13 @@
+<div class='container'>
+<h2>Select</h2>
+
+  <div class='container'>
+  <input type=radio name="radiobtn" (click)='displayAnimals()'>animals<br>
+  <input type=radio name='radiobtn' (click)='displayColors()'>colors<br>
+  <input type=radio name='radiobtn' (click)='displayDays()'>days<br>
+  </div>
+  <br><br>
+    <ul>
+      <li class="list-group-item" *ngFor='let selection of selected'>{{selection}}</li>
+    </ul>
+</div>
