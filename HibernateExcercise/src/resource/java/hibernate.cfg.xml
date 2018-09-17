@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+		
+<hibernate-configuration>
+	<session-factory>
+	
+	<!--  Session Properties -->
+		<property name = "hibernate.connection.url">jdbc:oracle:thin:@cireydbi.cc9h9npjasot.us-east-1.rds.amazonaws.com:1521:ORCL</property>
+		<property name = "hibernate.connection.username">CFrancis95</property>
+		<property name = "hibernate.connection.password">Wallofdoom2</property>
+		<property name = "hibernate.connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
+		<property name = "hibernate.connection.show_sql">true</property>
+		<property name = "hibernate.hbm2ddl.auto">create</property>
+		
+		<!--  Maps -->
+		<mapping resource = "mapping/customer.hbm.xml"/>
+		<mapping resource = "mapping/invoice.hbm.xml"/>
+		
+	</session-factory>
+</hibernate-configuration>		

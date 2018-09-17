@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name = "com.revature.models.Customer" table = "CUSTOMERS">
+		<id name = "id" column = "CUSTOMER_ID">
+			<generator class = "increment"></generator>
+		</id>
+		<property name = "name" type = "org.hibernate.type.StringType" column = "NAME"></property>
+		<property name = "phone" type = "org.hibernate.type.StringType" column = "PHONE"></property>
+	</class>
+</hibernate-mapping>
