@@ -2,11 +2,35 @@ package com.revature.models;
 
 import java.util.List;
 
-public class Customer {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 
+
+@Entity
+@Table
+public class Customer {
+	
+	
+
+	@Id
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="custSequence")
+	@SequenceGenerator(name="custSequence", allocationSize=1, sequenceName="SQ_CUST_PK")
+	@Column(name="CUST_ID")
 	private int id;
+	@Column(name="NAME")
 	private String name;
+	@Column(name="PHONE")
 	private String phone;
+	
+	@OneToMany
+	@JoinColumn(name="CAVE_ID")
 	private List<Invoice> invoices;
 	
 	public Customer() {

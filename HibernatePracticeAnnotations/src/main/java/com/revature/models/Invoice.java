@@ -2,10 +2,30 @@ package com.revature.models;
 
 import java.sql.Date;
 
-public class Invoice {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 
+@NamedQueries({ @NamedQuery(name="getInvoicesByCustomer", query="from Customer where customer = :invoiceVar")})
+
+@Entity
+@Table
+public class Invoice {
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="invoiceSequence")
+	@SequenceGenerator(name="invoiceSequence", allocationSize=1, sequenceName="SQ_INV_PK")
+	@Column(name="INV_ID")
 	private int id;
+	@Column
 	private Date date;
+	@Column
 	private float amount;
 	
 	public Invoice(int id, Date date, float amount) {

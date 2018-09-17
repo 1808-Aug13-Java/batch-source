@@ -6,9 +6,9 @@ import com.revature.models.Customer;
 
 public interface CustomerDAO {
 
-	public List<Customer> getCusomers();
+	public List<Customer> getCustomers();
 	public Customer getCustomerById(int id);
 	public int createCustomer(Customer cust);
-	public int deleteCustomer(Customer cust);
+	public void deleteCustomer(Customer cust);
 	
 }

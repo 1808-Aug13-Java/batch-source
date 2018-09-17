@@ -7,6 +7,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import com.revature.models.Customer;
+import com.revature.models.Invoice;
 import com.revature.util.HibernateUtil;
 
 public class CustomerDAOImpl implements CustomerDAO{
@@ -14,16 +15,15 @@ public class CustomerDAOImpl implements CustomerDAO{
 	public CustomerDAOImpl() {
 		super();
 	}
-
-	public List<Customer> getCusomers() {
+	@Override
+	public List<Customer> getCustomers() {
 		Session s = HibernateUtil.getSession();
-		String hql = "from Customer";
-		Query q = s.createQuery(hql);
-		List<Customer> customers = q.list();
+		List<Customer> customers = s.createQuery("from Customer").list();
 		s.close();
 		return customers;
 	}
 
+	@Override
 	public Customer getCustomerById(int id) {
 		Session s = HibernateUtil.getSession();
 		Customer c = (Customer) s.get(Customer.class, id);
@@ -31,6 +31,7 @@ public class CustomerDAOImpl implements CustomerDAO{
 		return c;
 	}
 
+	@Override
 	public int createCustomer(Customer cust) {
 		Session s = HibernateUtil.getSession();
 		Transaction tx = s.beginTransaction();
@@ -41,9 +42,15 @@ public class CustomerDAOImpl implements CustomerDAO{
 	}
 
 	@Override
-	public int deleteCustomer(Customer cust) {
-		// TODO Auto-generated method stub
-		return 0;
+	public void deleteCustomer(Customer cust) {
+		Session s = HibernateUtil.getSession();
+		Transaction tx = s.beginTransaction();
+		Customer c = (Customer) s.get(Customer.class, cust.getId());
+		if(c != null) {
+			s.delete(c);
+		}
+		tx.commit();
+		s.close();
 	}
 
 }
