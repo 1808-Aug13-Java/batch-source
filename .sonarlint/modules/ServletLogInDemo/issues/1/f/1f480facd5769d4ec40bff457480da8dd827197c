@@ -1,9 +1,9 @@
 
-hsquid:S1161!":Add the "@Override" annotation above this method signature(‹ЁЇїHАћRMAJORZ
+csquid:S1989"&Add a "try/catch" block for "forward".(Е€ѓвюяяяя8щЪЮЩЪ,Hх§RMINORZVULNERABILITY
+hsquid:S1989)"+Add a "try/catch" block for "sendRedirect".(вщђТъяяяя8њђыЩЪ,Hц§RMINORZVULNERABILITY
+hsquid:S1161!":Add the "@Override" annotation above this method signature(‹ЁЇїHч§RMAJORZ
 CODE_SMELL
-csquid:S1989'"+Add a "try/catch" block for "sendRedirect".(рЧдЁ8ѕХьЩЪ,HБћRMINORZVULNERABILITY
-csquid:S1989"&Add a "try/catch" block for "forward".(Е€ѓвюяяяя8щЪЮЩЪ,HВћRMINORZVULNERABILITY
-msquid:S1161":Add the "@Override" annotation above this method signature(Пы©ЦыяяяяHГћRMAJORZ
+csquid:S1989"&Add a "try/catch" block for "forward".(Е€ѓвюяяяя8щЪЮЩЪ,Hш§RMINORZVULNERABILITY
+msquid:S1161":Add the "@Override" annotation above this method signature(Пы©ЦыяяяяHщ§RMAJORZ
 CODE_SMELL
-hsquid:S1989)"+Add a "try/catch" block for "sendRedirect".(вщђТъяяяя8њђыЩЪ,HДћRMINORZVULNERABILITY
-csquid:S1989"&Add a "try/catch" block for "forward".(Е€ѓвюяяяя8щЪЮЩЪ,HЕћRMINORZVULNERABILITY
+csquid:S1989'"+Add a "try/catch" block for "sendRedirect".(рЧдЁ8ѕХьЩЪ,Hъ§RMINORZVULNERABILITY

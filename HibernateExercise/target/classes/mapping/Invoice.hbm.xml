@@ -8,7 +8,7 @@
 		<generator class="increment"></generator>
 		</id>
 		
-		<property name="date" type="org.hibernate.type.DateType" column="DATE"></property>
+		<property name="date" type="org.hibernate.type.DateType" column="INVOICE_DATE"></property>
 		<property name="amount" type="org.hibernate.type.DoubleType" column="AMOUNT"></property>
 	</class>
 

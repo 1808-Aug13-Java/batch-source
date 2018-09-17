@@ -12,7 +12,8 @@
 		<many-to-one name="cave" column="CAVE_ID" class="com.revature.models.Cave">
 			
 		</many-to-one>
-		<bag name="beehives" table="BEAR_BEEHIVE">
+		<bag name="beehives" table="BEAR_BEEHIVE" lazy="false">
+		
 		<key>
 			<column name="BEAR_ID" not-null="true"></column> </key>
 			<many-to-many entity-name="com.revature.models.Beehive">
@@ -22,4 +23,8 @@
 			
 		</bag>
 	</class>
+	
+	<query name="getBearsByCave">
+	<![CDATA[from Bear where cave = :caveVar]]>
+	</query>
 </hibernate-mapping>

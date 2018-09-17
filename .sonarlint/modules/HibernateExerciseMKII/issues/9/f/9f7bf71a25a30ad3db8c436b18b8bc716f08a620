@@ -1,0 +1,17 @@
+
+isquid:EmptyStatementUsageCheck$"Remove this empty statement.(ôŸìúÿÿÿÿ8Å´ªÿİ,Hı¶RMINORZ
+CODE_SMELL
+“squid:S1488"^Immediately return this expression instead of assigning it to the temporary variable "result".(ú´İÿ8Ì™öİ,Hÿ¶RMINORZ
+CODE_SMELL
+m
+squid:S106("9Replace this use of System.out or System.err by a logger.(Áß‡Ü8à‘–­Ş,H·RMAJORZ
+CODE_SMELL
+jsquid:S1854"6Remove this useless assignment to local variable "tx".(ÒÛÌ|8¬µÄÿİ,Hş¶RMAJORZ
+CODE_SMELL
+m
+squid:S106!"9Replace this use of System.out or System.err by a logger.(Áß‡Ü8½¶Íÿİ,Hü¶RMAJORZ
+CODE_SMELL
+isquid:EmptyStatementUsageCheck,"Remove this empty statement.(ôŸìúÿÿÿÿ8ô¸“­Ş,H˜·RMINORZ
+CODE_SMELL
+[squid:S1481"'Remove this unused "tx" local variable.(ÒÛÌ|8¬µÄÿİ,Hû¶RMINORZ
+CODE_SMELL

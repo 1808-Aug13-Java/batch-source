@@ -1,9 +1,14 @@
 package com.revature.models;
 
+
+
 public class Customer {
+
 	private int id;
+	
 	private String name;
 	private int phoneNumber;
+	
 	public Customer() {
 		super();
 		// TODO Auto-generated constructor stub

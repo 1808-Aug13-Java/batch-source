@@ -1,0 +1,9 @@
+
+asquid:S1481"'Remove this unused "bd" local variable.(çµ×þúÿÿÿÿ8ÏíýôÝ,H¸²RMINORZ
+CODE_SMELL
+€squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(¿ì„8ú¨ÁÄÝ,H²RMAJORZ
+CODE_SMELL
+…squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Ž¨æÿÿÿÿÿ8¼½ ËÝ,H ²RMAJORZ
+CODE_SMELL
+psquid:S1854"6Remove this useless assignment to local variable "bd".(çµ×þúÿÿÿÿ8ÏíýôÝ,H¹²RMAJORZ
+CODE_SMELL

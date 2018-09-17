@@ -40,5 +40,5 @@ public class BearDaoImpl implements BearDao {
 		s.close();
 		return bPK;
 	}
-
+	
 }

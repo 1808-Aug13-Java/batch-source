@@ -1,0 +1,9 @@
+
+m
+squid:S1064"9Replace this use of System.out or System.err by a logger.(Áß‡Ü8£˜·­Ş,H…¸RMAJORZ
+CODE_SMELL
+“squid:S1488"^Immediately return this expression instead of assigning it to the temporary variable "result".(ú´İÿ8Ş­Ş,H¿·RMINORZ
+CODE_SMELL
+€squid:UselessImportCheck
+"9Remove this unused import 'com.revature.models.Customer'.(ïŒ¤ıÿÿÿÿ8³Â¯­Ş,Hó·RMINORZ
+CODE_SMELL

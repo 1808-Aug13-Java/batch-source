@@ -14,6 +14,7 @@
 		<property name="hibernate.connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
 		<property name="hibernate.hbm2ddl.auto">create</property> 
 		<property name="hibernate.show_sql">true</property>
-
+		<mapping resource="mapping/Customer.hbm.xml"/>
+		<mapping resource="mapping/Invoice.hbm.xml"/>
 		</session-factory>
 	</hibernate-configuration>

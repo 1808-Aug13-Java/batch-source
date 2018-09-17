@@ -17,3 +17,5 @@ O
 src/main/webapp/WEB-INF/web.xml,2\e\2e22b6edd746fa3dc40ad7276c87c8d87d72a392
 J
 src/main/webapp/Login.html,4\e\4eb5d34e4924997b4e7a9e01182250f3085357a0
+K
+src/main/webapp/Logout.html,9\b\9b4d8b611209ffe11ab2a6e061efac3af51b71cb
