@@ -13,7 +13,7 @@
 	<property name="hibernate.hbm2ddl.auto">validate</property> <!-- change to validate after tables are created -->
 	<property name="hibernate.show.sql">true</property>
 	
-	<mapping resource="mapping/Customer.hbm.xml"/>
-	<mapping resource="mapping/Invoice.hbm.xml"/>
+	<mapping class="com.revature.models.Customer"/>
+	<mapping class="com.revature.models.Invoice"/>
 </session-factory>
 </hibernate-configuration>
