@@ -1,7 +1,7 @@
 import { UserService } from './services/user.service';
 import { FormsModule } from '@angular/forms';
 import { appRoutes } from './routes';
-import { RouterModule } from '@angular/ROuter';
+import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
