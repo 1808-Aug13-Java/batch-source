@@ -21,6 +21,12 @@ public class Bear {
 		this.name = name;
 		this.birthday = birthday;
 	}
+	
+	public Bear(String name, Date birthday) {
+		super();
+		this.name = name;
+		this.birthday = birthday;
+	}
 
 	public int getId() {
 		return id;

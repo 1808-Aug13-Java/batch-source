@@ -34,5 +34,9 @@ public class BearService {
 		}
 		return null;
 	}
+	
+	public void addBear(Bear b) {
+		this.bears.add(b);
+	}
 
 }
