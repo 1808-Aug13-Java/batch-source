@@ -1,0 +1,22 @@
+2018-09-19 10:58:55 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@2957fcb0: startup date [Wed Sep 19 10:58:55 EDT 2018]; root of context hierarchy
+2018-09-19 10:58:55 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-19 10:58:55 WARN  ClassPathXmlApplicationContext:546 - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'calculator' defined in file [C:\Program Files\Git\Documents\1808-Aug13-Java\batch-source\Spring\SpringAOPDemo\target\classes\com\revature\beans\Calculator.class]: Initialization of bean failed; nested exception is java.lang.IllegalArgumentException: Pointcut is not well-formed: expecting ')' at character position 33
+execution(* add(..)) && args(int x, int y)
+                                 ^
+
+2018-09-19 11:00:06 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@2957fcb0: startup date [Wed Sep 19 11:00:06 EDT 2018]; root of context hierarchy
+2018-09-19 11:00:06 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-19 11:00:20 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@2957fcb0: startup date [Wed Sep 19 11:00:20 EDT 2018]; root of context hierarchy
+2018-09-19 11:00:20 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-19 11:02:16 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@2957fcb0: startup date [Wed Sep 19 11:02:16 EDT 2018]; root of context hierarchy
+2018-09-19 11:02:16 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-19 11:02:41 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@2957fcb0: startup date [Wed Sep 19 11:02:41 EDT 2018]; root of context hierarchy
+2018-09-19 11:02:41 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-19 11:03:20 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@2957fcb0: startup date [Wed Sep 19 11:03:20 EDT 2018]; root of context hierarchy
+2018-09-19 11:03:20 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-19 11:08:59 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@2957fcb0: startup date [Wed Sep 19 11:08:59 EDT 2018]; root of context hierarchy
+2018-09-19 11:08:59 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-19 11:10:41 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@2957fcb0: startup date [Wed Sep 19 11:10:41 EDT 2018]; root of context hierarchy
+2018-09-19 11:10:41 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-19 11:11:53 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@2957fcb0: startup date [Wed Sep 19 11:11:53 EDT 2018]; root of context hierarchy
+2018-09-19 11:11:53 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
