@@ -1,0 +1,14 @@
+2018-09-19 14:42:49 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@2957fcb0: startup date [Wed Sep 19 14:42:49 EDT 2018]; root of context hierarchy
+2018-09-19 14:42:49 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-19 14:42:49 INFO  root:19 - int com.revature.beans.Calculator.add(int,int)
+2018-09-19 14:42:49 INFO  root:25 - 5 + 5 = 10
+2018-09-19 14:43:13 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@2957fcb0: startup date [Wed Sep 19 14:43:13 EDT 2018]; root of context hierarchy
+2018-09-19 14:43:13 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-19 14:43:14 INFO  root:53 - division by zero attempted
+2018-09-19 14:43:14 INFO  root:19 - int com.revature.beans.Calculator.divide(int,int)
+2018-09-19 14:43:14 INFO  root:43 - 5 / 0 = null
+2018-09-19 14:44:33 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@2957fcb0: startup date [Wed Sep 19 14:44:33 EDT 2018]; root of context hierarchy
+2018-09-19 14:44:33 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-19 14:44:34 INFO  root:53 - division by zero attempted
+2018-09-19 14:44:34 INFO  root:19 - Integer com.revature.beans.Calculator.divide(int,int)
+2018-09-19 14:44:34 INFO  root:43 - 5 / 0 = null

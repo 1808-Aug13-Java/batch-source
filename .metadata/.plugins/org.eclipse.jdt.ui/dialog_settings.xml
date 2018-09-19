@@ -23,11 +23,11 @@
 		<item value="678" key="DIALOG_WIDTH"/>
 		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
 		<item value="869" key="DIALOG_HEIGHT"/>
-		<item value="630" key="DIALOG_X_ORIGIN"/>
-		<item value="9" key="DIALOG_Y_ORIGIN"/>
+		<item value="996" key="DIALOG_X_ORIGIN"/>
+		<item value="56" key="DIALOG_Y_ORIGIN"/>
 	</section>
 	<section name="NewClassWizardPage">
-		<item value="true" key="create_constructor"/>
+		<item value="false" key="create_constructor"/>
 		<item value="true" key="create_unimplemented"/>
 	</section>
 	<section name="OptionalMessageDialog.hide.">
@@ -70,6 +70,13 @@
 	<section name="RefactoringWizard.preview">
 		<item value="600" key="width"/>
 		<item value="400" key="height"/>
+	</section>
+	<section name="DialogBounds_AddDelegateMethodsDialog">
+		<item value="689" key="DIALOG_WIDTH"/>
+		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
+		<item value="718" key="DIALOG_HEIGHT"/>
+		<item value="625" key="DIALOG_X_ORIGIN"/>
+		<item value="46" key="DIALOG_Y_ORIGIN"/>
 	</section>
 	<section name="SourceActionDialog.methods">
 		<item value="true" key="IgnoreDefault"/>

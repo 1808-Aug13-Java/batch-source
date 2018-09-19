@@ -1,12 +1,0 @@
-
-gsquid:S1989"+Add a "try/catch" block for "sendRedirect".(âùÒúÿÿÿÿ8´øËÛ,HéjRMINORZVULNERABILITY
-]squid:S1989!"&Add a "try/catch" block for "forward".(ãìÄ8ûöùËÛ,HæjRMINORZVULNERABILITY
-`squid:S1989-"$Add a "try/catch" block for "doGet".(®Ó‘ûÿÿÿÿÿ8ïËäõÛ,HèjRMINORZVULNERABILITY
-gsquid:S1161+":Add the "@Override" annotation above this method signature(‹¨¯¿HçjRMAJORZ
-CODE_SMELL
-]squid:S1989!"&Add a "try/catch" block for "forward".(ãìÄ8ûöùËÛ,HëjRMINORZVULNERABILITY
-lsquid:S1161":Add the "@Override" annotation above this method signature(Ïû©ÖûÿÿÿÿHìjRMAJORZ
-CODE_SMELL
-jsquid:S1135,"2Complete the task associated to this TODO comment.(» æÿÿÿÿÿ8ïËäõÛ,HíjRINFOZ
-CODE_SMELL
-`squid:S1989-"$Add a "try/catch" block for "doGet".(®Ó‘ûÿÿÿÿÿ8ïËäõÛ,HêjRMINORZVULNERABILITY

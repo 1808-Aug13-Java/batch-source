@@ -1,13 +1,0 @@
-
-Нsquid:S3973Ґ"WUse curly braces or indentation to denote the code conditionally executed by this "if".(ЅјЯ»€€€€€HфSRCRITICALZ
-CODE_SMELL
-Нsquid:S3973≠"WUse curly braces or indentation to denote the code conditionally executed by this "if".(©виещ€€€€HхSRCRITICALZ
-CODE_SMELL
-Нsquid:S3973≤"WUse curly braces or indentation to denote the code conditionally executed by this "if".(ЛїҐТы€€€€HцSRCRITICALZ
-CODE_SMELL
-Иsquid:S3973Ј"WUse curly braces or indentation to denote the code conditionally executed by this "if".(С»ЅХHчSRCRITICALZ
-CODE_SMELL
-vsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(пЊ2HшSRMAJORZ
-CODE_SMELL
-Гsquid:S3776Ч"RRefactor this method to reduce its Cognitive Complexity from 22 to the 15 allowed.(Н№—гHщSRCRITICALZ
-CODE_SMELL

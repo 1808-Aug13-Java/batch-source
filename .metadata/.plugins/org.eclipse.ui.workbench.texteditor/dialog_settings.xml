@@ -2,12 +2,13 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="port" key="selection"/>
+		<item value="aop" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="aop"/>
 			<item value="port"/>
 			<item value="por"/>
 			<item value="tomcat"/>
@@ -22,7 +23,6 @@
 			<item value="sy"/>
 			<item value="syste"/>
 			<item value="isnot"/>
-			<item value="positive"/>
 		</list>
 		<list key="replacehistory">
 			<item value="transactionDate"/>

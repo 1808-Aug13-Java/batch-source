@@ -1,12 +1,0 @@
-
-Ysquid:S1989,"$Add a "try/catch" block for "doGet".(®Ó‘ûÿÿÿÿÿHºjRMINORZVULNERABILITY
-psquid:S2441"">Make "Employee" serializable or don't store it in the session.(¿ì¢œþÿÿÿÿ8™«¸ÌÛ,H¼jRMAJORZBUG
-gsquid:S1989"+Add a "try/catch" block for "sendRedirect".(„¨¶Òûÿÿÿÿ8ŒÎ¾ÖÚ,H»jRMINORZVULNERABILITY
-gsquid:S1161":Add the "@Override" annotation above this method signature(÷¤‹úH¹jRMAJORZ
-CODE_SMELL
-lsquid:S1161*":Add the "@Override" annotation above this method signature(þ³‚”ûÿÿÿÿH½jRMAJORZ
-CODE_SMELL
-gsquid:S1989%"+Add a "try/catch" block for "sendRedirect".(„¨¶Òûÿÿÿÿ8ÃÁ’ÛÚ,H¶jRMINORZVULNERABILITY
-‚squid:S1192"FDefine a constant instead of duplicating this literal "email" 3 times.(Ä®»÷þÿÿÿÿ8ˆáÄÛÚ,HµjRCRITICALZ
-CODE_SMELL
-Ysquid:S1989,"$Add a "try/catch" block for "doGet".(®Ó‘ûÿÿÿÿÿH·jRMINORZVULNERABILITY

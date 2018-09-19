@@ -1,31 +1,0 @@
-
-]squid:S1989'"(Add a "try/catch" block for "getWriter".(“­†·øÿÿÿÿHĞjRMINORZVULNERABILITY
-msquid:S1989?"1Add a "try/catch" block for "writeValueAsString".(€Øüøÿÿÿÿ8¡º¤òÛ,HÇjRMINORZVULNERABILITY
-ssquid:UselessImportCheck"2Remove this unused import 'java.util.Enumeration'.(»îÜ®8šüá÷Û,HÆjRMINORZ
-CODE_SMELL
-lsquid:S1161"":Add the "@Override" annotation above this method signature(Ïû©ÖûÿÿÿÿHÍjRMAJORZ
-CODE_SMELL
-bsquid:S1989c"+Add a "try/catch" block for "sendRedirect".(‚°ëÑ8©¾ÂöÛ,HÅjRMINORZVULNERABILITY
-bsquid:S1989h"+Add a "try/catch" block for "sendRedirect".(‚°ëÑ8á„øÛ,HÂjRMINORZVULNERABILITY
-jsquid:S1854)"=Remove this useless assignment to local variable "employees".(·ÓúHÏjRMAJORZ
-CODE_SMELL
-nsquid:S1161I":Add the "@Override" annotation above this method signature(‹¨¯¿8¡º¤òÛ,HÎjRMAJORZ
-CODE_SMELL
-‡squid:S1192c"PDefine a constant instead of duplicating this literal "employeeProfile" 3 times.(‚°ëÑ8á„øÛ,HÊjRCRITICALZ
-CODE_SMELL
-gsquid:S1989Z"+Add a "try/catch" block for "sendRedirect".(âùÒúÿÿÿÿ8á„øÛ,HÑjRMINORZVULNERABILITY
-msquid:S19896"1Add a "try/catch" block for "writeValueAsString".(‘”ñ½úÿÿÿÿ8¡º¤òÛ,HÁjRMINORZVULNERABILITY
-†squid:S2293)"YReplace the type specification in this constructor call with the diamond operator ("<>").(·ÓúHÄjRMINORZ
-CODE_SMELL
-esquid:S1135s"2Complete the task associated to this TODO comment.(…ïœ†8á„øÛ,H¿jRINFOZ
-CODE_SMELL
-bsquid:S1989m"+Add a "try/catch" block for "sendRedirect".(‚°ëÑ8á„øÛ,HÀjRMINORZVULNERABILITY
-^squid:S19894"'Add a "try/catch" block for "parseInt".(›ƒô8“ ‹öÛ,HÃjRMINORZVULNERABILITY
-‰squid:S3776I"RRefactor this method to reduce its Cognitive Complexity from 20 to the 15 allowed.(‹¨¯¿8©¾ÂöÛ,HÈjRCRITICALZ
-CODE_SMELL
-usquid:S18543"<Remove this useless assignment to local variable "employee".(Ğ÷è¤úÿÿÿÿ8¹Š¡òÛ,HÌjRMAJORZ
-CODE_SMELL
-gsquid:S1989/"+Add a "try/catch" block for "sendRedirect".(âùÒúÿÿÿÿ8á„øÛ,H¾jRMINORZVULNERABILITY
-l
-squid:S106{"9Replace this use of System.out or System.err by a logger.(ò“ÃÀ8á„øÛ,HÉjRMAJORZ
-CODE_SMELL
