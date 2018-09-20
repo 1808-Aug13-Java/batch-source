@@ -18,6 +18,8 @@ public class BearDaoImpl implements BearDao {
 	private SessionFactory sf;
 
 	@Override
+//	@Transactional
+//	@Transactional(propagation=Propagation.REQUIRED)
 	@Transactional(propagation=Propagation.MANDATORY)
 	public List<Bear> getBears() {
 		Session s = sf.getCurrentSession();
