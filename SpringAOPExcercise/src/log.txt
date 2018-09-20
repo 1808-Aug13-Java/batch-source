@@ -1,0 +1,32 @@
+2018-09-19 21:32:13 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@2957fcb0: startup date [Wed Sep 19 21:32:13 EDT 2018]; root of context hierarchy
+2018-09-19 21:32:13 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-19 21:32:13 INFO  LoggingAspect:58 - The method afterSingletonsInstantiated() begins with []
+2018-09-19 21:32:13 INFO  LoggingAspect:30 - Join point kind : method-execution
+2018-09-19 21:32:13 INFO  LoggingAspect:31 - Signature declaring type : org.springframework.beans.factory.SmartInitializingSingleton
+2018-09-19 21:32:13 INFO  LoggingAspect:32 - Signature name : afterSingletonsInstantiated
+2018-09-19 21:32:13 INFO  LoggingAspect:33 - Arguments : []
+2018-09-19 21:32:13 INFO  LoggingAspect:34 - Target class : org.springframework.context.event.EventListenerMethodProcessor
+2018-09-19 21:32:13 INFO  LoggingAspect:35 - This class : com.sun.proxy.$Proxy13
+2018-09-19 21:32:13 INFO  LoggingAspect:62 - The method afterSingletonsInstantiated() ends with null
+2018-09-19 21:32:13 INFO  LoggingAspect:42 - Exiting from Method :afterSingletonsInstantiated
+2018-09-19 21:32:13 INFO  LoggingAspect:43 - Return value :null
+2018-09-19 21:32:13 INFO  LoggingAspect:58 - The method add() begins with [10.0, 65.0]
+2018-09-19 21:32:13 INFO  LoggingAspect:30 - Join point kind : method-execution
+2018-09-19 21:32:13 INFO  LoggingAspect:31 - Signature declaring type : com.revature.beans.Calculator
+2018-09-19 21:32:13 INFO  LoggingAspect:32 - Signature name : add
+2018-09-19 21:32:13 INFO  LoggingAspect:33 - Arguments : [10.0, 65.0]
+2018-09-19 21:32:13 INFO  LoggingAspect:34 - Target class : com.revature.beans.CalculatorImpl
+2018-09-19 21:32:13 INFO  LoggingAspect:35 - This class : com.sun.proxy.$Proxy12
+2018-09-19 21:32:13 INFO  LoggingAspect:62 - The method add() ends with 75.0
+2018-09-19 21:32:13 INFO  LoggingAspect:42 - Exiting from Method :add
+2018-09-19 21:32:13 INFO  LoggingAspect:43 - Return value :75.0
+2018-09-19 21:32:13 INFO  LoggingAspect:58 - The method divide() begins with [12.0, 2.0]
+2018-09-19 21:32:13 INFO  LoggingAspect:30 - Join point kind : method-execution
+2018-09-19 21:32:13 INFO  LoggingAspect:31 - Signature declaring type : com.revature.beans.Calculator
+2018-09-19 21:32:13 INFO  LoggingAspect:32 - Signature name : divide
+2018-09-19 21:32:13 INFO  LoggingAspect:33 - Arguments : [12.0, 2.0]
+2018-09-19 21:32:13 INFO  LoggingAspect:34 - Target class : com.revature.beans.CalculatorImpl
+2018-09-19 21:32:13 INFO  LoggingAspect:35 - This class : com.sun.proxy.$Proxy12
+2018-09-19 21:32:13 INFO  LoggingAspect:62 - The method divide() ends with 6.0
+2018-09-19 21:32:13 INFO  LoggingAspect:42 - Exiting from Method :divide
+2018-09-19 21:32:13 INFO  LoggingAspect:43 - Return value :6.0
