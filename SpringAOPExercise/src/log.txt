@@ -1,0 +1,285 @@
+2018-09-19 20:08:12 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@51521cc1: startup date [Wed Sep 19 20:08:12 EDT 2018]; root of context hierarchy
+2018-09-19 20:08:13 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-19 20:08:13 WARN  ClassPathXmlApplicationContext:546 - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'org.springframework.context.event.internalEventListenerProcessor': Initialization of bean failed; nested exception is java.lang.IllegalArgumentException: Pointcut is not well-formed: expecting ')' at character position 8
+within(*(..))
+        ^
+
+2018-09-19 20:09:01 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@51521cc1: startup date [Wed Sep 19 20:09:01 EDT 2018]; root of context hierarchy
+2018-09-19 20:09:01 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-19 20:09:02 WARN  ClassPathXmlApplicationContext:546 - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'org.springframework.context.event.internalEventListenerProcessor': Initialization of bean failed; nested exception is java.lang.IllegalArgumentException: warning no match for this type name: com.revature.math [Xlint:invalidAbsoluteTypeName]
+2018-09-19 20:10:25 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@51521cc1: startup date [Wed Sep 19 20:10:25 EDT 2018]; root of context hierarchy
+2018-09-19 20:10:25 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-19 20:10:25 WARN  ClassPathXmlApplicationContext:546 - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'calculator' defined in file [C:\Users\David\Desktop\Dev Environments\gitStuff\Revature\batch-source\SpringAOPExercise\target\classes\com\revature\math\Calculator.class]: Initialization of bean failed; nested exception is java.lang.IllegalArgumentException: warning no match for this type name: com.revature.math [Xlint:invalidAbsoluteTypeName]
+2018-09-19 20:11:15 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@51521cc1: startup date [Wed Sep 19 20:11:15 EDT 2018]; root of context hierarchy
+2018-09-19 20:11:15 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-19 20:11:15 WARN  ClassPathXmlApplicationContext:546 - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'calculator' defined in file [C:\Users\David\Desktop\Dev Environments\gitStuff\Revature\batch-source\SpringAOPExercise\target\classes\com\revature\math\Calculator.class]: Initialization of bean failed; nested exception is java.lang.IllegalArgumentException: warning no match for this type name: com.revature.math [Xlint:invalidAbsoluteTypeName]
+2018-09-19 20:11:42 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@51521cc1: startup date [Wed Sep 19 20:11:42 EDT 2018]; root of context hierarchy
+2018-09-19 20:11:42 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-19 20:11:42 WARN  ClassPathXmlApplicationContext:546 - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'org.springframework.context.event.internalEventListenerProcessor': Initialization of bean failed; nested exception is java.lang.IllegalArgumentException: warning no match for this type name: com.revature.math [Xlint:invalidAbsoluteTypeName]
+2018-09-19 20:13:35 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@51521cc1: startup date [Wed Sep 19 20:13:35 EDT 2018]; root of context hierarchy
+2018-09-19 20:13:35 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-19 20:13:35 INFO  ClassPathXmlApplicationContext:960 - Closing org.springframework.context.support.ClassPathXmlApplicationContext@51521cc1: startup date [Wed Sep 19 20:13:35 EDT 2018]; root of context hierarchy
+2018-09-19 20:14:04 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@51521cc1: startup date [Wed Sep 19 20:14:04 EDT 2018]; root of context hierarchy
+2018-09-19 20:14:04 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-19 20:14:04 INFO  ClassPathXmlApplicationContext:960 - Closing org.springframework.context.support.ClassPathXmlApplicationContext@51521cc1: startup date [Wed Sep 19 20:14:04 EDT 2018]; root of context hierarchy
+2018-09-19 20:14:25 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@51521cc1: startup date [Wed Sep 19 20:14:25 EDT 2018]; root of context hierarchy
+2018-09-19 20:14:25 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-19 20:14:26 WARN  ClassPathXmlApplicationContext:546 - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'org.springframework.context.event.internalEventListenerProcessor': Initialization of bean failed; nested exception is java.lang.IllegalArgumentException: Pointcut is not well-formed: expecting ')' at character position 0
+within(com.revature.math.*) || execution(* add(..)
+^
+
+2018-09-19 20:14:41 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@51521cc1: startup date [Wed Sep 19 20:14:41 EDT 2018]; root of context hierarchy
+2018-09-19 20:14:41 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-19 20:14:41 INFO  ClassPathXmlApplicationContext:960 - Closing org.springframework.context.support.ClassPathXmlApplicationContext@51521cc1: startup date [Wed Sep 19 20:14:41 EDT 2018]; root of context hierarchy
+2018-09-19 20:14:54 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@51521cc1: startup date [Wed Sep 19 20:14:54 EDT 2018]; root of context hierarchy
+2018-09-19 20:14:54 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-19 20:14:54 INFO  ClassPathXmlApplicationContext:960 - Closing org.springframework.context.support.ClassPathXmlApplicationContext@51521cc1: startup date [Wed Sep 19 20:14:54 EDT 2018]; root of context hierarchy
+2018-09-19 20:16:20 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@51521cc1: startup date [Wed Sep 19 20:16:20 EDT 2018]; root of context hierarchy
+2018-09-19 20:16:20 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-19 20:16:21 INFO  ClassPathXmlApplicationContext:960 - Closing org.springframework.context.support.ClassPathXmlApplicationContext@51521cc1: startup date [Wed Sep 19 20:16:20 EDT 2018]; root of context hierarchy
+2018-09-19 20:18:41 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@51521cc1: startup date [Wed Sep 19 20:18:41 EDT 2018]; root of context hierarchy
+2018-09-19 20:18:42 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-19 20:18:42 INFO  ClassPathXmlApplicationContext:960 - Closing org.springframework.context.support.ClassPathXmlApplicationContext@51521cc1: startup date [Wed Sep 19 20:18:41 EDT 2018]; root of context hierarchy
+2018-09-19 20:18:54 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@51521cc1: startup date [Wed Sep 19 20:18:54 EDT 2018]; root of context hierarchy
+2018-09-19 20:18:54 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-19 20:18:54 INFO  ClassPathXmlApplicationContext:960 - Closing org.springframework.context.support.ClassPathXmlApplicationContext@51521cc1: startup date [Wed Sep 19 20:18:54 EDT 2018]; root of context hierarchy
+2018-09-19 20:19:11 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@51521cc1: startup date [Wed Sep 19 20:19:11 EDT 2018]; root of context hierarchy
+2018-09-19 20:19:11 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-19 20:19:11 INFO  ClassPathXmlApplicationContext:960 - Closing org.springframework.context.support.ClassPathXmlApplicationContext@51521cc1: startup date [Wed Sep 19 20:19:11 EDT 2018]; root of context hierarchy
+2018-09-19 20:21:12 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@51521cc1: startup date [Wed Sep 19 20:21:12 EDT 2018]; root of context hierarchy
+2018-09-19 20:21:12 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-19 20:21:13 INFO  ClassPathXmlApplicationContext:960 - Closing org.springframework.context.support.ClassPathXmlApplicationContext@51521cc1: startup date [Wed Sep 19 20:21:12 EDT 2018]; root of context hierarchy
+2018-09-19 20:21:20 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@51521cc1: startup date [Wed Sep 19 20:21:20 EDT 2018]; root of context hierarchy
+2018-09-19 20:21:20 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-19 20:21:21 INFO  ClassPathXmlApplicationContext:960 - Closing org.springframework.context.support.ClassPathXmlApplicationContext@51521cc1: startup date [Wed Sep 19 20:21:20 EDT 2018]; root of context hierarchy
+2018-09-19 20:21:42 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@51521cc1: startup date [Wed Sep 19 20:21:42 EDT 2018]; root of context hierarchy
+2018-09-19 20:21:42 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-19 20:21:42 INFO  ClassPathXmlApplicationContext:960 - Closing org.springframework.context.support.ClassPathXmlApplicationContext@51521cc1: startup date [Wed Sep 19 20:21:42 EDT 2018]; root of context hierarchy
+2018-09-19 20:27:09 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@51521cc1: startup date [Wed Sep 19 20:27:09 EDT 2018]; root of context hierarchy
+2018-09-19 20:27:09 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-19 20:27:09 INFO  ClassPathXmlApplicationContext:960 - Closing org.springframework.context.support.ClassPathXmlApplicationContext@51521cc1: startup date [Wed Sep 19 20:27:09 EDT 2018]; root of context hierarchy
+2018-09-19 20:29:23 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@51521cc1: startup date [Wed Sep 19 20:29:23 EDT 2018]; root of context hierarchy
+2018-09-19 20:29:23 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-19 20:29:23 WARN  ClassPathXmlApplicationContext:546 - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'calculator' defined in file [C:\Users\David\Desktop\Dev Environments\gitStuff\Revature\batch-source\SpringAOPExercise\target\classes\com\revature\math\Calculator.class]: Initialization of bean failed; nested exception is java.lang.IllegalArgumentException: Pointcut is not well-formed: expecting ')' at character position 0
+execution(* divide(..)) && within(com.revature.math.Calculator
+^
+
+2018-09-19 20:29:43 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@51521cc1: startup date [Wed Sep 19 20:29:43 EDT 2018]; root of context hierarchy
+2018-09-19 20:29:43 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-19 20:29:44 INFO  ClassPathXmlApplicationContext:960 - Closing org.springframework.context.support.ClassPathXmlApplicationContext@51521cc1: startup date [Wed Sep 19 20:29:43 EDT 2018]; root of context hierarchy
+2018-09-19 20:44:52 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@51521cc1: startup date [Wed Sep 19 20:44:52 EDT 2018]; root of context hierarchy
+2018-09-19 20:44:52 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-19 20:44:54 INFO  root:19 - Method Executed: int com.revature.math.Calculator.add(int,int)
+2018-09-19 20:44:54 INFO  root:19 - Method Executed: int com.revature.math.Calculator.subtract(int,int)
+2018-09-19 20:44:54 INFO  root:19 - Method Executed: int com.revature.math.Calculator.multiply(int,int)
+2018-09-19 20:44:54 INFO  root:19 - Method Executed: int com.revature.math.Calculator.divide(int,int)
+2018-09-19 20:44:54 INFO  ClassPathXmlApplicationContext:960 - Closing org.springframework.context.support.ClassPathXmlApplicationContext@51521cc1: startup date [Wed Sep 19 20:44:52 EDT 2018]; root of context hierarchy
+2018-09-19 20:45:45 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@51521cc1: startup date [Wed Sep 19 20:45:45 EDT 2018]; root of context hierarchy
+2018-09-19 20:45:46 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-19 20:45:48 INFO  root:19 - Method Executed: int com.revature.math.Calculator.add(int,int)
+2018-09-19 20:45:48 INFO  root:19 - Method Executed: int com.revature.math.Calculator.subtract(int,int)
+2018-09-19 20:45:48 INFO  root:19 - Method Executed: int com.revature.math.Calculator.multiply(int,int)
+2018-09-19 20:45:48 INFO  root:19 - Method Executed: int com.revature.math.Calculator.divide(int,int)
+2018-09-19 20:45:48 INFO  ClassPathXmlApplicationContext:960 - Closing org.springframework.context.support.ClassPathXmlApplicationContext@51521cc1: startup date [Wed Sep 19 20:45:45 EDT 2018]; root of context hierarchy
+2018-09-19 20:51:45 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@51521cc1: startup date [Wed Sep 19 20:51:44 EDT 2018]; root of context hierarchy
+2018-09-19 20:51:45 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-19 20:51:46 WARN  ClassPathXmlApplicationContext:546 - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'calculator' defined in file [C:\Users\David\Desktop\Dev Environments\gitStuff\Revature\batch-source\SpringAOPExercise\target\classes\com\revature\math\Calculator.class]: Initialization of bean failed; nested exception is java.lang.IllegalArgumentException: error at ::0 formal unbound in pointcut 
+2018-09-19 20:52:09 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@51521cc1: startup date [Wed Sep 19 20:52:09 EDT 2018]; root of context hierarchy
+2018-09-19 20:52:10 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-19 20:52:11 INFO  root:19 - Method Executed: int com.revature.math.Calculator.add(int,int)
+2018-09-19 20:52:11 INFO  root:19 - Method Executed: int com.revature.math.Calculator.subtract(int,int)
+2018-09-19 20:52:11 INFO  root:19 - Method Executed: int com.revature.math.Calculator.multiply(int,int)
+2018-09-19 20:52:11 INFO  root:19 - Method Executed: int com.revature.math.Calculator.divide(int,int)
+2018-09-19 20:52:11 INFO  ClassPathXmlApplicationContext:960 - Closing org.springframework.context.support.ClassPathXmlApplicationContext@51521cc1: startup date [Wed Sep 19 20:52:09 EDT 2018]; root of context hierarchy
+2018-09-19 20:56:01 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@51521cc1: startup date [Wed Sep 19 20:56:01 EDT 2018]; root of context hierarchy
+2018-09-19 20:56:01 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-19 20:56:03 WARN  ClassPathXmlApplicationContext:546 - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'calculator' defined in file [C:\Users\David\Desktop\Dev Environments\gitStuff\Revature\batch-source\SpringAOPExercise\target\classes\com\revature\math\Calculator.class]: Initialization of bean failed; nested exception is java.lang.IllegalArgumentException: error at ::0 formal unbound in pointcut 
+2018-09-19 21:01:16 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@51521cc1: startup date [Wed Sep 19 21:01:16 EDT 2018]; root of context hierarchy
+2018-09-19 21:01:16 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-19 21:01:18 INFO  root:19 - Method Executed: int com.revature.math.Calculator.add(int,int)
+2018-09-19 21:01:18 INFO  root:19 - Method Executed: int com.revature.math.Calculator.subtract(int,int)
+2018-09-19 21:01:18 INFO  root:19 - Method Executed: int com.revature.math.Calculator.multiply(int,int)
+2018-09-19 21:01:18 INFO  root:19 - Method Executed: int com.revature.math.Calculator.divide(int,int)
+2018-09-19 21:01:18 INFO  ClassPathXmlApplicationContext:960 - Closing org.springframework.context.support.ClassPathXmlApplicationContext@51521cc1: startup date [Wed Sep 19 21:01:16 EDT 2018]; root of context hierarchy
+2018-09-19 21:10:48 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@51521cc1: startup date [Wed Sep 19 21:10:48 EDT 2018]; root of context hierarchy
+2018-09-19 21:10:48 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-19 21:10:50 INFO  root:19 - Method Executed: int com.revature.math.Calculator.add(int,int)
+2018-09-19 21:10:51 INFO  root:43 - 2+3=5
+2018-09-19 21:10:51 INFO  root:19 - Method Executed: int com.revature.math.Calculator.subtract(int,int)
+2018-09-19 21:10:51 INFO  root:19 - Method Executed: int com.revature.math.Calculator.multiply(int,int)
+2018-09-19 21:10:51 INFO  root:19 - Method Executed: int com.revature.math.Calculator.divide(int,int)
+2018-09-19 21:10:51 INFO  ClassPathXmlApplicationContext:960 - Closing org.springframework.context.support.ClassPathXmlApplicationContext@51521cc1: startup date [Wed Sep 19 21:10:48 EDT 2018]; root of context hierarchy
+2018-09-19 21:12:05 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@51521cc1: startup date [Wed Sep 19 21:12:04 EDT 2018]; root of context hierarchy
+2018-09-19 21:12:05 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-19 21:12:07 INFO  root:19 - Method Executed: int com.revature.math.Calculator.add(int,int)
+2018-09-19 21:12:07 INFO  root:44 - 2+3=5
+2018-09-19 21:12:07 INFO  root:19 - Method Executed: int com.revature.math.Calculator.subtract(int,int)
+2018-09-19 21:12:07 INFO  root:19 - Method Executed: int com.revature.math.Calculator.multiply(int,int)
+2018-09-19 21:12:07 INFO  root:19 - Method Executed: int com.revature.math.Calculator.divide(int,int)
+2018-09-19 21:12:07 INFO  ClassPathXmlApplicationContext:960 - Closing org.springframework.context.support.ClassPathXmlApplicationContext@51521cc1: startup date [Wed Sep 19 21:12:04 EDT 2018]; root of context hierarchy
+2018-09-19 21:12:37 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@51521cc1: startup date [Wed Sep 19 21:12:37 EDT 2018]; root of context hierarchy
+2018-09-19 21:12:37 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-19 21:12:39 INFO  root:19 - Method Executed: int com.revature.math.Calculator.add(int,int)
+2018-09-19 21:12:39 INFO  root:45 - 2+3=5
+2018-09-19 21:12:39 INFO  root:19 - Method Executed: int com.revature.math.Calculator.subtract(int,int)
+2018-09-19 21:12:39 INFO  root:19 - Method Executed: int com.revature.math.Calculator.multiply(int,int)
+2018-09-19 21:12:39 INFO  root:19 - Method Executed: int com.revature.math.Calculator.divide(int,int)
+2018-09-19 21:12:39 INFO  ClassPathXmlApplicationContext:960 - Closing org.springframework.context.support.ClassPathXmlApplicationContext@51521cc1: startup date [Wed Sep 19 21:12:37 EDT 2018]; root of context hierarchy
+2018-09-19 21:17:29 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@51521cc1: startup date [Wed Sep 19 21:17:29 EDT 2018]; root of context hierarchy
+2018-09-19 21:17:29 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-19 21:17:32 INFO  root:19 - Method Executed: int com.revature.math.Calculator.add(int,int)
+2018-09-19 21:17:32 INFO  root:69 - 2+3=5
+2018-09-19 21:17:32 INFO  root:19 - Method Executed: int com.revature.math.Calculator.subtract(int,int)
+2018-09-19 21:17:32 INFO  root:69 - 2-3=-1
+2018-09-19 21:17:32 INFO  root:19 - Method Executed: int com.revature.math.Calculator.multiply(int,int)
+2018-09-19 21:17:32 INFO  root:69 - 2*3=6
+2018-09-19 21:17:32 INFO  root:19 - Method Executed: int com.revature.math.Calculator.divide(int,int)
+2018-09-19 21:17:32 INFO  root:69 - 2/3=0
+2018-09-19 21:17:32 INFO  ClassPathXmlApplicationContext:960 - Closing org.springframework.context.support.ClassPathXmlApplicationContext@51521cc1: startup date [Wed Sep 19 21:17:29 EDT 2018]; root of context hierarchy
+2018-09-19 21:18:35 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@51521cc1: startup date [Wed Sep 19 21:18:35 EDT 2018]; root of context hierarchy
+2018-09-19 21:18:35 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-19 21:18:37 INFO  root:19 - Method Executed: int com.revature.math.Calculator.add(int,int)
+2018-09-19 21:18:38 INFO  root:69 - 2+5=7
+2018-09-19 21:18:38 INFO  root:19 - Method Executed: int com.revature.math.Calculator.subtract(int,int)
+2018-09-19 21:18:38 INFO  root:69 - 2-5=-3
+2018-09-19 21:18:38 INFO  root:19 - Method Executed: int com.revature.math.Calculator.multiply(int,int)
+2018-09-19 21:18:38 INFO  root:69 - 2*5=10
+2018-09-19 21:18:38 INFO  root:19 - Method Executed: int com.revature.math.Calculator.divide(int,int)
+2018-09-19 21:18:38 INFO  root:69 - 2/5=0
+2018-09-19 21:18:38 INFO  root:19 - Method Executed: int com.revature.math.Calculator.remainder(int,int)
+2018-09-19 21:18:38 INFO  root:69 - 25%4=1
+2018-09-19 21:18:38 INFO  root:19 - Method Executed: int com.revature.math.Calculator.modulo(int,int)
+2018-09-19 21:18:38 INFO  root:69 - 25%/4=1
+2018-09-19 21:18:38 INFO  ClassPathXmlApplicationContext:960 - Closing org.springframework.context.support.ClassPathXmlApplicationContext@51521cc1: startup date [Wed Sep 19 21:18:35 EDT 2018]; root of context hierarchy
+2018-09-19 21:18:50 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@51521cc1: startup date [Wed Sep 19 21:18:50 EDT 2018]; root of context hierarchy
+2018-09-19 21:18:50 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-19 21:18:53 INFO  root:19 - Method Executed: int com.revature.math.Calculator.add(int,int)
+2018-09-19 21:18:53 INFO  root:69 - 2+5=7
+2018-09-19 21:18:53 INFO  root:19 - Method Executed: int com.revature.math.Calculator.subtract(int,int)
+2018-09-19 21:18:53 INFO  root:69 - 2-5=-3
+2018-09-19 21:18:53 INFO  root:19 - Method Executed: int com.revature.math.Calculator.multiply(int,int)
+2018-09-19 21:18:53 INFO  root:69 - 2*5=10
+2018-09-19 21:18:53 INFO  root:19 - Method Executed: int com.revature.math.Calculator.divide(int,int)
+2018-09-19 21:18:53 INFO  root:69 - 2/5=0
+2018-09-19 21:18:53 INFO  root:19 - Method Executed: int com.revature.math.Calculator.remainder(int,int)
+2018-09-19 21:18:53 INFO  root:69 - 25%4=1
+2018-09-19 21:18:53 INFO  root:19 - Method Executed: int com.revature.math.Calculator.modulo(int,int)
+2018-09-19 21:18:53 INFO  root:69 - -25%/4=3
+2018-09-19 21:18:53 INFO  ClassPathXmlApplicationContext:960 - Closing org.springframework.context.support.ClassPathXmlApplicationContext@51521cc1: startup date [Wed Sep 19 21:18:50 EDT 2018]; root of context hierarchy
+2018-09-19 21:19:20 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@51521cc1: startup date [Wed Sep 19 21:19:20 EDT 2018]; root of context hierarchy
+2018-09-19 21:19:20 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-19 21:19:22 INFO  root:19 - Method Executed: int com.revature.math.Calculator.add(int,int)
+2018-09-19 21:19:23 INFO  root:69 - 2+5=7
+2018-09-19 21:19:23 INFO  root:19 - Method Executed: int com.revature.math.Calculator.subtract(int,int)
+2018-09-19 21:19:23 INFO  root:69 - 2-5=-3
+2018-09-19 21:19:23 INFO  root:19 - Method Executed: int com.revature.math.Calculator.multiply(int,int)
+2018-09-19 21:19:23 INFO  root:69 - 2*5=10
+2018-09-19 21:19:23 INFO  root:19 - Method Executed: int com.revature.math.Calculator.divide(int,int)
+2018-09-19 21:19:23 INFO  root:69 - 2/5=0
+2018-09-19 21:19:23 INFO  root:19 - Method Executed: int com.revature.math.Calculator.remainder(int,int)
+2018-09-19 21:19:23 INFO  root:69 - 25%4=1
+2018-09-19 21:19:23 INFO  root:19 - Method Executed: int com.revature.math.Calculator.remainder(int,int)
+2018-09-19 21:19:23 INFO  root:69 - -25%4=-1
+2018-09-19 21:19:23 INFO  root:19 - Method Executed: int com.revature.math.Calculator.modulo(int,int)
+2018-09-19 21:19:23 INFO  root:69 - 25%/4=1
+2018-09-19 21:19:23 INFO  root:19 - Method Executed: int com.revature.math.Calculator.modulo(int,int)
+2018-09-19 21:19:23 INFO  root:69 - -25%/4=3
+2018-09-19 21:19:23 INFO  ClassPathXmlApplicationContext:960 - Closing org.springframework.context.support.ClassPathXmlApplicationContext@51521cc1: startup date [Wed Sep 19 21:19:20 EDT 2018]; root of context hierarchy
+2018-09-19 21:20:08 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@51521cc1: startup date [Wed Sep 19 21:20:08 EDT 2018]; root of context hierarchy
+2018-09-19 21:20:08 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-19 21:20:11 INFO  root:19 - Method Executed: int com.revature.math.Calculator.add(int,int)
+2018-09-19 21:20:11 INFO  root:69 - 2+5=7
+2018-09-19 21:20:11 INFO  root:19 - Method Executed: int com.revature.math.Calculator.subtract(int,int)
+2018-09-19 21:20:11 INFO  root:69 - 2-5=-3
+2018-09-19 21:20:11 INFO  root:19 - Method Executed: int com.revature.math.Calculator.multiply(int,int)
+2018-09-19 21:20:11 INFO  root:69 - 2*5=10
+2018-09-19 21:20:11 INFO  root:19 - Method Executed: int com.revature.math.Calculator.divide(int,int)
+2018-09-19 21:20:11 INFO  root:69 - 2/5=0
+2018-09-19 21:20:11 INFO  root:19 - Method Executed: int com.revature.math.Calculator.remainder(int,int)
+2018-09-19 21:20:11 INFO  root:69 - 25%4=1
+2018-09-19 21:20:11 INFO  root:19 - Method Executed: int com.revature.math.Calculator.remainder(int,int)
+2018-09-19 21:20:11 INFO  root:69 - -25%4=-1
+2018-09-19 21:20:11 INFO  root:19 - Method Executed: int com.revature.math.Calculator.modulo(int,int)
+2018-09-19 21:20:11 INFO  root:69 - 25%/4=1
+2018-09-19 21:20:11 INFO  root:19 - Method Executed: int com.revature.math.Calculator.modulo(int,int)
+2018-09-19 21:20:11 INFO  root:69 - -25%/4=3
+2018-09-19 21:20:11 INFO  ClassPathXmlApplicationContext:960 - Closing org.springframework.context.support.ClassPathXmlApplicationContext@51521cc1: startup date [Wed Sep 19 21:20:08 EDT 2018]; root of context hierarchy
+2018-09-19 21:20:47 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@51521cc1: startup date [Wed Sep 19 21:20:47 EDT 2018]; root of context hierarchy
+2018-09-19 21:20:47 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-19 21:20:50 INFO  root:19 - Method Executed: int com.revature.math.Calculator.add(int,int)
+2018-09-19 21:20:50 INFO  root:69 - 2+5=7
+2018-09-19 21:20:50 INFO  root:19 - Method Executed: int com.revature.math.Calculator.subtract(int,int)
+2018-09-19 21:20:50 INFO  root:69 - 2-5=-3
+2018-09-19 21:20:50 INFO  root:19 - Method Executed: int com.revature.math.Calculator.multiply(int,int)
+2018-09-19 21:20:50 INFO  root:69 - 2*5=10
+2018-09-19 21:20:50 INFO  root:19 - Method Executed: int com.revature.math.Calculator.divide(int,int)
+2018-09-19 21:20:50 INFO  root:69 - 2/5=0
+2018-09-19 21:20:50 INFO  root:19 - Method Executed: int com.revature.math.Calculator.remainder(int,int)
+2018-09-19 21:20:50 INFO  root:69 - 25%4=1
+2018-09-19 21:20:50 INFO  root:19 - Method Executed: int com.revature.math.Calculator.remainder(int,int)
+2018-09-19 21:20:50 INFO  root:69 - -25%4=-1
+2018-09-19 21:20:50 INFO  root:19 - Method Executed: int com.revature.math.Calculator.modulo(int,int)
+2018-09-19 21:20:50 INFO  root:69 - 25%/4=1
+2018-09-19 21:20:50 INFO  root:19 - Method Executed: int com.revature.math.Calculator.modulo(int,int)
+2018-09-19 21:20:50 INFO  root:69 - -25%/4=3
+2018-09-19 21:20:50 INFO  ClassPathXmlApplicationContext:960 - Closing org.springframework.context.support.ClassPathXmlApplicationContext@51521cc1: startup date [Wed Sep 19 21:20:47 EDT 2018]; root of context hierarchy
+2018-09-19 21:27:30 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@51521cc1: startup date [Wed Sep 19 21:27:30 EDT 2018]; root of context hierarchy
+2018-09-19 21:27:31 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-19 21:27:33 INFO  root:19 - Method Executed: int com.revature.math.Calculator.add(int,int)
+2018-09-19 21:27:33 INFO  root:72 - 2+5=7
+2018-09-19 21:27:33 INFO  root:19 - Method Executed: int com.revature.math.Calculator.subtract(int,int)
+2018-09-19 21:27:33 INFO  root:72 - 2-5=-3
+2018-09-19 21:27:33 INFO  root:19 - Method Executed: int com.revature.math.Calculator.multiply(int,int)
+2018-09-19 21:27:33 INFO  root:72 - 2*5=10
+2018-09-19 21:27:33 INFO  root:19 - Method Executed: int com.revature.math.Calculator.divide(int,int)
+2018-09-19 21:27:33 INFO  root:72 - 2/5=0
+2018-09-19 21:27:33 ERROR root:22 - Cannot divide by 0
+2018-09-19 21:27:33 INFO  root:19 - Method Executed: int com.revature.math.Calculator.remainder(int,int)
+2018-09-19 21:27:33 INFO  root:72 - 25%4=1
+2018-09-19 21:27:33 INFO  root:19 - Method Executed: int com.revature.math.Calculator.remainder(int,int)
+2018-09-19 21:27:33 INFO  root:72 - -25%4=-1
+2018-09-19 21:27:33 INFO  root:19 - Method Executed: int com.revature.math.Calculator.modulo(int,int)
+2018-09-19 21:27:33 INFO  root:72 - 25%/4=1
+2018-09-19 21:27:33 INFO  root:19 - Method Executed: int com.revature.math.Calculator.modulo(int,int)
+2018-09-19 21:27:33 INFO  root:72 - -25%/4=3
+2018-09-19 21:27:33 INFO  ClassPathXmlApplicationContext:960 - Closing org.springframework.context.support.ClassPathXmlApplicationContext@51521cc1: startup date [Wed Sep 19 21:27:30 EDT 2018]; root of context hierarchy
+2018-09-19 21:28:27 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@51521cc1: startup date [Wed Sep 19 21:28:27 EDT 2018]; root of context hierarchy
+2018-09-19 21:28:27 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-19 21:28:29 INFO  root:19 - Method Executed: int com.revature.math.Calculator.add(int,int)
+2018-09-19 21:28:29 INFO  root:72 - 2+5=7
+2018-09-19 21:28:29 INFO  root:19 - Method Executed: int com.revature.math.Calculator.subtract(int,int)
+2018-09-19 21:28:29 INFO  root:72 - 2-5=-3
+2018-09-19 21:28:29 INFO  root:19 - Method Executed: int com.revature.math.Calculator.multiply(int,int)
+2018-09-19 21:28:29 INFO  root:72 - 2*5=10
+2018-09-19 21:28:29 INFO  root:19 - Method Executed: int com.revature.math.Calculator.divide(int,int)
+2018-09-19 21:28:29 INFO  root:72 - 5/2=2
+2018-09-19 21:28:29 ERROR root:22 - Cannot divide by 0
+2018-09-19 21:28:29 INFO  root:19 - Method Executed: int com.revature.math.Calculator.remainder(int,int)
+2018-09-19 21:28:29 INFO  root:72 - 25%4=1
+2018-09-19 21:28:29 INFO  root:19 - Method Executed: int com.revature.math.Calculator.remainder(int,int)
+2018-09-19 21:28:29 INFO  root:72 - -25%4=-1
+2018-09-19 21:28:29 INFO  root:19 - Method Executed: int com.revature.math.Calculator.modulo(int,int)
+2018-09-19 21:28:29 INFO  root:72 - 25%/4=1
+2018-09-19 21:28:29 INFO  root:19 - Method Executed: int com.revature.math.Calculator.modulo(int,int)
+2018-09-19 21:28:29 INFO  root:72 - -25%/4=3
+2018-09-19 21:28:29 INFO  ClassPathXmlApplicationContext:960 - Closing org.springframework.context.support.ClassPathXmlApplicationContext@51521cc1: startup date [Wed Sep 19 21:28:27 EDT 2018]; root of context hierarchy
+2018-09-19 21:32:52 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@51521cc1: startup date [Wed Sep 19 21:32:51 EDT 2018]; root of context hierarchy
+2018-09-19 21:32:52 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-19 21:32:54 INFO  root:19 - Method Executed: int com.revature.math.Calculator.add(int,int)
+2018-09-19 21:32:54 INFO  root:72 - 2+5=7
+2018-09-19 21:32:54 INFO  root:19 - Method Executed: int com.revature.math.Calculator.subtract(int,int)
+2018-09-19 21:32:54 INFO  root:72 - 2-5=-3
+2018-09-19 21:32:54 INFO  root:19 - Method Executed: int com.revature.math.Calculator.multiply(int,int)
+2018-09-19 21:32:54 INFO  root:72 - 2*5=10
+2018-09-19 21:32:54 INFO  root:19 - Method Executed: int com.revature.math.Calculator.divide(int,int)
+2018-09-19 21:32:54 INFO  root:72 - 5/2=2
+2018-09-19 21:32:54 ERROR root:22 - Cannot divide by 0
+2018-09-19 21:32:54 INFO  root:19 - Method Executed: int com.revature.math.Calculator.remainder(int,int)
+2018-09-19 21:32:54 INFO  root:72 - 25%4=1
+2018-09-19 21:32:54 INFO  root:19 - Method Executed: int com.revature.math.Calculator.remainder(int,int)
+2018-09-19 21:32:54 INFO  root:72 - -25%4=-1
+2018-09-19 21:32:54 INFO  root:19 - Method Executed: int com.revature.math.Calculator.modulo(int,int)
+2018-09-19 21:32:54 INFO  root:72 - 25%/4=1
+2018-09-19 21:32:54 INFO  root:19 - Method Executed: int com.revature.math.Calculator.modulo(int,int)
+2018-09-19 21:32:54 INFO  root:72 - -25%/4=3
+2018-09-19 21:32:54 INFO  ClassPathXmlApplicationContext:960 - Closing org.springframework.context.support.ClassPathXmlApplicationContext@51521cc1: startup date [Wed Sep 19 21:32:51 EDT 2018]; root of context hierarchy
