@@ -1,0 +1,107 @@
+2018-09-19 21:54:14 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@2957fcb0: startup date [Wed Sep 19 21:54:14 EDT 2018]; root of context hierarchy
+2018-09-19 21:54:14 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-19 21:54:15 INFO  root:34 - 3.4+5.2 = 8.6
+2018-09-19 21:54:15 INFO  root:36 - 3.4-5.2 = -1.8000000000000003
+2018-09-19 21:54:15 INFO  root:38 - 3.4/5.2 = 0.6538461538461539
+2018-09-19 21:54:15 INFO  root:40 - 3.4*5.2 = 17.68
+2018-09-19 21:54:15 INFO  root:38 - 3.4/0.0 = Infinity
+2018-09-19 21:57:24 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@2957fcb0: startup date [Wed Sep 19 21:57:24 EDT 2018]; root of context hierarchy
+2018-09-19 21:57:24 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-19 21:57:25 INFO  root:34 - 3.4+5.2 = 8.6
+2018-09-19 21:57:25 INFO  root:36 - 3.4-5.2 = -1.8000000000000003
+2018-09-19 21:57:25 INFO  root:38 - 3.4/5.2 = 0.6538461538461539
+2018-09-19 21:57:25 INFO  root:40 - 3.4*5.2 = 17.68
+2018-09-19 21:57:25 ERROR root:46 - double com.revature.beans.Calculator.divide(double,double) exception was thrown.
+2018-09-19 21:58:06 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@2957fcb0: startup date [Wed Sep 19 21:58:06 EDT 2018]; root of context hierarchy
+2018-09-19 21:58:06 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-19 21:58:06 ERROR root:46 - double com.revature.beans.Calculator.add(double,double) exception was thrown.
+2018-09-20 13:30:32 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@2957fcb0: startup date [Thu Sep 20 13:30:32 EDT 2018]; root of context hierarchy
+2018-09-20 13:30:32 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-20 13:30:32 ERROR root:46 - double com.revature.beans.Calculator.add(double,double) exception was thrown.
+2018-09-20 13:30:41 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@2957fcb0: startup date [Thu Sep 20 13:30:41 EDT 2018]; root of context hierarchy
+2018-09-20 13:30:41 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-20 13:30:42 ERROR root:46 - double com.revature.beans.Calculator.add(double,double) exception was thrown.
+2018-09-20 13:31:18 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@2957fcb0: startup date [Thu Sep 20 13:31:18 EDT 2018]; root of context hierarchy
+2018-09-20 13:31:18 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-20 13:31:19 ERROR root:46 - double com.revature.beans.Calculator.add(double,double) exception was thrown.
+2018-09-20 13:31:56 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@2957fcb0: startup date [Thu Sep 20 13:31:56 EDT 2018]; root of context hierarchy
+2018-09-20 13:31:56 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-20 13:31:57 INFO  root:34 - 3.4+5.2 = 8.6
+2018-09-20 13:31:57 INFO  root:36 - 3.4-5.2 = -1.8000000000000003
+2018-09-20 13:31:57 INFO  root:38 - 3.4/5.2 = 0.6538461538461539
+2018-09-20 13:31:57 INFO  root:40 - 3.4*5.2 = 17.68
+2018-09-20 13:31:57 INFO  root:38 - 3.4/0.0 = Infinity
+2018-09-20 13:35:16 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@2957fcb0: startup date [Thu Sep 20 13:35:16 EDT 2018]; root of context hierarchy
+2018-09-20 13:35:16 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-20 13:35:17 INFO  root:34 - 3.4+5.2 = 8.6
+2018-09-20 13:35:17 INFO  root:36 - 3.4-5.2 = -1.8000000000000003
+2018-09-20 13:35:17 INFO  root:38 - 3.4/5.2 = 0.6538461538461539
+2018-09-20 13:35:17 INFO  root:40 - 3.4*5.2 = 17.68
+2018-09-20 13:35:17 INFO  root:38 - 3.4/0.0 = Infinity
+2018-09-20 13:35:47 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@2957fcb0: startup date [Thu Sep 20 13:35:47 EDT 2018]; root of context hierarchy
+2018-09-20 13:35:47 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-20 13:35:48 INFO  root:34 - 3.4+5.2 = 8.6
+2018-09-20 13:35:48 INFO  root:36 - 3.4-5.2 = -1.8000000000000003
+2018-09-20 13:35:48 INFO  root:38 - 3.4/5.2 = 0.6538461538461539
+2018-09-20 13:35:48 INFO  root:40 - 3.4*5.2 = 17.68
+2018-09-20 13:38:35 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@2957fcb0: startup date [Thu Sep 20 13:38:35 EDT 2018]; root of context hierarchy
+2018-09-20 13:38:35 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-20 13:38:35 INFO  root:34 - 3.4+5.2 = 8.6
+2018-09-20 13:38:35 INFO  root:36 - 3.4-5.2 = -1.8000000000000003
+2018-09-20 13:38:35 INFO  root:38 - 3.4/5.2 = 0.6538461538461539
+2018-09-20 13:38:35 INFO  root:40 - 3.4*5.2 = 17.68
+2018-09-20 13:41:38 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@2957fcb0: startup date [Thu Sep 20 13:41:38 EDT 2018]; root of context hierarchy
+2018-09-20 13:41:38 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-20 13:41:38 WARN  ClassPathXmlApplicationContext:546 - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'calculator' defined in file [C:\Users\Small\OneDrive\Documents\Github\SwordsBeatAxes\SpringAOPAssignment\target\classes\com\revature\beans\Calculator.class]: BeanPostProcessor before instantiation of bean failed; nested exception is java.lang.IllegalArgumentException: ProceedingJoinPoint is only supported for around advice
+2018-09-20 13:44:46 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@2957fcb0: startup date [Thu Sep 20 13:44:46 EDT 2018]; root of context hierarchy
+2018-09-20 13:44:46 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-20 13:44:47 WARN  ClassPathXmlApplicationContext:546 - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'calculator' defined in file [C:\Users\Small\OneDrive\Documents\Github\SwordsBeatAxes\SpringAOPAssignment\target\classes\com\revature\beans\Calculator.class]: BeanPostProcessor before instantiation of bean failed; nested exception is java.lang.IllegalArgumentException: ProceedingJoinPoint is only supported for around advice
+2018-09-20 13:45:23 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@2957fcb0: startup date [Thu Sep 20 13:45:23 EDT 2018]; root of context hierarchy
+2018-09-20 13:45:23 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-20 13:45:23 INFO  root:34 - 3.4+5.2 = 8.6
+2018-09-20 13:45:23 INFO  root:36 - 3.4-5.2 = -1.8000000000000003
+2018-09-20 13:45:23 INFO  root:38 - 3.4/5.2 = 0.6538461538461539
+2018-09-20 13:45:23 INFO  root:40 - 3.4*5.2 = 17.68
+2018-09-20 13:46:46 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@2957fcb0: startup date [Thu Sep 20 13:46:46 EDT 2018]; root of context hierarchy
+2018-09-20 13:46:46 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-20 13:46:47 INFO  root:34 - 3.4+5.2 = 8.6
+2018-09-20 13:46:47 INFO  root:36 - 3.4-5.2 = -1.8000000000000003
+2018-09-20 13:46:47 INFO  root:38 - 3.4/5.2 = 0.6538461538461539
+2018-09-20 13:46:47 INFO  root:40 - 3.4*5.2 = 17.68
+2018-09-20 13:50:01 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@2957fcb0: startup date [Thu Sep 20 13:50:01 EDT 2018]; root of context hierarchy
+2018-09-20 13:50:01 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-20 13:50:02 INFO  root:34 - 3.4+5.2 = 8.6
+2018-09-20 13:50:02 INFO  root:36 - 3.4-5.2 = -1.8000000000000003
+2018-09-20 13:50:02 INFO  root:38 - 3.4/5.2 = 0.6538461538461539
+2018-09-20 13:50:02 INFO  root:40 - 3.4*5.2 = 17.68
+2018-09-20 13:50:02 ERROR root:46 - double com.revature.beans.Calculator.divide(double,double) exception was thrown.
+2018-09-20 13:51:53 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@2957fcb0: startup date [Thu Sep 20 13:51:53 EDT 2018]; root of context hierarchy
+2018-09-20 13:51:53 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-20 13:51:54 WARN  ClassPathXmlApplicationContext:546 - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'calculator' defined in file [C:\Users\Small\OneDrive\Documents\Github\SwordsBeatAxes\SpringAOPAssignment\target\classes\com\revature\beans\Calculator.class]: BeanPostProcessor before instantiation of bean failed; nested exception is java.lang.IllegalArgumentException: ProceedingJoinPoint is only supported for around advice
+2018-09-20 13:52:12 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@2957fcb0: startup date [Thu Sep 20 13:52:12 EDT 2018]; root of context hierarchy
+2018-09-20 13:52:12 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-20 13:52:13 ERROR root:46 - double com.revature.beans.Calculator.add(double,double) exception was thrown.
+2018-09-20 13:57:07 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@2957fcb0: startup date [Thu Sep 20 13:57:07 EDT 2018]; root of context hierarchy
+2018-09-20 13:57:07 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-20 13:57:08 INFO  root:34 - 3.4+5.2 = 8.6
+2018-09-20 13:57:08 INFO  root:36 - 3.4-5.2 = -1.8000000000000003
+2018-09-20 13:57:08 INFO  root:38 - 3.4/5.2 = 0.6538461538461539
+2018-09-20 13:57:08 INFO  root:40 - 3.4*5.2 = 17.68
+2018-09-20 13:57:08 ERROR root:46 - double com.revature.beans.Calculator.divide(double,double) exception was thrown.
+2018-09-20 14:00:40 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@2957fcb0: startup date [Thu Sep 20 14:00:40 EDT 2018]; root of context hierarchy
+2018-09-20 14:00:40 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-20 14:00:41 INFO  root:34 - 3.4+5.2 = 8.6
+2018-09-20 14:00:41 INFO  root:36 - 3.4-5.2 = -1.8000000000000003
+2018-09-20 14:13:42 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@2957fcb0: startup date [Thu Sep 20 14:13:42 EDT 2018]; root of context hierarchy
+2018-09-20 14:13:42 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-20 14:13:42 INFO  root:34 - 3.4+5.2 = 8.6
+2018-09-20 14:13:42 INFO  root:36 - 3.4-5.2 = -1.8000000000000003
+2018-09-20 14:14:17 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@2957fcb0: startup date [Thu Sep 20 14:14:17 EDT 2018]; root of context hierarchy
+2018-09-20 14:14:18 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-20 14:14:18 INFO  root:34 - 3.4+5.2 = 8.6
+2018-09-20 14:14:18 INFO  root:36 - 3.4-5.2 = -1.8000000000000003
+2018-09-20 14:14:18 INFO  root:38 - 3.4*5.2 = 17.68
+2018-09-20 14:15:44 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@2957fcb0: startup date [Thu Sep 20 14:15:44 EDT 2018]; root of context hierarchy
+2018-09-20 14:15:44 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-20 14:15:44 INFO  root:34 - 3.4+5.2 = 8.6
+2018-09-20 14:15:44 INFO  root:36 - 3.4-5.2 = -1.8000000000000003
