@@ -32,7 +32,7 @@ public class BearController {
 	public List<Bear> getBears(){
 		return bearService.getBears();
 	}
-	
+	////heyyy
 	@GetMapping("/bears/{id}")
 	@ResponseBody
 	public Bear getBearByPathId(@PathVariable("id") int id) {
