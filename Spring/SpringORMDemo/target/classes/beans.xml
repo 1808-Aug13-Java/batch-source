@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.2.xsd">
+
+
+	<context:component-scan base-package="com.revature"></context:component-scan>
+	
+	<!-- Enable transactions -->
+	<tx:annotation-driven/>
+
+
+	<bean id="OurDatabase" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="url" value="jdbc:oracle:thin:@mydbrevature.cidrrjyvywxg.us-east-1.rds.amazonaws.com:1521:ORCL"/>
+		<property name="username" value="newtonhoac"/>
+		<property name="password" value="iforgot2"/>
+		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
+	</bean>
+		
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource" ref="OurDatabase"/>
+		<property name="packagesToScan" value="com.revature"/>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</prop>
+				<prop key="hibernate.show_sql">true</prop>
+			</props>
+		</property>
+	</bean>
+	
+	<bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+		<property name="nestedTransactionAllowed" value="true" />
+	</bean>
+	
+</beans>

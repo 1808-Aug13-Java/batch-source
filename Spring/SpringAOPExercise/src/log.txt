@@ -1,0 +1,7 @@
+2018-09-20 11:46:09 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@2957fcb0: startup date [Thu Sep 20 11:46:09 EDT 2018]; root of context hierarchy
+2018-09-20 11:46:09 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-20 11:46:10 INFO  root:19 - 1 + 2 = 3
+2018-09-20 11:46:10 INFO  root:25 - 2 - 1 = 1
+2018-09-20 11:46:10 INFO  root:31 - 9 * 5 = 45
+2018-09-20 11:46:10 INFO  root:39 - 1.0 / 2.0 = 0.5
+2018-09-20 11:46:10 ERROR root:41 - Error: DivideByZero
