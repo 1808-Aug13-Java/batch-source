@@ -1,0 +1,62 @@
+2018-09-19 10:13:05 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@157fcb0: startup date [Wed Sep 19 10:13:05 EDT 2018]; root of context hierarchy
+2018-09-19 10:13:05 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-19 10:13:06 INFO  root:20 - void com.revature.beans.Bear.setIfFull(boolean)method was called
+2018-09-19 10:13:06 INFO  root:29 - bear is trying to hibernate
+2018-09-19 10:13:06 INFO  root:20 - void com.revature.beans.Bear.bearHibernates()method was called
+2018-09-19 10:13:32 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@157fcb0: startup date [Wed Sep 19 10:13:32 EDT 2018]; root of context hierarchy
+2018-09-19 10:13:32 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-19 10:13:33 INFO  root:20 - void com.revature.beans.Bear.setIfFull(boolean)method was called
+2018-09-19 10:13:33 INFO  root:29 - bear is trying to hibernate
+2018-09-19 10:13:33 INFO  root:20 - void com.revature.beans.Bear.bearHibernates()method was called
+2018-09-19 10:13:33 INFO  root:20 - boolean com.revature.beans.Bear.isAwake()method was called
+2018-09-19 10:13:33 INFO  root:20 - boolean com.revature.beans.Bear.isAwake()method was called
+2018-09-19 10:14:27 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@157fcb0: startup date [Wed Sep 19 10:14:27 EDT 2018]; root of context hierarchy
+2018-09-19 10:14:27 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-19 10:14:28 INFO  root:20 - void com.revature.beans.Bear.setIfFull(boolean)method was called
+2018-09-19 10:14:28 INFO  root:29 - bear is trying to hibernate
+2018-09-19 10:14:28 INFO  root:20 - void com.revature.beans.Bear.bearHibernates()method was called
+2018-09-19 10:14:28 INFO  root:20 - boolean com.revature.beans.Bear.isAwake()method was called
+2018-09-19 10:14:28 INFO  root:20 - void com.revature.beans.Bear.wakeUpBear()method was called
+2018-09-19 10:14:28 INFO  root:20 - boolean com.revature.beans.Bear.isAwake()method was called
+2018-09-19 10:15:41 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@157fcb0: startup date [Wed Sep 19 10:15:41 EDT 2018]; root of context hierarchy
+2018-09-19 10:15:41 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-19 10:15:41 INFO  root:20 - void com.revature.beans.Bear.setIfFull(boolean)method was called
+2018-09-19 10:15:41 INFO  root:29 - bear is trying to hibernate
+2018-09-19 10:15:41 INFO  root:20 - void com.revature.beans.Bear.bearHibernates()method was called
+2018-09-19 10:15:41 INFO  root:20 - boolean com.revature.beans.Bear.isAwake()method was called
+2018-09-19 10:15:41 INFO  root:20 - void com.revature.beans.Bear.wakeUpBear()method was called
+2018-09-19 10:15:41 INFO  root:20 - boolean com.revature.beans.Bear.isAwake()method was called
+2018-09-19 10:20:51 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@157fcb0: startup date [Wed Sep 19 10:20:51 EDT 2018]; root of context hierarchy
+2018-09-19 10:20:51 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-19 10:20:51 WARN  ClassPathXmlApplicationContext:546 - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'bear' defined in file [C:\Users\Jonathan\Documents\batch-source\Week6\SpringAOPDemo\target\classes\com\revature\beans\Bear.class]: Initialization of bean failed; nested exception is java.lang.IllegalArgumentException: Pointcut is not well-formed: expecting 'name pattern' at character position 21
+execution (* setFull(...)&& args(ifFull)
+                     ^^^
+
+2018-09-19 10:21:04 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@157fcb0: startup date [Wed Sep 19 10:21:04 EDT 2018]; root of context hierarchy
+2018-09-19 10:21:04 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-19 10:21:05 WARN  ClassPathXmlApplicationContext:546 - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'bear' defined in file [C:\Users\Jonathan\Documents\batch-source\Week6\SpringAOPDemo\target\classes\com\revature\beans\Bear.class]: Initialization of bean failed; nested exception is java.lang.IllegalArgumentException: Pointcut is not well-formed: expecting ')' at character position 24
+execution (* setFull(..)&& args(ifFull)
+                        ^^
+
+2018-09-19 10:21:53 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@157fcb0: startup date [Wed Sep 19 10:21:53 EDT 2018]; root of context hierarchy
+2018-09-19 10:21:53 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-19 10:21:53 WARN  ClassPathXmlApplicationContext:546 - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'bear' defined in file [C:\Users\Jonathan\Documents\batch-source\Week6\SpringAOPDemo\target\classes\com\revature\beans\Bear.class]: Initialization of bean failed; nested exception is java.lang.IllegalArgumentException: Pointcut is not well-formed: expecting ')' at character position 24
+execution (* setFull(..)&& args(ifFull))
+                        ^^
+
+2018-09-19 10:22:42 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@157fcb0: startup date [Wed Sep 19 10:22:42 EDT 2018]; root of context hierarchy
+2018-09-19 10:22:42 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-19 10:22:43 INFO  root:20 - void com.revature.beans.Bear.setFull(boolean)method was called
+2018-09-19 10:22:43 INFO  root:29 - bear is trying to hibernate
+2018-09-19 10:22:43 INFO  root:20 - void com.revature.beans.Bear.bearHibernates()method was called
+2018-09-19 10:22:43 INFO  root:20 - boolean com.revature.beans.Bear.isAwake()method was called
+2018-09-19 10:22:43 INFO  root:20 - void com.revature.beans.Bear.wakeUpBear()method was called
+2018-09-19 10:22:43 INFO  root:20 - boolean com.revature.beans.Bear.isAwake()method was called
+2018-09-19 20:17:06 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@157fcb0: startup date [Wed Sep 19 20:17:06 EDT 2018]; root of context hierarchy
+2018-09-19 20:17:06 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-19 20:17:06 INFO  root:20 - void com.revature.beans.Bear.setFull(boolean)method was called
+2018-09-19 20:17:06 INFO  root:29 - bear is trying to hibernate
+2018-09-19 20:17:06 INFO  root:20 - void com.revature.beans.Bear.bearHibernates()method was called
+2018-09-19 20:17:06 INFO  root:20 - boolean com.revature.beans.Bear.isAwake()method was called
+2018-09-19 20:17:06 INFO  root:20 - void com.revature.beans.Bear.wakeUpBear()method was called
+2018-09-19 20:17:06 INFO  root:20 - boolean com.revature.beans.Bear.isAwake()method was called

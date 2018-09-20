@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context-4.2.xsd">
+        
+        <bean name="bearWithConstructor" class="com.revature.beans.BearWithConstructor" scope="prototype">
+       		<constructor-arg ref="cave" ></constructor-arg>
+        </bean>
+        <bean name="cave" class="com.revature.beans.Cave">
+        <property name="id" value="13"></property>
+            <property name="name" value="Mamoth cave"></property> 
+        </bean>
+      		<bean name="bearWithSetter" class="com.revature.beans.BearWithSetter">
+      			<property name="name" value="Mamoth cave"></property>
+      		</bean>
+      		<bean name="bearAutoWiringByName" class="com.revature.beans.BearAutoWiringByName" scope="prototype" autowire="byName">
+      		 <property name="name" value="Mamoth cave"></property> </bean>
+      		 <bean name="bearAutoWiringByType" class="com.revature.beans.BearAutoWiringByType" scope="prototype" autowire="byType">
+      		</bean>
+   
+   			<context:component-scan base-package="com.revature.beans"></context:component-scan>
+   			</beans>
+   	

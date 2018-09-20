@@ -1,0 +1,9 @@
+
+usquid:S1126G"AReplace this if-then-else statement by a single return statement.(‹µ³¨8İÙË’ß,H»RMINORZ
+CODE_SMELL
+jsquid:S1135"2Complete the task associated to this TODO comment.(ƒŠ® úÿÿÿÿ8Ã½Ê’ß,H¹RINFOZ
+CODE_SMELL
+…squid:UselessImportCheck"?Remove this unused import 'org.aspectj.lang.annotation.Aspect'.(˜Ú§®ıÿÿÿÿ8Ë“ß,HÙRMINORZ
+CODE_SMELL
+~squid:HiddenFieldCheck4":Rename "result" which hides the field declared at line 11.(µ‰˜Üøÿÿÿÿ8İÙË’ß,H¼RMAJORZ
+CODE_SMELL

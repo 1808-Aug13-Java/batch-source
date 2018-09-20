@@ -1,0 +1,70 @@
+2018-09-19 21:40:04 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@157fcb0: startup date [Wed Sep 19 21:40:04 EDT 2018]; root of context hierarchy
+2018-09-19 21:40:04 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-19 21:40:57 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@157fcb0: startup date [Wed Sep 19 21:40:57 EDT 2018]; root of context hierarchy
+2018-09-19 21:40:57 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-19 21:47:38 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@157fcb0: startup date [Wed Sep 19 21:47:38 EDT 2018]; root of context hierarchy
+2018-09-19 21:47:38 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-19 21:50:17 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@157fcb0: startup date [Wed Sep 19 21:50:17 EDT 2018]; root of context hierarchy
+2018-09-19 21:50:17 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-19 21:57:03 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@157fcb0: startup date [Wed Sep 19 21:57:03 EDT 2018]; root of context hierarchy
+2018-09-19 21:57:03 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-19 21:57:03 WARN  ClassPathXmlApplicationContext:546 - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'operator' defined in file [C:\Users\Jonathan\Documents\batch-source\Week6\AOPCalculator\target\classes\com\revature\beans\Operator.class]: Initialization of bean failed; nested exception is java.lang.IllegalArgumentException: error at ::0 formal unbound in pointcut 
+2018-09-19 21:57:53 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@157fcb0: startup date [Wed Sep 19 21:57:53 EDT 2018]; root of context hierarchy
+2018-09-19 21:57:53 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-19 22:01:12 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@157fcb0: startup date [Wed Sep 19 22:01:12 EDT 2018]; root of context hierarchy
+2018-09-19 22:01:12 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-19 22:02:57 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@157fcb0: startup date [Wed Sep 19 22:02:57 EDT 2018]; root of context hierarchy
+2018-09-19 22:02:57 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-19 22:05:00 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@157fcb0: startup date [Wed Sep 19 22:05:00 EDT 2018]; root of context hierarchy
+2018-09-19 22:05:00 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-19 22:08:38 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@157fcb0: startup date [Wed Sep 19 22:08:38 EDT 2018]; root of context hierarchy
+2018-09-19 22:08:38 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-19 22:10:53 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@157fcb0: startup date [Wed Sep 19 22:10:53 EDT 2018]; root of context hierarchy
+2018-09-19 22:10:53 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-19 22:11:00 INFO  root:21 - workingvoid com.revature.beans.Operator.menu()
+2018-09-19 22:18:22 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@157fcb0: startup date [Wed Sep 19 22:18:22 EDT 2018]; root of context hierarchy
+2018-09-19 22:18:22 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-19 22:18:27 INFO  root:21 - workingvoid com.revature.beans.Operator.menu()
+2018-09-19 22:20:22 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@157fcb0: startup date [Wed Sep 19 22:20:22 EDT 2018]; root of context hierarchy
+2018-09-19 22:20:22 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-19 22:20:30 INFO  root:21 - workingvoid com.revature.beans.Operator.menu()
+2018-09-19 22:20:30 INFO  root:21 - workingfloat com.revature.beans.Operator.getInput1()
+2018-09-19 22:20:30 INFO  root:21 - workingfloat com.revature.beans.Operator.getInput2()
+2018-09-19 22:20:30 INFO  root:21 - workingString com.revature.beans.Operator.getChoice()
+2018-09-19 22:20:30 INFO  root:28 - void com.revature.beans.Operator.compute(float,float,String)addition2.0+3.0=5.0
+2018-09-19 22:20:30 INFO  root:21 - workingvoid com.revature.beans.Operator.compute(float,float,String)
+2018-09-19 22:32:25 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@157fcb0: startup date [Wed Sep 19 22:32:25 EDT 2018]; root of context hierarchy
+2018-09-19 22:32:25 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-19 22:32:30 INFO  root:21 - workingvoid com.revature.beans.Operator.menu()
+2018-09-19 22:32:30 INFO  root:21 - workingfloat com.revature.beans.Operator.getInput1()
+2018-09-19 22:32:30 INFO  root:21 - workingfloat com.revature.beans.Operator.getInput2()
+2018-09-19 22:32:30 INFO  root:21 - workingString com.revature.beans.Operator.getChoice()
+2018-09-19 22:32:30 INFO  root:33 - void com.revature.beans.Operator.compute(float,float,String)addition3.0+4.0=7.0
+2018-09-19 22:32:30 INFO  root:21 - workingvoid com.revature.beans.Operator.compute(float,float,String)
+2018-09-19 22:33:23 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@157fcb0: startup date [Wed Sep 19 22:33:23 EDT 2018]; root of context hierarchy
+2018-09-19 22:33:23 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-19 22:33:29 INFO  root:21 - workingvoid com.revature.beans.Operator.menu()
+2018-09-19 22:33:29 INFO  root:21 - workingfloat com.revature.beans.Operator.getInput1()
+2018-09-19 22:33:29 INFO  root:21 - workingfloat com.revature.beans.Operator.getInput2()
+2018-09-19 22:33:29 INFO  root:21 - workingString com.revature.beans.Operator.getChoice()
+2018-09-19 22:33:29 INFO  root:37 - void com.revature.beans.Operator.compute(float,float,String)multiplication3.0*4.0=12.0
+2018-09-19 22:33:29 INFO  root:21 - workingvoid com.revature.beans.Operator.compute(float,float,String)
+2018-09-19 22:35:31 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@157fcb0: startup date [Wed Sep 19 22:35:31 EDT 2018]; root of context hierarchy
+2018-09-19 22:35:31 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-19 22:35:43 INFO  root:21 - workingvoid com.revature.beans.Operator.menu()
+2018-09-19 22:35:43 INFO  root:21 - workingfloat com.revature.beans.Operator.getInput1()
+2018-09-19 22:35:43 INFO  root:21 - workingfloat com.revature.beans.Operator.getInput2()
+2018-09-19 22:35:43 INFO  root:21 - workingString com.revature.beans.Operator.getChoice()
+2018-09-19 22:35:43 INFO  root:41 - division8.0/4.0=2.0
+2018-09-19 22:35:43 INFO  root:21 - workingvoid com.revature.beans.Operator.compute(float,float,String)
+2018-09-19 22:37:26 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@157fcb0: startup date [Wed Sep 19 22:37:26 EDT 2018]; root of context hierarchy
+2018-09-19 22:37:26 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-19 22:37:35 INFO  root:21 - workingvoid com.revature.beans.Operator.menu()
+2018-09-19 22:37:35 INFO  root:21 - workingfloat com.revature.beans.Operator.getInput1()
+2018-09-19 22:37:35 INFO  root:21 - workingfloat com.revature.beans.Operator.getInput2()
+2018-09-19 22:37:35 INFO  root:21 - workingString com.revature.beans.Operator.getChoice()
+2018-09-19 22:37:35 ERROR root:27 - Cannot divide by zero
+2018-09-19 22:37:35 INFO  root:21 - workingvoid com.revature.beans.Operator.compute(float,float,String)
+2018-09-19 22:38:11 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@157fcb0: startup date [Wed Sep 19 22:38:11 EDT 2018]; root of context hierarchy
+2018-09-19 22:38:11 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-19 22:38:18 INFO  root:41 - division 9.0/4.0=2.25
