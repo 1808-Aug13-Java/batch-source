@@ -1,0 +1,14 @@
+2018-09-20 08:39:16 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@2957fcb0: startup date [Thu Sep 20 08:39:16 EDT 2018]; root of context hierarchy
+2018-09-20 08:39:16 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-20 08:39:17 INFO  root:18 - double com.revature.beans.Calculator.add(double,double) was executed.
+2018-09-20 08:39:17 INFO  root:18 - double com.revature.beans.Calculator.subtract(double,double) was executed.
+2018-09-20 08:39:17 INFO  root:18 - double com.revature.beans.Calculator.multiply(double,double) was executed.
+2018-09-20 08:39:17 INFO  root:18 - double com.revature.beans.Calculator.divide(double,double) was executed.
+2018-09-20 08:39:17 ERROR root:23 - double com.revature.beans.Calculator.divide(double,double) threw a divide by zero exception.
+2018-09-20 08:39:55 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@2957fcb0: startup date [Thu Sep 20 08:39:55 EDT 2018]; root of context hierarchy
+2018-09-20 08:39:55 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-20 08:39:56 INFO  root:18 - double com.revature.beans.Calculator.add(double,double) was executed.
+2018-09-20 08:39:56 INFO  root:18 - double com.revature.beans.Calculator.subtract(double,double) was executed.
+2018-09-20 08:39:56 INFO  root:18 - double com.revature.beans.Calculator.multiply(double,double) was executed.
+2018-09-20 08:39:56 INFO  root:18 - double com.revature.beans.Calculator.divide(double,double) was executed.
+2018-09-20 08:39:56 ERROR root:23 - double com.revature.beans.Calculator.divide(double,double) threw a divide by zero exception.
