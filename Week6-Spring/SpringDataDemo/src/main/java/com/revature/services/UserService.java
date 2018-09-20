@@ -11,6 +11,7 @@ public interface UserService {
 	public User addUser(User newUser);
 	public User updateUser(User user);
 	public User deleteUser(User user);
+	public User login(String user, String pass);
 	
 	
 }

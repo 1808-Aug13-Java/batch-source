@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.models.User;
@@ -52,5 +52,10 @@ public class UserController {
 	//@ResponseBody
 	public User deleteUser(@RequestBody User u) {
 		return userService.deleteUser(u);
+	}
+	
+	@GetMapping(value="/login")
+	public User loggedInUser(@RequestParam("user") String user, @RequestParam("pass") String pass) {
+		return userService.login(user, pass);
 	}
 }
