@@ -2,7 +2,7 @@ package com.revature.beans;
 
 import org.springframework.stereotype.Component;
 
-@Component("calculator")
+@Component
 public class Calculator {
 
 	private int number1;
