@@ -1,0 +1,20 @@
+2018-09-20 15:49:09 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@48533e64: startup date [Thu Sep 20 15:49:09 EDT 2018]; root of context hierarchy
+2018-09-20 15:49:09 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-20 15:49:09 INFO  root:18 - Welcome to a super simple calculator.
+2018-09-20 15:49:14 INFO  root:25 - Method: add called on 2 + 3 = 5
+2018-09-20 15:49:14 INFO  root:26 - 
+
+2018-09-20 15:49:14 ERROR root:53 - ERROR: 0/5 is undefined :Can not divide by zero!!
+2018-09-20 15:49:14 INFO  root:54 - Try again
+2018-09-20 15:49:14 INFO  root:55 - 
+
+2018-09-20 15:49:14 INFO  root:58 - Method: divide called on 27/3 = 9
+2018-09-20 15:49:14 INFO  root:59 - 
+
+2018-09-20 15:49:14 INFO  root:38 - Method: subtract called on 3 - 10 = -7
+2018-09-20 15:49:14 INFO  root:39 - 
+
+2018-09-20 15:49:14 INFO  root:38 - Method: subtract called on 42 - 3 = 39
+2018-09-20 15:49:14 INFO  root:39 - 
+
+2018-09-20 15:49:14 INFO  ClassPathXmlApplicationContext:960 - Closing org.springframework.context.support.ClassPathXmlApplicationContext@48533e64: startup date [Thu Sep 20 15:49:09 EDT 2018]; root of context hierarchy

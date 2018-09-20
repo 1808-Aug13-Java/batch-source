@@ -14,9 +14,7 @@ public class Calculator {
 	public static void main(String[] args) {
 		ConfigurableApplicationContext ac = new ClassPathXmlApplicationContext("beans.xml");
 		CalculatorService calc = (CalculatorService) ac.getBean("calculatorService");
-		String input ="";
 		log.info("Welcome to a super simple calculator.");
-		input = console.next();
 		calc.add(2, 3);
 		calc.divide(0, 5);
 		calc.divide(27, 3);
