@@ -1,13 +1,12 @@
 
-r
-squid:S106!"9Replace this use of System.out or System.err by a logger.(‚é€Şûÿÿÿÿ8ûö¯’ß,HìRMAJORZ
+‘squid:S1488 "]Immediately return this expression instead of assigning it to the temporary variable "value".(²¢Ô8Ôß„™ß,Hù‘RMINORZ
 CODE_SMELL
 r
-squid:S106"9Replace this use of System.out or System.err by a logger.(‚é€Şûÿÿÿÿ8ÔË¯’ß,HéRMAJORZ
+squid:S106"9Replace this use of System.out or System.err by a logger.(‚é€Şûÿÿÿÿ8óÂ®’ß,H÷‘RMAJORZ
 CODE_SMELL
 r
-squid:S106"9Replace this use of System.out or System.err by a logger.(‚é€Şûÿÿÿÿ8óÂ®’ß,HäRMAJORZ
+squid:S106"9Replace this use of System.out or System.err by a logger.(‚é€Şûÿÿÿÿ8ÔË¯’ß,Hø‘RMAJORZ
 CODE_SMELL
 r
-squid:S106"9Replace this use of System.out or System.err by a logger.(‚é€Şûÿÿÿÿ8Æ¯’ß,HçRMAJORZ
+squid:S106"9Replace this use of System.out or System.err by a logger.(‚é€Şûÿÿÿÿ8Æ¯’ß,Hõ‘RMAJORZ
 CODE_SMELL

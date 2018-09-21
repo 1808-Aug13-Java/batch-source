@@ -1,0 +1,9 @@
+
+squid:S3973J"WUse curly braces or indentation to denote the code conditionally executed by this "if".(œƒŞıÿÿÿÿHŸRCRITICALZ
+CODE_SMELL
+ˆsquid:S3973O"WUse curly braces or indentation to denote the code conditionally executed by this "if".(°Şò½H‚ŸRCRITICALZ
+CODE_SMELL
+rsquid:UselessImportCheck"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ8€ûŒÀß,H÷¢RMINORZ
+CODE_SMELL
+ysquid:UselessImportCheck"8Remove this unused import 'javax.persistence.OneToMany'.(«õù;8€ûŒÀß,Hø¢RMINORZ
+CODE_SMELL

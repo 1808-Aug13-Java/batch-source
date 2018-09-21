@@ -1,3 +1,7 @@
 
-Ύsquid:S1186/"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(›χΞόÿÿÿÿ8ΰε°–ί,HφRCRITICALZ
+r
+squid:S1061"9Replace this use of System.out or System.err by a logger.(χπέÒωÿÿÿÿ8υαςί,Hπ‘RMAJORZ
+CODE_SMELL
+m
+squid:S1064"9Replace this use of System.out or System.err by a logger.(ΖήΊ–8οωί,Hσ‘RMAJORZ
 CODE_SMELL

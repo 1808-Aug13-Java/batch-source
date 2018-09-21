@@ -9,9 +9,9 @@ b
 .src/main/java/com/revature/models/Invoice.java,5\1\5121d122b4754afea901d0dd3e309b92cab45d90
 _
 /src/main/java/com/revature/models/Customer.java,a\8\a825a5bdb44e30e07d8d3cc243a2540157b9767c
-Z
-*src/main/resources/mapping/Invoice.hbm.xml,0\5\05c9f93c9fc5a0dbc203bab3921c33d002438546
-[
-+src/main/resources/mapping/Customer.hbm.xml,1\4\14aab85208128221447afda56f9f0a56121c882a
 T
 $src/main/resources/hibernate.cfg.xml,3\1\3176feae82bf4ff4f68f72c9d6d3b850a3110c22
+`
+0src/main/java/com/revature/daos/CustomerDao.java,d\7\d7049829d42b6f309f05b85edc7c946c4deecb33
+_
+/src/main/java/com/revature/daos/InvoiceDao.java,3\1\31ed4bd16dcdac94c07aa6bd8efc2ffcdab4149b

@@ -1,0 +1,7 @@
+
+šsquid:S1488"`Immediately return this expression instead of assigning it to the temporary variable "invoices".(Ë¹ôŸüÿÿÿÿ8Òï€Åß,H³§RMINORZ
+CODE_SMELL
+—squid:S4144"]Update this method so that its implementation is not identical to "createInvoice" on line 13.(îÓò­þÿÿÿÿ8ªåÎÅß,HÝ§RMAJORZ
+CODE_SMELL
+“squid:S1488"YImmediately return this expression instead of assigning it to the temporary variable "i".(üÇ´ýúÿÿÿÿ8­ÎÿÄß,H­§RMINORZ
+CODE_SMELL
