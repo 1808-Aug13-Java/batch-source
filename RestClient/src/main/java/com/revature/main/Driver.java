@@ -12,9 +12,8 @@ public class Driver {
 	private static final Logger log = LoggerFactory.getLogger(Driver.class);
 	
 	public static void main(String[] args) {
-//		ApplicationContext
 	
-		String getRequestUrl = "http://192.168.51.190:8084/users/1";
+		String getRequestUrl = "http://192.168.51.190:8084/interns/1";
 		
 		//RestTemplate is an object provided by Spring Web which allows us to map resources and send Http Requests
 		RestTemplate restTemplate = new RestTemplate();
@@ -27,13 +26,21 @@ public class Driver {
 			log.error("resource consumption unsuccessful");
 		}
 		
-		String postRequestUrl = "http://localhost:8084/users";
-		Intern newIntern = new Intern(97L,"Lola","Martin","lolamart@gmail.com", "lmartin","pass123", 1L);
+		String postRequestUrl = "http://localhost:8084/interns";
+		Intern newIntern = new Intern(97L,"Maureen","Johnsan","maureenj@nvcc.edu", "jmaureen","ughwahtever", 100L);
+		Intern newIntern1 = new Intern(98L,"Chad","Bowinger","chad@nvcc.edu", "chadRules","huntokar", 1L);
+		Intern newIntern2 = new Intern(99L,"Dana","Cardinal","themayor@nv.gov", "realDana","jasika", 95L);
 		
 		try {
 			Intern addedIntern = restTemplate.postForObject(postRequestUrl, newIntern, Intern.class);
 			log.info("Resource exchange successful");
-			log.info("'Posted' : "+newIntern.toString());
+			log.info("'Posted' : "+addedIntern.toString());
+			Intern addedIntern1= restTemplate.postForObject(postRequestUrl, newIntern1, Intern.class);
+			log.info("Resource exchange successful");
+			log.info("'Posted' : "+addedIntern1.toString());
+			Intern addedIntern2 = restTemplate.postForObject(postRequestUrl, newIntern2, Intern.class);
+			log.info("Resource exchange successful");
+			log.info("'Posted' : "+addedIntern2.toString());
 		} catch (Exception e) {
 			log.error("Resource exchange unsuccessful");
 		}
