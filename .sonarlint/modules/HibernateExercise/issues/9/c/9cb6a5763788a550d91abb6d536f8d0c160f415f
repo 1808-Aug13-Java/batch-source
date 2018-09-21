@@ -1,0 +1,13 @@
+
+‡squid:S00117'"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(§Ÿç¨8÷ÎòºŞ,HË’RMINORZ
+CODE_SMELL
+•squid:S1488,"`Immediately return this expression instead of assigning it to the temporary variable "Invoices".(àŒ•8±îãºŞ,Hß‘RMINORZ
+CODE_SMELL
+‡squid:S00117 "QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ĞÌ•8÷ÎòºŞ,HÊ’RMINORZ
+CODE_SMELL
+ksquid:S1135"2Complete the task associated to this TODO comment.(» æÿÿÿÿÿ8±îãºŞ,Hà‘RINFOZ
+CODE_SMELL
+Œsquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¥ÁÖüÿÿÿÿ8÷ÎòºŞ,HÌ’RMINORZ
+CODE_SMELL
+‡squid:S00117,"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(àŒ•8÷ÎòºŞ,HÉ’RMINORZ
+CODE_SMELL
