@@ -10,6 +10,6 @@ public interface BearService {
 	public Bear findBearById(Long id);
 	public Bear addBear(Bear newBear);
 	public Bear updateBear(Bear bear);
-	public Bear deleteBear(Bear bear);
+	public Long deleteBear(Long id);
 	
 }

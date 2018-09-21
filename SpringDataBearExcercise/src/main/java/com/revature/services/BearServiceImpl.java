@@ -30,9 +30,9 @@ public class BearServiceImpl implements BearService {
 		return bearRepo.save(bear);
 	}
 
-	public Bear deleteBear(Bear bear) {
-		bearRepo.delete(bear);
-		return bear;
+	public Long deleteBear(Long id) {
+		bearRepo.deleteById(id);
+		return id;
 	}
 	
 	

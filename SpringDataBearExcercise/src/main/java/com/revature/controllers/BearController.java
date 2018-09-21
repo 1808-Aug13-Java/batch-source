@@ -50,10 +50,10 @@ public class BearController {
 		return bearService.updateBear(u);
 	}
 	
-	@DeleteMapping(value="/{id}", consumes=MediaType.APPLICATION_JSON_VALUE, produces=MediaType.APPLICATION_JSON_VALUE)
+	@DeleteMapping(value="/{id}")
 	//@ResponseBody
-	public Bear deleteBear(@RequestBody Bear u) {
-		return bearService.deleteBear(u);
+	public long deleteBear(@PathVariable Long id) {
+		return bearService.deleteBear(id);
 	}
 	
 }
