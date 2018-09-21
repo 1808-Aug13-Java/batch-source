@@ -1,0 +1,16 @@
+2018-09-20 20:35:47 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@2957fcb0: startup date [Thu Sep 20 20:35:47 EDT 2018]; root of context hierarchy
+2018-09-20 20:35:47 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-20 20:35:49 INFO  root:18 - int com.revature.beans.Calculator.addNums(int,int) was called
+2018-09-20 20:35:49 INFO  root:30 - Method called: addNums Result: 8+12=20
+2018-09-20 20:35:49 INFO  root:21 - addNums was called
+2018-09-20 20:35:49 INFO  root:18 - int com.revature.beans.Calculator.subtractNums(int,int) was called
+2018-09-20 20:35:49 INFO  root:40 - Method called: subtractNums Result: 25-2=23
+2018-09-20 20:35:49 INFO  root:21 - subtractNums was called
+2018-09-20 20:35:49 INFO  root:18 - int com.revature.beans.Calculator.divideNums(int,int) was called
+2018-09-20 20:35:49 INFO  root:73 - Method called: divideNums Result: 15/3=5
+2018-09-20 20:35:49 INFO  root:21 - divideNums was called
+2018-09-20 20:35:49 INFO  root:18 - int com.revature.beans.Calculator.multiplyNums(int,int) was called
+2018-09-20 20:35:49 INFO  root:61 - Method called: multiplyNums Result: 7*3=21
+2018-09-20 20:35:49 INFO  root:21 - multiplyNums was called
+2018-09-20 20:35:49 INFO  root:50 - Error: Attempted division by 0
+2018-09-20 20:35:49 INFO  root:21 - divideNums was called
