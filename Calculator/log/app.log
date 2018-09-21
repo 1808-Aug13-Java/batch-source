@@ -18,3 +18,26 @@
 2018-09-20 15:49:14 INFO  root:39 - 
 
 2018-09-20 15:49:14 INFO  ClassPathXmlApplicationContext:960 - Closing org.springframework.context.support.ClassPathXmlApplicationContext@48533e64: startup date [Thu Sep 20 15:49:09 EDT 2018]; root of context hierarchy
+2018-09-20 19:48:35 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@48533e64: startup date [Thu Sep 20 19:48:35 EDT 2018]; root of context hierarchy
+2018-09-20 19:48:35 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-20 19:48:35 WARN  ClassPathXmlApplicationContext:546 - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'calculatorService' defined in class path resource [beans.xml]: BeanPostProcessor before instantiation of bean failed; nested exception is java.lang.IllegalArgumentException: ProceedingJoinPoint is only supported for around advice
+2018-09-20 19:49:22 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@48533e64: startup date [Thu Sep 20 19:49:22 EDT 2018]; root of context hierarchy
+2018-09-20 19:49:22 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-20 19:49:23 INFO  root:17 - Welcome to a super simple calculator.
+2018-09-20 19:49:23 INFO  root:25 - Method: add called on 2 + 3 = 5
+2018-09-20 19:49:23 INFO  root:26 - 
+
+2018-09-20 19:49:23 ERROR root:53 - ERROR: 0/5 is undefined :Can not divide by zero!!
+2018-09-20 19:49:23 INFO  root:54 - Try again
+2018-09-20 19:49:23 INFO  root:55 - 
+
+2018-09-20 19:49:23 INFO  root:58 - Method: divide called on 27/3 = 9
+2018-09-20 19:49:23 INFO  root:59 - 
+
+2018-09-20 19:49:23 INFO  root:38 - Method: subtract called on 3 - 10 = -7
+2018-09-20 19:49:23 INFO  root:39 - 
+
+2018-09-20 19:49:23 INFO  root:38 - Method: subtract called on 42 - 3 = 39
+2018-09-20 19:49:23 INFO  root:39 - 
+
+2018-09-20 19:49:23 INFO  ClassPathXmlApplicationContext:960 - Closing org.springframework.context.support.ClassPathXmlApplicationContext@48533e64: startup date [Thu Sep 20 19:49:22 EDT 2018]; root of context hierarchy
