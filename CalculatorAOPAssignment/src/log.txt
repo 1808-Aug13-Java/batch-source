@@ -1,0 +1,110 @@
+2018-09-19 12:44:45 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@157fcb0: startup date [Wed Sep 19 12:44:45 EDT 2018]; root of context hierarchy
+2018-09-19 12:44:45 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-19 12:46:00 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@157fcb0: startup date [Wed Sep 19 12:46:00 EDT 2018]; root of context hierarchy
+2018-09-19 12:46:00 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-19 12:47:40 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@157fcb0: startup date [Wed Sep 19 12:47:40 EDT 2018]; root of context hierarchy
+2018-09-19 12:47:40 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-19 12:48:46 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@157fcb0: startup date [Wed Sep 19 12:48:46 EDT 2018]; root of context hierarchy
+2018-09-19 12:48:46 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-19 12:48:47 INFO  root:19 - 5 + 6 = 11
+2018-09-19 12:54:01 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@157fcb0: startup date [Wed Sep 19 12:54:01 EDT 2018]; root of context hierarchy
+2018-09-19 12:54:01 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-19 12:54:01 INFO  root:19 - 5 + 6 = 11
+2018-09-19 12:54:01 INFO  root:25 - 10 - 5 = 5
+2018-09-19 12:59:08 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@157fcb0: startup date [Wed Sep 19 12:59:08 EDT 2018]; root of context hierarchy
+2018-09-19 12:59:08 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-19 12:59:09 INFO  root:19 - 5 + 6 = 11
+2018-09-19 12:59:09 INFO  root:25 - 10 - 5 = 5
+2018-09-19 12:59:09 INFO  root:31 - 2 * 3 = 6
+2018-09-19 13:02:49 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@157fcb0: startup date [Wed Sep 19 13:02:49 EDT 2018]; root of context hierarchy
+2018-09-19 13:02:49 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-19 13:02:49 INFO  root:19 - 5 + 6 = 11
+2018-09-19 13:02:49 INFO  root:25 - 10 - 5 = 5
+2018-09-19 13:02:49 INFO  root:31 - 2 * 3 = 6
+2018-09-19 13:09:09 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@157fcb0: startup date [Wed Sep 19 13:09:09 EDT 2018]; root of context hierarchy
+2018-09-19 13:09:10 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-19 13:09:10 INFO  root:21 - 5 + 6 = 11
+2018-09-19 13:09:10 INFO  root:27 - 10 - 5 = 5
+2018-09-19 13:09:10 INFO  root:33 - 2 * 3 = 6
+2018-09-19 13:09:10 ERROR root:40 - Divide by 0 Error! Stahp!
+2018-09-20 18:39:40 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@157fcb0: startup date [Thu Sep 20 18:39:40 EDT 2018]; root of context hierarchy
+2018-09-20 18:39:41 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-20 18:39:42 INFO  root:21 - 5 + 6 = 11
+2018-09-20 18:39:42 INFO  root:27 - 10 - 5 = 5
+2018-09-20 18:39:42 INFO  root:33 - 2 * 3 = 6
+2018-09-20 18:39:42 ERROR root:40 - Divide by 0 Error! Stahp!
+2018-09-20 18:40:42 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@157fcb0: startup date [Thu Sep 20 18:40:42 EDT 2018]; root of context hierarchy
+2018-09-20 18:40:42 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-20 18:40:43 INFO  root:21 - 5 + 6 = 11
+2018-09-20 18:40:43 INFO  root:27 - 10 - 5 = 5
+2018-09-20 18:40:43 INFO  root:33 - 2 * 3 = 6
+2018-09-20 18:40:43 INFO  root:43 - 10 / 5 = 2
+2018-09-20 18:42:00 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@157fcb0: startup date [Thu Sep 20 18:42:00 EDT 2018]; root of context hierarchy
+2018-09-20 18:42:00 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-20 18:42:01 INFO  root:21 - 5 + 6 = 11
+2018-09-20 18:42:01 INFO  root:27 - 10 - 5 = 5
+2018-09-20 18:42:01 INFO  root:33 - 2 * 3 = 6
+2018-09-20 18:42:01 INFO  root:42 - 10 / 5 = 2
+2018-09-20 18:43:19 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@157fcb0: startup date [Thu Sep 20 18:43:19 EDT 2018]; root of context hierarchy
+2018-09-20 18:43:19 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-20 18:43:19 INFO  root:21 - 5 + 6 = 11
+2018-09-20 18:43:19 INFO  root:27 - 10 - 5 = 5
+2018-09-20 18:43:19 INFO  root:33 - 2 * 3 = 6
+2018-09-20 18:43:19 INFO  root:42 - 10 / 5 = 2
+2018-09-20 18:45:23 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@157fcb0: startup date [Thu Sep 20 18:45:23 EDT 2018]; root of context hierarchy
+2018-09-20 18:45:23 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-20 18:45:24 INFO  root:21 - 5 + 6 = 11
+2018-09-20 18:45:24 INFO  root:27 - 10 - 5 = 5
+2018-09-20 18:45:24 INFO  root:33 - 2 * 3 = 6
+2018-09-20 18:45:24 INFO  root:42 - 10 / 5 = 2
+2018-09-20 18:46:12 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@157fcb0: startup date [Thu Sep 20 18:46:12 EDT 2018]; root of context hierarchy
+2018-09-20 18:46:12 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-20 18:46:12 INFO  root:21 - 5 + 6 = 11
+2018-09-20 18:46:12 INFO  root:27 - 10 - 5 = 5
+2018-09-20 18:46:12 INFO  root:33 - 2 * 3 = 6
+2018-09-20 18:46:12 INFO  root:42 - 10 / 5 = 2
+2018-09-20 18:46:49 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@157fcb0: startup date [Thu Sep 20 18:46:49 EDT 2018]; root of context hierarchy
+2018-09-20 18:46:49 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-20 18:46:49 INFO  root:21 - 5 + 6 = 11
+2018-09-20 18:46:49 INFO  root:27 - 10 - 5 = 5
+2018-09-20 18:46:49 INFO  root:33 - 2 * 3 = 6
+2018-09-20 18:46:49 ERROR root:40 - Divide by 0 Error! Stahp!
+2018-09-20 21:30:37 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@157fcb0: startup date [Thu Sep 20 21:30:37 EDT 2018]; root of context hierarchy
+2018-09-20 21:30:37 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-20 21:30:37 WARN  ClassPathXmlApplicationContext:546 - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'calculator' defined in file [C:\Users\purpl\Documents\Revature\workspace-sts-3.9.5.RELEASE\CalculatorAOPAssignment\target\classes\com\revature\beans\Calculator.class]: BeanPostProcessor before instantiation of bean failed; nested exception is java.lang.IllegalArgumentException: ProceedingJoinPoint is only supported for around advice
+2018-09-20 21:31:05 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@157fcb0: startup date [Thu Sep 20 21:31:05 EDT 2018]; root of context hierarchy
+2018-09-20 21:31:05 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-20 21:31:05 INFO  root:21 - 5 + 6 = 11
+2018-09-20 21:31:05 INFO  root:27 - 10 - 5 = 5
+2018-09-20 21:31:05 INFO  root:33 - 2 * 3 = 6
+2018-09-20 21:31:05 ERROR root:40 - Divide by 0 Error! Stahp!
+2018-09-20 21:52:26 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@157fcb0: startup date [Thu Sep 20 21:52:26 EDT 2018]; root of context hierarchy
+2018-09-20 21:52:26 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-20 21:52:26 INFO  root:21 - 5 + 6 = 11
+2018-09-20 21:52:26 INFO  root:27 - 10 - 5 = 5
+2018-09-20 21:52:26 INFO  root:33 - 2 * 3 = 6
+2018-09-20 21:52:26 ERROR root:40 - Divide by 0 Error! Stahp!
+2018-09-21 00:47:06 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@157fcb0: startup date [Fri Sep 21 00:47:06 EDT 2018]; root of context hierarchy
+2018-09-21 00:47:06 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-21 00:47:07 INFO  root:21 - 5.0 + 6.0 = 11.0
+2018-09-21 00:47:07 INFO  root:27 - 10.0 - 5.0 = 5.0
+2018-09-21 00:47:07 INFO  root:33 - 2.0 * 3.0 = 6.0
+2018-09-21 00:47:07 INFO  root:40 - 5.0 / 0.0 = Infinity
+2018-09-21 00:47:07 INFO  root:40 - 10.0 / 5.0 = 2.0
+2018-09-21 00:49:19 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@157fcb0: startup date [Fri Sep 21 00:49:19 EDT 2018]; root of context hierarchy
+2018-09-21 00:49:19 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-21 00:49:19 WARN  ClassPathXmlApplicationContext:546 - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'calculator' defined in file [C:\Users\purpl\Documents\Revature\workspace-sts-3.9.5.RELEASE\CalculatorAOPAssignment\target\classes\com\revature\beans\Calculator.class]: BeanPostProcessor before instantiation of bean failed; nested exception is java.lang.IllegalArgumentException: ProceedingJoinPoint is only supported for around advice
+2018-09-21 00:51:47 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@157fcb0: startup date [Fri Sep 21 00:51:47 EDT 2018]; root of context hierarchy
+2018-09-21 00:51:47 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-21 00:51:48 INFO  root:21 - 5.0 + 6.0 = 11.0
+2018-09-21 00:51:48 INFO  root:27 - 10.0 - 5.0 = 5.0
+2018-09-21 00:51:48 INFO  root:33 - 2.0 * 3.0 = 6.0
+2018-09-21 00:51:48 INFO  root:40 - 5.0 / 0.0 = Infinity
+2018-09-21 00:51:48 INFO  root:40 - 10.0 / 5.0 = 2.0
+2018-09-21 00:55:32 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@157fcb0: startup date [Fri Sep 21 00:55:32 EDT 2018]; root of context hierarchy
+2018-09-21 00:55:32 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-21 00:55:32 INFO  root:21 - 5.0 + 6.0 = 11.0
+2018-09-21 00:55:32 INFO  root:27 - 10.0 - 5.0 = 5.0
+2018-09-21 00:55:32 INFO  root:33 - 2.0 * 3.0 = 6.0
+2018-09-21 00:55:32 ERROR root:47 - Divide by zero error! Stop it!
+2018-09-21 00:55:32 INFO  root:44 - 10.0 / 5.0 = 2.0
