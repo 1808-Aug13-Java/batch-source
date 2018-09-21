@@ -1,0 +1,9 @@
+
+‡squid:S39738"WUse curly braces or indentation to denote the code conditionally executed by this "if".(íš½H®RCRITICALZ
+CODE_SMELL
+±squid:S1186G"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(İÄÌ€H±RCRITICALZ
+CODE_SMELL
+Œsquid:S3973?"WUse curly braces or indentation to denote the code conditionally executed by this "if".(©âèåùÿÿÿÿH¯RCRITICALZ
+CODE_SMELL
+csquid:S1135	"2Complete the task associated to this TODO comment.(ƒŠ® úÿÿÿÿH°RINFOZ
+CODE_SMELL

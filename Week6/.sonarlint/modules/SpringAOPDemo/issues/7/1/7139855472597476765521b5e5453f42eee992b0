@@ -1,0 +1,22 @@
+
+|squid:S1871"HThis case's code block is the same as the block for the case on line 12.(¡³§¼8¢¬€£ß,H¹RMAJORZ
+CODE_SMELL
+fsquid:S1199"-Extract this nested code block into a method.(·ïÉïúÿÿÿÿ8¨„€£ß,HµRMINORZ
+CODE_SMELL
+asquid:S1199"-Extract this nested code block into a method.(£¨Æ8íÍ£ß,HÀRMINORZ
+CODE_SMELL
+|squid:S1871"HThis case's code block is the same as the block for the case on line 12.(£¨Æ8¢¬€£ß,H¸RMAJORZ
+CODE_SMELL
+p"squid:SwitchLastCaseIsDefaultCheck
+""Add a default case to this switch.(ìè²ë8 úü¢ß,H¥RCRITICALZ
+CODE_SMELL
+asquid:S1199"-Extract this nested code block into a method.(™Í™˜8ã€ÿ¢ß,H¯RMINORZ
+CODE_SMELL
+|squid:S1871"HThis case's code block is the same as the block for the case on line 12.(™Í™˜8íÍ£ß,HÁRMAJORZ
+CODE_SMELL
+asquid:S1199"-Extract this nested code block into a method.(¡³§¼8›Æı¢ß,HªRMINORZ
+CODE_SMELL
+¸squid:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(¹§û8Ø¦ƒ£ß,HÅRCRITICALZ
+CODE_SMELL
+jsquid:S1135	"2Complete the task associated to this TODO comment.(» æÿÿÿÿÿ8Û¦ù¢ß,HŸRINFOZ
+CODE_SMELL
