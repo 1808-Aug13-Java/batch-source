@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -44,10 +45,17 @@ public class CelebrityController {
 		return celebService.updateCelebrity(c);
 	}
 
+	/*
 	@DeleteMapping(produces=MediaType.APPLICATION_JSON_VALUE, consumes=MediaType.APPLICATION_JSON_VALUE, value="/{id}")
 	public Celebrity deleteCelebrity(@RequestBody Celebrity c, @PathVariable("id") Integer id) {
 		c.setId(id);
 		System.err.println("DELETE METHOD CALLED: "+c);
+		return celebService.deleteCelebrity(c);
+	}*/
+	
+	@RequestMapping(method=RequestMethod.DELETE, value="/{id}")
+	public Celebrity deleteCelebrity(@PathVariable("id") Integer id) {
+		Celebrity c = celebService.findCelebrityById(id);
 		return celebService.deleteCelebrity(c);
 	}
 }
