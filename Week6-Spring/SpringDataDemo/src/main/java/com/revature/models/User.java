@@ -4,6 +4,9 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import org.springframework.stereotype.Component;
 
@@ -14,6 +17,7 @@ public class User {
 
 	@Id
 	@Column
+	@NotNull
 	private Long userId;
 	
 	@Column
@@ -23,9 +27,12 @@ public class User {
 	private String lastname;
 	
 	@Column
+	@NotNull
+	@Email
 	private String email;
 
 	@Column
+	@Size(min=6, max=16)
 	private String username;
 	
 	@Column

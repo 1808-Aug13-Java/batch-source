@@ -2,6 +2,8 @@ package com.revature.controllers;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -18,6 +21,7 @@ import com.revature.models.User;
 import com.revature.services.UserService;
 
 @RestController
+//@Controller
 @RequestMapping("/users")
 public class UserController {
 	
@@ -38,24 +42,32 @@ public class UserController {
 	
 	@PostMapping(consumes=MediaType.APPLICATION_JSON_VALUE, produces=MediaType.APPLICATION_JSON_VALUE)
 	//@ResponseBody
-	public User addUser(@RequestBody User u) {
+	public User addUser(@Valid @RequestBody User u) {
 		return userService.addUser(u);
 	}
 	
-	@PutMapping(consumes=MediaType.APPLICATION_JSON_VALUE, produces=MediaType.APPLICATION_JSON_VALUE)
+	@PutMapping(value="/{id}", consumes=MediaType.APPLICATION_JSON_VALUE, produces=MediaType.APPLICATION_JSON_VALUE)
 	//@ResponseBody
-	public User updateUser(@RequestBody User u) {
+	public User updateUser(@Valid @RequestBody User u, @PathVariable("id") Long id) {
+		u.setUserId(id);
 		return userService.updateUser(u);
 	}
 	
-	@DeleteMapping(consumes=MediaType.APPLICATION_JSON_VALUE, produces=MediaType.APPLICATION_JSON_VALUE)
+	@DeleteMapping(value="/{id}",consumes=MediaType.APPLICATION_JSON_VALUE, produces=MediaType.APPLICATION_JSON_VALUE)
 	//@ResponseBody
-	public User deleteUser(@RequestBody User u) {
+	public User deleteUser(@RequestBody User u, @PathVariable("id") Long id) {
+		u.setUserId(id);
 		return userService.deleteUser(u);
 	}
 	
-	@GetMapping(value="/login")
-	public User loggedInUser(@RequestParam("user") String user, @RequestParam("pass") String pass) {
-		return userService.login(user, pass);
+	@RequestMapping(method= {RequestMethod.OPTIONS, RequestMethod.HEAD, RequestMethod.TRACE, RequestMethod.PATCH})
+	public User metadataCar() {
+		return null;
 	}
+
+	//doesn't follow uniform interface
+//	@GetMapping(value="/login")
+//	public User loggedInUser(@RequestParam("user") String user, @RequestParam("pass") String pass) {
+//		return userService.login(user, pass);
+//	}
 }
