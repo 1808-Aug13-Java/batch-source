@@ -13,7 +13,7 @@ public class Driver {
 	
 	public static void main(String[] args) {
 	
-		String getRequestUrl = "http://192.168.60.170:8084/interns/101";
+		String getRequestUrl = "http://192.168.60.170:8084/interns/100";
 		
 		//RestTemplate is an object provided by Spring Web which allows us to map resources and send Http Requests
 		RestTemplate restTemplate = new RestTemplate();
