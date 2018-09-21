@@ -18,27 +18,27 @@ public class AdamDriver
 		String urlIp = "http://192.168.61.233:8086/celebrities";
 	//	For Posts
 		
-////		Celebrity c1 = new Celebrity(5, "Madonna", 60, "Singer");
+		Celebrity c1 = new Celebrity(5, "Madonna", 60, "Singer");
 ////		Celebrity c2 = new Celebrity(14, "Miranda Cosgrove", 25, "Actress");
 ////		Celebrity c3 = new Celebrity(93, "Adam Driver", 34, "Actor");
 //		
 //		
 //		
-//		try
-//		{
-////			Celebrity cp1 = resty.postForObject(urlIp, c1, Celebrity.class);
-////			loggy.info("cp1 generated: " + cp1);
+		try
+		{
+			Celebrity cp1 = resty.postForObject(urlIp, c1, Celebrity.class);
+			loggy.info("cp1 generated: " + cp1);
 ////			Celebrity cp2 = resty.postForObject(urlIp, c2, Celebrity.class);
 ////			loggy.info("cp2 generated: " + cp2);
 ////			Celebrity cp3 = resty.postForObject(urlIp, c3, Celebrity.class);
 ////			loggy.info("cp3 generated: " + cp3);
 //			
 //			
-//		}
-//		catch(Exception e)
-//		{
-//			loggy.error(e.getMessage());
-//		}
+		}
+		catch(Exception e)
+		{
+			loggy.error("Issue with POST: " + e.getMessage());
+		}
 		
 		
 		// For Get
@@ -80,7 +80,7 @@ public class AdamDriver
 		{
 			Celebrity cg2 = resty.getForObject(urlIp + "/14", Celebrity.class);
 			loggy.info("About to change celeb: " + cg2);
-			cg2.setName("Miranda Cosgrove");
+			cg2.setName("Miranda T. Cosgrove");
 			resty.put(urlIp + "/14", cg2);
 			
 			Celebrity cg2u = resty.getForObject(urlIp + "/14", Celebrity.class);
@@ -95,11 +95,11 @@ public class AdamDriver
 		
 		try
 		{
-			Celebrity mad = resty.getForObject(urlIp + "/5", Celebrity.class);
+			//Celebrity mad = resty.getForObject(urlIp + "/5", Celebrity.class);
 			
-			loggy.info("About to Delete: " + mad);
+			loggy.info("About to Delete!");
 			
-			resty.delete(urlIp + "/5", mad);
+			resty.delete(urlIp + "/5");
 			
 			loggy.info("Deleted Celeb");
 			
