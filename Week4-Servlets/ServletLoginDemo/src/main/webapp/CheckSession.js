@@ -1,7 +1,6 @@
 /**
  * 
  */
-
 let checkSessionUrl = "http://localhost:8082/ServletLoginDemo/session";
 
 function sendAjaxGet(url, func){

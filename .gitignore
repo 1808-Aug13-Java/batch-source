@@ -89,8 +89,16 @@ Servers/
 # End of https://www.gitignore.io/api/eclipse
 
 */target/*
+
 */target/**
-*/target/
+
 .recommenders
 
+<<<<<<< HEAD
 */node_modules/*
+=======
+#sonar
+.sonarlint/
+
+**/target/
+>>>>>>> origin/Carolyn_Rehm
