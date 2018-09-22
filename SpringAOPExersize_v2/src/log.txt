@@ -1,0 +1,50 @@
+2018-09-21 14:36:45 INFO  root:13 - ##############START DRIVER################
+2018-09-21 14:36:45 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@deb6432: startup date [Fri Sep 21 14:36:45 CDT 2018]; root of context hierarchy
+2018-09-21 14:36:45 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-21 14:36:47 INFO  root:42 - 5.0 + 2.0 = 7.0
+2018-09-21 14:36:47 INFO  root:42 - 5.0 - 2.0 = 3.0
+2018-09-21 14:36:47 INFO  root:42 - 5.0 * 2.0 = 10.0
+2018-09-21 14:36:47 INFO  root:50 - PJP.toString(): 2.5
+2018-09-21 14:36:47 INFO  root:42 - 5.0 / 2.0 = 0.0
+2018-09-21 14:36:47 INFO  root:42 - 5.0 % 2.0 = 1.0
+2018-09-21 14:36:47 INFO  root:42 - 5.0 ^ 2.0 = 25.0
+2018-09-21 14:36:47 ERROR root:54 - DIVIDE BY ZERO ERROR
+2018-09-21 14:37:19 INFO  root:13 - ##############START DRIVER################
+2018-09-21 14:37:19 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@deb6432: startup date [Fri Sep 21 14:37:19 CDT 2018]; root of context hierarchy
+2018-09-21 14:37:19 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-21 14:37:19 INFO  root:42 - 5.0 + 2.0 = 7.0
+2018-09-21 14:37:19 INFO  root:42 - 5.0 - 2.0 = 3.0
+2018-09-21 14:37:19 INFO  root:42 - 5.0 * 2.0 = 10.0
+2018-09-21 14:37:19 INFO  root:50 - PJP.toString(): 2.5
+2018-09-21 14:37:19 INFO  root:42 - 5.0 / 2.0 = 0.0
+2018-09-21 14:37:19 INFO  root:42 - 5.0 % 2.0 = 1.0
+2018-09-21 14:37:19 INFO  root:42 - 5.0 ^ 2.0 = 25.0
+2018-09-21 14:37:19 ERROR root:54 - DIVIDE BY ZERO ERROR
+2018-09-21 14:37:19 INFO  root:42 - 2.0 / 0.0 = 9.999999999999E10
+2018-09-21 14:37:19 INFO  root:30 - ###############END DRIVER#################
+2018-09-21 15:28:43 INFO  root:13 - ##############START DRIVER################
+2018-09-21 15:28:43 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@deb6432: startup date [Fri Sep 21 15:28:43 CDT 2018]; root of context hierarchy
+2018-09-21 15:28:43 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-21 15:28:43 INFO  root:42 - 5.0 + 2.0 = 7.0
+2018-09-21 15:28:43 INFO  root:42 - 5.0 - 2.0 = 3.0
+2018-09-21 15:28:43 INFO  root:42 - 5.0 * 2.0 = 10.0
+2018-09-21 15:28:43 INFO  root:50 - PJP.toString(): 2.5
+2018-09-21 15:28:43 INFO  root:42 - 5.0 / 2.0 = 0.0
+2018-09-21 15:28:43 INFO  root:42 - 5.0 % 2.0 = 1.0
+2018-09-21 15:28:43 INFO  root:42 - 5.0 ^ 2.0 = 25.0
+2018-09-21 15:28:43 ERROR root:54 - DIVIDE BY ZERO ERROR
+2018-09-21 15:28:43 INFO  root:42 - 2.0 / 0.0 = 0.0
+2018-09-21 15:28:43 INFO  root:30 - ###############END DRIVER#################
+2018-09-21 15:30:43 INFO  root:13 - ##############START DRIVER################
+2018-09-21 15:30:43 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@deb6432: startup date [Fri Sep 21 15:30:43 CDT 2018]; root of context hierarchy
+2018-09-21 15:30:43 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-09-21 15:30:44 INFO  root:44 - 5.0 + 2.0 = 7.0
+2018-09-21 15:30:44 INFO  root:44 - 5.0 - 2.0 = 3.0
+2018-09-21 15:30:44 INFO  root:44 - 5.0 * 2.0 = 10.0
+2018-09-21 15:30:44 INFO  root:53 - PJP.toString(): 2.5
+2018-09-21 15:30:44 INFO  root:44 - 5.0 / 2.0 = 0.0
+2018-09-21 15:30:44 INFO  root:44 - 5.0 % 2.0 = 1.0
+2018-09-21 15:30:44 INFO  root:44 - 5.0 ^ 2.0 = 25.0
+2018-09-21 15:30:44 ERROR root:57 - DIVIDE BY ZERO ERROR
+2018-09-21 15:30:44 INFO  root:44 - 2.0 / 0.0 = 0.0
+2018-09-21 15:30:44 INFO  root:30 - ###############END DRIVER#################
