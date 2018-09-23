@@ -1,0 +1,7 @@
+
+`squid:S1068"'Remove this unused "log" private field.(Ε¥Ήψϋÿÿÿÿ8²εγί,H—RMAJORZ
+CODE_SMELL
+Gsquid:S1220""Move this file to a named package.HRMINORZ
+CODE_SMELL
+Έsquid:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ηµν‘8²εγί,HRCRITICALZ
+CODE_SMELL

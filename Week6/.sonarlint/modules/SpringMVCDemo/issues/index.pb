@@ -7,3 +7,13 @@ O
 src/main/webapp/WEB-INF/web.xml,2\e\2e22b6edd746fa3dc40ad7276c87c8d87d72a392
 Q
 !src/main/webapp/WEB-INF/beans.xml,8\3\83008b1a88ba03a2548bb5b9ad0768c6c307d36c
+j
+:src/main/java/com/revature/controllers/BearController.java,c\f\cfada86dda573fb5afcdbc179d3c2ab13c29b40e
+j
+:src/main/java/com/revature/controllers/HomeController.java,e\0\e04b3046bdf96b2c5570e5b4245636b4091731cc
+p
+@src/main/java/com/revature/exceptions/BearNotFoundException.java,d\f\df7600440c6597efb5fe86dfc9ca8b7e166d30cf
+d
+4src/main/java/com/revature/services/BearService.java,a\7\a709d05d183424144a9aaaddf49a04f34d762a7b
+Z
+*src/main/java/com/revature/beans/Bear.java,2\a\2aeccfb0edc21d1a253880a9c15f9d021b958c74
