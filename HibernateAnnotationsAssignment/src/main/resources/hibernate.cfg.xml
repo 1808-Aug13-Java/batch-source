@@ -5,7 +5,7 @@
 		
 <hibernate-configuration>
 	<session-factory>
-		<property name="hibernate.connection.url">jdbc:oracle:thin:@database-jb.cdvht2yl9lup.us-east-1.rds.amazonaws.com:1521:ORCL</property>
+		<property name="hibernate.connection.url">jdbc:oracle:thin:@my-database.c4e4gzsqfmaz.us-west-2.rds.amazonaws.com:1521:ORCL</property>
 		<property name="hibernate.connection.username">computeruser88</property>
 		<property name="hibernate.connection.password">L0l0Carl0s</property>
 		<property name="hibernate.connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
