@@ -1,16 +1,16 @@
 
-wsquid:UselessImportCheck"5Remove this unused import 'com.revature.models.Cave'.(¡÷–ß8ÚÇ°ÿİ,Hö¹RMINORZ
+’squid:S14885"]Immediately return this expression instead of assigning it to the temporary variable "bears".(¨Ÿ¾8‰¸àÊİ,H—ÂRMINORZ
 CODE_SMELL
-’squid:S14885"]Immediately return this expression instead of assigning it to the temporary variable "bears".(¨Ÿ¾8‰¸àÊİ,H÷¹RMINORZ
+ksquid:S1135g"2Complete the task associated to this TODO comment.(» æÿÿÿÿÿ8çë‹Ëİ,H˜ÂRINFOZ
 CODE_SMELL
-`squid:S1168h"+Return an empty collection instead of null.(¥¹ï8çë‹Ëİ,Hø¹RMAJORZ
+’squid:S1488?"]Immediately return this expression instead of assigning it to the temporary variable "bears".(¨Ÿ¾8‹ÊòÊİ,H™ÂRMINORZ
 CODE_SMELL
-’squid:S1488H"]Immediately return this expression instead of assigning it to the temporary variable "bears".(ôôúÃ8ÒÔêÊİ,Hù¹RMINORZ
-CODE_SMELL
-ksquid:S1135g"2Complete the task associated to this TODO comment.(» æÿÿÿÿÿ8çë‹Ëİ,Hú¹RINFOZ
+wsquid:UselessImportCheck"5Remove this unused import 'com.revature.models.Cave'.(¡÷–ß8ÚÇ°ÿİ,HšÂRMINORZ
 CODE_SMELL
 k
-squid:S106""9Replace this use of System.out or System.err by a logger.(š—°øÿÿÿÿHû¹RMAJORZ
+squid:S106""9Replace this use of System.out or System.err by a logger.(š—°øÿÿÿÿH›ÂRMAJORZ
 CODE_SMELL
-’squid:S1488?"]Immediately return this expression instead of assigning it to the temporary variable "bears".(¨Ÿ¾8‹ÊòÊİ,Hü¹RMINORZ
+`squid:S1168h"+Return an empty collection instead of null.(¥¹ï8çë‹Ëİ,HœÂRMAJORZ
+CODE_SMELL
+’squid:S1488H"]Immediately return this expression instead of assigning it to the temporary variable "bears".(ôôúÃ8ÒÔêÊİ,HÂRMINORZ
 CODE_SMELL

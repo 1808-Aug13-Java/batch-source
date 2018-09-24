@@ -1,21 +1,21 @@
 
-gsquid:S1199¨"-Extract this nested code block into a method.(úÀôãùÿÿÿÿ8ë‹úî×,H÷kRMINORZ
+hsquid:S1199¨"-Extract this nested code block into a method.(úÀôãùÿÿÿÿ8ë‹úî×,HŒÂRMINORZ
 CODE_SMELL
-bsquid:S1199¬"-Extract this nested code block into a method.(ÎŞèº8òÊ— Ø,HøkRMINORZ
+hsquid:S1199Ó"-Extract this nested code block into a method.(·ÿ½äûÿÿÿÿ8«¥±è×,HÂRMINORZ
 CODE_SMELL
-¨squid:S2159Ç"zRemove this call to "equals"; comparisons against null always return false; consider using '== null' to check for nullity.(‚‘å8‹Çí¡Ø,HùkRMAJORZBUG
-…squid:CommentedOutCodeLineÏ"<This block of commented-out lines of code should be removed.(©ÍÇ ÿÿÿÿÿ8ÏæşØ,HúkRMAJORZ
+hsquid:S1199š"-Extract this nested code block into a method.(úÀôãùÿÿÿÿ8«¥±è×,HÂRMINORZ
 CODE_SMELL
-gsquid:S1199–"-Extract this nested code block into a method.(·ÿ½äûÿÿÿÿ8ë‹úî×,HûkRMINORZ
+ssquid:S2583Ç"DChange this condition so that it does not always evaluate to "false"(‚‘å8òÊ— Ø,HÂRMAJORZBUG
+hsquid:S1199–"-Extract this nested code block into a method.(·ÿ½äûÿÿÿÿ8ë‹úî×,HÂRMINORZ
 CODE_SMELL
-gsquid:S1199 "-Extract this nested code block into a method.(ğÁ–Óûÿÿÿÿ8×ï™Ø,HükRMINORZ
+©squid:S2159Ç"zRemove this call to "equals"; comparisons against null always return false; consider using '== null' to check for nullity.(‚‘å8‹Çí¡Ø,H‘ÂRMAJORZBUG
+csquid:S1199¬"-Extract this nested code block into a method.(ÎŞèº8òÊ— Ø,H’ÂRMINORZ
 CODE_SMELL
-gsquid:S1199Ó"-Extract this nested code block into a method.(·ÿ½äûÿÿÿÿ8«¥±è×,HıkRMINORZ
+hsquid:S1199 "-Extract this nested code block into a method.(ğÁ–Óûÿÿÿÿ8×ï™Ø,H“ÂRMINORZ
 CODE_SMELL
-gsquid:S1199í"-Extract this nested code block into a method.(ğÁ–Óûÿÿÿÿ8ë‹úî×,HşkRMINORZ
+†squid:CommentedOutCodeLineÏ"<This block of commented-out lines of code should be removed.(©ÍÇ ÿÿÿÿÿ8ÏæşØ,H”ÂRMAJORZ
 CODE_SMELL
-Šsquid:S3776Â"RRefactor this method to reduce its Cognitive Complexity from 21 to the 15 allowed.(¥ƒ¦¹8òÊ— Ø,HÿkRCRITICALZ
+‹squid:S3776Â"RRefactor this method to reduce its Cognitive Complexity from 21 to the 15 allowed.(¥ƒ¦¹8òÊ— Ø,H•ÂRCRITICALZ
 CODE_SMELL
-gsquid:S1199š"-Extract this nested code block into a method.(úÀôãùÿÿÿÿ8«¥±è×,H€lRMINORZ
+hsquid:S1199í"-Extract this nested code block into a method.(ğÁ–Óûÿÿÿÿ8ë‹úî×,H–ÂRMINORZ
 CODE_SMELL
-rsquid:S2583Ç"DChange this condition so that it does not always evaluate to "false"(‚‘å8òÊ— Ø,HlRMAJORZBUG

@@ -1,27 +1,11 @@
-package com.revature.models;
+package com.revature.beans;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
 
-import org.springframework.stereotype.Component;
 
-@Entity
-@Table (name="CUSTOMERS")
-@Component
 public class Customer {
-	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="customerSequence")
-	@SequenceGenerator(name="customerSequence", allocationSize=1, sequenceName="SQ_CUSTOMER_PK")
-	@Column(name="CUSTOMER_ID")
+
 	private int id;
-	@Column
 	private String name;
-	@Column
 	private int phonenumber;
 	
 	public Customer() {

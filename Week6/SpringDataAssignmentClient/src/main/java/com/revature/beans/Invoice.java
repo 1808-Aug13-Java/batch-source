@@ -1,31 +1,14 @@
-package com.revature.models;
+package com.revature.beans;
 
 import java.sql.Date;
 
 //import java.util.Date;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
 
-import org.springframework.stereotype.Component;
-
-@Component
-@Entity
-@Table(name="INVOICES")
 public class Invoice {
-	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="invoiceSequence")
-	@SequenceGenerator(name="invoiceSequence", allocationSize=1, sequenceName="SQ_INVOICE_PK")
-	@Column(name="INVOICE_ID")
+
 	private int id;
-	@Column
 	private Date date;
-	@Column
 	private double amount;
 	
 	public Invoice() {
