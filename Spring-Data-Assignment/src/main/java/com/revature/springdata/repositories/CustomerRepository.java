@@ -1,4 +1,4 @@
-package com.revature.springdata.repository;
+package com.revature.springdata.repositories;
 
 import org.springframework.data.repository.CrudRepository;
 import java.util.List;

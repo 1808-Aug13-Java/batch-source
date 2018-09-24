@@ -18,43 +18,42 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.models.Word;
-import com.revature.services.WordService;
-
+import com.revature.repositories.WordRepository;
 @RestController
-@RequestMapping("/word")
+@RequestMapping("/wor")
 public class WordController {
   @Autowired
-  WordService wordService;
+  WordRepository wordService;
 
   @GetMapping(produces=MediaType.APPLICATION_JSON_VALUE)
-  public List<Word> getWords() {
-    return wordService.getWords();
+  public Iterable<Word> getWords() {
+    return wordService.findAll();
   }
 
   @GetMapping(value="/{headword}", produces=MediaType.APPLICATION_JSON_VALUE)
   public Word getWord(@PathVariable("headword") String headword) {
-    return wordService.getWord(headword);
+    return wordService.findWordByHeadword(headword);
   }
 
-	@PostMapping(consumes=MediaType.APPLICATION_JSON_VALUE, produces=MediaType.APPLICATION_JSON_VALUE)
-	//@ResponseBody
-	public Word addWord(@Valid @RequestBody Word w) {
-		return wordService.addWord(w);
-	}
-	
-	@PutMapping(value="/{headword}", consumes=MediaType.APPLICATION_JSON_VALUE, produces=MediaType.APPLICATION_JSON_VALUE)
-	//@ResponseBody
-	public Word updateWord(@Valid @RequestBody Word w, @PathVariable("headword") String headword) {
-		w.setHeadword(headword);
-		return wordService.updateWord(w);
-	}
-	
-	@DeleteMapping(value="/{headword}",consumes=MediaType.APPLICATION_JSON_VALUE, produces=MediaType.APPLICATION_JSON_VALUE)
-	//@ResponseBody
-	public Word deleteWord(@RequestBody Word w, @PathVariable("headword") String headword) {
-		w.setHeadword(headword);
-		return wordService.deleteWord(w);
-	}
+//	@PostMapping(consumes=MediaType.APPLICATION_JSON_VALUE, produces=MediaType.APPLICATION_JSON_VALUE)
+//	//@ResponseBody
+//	public Word addWord(@Valid @RequestBody Word w) {
+//		return wordService.addWord(w);
+//	}
+//	
+//	@PutMapping(value="/{headword}", consumes=MediaType.APPLICATION_JSON_VALUE, produces=MediaType.APPLICATION_JSON_VALUE)
+//	//@ResponseBody
+//	public Word updateWord(@Valid @RequestBody Word w, @PathVariable("headword") String headword) {
+//		w.setHeadword(headword);
+//		return wordService.updateWord(w);
+//	}
+//	
+//	@DeleteMapping(value="/{headword}",consumes=MediaType.APPLICATION_JSON_VALUE, produces=MediaType.APPLICATION_JSON_VALUE)
+//	//@ResponseBody
+//	public Word deleteWord(@RequestBody Word w, @PathVariable("headword") String headword) {
+//		w.setHeadword(headword);
+//		return wordService.deleteWord(w);
+//	}
 	
 }
 
