@@ -1,4 +1,4 @@
-package com.revature.springdata.repository;
+package com.revature.springdata.repositories;
 
 import com.revature.springdata.models.Invoice;
 import java.util.List;

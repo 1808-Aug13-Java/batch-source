@@ -27,6 +27,14 @@ public class DemoApplication {
     };
   }
   @Bean
+  public CommandLineRunner updateCustomers(CustomerRepository repository, CustomerController customerController) {
+    return (args) -> {
+      Customer currentC = customerController.findCustomer(1L);
+      currentC.setFirstname("billy");
+      customerController.updateCustomer(currentC);
+    };
+  }
+  @Bean
   public CommandLineRunner findCustomers(CustomerRepository repository, CustomerController customerController) {
     return (args) -> {
       log.info("Customers found with find all");

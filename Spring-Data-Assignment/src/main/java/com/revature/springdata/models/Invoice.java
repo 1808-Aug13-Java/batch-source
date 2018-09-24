@@ -25,7 +25,11 @@ public class Invoice {
   {
       return id;
   }
-  
+  public Invoice(Date created, int amount) {
+    this.created = created;
+    this.amount = amount;
+  }   
+
   /**
    * Set id.
    *
