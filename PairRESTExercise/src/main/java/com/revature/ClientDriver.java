@@ -8,8 +8,11 @@ import com.revature.models.Beverage;
 
 public class ClientDriver {
 
+	
 	private static final String URI_BASE = "http://192.168.61.185:8084/beverages";
 	
+	
+	// A project by Charles Crandall and David Calkins
 	public static void main(String[] args) {
 		RestTemplate restTemplate = new RestTemplate();
 		
