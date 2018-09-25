@@ -1,0 +1,15 @@
+
+ksquid:S1481"2Remove this unused "getRequestUrl" local variable.(Ë³ƒŽýÿÿÿÿ8£öíÇà,HçRMINORZ
+CODE_SMELL
+„squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ñ¥ùšøÿÿÿÿ8£öíÇà,HæRMAJORZ
+CODE_SMELL
+usquid:S3457#"AFormat specifiers should be used instead of string concatenation.(ª„’ì8¾åÞÇà,H½RMAJORZ
+CODE_SMELL
+squid:S2629#"\Invoke method(s) only conditionally. Use the built-in formatting to construct this argument.(ª„’ì8¾åÞÇà,H¼RMAJORZ
+CODE_SMELL
+tsquid:S1854!"@Remove this useless assignment to local variable "addedInvoice".(†æ·„8ºÛÇà,HƒRMAJORZ
+CODE_SMELL
+zsquid:S1854"ARemove this useless assignment to local variable "getRequestUrl".(Ë³ƒŽýÿÿÿÿ8£öíÇà,HèRMAJORZ
+CODE_SMELL
+esquid:S1481!"1Remove this unused "addedInvoice" local variable.(†æ·„8ŸüìÇà,HâRMINORZ
+CODE_SMELL

@@ -1,7 +1,7 @@
 
-”squid:S3973?"WUse curly braces or indentation to denote the code conditionally executed by this "if".(©âèåùÿÿÿÿ8«––¡Ý,H¦ÂRCRITICALZ
+vsquid:S1126A"AReplace this if-then-else statement by a single return statement.(Èâ„Ñ8«––¡Ý,H²ÂRMINORZ
 CODE_SMELL
-ksquid:S1135"2Complete the task associated to this TODO comment.(ƒŠ® úÿÿÿÿ8ùÆ“¡Ý,H§ÂRINFOZ
+ksquid:S1135"2Complete the task associated to this TODO comment.(ƒŠ® úÿÿÿÿ8ùÆ“¡Ý,H³ÂRINFOZ
 CODE_SMELL
-vsquid:S1126A"AReplace this if-then-else statement by a single return statement.(Èâ„Ñ8«––¡Ý,H¨ÂRMINORZ
+”squid:S3973?"WUse curly braces or indentation to denote the code conditionally executed by this "if".(©âèåùÿÿÿÿ8«––¡Ý,H´ÂRCRITICALZ
 CODE_SMELL

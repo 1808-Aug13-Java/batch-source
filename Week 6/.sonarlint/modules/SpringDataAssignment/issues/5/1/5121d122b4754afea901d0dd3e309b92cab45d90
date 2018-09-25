@@ -1,0 +1,9 @@
+
+ssquid:S1126`"AReplace this if-then-else statement by a single return statement.(ö“î¼ûÿÿÿÿHÑRMINORZ
+CODE_SMELL
+„squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Ö×¬¦øÿÿÿÿ8ªÄÁÄà,HøRMAJORZ
+CODE_SMELL
+csquid:S1135!"2Complete the task associated to this TODO comment.(ƒŠ® úÿÿÿÿHÒRINFOZ
+CODE_SMELL
+‡squid:S3973^"WUse curly braces or indentation to denote the code conditionally executed by this "if".(ûÌ”áHÐRCRITICALZ
+CODE_SMELL

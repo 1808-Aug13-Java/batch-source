@@ -1,0 +1,18 @@
+
+‘squid:S2637*"e"userId" is marked "javax.validation.constraints.NotNull" but is not initialized in this constructor.(ψώ±,8ήπΔΰ,HRMINORZBUG
+”squid:S3973‘"WUse curly braces or indentation to denote the code conditionally executed by this "if".(ΑΐΘÿÿÿÿÿ8ήπΔΰ,H‘RCRITICALZ
+CODE_SMELL
+”squid:S3973–"WUse curly braces or indentation to denote the code conditionally executed by this "if".(Ύ†Οϋώÿÿÿÿ8ήπΔΰ,H’RCRITICALZ
+CODE_SMELL
+”squid:S3973›"WUse curly braces or indentation to denote the code conditionally executed by this "if".(Ρ–ΒΕψÿÿÿÿ8ήπΔΰ,H“RCRITICALZ
+CODE_SMELL
+”squid:S3973 "WUse curly braces or indentation to denote the code conditionally executed by this "if".(‹»Ά’ϋÿÿÿÿ8ήπΔΰ,H”RCRITICALZ
+CODE_SMELL
+”squid:S3973¥"WUse curly braces or indentation to denote the code conditionally executed by this "if".(υΖ¥°ώÿÿÿÿ8ήπΔΰ,H•RCRITICALZ
+CODE_SMELL
+squid:S3973ª"WUse curly braces or indentation to denote the code conditionally executed by this "if".(‘ΘΑ•8ήπΔΰ,H–RCRITICALZ
+CODE_SMELL
+jsquid:S1135,"2Complete the task associated to this TODO comment.(ƒ® ϊÿÿÿÿ8ήπΔΰ,H—RINFOZ
+CODE_SMELL
+squid:S3776†"RRefactor this method to reduce its Cognitive Complexity from 27 to the 15 allowed.(άΡγ8ήπΔΰ,HRCRITICALZ
+CODE_SMELL
