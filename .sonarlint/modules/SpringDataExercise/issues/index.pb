@@ -7,10 +7,6 @@ _
 /src/main/java/com/revature/models/Customer.java,a\8\a825a5bdb44e30e07d8d3cc243a2540157b9767c
 7
 pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
-j
-:src/main/java/com/revature/controllers/UserController.java,3\3\33768bacf3381e61332680f8bd1e89d9a381ca67
-d
-4src/main/java/com/revature/services/UserService.java,d\2\d2be61aa398606e15331a1cc4aeafeccda405368
 ^
 .src/main/java/com/revature/models/Invoice.java,5\1\5121d122b4754afea901d0dd3e309b92cab45d90
 n

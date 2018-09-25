@@ -1,0 +1,7 @@
+
+psquid:S18544";Remove this useless assignment to local variable "groupPK".(²ώτ8¶ª„υί,HηΒRMAJORZ
+CODE_SMELL
+ssquid:S1155%">Use isEmpty() to check whether the collection is empty or not.(Ννυξ8ϋΞέΰ,HιΒRMINORZ
+CODE_SMELL
+asquid:S14814",Remove this unused "groupPK" local variable.(²ώτ8¶ª„υί,HθΒRMINORZ
+CODE_SMELL

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aop-reference-model>
-<aop-project name="SpringDataExercise"/>
+<aop-project name="p2-mvc"/>
+<aop-project name="SpringORMDemo"/>
 <aop-project name="SpringMVCDemo"/>
 </aop-reference-model>

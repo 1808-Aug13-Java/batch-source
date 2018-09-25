@@ -1,4 +1,4 @@
-GitRepositoriesView.GitDirectories=D\:\\batch-source\\gs-rest-service\\.git;C\:\\Users\\Crandon\\Documents\\workspace-sts-3.9.5.RELEASE\\batch-source\\.git;C\:\\Users\\Crandon\\Documents\\workspace-sts-3.9.5.RELEASE\\jenkins\\.git;
-GitRepositoriesView.GitDirectories.relative=D\:\\batch-source\\gs-rest-service\\.git;.git;C\:\\Users\\Crandon\\Documents\\workspace-sts-3.9.5.RELEASE\\jenkins\\.git;
+GitRepositoriesView.GitDirectories=C\:\\Users\\Crandon\\Documents\\workspace-sts-3.9.5.RELEASE\\trainerBatch\\batch-source\\.git;D\:\\batch-source\\gs-rest-service\\.git;C\:\\Users\\Crandon\\Documents\\workspace-sts-3.9.5.RELEASE\\batch-source\\.git;C\:\\Users\\Crandon\\Documents\\workspace-sts-3.9.5.RELEASE\\jenkins\\.git;
+GitRepositoriesView.GitDirectories.relative=C\:\\Users\\Crandon\\Documents\\workspace-sts-3.9.5.RELEASE\\trainerBatch\\batch-source\\.git;D\:\\batch-source\\gs-rest-service\\.git;.git;C\:\\Users\\Crandon\\Documents\\workspace-sts-3.9.5.RELEASE\\jenkins\\.git;
 core_autoIgnoreDerivedResources=false
 eclipse.preferences.version=1

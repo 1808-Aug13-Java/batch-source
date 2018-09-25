@@ -1,9 +1,9 @@
 
-squid:S3973J"WUse curly braces or indentation to denote the code conditionally executed by this "if".(œƒŞıÿÿÿÿHŸRCRITICALZ
+ˆsquid:S3973{"WUse curly braces or indentation to denote the code conditionally executed by this "if".(°Şò½HÑÃRCRITICALZ
 CODE_SMELL
-ˆsquid:S3973O"WUse curly braces or indentation to denote the code conditionally executed by this "if".(°Şò½H‚ŸRCRITICALZ
+squid:S2293""YReplace the type specification in this constructor call with the diamond operator ("<>").(°ç‘8ÿÔ¶åà,HÓÃRMINORZ
 CODE_SMELL
-rsquid:UselessImportCheck"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ8€ûŒÀß,H÷¢RMINORZ
+squid:S3973q"WUse curly braces or indentation to denote the code conditionally executed by this "if".(¥„¶É8ÿÔ¶åà,HÔÃRCRITICALZ
 CODE_SMELL
-ysquid:UselessImportCheck"8Remove this unused import 'javax.persistence.OneToMany'.(«õù;8€ûŒÀß,Hø¢RMINORZ
+squid:S3973v"WUse curly braces or indentation to denote the code conditionally executed by this "if".(œƒŞıÿÿÿÿHÒÃRCRITICALZ
 CODE_SMELL

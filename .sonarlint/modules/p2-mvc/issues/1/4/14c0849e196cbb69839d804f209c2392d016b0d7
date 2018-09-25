@@ -1,9 +1,12 @@
 
-’squid:S1488"]Immediately return this expression instead of assigning it to the temporary variable "posts".(ÎÁ˜8ÕŸ€Æß,Hó§RMINORZ
+¾squid:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(´ä¢–ıÿÿÿÿ8ùİíÅß,H²ÉRCRITICALZ
 CODE_SMELL
-¾squid:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(´ä¢–ıÿÿÿÿ8ùİíÅß,Hä§RCRITICALZ
+’squid:S1488"]Immediately return this expression instead of assigning it to the temporary variable "posts".(”èù¤8ùšƒÆß,H³ÉRMINORZ
 CODE_SMELL
-’squid:S1488"]Immediately return this expression instead of assigning it to the temporary variable "posts".(”èù¤8ùšƒÆß,H÷§RMINORZ
+”squid:S3973E"WUse curly braces or indentation to denote the code conditionally executed by this "if".(’ĞÃœıÿÿÿÿ8ÅâıÅß,H´ÉRCRITICALZ
 CODE_SMELL
-”squid:S39732"WUse curly braces or indentation to denote the code conditionally executed by this "if".(’ĞÃœıÿÿÿÿ8ÅâıÅß,Hé§RCRITICALZ
+’squid:S1488"]Immediately return this expression instead of assigning it to the temporary variable "posts".(ÎÁ˜8ÕŸ€Æß,HµÉRMINORZ
+CODE_SMELL
+m
+squid:S106'"9Replace this use of System.out or System.err by a logger.(˜­¿8ÇÉïà,H¶ÉRMAJORZ
 CODE_SMELL

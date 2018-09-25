@@ -1,3 +1,5 @@
 
-”squid:S3973@"WUse curly braces or indentation to denote the code conditionally executed by this "if".(œƒŞıÿÿÿÿ8µ‘ÎÀß,HÙªRCRITICALZ
+”squid:S3973?"WUse curly braces or indentation to denote the code conditionally executed by this "if".(œƒŞıÿÿÿÿ8µ‘ÎÀß,H¸ÉRCRITICALZ
+CODE_SMELL
+–squid:UselessImportCheck	"ORemove this unused import 'com.fasterxml.jackson.annotation.JsonBackReference'.(»Ôœ¿ıÿÿÿÿ8ïÉïà,H¹ÉRMINORZ
 CODE_SMELL

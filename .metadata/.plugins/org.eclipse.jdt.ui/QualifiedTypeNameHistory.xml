@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="java.math.BigDecimal"/>
-<fullyQualifiedTypeName name="com.revature.dao.ReimbursmentDao"/>
-<fullyQualifiedTypeName name="com.revature.util.SessionHelper"/>
-<fullyQualifiedTypeName name="com.revature.dao.EmpDaoImpl"/>
 <fullyQualifiedTypeName name="com.revature.util.Validator"/>
 <fullyQualifiedTypeName name="org.hibernate.cfg.Configuration"/>
 <fullyQualifiedTypeName name="org.hibernate.service.ServiceRegistry"/>
@@ -30,14 +26,9 @@
 <fullyQualifiedTypeName name="org.springframework.context.support.ClassPathXmlApplicationContext"/>
 <fullyQualifiedTypeName name="org.springframework.stereotype.Component"/>
 <fullyQualifiedTypeName name="java.sql.Date"/>
-<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PostMapping"/>
-<fullyQualifiedTypeName name="org.springframework.stereotype.Controller"/>
-<fullyQualifiedTypeName name="com.revature.models.Group"/>
 <fullyQualifiedTypeName name="javax.persistence.ManyToOne"/>
-<fullyQualifiedTypeName name="com.revature.models.Comment"/>
 <fullyQualifiedTypeName name="com.revature.dao.CommentDaoImpl"/>
 <fullyQualifiedTypeName name="javax.persistence.Lob"/>
-<fullyQualifiedTypeName name="com.revature.dao.GroupDao"/>
 <fullyQualifiedTypeName name="java.io.Serializable"/>
 <fullyQualifiedTypeName name="javax.persistence.Column"/>
 <fullyQualifiedTypeName name="org.springframework.boot.autoconfigure.SpringBootApplication"/>
@@ -54,10 +45,19 @@
 <fullyQualifiedTypeName name="org.springframework.http.MediaType"/>
 <fullyQualifiedTypeName name="com.revature.dao.PostDaoImpl"/>
 <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.ResponseBody"/>
-<fullyQualifiedTypeName name="com.revature.models.Post"/>
-<fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestParam"/>
 <fullyQualifiedTypeName name="com.fasterxml.jackson.annotation.JsonManagedReference"/>
 <fullyQualifiedTypeName name="com.fasterxml.jackson.annotation.JsonBackReference"/>
+<fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
+<fullyQualifiedTypeName name="org.springframework.stereotype.Controller"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RestController"/>
+<fullyQualifiedTypeName name="com.revature.dao.GroupDaoImpl"/>
 <fullyQualifiedTypeName name="com.fasterxml.jackson.annotation.JsonIgnore"/>
+<fullyQualifiedTypeName name="com.revature.services.CommentService"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PostMapping"/>
+<fullyQualifiedTypeName name="com.revature.models.Comment"/>
+<fullyQualifiedTypeName name="com.revature.models.Post"/>
+<fullyQualifiedTypeName name="com.revature.models.Group"/>
+<fullyQualifiedTypeName name="com.revature.dao.GroupDao"/>
 </qualifiedTypeNameHistroy>
