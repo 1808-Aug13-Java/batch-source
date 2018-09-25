@@ -20,6 +20,10 @@ public class StoreImpl implements Store {
 	private Random rand = new Random();
 	
 	
+	/** The number of toys tha can fit in this store. */
+	private static final int TOY_LIMIT = 10;
+	
+	
 	public StoreImpl() {
 		toys.add(new Toy("Amazing Ball", 40.00, "Ball"));
 		toys.add(new Toy("Basket Ball", 39.95, "Ball"));
@@ -44,12 +48,12 @@ public class StoreImpl implements Store {
 
 	@Override
 	public Toy addToy(Toy toy) throws StoreFullException {
-		if (this.toys.size() > 9) {
+		if (this.toys.size() > TOY_LIMIT) {
 			throw new StoreFullException();
 		} else {
-		toys.add(toy);
-		System.out.println(toy.getName() + " was added");
-		return toy;
+			toys.add(toy);
+			System.out.println(toy.getName() + " was added");
+			return toy;
 		}
 	}
 
