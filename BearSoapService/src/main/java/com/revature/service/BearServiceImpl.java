@@ -5,7 +5,7 @@ import java.util.List;
 
 import javax.jws.WebService;
 
-import com.revature.exceptions.LibraryFullException;
+import com.revature.exceptions.TooManyBearsException;
 import com.revature.models.Bear;
 
 @WebService(endpointInterface = "com.revature.service.BearService")
@@ -27,14 +27,29 @@ public class BearServiceImpl implements BearService{
 	}
 
 	@Override
-	public String addBear(Bear bear) throws LibraryFullException {
+	public String addBear(Bear bear) throws TooManyBearsException {
 		if(this.bearList.size()>3) {
-			throw new LibraryFullException("Library full. Cannot add "+bear.getName());
+			throw new TooManyBearsException("Library full. Cannot add "+bear.getName());
 		}else {
 			this.bearList.add(bear);
 			return bear.getName()+" added to the library";
 		}
 		
+	}
+
+
+	@Override
+	public String deleteBear(String name) {
+		for(int i = 0; i<bearList.size(); i++) {
+			if(bearList.get(i).getName().equals(name)) {
+				bearList.remove(i);
+				break;
+			}
+			else {
+			
+			}
+		}
+		return name;
 	}
 
 	
