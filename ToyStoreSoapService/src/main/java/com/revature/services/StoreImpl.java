@@ -6,6 +6,7 @@ import java.util.Random;
 
 import javax.jws.WebService;
 
+import com.revature.exceptions.StoreFullException;
 import com.revature.models.Toy;
 
 
@@ -42,9 +43,14 @@ public class StoreImpl implements Store {
 	}
 
 	@Override
-	public Toy addToy(Toy toy) {
+	public Toy addToy(Toy toy) throws StoreFullException {
+		if (this.toys.size() > 9) {
+			throw new StoreFullException();
+		} else {
 		toys.add(toy);
+		System.out.println(toy.getName() + " was added");
 		return toy;
+		}
 	}
 
 	@Override
