@@ -5,7 +5,530 @@
   <link rel="self" href="https://spring.io/blog.atom" />
   <id>http://spring.io/blog.atom</id>
   <icon>https://spring.io/favicon.ico</icon>
-  <updated>2018-09-25T15:33:40Z</updated>
+  <updated>2018-09-26T12:28:00Z</updated>
+  <entry>
+    <title>What's new in Spring Data Lovelace for Redis and Apache Cassandra?</title>
+    <link rel="alternate" href="https://spring.io/blog/2018/09/26/what-s-new-in-spring-data-lovelace-for-redis-and-apache-cassandra" />
+    <category term="engineering" label="Engineering" />
+    <author>
+      <name>Mark Paluch</name>
+    </author>
+    <id>tag:spring.io,2018-09-21:3408</id>
+    <updated>2018-09-26T12:28:00Z</updated>
+    <content type="html">&lt;div class="paragraph"&gt;
+&lt;p&gt;This blog post explains the new and noteworthy in &lt;a href="https://github.com/spring-projects/spring-data-commons/wiki/Release-Train-Lovelace"&gt;Spring Data Lovelace&lt;/a&gt; for &lt;a href="https://spring.io/blog/2018/09/26/what-s-new-in-spring-data-lovelace-for-redis-and-apache-cassandra#cassandra"&gt;Apache Cassandra&lt;/a&gt; and &lt;a href="https://spring.io/blog/2018/09/26/what-s-new-in-spring-data-lovelace-for-redis-and-apache-cassandra#redis"&gt;Redis&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;h1 id="introduction" class="sect0"&gt;&lt;a class="anchor" href="#introduction"&gt;&lt;/a&gt;Introduction&lt;/h1&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;With Spring Data Lovelace just released in its generally available version last week, it&amp;#8217;s time to have a brief walk through the new feature&amp;#8217;s we have added.
+The release train is pretty packed with features.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;In this blog post, I&amp;#8217;ll be covering &lt;a href="https://spring.io/blog/2018/09/26/what-s-new-in-spring-data-lovelace-for-redis-and-apache-cassandra#cassandra"&gt;Apache Cassandra&lt;/a&gt; and &lt;a href="https://spring.io/blog/2018/09/26/what-s-new-in-spring-data-lovelace-for-redis-and-apache-cassandra#redis"&gt;Redis&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;h1 id="cassandra" class="sect0"&gt;&lt;a class="anchor" href="#cassandra"&gt;&lt;/a&gt;Spring Data for Apache Cassandra&lt;/h1&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;With this release, we refined data access with Cassandra-specific types, introduced support for lifecycle events, improved the programming experience for both Java and Kotlin usage and included various other refinements. Let us take a look at how this release can help improve your data access to Cassandra.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="sect1"&gt;
+&lt;h2 id="map-and-tuple-refinements"&gt;&lt;a class="anchor" href="#map-and-tuple-refinements"&gt;&lt;/a&gt;Map and Tuple Refinements&lt;/h2&gt;
+&lt;div class="sectionbody"&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Map and Tuple data types are specific types in Cassandra that allow storing multiple values within a single column. Previously, we supported both types in their raw form in mapped entities, which means that you could use only maps with primitive keys and values. For tuples, you could only use &lt;code&gt;TupleValue&lt;/code&gt;, the raw Cassandra driver type, without further mapping or even schema support.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;With this release, we added mapping and conversion support for Map- and Tuple-typed properties. Maps can now contain non-primitive keys and values, and the conversion layer applies potentially registered converters.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Consider the following types:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code class="language-java" data-lang="java"&gt;@UserDefinedType
+class Manufacturer {
+
+  String name;
+
+  // getters/setters omitted
+}
+
+@Table
+class Supplier {
+
+  Map&amp;lt;Manufacturer, List&amp;lt;String&amp;gt;&amp;gt; acceptedCurrencies;
+
+  // getters/setters omitted
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;&lt;code&gt;Manufacturer&lt;/code&gt; is a mapped user-defined type that is used by the map as a key. Values are represented as &lt;code&gt;List&lt;/code&gt; of strings. We can now refactor the code to use a proper &lt;code&gt;Currency&lt;/code&gt; type (such as &lt;code&gt;java.util.Currency&lt;/code&gt;) within the list. To do so, we provide converters between &lt;code&gt;String&lt;/code&gt; and &lt;code&gt;Currency&lt;/code&gt; and register these through &lt;code&gt;CassandraCustomConversions&lt;/code&gt;. The following example shows how to do so:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code class="language-java" data-lang="java"&gt;enum StringToCurrencyConverter implements Converter&amp;lt;String, Currency&amp;gt; {
+  INSTANCE;
+
+  @Override
+  public Currency convert(String source) {
+    return Currency.getInstance(source);
+  }
+}
+
+enum CurrencyToStringConverter implements Converter&amp;lt;Currency, String&amp;gt; {
+
+  INSTANCE;
+
+  @Override
+  public String convert(Currency source) {
+    return source.getCurrencyCode();
+  }
+}
+
+@Configuration
+class MyCassandraConfiguration {
+
+  public CassandraCustomConversions cassandraCustomConversions() {
+    return new CassandraCustomConversions(
+      Arrays.asList(StringToCurrencyConverter.INSTANCE, CurrencyToStringConverter.INSTANCE));
+  }
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;After registering the converters, we can go forward and use &lt;code&gt;Currency&lt;/code&gt; within the &lt;code&gt;Supplier&lt;/code&gt; type to work with value objects instead of primitives, as the following example shows:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code class="language-java" data-lang="java"&gt;@Table
+class Supplier {
+
+  Map&amp;lt;Manufacturer, List&amp;lt;Currency&amp;gt;&amp;gt; acceptedCurrencies;
+
+  // getters/setters omitted
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Tuples were not really usable with previous versions of Spring Data for Apache Cassandra. Using tuples required direct &lt;code&gt;Row&lt;/code&gt; interaction and &lt;code&gt;TupleType&lt;/code&gt; retrieval to create appropriate tuple values. Therefore, we decided to provide mapped tuple types, as the following example shows:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code class="language-java" data-lang="java"&gt;@Table
+class Supplier {
+
+  List&amp;lt;Dependance&amp;gt; dependances;
+
+  // getters/setters omitted
+}
+
+@Tuple
+class Dependance {
+
+  @Element(0) String address;
+  @Element(1) String city;
+  @Element(2) Currency currency;
+
+  // getters/setters omitted
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Mapped tuples are annotated with &lt;code&gt;@Tuple&lt;/code&gt;, and the individual components of a tuple refer (by using &lt;code&gt;@Element(…)&lt;/code&gt;) to their ordinal index within the tuple. The converter inspects loaded tuples and maps these onto regular Java classes that are part of your domain model. You no longer need to interact with &lt;code&gt;TupleType&lt;/code&gt; and &lt;code&gt;TupleValue&lt;/code&gt; directly – although you still can – but you can represent tuple values in a type-safe approach. Mapped tuples benefit from the various mapping-features of the converter and can refer to types that have a custom converter registered.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Support for maps and tuples also includes schema generation to rapidly set up a schema by deriving the type from your domain model.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;See our &lt;a href="https://github.com/spring-projects/spring-data-examples/tree/be17e153049342e7bc7f3d63f93cc221da72dfab/cassandra/example/src/main/java/example/springdata/cassandra/convert"&gt;examples for mapped tuples&lt;/a&gt; for further details.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sect1"&gt;
+&lt;h2 id="lifecycle-events"&gt;&lt;a class="anchor" href="#lifecycle-events"&gt;&lt;/a&gt;Lifecycle Events&lt;/h2&gt;
+&lt;div class="sectionbody"&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;The Cassandra mapping framework now includes several &lt;code&gt;org.springframework.context.ApplicationEvent&lt;/code&gt; events that your application can respond to by registering special beans in the &lt;code&gt;ApplicationContext&lt;/code&gt;. To intercept an object before it goes through the conversion process (which turns your domain object into a &lt;code&gt;Statement&lt;/code&gt;), you can register a subclass of &lt;code&gt;AbstractCassandraEventListener&lt;/code&gt; that overrides the &lt;code&gt;onBeforeSave&lt;/code&gt; method. When the event is dispatched, your listener is called and passed the domain object before it goes into the converter. The following example shows how to use &lt;code&gt;onBeforeSave&lt;/code&gt;:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code class="language-java" data-lang="java"&gt;public class BeforeConvertListener extends AbstractCassandraEventListener&amp;lt;Person&amp;gt; {
+  @Override
+  public void onBeforeSave(BeforeSaveEvent&amp;lt;Person&amp;gt; event) {
+    // does some auditing manipulation, set timestamps, whatever
+  }
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Declaring these beans in your Spring ApplicationContext causes them to be invoked whenever the event is dispatched.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;The following callback methods are present in &lt;code&gt;AbstractCassandraEventListener&lt;/code&gt;:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="ulist"&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;onBeforeSave&lt;/code&gt;: Called in &lt;code&gt;CassandraTemplate&lt;/code&gt; &lt;code&gt;save&lt;/code&gt; operations &lt;strong&gt;before&lt;/strong&gt; inserting or saving the row in the database.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;onAfterSave&lt;/code&gt;: Called in &lt;code&gt;CassandraTemplate&lt;/code&gt; &lt;code&gt;save&lt;/code&gt; operations &lt;strong&gt;after&lt;/strong&gt; inserting or saving the row in the database.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;onBeforeDelete&lt;/code&gt;: Called in &lt;code&gt;CassandraTemplate&lt;/code&gt; &lt;code&gt;delete&lt;/code&gt; operations &lt;strong&gt;before&lt;/strong&gt; deleting the row in the database.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;onAfterDelete&lt;/code&gt;: Called in &lt;code&gt;CassandraTemplate&lt;/code&gt; &lt;code&gt;delete&lt;/code&gt; operation &lt;strong&gt;after&lt;/strong&gt; deleting the row in the database.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;onAfterLoad&lt;/code&gt;: Called in &lt;code&gt;CassandraTemplate&lt;/code&gt; &lt;code&gt;select&lt;/code&gt; and &lt;code&gt;selectOne&lt;/code&gt; methods &lt;strong&gt;after&lt;/strong&gt; the row has been retrieved from the database.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;onAfterConvert&lt;/code&gt;: Called in &lt;code&gt;CassandraTemplate&lt;/code&gt; &lt;code&gt;select&lt;/code&gt; and &lt;code&gt;selectOne&lt;/code&gt; methods &lt;strong&gt;after&lt;/strong&gt; the row that has been retrieved from the database was converted to a POJO.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Lifecycle events are only emitted for root level types. Complex types used as properties within an entity root are not subject to event publication.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;See our &lt;a href="https://github.com/spring-projects/spring-data-examples/blob/be17e153049342e7bc7f3d63f93cc221da72dfab/cassandra/example/src/test/java/example/springdata/cassandra/events/LifecycleEventsTests.java"&gt;examples for Lifecycle Events&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sect1"&gt;
+&lt;h2 id="kotlin-extensions"&gt;&lt;a class="anchor" href="#kotlin-extensions"&gt;&lt;/a&gt;Kotlin Extensions&lt;/h2&gt;
+&lt;div class="sectionbody"&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Spring Data exposes methods that accept a target type to either query for or to project results values onto. Kotlin represents classes with its own type (&lt;code&gt;KClass&lt;/code&gt;), which can be an obstacle when attempting to obtain a Java Class type.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Spring Data for Apache Cassandra ships with extensions that add overloads for methods that accept a type parameter by either using generics or accepting KClass directly, as the following example shows:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code class="language-java" data-lang="java"&gt;operations.getTableName&amp;lt;Person&amp;gt;()
+
+operations.getTableName(Person::class)
+
+operations.find&amp;lt;Person&amp;gt;().as&amp;lt;Contact&amp;gt;.matching(query(where("firstname").isEqualTo("luke"))).all();&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;See our &lt;a href="https://github.com/spring-projects/spring-data-examples/tree/boot-next/cassandra/kotlin"&gt;Cassandra Kotlin usage&lt;/a&gt; examples for further details.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sect1"&gt;
+&lt;h2 id="fluent-template-api"&gt;&lt;a class="anchor" href="#fluent-template-api"&gt;&lt;/a&gt;Fluent Template API&lt;/h2&gt;
+&lt;div class="sectionbody"&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;The &lt;code&gt;CassandraOperations&lt;/code&gt; interface is one of the central components when it comes to more low-level interaction with Apache Cassandra. It offers a wide range of methods that cover needs from batching and result streaming to CRUD operations. You can find multiple overloads for each method. Most of them cover optional or alternative parts of the API, such as query by CQL, &lt;code&gt;Statement&lt;/code&gt;, or query by &lt;code&gt;Query&lt;/code&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;&lt;code&gt;FluentCassandraOperations&lt;/code&gt; provides a more narrow interface for the common methods of &lt;code&gt;CassandraOperations&lt;/code&gt; and provides a more readable, fluent API. The entry points (&lt;code&gt;insert(…)&lt;/code&gt;, &lt;code&gt;query(…)&lt;/code&gt;, &lt;code&gt;update(…)&lt;/code&gt;, and others) follow a natural naming schema based on the operation to be run. Moving on from the entry point, the API is designed to offer only context-dependent methods that lead to a terminating method that invokes the actual &lt;code&gt;Cassandra&lt;/code&gt; counterpart.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Consider a query example:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code class="language-java" data-lang="java"&gt;List&amp;lt;Person&amp;gt; all = operations.query(Person.class)
+  .inTable("people")
+  .all();&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;This query queries the &lt;code&gt;people&lt;/code&gt; table for all rows and maps the result onto the &lt;code&gt;Person&lt;/code&gt; type. Omitting &lt;code&gt;inTable(…)&lt;/code&gt; derives the table name from the entity type.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;The next example uses projections and a query:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code class="language-java" data-lang="java"&gt;List&amp;lt;Contact&amp;gt; all = operations.query(Person.class)
+  .as(Contact.class)
+  .matching(query(where("firstname").is("luke")))
+  .all();&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;This query uses the table onto which the &lt;code&gt;Person&lt;/code&gt; type is mapped and projects results (DTO or interface projection) on to &lt;code&gt;Contact&lt;/code&gt;. The query itself is mapped by using field names from the &lt;code&gt;Person&lt;/code&gt; type.
+You can switch between retrieving a single entity and retrieving multiple objects as a &lt;code&gt;List&lt;/code&gt; or a &lt;code&gt;Stream&lt;/code&gt; through the terminating methods: &lt;code&gt;first()&lt;/code&gt;, &lt;code&gt;one()&lt;/code&gt;, &lt;code&gt;all()&lt;/code&gt;, or &lt;code&gt;stream()&lt;/code&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;The fluent API is type-safe, and intermediate objects are immutable. You can prepare base parts of your query and continue with a more specific execution, as the following example shows:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code class="language-java" data-lang="java"&gt;TerminatingSelect&amp;lt;Contact&amp;gt; select = operations.query(Person.class)
+  .as(Contact.class)
+  .matching(query(where("firstname").is("luke")))
+
+Contact contact = select.first();
+long count = select.count();&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;See our &lt;a href="https://github.com/spring-projects/spring-data-examples/tree/be17e153049342e7bc7f3d63f93cc221da72dfab/cassandra/kotlin"&gt;Kotlin example&lt;/a&gt; for further details.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Several other enhancements have found their way into the Spring Data for Apache Cassandra module so make sure to check out the &lt;a href="https://docs.spring.io/spring-data/cassandra/docs/2.1.0.RELEASE/reference/html/#new-features.2-1-0"&gt;new features&lt;/a&gt; section in the reference documentation to learn more about reactive slice queries and exists/count projections.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h1 id="redis" class="sect0"&gt;&lt;a class="anchor" href="#redis"&gt;&lt;/a&gt;Spring Data Redis&lt;/h1&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;This release of Spring Data Redis ships with improvements across various themes that did not fit into the 2.0 release. Most of them smooth out the rough edges around Redis cluster usage. The core themes are:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="ulist"&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Connection improvements&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Refinements for Redis Cluster usage&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Various improvements in the framework&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="sect1"&gt;
+&lt;h2 id="connection-improvements"&gt;&lt;a class="anchor" href="#connection-improvements"&gt;&lt;/a&gt;Connection Improvements&lt;/h2&gt;
+&lt;div class="sectionbody"&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Redis supports various modes of operations: Standalone, Standalone with Replication, Redis Sentinel with or without Replication, Redis Cluster. We have covered Standalone, Redis Sentinel and Redis Cluster modes. The missing pieces so far have been reads from replicas. This release introduces support for Replica reads across the variety of Redis operation modes. The following example shows how to use this new feature:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code class="language-java" data-lang="java"&gt;LettuceClientConfiguration clientConfiguration = LettuceClientConfiguration.builder()
+                          .readFrom(ReadFrom.NEAREST)
+                          .build();
+
+RedisSentinelConfiguration endpoint = new RedisSentinelConfiguration()
+                          .master("my-master")
+                          .sentinel("sentinel-host1", 26379)
+                          .sentinel("sentinel-host2", 26379);
+
+LettuceConnectionFactory factory = new LettuceConnectionFactory(endpoint, clientConfiguration);&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Specifying &lt;code&gt;ReadFrom&lt;/code&gt; lets you select a particular node type when issuing read-only commands, such as &lt;code&gt;GET&lt;/code&gt; or &lt;code&gt;SMEMBERS&lt;/code&gt;. You can either use one of Lettuce&amp;#8217;s pre-defined settings or create a new &lt;code&gt;ReadFrom&lt;/code&gt; strategy. &lt;code&gt;ReadFrom&lt;/code&gt; is considered in all setups where replicas are available: Redis Sentinel, Redis Cluster, and static Master/Replica setups, such as AWS ElastiCache, which brings us to the next improvement.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;You can use AWS ElastiCache or any other static Master/Replica setup (that is, using Redis with one or more dedicated replicas) with Spring Data Redis and Lettuce to read from replica nodes. In previous releases, you were able to use the master node only. Take a look at the following configuration code snippet:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code class="language-java" data-lang="java"&gt;LettuceClientConfiguration clientConfiguration = LettuceClientConfiguration.builder().readFrom(ReadFrom.NEAREST).build();
+
+RedisStaticMasterSlaveConfiguration endpoint = new RedisStaticMasterSlaveConfiguration("my-master-host", 6379)
+                          .node("my-replica-host1", 6379)
+                          .node("my-replica-host2", 6379);
+
+LettuceConnectionFactory factory = new LettuceConnectionFactory(endpoint, clientConfiguration);&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;In this cod, we configure &lt;code&gt;LettuceConnectionFactory&lt;/code&gt; to use multiple nodes without actually specifying the roles. Lettuce itself determines the role of the individual hosts and uses the nodes according to their roles.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;The last refinement in this category is the use of local connections through Unix domain sockets. A Unix domain socket or IPC (inter-process communication) socket is a data communications endpoint for exchanging data between processes that run on the same host operating system. As with named pipes, Unix domain sockets support the transmission of a reliable stream of bytes that compares to TCP. Because Unix domain socket communication happens within the kernel only, communication bypasses networking and generally features an improved performance profile.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;To use Unix domain sockets, you need to use Lettuce and add native extensions for Netty (either &lt;code&gt;netty-transport-native-epoll&lt;/code&gt; when running on Linux or &lt;code&gt;netty-transport-native-kqueue&lt;/code&gt; when running on MacOS). The following example configures communication with Redis through a socket:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code class="language-java" data-lang="java"&gt;RedisSocketConfiguration endpoint = new RedisSocketConfiguration("/var/run/redis");
+
+LettuceConnectionFactory factory = new LettuceConnectionFactory(endpoint);&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sect1"&gt;
+&lt;h2 id="redis-cluster-refinements"&gt;&lt;a class="anchor" href="#redis-cluster-refinements"&gt;&lt;/a&gt;Redis Cluster Refinements&lt;/h2&gt;
+&lt;div class="sectionbody"&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;This release ships with refinements in connection handling for Redis Cluster connections that use the Lettuce driver. Previous versions did not share the underlying Lettuce connection to Redis Cluster, which manifested in performance degradations as new connections always established a new cluster connection. This behavior causes an impact when issuing multiple commands as, each command basically uses a new &lt;code&gt;RedisConnection&lt;/code&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;By default, native connection sharing is now enabled for Redis Cluster connections. Other usage patterns (such as Redis Standalone) have already been using connection sharing in previous versions. The following example shows how to create a &lt;code&gt;LettuceConnectionFactory&lt;/code&gt; with a shared native connection:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code class="language-java" data-lang="java"&gt;RedisClusterConfiguration clusterConfiguration = new RedisClusterConfiguration(…);
+
+LettuceConnectionFactory factory = new LettuceConnectionFactory(clusterConfiguration);
+factory.setShareNativeConnection(true);&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Some operations, such as blocking operations, require dedicated connections to not impact other processes that would operate on the same native connection. You can enable pooling for Redis Cluster connections to buffer connection creation if your application heavily relies on blocking Redis commands. Enabling pooling is a client-configuration aspect. With pooling enabled, &lt;code&gt;LettuceConnectionFactory&lt;/code&gt; applies pooling to the configured Redis usage scheme. You can use &lt;code&gt;LettucePoolingClientConfiguration&lt;/code&gt; as entry-point to enable pooling, as the following example shows:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code class="language-java" data-lang="java"&gt;LettucePoolingClientConfiguration clientConfiguration = LettucePoolingClientConfiguration.builder().poolConfig(…).build();
+RedisClusterConfiguration clusterConfiguration = new RedisClusterConfiguration(…);
+
+LettuceConnectionFactory factory = new LettuceConnectionFactory(clusterConfiguration, clientConfiguration);&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;With the introduction of &lt;code&gt;ReadFrom&lt;/code&gt; settings and streamlined Cluster connection handling, we can now support Cluster-wide keyspace scanning by using the &lt;code&gt;SCAN&lt;/code&gt; command. Behind the scenes, the driver maintains a stateful cursor that lets you iterate over all master/replica nodes that hold keys in a Cluster. Using the connection&amp;#8217;s &lt;code&gt;scan(…)&lt;/code&gt; method gives you the same experience as if it was used on a Redis Standalone setup, as the following example shows:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code class="language-java" data-lang="java"&gt;Cursor&amp;lt;byte[]&amp;gt; scan = clusterConnection.keyCommands().scan(ScanOptions.scanOptions().match("foo*").build());
+scan.forEachRemaining(key -&amp;gt; …);&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Keyspace scanning also provides a reactive variant for all Redis operation modes. Calling &lt;code&gt;scan(…)&lt;/code&gt; on the reactive Redis Template API returns a &lt;code&gt;Flux&lt;/code&gt; of keys. The resulting &lt;code&gt;Flux&lt;/code&gt; is backpressure-aware and translates demand into &lt;code&gt;SCAN&lt;/code&gt; invocations if there is sufficient demand to scan the whole keyspace. It stops scanning if the demand is satisfied. The following example constructs such a &lt;code&gt;Flux&lt;/code&gt;:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code class="language-java" data-lang="java"&gt;Flux&amp;lt;String&amp;gt; scan = redisTemplate.scan(ScanOptions.scanOptions().match("something*").build());&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sect1"&gt;
+&lt;h2 id="redis-repository-improvements"&gt;&lt;a class="anchor" href="#redis-repository-improvements"&gt;&lt;/a&gt;Redis Repository Improvements&lt;/h2&gt;
+&lt;div class="sectionbody"&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;This release ships with Query by Example support for Redis repositories. Query by Example is a user-friendly querying technique with a simple interface. It allows dynamic query creation and does not require you to write queries that contain field names. The nature of Query by Example does not require a query language, as the actual query derives from the &lt;code&gt;Example&lt;/code&gt; object. You can now define an &lt;code&gt;Example&lt;/code&gt; to query for indexed values that are stored in Redis hashes. Redis repositories can implement the &lt;code&gt;QueryByExampleExecutor&lt;/code&gt; fragment to inherit Query by Example methods. Take a look at the following snippet:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code class="language-java" data-lang="java"&gt;interface PersonRepository extends CrudRepository&amp;lt;Person, String&amp;gt;, QueryByExampleExecutor&amp;lt;Person&amp;gt; {
+}
+
+PersonRepository repository = …;
+
+Person eddard = new Person("eddard", "stark");
+Person tyrion = new Person("tyrion", "lannister");
+Person robb = new Person("robb", "stark");
+Person jon = new Person("jon", "snow");
+Person arya = new Person("arya", "stark");
+
+repository.saveAll(Arrays.asList(eddard, tyrion, robb, jon, arya));
+
+List&amp;lt;Person&amp;gt; result = repository.findAll(Example.of(new Person(null, "stark")));&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;This code inserts a bunch of &lt;code&gt;Person&lt;/code&gt; objects. The &lt;code&gt;Example&lt;/code&gt; object defines a probe, with only the last name set. The Query engine creates a query that includes only non-null fields (by default) querying for objects whose &lt;code&gt;lastname&lt;/code&gt; is &lt;code&gt;stark&lt;/code&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;See the &lt;a href="https://github.com/spring-projects/spring-data-examples/blob/be17e153049342e7bc7f3d63f93cc221da72dfab/redis/repositories/src/test/java/example/springdata/redis/repositories/PersonRepositoryTests.java#L156"&gt;Query-by-Example sample&lt;/a&gt; for further details.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Redis repositories now support type aliasing that you can use by annotating your domain classes with &lt;code&gt;@TypeAlias&lt;/code&gt;. By default, type hints in Redis use the fully-qualified class name. You can apply aliasing to customize type names and to reduce Redis memory usage.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;The following example persists an instance of a &lt;code&gt;Person&lt;/code&gt;:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code class="language-java" data-lang="java"&gt;package com.acme;
+
+@TypeAlias("person")
+class Person {
+  // …
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;This code causes the type hint (&lt;code&gt;person&lt;/code&gt;) to be used instead of &lt;code&gt;com.acme.Person&lt;/code&gt;. The corresponding commands that are used to store the entity in Redis are as follows:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code class="language-java" data-lang="java"&gt;HMSET "person:19315449-cda2-4f5c-b696-9cb8018fa1f9" "_class" "person" "id" "19315449-cda2-4f5c-b696-9cb8018fa1f9"&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Several other enhancements have found their way into the Redis module so make sure to check out the &lt;a href="https://docs.spring.io/spring-data/redis/docs/2.1.0.RELEASE/reference/html/#new-in-2.1.0"&gt;new features&lt;/a&gt; section in the reference documentation to learn more about keyspace scanning, reactive Pub/Sub, and new commands.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;</content>
+  </entry>
+  <entry>
+    <title>This Week in Spring (SpringOne Platform 2018 edition) - September 25th, 2018</title>
+    <link rel="alternate" href="https://spring.io/blog/2018/09/26/this-week-in-spring-springone-platform-2018-edition-september-25th-2018" />
+    <category term="engineering" label="Engineering" />
+    <author>
+      <name>Josh Long</name>
+    </author>
+    <id>tag:spring.io,2018-09-26:3417</id>
+    <updated>2018-09-26T03:09:47Z</updated>
+    <content type="html">&lt;p&gt;It&amp;rsquo;s been such a crazy SpringOne Platform 2018 and we literally just started! I don&amp;rsquo;t even know where to begin! The show represents the convergence of the best and the brightest in the ecosystem. It&amp;rsquo;s absolutely amazing all the people who want and love to be here. &lt;/p&gt;
+&lt;p&gt;From our friends in the ecosystem, we see people from all organizations. IBM, Amazon Web Services, Microsoft &lt;em&gt;and&lt;/em&gt; Google are &lt;em&gt;all&lt;/em&gt; here hoping to make their platform the most compelling place to run Pivotal Cloud Foundry and Spring-based workloads. It&amp;rsquo;s great to see my friends from all these organizations! Friends like my friends Erin Schnabel, Billy Korando and Pratik Patel from IBM&amp;hellip;&lt;/p&gt;
+&lt;img src="https://pbs.twimg.com/media/Dn-VvuqUwAANaZt.jpg" width = "500" alt = "IBM devrel at Atomist party"/&gt;
+&lt;p&gt;&amp;hellip;and my friend Ray Tsang from Google and Bruno Borges from Microsoft.. &lt;/p&gt;
+&lt;p&gt;&lt;blockquote class="twitter-tweet" data-lang="en"&gt;&lt;p lang="en" dir="ltr"&gt;Hanging with &lt;a href="https://twitter.com/googlecloud?ref_src=twsrc%5Etfw"&gt;@googlecloud&lt;/a&gt; ‘a &lt;a href="https://twitter.com/saturnism?ref_src=twsrc%5Etfw"&gt;@saturnism&lt;/a&gt; and &lt;a href="https://twitter.com/Azure?ref_src=twsrc%5Etfw"&gt;@Azure&lt;/a&gt; ‘a &lt;a href="https://twitter.com/brunoborges?ref_src=twsrc%5Etfw"&gt;@brunoborges&lt;/a&gt; &lt;a href="https://twitter.com/s1p?ref_src=twsrc%5Etfw"&gt;@s1p&lt;/a&gt; — where’s &lt;a href="https://twitter.com/arungupta?ref_src=twsrc%5Etfw"&gt;@arungupta&lt;/a&gt; ? &lt;a href="https://t.co/UMfquZPudG"&gt;pic.twitter.com/UMfquZPudG&lt;/a&gt;&lt;/p&gt;&amp;mdash; Josh Long (???, ???) (@starbuxman) &lt;a href="https://twitter.com/starbuxman/status/1044411203697745920?ref_src=twsrc%5Etfw"&gt;September 25, 2018&lt;/a&gt;&lt;/blockquote&gt;&lt;br/&gt;&lt;script async src="https://platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;&lt;/p&gt;
+&lt;p&gt;It&amp;rsquo;s nice when you can reunit with old colleagues who are now ecosystem partners and friends - it was amazing to see former VMWare and Pivotal alum Mark Chmarny (left) representing Google&amp;rsquo;s KNative efforts today!&lt;/p&gt;
+&lt;p&gt;&lt;blockquote class="twitter-tweet" data-lang="en"&gt;&lt;p lang="en" dir="ltr"&gt;This isn’t quite what I think most of us involved in the &lt;a href="https://twitter.com/s1p?ref_src=twsrc%5Etfw"&gt;@s1p&lt;/a&gt; keynote were expecting when they said there was a ‘green room’! &lt;br&gt;&lt;br&gt;LTR the &lt;a href="https://twitter.com/KnativeProject?ref_src=twsrc%5Etfw"&gt;@KnativeProject&lt;/a&gt; natives: &lt;a href="https://twitter.com/Google?ref_src=twsrc%5Etfw"&gt;@google&lt;/a&gt; ‘s &lt;a href="https://twitter.com/mchmarny?ref_src=twsrc%5Etfw"&gt;@mchmarny&lt;/a&gt; and &lt;a href="https://twitter.com/pivotal?ref_src=twsrc%5Etfw"&gt;@pivotal&lt;/a&gt; ‘s &lt;a href="https://twitter.com/m_f_?ref_src=twsrc%5Etfw"&gt;@m_f_&lt;/a&gt; &lt;a href="https://t.co/pMk9vQcRdI"&gt;pic.twitter.com/pMk9vQcRdI&lt;/a&gt;&lt;/p&gt;&amp;mdash; Josh Long (???, ???) (@starbuxman) &lt;a href="https://twitter.com/starbuxman/status/1044750037203472389?ref_src=twsrc%5Etfw"&gt;September 26, 2018&lt;/a&gt;&lt;/blockquote&gt;&lt;br/&gt;&lt;script async src="https://platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;&lt;/p&gt;
+&lt;p&gt;It was also great to see former SpringSource colleagues and friends Rod Johnson (creator of Spring) and Christian Dupuis representing Atomist, the new continuous delivery sensation that&amp;rsquo;s sweeping the nation!&lt;/p&gt;
+&lt;img src="https://pbs.twimg.com/media/Dn-wYipX0AAl2-S.jpg" width ="500" alt = "Atomist Party" /&gt;
+&lt;p&gt;I had fun MC&amp;rsquo;ing this morning&amp;rsquo;s keynote with Pivotal legend Dormain Drewitz! &lt;/p&gt;
+&lt;p&gt;&lt;blockquote class="twitter-tweet" data-lang="en"&gt;&lt;p lang="en" dir="ltr"&gt;Opening &lt;a href="https://twitter.com/s1p?ref_src=twsrc%5Etfw"&gt;@s1p&lt;/a&gt; &lt;a href="https://t.co/SHv1r7L2aX"&gt;pic.twitter.com/SHv1r7L2aX&lt;/a&gt;&lt;/p&gt;&amp;mdash; Christophe F. (@_christophe_f) &lt;a href="https://twitter.com/_christophe_f/status/1044573490949574656?ref_src=twsrc%5Etfw"&gt;September 25, 2018&lt;/a&gt;&lt;/blockquote&gt;&lt;br/&gt;&lt;script async src="https://platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;&lt;/p&gt;
+&lt;p&gt;It was crazy fun sharing the stage with some of the best in the business, including the Spring team&amp;rsquo;s own legends, Spring co-founder Juergen Hoeller and the good Dr. David Syer.&lt;/p&gt;
+&lt;p&gt;&lt;blockquote class="twitter-tweet" data-lang="en"&gt;&lt;p lang="en" dir="ltr"&gt;Life tip: find yourself some friends who like you enough to take a selfie with you while 3000+ ppl are in the room watching and waiting and countless thousands more are watching the live stream! &lt;a href="https://twitter.com/hashtag/springOne?src=hash&amp;amp;ref_src=twsrc%5Etfw"&gt;#springOne&lt;/a&gt; &lt;a href="https://twitter.com/s1p?ref_src=twsrc%5Etfw"&gt;@s1p&lt;/a&gt;&lt;br&gt;&lt;br&gt;I love my &lt;a href="https://twitter.com/springcentral?ref_src=twsrc%5Etfw"&gt;@springcentral&lt;/a&gt; fam: LTR dr. &lt;a href="https://twitter.com/david_syer?ref_src=twsrc%5Etfw"&gt;@david_syer&lt;/a&gt; and &lt;a href="https://twitter.com/springjuergen?ref_src=twsrc%5Etfw"&gt;@springjuergen&lt;/a&gt; &lt;a href="https://t.co/11Vxkb3Lzt"&gt;pic.twitter.com/11Vxkb3Lzt&lt;/a&gt;&lt;/p&gt;&amp;mdash; Josh Long (???, ???) (@starbuxman) &lt;a href="https://twitter.com/starbuxman/status/1044751898098782208?ref_src=twsrc%5Etfw"&gt;September 26, 2018&lt;/a&gt;&lt;/blockquote&gt;&lt;br/&gt;&lt;script async src="https://platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;&lt;/p&gt;
+&lt;p&gt;Speaking of the good Dr. Syer, I love this pearl of wisdom (from among thousands) from his keynote this morning:&lt;/p&gt;
+&lt;p&gt;&lt;blockquote class="twitter-tweet" data-lang="en"&gt;&lt;p lang="en" dir="ltr"&gt;.&lt;a href="https://twitter.com/david_syer?ref_src=twsrc%5Etfw"&gt;@david_syer&lt;/a&gt; on abstractions at &lt;a href="https://twitter.com/hashtag/SpringOne?src=hash&amp;amp;ref_src=twsrc%5Etfw"&gt;#SpringOne&lt;/a&gt;: &lt;a href="https://t.co/6WGhyZ4Aur"&gt;pic.twitter.com/6WGhyZ4Aur&lt;/a&gt;&lt;/p&gt;&amp;mdash; Pivotal (@pivotal) &lt;a href="https://twitter.com/pivotal/status/1044587088694398977?ref_src=twsrc%5Etfw"&gt;September 25, 2018&lt;/a&gt;&lt;/blockquote&gt;&lt;br/&gt;&lt;script async src="https://platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;&lt;/p&gt;
+&lt;p&gt;I am so grateful that my buddy Matt Raible and I managed to finish a crazy 75+ printed pages of blog content just in time for the big show! Cheers buddy! We did it! &lt;/p&gt;
+&lt;p&gt;&lt;blockquote class="twitter-tweet" data-lang="en"&gt;&lt;p lang="en" dir="ltr"&gt;It’s &lt;a href="https://twitter.com/mraible?ref_src=twsrc%5Etfw"&gt;@mraible&lt;/a&gt; and I fresh off publishing like 75 pages of blog content in the last two weeks for the &lt;a href="https://twitter.com/oktadev?ref_src=twsrc%5Etfw"&gt;@oktadev&lt;/a&gt; blog. We introduce all things &lt;a href="https://twitter.com/ProjectReactor?ref_src=twsrc%5Etfw"&gt;@ProjectReactor&lt;/a&gt; &lt;a href="https://twitter.com/springboot?ref_src=twsrc%5Etfw"&gt;@springboot&lt;/a&gt; &lt;a href="https://twitter.com/hashtag/Webflux?src=hash&amp;amp;ref_src=twsrc%5Etfw"&gt;#Webflux&lt;/a&gt; &lt;a href="https://twitter.com/reactjs?ref_src=twsrc%5Etfw"&gt;@reactjs&lt;/a&gt; and more &lt;br&gt;&lt;br&gt;I love working with that guy. We get it good stuff done and have fun the entire way &lt;a href="https://t.co/O3EpWe3l2h"&gt;pic.twitter.com/O3EpWe3l2h&lt;/a&gt;&lt;/p&gt;&amp;mdash; Josh Long (???, ???) (@starbuxman) &lt;a href="https://twitter.com/starbuxman/status/1044750601794531328?ref_src=twsrc%5Etfw"&gt;September 26, 2018&lt;/a&gt;&lt;/blockquote&gt;&lt;br/&gt;&lt;script async src="https://platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;&lt;/p&gt;
+&lt;p&gt;At SpringOne Platform, anything is possible! The Spring team is geographically dispersed, so it&amp;rsquo;s great to be able to catch selfies with a plurality of any given team all in the same venue! Here, I get selfies with three members of the Spring Security team&lt;/p&gt;
+&lt;p&gt;&lt;blockquote class="twitter-tweet" data-lang="en"&gt;&lt;p lang="en" dir="ltr"&gt;Look at my security peeps Josh Cummings, &lt;a href="https://twitter.com/joe_grandja?ref_src=twsrc%5Etfw"&gt;@joe_grandja&lt;/a&gt; and &lt;a href="https://twitter.com/rob_winch?ref_src=twsrc%5Etfw"&gt;@rob_winch&lt;/a&gt; &lt;a href="https://twitter.com/s1p?ref_src=twsrc%5Etfw"&gt;@s1p&lt;/a&gt; &lt;a href="https://twitter.com/hashtag/springOne?src=hash&amp;amp;ref_src=twsrc%5Etfw"&gt;#springOne&lt;/a&gt; &lt;a href="https://t.co/NjAgQTI0iF"&gt;pic.twitter.com/NjAgQTI0iF&lt;/a&gt;&lt;/p&gt;&amp;mdash; Josh Long (???, ???) (@starbuxman) &lt;a href="https://twitter.com/starbuxman/status/1044749015634649088?ref_src=twsrc%5Etfw"&gt;September 26, 2018&lt;/a&gt;&lt;/blockquote&gt;&lt;br/&gt;&lt;script async src="https://platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;&lt;/p&gt;
+&lt;p&gt;It wouldn&amp;rsquo;t be a world-class event if, in addition to seeing old friends, we couldn&amp;rsquo;t make new ones. &lt;/p&gt;
+&lt;p&gt;Neha Narkhede, co-founder and CTO Confluentinc, and co-creator of Apache Kafka, absolutely &lt;em&gt;killed it&lt;/em&gt; this morning in her keynote address at the conference. What a legend! What an amazing speaker and an amazing technologist! &lt;/p&gt;
+&lt;p&gt;&lt;blockquote class="twitter-tweet" data-lang="en"&gt;&lt;p lang="en" dir="ltr"&gt;It’s the amazing &lt;a href="https://twitter.com/nehanarkhede?ref_src=twsrc%5Etfw"&gt;@nehanarkhede&lt;/a&gt; &lt;a href="https://twitter.com/s1p?ref_src=twsrc%5Etfw"&gt;@s1p&lt;/a&gt; &lt;a href="https://t.co/5beGisYeq7"&gt;pic.twitter.com/5beGisYeq7&lt;/a&gt;&lt;/p&gt;&amp;mdash; Josh Long (???, ???) (@starbuxman) &lt;a href="https://twitter.com/starbuxman/status/1044596776240656384?ref_src=twsrc%5Etfw"&gt;September 25, 2018&lt;/a&gt;&lt;/blockquote&gt;&lt;br/&gt;&lt;script async src="https://platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;&lt;/p&gt;
+&lt;p&gt;It means &lt;em&gt;everything&lt;/em&gt; to us to see our customers thriving. It was amazing to see DICKS Sporting Goods take the stage today to share their digital journey:&lt;/p&gt;
+&lt;p&gt;&lt;blockquote class="twitter-tweet" data-lang="en"&gt;&lt;p lang="en" dir="ltr"&gt;Amazing story of digital transformation of &lt;a href="https://twitter.com/DICKS?ref_src=twsrc%5Etfw"&gt;@DICKS&lt;/a&gt; at &lt;a href="https://twitter.com/hashtag/SpringOne?src=hash&amp;amp;ref_src=twsrc%5Etfw"&gt;#SpringOne&lt;/a&gt; &lt;a href="https://t.co/LygDMpBqnd"&gt;pic.twitter.com/LygDMpBqnd&lt;/a&gt;&lt;/p&gt;&amp;mdash; Yatin Khadilkar (@tatyaRao) &lt;a href="https://twitter.com/tatyaRao/status/1044586281982783494?ref_src=twsrc%5Etfw"&gt;September 25, 2018&lt;/a&gt;&lt;/blockquote&gt;&lt;br/&gt;&lt;script async src="https://platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;&lt;/p&gt;
+&lt;p&gt;I had the privilege of introducing DICKS Sporting Goods so I thought I&amp;rsquo;d dress the part. I even went to a store in south San Francisco this weekend and got my attire just for their big debut!&lt;/p&gt;
+&lt;p&gt;&lt;blockquote class="twitter-tweet" data-lang="en"&gt;&lt;p lang="en" dir="ltr"&gt;Can&amp;#39;t miss &lt;a href="https://twitter.com/starbuxman?ref_src=twsrc%5Etfw"&gt;@starbuxman&lt;/a&gt; at &lt;a href="https://twitter.com/hashtag/SpringOne?src=hash&amp;amp;ref_src=twsrc%5Etfw"&gt;#SpringOne&lt;/a&gt; &#x1f923; &lt;a href="https://t.co/HyyBDW3V9h"&gt;pic.twitter.com/HyyBDW3V9h&lt;/a&gt;&lt;/p&gt;&amp;mdash; Christophe F. (@_christophe_f) &lt;a href="https://twitter.com/_christophe_f/status/1044586057767866368?ref_src=twsrc%5Etfw"&gt;September 25, 2018&lt;/a&gt;&lt;/blockquote&gt;&lt;br/&gt;&lt;script async src="https://platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;&lt;/p&gt;
+&lt;p&gt;A huge part of the value of SpringOne Platform, for those of us at Pivotal as well as the larger ecosystem, is just in getting the chance to see the legends in our ecosystem that changed the world. I&amp;rsquo;m a big James Watters fan. He&amp;rsquo;s a big reason why, as a company, we all get out and work as hard as we can for our customers. He&amp;rsquo;s shown us, always leading by example, time and time again, that if we focus on the customer and their desired outcomes, good things result. Rock on James! #GOAT&lt;/p&gt;
+&lt;p&gt;&lt;blockquote class="twitter-tweet" data-lang="en"&gt;&lt;p lang="en" dir="ltr"&gt;Hey it’s &lt;a href="https://twitter.com/wattersjames?ref_src=twsrc%5Etfw"&gt;@wattersjames&lt;/a&gt; how cool is that &lt;a href="https://twitter.com/hashtag/SpringOne?src=hash&amp;amp;ref_src=twsrc%5Etfw"&gt;#SpringOne&lt;/a&gt; &lt;a href="https://t.co/yDzufzeeXL"&gt;pic.twitter.com/yDzufzeeXL&lt;/a&gt;&lt;/p&gt;&amp;mdash; Josh Long (???, ???) (@starbuxman) &lt;a href="https://twitter.com/starbuxman/status/1044434456227061761?ref_src=twsrc%5Etfw"&gt;September 25, 2018&lt;/a&gt;&lt;/blockquote&gt;&lt;br/&gt;&lt;script async src="https://platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;&lt;/p&gt;
+&lt;p&gt;For every photo or moment I&amp;rsquo;ve shared here are a thousand other ones I haven&amp;rsquo;t shared. It&amp;rsquo;s been an INSANE 24h since the show started in full swing and we&amp;rsquo;ve got miles to go before we sleep! &lt;/p&gt;
+&lt;p&gt;So, without further ado, let&amp;rsquo;s get to this week&amp;rsquo;s amazing, release-packed roundup! &lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href="https://spring.io/blog/2018/09/25/spring-cloud-function-2-0-and-azure-functions"&gt;Spring Cloud Function 2.0 and Azure Functions&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Good news everybody! &lt;a href="https://spring.io/blog/2018/09/25/spring-tools-4-ga-released"&gt;Spring Tool Suite 4 is here&lt;/a&gt;! I want to personally congratulation Spring Tool Suite lead Martin Lippert on this &lt;em&gt;incredible&lt;/em&gt; journey! STS 4 is a complete reworking of the engine behind the plugins supporting our Eclipse distribution. That engine represents a radical reprioritization of goals: the tools give you validation now based on runtime behavior instead of false positive yielded by trying to second-guess Spring at design time. The result is that using Java is fast and productive during development - no red squigglies with which to contend! - and any validation and navigation information is informed by the actual runtime behavior of the application. It&amp;rsquo;s just more accurate. Additionally, the engine itself has been extracted out into language servers which run independent of Eclipse and are supported in Microsoft Visual Studio Code and Atom. I&amp;rsquo;m super impressed with this release! This has been a long and well-worth it journey.&lt;/li&gt;
+  &lt;li&gt;Spring Boot team legend Madhura Bhave has just &lt;a href="https://spring.io/blog/2018/09/25/spring-boot-2-1-m4-available-now"&gt;announced Spring Boot 2.1.M4&lt;/a&gt;! The new Spring Boot 2.1.0.M4 release ships with a ton of things including preliminary support for Spring Data JDBC, including a &lt;code&gt;@DataJdbcTest&lt;/code&gt; annotation. Check it out!&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://spring.io/blog/2018/09/24/hands-on-with-spring-vault-2-1"&gt;Hands on with Spring Vault 2.1&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://spring.io/blog/2018/09/24/spring-integration-amqp-and-kafka-release-candidates-available"&gt;Spring Integration, AMQP and Kafka Release Candidates Available&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://spring.io/blog/2018/09/24/spring-session-bom-bean-rc1-released"&gt;Spring Session BOM Bean-RC1 Released&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://spring.io/blog/2018/09/24/spring-data-jdbc-references-and-aggregates"&gt;Spring Data JDBC, References, and Aggregates&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://spring.io/blog/2018/09/22/spring-boot-for-apache-geode-pivotal-gemfire-1-0-0-m3-released"&gt;Spring Boot for Apache Geode &amp;amp; Pivotal GemFire 1.0.0.M3 Released!&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://spring.io/blog/2018/09/21/spring-data-lovelace-ga-released"&gt;Spring Data Lovelace GA released&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://spring.io/blog/2018/09/21/spring-framework-5-1-goes-ga"&gt;Spring Framework 5.1 goes GA&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://content.pivotal.io/blog/meet-the-new-aws-service-broker-for-pcf-now-an-open-beta-heres-why-its-the-easiest-way-to-add-18-aws-services-to-your-cloud-native-apps?mkt_tok=eyJpIjoiWkRKak1ETTJPVEE0T0ROaiIsInQiOiJkYnpQaGdRc2IwRDExZTFMNnZKTGU2TXBpais4Z2hpaDA2UlBMSmxhQnpNMTZoMDJFTVgzT1BDKzJMYUphRkREdElnM2NqdkRmazRXYTIyTjQzTGV0RmdqMmY1OWJtMjVpenJIMVRzUFN4dkt2N2lZcWcxVUJEQllnblBMNVRUdSJ9"&gt;Meet the New AWS Service Broker for PCF, Now an Open Beta. Here&amp;rsquo;s Why It&amp;rsquo;s the Easiest Way to Add 18 AWS Services to Your Cloud Native Apps.&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://spring.io/blog/2018/09/20/spring-tool-suite-3-9-6-released"&gt;Spring Tool Suite 3.9.6 released&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://spring.io/blog/2018/09/19/spring-web-services-3-0-4-2-4-3-released"&gt;Spring Web Services 3.0.4 / 2.4.3 released!&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://spring.io/blog/2018/09/19/announcing-spring-cloud-function-2-0-0-m2"&gt;Announcing Spring Cloud Function - 2.0.0.M2&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Spring creator Rod Johnson&amp;rsquo;s got a nice post on how &lt;a href="https://the-composition.com/modern-delivery-for-modern-java-give-yaml-the-boot-9fdcc4d83123"&gt;Atomist helps liberate modern Spring developers from the scourge of too much &lt;code&gt;.YAML&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;IBM have some very interesting new posts on building &lt;a href="https://console.bluemix.net/docs/java-spring/index.html#getting-started-tutorial"&gt;Spring applications that are destined for IBM Cloud&lt;/a&gt; and &lt;a href="https://developer.ibm.com/components/spring/"&gt;using Spring with IBM Cloud and IBM software&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;I love the new Spring Tool Suite release so much I put together a quick primer that shows how to develop Java-based Spring Boot-based applications that get deployed to production in the cloud on Cloud Foundry, all from &lt;a href="https://www.youtube.com/watch?v=0ryrlJfSgfc"&gt;within the fantastically streamlined and productive Spring Tool Suite 4&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;I love that buildpacks have been finally extracted out into a separate thing that&amp;rsquo;s now standard across platforms. &lt;a href="https://buildpacks.io/"&gt;Read on to learn more!&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Vlad Mihalcea has a nice post on &lt;a href="https://vladmihalcea.com/spring-read-only-transaction-hibernate-optimization/"&gt;the Spring read-only transaction optimization&lt;br/&gt;in Hibernate&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Just in time for SpringOne Platform, &lt;a href="https://projectriff.io/blog/announcing-riff-0-1-3/"&gt;check out riff v0.1.3&lt;/a&gt;. Riff is the function-as-a-service sensation that&amp;rsquo;s sweeping the nation!&lt;/li&gt;
+  &lt;li&gt;My buddy Matt Raible and I have been burning the midnight oil &lt;a href="https://developer.okta.com/blog/2018/09/25/spring-webflux-websockets-react"&gt;to get this &lt;em&gt;massive&lt;/em&gt; blog series&lt;/a&gt; - three parts spanning 70+ printed pages in all! - out in time for the epic SpringOne Platform event. It is &lt;em&gt;so&lt;/em&gt; worth a read.&lt;/li&gt;
+  &lt;li&gt;Java 11 is here! The best part about is how mundane it all is. If you&amp;rsquo;re using the excellent &lt;a href="http://twitter.com/sdkman_"&gt;SDKMAN&lt;/a&gt;, then all you need to do is say: &lt;code&gt;sdk install java 11.ea.28-open&lt;/code&gt; and then head on over to the &lt;a href="http://start.spring.io/"&gt;Spring Initializr&lt;/a&gt; and build a new project using Java 11. It&amp;rsquo;ll just work. InfoQ have a nice &lt;a href="https://www.infoq.com/news/2018/09/java11-released"&gt;post with some details here&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;I love this post by Mario&amp;rsquo;s own &lt;a href="http://twitter.com/MarioGray"&gt;Mario Gray&lt;/a&gt; on testing reactive &lt;a href="https://www.sudoinit5.com/post/spring-boot-testing-producer/"&gt;cloud Spring-based applications&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;The SpringUni blog have &lt;a href="https://springuni.com/bootiful-gcp-spring-cloud-stream-with-google-cloud-pub-sub/"&gt;a nice post on using Spring Cloud GCP with Google Cloud&lt;/a&gt; that expands upon a post in my recent 8-part miniseries. It&amp;rsquo;s worth a read!&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://twitter.com/springcentral/status/1043189646677536768"&gt;Reactor Californium-RELEASE has shipped this week &#x1f6a2;&#x1f680;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://groups.google.com/forum/#!topic/rabbitmq-users/LMnYh5RXD0w"&gt;RabbitMQ 3.7.8 is out!&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;As if this week weren&amp;rsquo;t epic enough, there&amp;rsquo;s a new &lt;a href="https://groups.google.com/forum/#!topic/lettuce-redis-client-users/v5Q2qQntzzU"&gt;release of the Redis Lettuce driver&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;In light of the new Java 11 release, it feels appropriate to look &lt;a href="https://www.youtube.com/watch?v=eX7VnkcXMdM"&gt;at the long and fascinating history of Java thus far.&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;This is a nice article that looks at &lt;a href="http://claudioed.tech/2018/03/07/continuous-query-with-spring-data-reactive-mongodb/"&gt;using MongoDB&amp;rsquo;s tailable queries to support&lt;/a&gt; continuous queries, a feature you might be familiar with if you&amp;rsquo;ve ever used a distributed data grid like Coherence or Apache Geode&lt;/li&gt;
+  &lt;li&gt;You know that you can stream the mainstage action at SpringOne Platform 2018, don&amp;rsquo;t ya? Cuz.. &lt;a href="http://springoneplatform.io/"&gt;you can&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;You surely know by now that you can fork the Spring Initializr - here&amp;rsquo;s an example of what at least one group has &lt;a href="https://gitter.im/spring-io/initializr?at=5ba23b08f4bd1056ac866fb2"&gt;done with their fork&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content>
+  </entry>
   <entry>
     <title>Spring Cloud Function 2.0 and Azure Functions</title>
     <link rel="alternate" href="https://spring.io/blog/2018/09/25/spring-cloud-function-2-0-and-azure-functions" />
@@ -2027,127 +2550,5 @@ And if you find a bug or want to request a feature &lt;a href="https://jira.spri
 &lt;/ul&gt;
 &lt;p&gt;The versions of a number of third-party dependencies have also been updated.&lt;/p&gt;
 &lt;p&gt;&lt;a href="http://platform.spring.io/platform"&gt;Project Page&lt;/a&gt; | &lt;a href="https://github.com/spring-io/platform"&gt;GitHub&lt;/a&gt; | &lt;a href="https://github.com/spring-io/platform/issues"&gt;Issues&lt;/a&gt; | &lt;a href="http://docs.spring.io/platform/docs/Brussels-SR13/reference/htmlsingle"&gt;Documentation&lt;/a&gt;&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <title>Spring Boot 2.1 M3 available now</title>
-    <link rel="alternate" href="https://spring.io/blog/2018/09/13/spring-boot-2-1-m3-available-now" />
-    <category term="releases" label="Releases" />
-    <author>
-      <name>Phil Webb</name>
-    </author>
-    <id>tag:spring.io,2018-09-13:3393</id>
-    <updated>2018-09-13T06:01:00Z</updated>
-    <content type="html">&lt;p&gt;On behalf of the team and everyone that contributed, I am pleased to announce that the third milestone of Spring Boot 2.1 has been released and is available from &lt;a href="http://repo.spring.io/milestone/"&gt;our milestone repository&lt;/a&gt;. This release closes &lt;a href="https://github.com/spring-projects/spring-boot/releases/tag/v2.1.0.M3"&gt;117 issues and pull requests&lt;/a&gt;!&lt;/p&gt;
-&lt;p&gt;This third milestone aligns with &lt;a href="https://spring.io/blog/2018/09/07/spring-framework-5-1-rc3-5-0-9-and-4-3-19-available-now"&gt;Spring Framework 5.1.RC3&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Highlights in this release include:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Kafka Streams support&lt;/li&gt;
-  &lt;li&gt;Support for non-web OAuth applications&lt;/li&gt;
-  &lt;li&gt;Improved conversion service integration&lt;/li&gt;
-  &lt;li&gt;Support for logging groups&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;For a complete list of changes and upgrade instructions, please see the &lt;a href="https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.1.0-M3-Release-Notes"&gt;Spring Boot 2.1 Release Notes&lt;/a&gt; on the wiki and the &lt;a href="http://docs.spring.io/spring-boot/docs/2.1.0.M3/reference/htmlsingle/"&gt;updated reference documentation&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;If you want to get started with 2.1 and try out the new features, you can bootstrap a new project on &lt;a href="https://start.spring.io"&gt;https://start.spring.io&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;We hope to release an M4 just in time for &lt;a href="https://springoneplatform.io/"&gt;Spring One Platform 2018&lt;/a&gt; and the 2.1 GA towards the end of October.&lt;/p&gt;
-&lt;p&gt;&lt;a href="http://projects.spring.io/spring-boot/"&gt;Project Page&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-boot"&gt;GitHub&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-boot/issues"&gt;Issues&lt;/a&gt; | &lt;a href="http://docs.spring.io/spring-boot/docs/2.1.0.M3/reference/htmlsingle"&gt;Documentation&lt;/a&gt; | &lt;a href="http://stackoverflow.com/questions/tagged/spring-boot"&gt;Stack Overflow&lt;/a&gt; | &lt;a href="https://gitter.im/spring-projects/spring-boot"&gt;Gitter&lt;/a&gt;&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <title>Bootiful GCP: To Production! (8/8)</title>
-    <link rel="alternate" href="https://spring.io/blog/2018/09/13/bootiful-gcp-to-production-8-8" />
-    <category term="engineering" label="Engineering" />
-    <author>
-      <name>Josh Long</name>
-    </author>
-    <id>tag:spring.io,2018-08-18:3370</id>
-    <updated>2018-09-13T00:00:00Z</updated>
-    <content type="html">&lt;blockquote&gt;
-  &lt;p&gt;Hi Spring fans! In this brief 8 part series we’re going to look at the Spring Cloud integration for Google Cloud Platform, called Spring Cloud GCP. &lt;a href="https://cloud.spring.io/spring-cloud-gcp/"&gt;Spring Cloud GCP&lt;/a&gt; represents a joint effort between Google and Pivotal that endeavors to provide a first class experience for Spring Cloud developers when using the Google Cloud Platform. Pivotal Cloud Foundry users will enjoy an even &lt;a href="https://docs.pivotal.io/partners/gcp-sb/index.html"&gt;easier integration with the GCP service broker&lt;/a&gt;. I wrote these installments with input from Google Cloud Developer Advocate, and my buddy, &lt;a href="http://twitter.com/saturnism"&gt;Ray Tsang&lt;/a&gt;. You can also catch a walkthrough of Spring Cloud GCP in our Google Next 2018 session, &lt;a href="https://www.youtube.com/watch?v=2Jo3vy7iQf8"&gt;Bootiful Google Cloud Platform&lt;/a&gt;. Thanks buddy! As always, &lt;a href="http://twitter.com/starbuxman"&gt;I&amp;rsquo;d love to hear from you if you have feedback&lt;/a&gt;.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;If you&amp;rsquo;re just joining us, be sure to read the previous installments including:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href="https://spring.io/blog/2018/08/20/bootiful-gcp-getting-started-with-spring-cloud-for-google-cloud-platform-1-8"&gt;Bootiful GCP: Getting Started with Spring Cloud for Google Cloud Platform (1/8)&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://spring.io/blog/2018/08/23/bootiful-gcp-relational-data-access-with-spring-cloud-gcp-2-8"&gt;Bootiful GCP: Relational Data Access with Spring Cloud GCP (2/8)&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://spring.io/blog/2018/08/27/bootiful-gcp-globally-consistent-data-access-with-spanner-3-8"&gt;Bootiful GCP: Globally Consistent Data Access with Spanner (3/8)&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://spring.io/blog/2018/08/30/bootiful-gcp-integration-with-google-cloud-pub-sub-4-8"&gt;Bootiful GCP: Integration with Google Cloud Pub/Sub (4/8)&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://spring.io/blog/2018/09/03/bootiful-gcp-runtime-configuration-with-spring-cloud-gcp-runtime-config-5-8"&gt;Bootiful GCP: Runtime Configuration with Spring Cloud GCP Runtime Config (5/8)&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://spring.io/blog/2018/09/06/bootiful-gcp-supporting-observability-with-spring-cloud-gcp-stackdriver-trace-6-8"&gt;Bootiful GCP: Supporting Observability with Spring Cloud GCP Stackdriver Trace (6/8)&lt;br/&gt;&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://spring.io/blog/2018/09/10/bootiful-gcp-use-spring-cloud-gcp-to-connect-to-other-gcp-services-7-8"&gt;Bootiful GCP: Use Spring Cloud GCP to Connect to Other GCP Services (7/8)&lt;br/&gt; &lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;As we’ve worked through these examples we’ve relied on the default authentication of the Google Cloud SDKs and Spring Cloud GCP working with a local installation of the Google Cloud SDK and the &lt;code&gt;gcloud&lt;/code&gt; CLI. Spring Cloud GCP’s auto-configuration configures a &lt;code&gt;DefaultCredentialsProvider&lt;/code&gt; that looks for &lt;em&gt;some&lt;/em&gt; way to authenticate. Everything’s worked fine on our local machine so far because we ran the interactive authentication prompt and confirmed on the Google Cloud website the linking of our authorities to this application. But what if you want to run tests in a CI environment or deploy the application to a cloud platform?&lt;/p&gt;
-&lt;p&gt;We need a way to convey our authorization when running in these environments. We can do this on Google Cloud using &lt;em&gt;service accounts&lt;/em&gt;. The &lt;a href="https://cloud.google.com/docs/authentication/production#auth-cloud-implicit-java"&gt;process is explained here&lt;/a&gt;. The gist is that you will need to describe, as narrowly as possible, the privileges your application can have using a Google Cloud service account and then render those credentials into a file which we will feed to the application.&lt;/p&gt;
-&lt;pre&gt;&lt;code class="prettyprint shell"&gt;PROJECT_ID=$(gcloud config list --format &amp;#39;value(core.project)&amp;#39;)&#xD;
-&#xD;
-&#xD;
-NAME=gcp-service-app&#xD;
-&#xD;
-&#xD;
-gcloud iam service-accounts create $NAME&#xD;
-&#xD;
-&#xD;
-gcloud projects add-iam-policy-binding $PROJECT_ID  --member &amp;quot;serviceAccount:${NAME}@${PROJECT_ID}.iam.gserviceaccount.com&amp;quot; --role &amp;quot;roles/owner&amp;quot;&#xD;
-&#xD;
-&#xD;
-gcloud iam service-accounts keys create ${NAME}.json --iam-account ${NAME}@${PROJECT_ID}.iam.gserviceaccount.com
-&lt;/code&gt;&lt;/pre&gt;
-&lt;ul&gt;
-  &lt;li&gt;
-  &lt;p&gt;the name is arbitrary. You might use a name that reflects the nature of your application.&lt;/p&gt;&lt;/li&gt;
-  &lt;li&gt;
-  &lt;p&gt;create the service account giving it a name&lt;/p&gt;&lt;/li&gt;
-  &lt;li&gt;
-  &lt;p&gt;add a role - &lt;code&gt;roles/owner&lt;/code&gt; - to our service binding. You would do well to be more granular in assignment of your roles.&lt;/p&gt;&lt;/li&gt;
-  &lt;li&gt;
-  &lt;p&gt;generate a file, &lt;code&gt;gcp-service-app.json&lt;/code&gt;, that contains the key.&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;The result of this process should be a &lt;code&gt;.json&lt;/code&gt; file, &lt;code&gt;gcp-service-app.json&lt;/code&gt;, on your local machine.&lt;/p&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;Warning&lt;/strong&gt;&lt;/p&gt;
-  &lt;p&gt;That &lt;code&gt;.json&lt;/code&gt; file is a secret! Do &lt;em&gt;not&lt;/em&gt; share or lose track of it!&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;You need to tell the Spring Cloud application where to find this credential. You can pass it to Spring Cloud GCP as a file location or a Base 64-encoded &lt;code&gt;String&lt;/code&gt;. Let’s do the latter. We can use the &lt;code&gt;spring.cloud.gcp.credentials.encoded-key&lt;/code&gt; to convey the Base64-encoded contents of the file we just generated.&lt;/p&gt;
-&lt;p&gt;This is a secret value, and it will differ from one environment to another. We don’t want it checked into version control, in &lt;code&gt;src/main/resources/application.properties&lt;/code&gt;, and even if we did we’d still need to maintain different environment-specific values. Spring Boot lets us provide overrides when running the application. We could use &lt;code&gt;application.properties&lt;/code&gt; or &lt;code&gt;application.yml&lt;/code&gt; files. We could stash thm in environment-specific Runtime Config. We could provide them as &lt;code&gt;-D&lt;/code&gt; arguments or environment variables when running the application. So could easily say &lt;code&gt;java -Dspring.cloud.gcp.credentials.encoded-key=…? -jar ..&lt;/code&gt; to provide a value that either contributes a new value to the application or overrides the existing value in &lt;code&gt;src/main/resources/application.properties&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;Environment variables are a more natural fit for platforms like Cloud Foundry or Heroku where we don’t necessarily want to have control over &lt;em&gt;how&lt;/em&gt; an application is run, over its &lt;code&gt;java&lt;/code&gt; incantation. The platform Buildpack does that for us. Let’s look at how we could run the application locally.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;run.sh.&lt;/strong&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code class="prettyprint shell"&gt;#!/bin/bash&#xD;
-&#xD;
-&#xD;
-export SPRING_CLOUD_GCP_CREDENTIALS_ENCODED_KEY=$( cat $GCP_SERVICE_ACCOUNT_KEY_FILE | base64 -w0  )&#xD;
-export SPRING_CLOUD_GCP_PROJECT_ID=$(gcloud config list --format &amp;#39;value(core.project)&amp;#39;)&#xD;
-&#xD;
-mvn clean spring-boot:run
-&lt;/code&gt;&lt;/pre&gt;
-&lt;ul&gt;
-  &lt;li&gt;when you run this script, set the environment variable &lt;code&gt;SPRING_CLOUD_GCP_CREDENTIALS_ENCODED_KEY&lt;/code&gt; before running the application to point to the location of your service account &lt;code&gt;.json&lt;/code&gt; file.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;On my machine, I was able to run that script like this: &lt;code&gt;GCP_SERVICE_ACCOUNT_KEY_FILE=/home/jlong/keys/gcp-service-account.json ./run.sh&lt;/code&gt;. Your local path for the &lt;code&gt;.json&lt;/code&gt; file will most likely vary.&lt;/p&gt;
-&lt;p&gt;You can translate those environment variables as needed for your particular CI environment. Once your application has been tested and integrated, it’s off to production! For me, production is Cloud Foundry (running on top of Google Cloud, no less). Here’s a script that deploys the application to the Cloud Foundry instance in which I’m authenticated.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;deploy.sh.&lt;/strong&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code class="prettyprint shell"&gt;#!/usr/bin/env bash&#xD;
-&#xD;
-mvn -DskipTests=true clean package&#xD;
-&#xD;
-&#xD;
-cf d -f $APP_NAME&#xD;
-&#xD;
-&#xD;
-cf push --no-start --random-route -p $JAR $APP_NAME&#xD;
-cf set-env $APP_NAME SPRING_CLOUD_GCP_CREDENTIALS_ENCODED_KEY &amp;quot;$( cat $GCP_SERVICE_ACCOUNT_KEY_FILE | base64 -w0 )&amp;quot;&#xD;
-cf set-env $APP_NAME SPRING_CLOUD_GCP_PROJECT_ID $(gcloud config list --format &amp;#39;value(core.project)&amp;#39;)&#xD;
-&#xD;
-&#xD;
-cf restart $APP_NAME
-&lt;/code&gt;&lt;/pre&gt;
-&lt;ul&gt;
-  &lt;li&gt;
-  &lt;p&gt;warning! this script &lt;strong&gt;deletes&lt;/strong&gt; the existing application. You don’t need to, but it ensures things are cleanly reset :)&lt;/p&gt;&lt;/li&gt;
-  &lt;li&gt;
-  &lt;p&gt;here we push the application, giving it a random route, and tell Cloud Foundry to &lt;em&gt;not&lt;/em&gt; start it. Then, we specify environment variables for the application.&lt;/p&gt;&lt;/li&gt;
-  &lt;li&gt;
-  &lt;p&gt;finally, we start the application now that we’re done securing it.&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;Tip&lt;/strong&gt;&lt;/p&gt;
-  &lt;p&gt;In both &lt;code&gt;run.sh&lt;/code&gt; and &lt;code&gt;deploy.sh&lt;/code&gt; we used &lt;code&gt;base64 -w0&lt;/code&gt; to encode the &lt;code&gt;.json&lt;/code&gt; service account file in Base64. One of us is running on Linux and the other on OS X. The &lt;code&gt;-w0&lt;/code&gt; operand ensures that the Base64 encoded file isn’t hard-wrapped, that it is one contiguous line of text, when running on Linux against the &lt;code&gt;GNU&lt;/code&gt; &lt;code&gt;base64&lt;/code&gt; utility.&lt;/p&gt;
-&lt;/blockquote&gt;</content>
   </entry>
 </feed>

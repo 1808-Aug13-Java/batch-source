@@ -1,7 +1,10 @@
 
-psquid:S18544";Remove this useless assignment to local variable "groupPK".(²˜þô8¶ª„õß,HçÂRMAJORZ
+|squid:UselessImportCheck
+"5Remove this unused import 'com.revature.models.Post'.(ðÿèºûÿÿÿÿ8•‹¬žá,HÎÑRMINORZ
 CODE_SMELL
-ssquid:S1155%">Use isEmpty() to check whether the collection is empty or not.(Ííõî8ŠûÎÝà,HéÂRMINORZ
+ssquid:S1155&">Use isEmpty() to check whether the collection is empty or not.(Ííõî8ŠûÎÝà,HÏÑRMINORZ
 CODE_SMELL
-asquid:S14814",Remove this unused "groupPK" local variable.(²˜þô8¶ª„õß,HèÂRMINORZ
+psquid:S18545";Remove this useless assignment to local variable "groupPK".(²˜þô8¶ª„õß,HÐÑRMAJORZ
+CODE_SMELL
+asquid:S14815",Remove this unused "groupPK" local variable.(²˜þô8¶ª„õß,HÑÑRMINORZ
 CODE_SMELL
