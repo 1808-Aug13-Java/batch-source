@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Understanding JQuery</title>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+       crossorigin="anonymous">
+
+   <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+	   crossorigin="anonymous"></script> -->
+	   
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+       crossorigin="anonymous"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+       crossorigin="anonymous"></script>
+</head>
+<body>
+	<div class="jumbotron">
+		<h2>Grocery List</h2>
+		<h4 id="currentCount"></h4>
+		<input type="text" class="form-control col-6" id="newItem" placeholder="New Item..."/>
+		<button id="add" class="btn btn-submit">Add Item!</button>
+
+		<div class="row">
+			<div class="col">
+				<h5>To Buy</h5>
+				<ul id="toBuy">
+					<li>Ribs</li>
+					<li>Steak</li>
+					<li>Surloin</li>
+				</ul>
+			</div>
+			<div class="col">
+				<h5>Bought</h5>
+				<ul id="bought">
+				</ul>
+			</div>
+		</div>
+
+
+		<hr/>
+
+		<h2>jQuery with Ajax</h2>
+		<h5>Welcome to Star Wars! Choose your fighter!</h5>
+		<input type="number" id="swId"/>
+
+		<button id="ajaxGET">May the force be with you</button>
+		<p id="swPerson"></p>
+		
+
+		<hr>
+		<input type="text" id="weatherInput"/>
+
+		<button id="ajaxGET2">Weather</button>
+		<p id="weather"></p>
+	</div>
+
+
+
+
+
+	<script>
+		$('#ajaxGET').click(function () {
+			let url = 'https://swapi.co/api/people/' + $('#swId').val();
+			console.log("Get Sent");
+
+			$.getJSON(url, function (data, status) {
+				console.log('asfd');
+				$('#swPerson').text(data.name);
+			})
+		});
+
+		$('#ajaxGET2').click(function () {
+			let url = 'https://query.yahooapis.com/v1/public/yql?q=' + 
+				'select%20*%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22' + 
+				$('#weatherInput').val() + 
+				'%22)&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys';
+			let queryArgs = $('#weatherInput').val();
+			console.log("Query Args: " + queryArgs);
+			// url = "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast" +
+			//   "%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22" +
+			//   queryArgs + 			  "\")&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys";
+			console.log("Get Sent2");
+
+			$.getJSON(url, function (data, status) {
+				console.log('asfd2');
+				console.log(data);
+				let results = data.query.results;
+				if (results) {
+					$('#weather').text(results.channel.item.forecast[0].text);
+				} else {
+					$('#weather').text('Not Found');
+				}
+				
+				
+			})
+		});
+
+
+
+
+		function updateCount() {
+			let count = $('#toBuy').children().length;
+			$('#currentCount').text("Items: " + count);
+			return count;
+		}
+
+		updateCount();
+
+		$('#toBuy').on('click', 'li', function() {
+			// Move the item out of the to buy lsit to the bought list
+			$('#bought').append($(this));
+			// Text decoration: likne-through
+			$(this).css('text-decoration', 'line-through');
+
+			console.log(updateCount());
+		});
+
+		// Add a new list item to the list from the text field upon clicking the button
+		$('#add').click(function () {
+			let inputText = $('#newItem').val();
+			// Set the text of a new, empty list item. 
+			let item = $('<li></li>').text(inputText);
+
+			// Append the list item to the unordered list of things to buy
+			$('#toBuy').append(item);
+			// Blank the new item box
+			$('#newItem').val('');
+
+			// Update the count of groceries on the list. 
+			console.log(updateCount());
+
+			// Or can do 
+			// $('#currentCount').html(++count);
+		});
+
+		
+	</script>
+</body>
+</html>
