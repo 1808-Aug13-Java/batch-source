@@ -1,20 +1,20 @@
 package com.revature.models;
 
+import java.util.List;
+
 public class Employee {
 	private long id;
 	private String name;
-	private String username;
-	private String passwordHash;
+	private List<Reimbursement> reimbursements;
 	
 	
 	public Employee() {}
 	
-	public Employee(long id, String name, String username, String passwordHash) {
+	public Employee(long id, String name, List<Reimbursement> reimbursements) {
 		super();
 		this.id = id;
 		this.name = name;
-		this.username = username;
-		this.passwordHash = passwordHash;
+		this.reimbursements = reimbursements;
 	}
 
 	public long getId() {
@@ -33,29 +33,22 @@ public class Employee {
 		this.name = name;
 	}
 
-	public String getUsername() {
-		return username;
+	public List<Reimbursement> getReimbursements() {
+		return reimbursements;
 	}
 
-	public void setUsername(String username) {
-		this.username = username;
+	public void setReimbursements(List<Reimbursement> reimbursements) {
+		this.reimbursements = reimbursements;
 	}
 
-	public String getPasswordHash() {
-		return passwordHash;
-	}
-
-	public void setPasswordHash(String passwordHash) {
-		this.passwordHash = passwordHash;
+	@Override
+	public String toString() {
+		return "Employee [id=" + id + ", name=" + name + ", reimbursements=" + reimbursements + "]";
 	}
 
 	
-	@Override
-	public String toString() {
-		return "Employee [id=" + id + ", name=" + name + ", username=" 
-				+ username + ", passwordHash=" + passwordHash
-				+ "]";
-	}
+
+	
 	
 	
 } // end of class Employee

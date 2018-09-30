@@ -10,8 +10,8 @@ public class Manager extends Employee{
 	public Manager() {}
 
 
-	public Manager(long id, String name, String username, String passwordHash, List<Employee> employees) {
-		super(id, name, username, passwordHash);
+	public Manager(long id, String name, List<Reimbursement> reimbursements, List<Employee> employees) {
+		super(id, name, reimbursements);
 		this.employees = employees;
 	}
 
@@ -28,12 +28,14 @@ public class Manager extends Employee{
 
 	@Override
 	public String toString() {
-		return "Manager [getPasswordHash()=" + getPasswordHash()
-				+ ", getId()=" + getId()
+		return "Manager [getId()=" + getId() 
 				+ ", getName()=" + getName()
-				+ ", getUsername()=" + getUsername()
-				+ ", employees=" + employees
-				+ "]";
+				+ ", getReimbursements()=" + getReimbursements() 
+				+ "employees=" + employees + "]";
 	}
+
+
+	
+	
 	
 } // end of Managers
