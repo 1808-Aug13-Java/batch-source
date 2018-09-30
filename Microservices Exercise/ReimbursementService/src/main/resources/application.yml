@@ -1,0 +1,14 @@
+
+#This was the previous config for the application.yml
+server.port: 4444
+
+spring:
+  application:
+    name: Reimbursement-Service
+
+eureka:
+  client:
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+      
