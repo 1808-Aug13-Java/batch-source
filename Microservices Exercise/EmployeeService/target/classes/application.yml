@@ -1,19 +1,21 @@
 
+#Sets the port number to run this service on
 server.port: 3000
 
-spring.application.name: employee-service
+#Sets the name of this service
+spring.application.name: Employee-Service
 
-
+#Configuration settings for Eureka Discovery Service. 
 eureka:
   client:
     fetch-registry: true
     service-url:
       defaultZone: http://localhost:8761/eureka/
-  instance:
-    lease-renewal-interval-in-seconds: 30
-    lease-expiration-duration-in-seconds: 90
+#  instance:
+#    lease-renewal-interval-in-seconds: 30
+#    lease-expiration-duration-in-seconds: 90
 
-
+# Enables the feign client short circuiting provided by Netflix Hystrix. 
 feign:
   hystrix:
     enabled: true;

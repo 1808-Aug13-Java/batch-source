@@ -1,0 +1,25 @@
+
+server.port: 8765
+
+spring:
+  application:
+    name: Gateway-Server
+
+eureka:
+  client:
+#    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+
+zuul:
+  routes: 
+    account: 
+      path: /employees/**
+      serviceId: Employee-Service
+      strip-prefix: false # Setting this to false strips the prefixes in a url. true does not. (The exact opposite of what it says)
+    customer: 
+      path: /reimbursements/**
+      serviceId: Reimbursement-Service
+      strip-prefix: false # Setting this to false strips the prefixes in a url. true does not.
+
