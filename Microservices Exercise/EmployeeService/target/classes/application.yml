@@ -1,0 +1,19 @@
+
+server.port: 3000
+
+spring.application.name: employee-service
+
+
+eureka:
+  client:
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    lease-renewal-interval-in-seconds: 30
+    lease-expiration-duration-in-seconds: 90
+
+
+feign:
+  hystrix:
+    enabled: true;
