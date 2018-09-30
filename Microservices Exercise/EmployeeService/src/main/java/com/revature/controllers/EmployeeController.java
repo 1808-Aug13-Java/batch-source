@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.models.Employee;
+import com.revature.models.Manager;
 
 @RestController
 @RequestMapping("/employees")
@@ -21,7 +22,13 @@ public class EmployeeController {
 	
 	
 	public EmployeeController() {
+		employees.add(new Employee(1, "Sphen", null));
+		employees.add(new Employee(2, "Dylan", null));
 		
+		// Add a manager over all the previous employees in the list
+		employees.add(new Manager(3, "Bob", null, new ArrayList<Employee>(employees)));
+		
+		employees.add(new Employee(4, "Michael", null));
 	} // end of constructor EmployeeController
 	
 	
@@ -51,7 +58,6 @@ public class EmployeeController {
 		//TODO: Implement the getting of the reimbursements. 
 		return emp;
 	} // end of getAllEmployees
-	
 	
 	
 	
