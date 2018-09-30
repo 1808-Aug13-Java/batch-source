@@ -1,15 +1,19 @@
 package com.revature.controllers;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.revature.intercom.ReimbursementClient;
 import com.revature.models.Employee;
 import com.revature.models.Manager;
+import com.revature.models.Reimbursement;
 
 @RestController
 @RequestMapping("/employees")
@@ -19,6 +23,9 @@ public class EmployeeController {
 	 * a database. */
 	List<Employee> employees = new ArrayList<>();
 	
+	
+	@Autowired
+	private ReimbursementClient remClient;
 	
 	
 	public EmployeeController() {
@@ -36,7 +43,22 @@ public class EmployeeController {
 	/** Returns a list of all employees. */
 	@GetMapping() 
 	public List<Employee> getAllEmployees() {
-		//TODO: Implement the getting of the reimbursements. 
+		List<Reimbursement> rems = remClient.getAllReimbursements();
+		
+		//Could do this efficiently with hashmaps, but this is just a demo, 
+		// so O(n^2) is fine. 
+		for (Employee emp : employees) {
+			List<Reimbursement> empRems = new ArrayList<>();
+			
+			for (Reimbursement rem : rems) {
+				if (rem.getRequester() == emp.getId()) {
+					empRems.add(rem);
+				}
+			}
+			
+			emp.setReimbursements(empRems);
+		}
+		
 		return employees;
 	} // end of getAllEmployees
 	
@@ -55,7 +77,10 @@ public class EmployeeController {
 			}
 		} // end for
 		
-		//TODO: Implement the getting of the reimbursements. 
+		// If there is an employee by that id, get their reimbursements. 
+		if (emp != null) {
+			emp.setReimbursements(remClient.getReimbursmentsByEmpId(emp.getId()));
+		}
 		return emp;
 	} // end of getAllEmployees
 	

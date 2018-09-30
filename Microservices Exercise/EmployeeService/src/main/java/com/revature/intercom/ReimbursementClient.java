@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import com.revature.models.Reimbursement;
 
-@FeignClient(name = "Account-Service", fallback=ReimbursementFallback.class)
+@FeignClient(name = "Reimbursement-Service", fallback=ReimbursementFallback.class)
 public interface ReimbursementClient {
 	
 	/** Returns a list of all the reimbursements. */
