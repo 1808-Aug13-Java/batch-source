@@ -20,7 +20,7 @@
 	</parent>
 
 	<build>
-		<finalName>account-service</finalName>
+		<finalName>account-service-1</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
