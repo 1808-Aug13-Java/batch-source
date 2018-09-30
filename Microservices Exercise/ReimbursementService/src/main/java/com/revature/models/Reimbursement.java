@@ -4,27 +4,27 @@ import java.util.Date;
 
 public class Reimbursement {
 	private long id;
-	private Employee requester;
+	private long requesterId;
 	private String status;
 	private double amount;
 	private Date submitDate;
 	private String description;
-	private Manager resolvedBy;
+	private long resolvedById;
 	private String reason;
 	private Date resolveDate;
 	
 	public Reimbursement() {}
 
-	public Reimbursement(long id, Employee requester, String status, double amount, Date submitDate,
-			String description, Manager resolvedBy, String reason, Date resolveDate) {
+	public Reimbursement(long id, long requesterId, String status, double amount, Date submitDate,
+			String description, long resolvedById, String reason, Date resolveDate) {
 		super();
 		this.id = id;
-		this.requester = requester;
+		this.requesterId = requesterId;
 		this.status = status;
 		this.amount = amount;
 		this.submitDate = submitDate;
 		this.description = description;
-		this.resolvedBy = resolvedBy;
+		this.resolvedById = resolvedById;
 		this.reason = reason;
 		this.resolveDate = resolveDate;
 	}
@@ -37,12 +37,12 @@ public class Reimbursement {
 		this.id = id;
 	}
 
-	public Employee getRequester() {
-		return requester;
+	public long getRequester() {
+		return requesterId;
 	}
 
-	public void setRequester(Employee requester) {
-		this.requester = requester;
+	public void setRequester(long requesterId) {
+		this.requesterId = requesterId;
 	}
 
 	public String getStatus() {
@@ -77,12 +77,12 @@ public class Reimbursement {
 		this.description = description;
 	}
 
-	public Manager getResolvedBy() {
-		return resolvedBy;
+	public long getResolvedBy() {
+		return resolvedById;
 	}
 
-	public void setResolvedBy(Manager resolvedBy) {
-		this.resolvedBy = resolvedBy;
+	public void setResolvedBy(long resolvedBy) {
+		this.resolvedById = resolvedBy;
 	}
 
 	public String getReason() {
@@ -103,8 +103,8 @@ public class Reimbursement {
 
 	@Override
 	public String toString() {
-		return "Reimbursement [id=" + id + ", Requester=" + requester + ", status=" + status + ", amount=" + amount
-				+ ", submitDate=" + submitDate + ", description=" + description + ", resolvedBy=" + resolvedBy
+		return "Reimbursement [id=" + id + ", RequesterId=" + requesterId + ", status=" + status + ", amount=" + amount
+				+ ", submitDate=" + submitDate + ", description=" + description + ", resolvedById=" + resolvedById
 				+ ", reason=" + reason + ", resolveDate=" + resolveDate + "]";
 	}
 	
