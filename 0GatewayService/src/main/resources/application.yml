@@ -1,0 +1,17 @@
+server:
+  port: 8765
+  
+spring:
+  application:
+    name: gateway-service
+    
+zuul:
+  routes:
+    employee:
+      path: /employees/**
+      service-id: employee-service
+      strip-prefix: false
+    reimbursement:
+      path: /reimbursements/**
+      service-id: reimbursement-service
+      strip-prefix: false

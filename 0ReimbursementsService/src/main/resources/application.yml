@@ -1,0 +1,13 @@
+server:
+  port: 2333
+
+spring:
+  application:
+    name: reimbursement-service
+eureka:
+  client:
+    fetch-registry: true  #you set to true to put the name of your service on eureka server
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+        
+    
