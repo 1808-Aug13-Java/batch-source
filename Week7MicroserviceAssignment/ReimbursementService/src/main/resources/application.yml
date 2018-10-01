@@ -1,0 +1,12 @@
+server:
+  port: 5353
+  
+spring:
+  application:
+    name: reimbursement-service
+    
+eureka:
+  client:
+    fetch-registry: true
+    service-url:
+      default-zone: http://localhost:8761/eureka
