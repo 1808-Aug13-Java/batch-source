@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:tx="http://www.springframework.org/schema/tx"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.2.xsd">
+        
+        <context:component-scan base-package="com.revature"></context:component-scan>
+        
+        
+        <bean id="OurDatabase" class="org.apache.dbcp.BasicDataSource">
+        	<property name="url" value="jdbc:oracle:thin:@revaturesinhacdbinstance.caw8qcboduuv.us-east-2.rds.amazonaws.com:1521:ORCL"></property>
+        	<property name="username" value="sinhac"/>
+        	<property name="password" value="da1du!us"></property>
+        	<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"></property>
+        </bean>
+        
+        <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+        	<property name="datasource" ref="OurDatabase" />
+        	<property name = "packagesToScan" value="com.revature" />
+        	<property name="hibernateProperties">
+        		<props>
+        			<prop key="hibernate.dialect">or.hibernate.dialect.Oracle10gDialect</prop>
+        			<prop key="hibernate.show_sql">true</prop> 			
+        		</props>
+        	</property>
+        </bean>
+        
+        <bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransaction">
+        	<property name="sessionFactory" ref="sessionFactory"/>
+        	<property name = "nestedTransactionAllowed" value="true"/>
+        </bean>
+</beans>

@@ -1,0 +1,12 @@
+server:
+  port: 1123
+  
+spring:
+  application:
+    name: reimbursement-service
+
+eureka:
+  client:
+    fetch-registry: true
+    service-url:
+      default-zone: http://localhost:1100/eureka/

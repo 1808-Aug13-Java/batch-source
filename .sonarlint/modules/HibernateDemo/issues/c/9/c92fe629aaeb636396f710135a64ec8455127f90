@@ -1,0 +1,8 @@
+
+Tsquid:S1481%"'Remove this unused "tx" local variable.(ршл|Hж÷RMINORZ
+CODE_SMELL
+csquid:S1854%"6Remove this useless assignment to local variable "tx".(ршл|Hв÷RMAJORZ
+CODE_SMELL
+psquid:UselessImportCheck
+"5Remove this unused import 'com.revature.models.Cave'.(║В√ъHь÷RMINORZ
+CODE_SMELL

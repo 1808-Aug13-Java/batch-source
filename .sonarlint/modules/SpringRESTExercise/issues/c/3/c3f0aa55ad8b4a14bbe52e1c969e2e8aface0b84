@@ -1,0 +1,12 @@
+
+Пsquid:S2637"a"id" is marked "javax.validation.constraints.NotNull" but is not initialized in this constructor.(…џп‘8ЬІјея,Hп•RMINORZBUG
+Фsquid:S3973U"WUse curly braces or indentation to denote the code conditionally executed by this "if".(ЬГёРэ€€€€8ЬІјея,Hс•RCRITICALZ
+CODE_SMELL
+Кsquid:S3776E"RRefactor this method to reduce its Cognitive Complexity from 19 to the 15 allowed.(Н№—г8ЬІјея,Hх•RCRITICALZ
+CODE_SMELL
+Пsquid:S3973_"WUse curly braces or indentation to denote the code conditionally executed by this "if".(ЊЄЏё8ЬІјея,Hу•RCRITICALZ
+CODE_SMELL
+Пsquid:S3973P"WUse curly braces or indentation to denote the code conditionally executed by this "if".(∞«ЈП8ЬІјея,Hр•RCRITICALZ
+CODE_SMELL
+Фsquid:S3973Z"WUse curly braces or indentation to denote the code conditionally executed by this "if".(©виещ€€€€8ЬІјея,Hт•RCRITICALZ
+CODE_SMELL

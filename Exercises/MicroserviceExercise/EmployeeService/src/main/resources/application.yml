@@ -1,0 +1,19 @@
+server:
+  port: 1122
+  
+spring:
+  application:
+    name: employee-service
+  
+eureka:
+  client:
+    fetch-registry: true
+    service-url:
+      default-zone: http://localhost:1100/eureka/
+#  instance: 
+#    lease-renewal-interval-in-seconds: 1
+#    lease-expiration-duration-in-seconds: 2
+    
+feign:
+  hystrix:
+    enabled: true

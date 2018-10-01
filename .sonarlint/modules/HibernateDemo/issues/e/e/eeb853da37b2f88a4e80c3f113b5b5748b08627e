@@ -1,13 +1,13 @@
 
-dsquid:S1135("2Complete the task associated to this TODO comment.(ƒŠ® úÿÿÿÿHĞRINFOZ
+dsquid:S1135("2Complete the task associated to this TODO comment.(ƒŠ® úÿÿÿÿH‡ÂRINFOZ
 CODE_SMELL
-squid:S3973ƒ"WUse curly braces or indentation to denote the code conditionally executed by this "if".(©âèåùÿÿÿÿHÏRCRITICALZ
+squid:S3973w"WUse curly braces or indentation to denote the code conditionally executed by this "if".(®ÊªØùÿÿÿÿHˆÂRCRITICALZ
 CODE_SMELL
-squid:S3973w"WUse curly braces or indentation to denote the code conditionally executed by this "if".(®ÊªØùÿÿÿÿHÍRCRITICALZ
+ˆsquid:S3973r"WUse curly braces or indentation to denote the code conditionally executed by this "if".(ç…–H‰ÂRCRITICALZ
 CODE_SMELL
-ƒsquid:S3776g"RRefactor this method to reduce its Cognitive Complexity from 20 to the 15 allowed.(ÜÑãHÑRCRITICALZ
+ƒsquid:S3776g"RRefactor this method to reduce its Cognitive Complexity from 20 to the 15 allowed.(ÜÑãHŠÂRCRITICALZ
 CODE_SMELL
-ˆsquid:S3973|"WUse curly braces or indentation to denote the code conditionally executed by this "if".(íš½HÎRCRITICALZ
+ˆsquid:S3973|"WUse curly braces or indentation to denote the code conditionally executed by this "if".(íš½H‹ÂRCRITICALZ
 CODE_SMELL
-ˆsquid:S3973r"WUse curly braces or indentation to denote the code conditionally executed by this "if".(ç…–HÌRCRITICALZ
+squid:S3973ƒ"WUse curly braces or indentation to denote the code conditionally executed by this "if".(©âèåùÿÿÿÿHŒÂRCRITICALZ
 CODE_SMELL

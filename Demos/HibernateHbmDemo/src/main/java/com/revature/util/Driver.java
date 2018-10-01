@@ -69,8 +69,8 @@ public class Driver {
 		bd.createBear(b2);
 		bd.createBear(b3);
 		
-		BearDao bd = new BearDaoImpl();
-		List<Bear> bears = bd.getBears();
+		BearDao bdi = new BearDaoImpl();
+		List<Bear> bears = bdi.getBears();
 		for (Bear b : bears) {
 			System.out.println(b);
 		}

@@ -1,0 +1,18 @@
+
+”squid:S3973}"WUse curly braces or indentation to denote the code conditionally executed by this "if".(ÁÀŸÈÿÿÿÿÿ8ÔÚÂß,H©¥RCRITICALZ
+CODE_SMELL
+•squid:S3973Œ"WUse curly braces or indentation to denote the code conditionally executed by this "if".(‹»¢’ûÿÿÿÿ8ÔÚÂß,H«¥RCRITICALZ
+CODE_SMELL
+squid:S3973–"WUse curly braces or indentation to denote the code conditionally executed by this "if".(‘ÈÁ•8ÔÚÂß,Hª¥RCRITICALZ
+CODE_SMELL
+•squid:S3973‘"WUse curly braces or indentation to denote the code conditionally executed by this "if".(õÆ¥°şÿÿÿÿ8ÔÚÂß,H¯¥RCRITICALZ
+CODE_SMELL
+Šsquid:S3776r"RRefactor this method to reduce its Cognitive Complexity from 27 to the 15 allowed.(ÜÑã8ÔÚÂß,H°¥RCRITICALZ
+CODE_SMELL
+•squid:S3973‡"WUse curly braces or indentation to denote the code conditionally executed by this "if".(Ñ–ÂÅøÿÿÿÿ8ÔÚÂß,H­¥RCRITICALZ
+CODE_SMELL
+•squid:S3973‚"WUse curly braces or indentation to denote the code conditionally executed by this "if".(¾†Ïûşÿÿÿÿ8ÔÚÂß,H¬¥RCRITICALZ
+CODE_SMELL
+ksquid:S1135'"2Complete the task associated to this TODO comment.(ƒŠ® úÿÿÿÿ8ÔÚÂß,H®¥RINFOZ
+CODE_SMELL
+‘squid:S2637%"d"email" is marked "javax.validation.constraints.NotNull" but is not initialized in this constructor.(øş±,8·É ãß,Hµ¥RMINORZBUG

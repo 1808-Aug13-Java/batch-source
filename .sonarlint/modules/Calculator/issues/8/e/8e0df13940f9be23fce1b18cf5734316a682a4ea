@@ -1,0 +1,19 @@
+
+†squid:S1192"IDefine a constant instead of duplicating this literal "3 + 6 = " 4 times.(¢‚Æüÿÿÿÿ8°õ¶¥ß,H™RCRITICALZ
+CODE_SMELL
+r
+squid:S106"9Replace this use of System.out or System.err by a logger.(ûÿ³Ôúÿÿÿÿ8°õ¶¥ß,HšRMAJORZ
+CODE_SMELL
+r
+squid:S106"9Replace this use of System.out or System.err by a logger.(öœçëıÿÿÿÿ8¢…¨¥ß,HŠRMAJORZ
+CODE_SMELL
+†squid:UselessImportCheck"?Remove this unused import 'org.aspectj.lang.annotation.Around'.(ï°Œşûÿÿÿÿ8Ğò´¥ß,H”RMINORZ
+CODE_SMELL
+ƒsquid:UselessImportCheck"ARemove this unused import 'org.aspectj.lang.ProceedingJoinPoint'.(ç—Âû8Ğò´¥ß,H“RMINORZ
+CODE_SMELL
+m
+squid:S106$"9Replace this use of System.out or System.err by a logger.(ÀÀğæ8°õ¶¥ß,H›RMAJORZ
+CODE_SMELL
+r
+squid:S106"9Replace this use of System.out or System.err by a logger.(¢‚Æüÿÿÿÿ8Ö•¥ß,HòRMAJORZ
+CODE_SMELL

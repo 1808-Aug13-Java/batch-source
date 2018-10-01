@@ -1,0 +1,17 @@
+server:
+  port: 1120
+  
+spring:
+  application:
+    name: gateway-server
+    
+zuul:
+  routes:
+    reimbursement:
+      path: /reimbursements/**
+      service-id: reimbursement-service
+      strip-prefix: false
+    employee:
+      path: /employees/**
+      service-id: employee-service
+      strip-prefix: false

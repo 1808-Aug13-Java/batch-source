@@ -1,0 +1,10 @@
+
+{squid:S1126D"AReplace this if-then-else statement by a single return statement.(é’¿Àüÿÿÿÿ8€Ù‰á,HÀÂRMINORZ
+CODE_SMELL
+ksquid:S1135
+"2Complete the task associated to this TODO comment.(ƒŠ® úÿÿÿÿ8€Ù‰á,HÁÂRINFOZ
+CODE_SMELL
+squid:S3973="WUse curly braces or indentation to denote the code conditionally executed by this "if".(ˆØÌ8€Ù‰á,H¾ÂRCRITICALZ
+CODE_SMELL
+”squid:S3973B"WUse curly braces or indentation to denote the code conditionally executed by this "if".(©âèåùÿÿÿÿ8€Ù‰á,H¿ÂRCRITICALZ
+CODE_SMELL
