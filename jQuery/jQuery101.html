@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Understanding jQuery</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+       crossorigin="anonymous">    
+
+       <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+       <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+       crossorigin="anonymous"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+       crossorigin="anonymous"></script>'
+</head>
+<body>
+    <div class="jumbotron">
+        <h2>Grocery List (<span id="count"></span>)</h2>
+        <input type="text" class="form-control col-6" id="newItem"
+            placeholder="New Item...">
+        <button id="add" class="btn btn-primary">Add Item!</button>
+        <div class="row">
+            <div class="col">
+                <h4>To Buy</h4>
+                <ul id="toBuy">
+                    <li>wine</li>
+                    <li>ribs</li>
+                    <li>water</li>
+                </ul>
+            </div>
+            <div class="col">
+                <h4>Purchased</h4>
+                <ul id="bought">
+            
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <h2>jQuery with AJAX</h2>
+    <h5>Welcome to Star Wars! Choose your fighter.</h5>
+    <input type="number" id="swId">
+    <button id="ajaxGET">May the Force be with you</button>
+    <p id="swPerson"></p>
+
+    <hr>
+
+    <h5>Warframe Alerts</h5>
+    <button id="refreshAlerts">Refresh Alerts</button>
+    <button id="refreshAlerts2">Refresh Alerts</button>
+    <ul id="alertsList">
+
+    </ul>
+    
+    <script>
+    // $('li').click(function(){
+    //     console.log( $(this).text() );
+    // });
+
+    var count=3;
+
+    // add new LI to UL with text from input field upon button click
+    $('#add').click(function(){
+        let text = $("#newItem").val();
+        let item = $('<li></li>').text(text);
+        if (text != '') {
+            $('#toBuy').append(item);
+            $('#newItem').val('');
+            $('#count').html(++count);
+        }
+        // $('#count').text($('li').length);
+    });
+
+    $(document).ready(function(){
+        $('#count').html(count);
+    });
+
+    // Using on allows for multiple events to be binded to an element in one line
+    $('#toBuy').on('click', 'li', function(){
+        // {text-decoration: line-through}
+        $(this).css(`text-decoration`, 'line-through');
+        $('#count').html(--count);
+        // Move item to purchased list
+        $("#bought").append($(this));
+    });
+
+
+    //AJAX WTIH JQUERY
+    $('#ajaxGET').click(function(){
+        let url = 'https://swapi.co/api/people/' + $('#swId').val();
+        $.get(url, function(data, status){
+            console.log(data);
+            $('#swPerson').text(data.name);
+            console.log(status);
+        })
+    })
+
+    $('#refreshAlerts').click(function(){
+        let url = 'https://api.warframestat.us/pc';
+        $.get(url, function(data, status){
+            console.log(data);
+            $('#alertsList li').remove();
+            data.alerts.forEach(alert => {
+                let item = $('<li></li>').text(alert.mission.node + ' eta: ' + alert.eta);
+                $('#alertsList').append(item);
+            });
+        })
+    })
+
+    $('#refreshAlerts2').click(function(){
+        let link = 'https://api.warframestat.us/pc';
+        $.ajax({
+            url: link,
+            type: 'GET',
+            // headers: {
+            //     "Access-Control-Allow-Headers":"Origin"
+            // },
+            success: function(response, status){
+                console.log(response);
+            }
+        })
+    })
+
+    </script>
+</body>
+</html>

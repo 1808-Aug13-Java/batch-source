@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Clock</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+       crossorigin="anonymous">    
+
+       <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+       <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+       crossorigin="anonymous"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+       crossorigin="anonymous"></script>'
+<style>
+    #clock {
+            position: relative;
+            width: 600px;
+            height: 600px;
+            margin: 20px auto 0 auto;
+            background: url(images/clockface.jpg);
+            list-style: none;
+        }
+
+        #sec,
+        #min,
+        #hour {
+            position: absolute;
+            width: 30px;
+            height: 600px;
+            top: 0px;
+            left: 285px;
+        }
+
+        #sec {
+            background: url(images/sechand.png);
+            z-index: 3;
+        }
+
+        #min {
+            background: url(images/minhand.png);
+            z-index: 2;
+        }
+
+        #hour {
+            background: url(images/hourhand.png);
+            z-index: 1;
+        }
+</style>
+    
+</head>
+<body>
+    
+
+    <h1>Tell time with AJAX</h1>
+
+    <ul id="clock">
+        <li id="sec"></li>
+        <li id="hour"></li>
+        <li id="min"></li>
+    </ul>
+
+    
+    <script>
+        $(document).ready(function(){
+
+            // Move second hand
+            setInterval(function(){
+                var seconds = new Date().getSeconds();
+                var srotate = `rotate(${seconds * 6}deg)`;
+                $('#sec').css({
+                    "moz-transform":srotate,
+                    '-webkit-transform': srotate
+                })
+            }, 1000);
+
+            //minute hand
+            setInterval(function(){
+                var minutes = new Date().getMinutes();
+                var mrotate = `rotate(${minutes * 6}deg)`;
+                $('#min').css({
+                    "moz-transform":mrotate,
+                    '-webkit-transform': mrotate
+                })
+            }, 1000);
+
+            //hour hand
+            setInterval(function(){
+                var hours = new Date().getHours();
+                var minutes = new Date().getMinutes();
+                var hrotate = `rotate(${(hours * 30 + minutes/2)}deg)`;
+                $('#hour').css({
+                    "moz-transform":hrotate,
+                    '-webkit-transform': hrotate
+                })
+            }, 1000);
+        })
+    </script>
+</body>
+</html>
