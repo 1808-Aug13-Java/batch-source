@@ -1,0 +1,13 @@
+
+jsquid:S1135"2Complete the task associated to this TODO comment.(ƒŠ® úÿÿÿÿ8”„¯á,HÀRINFOZ
+CODE_SMELL
+tsquid:S1126X"AReplace this if-then-else statement by a single return statement.(Î¬¶8”„¯á,H¿RMINORZ
+CODE_SMELL
+‰squid:S3776?"RRefactor this method to reduce its Cognitive Complexity from 17 to the 15 allowed.(ÜÑã8”„¯á,HÁRCRITICALZ
+CODE_SMELL
+“squid:S3973J"WUse curly braces or indentation to denote the code conditionally executed by this "if".(İÔ¦îüÿÿÿÿ8”„¯á,H¼RCRITICALZ
+CODE_SMELL
+squid:S3973Q"WUse curly braces or indentation to denote the code conditionally executed by this "if".(ô˜Z8”„¯á,H½RCRITICALZ
+CODE_SMELL
+“squid:S3973V"WUse curly braces or indentation to denote the code conditionally executed by this "if".(î¬È’şÿÿÿÿ8”„¯á,H¾RCRITICALZ
+CODE_SMELL

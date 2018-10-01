@@ -1,0 +1,14 @@
+server:
+  port: 3333
+  
+eureka:
+  client:
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+      
+feign:
+  hystrix:
+    enable: true
+      
+      

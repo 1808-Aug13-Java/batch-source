@@ -1,0 +1,11 @@
+
+“squid:S3973C"WUse curly braces or indentation to denote the code conditionally executed by this "if".(±Ú®ÿÿÿÿÿ8Ã’Í±á,H®RCRITICALZ
+CODE_SMELL
+“squid:S3973J"WUse curly braces or indentation to denote the code conditionally executed by this "if".(ÁÀŸÈÿÿÿÿÿ8Ã’Í±á,H¯RCRITICALZ
+CODE_SMELL
+“squid:S3973O"WUse curly braces or indentation to denote the code conditionally executed by this "if".(©âèåùÿÿÿÿ8Ã’Í±á,H°RCRITICALZ
+CODE_SMELL
+jsquid:S1135"2Complete the task associated to this TODO comment.(ƒŠ® úÿÿÿÿ8Ã’Í±á,H±RINFOZ
+CODE_SMELL
+‰squid:S37768"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(ÜÑã8Ã’Í±á,H²RCRITICALZ
+CODE_SMELL

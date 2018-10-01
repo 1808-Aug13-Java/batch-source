@@ -1,0 +1,11 @@
+server:
+  port: 2333
+  
+spring:
+  application:
+    name: account-service
+eureka:
+  client:
+    fetch-registry: true
+    service-url: 
+       defaultZone: http://localhost:8761/eureka/

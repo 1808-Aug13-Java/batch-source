@@ -1,0 +1,6 @@
+
+asquid:S14810"-Remove this unused "accounts" local variable.(™ÔÿÕ8Œ Å´á,H°RMINORZ
+CODE_SMELL
+psquid:S18540"<Remove this useless assignment to local variable "accounts".(™ÔÿÕ8Œ Å´á,H±RMAJORZ
+CODE_SMELL
+dsquid:S3655,"7Call "Optional#isPresent()" before accessing the value.(¾ÉÆ 8‡Óé±á,H“RMAJORZBUG

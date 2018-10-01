@@ -1,0 +1,6 @@
+
+dsquid:S3655("7Call "Optional#isPresent()" before accessing the value.(ğŞ8‹ìª½â,H©
+RMAJORZBUG
+squid:S1488("\Immediately return this expression instead of assigning it to the temporary variable "reim".(ğŞ8±Ú«½â,H«
+RMINORZ
+CODE_SMELL
