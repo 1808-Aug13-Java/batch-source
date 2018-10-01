@@ -1,0 +1,19 @@
+server:
+  port: 8765
+spring:
+  application:
+    name: gateway-server
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+zuul:
+  routes:
+    account:
+      path: /accounts/**
+      serviceId: account-service
+      strip-prefix: false
+    customer:
+      path: /customers/**
+      serviceId: customer-service
+      strip-prefix: false
