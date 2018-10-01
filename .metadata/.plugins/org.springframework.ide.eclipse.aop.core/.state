@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aop-reference-model>
-<aop-project name="ReimbursmentService"/>
-<aop-project name="p2-mvc"/>
-<aop-project name="GatewayServiceExercise"/>
-<aop-project name="EmployeeService"/>
-<aop-project name="DiscoveryServiceExercise"/>
+<aop-project name="GatewayService"/>
+<aop-project name="DiscoveryService"/>
+<aop-project name="AccountService"/>
+<aop-project name="CustomerService"/>
+<aop-project name="ConfigServer"/>
 </aop-reference-model>

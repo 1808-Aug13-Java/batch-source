@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Clock</title>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <link rel="icon" href="./images/clockface.jpg">
+  <style>
+    #clock {
+      position: relative;
+      width: 600px;
+      height: 600px;
+      margin: 20px auto 0 auto;
+      background: url(images/clockface.jpg);
+      list-style: none;
+    }
+
+    #sec,
+    #min,
+    #hour {
+      position: absolute;
+      width: 30px;
+      height: 600px;
+      top: 0px;
+      left: 285px;
+    }
+
+    #sec {
+      background: url(images/sechand.png);
+      z-index: 3;
+    }
+
+    #min {
+      background: url(images/minhand.png);
+      z-index: 2;
+    }
+
+    #hour {
+      background: url(images/hourhand.png);
+      z-index: 1;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Tell time with ajax</h1>
+
+  <ul id="clock">
+    <li id="sec"></li>
+    <li id="hour"></li>
+    <li id="min"></li>
+  </ul>
+
+  <script>
+    $(document).ready(function () {
+      // move second hand
+      setInterval(function () {
+        let seconds = new Date().getSeconds();
+        let sRotate = `rotate(${seconds * 6}deg)`;
+        $('#sec').css({
+          'moz-transform': sRotate,
+          '-webkit-transform': sRotate
+        });
+      }, 1000);
+
+      setInterval(function() {
+        let mins = new Date().getMinutes();
+        let mRotate = `rotate(${mins * 6}deg)`;
+        $('#min').css({
+          'moz-transform': mRotate,
+          '-webkit-transform': mRotate
+        });
+
+      }, 1000);
+
+      setInterval(function() {
+        let hours = new Date().getHours();
+        let mins = new Date().getMinutes();
+        console.log(hours);
+        
+        let hRotate = `rotate(${hours*30+(mins/2)}deg)`;
+        $('#hour').css({
+          'moz-transform': hRotate,
+          '-webkit-transform': hRotate
+        });
+
+      }, 1000);
+
+
+
+
+
+
+    });
+  </script>
+</body>
+
+</html>

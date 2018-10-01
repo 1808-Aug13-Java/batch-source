@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>jQuery</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+    crossorigin="anonymous">
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+    crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+</head>
+
+<body>
+
+  <div class="jumbotron">
+    <h2>Grocery List <span id="count"></span></h2>
+    <input type="text" name="" id="newItem" class="form-control col-6" placeholder="New Item...">
+    <br>
+    <button id="add" class="btn btn-submit">Add Item!</button>
+    <div class="row">
+
+      <div class="col">
+        <h4>To Buy</h4>
+        <ul id="toBuy">
+          <li>Wine</li>
+          <li>Ribs</li>
+          <li>Steak</li>
+        </ul>
+      </div>
+
+      <div class="col">
+        <h4>Purchased</h4>
+        <ul id="bought">
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <hr>
+
+  <h5>Welcome to Star Wars!</h5>
+  <br>
+  <h5>Choose your fighter</h5>
+  <br>
+  <input type="number" name="" id="swId">
+
+  <button id="ajaxGet">May the force be with you</button>
+
+  <p id="swPerson">
+
+  </p>
+
+  <hr>
+  <img src="" alt="" id="image" width='200px'>
+  <button id="getImage" type="submit" class="btn btn-success">
+    Get a Random Cat
+  </button>
+
+  <script>
+    // $('li').click(function() {
+    //   console.log( $(this).text() );
+    // });
+    // add new li to ul w/ text from input field upon button click
+
+    let counter = 3;
+    incrementNumOfItems(counter);
+    $('#add').click(function () {
+      incrementNumOfItems();
+      let text = $('#newItem').val();
+      let item = $('<li></li>').text(text);
+      $('#toBuy').append(item);
+      $('#newItem').val('');
+      incrementNumOfItems(++counter);
+    });
+
+    function incrementNumOfItems(count) {
+      $("#count").text(count);
+    }
+
+    $('#toBuy').on('click', 'li', function () {
+      $(this).css('text-decoration', 'line-through');
+      incrementNumOfItems(--counter);
+      $('#bought').append($(this));
+    });
+
+    $('#ajaxGet').click(function () {
+      let id = $('#swId').val();
+      let url = `https://swapi.co/api/people/${id}`;
+      $.ajax({
+        method: 'GET',
+        url: url,
+        success: function (data, status) {
+          $('#swPerson').text(data.name);
+          console.log(status);
+        },
+        error: function (error) {
+          console.log(error);
+        }
+      });
+    });
+
+    $('#getImage').click(function () {
+      let url = "https://aws.random.cat/meow";
+
+      $.ajax({
+        method: 'GET',
+        url: url,
+        success: function (data, status) {
+          $('#image').attr('src', data.file);
+          console.log(data);
+
+        },
+        error: function (error) {
+          console.log(error);
+        }
+      });
+    })
+
+
+    $.ajax({
+      method: 'POST',
+      contentType: "application/json; charset=utf-8",
+      url: 'http://ec2-54-152-253-227.compute-1.amazonaws.com:8080/project2/api/groups/TheOfficeFanFiction/posts',
+      json: JSON.stringify({
+        "id": 73,
+        "title": "this is from ajax",
+        "content": "Jan loves The Office",
+        "imageUrl": null,
+        "user": {
+          "id": "ggl-124",
+          "nickname": "bob1",
+          "groups": []
+        },
+        "group": {
+          "id": 1,
+          "name": "TheOfficeFanFiction",
+          "users": []
+        },
+        "votes": [],
+        "comments": []
+      }),
+
+      success: function (data, status) {
+        console.log(data);
+      },
+      error: function (error) {
+        console.log(error.getAllResponseHeaders());
+      }
+    });
+  </script>
+</body>
+
+</html>

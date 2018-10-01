@@ -5,7 +5,651 @@
   <link rel="self" href="https://spring.io/blog.atom" />
   <id>http://spring.io/blog.atom</id>
   <icon>https://spring.io/favicon.ico</icon>
-  <updated>2018-09-26T12:28:00Z</updated>
+  <updated>2018-09-27T15:00:00Z</updated>
+  <entry>
+    <title>What's new in Spring Data Lovelace?</title>
+    <link rel="alternate" href="https://spring.io/blog/2018/09/27/what-s-new-in-spring-data-lovelace" />
+    <category term="releases" label="Releases" />
+    <author>
+      <name>Oliver Gierke</name>
+    </author>
+    <id>tag:spring.io,2018-09-18:3398</id>
+    <updated>2018-09-27T15:00:00Z</updated>
+    <content type="html">&lt;div class="paragraph"&gt;
+&lt;p&gt;With Spring Data Lovelace just released in its generally available version last week, it is time to have a brief walk through the new features we have added.
+The release train is pretty packed with features.
+In this blog post, I cover the more general ones.
+Advanced, store-specific news is covered in the following blog posts:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="ulist"&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="https://spring.io/blog/2018/09/17/introducing-spring-data-jdbc"&gt;Jens Schauder introducing Spring Data JDBC&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="https://spring.io/blog/2018/09/24/spring-data-jdbc-references-and-aggregates"&gt;Jens again on how to model aggregates with Spring Data JDBC&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="https://spring.io/blog/2018/09/27/what-s-new-in-spring-data-lovelace-for-mongodb"&gt;Christoph Strobl on MongoDB&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="https://spring.io/blog/2018/09/26/what-s-new-in-spring-data-lovelace-for-redis-and-apache-cassandra"&gt;Mark Paluch on Spring Data for Apache Cassandra &amp;amp; Redis&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Read up on those? Alright, then let&amp;#8217;s get started on the more general items.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="sect1"&gt;
+&lt;h2 id="improved-object-mapping-for-immutable-types"&gt;&lt;a class="anchor" href="#improved-object-mapping-for-immutable-types"&gt;&lt;/a&gt;Improved Object Mapping for Immutable Types&lt;/h2&gt;
+&lt;div class="sectionbody"&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;With Spring Data Lovelace, we took the chance to revamp our object mapping facilities that are used by most of the NoSQL modules.
+We have always supported immutable entities, except a tiny aspect: Values that needed to change during database interactions, such as an auto-generated identifier or an optimistic locking version property, have always been changed under the covers.
+This has changed with the latest release.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;To support those properties, we now need you to either provide a wither method (following the &lt;code&gt;with…(…)&lt;/code&gt; naming convention) or&amp;#8201;&amp;#8212;&amp;#8201;in the Kotlin world&amp;#8201;&amp;#8212;&amp;#8201;expose a dedicated &lt;code&gt;copy(…)&lt;/code&gt; method, taking all properties as arguments. The following example uses a &lt;code&gt;withId&lt;/code&gt; method:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code class="language-java" data-lang="java"&gt;class Person {
+
+  private final Long id;
+  private final String firstname, lastname;
+
+  static Person of(String firstname, String lastname) {
+    return new Person(null, firstname, lastname);
+  }
+
+  private Person(Long id, String firstname, String lastname) {
+    // Assign parameters to fields
+  }
+
+  Person withId(Long id) {
+    return new Person(id, this.firstname, this.lastame);
+  }
+
+  // …
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;With Lombok, we can do the same thing, as follows:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code class="language-java" data-lang="java"&gt;@Value(staticConstructor = "of")
+class Person {
+
+  @Wither Long id;
+  String firstname, lastname;
+
+  // …
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;The declared constructor is used when &lt;code&gt;Person&lt;/code&gt; instances are read from the database.
+The wither method for the identifier property comes into play when persisting new entities to the store in the first place.
+Be sure you actually use the result returned from the repository&amp;#8217;s &lt;code&gt;save(…)&lt;/code&gt; method, as this will now be a different instance than the one you handed to the method in the first place.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;We used the work on that aspect to improve the performance of the actual object conversion in some store implementations by avoiding a couple of unnecessary iterations over properties when an immutable type is used.
+For more details on that, see the newly added &lt;a href="https://docs.spring.io/spring-data/mongodb/docs/current/reference/html/#mapping.fundamentals"&gt;section of the reference documentation&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sect1"&gt;
+&lt;h2 id="support-for-vavr-s-try-monad"&gt;&lt;a class="anchor" href="#support-for-vavr-s-try-monad"&gt;&lt;/a&gt;Support for Vavr&amp;#8217;s Try Monad&lt;/h2&gt;
+&lt;div class="sectionbody"&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;By default, Spring Data repositories propagate errors that occur during the execution of a query method as runtime exceptions.
+Proponents of a more functional style of writing Java code usually use Vavr in their application.
+We have had support for Vavr&amp;#8217;s collection types as repository return types for quite a while already.
+Spring Data Lovelace now adds support for the &lt;code&gt;Try&lt;/code&gt; monad, so that errors occurring in the query method execution cause a &lt;code&gt;Failure&lt;/code&gt; instance to be returned instead of an exception being thrown.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code class="language-java" data-lang="java"&gt;interface PersonRepository extends Repository&amp;lt;Person, Long&amp;gt; {
+
+  Try&amp;lt;Option&amp;lt;Person&amp;gt;&amp;gt; findByLastnameContaining(String lastname);
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;That method fails if more than one person can be found with a &lt;code&gt;lastname&lt;/code&gt; that matches the given criteria.
+With &lt;code&gt;Try&lt;/code&gt; being used as return type, a client component might now recover from that exceptional case as follows:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code class="language-java" data-lang="java"&gt;repository.findByLastnameContaining("e")
+  .recover(it -&amp;gt; Match(it).of(
+    Case(instanceOf(IncorrectResultSizeDataAccessException.class), Optional.empty())
+));&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;While this might look a little convoluted in this contrived, tiny example, it is a pretty powerful mechanism, to keep mapping over a potentially available result on code that might throw exceptions.
+Note that, when using a transactional store in combination with this feature, you have to take care of managing transaction rollbacks yourself, as the exception is not actually being thrown any more and does not trigger transaction rollbacks for &lt;code&gt;@Transaction&lt;/code&gt; annotated methods.
+Support for that is on its way.
+Be sure to follow &lt;a href="https://jira.spring.io/browse/SPR-15806"&gt;this ticket&lt;/a&gt; in Spring Framework or even cast your vote on it.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;To see the Vavr support in action, check out the &lt;a href="https://github.com/spring-projects/spring-data-examples/blob/e9405dfa049b8265834cb78c50a932a51307a87d/jpa/vavr/src/"&gt;example&lt;/a&gt; in our canonical Spring Data Examples repository.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sect1"&gt;
+&lt;h2 id="deferred-jpa-repository-initialization"&gt;&lt;a class="anchor" href="#deferred-jpa-repository-initialization"&gt;&lt;/a&gt;Deferred JPA Repository Initialization&lt;/h2&gt;
+&lt;div class="sectionbody"&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Starting up a Spring Data JPA application requires an &lt;code&gt;EntityManagerFactory&lt;/code&gt; to be bootstrapped.
+This usually consumes quite a bit of the startup time of the application overall.
+To tackle this problem, Spring Framework already introduced the ability to bootstrap that &lt;code&gt;EntityManagerFactory&lt;/code&gt; in a background thread and, thus, let other beans get initialized in parallel.
+Unfortunately, Spring Data repositories usually have at least one transitive dependency on some kind of Spring bean.
+Their initialization, in turn, interacts with the factory already, which&amp;#8201;&amp;#8212;&amp;#8201;without further steps&amp;#8201;&amp;#8212;&amp;#8201;caused the initialization of those other components to block.
+This limited the effect of that new functionality significantly.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;As of Spring Data Lovelace, you can now define the repositories to bootstrap in a lazy mode, which automatically declares all injection points of Spring Data repositories as being lazy.
+This causes Spring Framework to create proxies and delay the actual repository initialization up until the very first interaction with them.
+In other words, repositories clients and clients of those clients can, in turn, be created without having to wait for the &lt;code&gt;EntityManagerFactory&lt;/code&gt; to finish its bootstrap.
+That means that a significantly higher amount of Spring bean initialization can be parallelized to the JPA bootstrap.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;The delay of the initialization also causes any kind of verification to be delayed until (for example) the very first request that hits the code path that actually uses a repository.
+If you want to still make sure that the repositories are fully initialized before the application starts taking requests, use the &lt;strong&gt;deferred&lt;/strong&gt; bootstrap mode.
+This mode works in the same way as the lazy one, except that, when the container is done bootstrapping, it explicitly triggers the initialization of all repositories in the &lt;code&gt;ApplicationContext&lt;/code&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;The easiest way to switch between those modes is by setting the Spring Boot properties &lt;code&gt;spring.jpa.repositories.bootstrap-mode&lt;/code&gt; to either &lt;code&gt;lazy&lt;/code&gt; or &lt;code&gt;deferred&lt;/code&gt;.
+This also ensures that the lazy initialization of the &lt;code&gt;EntityManagerFactory&lt;/code&gt; is configured properly.
+Also, be sure to check out the new section added to the &lt;a href="https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.bootstrap-mode"&gt;reference documentation&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="sect2"&gt;
+&lt;h3 id="an-example"&gt;&lt;a class="anchor" href="#an-example"&gt;&lt;/a&gt;An Example&lt;/h3&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;We have prepared &lt;a href="https://github.com/spring-projects/spring-data-examples/tree/master/jpa/deferred"&gt;an example&lt;/a&gt; to show the effect of that optimization in a quite extreme example consisting of 2,000 entities, 2,000 repositories and 2,000 beans that depend on the repositories.
+Using the deferred mode cuts off about a third (~12 seconds) of the startup time.
+The lazy one even takes away another third (~22 seconds better than the default).&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="imageblock"&gt;
+&lt;div class="content"&gt;
+&lt;img src="https://github.com/olivergierke/blog-images/raw/53341f1a3c047e9ee426f475f8e184e2e82ccf3e/deferred-jpa.png" alt="deferred jpa"&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sect1"&gt;
+&lt;h2 id="controlling-http-method-exposure-in-spring-data-rest"&gt;&lt;a class="anchor" href="#controlling-http-method-exposure-in-spring-data-rest"&gt;&lt;/a&gt;Controlling HTTP method exposure in Spring Data REST&lt;/h2&gt;
+&lt;div class="sectionbody"&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;We finish with a look at a feature in Spring Data REST that had been requested for a while.
+In Spring Data REST, the decision about which HTTP methods are supported for which resource type exposed is, by default driven by the declared CRUD methods.
+However, there are certain cases in which the presence of a single repository method causes multiple resource-HTTP-method combinations to be enabled.
+For example, the &lt;code&gt;save(…)&lt;/code&gt; method exposed on a repository causes &lt;code&gt;POST&lt;/code&gt; to be supported on the collection resources as well as &lt;code&gt;PUT&lt;/code&gt; for both update &lt;strong&gt;and&lt;/strong&gt; creation of the item resource.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Spring Data Lovelace has a new &lt;code&gt;ExposureConfiguration&lt;/code&gt; (obtainable from a &lt;code&gt;RepositoryRestConfiguration&lt;/code&gt;), which allows fine grained control over which methods are supposed to be exposed:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code class="language-java" data-lang="java"&gt;ExposureConfiguration config = restConfiguration.getExposureConfiguration();
+
+config.withItemExposure((metadata, httpMethods)
+  -&amp;gt; httpMethods.disable(HttpMethod.PATCH));
+config.forDomainType(User.class).disablePutForCreation();&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;As you can see, the configuration options come in two flavors:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="ulist"&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;A global one (shown first) that allows control over collection, item, and association resource exposure by using a lambda over a &lt;code&gt;ResourceMapping&lt;/code&gt; and &lt;code&gt;ConfigurableHttpMethods&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;A type-specific one as shown below.
+Some setup details, such as disabling the (enabled by default) ability to create entities by using &lt;code&gt;PUT&lt;/code&gt; requests are supported with explicit configuration methods.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;You can find out more about that in the corresponding section of the &lt;a href="https://docs.spring.io/spring-data/rest/docs/current/reference/html/#customizing-sdr.http-methods"&gt;reference documentation&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;</content>
+  </entry>
+  <entry>
+    <title>What's new in Spring Data Lovelace for MongoDB?</title>
+    <link rel="alternate" href="https://spring.io/blog/2018/09/27/what-s-new-in-spring-data-lovelace-for-mongodb" />
+    <category term="engineering" label="Engineering" />
+    <author>
+      <name>Christoph Strobl</name>
+    </author>
+    <id>tag:spring.io,2018-09-21:3409</id>
+    <updated>2018-09-27T14:45:40Z</updated>
+    <content type="html">&lt;div class="paragraph"&gt;
+&lt;p&gt;The past year has seen a lot of enhancements brought to the NoSQL Store including a bunch of new features and extended capabilities. We collaborated closely with the driver team at MongoDB, so the release already ships with decent support for sessions, change streams, schema validation, and (of course) transactions.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;The most interesting new feature is probably MongoDB 4.0&amp;#8217;s support for &lt;a href="https://www.mongodb.com/transactions"&gt;Multi-Document Transactions&lt;/a&gt;. If you have followed this blog before, you have probably read our &lt;a href="https://spring.io/blog/2018/06/28/hands-on-mongodb-4-0-transactions-with-spring-data"&gt;Hands on Guide&lt;/a&gt; that explains both &lt;code&gt;ClientSessions&lt;/code&gt; (which are the main building block) and transactions themselves.
+In short, SpringData provides you with everything you need to leverage &lt;a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/data-access.html#transaction"&gt;Spring managed transaction support&lt;/a&gt; in your project.
+To use it, declare &lt;code&gt;MongoTransactionManager&lt;/code&gt; in your configuration, as the following example shows:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code class="language-java" data-lang="java"&gt;@Configuration
+class Config extends AbstractMongoConfiguration {
+
+  @Bean
+  MongoTransactionManager transactionManager(MongoDbFactory dbFactory) {
+    return new MongoTransactionManager(dbFactory);
+  }
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Transactions operate on top of snapshots and, therefore, changes made during a transaction appear a little odd within the oplog.
+Thankfully, &lt;a href="https://docs.mongodb.com/manual/changeStreams/"&gt;change streams&lt;/a&gt; have been introduced in MongoDB 3.6 to replace the current oplog tailing with a well supported solution that is capable of untangling entries during a transaction.
+Change streams let you get notified whenever a certain event happens on the database or even the collection level.
+It provides the means to filter events by using Aggregations but also lets you resume the stream at a given checkpoint or timestamp.
+Consuming a change stream feels most natural when done with a reactive API, as the following example shows:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code class="language-java" data-lang="java"&gt;Flux changeStream = reactiveTemplate
+  .changeStream(newAggregation(match(where("operationType").is("insert"))),
+    Person.class, ChangeStreamOptions.empty(), "users");&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;The preceding stream returns only new documents that are inserted into the &lt;code&gt;users&lt;/code&gt; collection and maps those to the &lt;code&gt;Person&lt;/code&gt; domain type.
+To achieve the same by using a synchronous API creates a long running blocking task that needs to be delegated to a separate component, a &lt;code&gt;MessageListenerContainer&lt;/code&gt;, as the following example shows:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code class="language-java" data-lang="java"&gt;MessageListenerContainer container =
+  new DefaultMessageListenerContainer(template);
+container.start();
+
+MessageListener&amp;lt;ChangeStreamDocument&amp;lt;Document&amp;gt;, Person&amp;gt; listener =
+  System.out::println;
+
+ChangeStreamRequest request = ChangeStreamRequest.builder()
+  .collection("users")
+  .filter(newAggregation(match(where("operationType").is("insert")))
+  .publishTo(listener)
+  .build();
+
+container.register(request, Person.class);
+
+// …
+
+container.stop();&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Having a &lt;code&gt;MessageListenerContainer&lt;/code&gt; in place opens up other possibilities.
+Using infinite streams with a tailable cursor on a capped collection has been limited to the reactive API so far.
+Now it is a matter of passing a &lt;code&gt;SubscriptionRequest&lt;/code&gt; to the container, as the following example shows:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code class="language-java" data-lang="java"&gt;MessageListener&amp;lt;Document, Person&amp;gt; listener = System.out::println;
+
+TailableCursorRequest request = TailableCursorRequest.builder()
+  .collection("users")
+  .filter(query(where("active").eq(true)))
+  .publishTo(listener)
+  .build();
+
+container.register(request, Person.class);&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;The preceding snippet listens to inserts on the &lt;code&gt;users&lt;/code&gt; collection and publishes &lt;code&gt;Messages&lt;/code&gt; on the console.
+For quite a while, MongoDB has allowed validating documents that are added to a collection or updated within a collection by using a validator that follows the overall query syntax.
+With its new version, MongoDB extended this validation by adding support for &lt;a href="https://docs.mongodb.com/manual/core/schema-validation/#json-schema"&gt;JSON Schema&lt;/a&gt;, which lets you define the document blueprint in more object oriented approach.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code class="language-json" data-lang="json"&gt;{
+  "type": "object",
+  "required": [ "lastname" ],
+  "properties": {
+    "lastname": {
+      "type": "string"
+    },
+    "address": {
+      "type": "object",
+      "properties": {
+        "postCode": { "type": "string", "minLength": 4, "maxLength": 5 }
+      }
+    }
+  }
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;The &lt;code&gt;MongoJsonSchema&lt;/code&gt; and its builder is the Spring Data API gateway to defining a schema for your collection. The following example shows how to use it:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code class="language-java" data-lang="java"&gt;MongoJsonSchema jsonSchema = MongoJsonSchema.builder()
+  .required("lastname")
+  .properties(
+     string("lastname"),
+     object("address")
+       .properties(string("postCode").minLength(4).maxLength(5))
+  ).build();
+
+CollectionOptions options = CollectionOptions.empty().schema(jsonSchema);
+
+template.createCollection(Person.class, options);&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Still, MongoDB, being a schema-less store, lets fields have different types on a per-document level. You can also use the schema to query for documents that match the blueprint without having to force a validation onto the collection, as the following example shows:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code class="language-java" data-lang="java"&gt;template.query(Person.class)
+  .matching(query(matchingDocumentStructure(jsonSchema))).all();&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Another minor but noticeable enhancement to the MongoDB module comes in the form of distinct value queries that let you retrieve a distinct list of all values assigned to a single field.
+As mentioned before, fields do not necessarily have to have the same data type. That is why, by default, &lt;code&gt;distinct&lt;/code&gt; returns an untyped &lt;code&gt;Collection&lt;/code&gt;. The following example shows how to use &lt;code&gt;distinct&lt;/code&gt;:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code class="language-java" data-lang="java"&gt;List&amp;lt;Object&amp;gt; distinctValues = template.query(Person.class)
+  .distinct("active")
+  .all();&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;The active flag might be a mixture of maybe "y/n", "true/false" and "0/1" pairs represented as &lt;code&gt;String&lt;/code&gt;, &lt;code&gt;boolean&lt;/code&gt;, and (maybe) &lt;code&gt;int32&lt;/code&gt; within the store itself.
+However, in cases where you are certain about at least the property type, it may be useful to use the &lt;code&gt;as&lt;/code&gt; projection to obtain a strongly typed collection. The following example uses the &lt;code&gt;as&lt;/code&gt; projection:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code class="language-java" data-lang="java"&gt;List&amp;lt;Boolean&amp;gt; distinctValues = template.query(Person.class)
+  .distinct("active")
+  .as(Boolean)
+  .all();&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Several other enhancements have found their way into the MongoDB module, but we do not have the space to address them here.
+Make sure to check out the &lt;a href="https://docs.spring.io/spring-data/mongodb/docs/2.1.0.RELEASE/reference/html/#new-features.2-1-0"&gt;new features&lt;/a&gt; section in the reference documentation to learn more about reactive MapReduce, default sorting, &lt;code&gt;findAndReplace(…)&lt;/code&gt; methods, and new Aggregation operators and stages.&lt;/p&gt;
+&lt;/div&gt;</content>
+  </entry>
+  <entry>
+    <title>Spring Security 5.1 goes GA</title>
+    <link rel="alternate" href="https://spring.io/blog/2018/09/27/spring-security-5-1-goes-ga" />
+    <category term="releases" label="Releases" />
+    <author>
+      <name>Joe Grandja</name>
+    </author>
+    <id>tag:spring.io,2018-09-22:3411</id>
+    <updated>2018-09-27T13:07:16Z</updated>
+    <content type="html">&lt;div class="paragraph"&gt;
+&lt;p&gt;On behalf of the community, it is my pleasure to announce the general availability of Spring Security 5.1.
+This release closes off &lt;a href="https://github.com/spring-projects/spring-security/milestone/107?closed=1"&gt;50+ tickets&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Please check out the &lt;a href="https://docs.spring.io/spring-security/site/docs/5.1.0.RELEASE/reference/htmlsingle/#new"&gt;What’s New&lt;/a&gt; in Spring Security 5.1.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;As always, we look forward to hearing your &lt;a href="https://github.com/spring-projects/spring-security/issues"&gt;feedback&lt;/a&gt;!&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;&lt;a href="http://projects.spring.io/spring-security/"&gt;Project Site&lt;/a&gt; |
+&lt;a href="http://docs.spring.io/spring-security/site/docs/5.1.0.RELEASE/reference/htmlsingle/"&gt;Reference&lt;/a&gt;
+| &lt;a href="http://stackoverflow.com/questions/tagged/spring-security"&gt;Help&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;</content>
+  </entry>
+  <entry>
+    <title>The Reactive Revolution at SpringOne Platform 2018 (part 1/N)</title>
+    <link rel="alternate" href="https://spring.io/blog/2018/09/27/the-reactive-revolution-at-springone-platform-2018-part-1-n" />
+    <category term="engineering" label="Engineering" />
+    <author>
+      <name>Josh Long</name>
+    </author>
+    <id>tag:spring.io,2018-09-27:3418</id>
+    <updated>2018-09-27T01:48:00Z</updated>
+    <content type="html">&lt;p&gt;Hi Spring fans! What a crazy week in Spring it&amp;rsquo;s been! I&amp;rsquo;m at SpringOne Platform 2018 soaking up all the exciting community events, interacting with people from around the planet who love Pivotal and love Spring! I just got asked to take a selfie with a woman from Vietnam while five miles from the show - at a local mall where I happened to be for a community dinner! It&amp;rsquo;s wonderful that the Pivotal brings people of so many disparate cultures and places together.&lt;/p&gt;
+&lt;p&gt;Today, Wednesday 26th, 2018, was a &lt;em&gt;doozie&lt;/em&gt;! There are so many wonderful things happening this week, of course, but today was a very special one for me. Today saw us take the wraps off of the amazing work Pivotal is doing on two fronts. I wanted only to briefly touch on these topics in this post. You&amp;rsquo;ll no doubt hear more about this from us in the weeks to come!&lt;/p&gt;&lt;h2&gt;&lt;a href="#reactive-sql-data-access-with-r2dbc" class="anchor" name="reactive-sql-data-access-with-r2dbc"&gt;&lt;/a&gt;Reactive SQL Data Access with R2DBC&lt;/h2&gt;
+&lt;p&gt;First, we announced our work on trying to support a standard for reactive SQL data access with &lt;a href=""&gt;R2DBC&lt;/a&gt;. R2DBC is early days yet, but very exciting. Thus far when we talk about data access, I&amp;rsquo;ve been quick to remind people that they while they could use JDBC from within a reactive application, they&amp;rsquo;re taking the issue of scaling out that interaction as their own responsibility. It would be up to them to configure more threads to the &lt;code&gt;Scheduler&lt;/code&gt; assigned to the reactive stream in which any SQL data access was happening. This was necessary because JDBC is a fundamentally blocking and synchronous API. It doesn&amp;rsquo;t have the ability to perform IO and then call you back when there&amp;rsquo;s activity; the client thread is left waiting for the replies. R2DBC offers an alternative. It&amp;rsquo;s &lt;em&gt;not&lt;/em&gt; meant to be a wrapper around JDBC, but instead to support functional reactive data access built on natively reactive SQL database drivers. We have an SPI layer and an implementation supporting PostgreSQL. &lt;/p&gt;
+&lt;p&gt;Let&amp;rsquo;s look at an example. In order to get this to work, I went to the &lt;a href="http://start.Spring.io"&gt;Spring Initializr&lt;/a&gt; and selected &lt;code&gt;Reactive Web&lt;/code&gt; and &lt;code&gt;Lombok&lt;/code&gt;. I made sure to choose a &lt;code&gt;SNAPSHOT&lt;/code&gt; version of Spring Boot. You don&amp;rsquo;t need SNAPSHOTs of Spring Boot itself, &lt;em&gt;per se&lt;/em&gt;, but you will want the Spring Initializr to add the Spring snapshot repositories to your build so that you can resolve the &lt;code&gt;r2dbc-postgresql&lt;/code&gt; dependency. Then, I (manually! the horror!) edited the Maven build, &lt;code&gt;pom.xml&lt;/code&gt;, and added a dependency on the &lt;code&gt;io.r2dbc:r2dbc-postgresql:1.0.0.BUILD-SNAPSHOT&lt;/code&gt; dependency to the build.&lt;/p&gt;
+&lt;pre&gt;&lt;code class="prettyprint java"&gt;package s1p.r2dbc;&#xD;
+&#xD;
+import lombok.AllArgsConstructor;&#xD;
+import lombok.Data;&#xD;
+import lombok.NoArgsConstructor;&#xD;
+import lombok.extern.log4j.Log4j2;&#xD;
+&#xD;
+import io.r2dbc.postgresql.PostgresqlConnectionFactory;&#xD;
+import io.r2dbc.postgresql.PostgresqlResult;&#xD;
+&#xD;
+import org.springframework.stereotype.Service;&#xD;
+import reactor.core.publisher.Flux;&#xD;
+&#xD;
+import org.springframework.beans.factory.annotation.Value;&#xD;
+import org.springframework.boot.SpringApplication;&#xD;
+import org.springframework.boot.autoconfigure.SpringBootApplication;&#xD;
+import org.springframework.context.annotation.Bean;&#xD;
+&#xD;
+import java.net.URI;&#xD;
+&#xD;
+@Log4j2&#xD;
+@SpringBootApplication&#xD;
+public class PostgresqlApplication {&#xD;
+&#xD;
+  public static void main(String args[]) {&#xD;
+    SpringApplication.run(PostgresqlApplication.class, args);&#xD;
+  }&#xD;
+&#xD;
+  @Bean&#xD;
+  PostgresqlConnectionFactory connectionFactory(&#xD;
+      @Value(&amp;quot;${spring.datasource.url}&amp;quot;) String url) {&#xD;
+&#xD;
+    URI uri = URI.create(url);&#xD;
+    String host = uri.getHost();&#xD;
+    String userInfo = uri.getUserInfo();&#xD;
+    String user = userInfo, pw = &amp;quot;&amp;quot;;&#xD;
+&#xD;
+    if (userInfo.contains(&amp;quot;:&amp;quot;)) {&#xD;
+      user = userInfo.split(&amp;quot;:&amp;quot;)[0];&#xD;
+      pw = userInfo.split(&amp;quot;:&amp;quot;)[1];&#xD;
+    }&#xD;
+&#xD;
+    String name = uri.getPath().substring(1);&#xD;
+    PostgresqlConnectionConfiguration configuration = PostgresqlConnectionConfiguration&#xD;
+        .builder() //&#xD;
+        .database(name) //&#xD;
+        .host(host) //&#xD;
+        .username(user) //&#xD;
+        .password(pw) //&#xD;
+        .build();&#xD;
+    return new PostgresqlConnectionFactory(configuration);&#xD;
+  }&#xD;
+}&#xD;
+&#xD;
+@Log4j2&#xD;
+@Service&#xD;
+class CustomerService {&#xD;
+&#xD;
+  private final ConnectionFactory connectionFactory;&#xD;
+&#xD;
+  CustomerService(PostgresqlConnectionFactory pgc) {&#xD;
+    this.connectionFactory = pgc;&#xD;
+  }&#xD;
+&#xD;
+  Flux&amp;lt;Result&amp;gt; delete(Long id) {&#xD;
+    return Mono.from(this.connectionFactory.create())&#xD;
+      .flatMapMany(connection -&amp;gt; connection&#xD;
+        .createStatement(&amp;quot;DELETE FROM customers where id = $1&amp;quot;)&#xD;
+        .bind(&amp;quot;$1&amp;quot;, id) //&#xD;
+        .execute());&#xD;
+  }&#xD;
+&#xD;
+  Flux&amp;lt;Result&amp;gt; create(Long id, String email) {&#xD;
+    return Mono.from(this.connectionFactory.create())&#xD;
+      .flatMapMany(connection -&amp;gt; connection&#xD;
+        .createStatement(&amp;quot;INSERT INTO customers(id,email) VALUES($1, $2)&amp;quot;)&#xD;
+        .bind(&amp;quot;$1&amp;quot;, id) //&#xD;
+        .bind(&amp;quot;$2&amp;quot;, email) //&#xD;
+        .add().execute());&#xD;
+  }&#xD;
+&#xD;
+  Flux&amp;lt;Customer&amp;gt; all() {&#xD;
+&#xD;
+    return Mono&#xD;
+      .from(this.connectionFactory&#xD;
+        .create())&#xD;
+      .flatMapMany(connection -&amp;gt; Flux.from(&#xD;
+        connection.createStatement(&amp;quot;select * from customers&amp;quot;).execute())&#xD;
+        .flatMap(result -&amp;gt; result.map((row, rowMetadata) -&amp;gt; new Customer(row.get(&amp;quot;id&amp;quot;, Long.class),&#xD;
+          row.get(&amp;quot;email&amp;quot;, String.class)))));&#xD;
+  }&#xD;
+&#xD;
+}&#xD;
+&#xD;
+@Data&#xD;
+@AllArgsConstructor&#xD;
+@NoArgsConstructor&#xD;
+class Customer {&#xD;
+&#xD;
+  private Long id;&#xD;
+&#xD;
+  private String email;&#xD;
+&#xD;
+} &#xD;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Pretty cool, eh? The APIs are natively reactive and mean you can take advantage of the facilities provided for retries and composition afforded to you by those APIs. &lt;/p&gt;&lt;h2&gt;&lt;a href="#rsocket-the-reactive-wire-protocol" class="anchor" name="rsocket-the-reactive-wire-protocol"&gt;&lt;/a&gt;RSocket: the reactive wire protocol&lt;/h2&gt;
+&lt;p&gt;We also debuted our support for RSocket, a protocol developed by - among others - folks from Netflix who have since moved to Facebook. RSocket is a wire protocol that surfaces the tenants of reactive processing as part of the protocol itself. Facebook have developed two RSocket clients: one in C++ and another in Java. The Java RSocket client builds upon the Reactor project! RSocket is a binary protocol, though, so in theory you could build clients in other languages, as well. &lt;/p&gt;
+&lt;p&gt;RSocket is a general purpose data conveyance protocol. It supports a number of message exchange patterns or styles including, but not limited to, request-response, fire-and-forget, publish-subscribe and streaming. The sky&amp;rsquo;s the limit! This post couldn&amp;rsquo;t hope to thoroughly introduce all of the options, so let&amp;rsquo;s look at a simple streaming example that has two components, a producer and a consumer. In order to get this to work, I went to the Spring Initializr, selected &lt;code&gt;Lombok&lt;/code&gt; and I chose the latest (stable) version of Spring Boot. In the build file, &lt;code&gt;pom.xml&lt;/code&gt;, I added two dependencies: &lt;code&gt;io.rsocket:rsocket-transport-netty:0.11.5&lt;/code&gt; and &lt;code&gt;io.rsocket:rsocket-core:0.11.5&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;The goal here is to demonstrate how very simple these APIs are, and how flexible. You can use them directly or, as for example Netifi have done, as the basis for a whole suite of infrastructure supporting even more advanced use cases. &lt;/p&gt;
+&lt;p&gt;The crux of this simple sample is that the producer is going to emit a new record every second, forever! So long as the universe hasn&amp;rsquo;t experienced its heat death, this example should keep going! &lt;/p&gt;
+&lt;p&gt;First, let&amp;rsquo;s look at a trivial producer example. I set this up so that it will listen for the &lt;code&gt;ApplicationReadyEvent&lt;/code&gt; and only then start serving requests. I want to keep the Java process up (and thus listening for requests) so, as a bit of a kludge, I use &lt;code&gt;System.in.read()&lt;/code&gt; to poll the console for input. Remember, this API is non-blocking and asynchronous! It won&amp;rsquo;t keep the main thread alive if we don&amp;rsquo;t help it. &lt;/p&gt;
+&lt;pre&gt;&lt;code class="prettyprint java"&gt;package s1p.rsocket.producer;&#xD;
+&#xD;
+import io.rsocket.AbstractRSocket;&#xD;
+import io.rsocket.Payload;&#xD;
+import io.rsocket.RSocketFactory;&#xD;
+import io.rsocket.SocketAcceptor;&#xD;
+import io.rsocket.transport.netty.server.TcpServerTransport;&#xD;
+import io.rsocket.util.DefaultPayload;&#xD;
+import lombok.extern.log4j.Log4j2;&#xD;
+import org.springframework.boot.SpringApplication;&#xD;
+import org.springframework.boot.autoconfigure.SpringBootApplication;&#xD;
+import org.springframework.boot.context.event.ApplicationReadyEvent;&#xD;
+import org.springframework.context.ApplicationListener;&#xD;
+import reactor.core.publisher.Flux;&#xD;
+import reactor.core.publisher.Mono;&#xD;
+&#xD;
+import java.io.IOException;&#xD;
+import java.time.Duration;&#xD;
+import java.time.Instant;&#xD;
+&#xD;
+@SpringBootApplication&#xD;
+@Log4j2&#xD;
+public class ProducerApplication implements ApplicationListener&amp;lt;ApplicationReadyEvent&amp;gt; {&#xD;
+&#xD;
+  public static void main(String[] args) throws IOException {&#xD;
+    SpringApplication.run(ProducerApplication.class, args);&#xD;
+    System.in.read();&#xD;
+  }&#xD;
+&#xD;
+  @Override&#xD;
+  public void onApplicationEvent(ApplicationReadyEvent applicationReadyEvent) {&#xD;
+    SocketAcceptor sa = (connectionSetupPayload, rSocket) -&amp;gt;&#xD;
+      Mono.just(new AbstractRSocket() {&#xD;
+&#xD;
+        @Override&#xD;
+        public Flux&amp;lt;Payload&amp;gt; requestStream(Payload payload) { // produce a result when asked...&#xD;
+          return Flux&#xD;
+            .interval(Duration.ofMillis(1000))  // ...every one second&#xD;
+            .map(aLong -&amp;gt; DefaultPayload.create(&amp;quot;interval: &amp;quot; + aLong));&#xD;
+        }&#xD;
+      });&#xD;
+&#xD;
+    RSocketFactory&#xD;
+      .receive()&#xD;
+      .acceptor(sa)&#xD;
+      .transport(TcpServerTransport.create(&amp;quot;localhost&amp;quot;, 7000))&#xD;
+      .start()&#xD;
+      .onTerminateDetach()&#xD;
+      .subscribe(nettyContextCloseable -&amp;gt; log.info(&amp;quot;started the server @ &amp;quot; + Instant.now().toString()));&#xD;
+  }&#xD;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The consumer is just as straightforward. It initiates a request to the service, gets the reactive streams &lt;code&gt;Publisher&amp;lt;T&amp;gt;&lt;/code&gt; from the service and iterates through each record, unpacking the binary payload as a &lt;code&gt;String&lt;/code&gt;, and logging it as it arrives. Here too, I use &lt;code&gt;System.in.read()&lt;/code&gt; as a way to keep the thread running.&lt;/p&gt;
+&lt;pre&gt;&lt;code class="prettyprint java"&gt;package s1p.rsocket.consumer;&#xD;
+&#xD;
+import io.rsocket.Payload;&#xD;
+import io.rsocket.RSocketFactory;&#xD;
+import io.rsocket.transport.netty.client.TcpClientTransport;&#xD;
+import io.rsocket.util.DefaultPayload;&#xD;
+import lombok.extern.log4j.Log4j2;&#xD;
+import org.springframework.boot.SpringApplication;&#xD;
+import org.springframework.boot.autoconfigure.SpringBootApplication;&#xD;
+import org.springframework.boot.context.event.ApplicationReadyEvent;&#xD;
+import org.springframework.context.ApplicationListener;&#xD;
+&#xD;
+import java.io.IOException;&#xD;
+&#xD;
+@Log4j2&#xD;
+@SpringBootApplication&#xD;
+public class ConsumerApplication implements ApplicationListener&amp;lt;ApplicationReadyEvent&amp;gt; {&#xD;
+&#xD;
+  public static void main(String[] args) throws IOException {&#xD;
+    SpringApplication.run(ConsumerApplication.class, args);&#xD;
+    System.in.read();&#xD;
+  }&#xD;
+&#xD;
+  @Override&#xD;
+  public void onApplicationEvent(ApplicationReadyEvent evt) {&#xD;
+    RSocketFactory&#xD;
+      .connect()&#xD;
+      .transport(TcpClientTransport.create(&amp;quot;localhost&amp;quot;, 7000))&#xD;
+      .start()&#xD;
+      .flatMapMany(socket -&amp;gt;&#xD;
+        socket&#xD;
+          .requestStream(DefaultPayload.create(&amp;quot;Hello&amp;quot;))&#xD;
+          .map(Payload::getDataUtf8)&#xD;
+          .doFinally(signal -&amp;gt; socket.dispose())&#xD;
+      )&#xD;
+      .subscribe(name -&amp;gt; log.info(&amp;quot;consuming &amp;quot; + name + &amp;quot;.&amp;quot;));&#xD;
+  }&#xD;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Both producer and consumer connect to &lt;code&gt;localhost:7000&lt;/code&gt; and start interacting. RSocket, like HTTP, doesn&amp;rsquo;t really care what the payload of the message is. It&amp;rsquo;s binary data on the wire, after all. &lt;/p&gt;&lt;h2&gt;&lt;a href="#next-steps" class="anchor" name="next-steps"&gt;&lt;/a&gt;Next Steps&lt;/h2&gt;
+&lt;p&gt;There have been a ton of talks that expand on both of these topics recorded here at SpringOne Platform! They&amp;rsquo;ll be online soon enough. (Don&amp;rsquo;t you wish you were here, in the meantime?) Spring plays a strong role here because it is end-to-end reactive. Imagine it! You could build reactive microservices that communicate service-to-service using RSocket. Why not use &lt;code&gt;@Tailable&lt;/code&gt; reactive Spring Data MongoDB repository methods to do a sort of continuous query on data in your MongoDB data set and stream, over RSocket, those results as they arrive in your MongoDB store? You could do the reverse, as well. Your RSocket client could stream a lot of data to be written to MongoDB, using the new &lt;em&gt;reactive&lt;/em&gt; transaction support in the Spring Data MonogDB release in the just released Spring Data Lovelace! Why not use R2DBC and return large amounts of data in a streaming fashion over RSocket. RSocket is also optimal for the edge, too! You can conduct RSocket over, for example, websockets. Imagine that: RSocket-based services that can be consumed directly by HTML5 clients. Or, you could create reactive HTTP services using Spring WebFlux that in turn invoke RSocket based services which in turn invoke R2DBC. As they say, the skies are potentially unbounded and asynchronous! &lt;/p&gt;
+&lt;p&gt;The &lt;a href="http://twitter.com/ProjectReactor"&gt;Reactor team&lt;/a&gt; and the Spring team&amp;rsquo;s &lt;a href="http://twitter.com/NebHale"&gt;Ben Hale&lt;/a&gt;, among others, have worked diligently on both of these projects over more than a year, so I know they&amp;rsquo;re very excited to share this news with you and to answer any questions you have as you take up proverbial arms in the reactive revolution!&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <title>Spring Batch 4.1.0.RC1 is now available</title>
+    <link rel="alternate" href="https://spring.io/blog/2018/09/26/spring-batch-4-1-0-rc1-is-now-available" />
+    <category term="releases" label="Releases" />
+    <author>
+      <name>Mahmoud Ben Hassine</name>
+    </author>
+    <id>tag:spring.io,2018-09-24:3415</id>
+    <updated>2018-09-26T21:00:34Z</updated>
+    <content type="html">&lt;p&gt;On behalf of the Spring Batch team, I’m pleased to announce that Spring Batch 4.1.0.RC1 is now available on Github and the Pivotal download repository.&lt;/p&gt;&lt;h1&gt;&lt;a href="#what-s-new" class="anchor" name="what-s-new"&gt;&lt;/a&gt;What’s new?&lt;/h1&gt;
+&lt;p&gt;In this release, we worked mainly on making Spring Batch build and run correctly on Java 8, 9, 10 and 11! This release is based on &lt;a href="https://spring.io/blog/2018/09/21/spring-framework-5-1-goes-ga"&gt;Spring Framework 5.1 GA&lt;/a&gt; as well as the latest versions of Spring Integration, Spring AMQP and Spring Data. For a complete list of changes, please refer to the &lt;a href="https://jira.spring.io/secure/ReleaseNote.jspa?projectId=10090&amp;version=16996"&gt;change log&lt;/a&gt;.&lt;/p&gt;&lt;h1&gt;&lt;a href="#what-s-next" class="anchor" name="what-s-next"&gt;&lt;/a&gt;What’s next?&lt;/h1&gt;
+&lt;p&gt;Our plan is to release Spring Batch 4.1 GA by the end of October right in time for Spring Boot 2.1 GA. The focus will be on making this release candidate as stable as possible so please help us by testing new features and submitting your feedback on &lt;a href="https://jira.spring.io/projects/BATCH/summary"&gt;JIRA&lt;/a&gt;, &lt;a href="https://stackoverflow.com/questions/tagged/spring-batch"&gt;StackOverflow&lt;/a&gt; or &lt;a href="https://gitter.im/spring-batch/Lobby"&gt;Gitter&lt;/a&gt;. You can consume Spring Batch 4.1.0.RC1 with &lt;a href="https://spring.io/blog/2018/09/25/spring-boot-2-1-m4-available-now"&gt;Spring Boot 2.1.0.M4&lt;/a&gt;.&lt;/p&gt;&lt;h1&gt;&lt;a href="#springone-platform-2018" class="anchor" name="springone-platform-2018"&gt;&lt;/a&gt;SpringOne Platform 2018&lt;/h1&gt;
+&lt;p&gt;The Spring Batch team is present at &lt;a href="https://springoneplatform.io"&gt;SpringOne Platform&lt;/a&gt; conference. &lt;a href="https://www.twitter.com/michaelminella"&gt;&lt;code&gt;@michaelminella&lt;/code&gt;&lt;/a&gt; and &lt;a href="https://www.twitter.com/_benas_"&gt;&lt;code&gt;@_benas_&lt;/code&gt;&lt;/a&gt; will be presenting a session on &lt;a href="https://springoneplatform.io/2018/sessions/high-performance-batch-processing"&gt;high performance batch processing&lt;/a&gt; on Thursday September 27, 2018. You are welcome to this session to see this latest 4.1.0.RC1 release in action!&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://spring.io/projects/spring-batch"&gt;Spring Batch Home&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-batch"&gt;Source on GitHub&lt;/a&gt; | &lt;a href="https://docs.spring.io/spring-batch/4.1.x/reference/html/index.html"&gt;Reference Documentation&lt;/a&gt;&lt;/p&gt;</content>
+  </entry>
   <entry>
     <title>What's new in Spring Data Lovelace for Redis and Apache Cassandra?</title>
     <link rel="alternate" href="https://spring.io/blog/2018/09/26/what-s-new-in-spring-data-lovelace-for-redis-and-apache-cassandra" />
@@ -16,7 +660,8 @@
     <id>tag:spring.io,2018-09-21:3408</id>
     <updated>2018-09-26T12:28:00Z</updated>
     <content type="html">&lt;div class="paragraph"&gt;
-&lt;p&gt;This blog post explains the new and noteworthy in &lt;a href="https://github.com/spring-projects/spring-data-commons/wiki/Release-Train-Lovelace"&gt;Spring Data Lovelace&lt;/a&gt; for &lt;a href="https://spring.io/blog/2018/09/26/what-s-new-in-spring-data-lovelace-for-redis-and-apache-cassandra#cassandra"&gt;Apache Cassandra&lt;/a&gt; and &lt;a href="https://spring.io/blog/2018/09/26/what-s-new-in-spring-data-lovelace-for-redis-and-apache-cassandra#redis"&gt;Redis&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;This blog post explains the new and noteworthy in &lt;a href="https://github.com/spring-projects/spring-data-commons/wiki/Release-Train-Lovelace"&gt;Spring Data Lovelace&lt;/a&gt; for &lt;a href="https://spring.io/blog/2018/09/26/what-s-new-in-spring-data-lovelace-for-redis-and-apache-cassandra#cassandra"&gt;Apache Cassandra&lt;/a&gt; and &lt;a href="https://spring.io/blog/2018/09/26/what-s-new-in-spring-data-lovelace-for-redis-and-apache-cassandra#redis"&gt;Redis&lt;/a&gt;.
+Make sure to also check out the blog post on &lt;a href="https://spring.io/blog/2018/09/27/what-s-new-in-spring-data-lovelace-for-mongodb"&gt;What&amp;#8217;s new in Spring Data Lovelace for MongoDB?&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;h1 id="introduction" class="sect0"&gt;&lt;a class="anchor" href="#introduction"&gt;&lt;/a&gt;Introduction&lt;/h1&gt;
 &lt;div class="paragraph"&gt;
@@ -464,9 +1109,9 @@ class Person {
       <name>Josh Long</name>
     </author>
     <id>tag:spring.io,2018-09-26:3417</id>
-    <updated>2018-09-26T03:09:47Z</updated>
+    <updated>2018-09-26T03:09:00Z</updated>
     <content type="html">&lt;p&gt;It&amp;rsquo;s been such a crazy SpringOne Platform 2018 and we literally just started! I don&amp;rsquo;t even know where to begin! The show represents the convergence of the best and the brightest in the ecosystem. It&amp;rsquo;s absolutely amazing all the people who want and love to be here. &lt;/p&gt;
-&lt;p&gt;From our friends in the ecosystem, we see people from all organizations. IBM, Amazon Web Services, Microsoft &lt;em&gt;and&lt;/em&gt; Google are &lt;em&gt;all&lt;/em&gt; here hoping to make their platform the most compelling place to run Pivotal Cloud Foundry and Spring-based workloads. It&amp;rsquo;s great to see my friends from all these organizations! Friends like my friends Erin Schnabel, Billy Korando and Pratik Patel from IBM&amp;hellip;&lt;/p&gt;
+&lt;p&gt;From our friends in the ecosystem, we see people from all organizations. IBM, Amazon Web Services, Microsoft &lt;em&gt;and&lt;/em&gt; Google are &lt;em&gt;all&lt;/em&gt; here hoping to make their platform the most compelling place to run Pivotal Cloud Foundry and Spring-based workloads. It&amp;rsquo;s great to see my friends from all these organizations! Friends like my friends Erin Schnabel, Emma Tucker, Billy Korando and Pratik Patel from IBM&amp;hellip;&lt;/p&gt;
 &lt;img src="https://pbs.twimg.com/media/Dn-VvuqUwAANaZt.jpg" width = "500" alt = "IBM devrel at Atomist party"/&gt;
 &lt;p&gt;&amp;hellip;and my friend Ray Tsang from Google and Bruno Borges from Microsoft.. &lt;/p&gt;
 &lt;p&gt;&lt;blockquote class="twitter-tweet" data-lang="en"&gt;&lt;p lang="en" dir="ltr"&gt;Hanging with &lt;a href="https://twitter.com/googlecloud?ref_src=twsrc%5Etfw"&gt;@googlecloud&lt;/a&gt; ‘a &lt;a href="https://twitter.com/saturnism?ref_src=twsrc%5Etfw"&gt;@saturnism&lt;/a&gt; and &lt;a href="https://twitter.com/Azure?ref_src=twsrc%5Etfw"&gt;@Azure&lt;/a&gt; ‘a &lt;a href="https://twitter.com/brunoborges?ref_src=twsrc%5Etfw"&gt;@brunoborges&lt;/a&gt; &lt;a href="https://twitter.com/s1p?ref_src=twsrc%5Etfw"&gt;@s1p&lt;/a&gt; — where’s &lt;a href="https://twitter.com/arungupta?ref_src=twsrc%5Etfw"&gt;@arungupta&lt;/a&gt; ? &lt;a href="https://t.co/UMfquZPudG"&gt;pic.twitter.com/UMfquZPudG&lt;/a&gt;&lt;/p&gt;&amp;mdash; Josh Long (???, ???) (@starbuxman) &lt;a href="https://twitter.com/starbuxman/status/1044411203697745920?ref_src=twsrc%5Etfw"&gt;September 25, 2018&lt;/a&gt;&lt;/blockquote&gt;&lt;br/&gt;&lt;script async src="https://platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;&lt;/p&gt;
@@ -2097,458 +2742,5 @@ Book_Author (
 &lt;/ul&gt;&lt;h3&gt;&lt;a href="#how-can-you-help" class="anchor" name="how-can-you-help"&gt;&lt;/a&gt;How can you help?&lt;/h3&gt;
 &lt;p&gt;If you&amp;rsquo;re interested in helping out, check out the &lt;a href="https://github.com/spring-cloud/spring-cloud-function/labels/ideal-for-contribution"&gt;&amp;ldquo;ideal for contribution&amp;rdquo; tag&lt;/a&gt; in the issue repository. If you have general questions, please ask on &lt;a href="http://stackoverflow.com"&gt;stackoverflow.com&lt;/a&gt; using the &lt;a href="http://stackoverflow.com/tags/spring-cloud-function"&gt;&lt;code&gt;spring-cloud-function&lt;/code&gt; tag&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://cloud.spring.io/spring-cloud-function/"&gt;Project Page&lt;/a&gt; | &lt;a href="https://github.com/spring-cloud/spring-cloud-function"&gt;GitHub&lt;/a&gt; | &lt;a href="https://github.com/spring-cloud/spring-cloud-function/issues"&gt;Issues&lt;/a&gt; | &lt;a href="http://cloud.spring.io/spring-cloud-static/spring-cloud-function/2.0.0.M2/"&gt;Documentation&lt;/a&gt;&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <title>This Week in Spring - September 18th, 2018</title>
-    <link rel="alternate" href="https://spring.io/blog/2018/09/18/this-week-in-spring-september-18th-2018" />
-    <category term="engineering" label="Engineering" />
-    <author>
-      <name>Josh Long</name>
-    </author>
-    <id>tag:spring.io,2018-09-18:3400</id>
-    <updated>2018-09-18T23:02:38Z</updated>
-    <content type="html">&lt;p&gt;Hi Spring fans! Welcome to another installment of &lt;em&gt;This Week in Spring&lt;/em&gt;! It&amp;rsquo;s the week before SpringOne Platform and things are &lt;em&gt;crazy&lt;/em&gt;! We have so much to cover - as usual! - but FIRST! ..some poetry (with apologies to Clement Clark Moore)&lt;/p&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;&amp;rsquo;twas the week before SpringOne Platform, when all throughout Spring;&lt;br/&gt;Not a creature was stirring, just the computers and things;&lt;br/&gt;the expectations were raised by the community with care;&lt;br/&gt;in hopes that &lt;a href="http://twitter.com/SpringRod"&gt;SpringRod&lt;/a&gt; would be there;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;That&amp;rsquo;s right! this year is fixing to be AMAZING! We&amp;rsquo;re going to have Spring founder Rod Johnson, Jenny Zhang, Siew Choo Soh, Neha Narkhede, Matt Raible, Ray Tsang, Lauren Knausenberger, Juergen Hoeller, Bruno Borges, Andrew Clay Shafer and allllll the rest of the Spring team! It feels like a minute ago (December!) that we just had the last one so I can&amp;rsquo;t believe how quickly this one has arrived, but I can&amp;rsquo;t wait! &lt;/p&gt;
-&lt;p&gt;Right now I&amp;rsquo;m bouncing between San Francisco, CA; Atlanta, GA; Columbus, GA; Los Angeles, CA and I&amp;rsquo;m enjoying the conferences and customers with whom I&amp;rsquo;m visiting but I&amp;rsquo;m really excited to be at SpringOne Platform and so counting down the days!&lt;/p&gt;
-&lt;p&gt;Just think? The next time I write this roundup, I&amp;rsquo;ll be in Washington DC for SpringOne Platform 2018! &lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href="https://spring.io/blog/2018/09/18/spring-cloud-data-flow-1-7-m1-released"&gt;Spring Cloud Data Flow 1.7 M1 released&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://spring.io/blog/2018/09/17/introducing-spring-data-jdbc"&gt;Introducing Spring Data JDBC&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Spring IO Platform lead Andy Wilkinson has &lt;a href="https://spring.io/blog/2018/09/13/spring-io-platform-cairo-sr4"&gt;just announced Spring IO Platform Cairo SR4&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://spring.io/blog/2018/09/13/spring-io-platform-brussels-sr13"&gt;Spring IO Platform Brussels SR13&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Spring Boot team lead Phil Webb just &lt;a href="https://spring.io/blog/2018/09/13/spring-boot-2-1-m3-available-now"&gt;announced Spring Boot 2.1.M3&lt;/a&gt;, with kafka streams support, support for non-web OAuth applications, improved conversion service integration, and support for logging groups, among many other things&lt;/li&gt;
-  &lt;li&gt;In this 8th installment of an 8 part series, I looked at deploying Cloud Foundry based applications that use &lt;a href="https://spring.io/blog/2018/09/13/bootiful-gcp-to-production-8-8"&gt;Google Cloud services via Spring Cloud GCP&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Andy Wilkinson &lt;a href="https://spring.io/blog/2018/09/12/spring-boot-2-0-5"&gt;also just announced Spring Boot 2.0.5&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Make sure you check out Jim Weaver&amp;rsquo;s webinar, &lt;a href="https://content.pivotal.io/webinars/sep-6-reactive-card-magic-understanding-spring-webflux-and-project-reactor-webinar"&gt;&amp;ldquo;Reactive Card Magic&amp;rdquo; &lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://spring.io/blog/2018/09/11/spring-boot-1-5-16"&gt;Spring Boot 1.5.16&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Oleg Zhurakousky introduces the &lt;a href="https://spring.io/blog/2018/09/11/kotlin-support-in-spring-cloud-function"&gt;new Kotlin support in Spring Cloud Function&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://spring.io/blog/2018/09/11/spring-security-5-0-8-and-4-2-8-released"&gt;Spring Security 5.0.8 and 4.2.8 Released&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://spring.io/blog/2018/09/11/this-week-in-spring-september-11th-2018"&gt;This Week in Spring - September 11th, 2018&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://twitter.com/springcloud/status/1042176703332802560"&gt;https://twitter.com/springcloud/status/1042176703332802560&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;this InfoQ mini-guide is pretty epic; it&amp;rsquo;s a practical guide to building &lt;a href="https://www.infoq.com/minibooks/spring-boot-building-api-backend"&gt;an API backend with Spring Boot&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="http://openjdk.java.net/projects/jdk/11/"&gt;JDK 11&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;The spring.io/guides[http://Spring.io/guides] have been updated to the &lt;a href="https://twitter.com/springcentral/status/1041749606827057153"&gt;latest Spring Boot and Spring Cloud Finchley release&lt;/a&gt;!&lt;/li&gt;
-  &lt;li&gt;Save the date! the good Dr. Subramaniam and I are doing &lt;a href="https://www.meetup.com/sfjava/events/253962994/"&gt;a joint talk introducing Kotlin Wednesday, January 16, 2019 at the San Francisco Java User Group&lt;/a&gt; - join us!&lt;/li&gt;
-  &lt;li&gt;Check out the latest InfoQ eMag, on the theme of testing, &lt;a href="https://www.infoq.com/minibooks/emag-testing-distributed-systems"&gt;with an article from Spring Cloud lead Marcin Grzejszczak&lt;/a&gt; on an integration testing approach for communication between components. He reviews contract testing, and Spring Cloud Contract, as one solution.&lt;/li&gt;
-  &lt;li&gt;It&amp;rsquo;s super cool that Pivotal &lt;a href="https://www.techrepublic.com/article/who-contributes-most-to-open-source-the-answers-will-definitely-surprise-you/"&gt;is ranked #2 in terms of contributors to open source&lt;/a&gt; as a percentage of company employees. Go team and go OSS!&lt;/li&gt;
-  &lt;li&gt;Interesting post on InfoQ on the &lt;a href="https://www.infoq.com/articles/java-serialization-aug18"&gt;state of Java serialization&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content>
-  </entry>
-  <entry>
-    <title>Spring Cloud Data Flow 1.7 M1 released</title>
-    <link rel="alternate" href="https://spring.io/blog/2018/09/18/spring-cloud-data-flow-1-7-m1-released" />
-    <category term="releases" label="Releases" />
-    <author>
-      <name>Mark Pollack</name>
-    </author>
-    <id>tag:spring.io,2018-09-18:3399</id>
-    <updated>2018-09-18T20:33:31Z</updated>
-    <content type="html">&lt;div class="paragraph"&gt;
-&lt;p&gt;The &lt;a href="https://cloud.spring.io/spring-cloud-dataflow/"&gt;Spring Cloud Data Flow&lt;/a&gt; team is pleased to announce the release of &lt;code&gt;1.7 M1&lt;/code&gt;. Follow the &lt;em&gt;Getting Started&lt;/em&gt; guides for &lt;a href="https://docs.spring.io/spring-cloud-dataflow/docs/1.7.0.M1/reference/htmlsingle/#getting-started"&gt;Local Server&lt;/a&gt;, &lt;a href="https://docs.spring.io/spring-cloud-dataflow-server-cloudfoundry/docs/1.7.0.M1/reference/htmlsingle/#getting-started"&gt;Cloud Foundry&lt;/a&gt;, and &lt;a href="https://docs.spring.io/spring-cloud-dataflow-server-kubernetes/docs/1.7.0.M1/reference/htmlsingle/#kubernetes-getting-started"&gt;Kubernetes&lt;/a&gt;.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="sect1"&gt;
-&lt;h2 id="here-are-the-highlights"&gt;&lt;a class="anchor" href="#here-are-the-highlights"&gt;&lt;/a&gt;Here are the highlights&lt;/h2&gt;
-&lt;div class="sectionbody"&gt;
-&lt;div class="ulist"&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Improved UI&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Stream Application DSL&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Audit trail&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Concurrent Task Launch Limiting&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Stream and Task validation&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Force upgrade for Streams&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="sect1"&gt;
-&lt;h2 id="improved-ui"&gt;&lt;a class="anchor" href="#improved-ui"&gt;&lt;/a&gt;Improved UI&lt;/h2&gt;
-&lt;div class="sectionbody"&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;The UI has a completely new look.  The navigation has moved from tabs to a left side navigation system.  This gives increased screen real estate for creating streams with the Flo designer and even more screen real estate can be obtained by minimizing the left side navigation.  There is a quick search feature that searches across all the different Data Flow categories.  Additional colors and overall theme changes have been added to make the UI look more lively.  Deeper in the core, the route management has been improved and we have increased our end to end testing coverage using BrowserStack/SauceLabs.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="imageblock"&gt;
-&lt;div class="content"&gt;
-&lt;img src="https://raw.githubusercontent.com/spring-cloud/spring-cloud-dataflow/v1.7.0.M1/spring-cloud-dataflow-docs/src/main/asciidoc/images/dataflow-flo-create-stream.png" alt="Stream Create"&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="sect1"&gt;
-&lt;h2 id="stream-application-dsl"&gt;&lt;a class="anchor" href="#stream-application-dsl"&gt;&lt;/a&gt;Stream Application DSL&lt;/h2&gt;
-&lt;div class="sectionbody"&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;Not all use cases can be solved by having a linear pipeline with data flowing from source to processor to sink with a single destination connecting each application.  Some use cases require a collection of applications that have multiple input and outputs. This topology is supported in Spring Cloud Stream by using user defined binding interfaces but was not supported in Data Flow.  It is also common to have multiple inputs and outputs in Kafka Streams applications.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;In addition, not all use cases are solved using Spring Cloud Stream applications. A http gateway application that sends a synchronous request/reply message to a Kafka or RabbitMQ application can be written using only Spring Integration.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;In these cases, Data Flow can&amp;#8217;t make assumptions about the flow of data from one application to another and therefore can&amp;#8217;t set the application&amp;#8217;s destination properties as is done when using the &lt;a href="http://docs.spring.io/spring-cloud-dataflow/docs/1.7.0.M1/reference/htmlsingle/#spring-cloud-dataflow-stream-intro-dsl"&gt;Stream Pipeline DSL&lt;/a&gt;.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;To address these use cases we have introduced the &lt;a href="http://docs.spring.io/spring-cloud-dataflow/docs/1.7.0.M1/reference/htmlsingle/#spring-cloud-dataflow-stream-app-dsl"&gt;Stream Application DSL&lt;/a&gt;.  This DSL uses a &lt;code&gt;comma&lt;/code&gt;, instead of the &lt;code&gt;pipe symbol&lt;/code&gt;, to indicate that Data Flow should not configure the binding properties of the application.  Instead, the developer needs to set the appropriate deployment properties to 'wire up' the application.  An example of the DSL using the domain of the &lt;a href="https://github.com/spring-projects/spring-integration-samples/tree/master/applications/cafe"&gt;EIP Cafe example&lt;/a&gt;, is&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="listingblock"&gt;
-&lt;div class="content"&gt;
-&lt;pre&gt;dataflow:&amp;gt; stream create --definition "orderGeneratorApp, baristaApp, hotDrinkDeliveryApp, coldDrinkDeliveryApp" --name myCafeStream&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;Where the listed applications in the DSL need to be registered as &lt;code&gt;--type app&lt;/code&gt;.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;In this stream, the &lt;code&gt;baristaApp&lt;/code&gt; has two output destinations intended to be consumed by the &lt;code&gt;hotDrinkDeliveryApp&lt;/code&gt; and &lt;code&gt;coldDrinkDeliveryApp&lt;/code&gt; respectively.  When deploying the stream, set the destination properties such that destinations match up for the desired flow of data, for example:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="listingblock"&gt;
-&lt;div class="content"&gt;
-&lt;pre&gt;app.baristaApp.spring.cloud.stream.bindings.hotDrinks.destination=hotDrinksDest
-app.baristaApp.spring.cloud.stream.bindings.coldDrinks.destination=coldDrinksDest
-app.hotDrinkDeliveryApp.spring.cloud.stream.bindings.input.destination=hotDrinksDest
-app.coldDrinkDeliveryApp.spring.cloud.stream.bindings.input.destination=coldDrinksDest&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="sect1"&gt;
-&lt;h2 id="audit-trail"&gt;&lt;a class="anchor" href="#audit-trail"&gt;&lt;/a&gt;Audit Trail&lt;/h2&gt;
-&lt;div class="sectionbody"&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;To help answer the question "Who did what and when?" an audit trail has been introduced to store the actions taken involving app registration, schedules, streams and tasks.  For apps and schedules the create and deletion actions are audited.  For streams, the creation, deletion, deployment, undeployment, update and rollback are audited.  For tasks, the creation, launching and destory are audited.  The audit information is available in the UI to query.  Accessing audit information in the shell is forthcoming.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="imageblock"&gt;
-&lt;div class="content"&gt;
-&lt;img src="https://raw.githubusercontent.com/spring-cloud/spring-cloud-dataflow/master/spring-cloud-dataflow-docs/src/main/asciidoc/images/dataflow-dashboard-audit.png" alt="Audit Dashboard"&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="sect1"&gt;
-&lt;h2 id="concurrent-task-launch-limiting"&gt;&lt;a class="anchor" href="#concurrent-task-launch-limiting"&gt;&lt;/a&gt;Concurrent Task Launch Limiting&lt;/h2&gt;
-&lt;div class="sectionbody"&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;Spring Cloud Data Flow allows you to enforce a maximum number of concurrently running tasks to prevent the saturation of compute resources. This limit can be configured by setting the &lt;code&gt;spring.cloud.dataflow.task.maximum-concurrent-tasks&lt;/code&gt; property. The default value is 20.  You can also retrieve the current number of concurrently executing tasks though the REST endpoint &lt;code&gt;/tasks/executions/current&lt;/code&gt;.  A new &lt;a href="https://github.com/spring-cloud-stream-app-starters/tasklauncher-data-flow"&gt;tasklauncher-dataflow&lt;/a&gt; application makes use of this feature to only launch tasks if the number of concurrent tasks is below the maximum.  The feature is also at the center of a new FTP ingest sample application that is under development.  A sneak peak is available in the &lt;a href="https://www.youtube.com/watch?v=n6fS-KmN0zI"&gt;Cloud-native patterns for Data-intensive applications&lt;/a&gt; webinar&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="sect1"&gt;
-&lt;h2 id="stream-and-task-validation"&gt;&lt;a class="anchor" href="#stream-and-task-validation"&gt;&lt;/a&gt;Stream and Task validation&lt;/h2&gt;
-&lt;div class="sectionbody"&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;The new shell commands &lt;code&gt;stream validate&lt;/code&gt; and &lt;code&gt;task validate&lt;/code&gt; will validate that the stream or task application resources are valid and accessable.  This avoids getting exceptions at deployment time.  Validation using the UI is forthcoming.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="sect1"&gt;
-&lt;h2 id="force-upgrade-for-streams"&gt;&lt;a class="anchor" href="#force-upgrade-for-streams"&gt;&lt;/a&gt;Force upgrade for Streams&lt;/h2&gt;
-&lt;div class="sectionbody"&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;&lt;a href="https://www.youtube.com/watch?v=Sbg9k8SGppQ"&gt;Use the force!&lt;/a&gt;  When upgrading a stream, you can now use the option &lt;code&gt;--force&lt;/code&gt; to deploy new instances of currently deployed applications even if no applicaton or deployment properties have changed.  This behavior is needed in the case when configuration information is obtained by the application itself at startup time, for example from Spring Cloud Config Server. You can specify which applications to force upgrade by using the option &lt;code&gt;--app-names&lt;/code&gt;. If you do not specify any application names, all the applications will be force upgraded. You can specify &lt;code&gt;--force&lt;/code&gt; and &lt;code&gt;--app-names&lt;/code&gt; options together with &lt;code&gt;--properties&lt;/code&gt; or &lt;code&gt;--propertiesFile&lt;/code&gt; options.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="sect1"&gt;
-&lt;h2 id="stay-in-touch"&gt;&lt;a class="anchor" href="#stay-in-touch"&gt;&lt;/a&gt;Stay in touch&amp;#8230;&amp;#8203;&lt;/h2&gt;
-&lt;div class="sectionbody"&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;As always, we welcome feedback and contributions, so please reach out to us on &lt;a href="https://stackoverflow.com/questions/tagged/spring-cloud-dataflow"&gt;Stackoverflow&lt;/a&gt; or &lt;a href="https://github.com/spring-cloud/spring-cloud-dataflow/issues"&gt;GitHub&lt;/a&gt; or via &lt;a href="https://gitter.im/spring-cloud/spring-cloud-dataflow"&gt;Gitter&lt;/a&gt;.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;</content>
-  </entry>
-  <entry>
-    <title>Introducing Spring Data JDBC</title>
-    <link rel="alternate" href="https://spring.io/blog/2018/09/17/introducing-spring-data-jdbc" />
-    <category term="engineering" label="Engineering" />
-    <author>
-      <name>Jens Schauder</name>
-    </author>
-    <id>tag:spring.io,2018-09-14:3396</id>
-    <updated>2018-09-17T07:34:00Z</updated>
-    <content type="html">&lt;div class="paragraph"&gt;
-&lt;p&gt;With the upcoming Lovelace GA release, we&amp;#8217;re going to ship a new Spring Data Module: &lt;a href="https://projects.spring.io/spring-data-jdbc/"&gt;Spring Data JDBC&lt;/a&gt;.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;The idea behind Spring Data JDBC is to provide access to relational databases without submitting to the complexities of JPA. JPA offers such features as lazy loading, caching, and dirty tracking. While these are great if you need them, they can actually make thinking about JPA and its behavior harder than it has to be.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;Lazy loading might trigger expensive statements when you don&amp;#8217;t expect it or it might fail with an exception.
-Caching can get in your way when you actually want to compare two versions of an entity and being dirty makes it hard to find a single point where all persistence operations pass through.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;Spring Data JDBC aims at a much simpler model.
-There won&amp;#8217;t be caching, dirty tracking, or lazy loading.
-Instead, SQL statements are issued when and only when you invoke a repository method.
-The object returned as result of that method is fully loaded before the method returns.
-There is no "session" and no proxies for entities.
-All this should make Spring Data JDBC easier to reason about.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;Of course, this simpler approach results in constraints which will be covered in a future post.
-Also, it is the first version, so there are many features that we want and plan to implement, but that we had to postpone in order to get something into your hands early.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="sect1"&gt;
-&lt;h2 id="let-s-take-a-look-at-a-simple-example"&gt;&lt;a class="anchor" href="#let-s-take-a-look-at-a-simple-example"&gt;&lt;/a&gt;Let&amp;#8217;s take a look at a simple example.&lt;/h2&gt;
-&lt;div class="sectionbody"&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;First, we need an entity:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="listingblock"&gt;
-&lt;div class="content"&gt;
-&lt;pre class="prettyprint highlight"&gt;&lt;code class="language-java" data-lang="java"&gt;class Customer {
-    @Id
-    Long id;
-    String firstName;
-    LocalDate dob;
-}&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;Note that you don&amp;#8217;t need getters or setters.
-It is perfectly okay to use them if you prefer to do so.
-Really, the only requirement is that the entity has a property annotated with &lt;code&gt;Id&lt;/code&gt; (that is, &lt;code&gt;@org.springframework.data.annotation.Id&lt;/code&gt;, not the &lt;code&gt;javax.persistence&lt;/code&gt; one).&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;Next, we need to declare a repository.
-The easiest way to do that is to extend &lt;code&gt;CrudRepository&lt;/code&gt;:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="listingblock"&gt;
-&lt;div class="content"&gt;
-&lt;pre class="prettyprint highlight"&gt;&lt;code class="language-java" data-lang="java"&gt;interface CustomerRepository extends CrudRepository&amp;lt;Customer, Long&amp;gt; {}&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;Finally, we need to configure the &lt;code&gt;ApplicationContext&lt;/code&gt; to enable the creation of repositories:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="listingblock"&gt;
-&lt;div class="content"&gt;
-&lt;pre class="prettyprint highlight"&gt;&lt;code class="language-java" data-lang="java"&gt;@Configuration
-@EnableJdbcRepositories &lt;b class="conum"&gt;(1)&lt;/b&gt;
-public class CustomerConfig extends JdbcConfiguration { &lt;b class="conum"&gt;(2)&lt;/b&gt;
-
-    @Bean
-    NamedParameterJdbcOperations operations() { &lt;b class="conum"&gt;(3)&lt;/b&gt;
-        return new NamedParameterJdbcTemplate(dataSource());
-    }
-
-    @Bean
-    PlatformTransactionManager transactionManager() { &lt;b class="conum"&gt;(4)&lt;/b&gt;
-        return new DataSourceTransactionManager(dataSource());
-	}
-
-    @Bean
-    DataSource dataSource(){ &lt;b class="conum"&gt;(5)&lt;/b&gt;
-        return new EmbeddedDatabaseBuilder()
-                .generateUniqueName(true)
-                .setType(EmbeddedDatabaseType.HSQL)
-                .addScript("create-customer-schema.sql")
-                .build();
-    }
-}&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;Let&amp;#8217;s go through the configuration step by step.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="colist arabic"&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;EnableJdbcRepositories&lt;/code&gt; enables the creation of repositories.
-Since it requires the presence of some beans, we need the rest of the configuration.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Extending &lt;code&gt;JdbcConfiguration&lt;/code&gt; adds some default beans to the &lt;code&gt;ApplicationContext&lt;/code&gt;.
-You can overwrite its methods to customize some of the behavior of Spring Data JDBC.
-For now, we go with the default implementations.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;The really important part is &lt;code&gt;NamedParameterJdbcOperations&lt;/code&gt;, which is used internally to submit SQL statements to the database.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;The transaction manager is, strictly speaking, not necessary.
-But you&amp;#8217;d be working without support for transactions that span more than a single statement, and nobody wants that, right?&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Spring Data JDBC doesn&amp;#8217;t directly use the &lt;code&gt;DataSource&lt;/code&gt;, but, since the &lt;code&gt;TransactionManager&lt;/code&gt; and the &lt;code&gt;NamedParameterJdbcOperations&lt;/code&gt; need it, registering it as a bean is an easy way to ensure both use the same instance.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;That is all you need to get started on working with it.
-Now let&amp;#8217;s play with it in a test:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="listingblock"&gt;
-&lt;div class="content"&gt;
-&lt;pre class="prettyprint highlight"&gt;&lt;code class="language-java" data-lang="java"&gt;@RunWith(SpringRunner.class)
-@Transactional
-@ContextConfiguration(classes = CustomerConfig.class)
-public class CustomerRepositoryTest {
-
-    @Autowired CustomerRepository customerRepo;
-
-    @Test
-    public void createSimpleCustomer() {
-
-        Customer customer = new Customer();
-        customer.dob = LocalDate.of(1904, 5, 14);
-        customer.firstName = "Albert";
-
-        Customer saved = customerRepo.save(customer);
-
-        assertThat(saved.id).isNotNull();
-
-        saved.firstName = "Hans Albert";
-
-        customerRepo.save(saved);
-
-        Optional&amp;lt;Customer&amp;gt; reloaded = customerRepo.findById(saved.id);
-
-        assertThat(reloaded).isNotEmpty();
-
-        assertThat(reloaded.get().firstName).isEqualTo("Hans Albert");
-    }
-}&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="sect1"&gt;
-&lt;h2 id="code-query-code-annotation"&gt;&lt;a class="anchor" href="#code-query-code-annotation"&gt;&lt;/a&gt;&lt;code&gt;@Query&lt;/code&gt; annotation&lt;/h2&gt;
-&lt;div class="sectionbody"&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;You probably won&amp;#8217;t get far with just the basic CRUD methods from the &lt;code&gt;CrudRepository&lt;/code&gt;.
-We decided to postpone query derivation, the popular feature where Spring Data derives the query to use from a method name, to a later version.
-Until that arrives you can use a simple &lt;code&gt;@Query&lt;/code&gt; annotation to specify a query on a repository method:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="listingblock"&gt;
-&lt;div class="content"&gt;
-&lt;pre class="prettyprint highlight"&gt;&lt;code class="language-java" data-lang="java"&gt;@Query("select id, first_name, dob from customer where upper(first_name) like '%' || upper(:name) || '%' ")
-List&amp;lt;Customer&amp;gt; findByName(@Param("name") String name);&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;Note that the &lt;code&gt;@Param&lt;/code&gt; annotation is not required if you compile with the &lt;code&gt;-parameters&lt;/code&gt; flag.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;If you want to execute an update or delete statement, you can add a &lt;code&gt;@Modifying&lt;/code&gt; annotation to the method.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;Let&amp;#8217;s create another test in order to try out the new method.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="listingblock"&gt;
-&lt;div class="content"&gt;
-&lt;pre class="prettyprint highlight"&gt;&lt;code class="language-java" data-lang="java"&gt;@Test
-public void findByName() {
-
-    Customer customer = new Customer();
-    customer.dob = LocalDate.of(1904, 5, 14);
-    customer.firstName = "Albert";
-
-    Customer saved = customerRepo.save(customer);
-
-    assertThat(saved.id).isNotNull();
-
-    customer.id= null; &lt;b class="conum"&gt;(1)&lt;/b&gt;
-    customer.firstName = "Bertram";
-
-    customerRepo.save(customer);
-
-    customer.id= null;
-    customer.firstName = "Beth";
-
-    customerRepo.save(customer);
-
-    assertThat(customerRepo.findByName("bert")).hasSize(2); &lt;b class="conum"&gt;(2)&lt;/b&gt;
-}&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="colist arabic"&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;Since the connection between a Java object and its corresponding row is just its &lt;code&gt;Id&lt;/code&gt; plus its type, setting the &lt;code&gt;Id&lt;/code&gt; to &lt;code&gt;null&lt;/code&gt; and saving it again creates another row in the database.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;We are doing a case-insensitive (like) search, and, therefore, we find "Albert" and "Bertram" but not "Beth".&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="sect1"&gt;
-&lt;h2 id="closing-notes"&gt;&lt;a class="anchor" href="#closing-notes"&gt;&lt;/a&gt;Closing Notes&lt;/h2&gt;
-&lt;div class="sectionbody"&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;There is more to learn about Spring Data JDBC, but that will have to wait for another article.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;In the meantime, you can take a &lt;a href="https://github.com/spring-projects/spring-data-examples/tree/master/jdbc"&gt;look at the examples&lt;/a&gt;,
-the &lt;a href="https://docs.spring.io/spring-data/jdbc/docs/1.0.0.RC2/reference/html/"&gt;documentation&lt;/a&gt;,
-and, of course, &lt;a href="https://github.com/spring-projects/spring-data-jdbc"&gt;the source code&lt;/a&gt;.
-If you have questions, &lt;a href="https://stackoverflow.com/questions/tagged/spring-data-jdbc"&gt;ask away on StackOverflow&lt;/a&gt;.
-And if you find a bug or want to request a feature &lt;a href="https://jira.spring.io/projects/DATAJDBC"&gt;please create an issue&lt;/a&gt;.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;</content>
-  </entry>
-  <entry>
-    <title>Spring IO Platform Cairo SR4</title>
-    <link rel="alternate" href="https://spring.io/blog/2018/09/13/spring-io-platform-cairo-sr4" />
-    <category term="releases" label="Releases" />
-    <author>
-      <name>Andy Wilkinson</name>
-    </author>
-    <id>tag:spring.io,2018-09-13:3395</id>
-    <updated>2018-09-13T19:03:16Z</updated>
-    <content type="html">&lt;p&gt;I am pleased to announce that &lt;a href="http://platform.spring.io/platform"&gt;Spring IO Platform&lt;/a&gt; Cairo-SR4 is now available from both &lt;a href="https://repo.spring.io/release"&gt;repo.spring.io&lt;/a&gt; and Maven Central. &lt;/p&gt;
-&lt;p&gt;This maintenance release upgrades the versions of a number of the projects in the Platform:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Spring AMQP 2.0.6&lt;/li&gt;
-  &lt;li&gt;Spring Boot 2.0.6&lt;/li&gt;
-  &lt;li&gt;Spring Cloud Connectors 2.0.3&lt;/li&gt;
-  &lt;li&gt;Spring Data Kay SR10&lt;/li&gt;
-  &lt;li&gt;Spring Framework 5.0.9&lt;/li&gt;
-  &lt;li&gt;Spring Integration 5.0.8&lt;/li&gt;
-  &lt;li&gt;Spring Kafka 2.1.10&lt;/li&gt;
-  &lt;li&gt;Spring Security 5.0.8&lt;/li&gt;
-  &lt;li&gt;Spring Session Apple SR5&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;The versions of a number of third-party dependencies have also been updated.&lt;/p&gt;
-&lt;p&gt;&lt;a href="http://platform.spring.io/platform"&gt;Project Page&lt;/a&gt; | &lt;a href="https://github.com/spring-io/platform"&gt;GitHub&lt;/a&gt; | &lt;a href="https://github.com/spring-io/platform/issues"&gt;Issues&lt;/a&gt; | &lt;a href="http://docs.spring.io/platform/docs/Cairo-SR4/reference/htmlsingle"&gt;Documentation&lt;/a&gt;&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <title>Spring IO Platform Brussels SR13</title>
-    <link rel="alternate" href="https://spring.io/blog/2018/09/13/spring-io-platform-brussels-sr13" />
-    <category term="releases" label="Releases" />
-    <author>
-      <name>Andy Wilkinson</name>
-    </author>
-    <id>tag:spring.io,2018-09-13:3394</id>
-    <updated>2018-09-13T15:23:58Z</updated>
-    <content type="html">&lt;p&gt;I am pleased to announce that &lt;a href="http://platform.spring.io/platform"&gt;Spring IO Platform&lt;/a&gt; Brussels-SR13 is now available from both &lt;a href="https://repo.spring.io/release"&gt;repo.spring.io&lt;/a&gt; and Maven Central. &lt;/p&gt;
-&lt;p&gt;This maintenance release upgrades the versions of a number of the projects in the Platform:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Spring AMQP 1.7.10&lt;/li&gt;
-  &lt;li&gt;Spring Boot 1.5.16&lt;/li&gt;
-  &lt;li&gt;Spring Data Ingalls SR15&lt;/li&gt;
-  &lt;li&gt;Spring Framework 4.3.19&lt;/li&gt;
-  &lt;li&gt;Spring Security 4.2.8&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;The versions of a number of third-party dependencies have also been updated.&lt;/p&gt;
-&lt;p&gt;&lt;a href="http://platform.spring.io/platform"&gt;Project Page&lt;/a&gt; | &lt;a href="https://github.com/spring-io/platform"&gt;GitHub&lt;/a&gt; | &lt;a href="https://github.com/spring-io/platform/issues"&gt;Issues&lt;/a&gt; | &lt;a href="http://docs.spring.io/platform/docs/Brussels-SR13/reference/htmlsingle"&gt;Documentation&lt;/a&gt;&lt;/p&gt;</content>
   </entry>
 </feed>

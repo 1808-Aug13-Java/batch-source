@@ -1,6 +1,3 @@
 
-|squid:UselessImportCheck"5Remove this unused import 'com.revature.models.User'.(òÒš»ûÿÿÿÿ8¯ìÄ¿ß,Hè°RMINORZ
-CODE_SMELL
-m
-squid:S106X"9Replace this use of System.out or System.err by a logger.(ä¤Ï¥8ÙÕÚòß,H‹²RMAJORZ
+|squid:UselessImportCheck"5Remove this unused import 'com.revature.models.User'.(òÒš»ûÿÿÿÿ8¯ìÄ¿ß,Hò×RMINORZ
 CODE_SMELL

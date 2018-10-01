@@ -1,5 +1,5 @@
 
-}squid:UselessImportCheck"6Remove this unused import 'com.revature.models.Group'.(Ãמג£ûÿÿÿÿ8טר·וא,HעÐRMINORZ
+|squid:UselessImportCheck"5Remove this unused import 'com.revature.models.Post'.(נÿט÷ûÿÿÿÿ8טר·וא,Hפ×RMINORZ
 CODE_SMELL
-|squid:UselessImportCheck"5Remove this unused import 'com.revature.models.Post'.(נÿט÷ûÿÿÿÿ8טר·וא,HףÐRMINORZ
+}squid:UselessImportCheck"6Remove this unused import 'com.revature.models.Group'.(Ãמג£ûÿÿÿÿ8טר·וא,Hף×RMINORZ
 CODE_SMELL

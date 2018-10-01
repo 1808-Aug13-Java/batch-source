@@ -1,6 +1,7 @@
 
-r
-squid:S106-"9Replace this use of System.out or System.err by a logger.(¾±¿ƒùÿÿÿÿ8Ô¯¸ğà,HËÊRMAJORZ
+nsquid:S1854,"9Remove this useless assignment to local variable "group".(ôÔ÷ï8ğƒåà,HáÖRMAJORZ
 CODE_SMELL
-nsquid:S1854."9Remove this useless assignment to local variable "group".(ôÔ÷ï8ğƒåà,HÌÊRMAJORZ
+‹squid:UselessImportCheck"DRemove this unused import 'org.springframework.http.ResponseEntity'.(¶¯ø¦úÿÿÿÿ8Ê½èİá,H§×RMINORZ
+CODE_SMELL
+‡squid:UselessImportCheck"@Remove this unused import 'org.springframework.http.HttpStatus'.(íŸ¤Šúÿÿÿÿ8Ê½èİá,H¦×RMINORZ
 CODE_SMELL

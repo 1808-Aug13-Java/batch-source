@@ -1,15 +1,15 @@
 
-squid:S3973Ã"WUse curly braces or indentation to denote the code conditionally executed by this "if".(ªøÕ…ıÿÿÿÿHºÉRCRITICALZ
+‰squid:S3973·"WUse curly braces or indentation to denote the code conditionally executed by this "if".(úÎ¼“HæÖRCRITICALZ
 CODE_SMELL
-‰squid:S3973·"WUse curly braces or indentation to denote the code conditionally executed by this "if".(úÎ¼“H»ÉRCRITICALZ
+squid:S3973Ã"WUse curly braces or indentation to denote the code conditionally executed by this "if".(ªøÕ…ıÿÿÿÿHèÖRCRITICALZ
 CODE_SMELL
-„squid:S3776¬"RRefactor this method to reduce its Cognitive Complexity from 24 to the 15 allowed.(ÜÑãH¼ÉRCRITICALZ
+squid:S3973È"WUse curly braces or indentation to denote the code conditionally executed by this "if".(ßüÚëÿÿÿÿÿHëÖRCRITICALZ
 CODE_SMELL
-squid:S3973È"WUse curly braces or indentation to denote the code conditionally executed by this "if".(ßüÚëÿÿÿÿÿH½ÉRCRITICALZ
+squid:S3973Í"WUse curly braces or indentation to denote the code conditionally executed by this "if".(ÓÏ²‹8¨şÉïà,HêÖRCRITICALZ
 CODE_SMELL
-squid:S3973¼"WUse curly braces or indentation to denote the code conditionally executed by this "if".(·Š×Ş8¨şÉïà,H¾ÉRCRITICALZ
+„squid:S3776¬"RRefactor this method to reduce its Cognitive Complexity from 24 to the 15 allowed.(ÜÑãHéÖRCRITICALZ
 CODE_SMELL
-squid:S3973Í"WUse curly braces or indentation to denote the code conditionally executed by this "if".(ÓÏ²‹8¨şÉïà,H¿ÉRCRITICALZ
+squid:S3973¼"WUse curly braces or indentation to denote the code conditionally executed by this "if".(·Š×Ş8¨şÉïà,HìÖRCRITICALZ
 CODE_SMELL
-”squid:UselessImportCheck"RRemove this unused import 'com.fasterxml.jackson.annotation.JsonManagedReference'.(Æ˜µ8¨şÉïà,HÀÉRMINORZ
+”squid:UselessImportCheck"RRemove this unused import 'com.fasterxml.jackson.annotation.JsonManagedReference'.(Æ˜µ8¨şÉïà,HçÖRMINORZ
 CODE_SMELL

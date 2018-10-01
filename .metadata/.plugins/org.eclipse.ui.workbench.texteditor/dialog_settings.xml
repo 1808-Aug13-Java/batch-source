@@ -8,6 +8,7 @@
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="system"/>
 			<item value="group"/>
 			<item value="mvc"/>
 			<item value="aop"/>
@@ -22,7 +23,6 @@
 			<item value="transaction_id"/>
 			<item value="user_id"/>
 			<item value="bank"/>
-			<item value="sy"/>
 		</list>
 		<list key="replacehistory">
 			<item value="transactionDate"/>
