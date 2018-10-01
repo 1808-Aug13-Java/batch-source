@@ -1,0 +1,12 @@
+server.port: 8765
+
+spring.application.name: exercise-gateway-server
+
+zuul.routes:
+  employee:
+    path: /employees/**
+    service-id: exercise-employee-service
+    strip-prefix: false
+  reimbursement:
+    path: /reimbursements/**
+    service-id: exercise-reimbursement-service
