@@ -1,0 +1,20 @@
+server:
+  port: 3333
+# equivelent to: server.port-8761
+
+spring:
+  application:
+    name: employee-service 
+
+eureka:
+  client:
+    fetch-registry: false
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+  instance:
+    lease-renewal-interval-in-seconds: 1
+    lease-expiration-duration-in-seconds: 2  
+    
+feign:
+  hystrix:
+    enabled: true
