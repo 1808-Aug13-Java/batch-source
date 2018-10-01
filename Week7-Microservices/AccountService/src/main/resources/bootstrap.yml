@@ -1,0 +1,23 @@
+spring:
+  cloud:
+    config:
+      name: account-service
+      discovery:
+        service-id: config
+        enabled: true
+
+##### the following is what we originally included in our application.yml
+#server:
+#  port: 2333
+#  
+#spring:
+#  application:
+#    name: account-service
+#
+#eureka:
+#  client:
+#    service-url:
+#      defaultZone: http://localhost:8761/eureka
+#  instance:
+#    lease-expiration-duration-in-seconds: 2
+#    lease-renewal-interval-in-seconds: 1

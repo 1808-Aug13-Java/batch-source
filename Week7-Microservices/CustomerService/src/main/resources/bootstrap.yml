@@ -1,0 +1,30 @@
+spring:
+  cloud:
+    config:
+      name: customer-service
+      discovery:
+        service-id: config
+        enabled: true
+
+
+## previous contents of our application.yml
+#server:
+#  port: 3333
+#  
+#spring:
+#  application:
+#    name: customer-service
+#  
+#eureka:
+#  client:
+#    fetch-registry: true
+#    service-url:
+#      defaultZone: http://localhost:8761/eureka/
+#  instance:
+#    lease-renewal-interval-in-seconds: 1
+#    lease-expiration-duration-in-seconds: 2
+#
+#
+#feign:
+#  hystrix:
+#    enabled: true

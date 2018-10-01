@@ -1,0 +1,7 @@
+organization=1808-aug13-java
+projectKey=com.revature:JDBCDemo
+serverUrl=https://sonarcloud.io
+serverVersion=7.3.0.15868
+dashboardUrl=https://sonarcloud.io/dashboard?id=com.revature%3AJDBCDemo
+ceTaskId=AWVtdzqC-_qOfix7VTA1
+ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AWVtdzqC-_qOfix7VTA1

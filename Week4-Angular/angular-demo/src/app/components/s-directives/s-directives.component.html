@@ -1,0 +1,36 @@
+<h2>Structural Directives</h2>
+
+<div *ngIf='condition'>Condition is met</div>
+<div *ngIf='!condition'>Condition is not met</div>
+<button (click)='changeCondition()' class='btn btn-danger'>Change Condition</button>
+
+<br><br>
+<!-- <h4 *ngIf='courses.length>0'>List of courses using ngFor</h4> -->
+<div *ngIf='courses.length>0; then courseList else noCourses'></div>
+<ng-template #courseList>List of Courses</ng-template>
+<ng-template #noCourses>No Courses to Show</ng-template>
+<ul>
+  <li class="list-group-item" *ngFor='let course of courses'>{{course.id}}: {{course.name}}</li>
+</ul>
+
+<br><br>
+
+<h4 *ngIf='courses.length>0'>Accessing the index in an ngFor</h4>
+<ul>
+  <li class="list-group-item" *ngFor='let course of courses; let i = index'>{{i+1}}) {{course.name}}</li>
+</ul>
+
+<br><br>
+
+<div [ngSwitch]='time'>
+  <span *ngSwitchCase="'night'">It's night time
+    <button class="btn btn-primary" (click)='changeDay()'>Change to Day</button>
+  </span>
+  <span *ngSwitchCase="'day'">It's day time
+    <button class="btn btn-dark" (click)='changeNight()'>Change to night</button>
+  </span>
+  <span *ngSwitchDefault>It's ? time
+    <button class="btn btn-primary" (click)='changeDay()'>Change to Day</button>
+    <button class="btn btn-secondary" (click)='changeNight()'>Change to Night</button>
+  </span>
+</div>
