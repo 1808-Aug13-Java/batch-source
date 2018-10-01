@@ -1,0 +1,13 @@
+server:
+  port: 5004
+  
+spring:
+  application:
+    name: reimbursement-service
+    
+eureka:
+  client:
+    fetch-registry: true
+    serviceUrl: 
+      defaultZone: http://localhost:5001/eureka/
+  

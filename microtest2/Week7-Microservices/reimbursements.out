@@ -1,0 +1,12 @@
+[[1;31mERROR[m] COMPILATION ERROR : 
+[[1;31mERROR[m] /home/chat/springtest2/microtest2/Week7-Microservices/ReimbursementService/src/main/java/com/revature/controllers/ReimbursementController.java:[28,10] invalid method declaration; return type required
+[[1;31mERROR[m] Failed to execute goal [32morg.apache.maven.plugins:maven-compiler-plugin:3.1:compile[m [1m(default-compile)[m on project [36mAccountService[m: [1;31mCompilation failure[m
+[[1;31mERROR[m] [1;31m/home/chat/springtest2/microtest2/Week7-Microservices/ReimbursementService/src/main/java/com/revature/controllers/ReimbursementController.java:[28,10] invalid method declaration; return type required[m
+[[1;31mERROR[m] [1;31m[m
+[[1;31mERROR[m] -> [1m[Help 1][m
+[[1;31mERROR[m] 
+[[1;31mERROR[m] To see the full stack trace of the errors, re-run Maven with the [1m-e[m switch.
+[[1;31mERROR[m] Re-run Maven using the [1m-X[m switch to enable full debug logging.
+[[1;31mERROR[m] 
+[[1;31mERROR[m] For more information about the errors and possible solutions, please read the following articles:
+[[1;31mERROR[m] [1m[Help 1][m http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
