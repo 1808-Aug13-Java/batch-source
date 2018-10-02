@@ -1,0 +1,172 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Bing Search</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="http://logok.org/wp-content/uploads/2014/09/Bing-logo-2013.png" >
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="container">
+        <form class="form">
+            <label>Number</label>
+            <input id="gridSize" class="form-control" type="number" min="2" max="5">
+            <button id="gridSubmit" class="btn btn-submit">Generate Game</button>
+        </form>
+        <table id="game">
+
+        </table>
+
+        <h1 class="bg-success" hidden>Congradulations</h1>
+    </div>
+
+    <script>
+    
+    var arrays;
+
+    var picIndex = [
+        '076.jpg',
+        '078.jpg',
+        '079.jpg',
+        '080.jpg',
+        'WP_20150107_005.jpg'
+    ];
+
+    var picIndex2 = [];
+
+    var picIndexHolder = [];
+
+    function deleteElement(arr, ind) {
+        if(ind >= 0 && ind < arr.length) {
+            let temp = arr[arr.length];
+            arr[arr.length -1] = arr[ind];
+            arr[ind] = temp;
+            arr.pop();
+        }
+    }
+
+    $('#gridSubmit').click( function() {
+
+        console.log('Submit occured');
+
+        let dim = $('#gridSize').val();
+        if(isNaN(dim)) {
+            alert('You need to specify a dimension to play a game');
+            return;
+        }
+        
+        picIndexHolder = [];
+        picIndex2 = [];
+
+        arrays = [];
+
+        for(let c = 0; c < dim; c++) {
+            let rand = Math.random() % picIndex.length;
+            picIndexHolder.push(picIndex[rand]);
+            picIndexHolder.push(picIndex[rand]);
+
+            picIndex2.push(picIndex[rand]);
+            deleteElement(picIndex, rand);
+        }
+
+        picIndex = picIndex2;
+        picIndex2 = [];
+
+        console.log('picIndexHolder:');
+        console.log(picIndexHolder);
+
+        for(let c = 0; c < dim; c++) {
+
+            var arrayE1 = [];
+            for(let rust = 0; rust < 2; rust++) {
+                let rand = Math.random % picIndexHolder.length;
+                arrayE1.push({img :picIndexHolder[rand], stat: 0});
+                deleteElement(picIndexHolder, rand);
+            }
+
+            arrays.push(arrayE1);
+        }
+
+        for(let c = 0; c < arrays.length;c++) {
+            let row = $('<tr></tr>');
+            let dat1 = $('<td></td>');
+            let dat2 = $('<td></td>');
+
+            dat1.attr('name', 'loc:'+ 1 + ':' + c);
+            dat2.attr('name', 'loc:'+ 2 + ':' + c);
+
+            let im1 = $('<img></img>');
+            let im2 = $('<img></img>');
+            im1.attr('src', 'holder.png');
+            im2.attr('src', 'holder.png');
+
+            dat1.append(im1);
+            dat2.append(im2);
+
+            row.append(dat1);
+            row.append(dat2);
+
+            $('#game').append(row);
+        }
+
+
+    })
+
+    var selected1 = null;
+    var selected1Ref = null;
+    
+    $('#game').on('click', 'tr > td > img', function() {
+        let n = $(this).attr('name');
+
+        console.log('name detected: ' + n);
+        
+        let nums = n.split(':');
+        let row = Number.parseInt(nums[2]);
+        let col = Number.parseInt(nums[1]) -1;
+
+        let selElement = arrays[row][col];
+        if(selElement.stat == 0) {
+            selElement.stat = 1;
+        }
+
+        $(this).attr('src', selElement.img);
+
+        if(selected1) {
+            
+            if(selected1Ref.img == $(this).attr('src')) {
+                selected1Ref.stat = 2;
+                selElement.stat = 2;
+                selected1 = null;
+                selected1Ref = null;
+            } else {
+                setTimeout( function() {
+                    selected1.attr('src', 'holder.png');
+                    selected1 = null;
+                    selected1Ref = null;
+                }, 2000);
+            }
+
+
+        } else {
+            selected1 = $(this);
+            selected1Ref = selElement;
+        }
+
+    })
+    
+    </script>
+
+
+</body>
+</html>

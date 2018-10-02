@@ -1,0 +1,243 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Bing Search</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="http://logok.org/wp-content/uploads/2014/09/Bing-logo-2013.png" >
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="container">
+
+        <button id="gridSubmit" class="btn btn-submit">Generate Game</button>
+
+        <table id="game" hidden>
+            <tr>
+                <td>
+                    <img src='holder.png' name='0:0'>
+                </td>
+                <td>
+                    <img src='holder.png' name='1:0'>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <img src='holder.png' name='0:1'>
+                </td>
+                <td>
+                    <img src='holder.png' name='1:1'>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <img src='holder.png' name='0:2'>
+                </td>
+                <td>
+                    <img src='holder.png' name='1:2'>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <img src='holder.png' name='0:3'>
+                </td>
+                <td>
+                    <img src='holder.png' name='1:3'>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <img src='holder.png' name='0:4'>
+                </td>
+                <td>
+                    <img src='holder.png' name='1:4'>
+                </td>
+            </tr>
+        </table>
+
+        <h1 class="bg-success" id="message" hidden>Congradulations! You completed this game in <span id="tryCount"></span> tries!<br>Press 'Generate Game' to play again!</h1>
+    </div>
+
+    <script>
+
+        $('img').attr('width', 100);
+        $('img').attr('height', 100);
+
+        var arrays;
+
+        var picIndex = [
+            '076.jpg',
+            '078.jpg',
+            '079.jpg',
+            '080.jpg',
+            'WP_20150107_005.jpg'
+        ];
+
+        var picIndex2 = [];
+
+        var picIndexHolder = [];
+
+        var counter = 0;
+
+        function deleteElement(arr, ind) {
+            if(ind >= 0 && ind < arr.length) {
+                let temp = arr[arr.length - 1];
+                arr[arr.length -1] = arr[ind];
+                arr[ind] = temp;
+                arr.pop();
+            }
+        }
+        
+        $('#gridSubmit').click( function() {
+
+            console.log('Submit occured');
+
+            counter = 0;
+
+            $('#game').attr('hidden', false);
+            $('#message').attr('hidden', true);
+            $('img').attr('src', 'holder.png');
+
+            picIndexHolder = [];
+            picIndex2 = [];
+
+            arrays = [];
+
+            for(let c = 0; c < 5; c++) {
+                let rand = Math.floor(Math.random() * 100) % picIndex.length;
+
+                console.log('c where picHolder rand (' + rand + ') is ' + picIndex[rand] + ' and length is ' + picIndex.length);
+                console.log(picIndex);
+
+                picIndexHolder.push(picIndex[rand]);
+                picIndexHolder.push(picIndex[rand]);
+
+                picIndex2.push(picIndex[rand]);
+                deleteElement(picIndex, rand);
+            }
+
+            picIndex = picIndex2;
+            picIndex2 = [];
+
+            console.log('picIndexHolder:');
+            console.log(picIndexHolder);
+
+            for(let c = 0; c < 5; c++) {
+
+                var arrayE1 = [];
+                for(let rust = 0; rust < 2; rust++) {
+                    let rand = Math.floor(Math.random() * 100)  % picIndexHolder.length;
+                    arrayE1.push({img :picIndexHolder[rand], stat: 0});
+                    deleteElement(picIndexHolder, rand);
+                }
+
+                arrays.push(arrayE1);
+            }
+
+            selectedEle = null;
+            selectedImg = null;
+            selectedImg2 = null;
+        })
+
+        var selectedImg = null;
+        var selectedEle = null;
+        var selectedImg2 = null;
+
+        var resp = true;
+
+        // Now play the game
+        $('img').click( function() {
+
+            if (!resp) {
+                return;
+            }
+
+            
+
+            let n = $(this).attr('name');
+
+            console.log('name detected: ' + n);
+        
+            let nums = n.split(':');
+            let row = Number.parseInt(nums[1]);
+            let col = Number.parseInt(nums[0]);
+
+            let selElement = arrays[row][col];
+            if(selElement.stat == 0) {
+                selElement.stat = 1;
+            }
+            
+            if(selElement.stat == 2) {
+                return;
+            }
+            
+            counter++;
+
+            $(this).attr('src', selElement.img);
+
+            if(selectedImg) {
+                console.log('curr Img: ' + selectedEle.img);
+                console.log('new Img: ' + $(this).attr('src'));
+
+                selectedImg2 = $(this);
+
+                if(selectedEle.img == selectedImg2.attr('src')) {
+                    selectedEle.stat = 2;
+                    selElement.stat = 2;
+                    selectedImg = null;
+                    selectedEle = null;
+                    selectedImg2 = null;
+
+                    if(checkWin()) {
+                        $('#tryCount').html(''+ counter);
+                        $('#message').attr('hidden', false);
+                    }
+
+                } else {
+                    resp = false;
+                    setTimeout( function() {
+                        selectedImg.attr('src', 'holder.png');
+                        selectedImg2.attr('src', 'holder.png');
+                        selectedImg = null;
+                        selectedImg2 = null;
+                        selectedEle = null;
+                        resp = true;
+                    }, 2000);
+                }
+            } else {
+                selectedImg = $(this);
+                selectedEle = selElement;
+            }
+        })
+
+        function checkWin()
+        {
+            for(let rust = 0; rust < arrays.length; rust++) {
+                for(let c = 0; c < arrays[rust].length; c++) {
+                    if( arrays[rust][c].stat != 2) {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+
+    </script>
+
+</body>
+
+</html>
