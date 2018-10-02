@@ -1,0 +1,29 @@
+.container {
+    width: 1000px;
+    height: auto;
+    margin-top: 35px;
+    margin-bottom: 35px;
+}
+
+.card {
+    background: rgb(148, 187, 233);
+    background: linear-gradient(270deg, rgba(148, 187, 233, 1) 15%, rgba(238, 174, 202, 1) 80%);
+    margin-top: 100px;
+    width: 200px;
+    height: 200px;
+    border: solid black 1.45px;
+}
+
+.back {
+    color: black;
+    font-size: 30px;
+    color: linear-gradient(0deg, rgba(226, 238, 174, 1) 15%, rgba(233, 83, 83, 1) 80%);
+}
+
+.front {
+    font-size: 30px;
+}
+
+.front>i {
+    visibility: hidden;
+}
