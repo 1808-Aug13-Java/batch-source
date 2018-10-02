@@ -1,0 +1,28 @@
+.row {
+    background-color: lightblue;
+    border-width: 2px;
+    border-style: solid;
+    border-color: black;
+    width: 100%;
+    height: 50px;
+}
+
+.col {
+    border-width: 2px;
+    border-style: solid;
+    border-color: black;
+    width: 25%;
+    height: 100%;
+}
+
+.pHidden {
+    display: none;
+}
+.pShown {
+    display: inline;
+    
+}
+.matched { 
+    display: block;
+    background-color: lightgreen;
+}

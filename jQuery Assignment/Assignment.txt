@@ -1,0 +1,13 @@
+Memory Game jQuery Exercise
+
+MVP:
+Create a webpage which allows you play a memory game where you need to match pairs of tiles/cards
+Users should be able to click on two cards, revealing the face of each card - if the content of each match, they should be removed from the available cards (remain flipped over, or removed all together)
+The user completes a round when they have found a match for every card - the number of tries it took to match all tiles should be displayed when the round is over
+
+Nice to haves:
+Pull information and/or images from an external API to be displayed on cards
+Have the option to continue playing, with the history of number of tries displayed on the page
+Include a timer as well, and display the time taken to complete the round at the end of each round, as well as in the history
+
+
