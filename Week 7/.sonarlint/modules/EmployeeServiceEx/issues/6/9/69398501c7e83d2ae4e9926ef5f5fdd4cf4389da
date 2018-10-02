@@ -1,3 +1,2 @@
 
-”squid:S1488("[Immediately return this expression instead of assigning it to the temporary variable "emp".(Éò‚•øÿÿÿÿ8–îĞÀâ,HRMINORZ
-CODE_SMELL
+isquid:S3655."7Call "Optional#isPresent()" before accessing the value.(¼Üú†ıÿÿÿÿ8õËêéâ,HÍRMAJORZBUG
