@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Card Game</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    
+    <style>
+      img{
+        height: 200px;
+      }
+    </style>
+</head>
+<body>
+<div class="container">
+  <div class="jumbotron">
+    <h2>Welcome to.... THE GAME!</h2>
+    <h4>Magic Memory Game</h4>
+    <p>Use your memory to find pairs of Magic cards.</p>
+    <hr>
+    <div class="container" id="startBtn">
+        <button class="btn" onclick="startTheGame()">Start... THE GAME!</button>
+    </div>
+    <div class="container" id="board" style="display: none;">
+      <table>
+        <body>
+          <tr>
+            <td class="x0"><img class="y0" src="img/back.jpg"></td>
+            <td class="x1"><img class="y0" src="img/back.jpg"></td>
+            <td class="x2"><img class="y0" src="img/back.jpg"></td>
+            <td class="x3"><img class="y0" src="img/back.jpg"></td>
+          </tr>
+          <tr>
+            <td class="x0"><img class="y1" src="img/back.jpg"></td>
+            <td class="x1"><img class="y1" src="img/back.jpg"></td>
+            <td class="x2"><img class="y1" src="img/back.jpg"></td>
+            <td class="x3"><img class="y1" src="img/back.jpg"></td>
+          </tr>
+          <tr>
+            <td class="x0"><img class="y2" src="img/back.jpg"></td>
+            <td class="x1"><img class="y2" src="img/back.jpg"></td>
+            <td class="x2"><img class="y2" src="img/back.jpg"></td>
+            <td class="x3"><img class="y2" src="img/back.jpg"></td>
+          </tr>
+        </body>
+      </table>
+    </div>
+  </div>
+</div>
+</body>
+<script src="exercise.js"></script>
+</html>

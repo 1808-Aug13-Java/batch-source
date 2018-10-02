@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Tell Time with AJAX</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+          
+    <style>
+        #clock {
+            position: relative;
+            width: 600px;
+            height: 600px;
+            margin: 20px auto 0 auto;
+            background: url(img/clockface.jpg);
+            list-style: none;
+        }
+
+        #sec,
+        #min,
+        #hour {
+            position: absolute;
+            width: 30px;
+            height: 600px;
+            top: 0px;
+            left: 285px;
+        }
+
+        #sec {
+            background: url(img/sechand.png);
+            z-index: 3;
+        }
+
+        #min {
+            background: url(img/minhand.png);
+            z-index: 2;
+        }
+
+        #hour {
+            background: url(img/hourhand.png);
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <h1>Do the Clock Thing</h1>
+
+    <ul id=clock>
+        <li id="sec"></li>
+        <li id="min"></li>
+        <li id="hour"></li>
+    </ul>
+</body>
+<script>
+    $(document).ready(function(){
+        setInterval(function(){
+            var seconds = new Date().getSeconds();
+            console.log("SECOND: " + seconds);
+            var sRotate = `rotate(${seconds * 6}deg)`;
+            $('#sec').css({"moz-transform":sRotate,
+                    "-web-transform":sRotate});
+        }, 1000);
+        setInterval(function(){
+            var minutes = new Date().getMinutes();
+            console.log("MINUTES: " + minutes);
+            var mRotate = `rotate(${minutes * 6}deg)`;
+            $('#min').css({"moz-transform":mRotate,
+                    "-web-transform":mRotate});
+        }, 1000);
+
+        setInterval(function(){
+            var minutes = new Date().getMinutes();
+            var hours = new Date().getHours();
+            var hRotate = `rotate(${hours*30+(minutes/2)}deg)`;
+            $('#hour').css({"moz-transform":hRotate,
+                    "-web-transform":hRotate});
+        }, 1000);
+
+    });
+
+</script>
+</html>
