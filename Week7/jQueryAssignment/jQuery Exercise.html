@@ -1,0 +1,230 @@
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<!-- Jorge Sagrero-Perez
+    jQuery Assignment
+-->
+<!DOCTYPE html>
+<html lang="en">
+    <style>
+  #cards1 {
+  width: 100px;
+  height: 100px;
+  position: relative;
+   
+   
+  background: yellow;
+} 
+#cards2  {
+  width: 100px;
+  height: 100px;
+  position: relative;
+    left: 100;
+    bottom: 100;
+  background: red;
+}
+/* #card2  {
+  width: 100px;
+  height: 100px;
+  position: relative;
+    left: 100;
+    bottom: 100;
+  background: red;
+} */
+#cards3 {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  left: 200;
+  bottom: 200;
+  background: green;
+}
+#cards4 {
+  width: 100px;
+  height: 100px;
+  position: relative;
+    bottom: 200;
+
+  background: black;
+}
+#cards5 {
+  width: 100px;
+  height: 100px;
+  position: relative;
+    bottom: 300;
+    left: 100;
+  background: blue;
+}
+#cards6 {
+  width: 100px;
+  height: 100px;
+  position: relative;
+    bottom: 400;
+    left: 200;
+  background: purple;
+}
+h1 {
+    position: relative;
+    bottom: 300;
+    
+}
+
+    </style>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js"></script>
+
+<script>
+function load() {
+    // alert("loaded page");
+    var arr = [1,2,3,3,2,1];
+    var currentIndex = arr.length, temporaryValue, randomIndex;
+    while (0 !== currentIndex) {
+
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex -=1;
+        temporaryValue = arr[currentIndex];
+        arr[currentIndex] = arr[randomIndex];
+        arr[randomIndex] = temporaryValue;
+
+    }
+    console.log(arr);
+    var count = 1;
+    for(x of arr){
+        if(x === 1) {
+            $("#card"+count).prepend('<img class="img" src="https://orig00.deviantart.net/571f/f/2017/178/a/9/100x100_pixel_commish_for_seagaull_by_starrypoke-dbeaxtt.gif">');
+            $("#cards"+count)
+        }
+        if(x === 2) {
+            $('#card'+count).prepend('<img class="img" src="https://orig00.deviantart.net/f1a4/f/2018/242/3/8/the_best_birb_of_them_all___gift__by_cutehachi-dclimcl.gif">');
+
+        }
+        if(x == 3 ) {
+
+            $('#card'+count).prepend('<img  class="img" src="https://orig00.deviantart.net/be14/f/2016/100/8/d/_at____puffybird___icon_by_dakaido-d9yfjdu.gif">');
+
+        }
+        count += 1;
+    }
+
+    // $("#card1").prepend('<img src="https://orig00.deviantart.net/571f/f/2017/178/a/9/100x100_pixel_commish_for_seagaull_by_starrypoke-dbeaxtt.gif">');
+
+}
+$(".cards").click().flip();
+
+</script>
+
+<script>
+    var one = null;
+    var two = null;
+    var holdone = null;
+    var holdtwo = null;
+    var numtries = 0;
+
+// $('#add').click(function(){
+    
+//     count = count + 1;
+    
+//     let text = $('#newItem').val();
+//     let item = $('<li></li>').text(text);
+//     $('#toBuy').append(item);
+//     $('#newItem').val('');
+//     $('#count').text(count);
+
+// });
+        $(function(){
+            $('.cards').flip({
+                trigger: 'click'
+            });
+        
+        });
+
+        $(document).ready(function() {
+            $('.cards').click(function(){
+        if(one === null) {
+            numtries += 1;
+            $('#count').text(numtries);
+            one = $(this).find("img").attr("src");
+            holdone = $(this).attr("id");
+            console.log(holdone);
+            console.log(one);
+            }
+            else {
+                holdtwo = $(this).attr("id");
+                console.log(holdtwo);
+            two = $(this).find("img").attr("src");
+            console.log(two);
+            }
+            if((two !== null) && (one !== null)) {
+                if(one === two) {
+                    one = null;
+                    two = null;
+                    alert("correct!");
+                    //remove screws it  up right now
+                    // $('#' + holdone).remove();
+                    // $('#' + holdtwo).remove();
+                    holdone = null;
+                    holdtwo = null;
+                    
+                }
+                else {
+                    one = null;
+                    two = null;
+                    console.log(holdone);
+                    console.log(holdtwo);
+                    $('#' + holdone).flip(false);
+                    $('#' + holdtwo).flip(false);
+                    alert("incorrect!");
+
+                    holdone = null;
+                    holdtwo = null;
+
+                }
+            }
+    });
+  });
+        
+
+        </script>
+</head>
+<body onload="load()">
+    <div id="cards1" class="cards">
+        <div id="card1" class="back"></div>
+        <div id="back1" class="front"></div>
+    </div>
+
+    <div  id="cards2" class="cards">
+        <div id="card2" class="back"></div>
+        <div id="back2" class="front"></div>
+    </div>
+
+    <div  id="cards3" class="cards">
+        <div id="card3" class="back"></div>
+        <div id="back3" class="front"></div>
+    </div>
+
+    <div  id="cards4" class="cards">
+        <div id="card4" class="back"></div>
+        <div id="back4" class="front"></div>
+    </div>
+    <div  id="cards5" class="cards">
+        <div id="card5" class="back"></div>
+        <div id="back5" class="front"></div>
+    </div>
+
+    <div  id="cards6" class="cards">
+        <div id="card6" class="back"></div>
+        <div id="back6" class="front"></div>
+    </div>
+    <h1>TotalNumber of Tries: <span id="count">0</span></h1>
+    
+</body>
+</html>
