@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+        crossorigin="anonymous">
+
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+        crossorigin="anonymous"></script>
+
+    <style>
+        .card{
+            float:left;
+        }
+        
+        table
+{
+    table-layout: fixed;
+    width: 600px;
+    height: 125px;
+}
+  
+    
+    </style>
+
+</head>
+<body>
+
+        <section class="container">
+            <table>
+                <tr>    <td>
+                        <div class="card" >
+                                <div class="spadeAce" id ="card1">
+                                    <div class="front" hidden>
+                                        <img id="spade" src="https://upload.wikimedia.org/wikipedia/commons/2/25/Playing_card_spade_A.svg" alt="Avatar" style="width:100px;height:125px;">
+                                    </div>
+                                    <div class="back" >
+                                        <img src="https://opengameart.org/sites/default/files/card%20back%20blue.png" alt="Avatar" style="width:100px;height:125px;">
+                                    </div>
+                                </div>
+                            </div>
+
+                        </td>
+                        <td>
+                                <div class="card" >
+                                        <div class="spadeAce" id="card2">
+                                            <div class="front" hidden>
+                                                <img id="spade" src="https://upload.wikimedia.org/wikipedia/commons/2/25/Playing_card_spade_A.svg" alt="Avatar" style="width:100px;height:125px;" >
+                                            </div>
+                                            <div class="back" >
+                                                <img  src="https://opengameart.org/sites/default/files/card%20back%20blue.png" alt="Avatar" style="width:100px;height:125px;">
+                                            </div>
+                                        </div>
+                                    </div>
+                        </td>
+                        <td>
+                                <div class="card" >
+                                        <div class="diamond4" id ="card3">
+                                            <div class="front" hidden>
+                                                <img id="spade" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Playing_card_diamond_4.svg/300px-Playing_card_diamond_4.svg.png" alt="Avatar" style="width:100px;height:125px;">
+                                            </div>
+                                            <div class="back" >
+                                                <img src="https://opengameart.org/sites/default/files/card%20back%20blue.png" alt="Avatar" style="width:100px;height:125px;">
+                                            </div>
+                                        </div>
+                                    </div>
+                        </td>
+                        <td>
+                                <div class="card" >
+                                        <div class="club8" id ="card4">
+                                            <div class="front" hidden>
+                                                <img id="spade" src="https://upload.wikimedia.org/wikipedia/commons/e/eb/Playing_card_club_8.svg" alt="Avatar" style="width:100px;height:125px;">
+                                            </div>
+                                            <div class="back" >
+                                                <img src="https://opengameart.org/sites/default/files/card%20back%20blue.png" alt="Avatar" style="width:100px;height:125px;">
+                                            </div>
+                                        </div>
+                                    </div>
+                        </td>
+                                    
+                        <td>
+                                <div class="card" >
+                                        <div class="diamond4" id ="card5">
+                                            <div class="front" hidden>
+                                                <img id="spade" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Playing_card_diamond_4.svg/300px-Playing_card_diamond_4.svg.png" alt="Avatar" style="width:100px;height:125px;">
+                                            </div>
+                                            <div class="back" >
+                                                <img src="https://opengameart.org/sites/default/files/card%20back%20blue.png" alt="Avatar" style="width:100px;height:125px;">
+                                            </div>
+                                        </div>
+                                    </div>
+                        </td>
+
+                </tr>
+                <tr>
+                        <td>
+                                <div class="card" >
+                                        <div class="clubAce" id ="card6">
+                                            <div class="front" hidden>
+                                                <img id="spade" src="https://www.partypacks.co.uk/images/products/product_100472_1_orig.jpg" alt="Avatar" style="width:100px;height:125px;">
+                                            </div>
+                                            <div class="back" >
+                                                <img src="https://opengameart.org/sites/default/files/card%20back%20blue.png" alt="Avatar" style="width:100px;height:125px;">
+                                            </div>
+                                        </div>
+                                    </div>
+                        </td>
+                        <td>
+                                <div class="card" >
+                                        <div class="heartAce" id ="card7">
+                                            <div class="front" hidden>
+                                                <img id="spade" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Playing_card_heart_A.svg/200px-Playing_card_heart_A.svg.png" alt="Avatar" style="width:100px;height:125px;">
+                                            </div>
+                                            <div class="back" >
+                                                <img src="https://opengameart.org/sites/default/files/card%20back%20blue.png" alt="Avatar" style="width:100px;height:125px;">
+                                            </div>
+                                        </div>
+                                    </div>
+                        </td>
+                        <td>
+                                <div class="card" >
+                                        <div class="clubAce" id ="card8">
+                                            <div class="front" hidden>
+                                                <img id="spade" src="https://www.partypacks.co.uk/images/products/product_100472_1_orig.jpg" alt="Avatar" style="width:100px;height:125px;">
+                                            </div>
+                                            <div class="back" >
+                                                <img src="https://opengameart.org/sites/default/files/card%20back%20blue.png" alt="Avatar" style="width:100px;height:125px;">
+                                            </div>
+                                        </div>
+                                    </div>
+                        </td>
+                        <td>
+                                <div class="card" >
+                                        <div class="club8" id ="card9">
+                                            <div class="front" hidden>
+                                                <img id="spade" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Playing_card_club_8.svg/200px-Playing_card_club_8.svg.png" alt="Avatar" style="width:100px;height:125px;">
+                                            </div>
+                                            <div class="back" >
+                                                <img src="https://opengameart.org/sites/default/files/card%20back%20blue.png" alt="Avatar" style="width:100px;height:125px;">
+                                            </div>
+                                        </div>
+                                    </div>
+                        </td>
+
+                        <td>
+                                <div class="card" >
+                                        <div class="heartAce" id ="card10">
+                                            <div class="front" hidden>
+                                                <img id="spade" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Playing_card_heart_A.svg/200px-Playing_card_heart_A.svg.png" alt="Avatar" style="width:100px;height:125px;">
+                                            </div>
+                                            <div class="back" >
+                                                <img src="https://opengameart.org/sites/default/files/card%20back%20blue.png" alt="Avatar" style="width:100px;height:125px;">
+                                            </div>
+                                        </div>
+                                    </div>
+                        </td>
+
+                </tr>
+                <tr>
+
+                </tr>
+            </table>
+                
+            </section>
+    
+</body>
+
+<script>
+    var lock = false;
+    var pair = false;
+    var clicked;
+    var last;
+    var current;
+    var correct = 0;
+    var tries = 0;
+
+
+    $('#card1').click(function(){
+        // console.log($('#card1 .back').attr('hidden'));
+        // $('#card1 .front').attr('hidden', true);
+        if($('#card1 .back').attr('hidden') == 'hidden'){
+   
+                    $('#card1 .front').attr('hidden', true);
+                    $('#card1 .back').attr('hidden', false);
+                    console.log($('#card1 .front img').attr('id'));
+                    
+                    
+                
+
+            }
+        else{
+    
+                    $('#card1 .front').attr('hidden', false);
+                    $('#card1 .back').attr('hidden', true);
+                    if(pair){
+                        if(clicked != $(this)[0].id){
+                            if(last == $(this).attr('class')){
+                                console.log(last);
+                                $(`.${last}`).hide();
+                                pair = false;
+                                clicked = null;
+                                last = null;
+                                correct = ++correct;
+                                if(correct > 4){
+                                    $('tr')[2].innerHTML =`Total Attempts: ${tries}`;
+                                }
+                            }else{
+                                current = $(this)[0].id;
+                                setTimeout(function(){
+
+                                $(`#${clicked} .front`).attr('hidden', true);
+                                $(`#${clicked} .back`).attr('hidden', false);
+                                $(`#${current} .front`).attr('hidden', true);
+                                 $(`#${current} .back`).attr('hidden', false);
+                                 pair = false;
+                                clicked = null;
+                                last = null;
+
+                                }, 1000);
+                                
+                            }
+                        }
+ 
+                    tries = ++tries;
+                        
+                    }else{
+                        pair = true;
+                        clicked = $(this)[0].id;
+                        last = $(this).attr('class');
+                    }
+                    
+            
+        }
+
+
+    })
+
+    $('#card2').click(function(){
+        // console.log($('#card1 .back').attr('hidden'));
+        // $('#card1 .front').attr('hidden', true);
+        if($('#card2 .back').attr('hidden') == 'hidden'){
+   
+                    $('#card2 .front').attr('hidden', true);
+                    $('#card2 .back').attr('hidden', false);
+                    console.log($('#card2 .front img').attr('id'));
+                
+
+            }
+        else{
+    
+                    $('#card2 .front').attr('hidden', false);
+                    $('#card2 .back').attr('hidden', true);
+                    console.log(last);
+                    if(pair){
+                        if(clicked != $(this)[0].id){
+                            if(last == $(this).attr('class')){
+                                console.log(last);
+                                $(`.${last}`).hide();
+                                pair = false;
+                                clicked = null;
+                                last = null;
+                                correct = ++correct;
+                                if(correct > 4){
+                                    $('tr')[2].innerHTML =`Total Attempts: ${tries}`;
+                                }
+                            }else{
+                                current = $(this)[0].id;
+                                setTimeout(function(){
+
+                                $(`#${clicked} .front`).attr('hidden', true);
+                                $(`#${clicked} .back`).attr('hidden', false);
+                                $(`#${current} .front`).attr('hidden', true);
+                                 $(`#${current} .back`).attr('hidden', false);
+                                 pair = false;
+                                clicked = null;
+                                last = null;
+
+                                }, 1000);
+                                
+                            }
+                        }
+ 
+                    tries = ++tries;
+                        
+                    }else{
+                        pair = true;
+                        clicked = $(this)[0].id;
+                        last = $(this).attr('class');
+                    }
+            
+        }
+
+
+    })
+
+     $('#card3').click(function(){
+        // console.log($('#card1 .back').attr('hidden'));
+        // $('#card1 .front').attr('hidden', true);
+        if($('#card3 .back').attr('hidden') == 'hidden'){
+   
+                    $('#card3 .front').attr('hidden', true);
+                    $('#card3 .back').attr('hidden', false);
+                    console.log($('#card3 .front img').attr('id'));
+                    
+                    
+                
+
+            }
+        else{
+    
+                    $('#card3 .front').attr('hidden', false);
+                    $('#card3 .back').attr('hidden', true);
+                    if(pair){
+                        if(clicked != $(this)[0].id){
+                            if(last == $(this).attr('class')){
+                                console.log(last);
+                                $(`.${last}`).hide();
+                                pair = false;
+                                clicked = null;
+                                last = null;
+                                correct = ++correct;
+                                if(correct > 4){
+                                    $('tr')[2].innerHTML =`Total Attempts: ${tries}`;
+                                }
+                            }else{
+                                current = $(this)[0].id;
+                                setTimeout(function(){
+
+                                $(`#${clicked} .front`).attr('hidden', true);
+                                $(`#${clicked} .back`).attr('hidden', false);
+                                $(`#${current} .front`).attr('hidden', true);
+                                 $(`#${current} .back`).attr('hidden', false);
+                                 pair = false;
+                                clicked = null;
+                                last = null;
+
+                                }, 1000);
+                                
+                            }
+                        }
+ 
+                    tries = ++tries;
+                        
+                    }else{
+                        pair = true;
+                        clicked = $(this)[0].id;
+                        last = $(this).attr('class');
+                    }
+                    
+            
+        }
+
+
+    })
+
+ $('#card4').click(function(){
+        // console.log($('#card1 .back').attr('hidden'));
+        // $('#card1 .front').attr('hidden', true);
+        if($('#card4 .back').attr('hidden') == 'hidden'){
+   
+                    $('#card4 .front').attr('hidden', true);
+                    $('#card4 .back').attr('hidden', false);
+                    console.log($('#card4 .front img').attr('id'));
+                    
+                    
+                
+
+            }
+        else{
+    
+                    $('#card4 .front').attr('hidden', false);
+                    $('#card4 .back').attr('hidden', true);
+                    if(pair){
+                        if(clicked != $(this)[0].id){
+                            if(last == $(this).attr('class')){
+                                console.log(last);
+                                $(`.${last}`).hide();
+                                pair = false;
+                                clicked = null;
+                                last = null;
+                                correct = ++correct;
+                                if(correct > 4){
+                                    $('tr')[2].innerHTML =`Total Attempts: ${tries}`;
+                                }
+                            }else{
+                                current = $(this)[0].id;
+                                setTimeout(function(){
+
+                                $(`#${clicked} .front`).attr('hidden', true);
+                                $(`#${clicked} .back`).attr('hidden', false);
+                                $(`#${current} .front`).attr('hidden', true);
+                                 $(`#${current} .back`).attr('hidden', false);
+                                 pair = false;
+                                clicked = null;
+                                last = null;
+
+                                }, 1000);
+                                
+                            }
+                        }
+ 
+                    tries = ++tries;
+                        
+                    }else{
+                        pair = true;
+                        clicked = $(this)[0].id;
+                        last = $(this).attr('class');
+                    }
+                    
+            
+        }
+
+
+    })
+
+    $('#card5').click(function(){
+        // console.log($('#card1 .back').attr('hidden'));
+        // $('#card1 .front').attr('hidden', true);
+        if($('#card5 .back').attr('hidden') == 'hidden'){
+   
+                    $('#card5 .front').attr('hidden', true);
+                    $('#card5 .back').attr('hidden', false);
+                    console.log($('#card5 .front img').attr('id'));
+                    
+                    
+                
+
+            }
+        else{
+    
+                    $('#card5 .front').attr('hidden', false);
+                    $('#card5 .back').attr('hidden', true);
+                    if(pair){
+                        if(clicked != $(this)[0].id){
+                            if(last == $(this).attr('class')){
+                                console.log(last);
+                                $(`.${last}`).hide();
+                                pair = false;
+                                clicked = null;
+                                last = null;
+                                correct = ++correct;
+                                if(correct > 4){
+                                    $('tr')[2].innerHTML =`Total Attempts: ${tries}`;
+                                }
+                            }else{
+                                current = $(this)[0].id;
+                                setTimeout(function(){
+
+                                $(`#${clicked} .front`).attr('hidden', true);
+                                $(`#${clicked} .back`).attr('hidden', false);
+                                $(`#${current} .front`).attr('hidden', true);
+                                 $(`#${current} .back`).attr('hidden', false);
+                                 pair = false;
+                                clicked = null;
+                                last = null;
+
+                                }, 1000);
+                                
+                            }
+                        }
+ 
+                    tries = ++tries;
+                        
+                    }else{
+                        pair = true;
+                        clicked = $(this)[0].id;
+                        last = $(this).attr('class');
+                    }
+                    
+            
+        }
+
+
+    })
+
+     $('#card6').click(function(){
+        // console.log($('#card1 .back').attr('hidden'));
+        // $('#card1 .front').attr('hidden', true);
+        if($('#card6 .back').attr('hidden') == 'hidden'){
+   
+                    $('#card6 .front').attr('hidden', true);
+                    $('#card6 .back').attr('hidden', false);
+                    console.log($('#card6 .front img').attr('id'));
+                    
+                    
+                
+
+            }
+        else{
+    
+                    $('#card6 .front').attr('hidden', false);
+                    $('#card6 .back').attr('hidden', true);
+                    if(pair){
+                        if(clicked != $(this)[0].id){
+                            if(last == $(this).attr('class')){
+                                console.log(last);
+                                $(`.${last}`).hide();
+                                pair = false;
+                                clicked = null;
+                                last = null;
+                                correct = ++correct;
+                                if(correct > 4){
+                                    $('tr')[2].innerHTML =`Total Attempts: ${tries}`;
+                                }
+                            }else{
+                                current = $(this)[0].id;
+                                setTimeout(function(){
+
+                                $(`#${clicked} .front`).attr('hidden', true);
+                                $(`#${clicked} .back`).attr('hidden', false);
+                                $(`#${current} .front`).attr('hidden', true);
+                                 $(`#${current} .back`).attr('hidden', false);
+                                 pair = false;
+                                clicked = null;
+                                last = null;
+
+                                }, 1000);
+                                
+                            }
+                        }
+ 
+                    tries = ++tries;
+                        
+                    }else{
+                        pair = true;
+                        clicked = $(this)[0].id;
+                        last = $(this).attr('class');
+                    }
+                    
+            
+        }
+
+
+    })
+
+    $('#card7').click(function(){
+        // console.log($('#card1 .back').attr('hidden'));
+        // $('#card1 .front').attr('hidden', true);
+        if($('#card7 .back').attr('hidden') == 'hidden'){
+   
+                    $('#card7 .front').attr('hidden', true);
+                    $('#card7 .back').attr('hidden', false);
+                    console.log($('#card7 .front img').attr('id'));
+                    
+                    
+                
+
+            }
+        else{
+    
+                    $('#card7 .front').attr('hidden', false);
+                    $('#card7 .back').attr('hidden', true);
+                    if(pair){
+                        if(clicked != $(this)[0].id){
+                            if(last == $(this).attr('class')){
+                                console.log(last);
+                                $(`.${last}`).hide();
+                                pair = false;
+                                clicked = null;
+                                last = null;
+                                correct = ++correct;
+                                if(correct > 4){
+                                    $('tr')[2].innerHTML =`Total Attempts: ${tries}`;
+                                }
+                            }else{
+                                current = $(this)[0].id;
+                                setTimeout(function(){
+
+                                $(`#${clicked} .front`).attr('hidden', true);
+                                $(`#${clicked} .back`).attr('hidden', false);
+                                $(`#${current} .front`).attr('hidden', true);
+                                 $(`#${current} .back`).attr('hidden', false);
+                                 pair = false;
+                                clicked = null;
+                                last = null;
+
+                                }, 1000);
+                                
+                            }
+                        }
+ 
+                    tries = ++tries;
+                        
+                    }else{
+                        pair = true;
+                        clicked = $(this)[0].id;
+                        last = $(this).attr('class');
+                    }
+                    
+            
+        }
+
+
+    })
+
+    $('#card8').click(function(){
+        // console.log($('#card1 .back').attr('hidden'));
+        // $('#card1 .front').attr('hidden', true);
+        if($('#card8 .back').attr('hidden') == 'hidden'){
+   
+                    $('#card8 .front').attr('hidden', true);
+                    $('#card8 .back').attr('hidden', false);
+                    console.log($('#card8 .front img').attr('id'));
+                    
+                    
+                
+
+            }
+        else{
+    
+                    $('#card8 .front').attr('hidden', false);
+                    $('#card8 .back').attr('hidden', true);
+                    if(pair){
+                        if(clicked != $(this)[0].id){
+                            if(last == $(this).attr('class')){
+                                console.log(last);
+                                $(`.${last}`).hide();
+                                pair = false;
+                                clicked = null;
+                                last = null;
+                                correct = ++correct;
+                                if(correct > 4){
+                                    $('tr')[2].innerHTML =`Total Attempts: ${tries}`;
+                                }
+                            }else{
+                                current = $(this)[0].id;
+                                setTimeout(function(){
+
+                                $(`#${clicked} .front`).attr('hidden', true);
+                                $(`#${clicked} .back`).attr('hidden', false);
+                                $(`#${current} .front`).attr('hidden', true);
+                                 $(`#${current} .back`).attr('hidden', false);
+                                 pair = false;
+                                clicked = null;
+                                last = null;
+
+                                }, 1000);
+                                
+                            }
+                        }
+ 
+                    tries = ++tries;
+                        
+                    }else{
+                        pair = true;
+                        clicked = $(this)[0].id;
+                        last = $(this).attr('class');
+                    }
+                    
+            
+        }
+
+
+    })
+
+    $('#card9').click(function(){
+        // console.log($('#card1 .back').attr('hidden'));
+        // $('#card1 .front').attr('hidden', true);
+        if($('#card9 .back').attr('hidden') == 'hidden'){
+   
+                    $('#card9 .front').attr('hidden', true);
+                    $('#card9 .back').attr('hidden', false);
+                    console.log($('#card9 .front img').attr('id'));
+                    
+                    
+                
+
+            }
+        else{
+    
+                    $('#card9 .front').attr('hidden', false);
+                    $('#card9 .back').attr('hidden', true);
+                    if(pair){
+                        if(clicked != $(this)[0].id){
+                            if(last == $(this).attr('class')){
+                                console.log(last);
+                                $(`.${last}`).hide();
+                                pair = false;
+                                clicked = null;
+                                last = null;
+                                correct = ++correct;
+                                if(correct > 4){
+                                    $('tr')[2].innerHTML(`Total Attempts: ${tries}`);
+                                }
+                            }else{
+                                current = $(this)[0].id;
+                                setTimeout(function(){
+
+                                $(`#${clicked} .front`).attr('hidden', true);
+                                $(`#${clicked} .back`).attr('hidden', false);
+                                $(`#${current} .front`).attr('hidden', true);
+                                 $(`#${current} .back`).attr('hidden', false);
+                                 pair = false;
+                                clicked = null;
+                                last = null;
+
+                                }, 1000);
+                                
+                            }
+                        }
+ 
+                    tries = ++tries;
+                        
+                    }else{
+                        pair = true;
+                        clicked = $(this)[0].id;
+                        last = $(this).attr('class');
+                    }
+                    
+            
+        }
+
+
+    })
+
+    $('#card10').click(function(){
+        // console.log($('#card1 .back').attr('hidden'));
+        // $('#card1 .front').attr('hidden', true);
+        if($('#card10 .back').attr('hidden') == 'hidden'){
+   
+                    $('#card10 .front').attr('hidden', true);
+                    $('#card10 .back').attr('hidden', false);
+                    console.log($('#card10 .front img').attr('id'));
+                    
+                    
+                
+
+            }
+        else{
+    
+                    $('#card10 .front').attr('hidden', false);
+                    $('#card10 .back').attr('hidden', true);
+                    if(pair){
+                        if(clicked != $(this)[0].id){
+                            if(last == $(this).attr('class')){
+                                console.log(last);
+                                $(`.${last}`).hide();
+                                pair = false;
+                                clicked = null;
+                                last = null;
+                                correct = ++correct;
+                                if(correct > 4){
+                                    $('tr')[2].innerHTML =`Total Attempts: ${tries}`;
+                                }
+                            }else{
+                                current = $(this)[0].id;
+                                setTimeout(function(){
+
+                                $(`#${clicked} .front`).attr('hidden', true);
+                                $(`#${clicked} .back`).attr('hidden', false);
+                                $(`#${current} .front`).attr('hidden', true);
+                                 $(`#${current} .back`).attr('hidden', false);
+                                 pair = false;
+                                clicked = null;
+                                last = null;
+
+                                }, 1000);
+                                
+                            }
+                        }
+ 
+                    tries = ++tries;
+                        
+                    }else{
+                        pair = true;
+                        clicked = $(this)[0].id;
+                        last = $(this).attr('class');
+                    }
+                    
+            
+        }
+
+
+    })
+
+</script>
+
+</html>
