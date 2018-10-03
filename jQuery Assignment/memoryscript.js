@@ -84,6 +84,7 @@ function populate(){
     }
 }
 $('.col').on('click',function(){
+    if($('.pShown').length<2 && $(this).children('p').hasClass('pHidden')){
     $(this).children('p').toggleClass("pHidden");
     $(this).children('p').toggleClass("pShown");
     var x = $('.pShown');
@@ -108,4 +109,5 @@ $('.col').on('click',function(){
     if($('.matched').length==16){
         alert("done in "+tries+" clicks!");
     }
+}
 })
