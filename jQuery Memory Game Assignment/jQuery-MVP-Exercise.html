@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Understanding jQuery</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+        crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="C:\Users\nozuk\Documents\jQuery-MVP-Exercise-StyleSheet.css">
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+        crossorigin="anonymous"></script>
+
+    <script src="jQuery-MVP-Exercise-Script.js"></script>
+</head>
+
+<!-- Memory Game jQuery Exercise
+
+MVP:
+Create a webpage which allows you play a memory game where you need to match pairs of tiles/cards
+Users should be able to click on two cards, revealing the face of each card - if the content of each match, they should be removed from the available cards (remain flipped over, or removed all together)
+The user completes a round when they have found a match for every card - the number of tries it took to match all tiles should be displayed when the round is over
+
+Nice to haves:
+Pull information and/or images from an external API to be displayed on cards
+Have the option to continue playing, with the history of number of tries displayed on the page
+Include a timer as well, and display the time taken to complete the round at the end of each round, as well as in the history
+-->
+
+<body>
+
+    <div class="container">
+
+        <div class="container2"></div>
+
+        <br><br>
+        <h2>Cards Touched Thus Far (
+            <span id="count">0</span>)</h2>
+
+        <!-- initially these cards have no pairing/match-->
+        <div class="card unpaired"></div>
+        <div class="card unpaired"></div>
+        <div class="card unpaired"></div>
+        <div class="card unpaired"></div>
+        <div class="card unpaired"></div>
+        <div class="card unpaired"></div>
+        <div class="card unpaired"></div>
+        <div class="card unpaired"></div>
+        <div class="card unpaired"></div>
+        <div class="card unpaired"></div>
+        <div class="card unpaired"></div>
+        <div class="card unpaired"></div>
+    </div>
+
+
+
+</body>
+
+</html>

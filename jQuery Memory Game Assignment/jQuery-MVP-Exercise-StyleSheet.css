@@ -1,0 +1,12 @@
+.card {
+	height: 150px;
+	width: 125px;
+	opacity: 0.7;
+	font-size: 30px;
+    background-color: blue;
+    color: white;
+	box-shadow:10px 10px 5px grey;
+	margin: 20px;
+	border-radius: 10%;
+    display: inline-block;
+}
