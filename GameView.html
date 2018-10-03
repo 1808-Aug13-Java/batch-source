@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Match Card Game</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+    crossorigin="anonymous">
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+    crossorigin="anonymous"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+    crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <style>
+        body{
+            background-color: #f47b09;
+        }
+
+    </style>
+
+</head>
+<body>
+    <!-- Clickable Cards -->
+    <div class = "container" style = "margin-left: 425px; margin-top: 20px; justify-content: center; align-content: space-between">
+        <button class = "btn btn-primary" type = "submit" style = "width: 150px; height: 150px;" id = "1" name = "cow" > ? </button>&nbsp;&nbsp;&nbsp;&nbsp;
+        <button class = "btn btn-primary" type = "submit" style = "width: 150px; height: 150px;" id = "2" name = "chicken"> ? </button>&nbsp;&nbsp;&nbsp;&nbsp;
+        <button class = "btn btn-primary" type = "submit" style = "width: 150px; height: 150px;" id = "3" name = "max"> ? </button>&nbsp;&nbsp;&nbsp;&nbsp;
+        <button class = "btn btn-primary" type = "submit" style = "width: 150px; height: 150px;" id = "4" name = "dog"> ? </button>
+        <br>
+        <br>
+        <button class = "btn btn-primary" type = "submit" style = "width: 150px; height: 150px;" id = "5" name = "cow"> ? </button>&nbsp;&nbsp;&nbsp;&nbsp;
+        <button class = "btn btn-primary" type = "submit" style = "width: 150px; height: 150px;" id = "6" name = "chicken"> ? </button>&nbsp;&nbsp;&nbsp;&nbsp;
+        <button class = "btn btn-primary" type = "submit" style = "width: 150px; height: 150px;" id = "7" name = "max"> ? </button>&nbsp;&nbsp;&nbsp;&nbsp;
+        <button class = "btn btn-primary" type = "submit" style = "width: 150px; height: 150px;" id = "8" name = "dog"> ? </button>
+        <br>
+        <br>
+        <button class = "btn btn-primary" type = "submit" style = "width: 150px; height: 150px;" id = "9" name = "cow"> ? </button>&nbsp;&nbsp;&nbsp;&nbsp;
+        <button class = "btn btn-primary" type = "submit" style = "width: 150px; height: 150px;" id = "10" name = "chicken"> ? </button>&nbsp;&nbsp;&nbsp;&nbsp;
+        <button class = "btn btn-primary" type = "submit" style = "width: 150px; height: 150px;" id = "11" name = "max"> ? </button>&nbsp;&nbsp;&nbsp;&nbsp;
+        <button class = "btn btn-primary" type = "submit" style = "width: 150px; height: 150px;" id = "12" name = "dog"> ? </button>
+        <br>
+        <br>
+        <button class = "btn btn-primary" type = "submit" style = "width: 150px; height: 150px;" id = "13" name = "cow"> ? </button>&nbsp;&nbsp;&nbsp;&nbsp;
+        <button class = "btn btn-primary" type = "submit" style = "width: 150px; height: 150px;" id = "14" name = "chicken"> ? </button>&nbsp;&nbsp;&nbsp;&nbsp;
+        <button class = "btn btn-primary" type = "submit" style = "width: 150px; height: 150px;" id = "15" name = "max"> ? </button>&nbsp;&nbsp;&nbsp;&nbsp;
+        <button class = "btn btn-primary" type = "submit" style = "width: 150px; height: 150px;" id = "16" name = "dog"> ? </button>
+        <p>Timer:<span id = "timer" >&nbsp;&nbsp;&nbsp;&nbsp; 0 &nbsp;&nbsp;&nbsp;&nbsp;</span>
+            Matches:<span id = "matches"> &nbsp;&nbsp;&nbsp;&nbsp;0</span></p>
+    </div>
+    <!-- jQuery Stuff -->
+    <script>
+        //Max cards that can be flipped
+        let maxCards = 2;
+        let currentCards = 0;
+        let lastCard;
+        let pair = [];
+        let pairId = [];
+        let matches = 0;
+        let currentTime = 120;
+
+        //Clear Pair
+        function clearPair(){
+            currentCards = 0;
+            pair.pop();
+            pair.pop();
+            pairId.pop();
+            pairId.pop();
+        }
+
+        function matchFound(){
+            matches ++; 
+            console.log('Matches: ' + matches);
+            $('#' + pairId[0]).attr('disabled', true);
+            $('#' + pairId[1]).attr('disabled', true);
+        }
+        //timer 
+        $(document).ready(function(){
+            let myInterval = setInterval(function(){
+                if(currentTime > 0){
+                    currentTime--;
+                }
+                else{
+                    clearInterval(myInterval);
+                }
+                console.log(currentTime);
+                $('#timer').text(currentTime);
+            }, currentTime)
+        })
+        //Play Game
+      
+        $('button').click(function(){
+        if(currentTime > 0){
+            if(pair.length < 2){
+                //currentCards++;
+                pair.push($(this).attr('name'));
+                pairId.push($(this).attr('id'));
+
+                //Check if I have picked 2 cards 
+                if(pair.length === 2)
+                {
+                    //Check if the selected cards are the same 
+                    if(pair[0] === pair[1]){
+                        matchFound(); //Increment Match Found 
+                        clearPair();  
+                    }  
+                }
+            } else {
+               $('button').text('?'); //Reset all button texts
+               clearPair(); 
+               pair.push($(this).attr('name'));
+               pairId.push($(this).attr('id'));
+            }
+            console.log("Current Cards: " + currentCards);
+            console.log(pair);
+            console.log(pairId);
+            $(this).text($(this).attr('name'));
+            $('#matches').text(matches);
+            }
+            else{
+                alert("The game is over!");
+            }
+        })
+
+    </script>
+</body>
+</html>
