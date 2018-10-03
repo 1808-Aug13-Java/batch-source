@@ -30,10 +30,14 @@
     </style>
 </head>
 <body>
-    <!-- <h1>Memory Game</h1> -->
+    <h1>Memory Game</h1>
+    <span></span>
 <div class="base">
     <div id="card" class="card">
-        <p hidden>test back</p>
+        <p hidden>test text</p>
+    </div>
+    <div id="card" class="card">
+        <p hidden>test2 back</p>
     </div>
     <div id="card" class="card">
         <p hidden>test2 back</p>
@@ -42,7 +46,7 @@
 </div>
     <script>
         var numFlipped = 0;
-
+        var attempts = 0;
         $(document).ready(function(){
             let text = $('<p hidden></p>').text("test text");
             let card = $('<div id="card" class="card"></div>').append(text);
@@ -62,11 +66,41 @@
 
             $(card).find('p').attr("hidden", false);
 
+            $(this).attr('class', 'flipped');
+
             if(++numFlipped > 1){
-                
+                numFlipped = 0;
+                checkFlipped();
             }
 
         })
+
+        function checkFlipped(){
+            let vals = Array();
+            $('.flipped').map(function(){
+                // console.log($(this).find('p').text());
+                vals.push($(this).find('p').text());
+            })
+            console.log(vals);
+            if (vals[0] == vals[1]){
+                $('.flipped').map(function(){
+                    $(this).attr('class', 'locked');
+                })
+            } else {
+                $('.flipped').map(function(){
+                    $(this).find('p').attr("hidden", true);
+                    $(this).attr('class', 'card');
+                })
+            }
+            attempts++;
+            let cardcount = 0;
+            $('.card').map(function(){
+                cardcount++;
+            })
+            if(cardcount == 0){
+                $('span').html("Number of attempts: " + attempts);
+            }
+        }
     </script>
 </body>
 </html>
