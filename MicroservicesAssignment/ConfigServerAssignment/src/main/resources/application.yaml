@@ -1,0 +1,19 @@
+server:
+  port: 9998
+  
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+    instance:
+      lease-expiration-duration-in-seconds: 2
+      lease-renewal-intervals-in-seconds: 1
+      
+spring:
+  application:
+    name: config
+  cloud:
+    config:
+      server:
+        git:
+          uri: http://github.com/carolynrehm/config-server.git
