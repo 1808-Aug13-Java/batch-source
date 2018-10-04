@@ -1,0 +1,103 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>jQuery Exercise</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Matching Game</h1>
+        <br><br>
+    </div>
+    <div class="container">
+        <table class="table table-bordered">
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+    <div class="container">
+        <h3>Number of tries: <span id="count"></span></h3>
+    </div>
+    <script>
+        let cardFaces = ['RNA', 'DNA', 'helicase', 'transcriptase', 'operon', 'CRISPR']
+        let card1 = '';
+        let card2 = '';
+        let tries = 0;
+
+        $(document).ready(function () {
+            let current = cardFaces.length, temp, random;
+            while (current !== 0) {
+                random = Math.floor(Math.random() * current);
+                --current;
+                temp = cardFaces[current];
+                cardFaces[current] = cardFaces[random];
+                cardFaces[random] = temp;
+            }
+            $('tr').on('click', 'td', function () {
+                $('#count').html(++tries);
+                if ($('tr td').index(this) <= 5) {
+                    console.log($('tr td').index(this));
+                    $(this).text(cardFaces[$('tr td').index(this)]);
+                    $(this).attr('class', cardFaces[$('tr td').index(this)]);
+                } else {
+                    $(this).text(cardFaces[$('tr td').index(this) - 6]);
+                    console.log($('tr td').index(this));
+                    $(this).attr('class', cardFaces[$('tr td').index(this) - 6]);
+                   
+                }
+                if (card1 === '') {
+                    card1 = $(this).text();
+                } else {
+                    card2 = $(this).text();
+                    if (card1 === card2) {
+                        $("." + card1).prop("disabled", true);
+                        $("." + card1).css("background-color", "black")
+                        $("." + card1).css("color", "white");
+                        card1 = '';
+                        card2 = '';
+                    } else {
+                        setTimeout(function () {
+                            $("." + card1).text("");
+                            $("." + card2).text("");
+                            card1 = '';
+                            card2 = '';
+                        }, 600);
+                    }
+
+                }
+            })
+        })
+    </script>
+</body>
+
+</html>
