@@ -11,7 +11,13 @@ public class ReimbursementClientFallback implements ReimbursementClient {
 
 	@Override
 	public List<Reimbursement> getReimbursements(int employeeId) {
+		
 		return null;
+	}
+
+	@Override
+	public String notFound() {
+		return "reimbursement not found";
 	}
 
 }
