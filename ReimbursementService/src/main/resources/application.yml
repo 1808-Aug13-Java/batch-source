@@ -1,0 +1,18 @@
+server:
+  port: 2333
+  
+spring:
+  application:
+    name: reimbursement-service
+    
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+  instance:
+    lease-renewal-interval-in-seconds: 1
+    lease-expiration-duration-in-seconds: 2
+    
+feign:
+  hystrix:
+      enabled: true 
