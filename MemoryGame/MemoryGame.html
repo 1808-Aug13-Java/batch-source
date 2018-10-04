@@ -1,51 +1,163 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Memory Game</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-        crossorigin="anonymous">
-    <link rel="stylesheet prefetch" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
-    <link rel="stylesheet prefetch" href="https://fonts.googleapis.com/css?family=Coda">
-    <link rel="stylesheet" href="styles.css">
-</head>
+<html>
+    <head>
+            <script src="https://code.jquery.com/jquery-1.12.4.js"></script> 
+            <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        
+        
+        
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <title>Matching game</title>
+		
+    </head>
 
-<body>
+    <body>
 
-    <div class="modal fade" id="winnerModal" tabindex="-1" role="dialog" aria-labelledby="winnerModal-label">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title" id="winnerModal-label">Complete!</h4>
-                </div>
-                <div class="modal-body">
-                    <p id="winnerText"></p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" onclick="init(), $rating.removeClass('fa-star-o').addClass('fa-star'); " class="btn btn-default" data-dismiss="modal">Go Again!</button>
-                </div>
-            </div>
-        </div>
-    </div>
 
-    <div class="container">
-        <h1>Memory Game</h1>
-        <section class="score-panel">
             
-            <span class="moves">0</span> Moves | Time:
-            <span class="timer">0</span> s
-            <div class="restart">
-                <i class="fa fa-repeat"></i>
-            </div>
-        </section>
-        <ul class="deck"></ul>
-    </div>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js'></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-        crossorigin="anonymous"></script>
-    <script src="MemoryGame.js"></script>
-</body>
 
+     
+		<style>
+		
+		td {
+		
+		outline: thin solid
+		
+		}
+		
+		.padding {
+		
+		padding-top : 100px;
+		
+		}
+		
+		.cell {
+		
+			width: 50px;
+			height: 50px;
+		    background: white;
+		
+		}
+		
+		</style>
+
+            <div class="container padding">
+            <table>
+			<div class="row">
+			<tr>
+			<td><div id="cell1" class="cell"><img  id="a1" src="https://png.icons8.com/wired/50/000000/cat.png"></div></td>
+			<td><div id="cell2" class="cell"><img  id="a2" src="https://png.icons8.com/wired/50/000000/categorize.png" ></div></td>
+			</tr>
+			</div>
+			<div class="row">
+			<tr>
+			<td><div id="cell3" class="cell"><img   id="a3" src="https://png.icons8.com/wired/50/000000/categorize.png"></div></td>
+			<td><div id="cell4" class="cell"><img   id="a4" src="https://png.icons8.com/wired/50/000000/cat.png"></div></td>
+			</tr>
+			</div>
+			</table>
+			
+			</div>
+    </body>
+    <h2>Clicks (
+            <span id="count">0</span>)</h2>
+    <script>
+
+		
+		
+			$(document).ready(function(){
+			
+			$("#a1").hide();
+			$("#a2").hide();
+			$("#a3").hide();
+            $("#a4").hide();
+
+		   });
+
+
+
+            var count = 0;
+            var patternCount = 0;
+
+                x=null;
+                y=null;
+           // $(document).ready(function() {
+//     $("div").click(function(event) {
+//         // this.append wouldn't work
+//        console.log($(this.event));
+//     });
+// });
+//$(this)
+
+			$('.cell').on('click',function(){
+                $(this).children("img").show();
+                console.log("stuff");
+                $('#count').html(++count);
+                if(x===null){
+                    x = $(this).children("img");
+                    console.log(x);
+                }else if(y===null){
+                    y = $(this).children("img");
+                    console.log(y);
+                }
+                
+                if(x!=null && y!=null){
+                    if($(x).attr("src")==$(y).attr("src")){
+                       
+
+                        x=null;
+                        y=null;
+                    }else{
+                        $(x).hide();
+                        $(y).hide();
+
+                        x=null;
+                        y=null;
+                    }
+                }
+                
+                	
+                
+             });
+/*             if($("#a1").is(":visible") && $("#a4").is(":visible")){
+                $("#a1").show();
+                $("#a4").show();
+            }
+            else{
+                $("#a1").hide();
+                $("#a4").hide();
+            }
+				});
+			 */
+			// $("#cell2").click(function(){
+            //     if($("#a2").is(":hidden")){
+            // $('#count').html(++count);	
+            // }
+			// $("#a2").show();	
+			// 	});
+
+			
+			// $("#cell3").click(function(){
+            //     if($("#a3").is(":hidden")){
+            // $('#count').html(++count);	
+            // }
+			// $("#a3").show();	
+			// 	});
+
+			
+			// $("#cell4").click(function(){
+            //     if($("#a4").is(":hidden")){
+            // $('#count').html(++count);	
+            // }
+			// $("#a4").show();
+	
+            
+			// 	});
+            
+           
+
+
+		</script>
+		
 </html>
