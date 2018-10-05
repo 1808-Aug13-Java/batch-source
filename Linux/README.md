@@ -7,22 +7,24 @@
 - Console - don't know
 - Terminal - Nowadays, a terminal emulator, a gui program that sits on the X-window layer and mimics the terminal
 - bash - implementation of the shell
-
+## Navigating tricks 
+  - repeat previous command
+  - run multiple commands in one line
+  - get argument of previous command
+  - put it in a script
+  - tab completion
+  - wild card matching:
 ## Displaying information 
-  - ls
-  - diff
-  - cat
-  - less, more
-  - head, tail
-  - watch
+  - sort files 
+  - combine multiple files
+  - page through long text
+  - monitor a file for changes 
 ## Working With Files 
-  - cp, mv, rm
-  - rsync
-  - tar
-  - gzip
-  - wget 
-  - pipes
-  - redirects
+  - common options for cp, mv, rm
+  - remove hidden files 
+  - archive and compress files
+  - downloading things 
+  - remote copy
 
 ## installing programs
   - yum
@@ -33,10 +35,13 @@
   - chmod
   - chown
   - chgrp
-  -stickybit, setUID
+  - stickybit, setUID
+  - destroy your machine
 ## Finding Things
-  - locate
-  - find 
-  - grep
+  - find things quickly
+  - find and exec
+  - using grep as a filter
+  - search for files by content
+## Other things
+  - getting help
 
-## 
