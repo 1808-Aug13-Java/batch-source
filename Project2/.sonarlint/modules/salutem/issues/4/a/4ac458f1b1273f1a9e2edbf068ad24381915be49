@@ -1,0 +1,11 @@
+
+osquid:S2094"BRemove this empty class, write its code or make it an "interface".(°÷ÈÏH¨
+RMINORZ
+CODE_SMELL
+}squid:CommentedOutCodeLine
+"<This block of commented-out lines of code should be removed.(»ž•ûÿÿÿÿH©
+RMAJORZ
+CODE_SMELL
+}squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ÚíÑôùÿÿÿÿHª
+RMAJORZ
+CODE_SMELL
