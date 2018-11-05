@@ -5,8 +5,8 @@
 		
 <hibernate-configuration>
 	<session-factory>
-		<property name="hibernate.connection.password">jk123pop</property>
-		<property name="hibernate.connection.username">jgonzd</property>
+		<property name="hibernate.connection.password">password</property>
+		<property name="hibernate.connection.username">username</property>
 		<property name="hibernate.connection.url">jdbc:oracle:thin:@mydbinstance.cjdotsr0zzpb.us-east-1.rds.amazonaws.com:1521:ORCL</property>
 		<property name="hibernate.connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
 		<property name="hibernate.show_sql">true</property>

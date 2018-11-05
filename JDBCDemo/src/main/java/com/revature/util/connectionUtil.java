@@ -15,8 +15,8 @@ public class connectionUtil {
 	
 	public static Connection getHardCodedConnection() throws SQLException {
 		String url = "jdbc:oracle:thin:@mydbinstance.cjdotsr0zzpb.us-east-1.rds.amazonaws.com:1521:ORCL";
-		String username = "jgonzd";
-		String password = "jk123pop";
+		String username = "username";
+		String password = "password";
 		if(connection == null || connection.isClosed()) {
 			connection = DriverManager.getConnection(url, username, password);
 		}
